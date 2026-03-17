@@ -1,1 +1,61 @@
-{"code":200,"result":[{"id":424262004,"external_id":"69b8fcf68ae314","name":"Men's t-shirt","variants":6,"synced":6,"thumbnail_url":"https://files.cdn.printful.com/files/189/1896d1b6a0a890cc35e33c5a02cf7881_preview.png","is_ignored":false},{"id":424261670,"external_id":"69b8fbc5c5c581","name":"Men's t-shirt","variants":6,"synced":6,"thumbnail_url":"https://files.cdn.printful.com/files/78d/78dc8739374c3fb14e27f86b6e85d6a0_preview.png","is_ignored":false},{"id":424252402,"external_id":"69b8ec11c98e34","name":"Men's t-shirt","variants":6,"synced":6,"thumbnail_url":"https://files.cdn.printful.com/files/459/459248d7c8a93322345082007b537e18_preview.png","is_ignored":false}],"extra":[],"paging":{"total":3,"limit":10,"offset":0}}
+{
+  "code": 200,
+  "result": [
+    {
+      "id": 900001,
+      "name": "Men's T-shirt",
+      "thumbnail_url": "images/product-prism-shirt.webp",
+      "sync_variants": [
+        { "retail_price": "4900" }
+      ],
+      "category": "TOPS",
+      "segment": "MEN'S"
+    },
+    {
+      "id": 900002,
+      "name": "Women's T-shirt",
+      "thumbnail_url": "images/product-spectral-dress.webp",
+      "sync_variants": [
+        { "retail_price": "4900" }
+      ],
+      "category": "TOPS",
+      "segment": "Women's"
+    },
+    {
+      "id": 900003,
+      "name": "Unisex Outer Jacket",
+      "thumbnail_url": "images/product-chroma-jacket.webp",
+      "sync_variants": [
+        { "retail_price": "8900" }
+      ],
+      "category": "OUTER",
+      "segment": "UNISEX"
+    },
+    {
+      "id": 900004,
+      "name": "Men's slip-on canvas shoes",
+      "thumbnail_url": "images/product-cyan-coat.webp",
+      "sync_variants": [
+        { "retail_price": "6900" }
+      ],
+      "category": "SHOES",
+      "segment": "MEN'S"
+    },
+    {
+      "id": 900005,
+      "name": "Women's slip-on canvas shoes",
+      "thumbnail_url": "images/product-afterglow-trousers.webp",
+      "sync_variants": [
+        { "retail_price": "6900" }
+      ],
+      "category": "SHOES",
+      "segment": "Women's"
+    }
+  ],
+  "extra": [],
+  "paging": {
+    "total": 5,
+    "limit": 100,
+    "offset": 0
+  }
+}
