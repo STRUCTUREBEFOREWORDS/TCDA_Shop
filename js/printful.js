@@ -26,6 +26,7 @@
   const BASE_PATH = detectBasePath();
   const API_BASE = `${BASE_PATH}/api/printful`;
   const STATIC_PRODUCTS_URL = `${BASE_PATH}/data/printful-products.json`;
+  let _staticPayload = null;
 
   function detectBasePath() {
     const isGithubPages = global.location.hostname.endsWith("github.io");
@@ -77,19 +78,29 @@
     return data?.result?.product ?? data?.result ?? null;
   }
 
-  /** Static fallback for hosts without server functions (e.g. GitHub Pages). */
-  async function fetchStaticProducts() {
+  /** Static fallback payload for hosts without server functions. */
+  async function fetchStaticPayload() {
+    if (_staticPayload) return _staticPayload;
     try {
-      const res = await fetch(STATIC_PRODUCTS_URL, { headers: { Accept: "application/json" } });
+      const res = await fetch(STATIC_PRODUCTS_URL, {
+        headers: { Accept: "application/json" },
+      });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = await res.json();
-      if (Array.isArray(json?.result)) return json.result;
-      if (Array.isArray(json?.products)) return json.products;
-      return [];
+      _staticPayload = json;
+      return json;
     } catch (err) {
-      console.warn("[TCDAPrintful] static fallback fetch failed —", err.message);
-      return [];
+      console.warn("[TCDAPrintful] static payload fetch failed —", err.message);
+      return null;
     }
+  }
+
+  /** Static fallback for hosts without server functions (e.g. GitHub Pages). */
+  async function fetchStaticProducts() {
+    const json = await fetchStaticPayload();
+    if (Array.isArray(json?.result)) return json.result;
+    if (Array.isArray(json?.products)) return json.products;
+    return [];
   }
 
   /**
@@ -99,7 +110,16 @@
   async function getSizeChart(catalogId) {
     if (!catalogId) return null;
     const data = await pfFetch(`/products/${catalogId}/sizes`);
-    return data?.result ?? null;
+    if (data?.result) return data.result;
+
+    // Fallback: use size chart bundled in static products JSON.
+    const staticProducts = await fetchStaticProducts();
+    const hit = staticProducts.find((p) => {
+      const firstVariant = p?.sync_variants?.[0] ?? null;
+      const pid = firstVariant?.product?.product_id;
+      return String(pid) === String(catalogId);
+    });
+    return hit?.size_chart ?? null;
   }
 
   /* ── 4. Render size chart ─────────────────────────────────── */

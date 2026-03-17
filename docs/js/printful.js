@@ -26,6 +26,7 @@
   const BASE_PATH = detectBasePath();
   const API_BASE = `${BASE_PATH}/api/printful`;
   const STATIC_PRODUCTS_URL = `${BASE_PATH}/data/printful-products.json`;
+  let _staticPayload = null;
 
   function detectBasePath() {
     const isGithubPages = global.location.hostname.endsWith("github.io");
@@ -77,19 +78,29 @@
     return data?.result?.product ?? data?.result ?? null;
   }
 
-  /** Static fallback for hosts without server functions (e.g. GitHub Pages). */
-  async function fetchStaticProducts() {
+  /** Static fallback payload for hosts without server functions. */
+  async function fetchStaticPayload() {
+    if (_staticPayload) return _staticPayload;
     try {
-      const res = await fetch(STATIC_PRODUCTS_URL, { headers: { Accept: "application/json" } });
+      const res = await fetch(STATIC_PRODUCTS_URL, {
+        headers: { Accept: "application/json" },
+      });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = await res.json();
-      if (Array.isArray(json?.result)) return json.result;
-      if (Array.isArray(json?.products)) return json.products;
-      return [];
+      _staticPayload = json;
+      return json;
     } catch (err) {
-      console.warn("[TCDAPrintful] static fallback fetch failed —", err.message);
-      return [];
+      console.warn("[TCDAPrintful] static payload fetch failed —", err.message);
+      return null;
     }
+  }
+
+  /** Static fallback for hosts without server functions (e.g. GitHub Pages). */
+  async function fetchStaticProducts() {
+    const json = await fetchStaticPayload();
+    if (Array.isArray(json?.result)) return json.result;
+    if (Array.isArray(json?.products)) return json.products;
+    return [];
   }
 
   /**
@@ -99,7 +110,16 @@
   async function getSizeChart(catalogId) {
     if (!catalogId) return null;
     const data = await pfFetch(`/products/${catalogId}/sizes`);
-    return data?.result ?? null;
+    if (data?.result) return data.result;
+
+    // Fallback: use size chart bundled in static products JSON.
+    const staticProducts = await fetchStaticProducts();
+    const hit = staticProducts.find((p) => {
+      const firstVariant = p?.sync_variants?.[0] ?? null;
+      const pid = firstVariant?.product?.product_id;
+      return String(pid) === String(catalogId);
+    });
+    return hit?.size_chart ?? null;
   }
 
   /* ── 4. Render size chart ─────────────────────────────────── */
@@ -175,15 +195,19 @@
     let firstVariant = null;
 
     // --- Try explicit catalog ID first ---
-    let catalogId = tableEl.dataset.printfulCatalogId
-      || document.querySelector("[data-printful-catalog-id]")?.dataset.printfulCatalogId;
+    let catalogId =
+      tableEl.dataset.printfulCatalogId ||
+      document.querySelector("[data-printful-catalog-id]")?.dataset
+        .printfulCatalogId;
 
     // --- Resolve by explicit synced product ID in URL ---
     if (syncProductId) {
       detail = await getProduct(syncProductId);
-      firstVariant = detail?.sync_variants?.[0] ?? detail?.variants?.[0] ?? null;
+      firstVariant =
+        detail?.sync_variants?.[0] ?? detail?.variants?.[0] ?? null;
       if (!catalogId) {
-        catalogId = firstVariant?.product?.product_id ?? firstVariant?.catalog_product_id;
+        catalogId =
+          firstVariant?.product?.product_id ?? firstVariant?.catalog_product_id;
       }
     }
 
@@ -193,14 +217,19 @@
       const productName = heading?.textContent?.trim() ?? "";
       if (productName) {
         const products = await getProducts();
-        const match = products.find(
-          (p) => p.name?.toLowerCase().includes(productName.toLowerCase().slice(0, 12))
+        const match = products.find((p) =>
+          p.name
+            ?.toLowerCase()
+            .includes(productName.toLowerCase().slice(0, 12)),
         );
         if (match) {
           // Get the first variant's catalog product ID
           detail = await getProduct(match.id);
-          firstVariant = detail?.sync_variants?.[0] ?? detail?.variants?.[0] ?? null;
-          catalogId = firstVariant?.product?.product_id ?? firstVariant?.catalog_product_id;
+          firstVariant =
+            detail?.sync_variants?.[0] ?? detail?.variants?.[0] ?? null;
+          catalogId =
+            firstVariant?.product?.product_id ??
+            firstVariant?.catalog_product_id;
 
           // Optionally store sync ID for cart/checkout
           const article = document.querySelector("[data-product-id]");
@@ -226,13 +255,16 @@
         heroImg.alt = `${syncProduct.name || "Printful product"} hero image`;
       }
 
-      const retailPrice = parseFloat(detail?.sync_variants?.[0]?.retail_price ?? "0");
+      const retailPrice = parseFloat(
+        detail?.sync_variants?.[0]?.retail_price ?? "0",
+      );
       const priceJpy = Math.round(retailPrice);
       const currency = window.TCDACurrency?.getCurrentCurrency?.() ?? "JPY";
       if (priceEl) {
         priceEl.setAttribute("data-price-jpy", String(priceJpy));
-        const formatted = window.TCDACurrency?.formatPrice?.(priceJpy, currency)
-          ?? `${currency} ${priceJpy.toLocaleString()}`;
+        const formatted =
+          window.TCDACurrency?.formatPrice?.(priceJpy, currency) ??
+          `${currency} ${priceJpy.toLocaleString()}`;
         priceEl.textContent = formatted;
       }
 
@@ -244,20 +276,39 @@
 
       if (addBtn) {
         addBtn.setAttribute("data-product-id", `printful-${syncProduct.id}`);
-        addBtn.setAttribute("data-product-name", syncProduct.name || "Printful Product");
+        addBtn.setAttribute(
+          "data-product-name",
+          syncProduct.name || "Printful Product",
+        );
         addBtn.setAttribute("data-product-price", String(priceJpy));
       }
 
       // Rebuild size buttons from synced variants when possible.
       const sizeRow = document.querySelector(".size-row");
-      if (sizeRow && Array.isArray(detail.sync_variants) && detail.sync_variants.length) {
-        const sizes = [...new Set(detail.sync_variants
-          .map((v) => String(v?.name ?? "").split("/").pop()?.trim())
-          .filter(Boolean))];
+      if (
+        sizeRow &&
+        Array.isArray(detail.sync_variants) &&
+        detail.sync_variants.length
+      ) {
+        const sizes = [
+          ...new Set(
+            detail.sync_variants
+              .map((v) =>
+                String(v?.name ?? "")
+                  .split("/")
+                  .pop()
+                  ?.trim(),
+              )
+              .filter(Boolean),
+          ),
+        ];
         if (sizes.length) {
-          sizeRow.innerHTML = sizes.map((s, i) =>
-            `<button class="size-btn" type="button" aria-pressed="${i === 0 ? "true" : "false"}">${esc(s)}</button>`
-          ).join("");
+          sizeRow.innerHTML = sizes
+            .map(
+              (s, i) =>
+                `<button class="size-btn" type="button" aria-pressed="${i === 0 ? "true" : "false"}">${esc(s)}</button>`,
+            )
+            .join("");
         }
       }
     }
@@ -274,24 +325,27 @@
         .map((line) => line.replace(/^-\s*/, ""));
 
       if (!lines.length && description) {
-        lines = description.split(".")
+        lines = description
+          .split(".")
           .map((s) => s.trim())
           .filter(Boolean)
           .slice(0, 4);
       }
 
       if (!lines.length) {
-        lines = [
-          "Made to order by Printful",
-          `Catalog ID: ${catalogId}`,
-        ];
+        lines = ["Made to order by Printful", `Catalog ID: ${catalogId}`];
       }
 
-      materialList.innerHTML = lines.slice(0, 8).map((line) => `<li>${esc(line)}</li>`).join("");
+      materialList.innerHTML = lines
+        .slice(0, 8)
+        .map((line) => `<li>${esc(line)}</li>`)
+        .join("");
     }
 
     if (!catalogId) {
-      console.info("[TCDAPrintful] Could not resolve catalog ID — static size chart retained.");
+      console.info(
+        "[TCDAPrintful] Could not resolve catalog ID — static size chart retained.",
+      );
       return;
     }
 
@@ -299,7 +353,11 @@
     if (sizeData) {
       const rendered = renderSizeChart(tableEl, sizeData, lang);
       if (rendered) {
-        console.info("[TCDAPrintful] Live size chart loaded (catalog ID:", catalogId, ")");
+        console.info(
+          "[TCDAPrintful] Live size chart loaded (catalog ID:",
+          catalogId,
+          ")",
+        );
       }
     }
   }

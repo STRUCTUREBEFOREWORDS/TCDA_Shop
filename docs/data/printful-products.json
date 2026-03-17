@@ -1,5 +1,5 @@
 {
-  "_comment": "Synced from Printful store 17873034 (TCDA) on 2026-03-17. Refresh via API for live data.",
+  "_comment": "Synced from Printful store 17873034 (TCDA) on 2026-03-17. Includes Printful size tables for static fallback.",
   "code": 200,
   "result": [
     {
@@ -98,7 +98,337 @@
         }
       ],
       "category": "OUTER",
-      "segment": "UNISEX"
+      "segment": "UNISEX",
+      "size_chart": {
+        "catalog_product_id": 717,
+        "available_sizes": [
+          "2XS",
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL",
+          "6XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/52/52664445a7f3af3d7e686b3148f6fc3e_l?v=1716207007",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>\n<p>&nbsp;</p>\n<p><strong>B Waist</strong></p>\n<p>Place the tape on the narrowest part of the waist and measure around.</p>\n<p>&nbsp;</p>\n<p><strong>C Hips</strong></p>\n<p>Put the beginning of the tape measure on one hip and bring the tape across the fullest part of the hips back to where you started measuring.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "S",
+                    "value": "37.80"
+                  },
+                  {
+                    "size": "M",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "L",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.12"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "58.27"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "61.42"
+                  }
+                ]
+              },
+              {
+                "type_label": "Waist",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "28.35"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "29.92"
+                  },
+                  {
+                    "size": "S",
+                    "value": "31.50"
+                  },
+                  {
+                    "size": "M",
+                    "value": "33.07"
+                  },
+                  {
+                    "size": "L",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "55.12"
+                  }
+                ]
+              },
+              {
+                "type_label": "Hips",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "35.43"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "37.01"
+                  },
+                  {
+                    "size": "S",
+                    "value": "38.58"
+                  },
+                  {
+                    "size": "M",
+                    "value": "40.16"
+                  },
+                  {
+                    "size": "L",
+                    "value": "43.31"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "46.46"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "49.61"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "52.76"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.91"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "59.06"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "62.20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.&nbsp;</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/53/5324903aa4cd0b605b1658da03de3297_l?v=1716207007",
+            "image_description": "<p><strong>A</strong>&nbsp;- 1/2 chest width</p>\n<p><strong>B</strong> -&nbsp; Length</p>\n<p><strong>C</strong> - Sleeve length</p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "18.90"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "19.69"
+                  },
+                  {
+                    "size": "S",
+                    "value": "20.47"
+                  },
+                  {
+                    "size": "M",
+                    "value": "21.26"
+                  },
+                  {
+                    "size": "L",
+                    "value": "22.83"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.41"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "25.98"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "27.56"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "32.28"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "25.59"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "25.59"
+                  },
+                  {
+                    "size": "S",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "M",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "L",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "30.71"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "21.85"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "21.85"
+                  },
+                  {
+                    "size": "S",
+                    "value": "22.44"
+                  },
+                  {
+                    "size": "M",
+                    "value": "23.03"
+                  },
+                  {
+                    "size": "L",
+                    "value": "23.62"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.21"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "24.80"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "25.39"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "25.59"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "25.79"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "25.98"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424275382,
@@ -196,7 +526,337 @@
         }
       ],
       "category": "OUTER",
-      "segment": "UNISEX"
+      "segment": "UNISEX",
+      "size_chart": {
+        "catalog_product_id": 717,
+        "available_sizes": [
+          "2XS",
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL",
+          "6XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/52/52664445a7f3af3d7e686b3148f6fc3e_l?v=1716207007",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>\n<p>&nbsp;</p>\n<p><strong>B Waist</strong></p>\n<p>Place the tape on the narrowest part of the waist and measure around.</p>\n<p>&nbsp;</p>\n<p><strong>C Hips</strong></p>\n<p>Put the beginning of the tape measure on one hip and bring the tape across the fullest part of the hips back to where you started measuring.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "S",
+                    "value": "37.80"
+                  },
+                  {
+                    "size": "M",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "L",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.12"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "58.27"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "61.42"
+                  }
+                ]
+              },
+              {
+                "type_label": "Waist",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "28.35"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "29.92"
+                  },
+                  {
+                    "size": "S",
+                    "value": "31.50"
+                  },
+                  {
+                    "size": "M",
+                    "value": "33.07"
+                  },
+                  {
+                    "size": "L",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "55.12"
+                  }
+                ]
+              },
+              {
+                "type_label": "Hips",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "35.43"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "37.01"
+                  },
+                  {
+                    "size": "S",
+                    "value": "38.58"
+                  },
+                  {
+                    "size": "M",
+                    "value": "40.16"
+                  },
+                  {
+                    "size": "L",
+                    "value": "43.31"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "46.46"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "49.61"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "52.76"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.91"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "59.06"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "62.20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.&nbsp;</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/53/5324903aa4cd0b605b1658da03de3297_l?v=1716207007",
+            "image_description": "<p><strong>A</strong>&nbsp;- 1/2 chest width</p>\n<p><strong>B</strong> -&nbsp; Length</p>\n<p><strong>C</strong> - Sleeve length</p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "18.90"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "19.69"
+                  },
+                  {
+                    "size": "S",
+                    "value": "20.47"
+                  },
+                  {
+                    "size": "M",
+                    "value": "21.26"
+                  },
+                  {
+                    "size": "L",
+                    "value": "22.83"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.41"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "25.98"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "27.56"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "32.28"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "25.59"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "25.59"
+                  },
+                  {
+                    "size": "S",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "M",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "L",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "30.71"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "21.85"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "21.85"
+                  },
+                  {
+                    "size": "S",
+                    "value": "22.44"
+                  },
+                  {
+                    "size": "M",
+                    "value": "23.03"
+                  },
+                  {
+                    "size": "L",
+                    "value": "23.62"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.21"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "24.80"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "25.39"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "25.59"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "25.79"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "25.98"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424275370,
@@ -294,7 +954,337 @@
         }
       ],
       "category": "OUTER",
-      "segment": "UNISEX"
+      "segment": "UNISEX",
+      "size_chart": {
+        "catalog_product_id": 717,
+        "available_sizes": [
+          "2XS",
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL",
+          "6XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/52/52664445a7f3af3d7e686b3148f6fc3e_l?v=1716207007",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>\n<p>&nbsp;</p>\n<p><strong>B Waist</strong></p>\n<p>Place the tape on the narrowest part of the waist and measure around.</p>\n<p>&nbsp;</p>\n<p><strong>C Hips</strong></p>\n<p>Put the beginning of the tape measure on one hip and bring the tape across the fullest part of the hips back to where you started measuring.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "S",
+                    "value": "37.80"
+                  },
+                  {
+                    "size": "M",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "L",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.12"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "58.27"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "61.42"
+                  }
+                ]
+              },
+              {
+                "type_label": "Waist",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "28.35"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "29.92"
+                  },
+                  {
+                    "size": "S",
+                    "value": "31.50"
+                  },
+                  {
+                    "size": "M",
+                    "value": "33.07"
+                  },
+                  {
+                    "size": "L",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "55.12"
+                  }
+                ]
+              },
+              {
+                "type_label": "Hips",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "35.43"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "37.01"
+                  },
+                  {
+                    "size": "S",
+                    "value": "38.58"
+                  },
+                  {
+                    "size": "M",
+                    "value": "40.16"
+                  },
+                  {
+                    "size": "L",
+                    "value": "43.31"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "46.46"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "49.61"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "52.76"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.91"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "59.06"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "62.20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.&nbsp;</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/53/5324903aa4cd0b605b1658da03de3297_l?v=1716207007",
+            "image_description": "<p><strong>A</strong>&nbsp;- 1/2 chest width</p>\n<p><strong>B</strong> -&nbsp; Length</p>\n<p><strong>C</strong> - Sleeve length</p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "18.90"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "19.69"
+                  },
+                  {
+                    "size": "S",
+                    "value": "20.47"
+                  },
+                  {
+                    "size": "M",
+                    "value": "21.26"
+                  },
+                  {
+                    "size": "L",
+                    "value": "22.83"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.41"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "25.98"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "27.56"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "32.28"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "25.59"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "25.59"
+                  },
+                  {
+                    "size": "S",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "M",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "L",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "30.71"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "21.85"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "21.85"
+                  },
+                  {
+                    "size": "S",
+                    "value": "22.44"
+                  },
+                  {
+                    "size": "M",
+                    "value": "23.03"
+                  },
+                  {
+                    "size": "L",
+                    "value": "23.62"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.21"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "24.80"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "25.39"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "25.59"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "25.79"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "25.98"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424275319,
@@ -392,7 +1382,337 @@
         }
       ],
       "category": "OUTER",
-      "segment": "UNISEX"
+      "segment": "UNISEX",
+      "size_chart": {
+        "catalog_product_id": 388,
+        "available_sizes": [
+          "2XS",
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL",
+          "6XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/77/772938e1a63878e9af675fc85839c218_l?v=1709107482",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>\n<p>&nbsp;</p>\n<p><strong>B Waist</strong></p>\n<p>Place the tape on the narrowest part of the waist and measure around.</p>\n<p>&nbsp;</p>\n<p><strong>C Hips</strong></p>\n<p>Put the beginning of the tape measure on one hip and bring the tape across the fullest part of the hips back to where you started measuring.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "S",
+                    "value": "37.80"
+                  },
+                  {
+                    "size": "M",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "L",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.12"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "58.27"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "61.42"
+                  }
+                ]
+              },
+              {
+                "type_label": "Waist",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "28.35"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "29.92"
+                  },
+                  {
+                    "size": "S",
+                    "value": "31.50"
+                  },
+                  {
+                    "size": "M",
+                    "value": "33.07"
+                  },
+                  {
+                    "size": "L",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "55.12"
+                  }
+                ]
+              },
+              {
+                "type_label": "Hips",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "35.43"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "37.01"
+                  },
+                  {
+                    "size": "S",
+                    "value": "38.58"
+                  },
+                  {
+                    "size": "M",
+                    "value": "40.16"
+                  },
+                  {
+                    "size": "L",
+                    "value": "43.31"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "46.46"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "49.61"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "52.76"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.91"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "59.06"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "62.20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.&nbsp;</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/ad/ad28d60c4f432597efd339bae1e3b752_l?v=1709107482",
+            "image_description": "<p><strong>A</strong>&nbsp;- 1/2 chest width</p>\n<p><strong>B</strong> -&nbsp; Length</p>\n<p><strong>C</strong>&nbsp;- Sleeve length</p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "18.90"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "19.69"
+                  },
+                  {
+                    "size": "S",
+                    "value": "20.47"
+                  },
+                  {
+                    "size": "M",
+                    "value": "21.26"
+                  },
+                  {
+                    "size": "L",
+                    "value": "22.83"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.41"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "25.98"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "27.56"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "32.28"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "26.18"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "26.19"
+                  },
+                  {
+                    "size": "S",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "M",
+                    "value": "27.36"
+                  },
+                  {
+                    "size": "L",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "28.54"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "29.72"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "30.91"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "32.09"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "33.27"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "22.24"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "22.24"
+                  },
+                  {
+                    "size": "S",
+                    "value": "22.64"
+                  },
+                  {
+                    "size": "M",
+                    "value": "23.03"
+                  },
+                  {
+                    "size": "L",
+                    "value": "23.62"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.21"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "24.80"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "25.39"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "25.79"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "26.18"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "26.57"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424275171,
@@ -490,7 +1810,337 @@
         }
       ],
       "category": "OUTER",
-      "segment": "UNISEX"
+      "segment": "UNISEX",
+      "size_chart": {
+        "catalog_product_id": 388,
+        "available_sizes": [
+          "2XS",
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL",
+          "6XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/77/772938e1a63878e9af675fc85839c218_l?v=1709107482",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>\n<p>&nbsp;</p>\n<p><strong>B Waist</strong></p>\n<p>Place the tape on the narrowest part of the waist and measure around.</p>\n<p>&nbsp;</p>\n<p><strong>C Hips</strong></p>\n<p>Put the beginning of the tape measure on one hip and bring the tape across the fullest part of the hips back to where you started measuring.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "S",
+                    "value": "37.80"
+                  },
+                  {
+                    "size": "M",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "L",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.12"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "58.27"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "61.42"
+                  }
+                ]
+              },
+              {
+                "type_label": "Waist",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "28.35"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "29.92"
+                  },
+                  {
+                    "size": "S",
+                    "value": "31.50"
+                  },
+                  {
+                    "size": "M",
+                    "value": "33.07"
+                  },
+                  {
+                    "size": "L",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "48.82"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "51.97"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "55.12"
+                  }
+                ]
+              },
+              {
+                "type_label": "Hips",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "35.43"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "37.01"
+                  },
+                  {
+                    "size": "S",
+                    "value": "38.58"
+                  },
+                  {
+                    "size": "M",
+                    "value": "40.16"
+                  },
+                  {
+                    "size": "L",
+                    "value": "43.31"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "46.46"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "49.61"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "52.76"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "55.91"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "59.06"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "62.20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.&nbsp;</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/ad/ad28d60c4f432597efd339bae1e3b752_l?v=1709107482",
+            "image_description": "<p><strong>A</strong>&nbsp;- 1/2 chest width</p>\n<p><strong>B</strong> -&nbsp; Length</p>\n<p><strong>C</strong>&nbsp;- Sleeve length</p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "18.90"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "19.69"
+                  },
+                  {
+                    "size": "S",
+                    "value": "20.47"
+                  },
+                  {
+                    "size": "M",
+                    "value": "21.26"
+                  },
+                  {
+                    "size": "L",
+                    "value": "22.83"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.41"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "25.98"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "27.56"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "30.71"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "32.28"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "26.18"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "26.19"
+                  },
+                  {
+                    "size": "S",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "M",
+                    "value": "27.36"
+                  },
+                  {
+                    "size": "L",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "28.54"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "29.13"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "29.72"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "30.91"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "32.09"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "33.27"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "2XS",
+                    "value": "22.24"
+                  },
+                  {
+                    "size": "XS",
+                    "value": "22.24"
+                  },
+                  {
+                    "size": "S",
+                    "value": "22.64"
+                  },
+                  {
+                    "size": "M",
+                    "value": "23.03"
+                  },
+                  {
+                    "size": "L",
+                    "value": "23.62"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "24.21"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "24.80"
+                  },
+                  {
+                    "size": "3XL",
+                    "value": "25.39"
+                  },
+                  {
+                    "size": "4XL",
+                    "value": "25.79"
+                  },
+                  {
+                    "size": "5XL",
+                    "value": "26.18"
+                  },
+                  {
+                    "size": "6XL",
+                    "value": "26.57"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424275122,
@@ -548,7 +2198,183 @@
         }
       ],
       "category": "TOPS",
-      "segment": "WOMEN'S"
+      "segment": "WOMEN'S",
+      "size_chart": {
+        "catalog_product_id": 261,
+        "available_sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/01/01502814cea4d97f8c720b290ed373d5_l?v=1652962719",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>\n<p>&nbsp;</p>\n<p><strong>B Waist</strong></p>\n<p>Place the tape on the narrowest part of the waist and measure around.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "33.07"
+                  },
+                  {
+                    "size": "S",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "M",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "L",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "45.67"
+                  }
+                ]
+              },
+              {
+                "type_label": "Waist",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "25.20"
+                  },
+                  {
+                    "size": "S",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "M",
+                    "value": "28.35"
+                  },
+                  {
+                    "size": "L",
+                    "value": "31.5"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "37.8"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/fc/fccbb0efb1c3994480fcd29bb48fcac1_l?v=1652962719",
+            "image_description": "<p><strong>A</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">1/2 chest width</span></p>\n<p><strong>B</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">length</span></p>\n<p><strong>C</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">sleeve length</span></p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "15.75"
+                  },
+                  {
+                    "size": "S",
+                    "value": "16.54"
+                  },
+                  {
+                    "size": "M",
+                    "value": "17.32"
+                  },
+                  {
+                    "size": "L",
+                    "value": "18.90"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "20.47"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "22.05"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "23.23"
+                  },
+                  {
+                    "size": "S",
+                    "value": "23.62"
+                  },
+                  {
+                    "size": "M",
+                    "value": "24.02"
+                  },
+                  {
+                    "size": "L",
+                    "value": "25.20"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "26.38"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "27.56"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "7.09"
+                  },
+                  {
+                    "size": "S",
+                    "value": "7.48"
+                  },
+                  {
+                    "size": "M",
+                    "value": "7.87"
+                  },
+                  {
+                    "size": "L",
+                    "value": "8.27"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "8.66"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "9.06"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424275027,
@@ -606,7 +2432,183 @@
         }
       ],
       "category": "TOPS",
-      "segment": "WOMEN'S"
+      "segment": "WOMEN'S",
+      "size_chart": {
+        "catalog_product_id": 261,
+        "available_sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/01/01502814cea4d97f8c720b290ed373d5_l?v=1652962719",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>\n<p>&nbsp;</p>\n<p><strong>B Waist</strong></p>\n<p>Place the tape on the narrowest part of the waist and measure around.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "33.07"
+                  },
+                  {
+                    "size": "S",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "M",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "L",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "45.67"
+                  }
+                ]
+              },
+              {
+                "type_label": "Waist",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "25.20"
+                  },
+                  {
+                    "size": "S",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "M",
+                    "value": "28.35"
+                  },
+                  {
+                    "size": "L",
+                    "value": "31.5"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "37.8"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/fc/fccbb0efb1c3994480fcd29bb48fcac1_l?v=1652962719",
+            "image_description": "<p><strong>A</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">1/2 chest width</span></p>\n<p><strong>B</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">length</span></p>\n<p><strong>C</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">sleeve length</span></p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "15.75"
+                  },
+                  {
+                    "size": "S",
+                    "value": "16.54"
+                  },
+                  {
+                    "size": "M",
+                    "value": "17.32"
+                  },
+                  {
+                    "size": "L",
+                    "value": "18.90"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "20.47"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "22.05"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "23.23"
+                  },
+                  {
+                    "size": "S",
+                    "value": "23.62"
+                  },
+                  {
+                    "size": "M",
+                    "value": "24.02"
+                  },
+                  {
+                    "size": "L",
+                    "value": "25.20"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "26.38"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "27.56"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "7.09"
+                  },
+                  {
+                    "size": "S",
+                    "value": "7.48"
+                  },
+                  {
+                    "size": "M",
+                    "value": "7.87"
+                  },
+                  {
+                    "size": "L",
+                    "value": "8.27"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "8.66"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "9.06"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424275001,
@@ -664,7 +2666,183 @@
         }
       ],
       "category": "TOPS",
-      "segment": "WOMEN'S"
+      "segment": "WOMEN'S",
+      "size_chart": {
+        "catalog_product_id": 261,
+        "available_sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/01/01502814cea4d97f8c720b290ed373d5_l?v=1652962719",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>\n<p>&nbsp;</p>\n<p><strong>B Waist</strong></p>\n<p>Place the tape on the narrowest part of the waist and measure around.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "33.07"
+                  },
+                  {
+                    "size": "S",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "M",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "L",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "45.67"
+                  }
+                ]
+              },
+              {
+                "type_label": "Waist",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "25.20"
+                  },
+                  {
+                    "size": "S",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "M",
+                    "value": "28.35"
+                  },
+                  {
+                    "size": "L",
+                    "value": "31.5"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "37.8"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/fc/fccbb0efb1c3994480fcd29bb48fcac1_l?v=1652962719",
+            "image_description": "<p><strong>A</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">1/2 chest width</span></p>\n<p><strong>B</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">length</span></p>\n<p><strong>C</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">sleeve length</span></p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "15.75"
+                  },
+                  {
+                    "size": "S",
+                    "value": "16.54"
+                  },
+                  {
+                    "size": "M",
+                    "value": "17.32"
+                  },
+                  {
+                    "size": "L",
+                    "value": "18.90"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "20.47"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "22.05"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "23.23"
+                  },
+                  {
+                    "size": "S",
+                    "value": "23.62"
+                  },
+                  {
+                    "size": "M",
+                    "value": "24.02"
+                  },
+                  {
+                    "size": "L",
+                    "value": "25.20"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "26.38"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "27.56"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "7.09"
+                  },
+                  {
+                    "size": "S",
+                    "value": "7.48"
+                  },
+                  {
+                    "size": "M",
+                    "value": "7.87"
+                  },
+                  {
+                    "size": "L",
+                    "value": "8.27"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "8.66"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "9.06"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424274987,
@@ -722,7 +2900,183 @@
         }
       ],
       "category": "TOPS",
-      "segment": "WOMEN'S"
+      "segment": "WOMEN'S",
+      "size_chart": {
+        "catalog_product_id": 261,
+        "available_sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/01/01502814cea4d97f8c720b290ed373d5_l?v=1652962719",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>\n<p>&nbsp;</p>\n<p><strong>B Waist</strong></p>\n<p>Place the tape on the narrowest part of the waist and measure around.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "33.07"
+                  },
+                  {
+                    "size": "S",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "M",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "L",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "45.67"
+                  }
+                ]
+              },
+              {
+                "type_label": "Waist",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "25.20"
+                  },
+                  {
+                    "size": "S",
+                    "value": "26.77"
+                  },
+                  {
+                    "size": "M",
+                    "value": "28.35"
+                  },
+                  {
+                    "size": "L",
+                    "value": "31.5"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "34.65"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "37.8"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/fc/fccbb0efb1c3994480fcd29bb48fcac1_l?v=1652962719",
+            "image_description": "<p><strong>A</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">1/2 chest width</span></p>\n<p><strong>B</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">length</span></p>\n<p><strong>C</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">sleeve length</span></p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "15.75"
+                  },
+                  {
+                    "size": "S",
+                    "value": "16.54"
+                  },
+                  {
+                    "size": "M",
+                    "value": "17.32"
+                  },
+                  {
+                    "size": "L",
+                    "value": "18.90"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "20.47"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "22.05"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "23.23"
+                  },
+                  {
+                    "size": "S",
+                    "value": "23.62"
+                  },
+                  {
+                    "size": "M",
+                    "value": "24.02"
+                  },
+                  {
+                    "size": "L",
+                    "value": "25.20"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "26.38"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "27.56"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "7.09"
+                  },
+                  {
+                    "size": "S",
+                    "value": "7.48"
+                  },
+                  {
+                    "size": "M",
+                    "value": "7.87"
+                  },
+                  {
+                    "size": "L",
+                    "value": "8.27"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "8.66"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "9.06"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424274859,
@@ -780,7 +3134,154 @@
         }
       ],
       "category": "TOPS",
-      "segment": "MEN'S"
+      "segment": "MEN'S",
+      "size_chart": {
+        "catalog_product_id": 257,
+        "available_sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/88/8884d40f8b2e4023f79527c6851e6535_l?v=1739171275",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "S",
+                    "value": "37.80"
+                  },
+                  {
+                    "size": "M",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "L",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "48.82"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/a7/a72a378d4ee03d53f61ee0a287535421_l?v=1739171275",
+            "image_description": "<p><strong>A</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">1/2 chest width</span></p>\n<p><strong>B</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">length</span></p>\n<p><strong>C</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">sleeve length</span></p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "15.35"
+                  },
+                  {
+                    "size": "S",
+                    "value": "16.93"
+                  },
+                  {
+                    "size": "M",
+                    "value": "18.50"
+                  },
+                  {
+                    "size": "L",
+                    "value": "20.87"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "23.23"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "25.59"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "S",
+                    "value": "28.74"
+                  },
+                  {
+                    "size": "M",
+                    "value": "29.53"
+                  },
+                  {
+                    "size": "L",
+                    "value": "30.31"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "31.10"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "31.89"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "8.66"
+                  },
+                  {
+                    "size": "S",
+                    "value": "9.06"
+                  },
+                  {
+                    "size": "M",
+                    "value": "9.45"
+                  },
+                  {
+                    "size": "L",
+                    "value": "9.84"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "10.24"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "10.63"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424262004,
@@ -838,7 +3339,154 @@
         }
       ],
       "category": "TOPS",
-      "segment": "MEN'S"
+      "segment": "MEN'S",
+      "size_chart": {
+        "catalog_product_id": 257,
+        "available_sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/88/8884d40f8b2e4023f79527c6851e6535_l?v=1739171275",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "S",
+                    "value": "37.80"
+                  },
+                  {
+                    "size": "M",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "L",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "48.82"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/a7/a72a378d4ee03d53f61ee0a287535421_l?v=1739171275",
+            "image_description": "<p><strong>A</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">1/2 chest width</span></p>\n<p><strong>B</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">length</span></p>\n<p><strong>C</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">sleeve length</span></p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "15.35"
+                  },
+                  {
+                    "size": "S",
+                    "value": "16.93"
+                  },
+                  {
+                    "size": "M",
+                    "value": "18.50"
+                  },
+                  {
+                    "size": "L",
+                    "value": "20.87"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "23.23"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "25.59"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "S",
+                    "value": "28.74"
+                  },
+                  {
+                    "size": "M",
+                    "value": "29.53"
+                  },
+                  {
+                    "size": "L",
+                    "value": "30.31"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "31.10"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "31.89"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "8.66"
+                  },
+                  {
+                    "size": "S",
+                    "value": "9.06"
+                  },
+                  {
+                    "size": "M",
+                    "value": "9.45"
+                  },
+                  {
+                    "size": "L",
+                    "value": "9.84"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "10.24"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "10.63"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424261670,
@@ -896,7 +3544,154 @@
         }
       ],
       "category": "TOPS",
-      "segment": "MEN'S"
+      "segment": "MEN'S",
+      "size_chart": {
+        "catalog_product_id": 257,
+        "available_sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/88/8884d40f8b2e4023f79527c6851e6535_l?v=1739171275",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "S",
+                    "value": "37.80"
+                  },
+                  {
+                    "size": "M",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "L",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "48.82"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/a7/a72a378d4ee03d53f61ee0a287535421_l?v=1739171275",
+            "image_description": "<p><strong>A</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">1/2 chest width</span></p>\n<p><strong>B</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">length</span></p>\n<p><strong>C</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">sleeve length</span></p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "15.35"
+                  },
+                  {
+                    "size": "S",
+                    "value": "16.93"
+                  },
+                  {
+                    "size": "M",
+                    "value": "18.50"
+                  },
+                  {
+                    "size": "L",
+                    "value": "20.87"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "23.23"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "25.59"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "S",
+                    "value": "28.74"
+                  },
+                  {
+                    "size": "M",
+                    "value": "29.53"
+                  },
+                  {
+                    "size": "L",
+                    "value": "30.31"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "31.10"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "31.89"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "8.66"
+                  },
+                  {
+                    "size": "S",
+                    "value": "9.06"
+                  },
+                  {
+                    "size": "M",
+                    "value": "9.45"
+                  },
+                  {
+                    "size": "L",
+                    "value": "9.84"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "10.24"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "10.63"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": 424252402,
@@ -954,7 +3749,154 @@
         }
       ],
       "category": "TOPS",
-      "segment": "MEN'S"
+      "segment": "MEN'S",
+      "size_chart": {
+        "catalog_product_id": 257,
+        "available_sizes": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
+        "size_tables": [
+          {
+            "type": "measure_yourself",
+            "unit": "inches",
+            "description": "<p>This size guide shows body measurements. We suggest ordering a size up when your measurements are between sizes.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/measure-yourself/88/8884d40f8b2e4023f79527c6851e6535_l?v=1739171275",
+            "image_description": "<p>For all horizontal measurements, please keep the tape measure parallel to the ground.</p>\n<p>&nbsp;</p>\n<p><strong>A Chest</strong></p>\n<p>Put one end of the tape measure on the fullest part of the chest and bring the tape around the back (under the armpits, over the shoulder blades) to where you started.</p>",
+            "measurements": [
+              {
+                "type_label": "Chest",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "36.22"
+                  },
+                  {
+                    "size": "S",
+                    "value": "37.80"
+                  },
+                  {
+                    "size": "M",
+                    "value": "39.37"
+                  },
+                  {
+                    "size": "L",
+                    "value": "42.52"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "45.67"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "48.82"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "product_measure",
+            "unit": "inches",
+            "description": "<p>This size guide shows product measurements taken when products are laid flat. Actual product measurements may vary by up to 1\" because they&rsquo;re custom-made by hand.</p>",
+            "image_url": "https://files.cdn.printful.com/upload/product-measure/a7/a72a378d4ee03d53f61ee0a287535421_l?v=1739171275",
+            "image_description": "<p><strong>A</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">1/2 chest width</span></p>\n<p><strong>B</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">length</span></p>\n<p><strong>C</strong>&nbsp;<span style=\"font-family: Arial; font-size: 10pt;\">sleeve length</span></p>",
+            "measurements": [
+              {
+                "type_label": "A",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "15.35"
+                  },
+                  {
+                    "size": "S",
+                    "value": "16.93"
+                  },
+                  {
+                    "size": "M",
+                    "value": "18.50"
+                  },
+                  {
+                    "size": "L",
+                    "value": "20.87"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "23.23"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "25.59"
+                  }
+                ]
+              },
+              {
+                "type_label": "B",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "27.95"
+                  },
+                  {
+                    "size": "S",
+                    "value": "28.74"
+                  },
+                  {
+                    "size": "M",
+                    "value": "29.53"
+                  },
+                  {
+                    "size": "L",
+                    "value": "30.31"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "31.10"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "31.89"
+                  }
+                ]
+              },
+              {
+                "type_label": "C",
+                "values": [
+                  {
+                    "size": "XS",
+                    "value": "8.66"
+                  },
+                  {
+                    "size": "S",
+                    "value": "9.06"
+                  },
+                  {
+                    "size": "M",
+                    "value": "9.45"
+                  },
+                  {
+                    "size": "L",
+                    "value": "9.84"
+                  },
+                  {
+                    "size": "XL",
+                    "value": "10.24"
+                  },
+                  {
+                    "size": "2XL",
+                    "value": "10.63"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "paging": {
