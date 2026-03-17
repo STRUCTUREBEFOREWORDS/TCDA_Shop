@@ -18,6 +18,12 @@
  *   PRINTFUL_STORE_ID=your_store_id
  * Then run: npx wrangler pages dev project/
  */
+/*
+ * Confirmed store IDs (2026-03-17):
+ *   17873034  →  TCDA (native) ← primary
+ *   12419111  →  Transcend Color Digital Apparel (base)
+ *   12418790  →  Personal orders (native)
+ */
 
 const PRINTFUL_API = "https://api.printful.com";
 
@@ -28,6 +34,8 @@ const ALLOWED_ORIGINS = [
   "http://localhost",
   "http://127.0.0.1",
 ];
+// Also allow GitHub Pages preview
+const ALLOWED_ORIGIN_PATTERNS = ["https://structurebeforewords.github.io"];
 
 export async function onRequest(context) {
   const { request, env } = context;
@@ -68,7 +76,7 @@ export async function onRequest(context) {
     const headers = {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
-      "X-PF-Store-Id": env.PRINTFUL_STORE_ID || "",
+      "X-PF-Store-Id": env.PRINTFUL_STORE_ID || "17873034",
     };
 
     const pfResponse = await fetch(printfulUrl, { headers });
@@ -101,6 +109,7 @@ function corsResponse(response, request) {
   const origin = request.headers.get("Origin") || "";
   const isAllowed =
     ALLOWED_ORIGINS.some((o) => origin.startsWith(o)) ||
+    ALLOWED_ORIGIN_PATTERNS.some((p) => origin.startsWith(p)) ||
     origin.startsWith("http://localhost") ||
     origin.startsWith("http://127.0.0.1");
 
