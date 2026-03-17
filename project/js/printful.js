@@ -228,6 +228,7 @@
       const card = document.createElement("article");
       card.className = "card";
       card.setAttribute("data-reveal", "");
+      card.classList.add("in-view");
 
       const categoryLabel = [p.category, p.segment].filter(Boolean).join(" / ");
 
