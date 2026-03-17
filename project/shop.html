@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr" data-page-title-key="title_shop">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,28 +11,60 @@
     <header class="site-header">
       <div class="nav-wrap">
         <a class="brand" href="index.html">TCDA</a>
-        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>Menu</button>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
+          data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html">Home</a>
-          <a href="brand.html">Brand</a>
-          <a href="collection.html">Collection</a>
-          <a href="lookbook.html">Lookbook</a>
-          <a href="archive.html">Archive</a>
-          <a href="shop.html" aria-current="page">Shop</a>
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="brand.html" data-i18n="nav_brand">Brand</a>
+          <a href="collection.html" data-i18n="nav_collection">Collection</a>
+          <a href="lookbook.html" data-i18n="nav_lookbook">Lookbook</a>
+          <a href="archive.html" data-i18n="nav_archive">Archive</a>
+          <a href="shop.html" aria-current="page" data-i18n="nav_shop">Shop</a>
         </nav>
-        <div class="nav-tools"><div class="cart-pill">Cart <span data-cart-count>0</span></div></div>
+        <div class="nav-tools">
+          <div class="cart-pill"><span data-i18n="cart_label">Cart</span> <span data-cart-count>0</span></div>
+          <div class="locale-switcher" id="locale-switcher">
+            <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
+              <span class="locale-toggle-lang" data-current-lang-label>EN</span>
+              <span class="locale-toggle-sep">·</span>
+              <span class="locale-toggle-currency" data-current-currency-label>JPY</span>
+            </button>
+            <div class="locale-panel" role="dialog" aria-label="Language and currency" hidden data-locale-panel>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="lang_label">Language</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-lang-btn="en" aria-pressed="true">English</button>
+                  <button type="button" class="locale-btn" data-lang-btn="zh" aria-pressed="false">中文</button>
+                  <button type="button" class="locale-btn" data-lang-btn="es" aria-pressed="false">Español</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ar" aria-pressed="false">العربية</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+                </div>
+              </div>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="currency_label">Currency</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-currency-btn="JPY" aria-pressed="true">JPY ¥</button>
+                  <button type="button" class="locale-btn" data-currency-btn="USD" aria-pressed="false">USD $</button>
+                  <button type="button" class="locale-btn" data-currency-btn="EUR" aria-pressed="false">EUR €</button>
+                  <button type="button" class="locale-btn" data-currency-btn="GBP" aria-pressed="false">GBP £</button>
+                  <button type="button" class="locale-btn" data-currency-btn="CNY" aria-pressed="false">CNY ¥</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
     <main class="page">
       <section class="hero">
         <div class="container flow" data-reveal>
-          <p class="eyebrow">Shop</p>
-          <h1>Minimal Product Grid</h1>
-          <p class="lead">Clean cards, high-resolution previews, and a secure checkout placeholder ready for future API integration.</p>
+          <p class="eyebrow" data-i18n="shop_eyebrow">Shop</p>
+          <h1 data-i18n="shop_h1">Minimal Product Grid</h1>
+          <p class="lead" data-i18n="shop_lead">Clean cards, high-resolution previews, and a secure checkout placeholder ready for future API integration.</p>
           <div class="action-row">
-            <button class="btn" type="button" data-checkout-placeholder>Secure Checkout Placeholder</button>
-            <p class="checkout-status" data-checkout-status aria-live="polite">Checkout backend ready for future Stripe/Printful integration.</p>
+            <button class="btn" type="button" data-checkout-placeholder data-i18n="shop_checkout_btn">Secure Checkout Placeholder</button>
+            <p class="checkout-status" data-checkout-status aria-live="polite" data-i18n="shop_checkout_status">Checkout backend ready for future Stripe/Printful integration.</p>
           </div>
         </div>
       </section>
@@ -40,18 +72,25 @@
       <section class="section">
         <div class="container">
           <div class="product-grid" data-reveal>
-            <article class="card"><a href="products/chroma-noise-jacket.html"><div class="media"><img src="images/product-chroma-jacket.webp" alt="Chroma Noise Jacket shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Outerwear</p><h3>Chroma Noise Jacket</h3><p class="price">JPY 74,000</p></div></a></article>
-            <article class="card"><div class="media"><img src="images/product-spectral-dress.webp" alt="Spectral Veil Dress shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Dress</p><h3>Spectral Veil Dress</h3><p class="price">JPY 68,000</p></div></article>
-            <article class="card"><div class="media"><img src="images/product-prism-shirt.webp" alt="Prism Silence Shirt shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Shirt</p><h3>Prism Silence Shirt</h3><p class="price">JPY 41,000</p></div></article>
-            <article class="card"><div class="media"><img src="images/product-cyan-coat.webp" alt="Cyan Echo Coat shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Coat</p><h3>Cyan Echo Coat</h3><p class="price">JPY 82,000</p></div></article>
-            <article class="card"><div class="media"><img src="images/product-afterglow-trousers.webp" alt="Afterglow Trousers shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Bottoms</p><h3>Afterglow Trousers</h3><p class="price">JPY 49,000</p></div></article>
-            <article class="card"><div class="media"><img src="images/product-monochrome-set.webp" alt="Monochrome Drift Set shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Set</p><h3>Monochrome Drift Set</h3><p class="price">JPY 97,000</p></div></article>
+            <article class="card"><a href="products/chroma-noise-jacket.html"><div class="media"><img src="images/product-chroma-jacket.webp" alt="Chroma Noise Jacket shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="cat_outerwear">Outerwear</p><h3 data-i18n="prod_chroma_jacket">Chroma Noise Jacket</h3><p class="price" data-price-display data-price-jpy="74000">JPY 74,000</p></div></a></article>
+            <article class="card"><div class="media"><img src="images/product-spectral-dress.webp" alt="Spectral Veil Dress shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="cat_dress">Dress</p><h3 data-i18n="prod_spectral_dress">Spectral Veil Dress</h3><p class="price" data-price-display data-price-jpy="68000">JPY 68,000</p></div></article>
+            <article class="card"><div class="media"><img src="images/product-prism-shirt.webp" alt="Prism Silence Shirt shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="cat_shirt">Shirt</p><h3 data-i18n="prod_prism_shirt">Prism Silence Shirt</h3><p class="price" data-price-display data-price-jpy="41000">JPY 41,000</p></div></article>
+            <article class="card"><div class="media"><img src="images/product-cyan-coat.webp" alt="Cyan Echo Coat shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="cat_coat">Coat</p><h3 data-i18n="prod_cyan_coat">Cyan Echo Coat</h3><p class="price" data-price-display data-price-jpy="82000">JPY 82,000</p></div></article>
+            <article class="card"><div class="media"><img src="images/product-afterglow-trousers.webp" alt="Afterglow Trousers shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="cat_bottoms">Bottoms</p><h3 data-i18n="prod_afterglow">Afterglow Trousers</h3><p class="price" data-price-display data-price-jpy="49000">JPY 49,000</p></div></article>
+            <article class="card"><div class="media"><img src="images/product-monochrome-set.webp" alt="Monochrome Drift Set shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="cat_set">Set</p><h3 data-i18n="prod_monochrome">Monochrome Drift Set</h3><p class="price" data-price-display data-price-jpy="97000">JPY 97,000</p></div></article>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer"><div class="footer-wrap"><p>TCDA Shop</p><p>Semantic markup, lightweight code, WebP optimized visuals.</p></div></footer>
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <p data-i18n="shop_footer_p">TCDA Shop</p>
+        <p data-i18n="shop_footer_tech">Semantic markup, lightweight code, WebP optimized visuals.</p>
+      </div>
+    </footer>
+    <script src="js/i18n.js"></script>
+    <script src="js/currency.js"></script>
     <script src="js/script.js" defer></script>
   </body>
 </html>

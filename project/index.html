@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr" data-page-title-key="title_home">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,22 +11,53 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
+    <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
     <header class="site-header">
       <div class="nav-wrap">
         <a class="brand" href="index.html" aria-label="TCDA Home">TCDA</a>
-        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>Menu</button>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
+          data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html" aria-current="page">Home</a>
-          <a href="brand.html">Brand</a>
-          <a href="collection.html">Collection</a>
-          <a href="lookbook.html">Lookbook</a>
-          <a href="archive.html">Archive</a>
-          <a href="shop.html">Shop</a>
+          <a href="index.html" aria-current="page" data-i18n="nav_home">Home</a>
+          <a href="brand.html" data-i18n="nav_brand">Brand</a>
+          <a href="collection.html" data-i18n="nav_collection">Collection</a>
+          <a href="lookbook.html" data-i18n="nav_lookbook">Lookbook</a>
+          <a href="archive.html" data-i18n="nav_archive">Archive</a>
+          <a href="shop.html" data-i18n="nav_shop">Shop</a>
         </nav>
         <div class="nav-tools">
-          <a class="btn-inline" href="shop.html">Shop</a>
-          <div class="cart-pill">Cart <span data-cart-count>0</span></div>
+          <a class="btn-inline" href="shop.html" data-i18n="nav_shop">Shop</a>
+          <div class="cart-pill"><span data-i18n="cart_label">Cart</span> <span data-cart-count>0</span></div>
+          <!-- Language / Currency switcher -->
+          <div class="locale-switcher" id="locale-switcher">
+            <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
+              <span class="locale-toggle-lang" data-current-lang-label>EN</span>
+              <span class="locale-toggle-sep">·</span>
+              <span class="locale-toggle-currency" data-current-currency-label>JPY</span>
+            </button>
+            <div class="locale-panel" role="dialog" aria-label="Language and currency" hidden data-locale-panel>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="lang_label">Language</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-lang-btn="en" aria-pressed="true">English</button>
+                  <button type="button" class="locale-btn" data-lang-btn="zh" aria-pressed="false">中文</button>
+                  <button type="button" class="locale-btn" data-lang-btn="es" aria-pressed="false">Español</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ar" aria-pressed="false">العربية</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+                </div>
+              </div>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="currency_label">Currency</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-currency-btn="JPY" aria-pressed="true">JPY ¥</button>
+                  <button type="button" class="locale-btn" data-currency-btn="USD" aria-pressed="false">USD $</button>
+                  <button type="button" class="locale-btn" data-currency-btn="EUR" aria-pressed="false">EUR €</button>
+                  <button type="button" class="locale-btn" data-currency-btn="GBP" aria-pressed="false">GBP £</button>
+                  <button type="button" class="locale-btn" data-currency-btn="CNY" aria-pressed="false">CNY ¥</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -35,19 +66,22 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="flow" data-reveal>
-            <p class="eyebrow">Transcend Color Digital Apparel</p>
-            <h1>Wear Art,<br />Liberate Sensibility.</h1>
-            <p class="lead">
+            <p class="eyebrow" data-i18n="home_eyebrow">Transcend Color Digital Apparel</p>
+            <h1 data-i18n-html="home_h1_html">Wear Art,<br />Liberate Sensibility.</h1>
+            <p class="lead" data-i18n="home_lead">
               A premium digital art apparel house where abstract chromatic compositions become wearable expression.
               The experience begins with art, then moves into philosophy, then product discovery.
             </p>
             <div class="hero-actions">
-              <a class="btn" href="shop.html">Enter Shop</a>
-              <a class="btn-ghost" href="lookbook.html">View Lookbook</a>
+              <a class="btn" href="shop.html" data-i18n="home_btn_shop">Enter Shop</a>
+              <a class="btn-ghost" href="lookbook.html" data-i18n="home_btn_lookbook">View Lookbook</a>
             </div>
           </div>
           <figure class="hero-art" data-reveal>
-            <img src="images/hero-home.webp" alt="Editorial fashion model in immersive abstract color styling" loading="eager" decoding="async" fetchpriority="high" />
+            <img src="images/hero-home.webp"
+              data-i18n-attr='{"alt":"home_hero_img_alt"}'
+              alt="Editorial fashion model in immersive abstract color styling"
+              loading="eager" decoding="async" fetchpriority="high" />
           </figure>
         </div>
       </section>
@@ -55,18 +89,18 @@
       <section class="section" aria-labelledby="philosophy-title">
         <div class="container split">
           <div class="flow" data-reveal>
-            <p class="eyebrow">Philosophy</p>
-            <h2 id="philosophy-title">A Digital Art Museum You Can Wear</h2>
+            <p class="eyebrow" data-i18n="home_phi_eyebrow">Philosophy</p>
+            <h2 id="philosophy-title" data-i18n="home_phi_h2">A Digital Art Museum You Can Wear</h2>
           </div>
           <article class="panel flow" data-reveal>
-            <p>
+            <p data-i18n="home_phi_p1">
               TCDA treats garments as moving gallery walls. Every drop starts as abstract digital artwork and is translated
               into textile, silhouette, and motion.
             </p>
-            <p>
+            <p data-i18n="home_phi_p2">
               Our world is built for quiet intensity: neutral space, accurate color rendering, and deliberate visual rhythm.
             </p>
-            <a class="btn-ghost" href="brand.html">Explore Brand Story</a>
+            <a class="btn-ghost" href="brand.html" data-i18n="home_phi_link">Explore Brand Story</a>
           </article>
         </div>
       </section>
@@ -75,10 +109,10 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <div class="flow">
-              <p class="eyebrow">Featured Collection</p>
-              <h2 id="featured-title">Chromatic Drift</h2>
+              <p class="eyebrow" data-i18n="home_feat_eyebrow">Featured Collection</p>
+              <h2 id="featured-title" data-i18n="home_feat_h2">Chromatic Drift</h2>
             </div>
-            <a class="btn-ghost" href="collection.html">View All Pieces</a>
+            <a class="btn-ghost" href="collection.html" data-i18n="home_feat_link">View All Pieces</a>
           </div>
           <div class="grid-3" data-reveal>
             <article class="card">
@@ -87,9 +121,9 @@
                   <img src="images/product-chroma-jacket.webp" alt="Chroma Noise Jacket product image" loading="lazy" decoding="async" />
                 </div>
                 <div class="card-body">
-                  <p class="meta">Outerwear</p>
-                  <h3>Chroma Noise Jacket</h3>
-                  <p class="price">JPY 74,000</p>
+                  <p class="meta" data-i18n="cat_outerwear">Outerwear</p>
+                  <h3 data-i18n="prod_chroma_jacket">Chroma Noise Jacket</h3>
+                  <p class="price" data-price-display data-price-jpy="74000">JPY 74,000</p>
                 </div>
               </a>
             </article>
@@ -98,9 +132,9 @@
                 <img src="images/product-spectral-dress.webp" alt="Spectral Veil Dress product image" loading="lazy" decoding="async" />
               </div>
               <div class="card-body">
-                <p class="meta">Dress</p>
-                <h3>Spectral Veil Dress</h3>
-                <p class="price">JPY 68,000</p>
+                <p class="meta" data-i18n="cat_dress">Dress</p>
+                <h3 data-i18n="prod_spectral_dress">Spectral Veil Dress</h3>
+                <p class="price" data-price-display data-price-jpy="68000">JPY 68,000</p>
               </div>
             </article>
             <article class="card">
@@ -108,9 +142,9 @@
                 <img src="images/product-prism-shirt.webp" alt="Prism Silence Shirt product image" loading="lazy" decoding="async" />
               </div>
               <div class="card-body">
-                <p class="meta">Shirt</p>
-                <h3>Prism Silence Shirt</h3>
-                <p class="price">JPY 41,000</p>
+                <p class="meta" data-i18n="cat_shirt">Shirt</p>
+                <h3 data-i18n="prod_prism_shirt">Prism Silence Shirt</h3>
+                <p class="price" data-price-display data-price-jpy="41000">JPY 41,000</p>
               </div>
             </article>
           </div>
@@ -120,14 +154,14 @@
       <section class="section" aria-labelledby="entry-title">
         <div class="container split">
           <div class="flow" data-reveal>
-            <p class="eyebrow">Journey</p>
-            <h2 id="entry-title">Art Inspiration to Purchase Decision</h2>
+            <p class="eyebrow" data-i18n="home_journey_eyebrow">Journey</p>
+            <h2 id="entry-title" data-i18n="home_journey_h2">Art Inspiration to Purchase Decision</h2>
           </div>
           <article class="panel flow" data-reveal>
-            <p>Start with gallery immersion, understand the philosophy, then discover pieces designed for real-world wear.</p>
+            <p data-i18n="home_journey_p">Start with gallery immersion, understand the philosophy, then discover pieces designed for real-world wear.</p>
             <div class="action-row">
-              <a class="btn" href="shop.html">Shop Collection</a>
-              <a class="btn-ghost" href="lookbook.html">Open Lookbook</a>
+              <a class="btn" href="shop.html" data-i18n="home_journey_shop">Shop Collection</a>
+              <a class="btn-ghost" href="lookbook.html" data-i18n="home_journey_lookbook">Open Lookbook</a>
             </div>
           </article>
         </div>
@@ -136,11 +170,13 @@
 
     <footer class="site-footer">
       <div class="footer-wrap">
-        <p>Transcend Color Digital Apparel / Wear Art, Liberate Sensibility.</p>
-        <p>HTTPS ready, Cloudflare compatible, secure checkout placeholder included.</p>
+        <p data-i18n="footer_tagline">Transcend Color Digital Apparel / Wear Art, Liberate Sensibility.</p>
+        <p data-i18n="footer_tech">HTTPS ready, Cloudflare compatible, secure checkout placeholder included.</p>
       </div>
     </footer>
 
+    <script src="js/i18n.js"></script>
+    <script src="js/currency.js"></script>
     <script src="js/script.js" defer></script>
   </body>
 </html>

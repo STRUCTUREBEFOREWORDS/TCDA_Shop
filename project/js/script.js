@@ -1,4 +1,77 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* ── i18n + currency init ─────────────────────────────────── */
+  if (window.TCDAi18n) {
+    const lang = TCDAi18n.detectLang();
+    TCDAi18n.apply(lang);
+
+    /* Update toggle label */
+    const langLabel = document.querySelector("[data-current-lang-label]");
+    if (langLabel) langLabel.textContent = lang.toUpperCase();
+  }
+
+  if (window.TCDACurrency) {
+    TCDACurrency.init();
+
+    /* Update toggle label */
+    const currLabel = document.querySelector("[data-current-currency-label]");
+    if (currLabel) currLabel.textContent = TCDACurrency.getCurrentCurrency();
+  }
+
+  /* ── Locale panel toggle ──────────────────────────────────── */
+  const localeToggle = document.querySelector("[data-locale-toggle]");
+  const localePanel  = document.querySelector("[data-locale-panel]");
+
+  if (localeToggle && localePanel) {
+    localeToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = localePanel.hasAttribute("hidden");
+      localePanel.toggleAttribute("hidden", !open);
+      localeToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    /* Close on outside click */
+    document.addEventListener("click", (e) => {
+      if (!localeToggle.contains(e.target) && !localePanel.contains(e.target)) {
+        localePanel.setAttribute("hidden", "");
+        localeToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    /* Close on Escape */
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !localePanel.hasAttribute("hidden")) {
+        localePanel.setAttribute("hidden", "");
+        localeToggle.setAttribute("aria-expanded", "false");
+        localeToggle.focus();
+      }
+    });
+
+    /* Language buttons */
+    document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const lang = btn.getAttribute("data-lang-btn");
+        if (window.TCDAi18n) {
+          TCDAi18n.apply(lang);
+          const langLabel = document.querySelector("[data-current-lang-label]");
+          if (langLabel) langLabel.textContent = lang.toUpperCase();
+        }
+      });
+    });
+
+    /* Currency buttons */
+    document.querySelectorAll("[data-currency-btn]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const code = btn.getAttribute("data-currency-btn");
+        if (window.TCDACurrency) {
+          TCDACurrency.applyPrices(code);
+          const currLabel = document.querySelector("[data-current-currency-label]");
+          if (currLabel) currLabel.textContent = code;
+        }
+      });
+    });
+  }
+
+  /* ── Header scroll ────────────────────────────────────────── */
   const header = document.querySelector(".site-header");
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navLinks = document.querySelector(".nav-links");
@@ -25,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* ── Scroll reveal ────────────────────────────────────────── */
   const revealNodes = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
@@ -43,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     revealNodes.forEach((node) => node.classList.add("in-view"));
   }
 
+  /* ── Cart ─────────────────────────────────────────────────── */
   const STORAGE_KEY = "tcda-project-cart-v1";
   const parseJSON = (value, fallback) => {
     try {
@@ -92,10 +167,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       setCart(cart);
-      button.textContent = "Added";
+
+      const addedLabel = window.TCDAi18n
+        ? TCDAi18n.t("cart_added", TCDAi18n.getCurrentLang())
+        : "Added";
+      const addLabel = window.TCDAi18n
+        ? TCDAi18n.t("cart_add", TCDAi18n.getCurrentLang())
+        : "Add to Cart";
+
+      button.textContent = addedLabel;
       button.disabled = true;
       setTimeout(() => {
-        button.textContent = "Add to Cart";
+        button.textContent = addLabel;
         button.disabled = false;
       }, 1200);
     });
@@ -105,8 +188,11 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const status = document.querySelector("[data-checkout-status]");
       if (status) {
-        status.textContent = "Secure checkout placeholder: Stripe/Printful integration prepared for future backend connection.";
+        status.textContent = window.TCDAi18n
+          ? TCDAi18n.t("shop_checkout_status", TCDAi18n.getCurrentLang())
+          : "Secure checkout placeholder: Stripe/Printful integration prepared for future backend connection.";
       }
     });
   });
 });
+

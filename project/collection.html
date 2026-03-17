@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr" data-page-title-key="title_collection">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,25 +11,57 @@
     <header class="site-header">
       <div class="nav-wrap">
         <a class="brand" href="index.html">TCDA</a>
-        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>Menu</button>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
+          data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html">Home</a>
-          <a href="brand.html">Brand</a>
-          <a href="collection.html" aria-current="page">Collection</a>
-          <a href="lookbook.html">Lookbook</a>
-          <a href="archive.html">Archive</a>
-          <a href="shop.html">Shop</a>
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="brand.html" data-i18n="nav_brand">Brand</a>
+          <a href="collection.html" aria-current="page" data-i18n="nav_collection">Collection</a>
+          <a href="lookbook.html" data-i18n="nav_lookbook">Lookbook</a>
+          <a href="archive.html" data-i18n="nav_archive">Archive</a>
+          <a href="shop.html" data-i18n="nav_shop">Shop</a>
         </nav>
-        <div class="nav-tools"><div class="cart-pill">Cart <span data-cart-count>0</span></div></div>
+        <div class="nav-tools">
+          <div class="cart-pill"><span data-i18n="cart_label">Cart</span> <span data-cart-count>0</span></div>
+          <div class="locale-switcher" id="locale-switcher">
+            <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
+              <span class="locale-toggle-lang" data-current-lang-label>EN</span>
+              <span class="locale-toggle-sep">·</span>
+              <span class="locale-toggle-currency" data-current-currency-label>JPY</span>
+            </button>
+            <div class="locale-panel" role="dialog" aria-label="Language and currency" hidden data-locale-panel>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="lang_label">Language</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-lang-btn="en" aria-pressed="true">English</button>
+                  <button type="button" class="locale-btn" data-lang-btn="zh" aria-pressed="false">中文</button>
+                  <button type="button" class="locale-btn" data-lang-btn="es" aria-pressed="false">Español</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ar" aria-pressed="false">العربية</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+                </div>
+              </div>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="currency_label">Currency</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-currency-btn="JPY" aria-pressed="true">JPY ¥</button>
+                  <button type="button" class="locale-btn" data-currency-btn="USD" aria-pressed="false">USD $</button>
+                  <button type="button" class="locale-btn" data-currency-btn="EUR" aria-pressed="false">EUR €</button>
+                  <button type="button" class="locale-btn" data-currency-btn="GBP" aria-pressed="false">GBP £</button>
+                  <button type="button" class="locale-btn" data-currency-btn="CNY" aria-pressed="false">CNY ¥</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
     <main class="page">
       <section class="hero">
         <div class="container flow" data-reveal>
-          <p class="eyebrow">Collection</p>
-          <h1>Gallery of Wearable Color Works</h1>
-          <p class="lead">Each item is presented as a standalone gallery piece with focus on shape, light, and chromatic impact.</p>
+          <p class="eyebrow" data-i18n="col_eyebrow">Collection</p>
+          <h1 data-i18n="col_h1">Gallery of Wearable Color Works</h1>
+          <p class="lead" data-i18n="col_lead">Each item is presented as a standalone gallery piece with focus on shape, light, and chromatic impact.</p>
         </div>
       </section>
 
@@ -37,24 +69,31 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <div class="flow">
-              <p class="eyebrow">Current Drop</p>
-              <h2>Chromatic Drift Series</h2>
+              <p class="eyebrow" data-i18n="col_drop_eyebrow">Current Drop</p>
+              <h2 data-i18n="col_drop_h2">Chromatic Drift Series</h2>
             </div>
-            <a class="btn-ghost" href="shop.html">Shop This Drop</a>
+            <a class="btn-ghost" href="shop.html" data-i18n="col_drop_link">Shop This Drop</a>
           </div>
           <div class="grid-3" data-reveal>
-            <article class="card"><div class="media"><img src="images/lookbook-1.webp" alt="Collection piece image one" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 01</p><h3>Chroma Noise Jacket</h3></div></article>
-            <article class="card"><div class="media"><img src="images/product-spectral-dress.webp" alt="Collection piece image two" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 02</p><h3>Spectrum Fold Dress</h3></div></article>
-            <article class="card"><div class="media"><img src="images/product-prism-shirt.webp" alt="Collection piece image three" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 03</p><h3>Prism Silence Shirt</h3></div></article>
-            <article class="card"><div class="media"><img src="images/product-cyan-coat.webp" alt="Collection piece image four" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 04</p><h3>Cyan Echo Coat</h3></div></article>
-            <article class="card"><div class="media"><img src="images/product-afterglow-trousers.webp" alt="Collection piece image five" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 05</p><h3>Afterglow Trousers</h3></div></article>
-            <article class="card"><div class="media"><img src="images/product-monochrome-set.webp" alt="Collection piece image six" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 06</p><h3>Monochrome Drift Set</h3></div></article>
+            <article class="card"><div class="media"><img src="images/lookbook-1.webp" alt="Collection piece image one" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 01</p><h3 data-i18n="prod_chroma_jacket">Chroma Noise Jacket</h3></div></article>
+            <article class="card"><div class="media"><img src="images/product-spectral-dress.webp" alt="Collection piece image two" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 02</p><h3 data-i18n="prod_spectrum_fold">Spectrum Fold Dress</h3></div></article>
+            <article class="card"><div class="media"><img src="images/product-prism-shirt.webp" alt="Collection piece image three" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 03</p><h3 data-i18n="prod_prism_shirt">Prism Silence Shirt</h3></div></article>
+            <article class="card"><div class="media"><img src="images/product-cyan-coat.webp" alt="Collection piece image four" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 04</p><h3 data-i18n="prod_cyan_coat">Cyan Echo Coat</h3></div></article>
+            <article class="card"><div class="media"><img src="images/product-afterglow-trousers.webp" alt="Collection piece image five" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 05</p><h3 data-i18n="prod_afterglow">Afterglow Trousers</h3></div></article>
+            <article class="card"><div class="media"><img src="images/product-monochrome-set.webp" alt="Collection piece image six" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Edition 06</p><h3 data-i18n="prod_monochrome">Monochrome Drift Set</h3></div></article>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer"><div class="footer-wrap"><p>TCDA Collection</p><p><a href="products/chroma-noise-jacket.html">Open Product Page</a></p></div></footer>
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <p data-i18n="col_footer_p">TCDA Collection</p>
+        <p><a href="products/chroma-noise-jacket.html" data-i18n="col_footer_link">Open Product Page</a></p>
+      </div>
+    </footer>
+    <script src="js/i18n.js"></script>
+    <script src="js/currency.js"></script>
     <script src="js/script.js" defer></script>
   </body>
 </html>
