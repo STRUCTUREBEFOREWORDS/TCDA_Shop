@@ -1,0 +1,8 @@
+# Cloudflare Pages / Wrangler local dev secrets template
+# Copy this file to `.dev.vars` (gitignored) and fill in your values.
+# Usage: npx wrangler pages dev project/
+#
+# Production: Set these in Cloudflare Pages → Settings → Environment variables
+
+PRINTFUL_API_KEY=your_printful_api_key_here
+PRINTFUL_STORE_ID=your_printful_store_id_here

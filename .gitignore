@@ -7,10 +7,13 @@ Thumbs.db
 *.swp
 *.swo
 
-# Environment / secrets
+# Environment / secrets — NEVER commit API keys
 .env
 .env.local
 .env.*.local
+.dev.vars
+printful-config.js
+**/printful-config.js
 
 # Node (if any tooling added later)
 node_modules/

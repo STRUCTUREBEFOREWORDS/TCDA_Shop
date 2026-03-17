@@ -17,6 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currLabel) currLabel.textContent = TCDACurrency.getCurrentCurrency();
   }
 
+  /* ── Printful: live size chart + product data ─────────────── */
+  if (window.TCDAPrintful) {
+    TCDAPrintful.initProductPage();
+
+    /* Shop grid: populate from Printful if [data-printful-shop-grid] exists */
+    const shopGrid = document.querySelector("[data-printful-shop-grid]");
+    if (shopGrid) {
+      TCDAPrintful.populateShopGrid(shopGrid);
+    }
+  }
+
   /* ── Locale panel toggle ──────────────────────────────────── */
   const localeToggle = document.querySelector("[data-locale-toggle]");
   const localePanel  = document.querySelector("[data-locale-panel]");
