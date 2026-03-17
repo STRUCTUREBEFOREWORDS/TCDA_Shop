@@ -3,17 +3,839 @@
   "code": 200,
   "result": [
     {
+      "id": 424275426,
+      "external_id": "69b93457decac2",
+      "name": "Unisex zip hoodie",
+      "thumbnail_url": "https://files.cdn.printful.com/files/1cc/1cc44af603dd6fda3022e6528552323f_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 2XS"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / XS"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / S"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / M"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / L"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / XL"
+        },
+        {
+          "retail_price": "10263.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 2XL"
+        },
+        {
+          "retail_price": "10527.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 3XL"
+        },
+        {
+          "retail_price": "10802.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 4XL"
+        },
+        {
+          "retail_price": "11066.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 5XL"
+        },
+        {
+          "retail_price": "11330.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 6XL"
+        }
+      ],
+      "category": "OUTER",
+      "segment": "UNISEX"
+    },
+    {
+      "id": 424275382,
+      "external_id": "69b9341134bf17",
+      "name": "Unisex zip hoodie",
+      "thumbnail_url": "https://files.cdn.printful.com/files/616/6169e2474a8a7f97e9af853e79fc74f9_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 2XS"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / XS"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / S"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / M"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / L"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / XL"
+        },
+        {
+          "retail_price": "10263.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 2XL"
+        },
+        {
+          "retail_price": "10527.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 3XL"
+        },
+        {
+          "retail_price": "10802.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 4XL"
+        },
+        {
+          "retail_price": "11066.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 5XL"
+        },
+        {
+          "retail_price": "11330.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 6XL"
+        }
+      ],
+      "category": "OUTER",
+      "segment": "UNISEX"
+    },
+    {
+      "id": 424275370,
+      "external_id": "69b933e16732e6",
+      "name": "Unisex zip hoodie",
+      "thumbnail_url": "https://files.cdn.printful.com/files/9e1/9e146d418bc30e69d2718b5bf67efb24_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 2XS"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / XS"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / S"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / M"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / L"
+        },
+        {
+          "retail_price": "9999.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / XL"
+        },
+        {
+          "retail_price": "10263.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 2XL"
+        },
+        {
+          "retail_price": "10527.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 3XL"
+        },
+        {
+          "retail_price": "10802.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 4XL"
+        },
+        {
+          "retail_price": "11066.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 5XL"
+        },
+        {
+          "retail_price": "11330.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 717
+          },
+          "name": "Unisex zip hoodie / 6XL"
+        }
+      ],
+      "category": "OUTER",
+      "segment": "UNISEX"
+    },
+    {
+      "id": 424275319,
+      "external_id": "69b9338a366371",
+      "name": "Unisex Hoodie",
+      "thumbnail_url": "https://files.cdn.printful.com/files/cda/cda6dcbf29714c168d18c8ada662790f_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 2XS"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / XS"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / S"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / M"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / L"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / XL"
+        },
+        {
+          "retail_price": "8228.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 2XL"
+        },
+        {
+          "retail_price": "8492.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 3XL"
+        },
+        {
+          "retail_price": "8756.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 4XL"
+        },
+        {
+          "retail_price": "9020.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 5XL"
+        },
+        {
+          "retail_price": "9284.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 6XL"
+        }
+      ],
+      "category": "OUTER",
+      "segment": "UNISEX"
+    },
+    {
+      "id": 424275171,
+      "external_id": "69b933439c8302",
+      "name": "Unisex Hoodie",
+      "thumbnail_url": "https://files.cdn.printful.com/files/498/498af41c1657f3ecd01bf28c8dd158b5_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 2XS"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / XS"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / S"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / M"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / L"
+        },
+        {
+          "retail_price": "7964.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / XL"
+        },
+        {
+          "retail_price": "8228.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 2XL"
+        },
+        {
+          "retail_price": "8492.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 3XL"
+        },
+        {
+          "retail_price": "8756.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 4XL"
+        },
+        {
+          "retail_price": "9020.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 5XL"
+        },
+        {
+          "retail_price": "9284.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 388
+          },
+          "name": "Unisex Hoodie / 6XL"
+        }
+      ],
+      "category": "OUTER",
+      "segment": "UNISEX"
+    },
+    {
+      "id": 424275122,
+      "external_id": "69b932f2206e03",
+      "name": "Women's T-shirt",
+      "thumbnail_url": "https://files.cdn.printful.com/files/a48/a48db9e5ef4753290510d2cc8880c810_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / XS"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / S"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / M"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / L"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / XL"
+        },
+        {
+          "retail_price": "4636.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / 2XL"
+        }
+      ],
+      "category": "TOPS",
+      "segment": "WOMEN'S"
+    },
+    {
+      "id": 424275027,
+      "external_id": "69b932a0d8ae44",
+      "name": "Women's T-shirt",
+      "thumbnail_url": "https://files.cdn.printful.com/files/649/649e0d59d97d0a0866b2d487faba1f49_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / XS"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / S"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / M"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / L"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / XL"
+        },
+        {
+          "retail_price": "4636.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / 2XL"
+        }
+      ],
+      "category": "TOPS",
+      "segment": "WOMEN'S"
+    },
+    {
+      "id": 424275001,
+      "external_id": "69b93274939a85",
+      "name": "Women's T-shirt",
+      "thumbnail_url": "https://files.cdn.printful.com/files/115/1156ea9d590a51ddf34abad0c2320061_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / XS"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / S"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / M"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / L"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / XL"
+        },
+        {
+          "retail_price": "4636.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / 2XL"
+        }
+      ],
+      "category": "TOPS",
+      "segment": "WOMEN'S"
+    },
+    {
+      "id": 424274987,
+      "external_id": "69b9324cdd0712",
+      "name": "Women's T-shirt",
+      "thumbnail_url": "https://files.cdn.printful.com/files/4bd/4bde5dd10169284eb25a69687da13aa4_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / XS"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / S"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / M"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / L"
+        },
+        {
+          "retail_price": "4396.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / XL"
+        },
+        {
+          "retail_price": "4636.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 261
+          },
+          "name": "Women's T-shirt / 2XL"
+        }
+      ],
+      "category": "TOPS",
+      "segment": "WOMEN'S"
+    },
+    {
+      "id": 424274859,
+      "external_id": "69b93212155bb2",
+      "name": "Men's t-shirt",
+      "thumbnail_url": "https://files.cdn.printful.com/files/210/210d3288dca66c113e708f90b30d041a_preview.png",
+      "sync_variants": [
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / XS"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / S"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / M"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / L"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / XL"
+        },
+        {
+          "retail_price": "4826.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / 2XL"
+        }
+      ],
+      "category": "TOPS",
+      "segment": "MEN'S"
+    },
+    {
       "id": 424262004,
       "external_id": "69b8fcf68ae314",
       "name": "Men's t-shirt",
       "thumbnail_url": "https://files.cdn.printful.com/files/189/1896d1b6a0a890cc35e33c5a02cf7881_preview.png",
       "sync_variants": [
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / XS" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / S" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / M" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / L" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / XL" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / 2XL" }
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / XS"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / S"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / M"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / L"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / XL"
+        },
+        {
+          "retail_price": "4826.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / 2XL"
+        }
       ],
       "category": "TOPS",
       "segment": "MEN'S"
@@ -24,12 +846,54 @@
       "name": "Men's t-shirt",
       "thumbnail_url": "https://files.cdn.printful.com/files/78d/78dc8739374c3fb14e27f86b6e85d6a0_preview.png",
       "sync_variants": [
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / XS" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / S" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / M" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / L" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / XL" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / 2XL" }
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / XS"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / S"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / M"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / L"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / XL"
+        },
+        {
+          "retail_price": "4826.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / 2XL"
+        }
       ],
       "category": "TOPS",
       "segment": "MEN'S"
@@ -40,16 +904,62 @@
       "name": "Men's t-shirt",
       "thumbnail_url": "https://files.cdn.printful.com/files/459/459248d7c8a93322345082007b537e18_preview.png",
       "sync_variants": [
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / XS" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / S" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / M" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / L" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / XL" },
-        { "retail_price": "4586.00", "currency": "JPY", "product": { "product_id": 257 }, "name": "Men's t-shirt / 2XL" }
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / XS"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / S"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / M"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / L"
+        },
+        {
+          "retail_price": "4586.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / XL"
+        },
+        {
+          "retail_price": "4826.00",
+          "currency": "JPY",
+          "product": {
+            "product_id": 257
+          },
+          "name": "Men's t-shirt / 2XL"
+        }
       ],
       "category": "TOPS",
       "segment": "MEN'S"
     }
   ],
-  "paging": { "total": 3, "limit": 100, "offset": 0 }
+  "paging": {
+    "total": 13,
+    "limit": 100,
+    "offset": 0
+  }
 }
