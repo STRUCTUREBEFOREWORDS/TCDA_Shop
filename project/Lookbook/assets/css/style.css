@@ -1,19 +1,23 @@
 :root{
-  --bg:#0b0c10; --fg:rgba(255,255,255,.88); --muted:rgba(255,255,255,.60);
-  --line:rgba(255,255,255,.12); --glass:rgba(255,255,255,.06); --glass2:rgba(255,255,255,.03);
-  --radius:18px; --shadow:0 20px 80px rgba(0,0,0,.45);
-  /* Magazine-ish serif stack (no external fonts) */
-  --mag-serif: "Didot","Bodoni 72","Baskerville","Times New Roman","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --bg:#ffffff;
+  --fg:#101010;
+  --muted:#5f5f5f;
+  --line:#d6d6d6;
+  --panel:#ffffff;
+  --panel-2:#fafafa;
+  --radius:18px;
+  --shadow:0 20px 60px rgba(0,0,0,.08);
+  --mag-serif:"Didot","Bodoni 72","Baskerville","Times New Roman","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
   background:
-    radial-gradient(1200px 900px at 20% 15%, rgba(255,255,255,.06), transparent 55%),
-    radial-gradient(900px 700px at 80% 35%, rgba(255,255,255,.04), transparent 60%),
-    var(--bg);
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.065) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.065) 0 1px, transparent 1px 28px),
+    linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
   color:var(--fg);
-  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-family:"Avenir Next","Neue Haas Grotesk Text Pro","Helvetica Neue",Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
@@ -31,21 +35,21 @@ a{color:inherit}
 .lead{color:var(--muted);margin-bottom:26px;font-size:14px}
 .langbar{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 22px}
 .langbtn{
-  border:1px solid rgba(255,255,255,.14); background:rgba(0,0,0,.22); color:rgba(255,255,255,.86);
+  border:1px solid var(--line); background:var(--panel); color:var(--fg);
   height:32px; padding:0 10px; border-radius:999px; font-size:12px; letter-spacing:.06em; cursor:pointer;
 }
-.langbtn[data-active="1"]{border-color:rgba(255,255,255,.34); background:rgba(255,255,255,.08)}
+.langbtn[data-active="1"]{border-color:#101010; background:var(--panel-2)}
 .list{display:flex; flex-direction:column; gap:16px}
 .card{
   position:relative; border-radius:var(--radius); border:1px solid var(--line);
-  background: linear-gradient(180deg, var(--glass), var(--glass2));
-  box-shadow: var(--shadow); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  box-shadow: var(--shadow);
   overflow:hidden; padding:18px;
 }
 .row{display:grid; grid-template-columns:110px 1fr auto; gap:16px; align-items:center}
 .thumb{
   width:110px;height:110px; border-radius:18px; border:1px solid var(--line); overflow:hidden;
-  background: rgba(0,0,0,.25); display:flex;align-items:center;justify-content:center;
+  background: #efefef; display:flex;align-items:center;justify-content:center;
 }
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .meta small{display:block;letter-spacing:.22em;color:var(--muted);font-size:11px;text-transform:uppercase;margin-bottom:6px}
@@ -61,17 +65,17 @@ a{color:inherit}
 .pill{color:var(--muted);font-size:12px;letter-spacing:.04em}
 .btn{
   display:inline-flex;align-items:center;justify-content:center; height:34px;padding:0 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.18); background: rgba(0,0,0,.25); color:var(--fg);
+  border:1px solid var(--line); background: var(--panel); color:var(--fg);
   text-decoration:none;font-size:12px;letter-spacing:.06em;
   transition: transform .15s ease, border-color .15s ease; user-select:none;-webkit-tap-highlight-color: transparent;
 }
 .btn:active{transform:scale(.98)}
-.btn:hover{border-color:rgba(255,255,255,.34)}
-.footer{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.45);font-size:12px;letter-spacing:.08em}
+.btn:hover{border-color:#101010}
+.footer{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;letter-spacing:.08em}
 .alert{
   margin:16px 0 0; padding:12px 14px; border-radius:14px;
-  border:1px solid rgba(255,80,80,.25); background: rgba(120,0,0,.18);
-  color: rgba(255,255,255,.82); font-size:13px; display:none; white-space:pre-line;
+  border:1px solid rgba(163, 51, 51, .25); background: rgba(255, 244, 244, .95);
+  color: #4e1f1f; font-size:13px; display:none; white-space:pre-line;
 }
 @media (max-width:720px){
   .row{grid-template-columns:92px 1fr}
