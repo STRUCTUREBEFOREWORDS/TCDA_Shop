@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-page-title-key="title_lookbook">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lookbook | TCDA</title>
+    <meta name="description" content="Editorial fashion lookbook by TCDA." />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="index.html">TCDA</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
+          data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="brand.html" data-i18n="nav_brand">Brand</a>
+          <a href="collection.html" data-i18n="nav_collection">Collection</a>
+          <a href="lookbook.html" aria-current="page" data-i18n="nav_lookbook">Lookbook</a>
+          <a href="archive.html" data-i18n="nav_archive">Archive</a>
+          <a href="shop.html" data-i18n="nav_shop">Shop</a>
+        </nav>
+        <div class="nav-tools">
+          <div class="cart-pill"><span data-i18n="cart_label">Cart</span> <span data-cart-count>0</span></div>
+          <div class="locale-switcher" id="locale-switcher">
+            <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
+              <span class="locale-toggle-lang" data-current-lang-label>EN</span>
+              <span class="locale-toggle-sep">·</span>
+              <span class="locale-toggle-currency" data-current-currency-label>JPY</span>
+            </button>
+            <div class="locale-panel" role="dialog" aria-label="Language and currency" hidden data-locale-panel>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="lang_label">Language</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-lang-btn="en" aria-pressed="true">English</button>
+                  <button type="button" class="locale-btn" data-lang-btn="zh" aria-pressed="false">中文</button>
+                  <button type="button" class="locale-btn" data-lang-btn="es" aria-pressed="false">Español</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ar" aria-pressed="false">العربية</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+                </div>
+              </div>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="currency_label">Currency</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-currency-btn="JPY" aria-pressed="true">JPY ¥</button>
+                  <button type="button" class="locale-btn" data-currency-btn="USD" aria-pressed="false">USD $</button>
+                  <button type="button" class="locale-btn" data-currency-btn="EUR" aria-pressed="false">EUR €</button>
+                  <button type="button" class="locale-btn" data-currency-btn="GBP" aria-pressed="false">GBP £</button>
+                  <button type="button" class="locale-btn" data-currency-btn="CNY" aria-pressed="false">CNY ¥</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div class="container flow" data-reveal>
+          <p class="eyebrow" data-i18n="lb_eyebrow">Lookbook</p>
+          <h1 data-i18n="lb_h1">Editorial Frames in Motion</h1>
+          <p class="lead" data-i18n="lb_lead">Large-scale fashion imagery designed to immerse viewers before product decision.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div class="flow">
+              <p class="eyebrow" data-i18n="lb_vol_eyebrow">Volume 01</p>
+              <h2 data-i18n="lb_vol_h2">Echoes of Colorfield</h2>
+            </div>
+          </div>
+          <div class="lookbook-grid" data-reveal>
+            <article class="card"><div class="media"><img src="images/lookbook-4.webp" alt="Lookbook editorial chapter one" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="lb_ch1_meta">Chapter 01</p><h3 data-i18n="lb_ch1_h3">Threshold</h3><p data-i18n="lb_ch1_p">A calm opening where silhouette meets chromatic density.</p></div></article>
+            <article class="card"><div class="media"><img src="images/lookbook-5.webp" alt="Lookbook editorial chapter two" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="lb_ch2_meta">Chapter 02</p><h3 data-i18n="lb_ch2_h3">Interference</h3><p data-i18n="lb_ch2_p">Color gradients shift with body movement and light.</p></div></article>
+            <article class="card"><div class="media"><img src="images/lookbook-2.webp" alt="Lookbook editorial chapter three" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="lb_ch3_meta">Chapter 03</p><h3 data-i18n="lb_ch3_h3">Release</h3><p data-i18n="lb_ch3_p">Garment as visual language and personal signature.</p></div></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <p data-i18n="lb_footer_p">TCDA Lookbook</p>
+        <p><a href="shop.html" data-i18n="lb_footer_link">Go to Shop</a></p>
+      </div>
+    </footer>
+    <script src="js/i18n.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
