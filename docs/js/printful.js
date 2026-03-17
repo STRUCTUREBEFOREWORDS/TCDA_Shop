@@ -229,6 +229,8 @@
       card.className = "card";
       card.setAttribute("data-reveal", "");
 
+      const categoryLabel = [p.category, p.segment].filter(Boolean).join(" / ");
+
       const img = p.thumbnail_url
         ? `<img src="${esc(p.thumbnail_url)}" alt="${esc(p.name)}" loading="lazy" decoding="async" />`
         : `<div class="media-placeholder"></div>`;
@@ -245,6 +247,7 @@
         `<div class="media">${img}</div>` +
         `</a>` +
         `<div class="card-body">` +
+        `<p class="meta">${esc(categoryLabel || "PRODUCT")}</p>` +
         `<h3>${esc(p.name)}</h3>` +
         `<p class="price" data-price-display data-price-jpy="${priceJpy}">${esc(priceDisplay)}</p>` +
         `</div>`;
