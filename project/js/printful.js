@@ -24,6 +24,7 @@
 
   /* ── 1. Config ────────────────────────────────────────────── */
   const API_BASE = "/api/printful";
+  const STATIC_PRODUCTS_URL = "/data/printful-products.json";
 
   /* ── 2. Low-level fetch ───────────────────────────────────── */
   async function pfFetch(path) {
@@ -45,13 +46,33 @@
   /** List all synced store products. */
   async function getProducts() {
     const data = await pfFetch("/store/products?limit=100");
-    return data?.result ?? [];
+    if (data && Array.isArray(data.result)) {
+      return data.result;
+    }
+
+    const fallback = await fetchStaticProducts();
+    return fallback;
   }
 
   /** Get full detail (variants, sizes) for one synced product. */
   async function getProduct(id) {
     const data = await pfFetch(`/store/products/${id}`);
     return data?.result ?? null;
+  }
+
+  /** Static fallback for hosts without server functions (e.g. GitHub Pages). */
+  async function fetchStaticProducts() {
+    try {
+      const res = await fetch(STATIC_PRODUCTS_URL, { headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      if (Array.isArray(json?.result)) return json.result;
+      if (Array.isArray(json?.products)) return json.products;
+      return [];
+    } catch (err) {
+      console.warn("[TCDAPrintful] static fallback fetch failed —", err.message);
+      return [];
+    }
   }
 
   /**
