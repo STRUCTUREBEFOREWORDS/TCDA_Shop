@@ -70,6 +70,13 @@
     return data?.result ?? null;
   }
 
+  /** Get Printful catalog product metadata (material description, etc). */
+  async function getCatalogProduct(catalogId) {
+    if (!catalogId) return null;
+    const data = await pfFetch(`/products/${catalogId}`);
+    return data?.result?.product ?? data?.result ?? null;
+  }
+
   /** Static fallback for hosts without server functions (e.g. GitHub Pages). */
   async function fetchStaticProducts() {
     try {
@@ -162,25 +169,47 @@
     if (!tableEl) return;
 
     const lang = document.documentElement.lang || "en";
+    const params = new URLSearchParams(global.location.search);
+    const syncProductId = params.get("printfulId") || params.get("productId");
+    let detail = null;
+    let firstVariant = null;
 
     // --- Try explicit catalog ID first ---
-    let catalogId = tableEl.dataset.printfulCatalogId
-      || document.querySelector("[data-printful-catalog-id]")?.dataset.printfulCatalogId;
+    let catalogId =
+      tableEl.dataset.printfulCatalogId ||
+      document.querySelector("[data-printful-catalog-id]")?.dataset
+        .printfulCatalogId;
+
+    // --- Resolve by explicit synced product ID in URL ---
+    if (syncProductId) {
+      detail = await getProduct(syncProductId);
+      firstVariant =
+        detail?.sync_variants?.[0] ?? detail?.variants?.[0] ?? null;
+      if (!catalogId) {
+        catalogId =
+          firstVariant?.product?.product_id ?? firstVariant?.catalog_product_id;
+      }
+    }
 
     // --- Auto-match by product name ---
-    if (!catalogId) {
+    if (!catalogId && !detail) {
       const heading = document.querySelector("h1");
       const productName = heading?.textContent?.trim() ?? "";
       if (productName) {
         const products = await getProducts();
-        const match = products.find(
-          (p) => p.name?.toLowerCase().includes(productName.toLowerCase().slice(0, 12))
+        const match = products.find((p) =>
+          p.name
+            ?.toLowerCase()
+            .includes(productName.toLowerCase().slice(0, 12)),
         );
         if (match) {
           // Get the first variant's catalog product ID
-          const detail = await getProduct(match.id);
-          const variant = detail?.sync_variants?.[0] ?? detail?.variants?.[0];
-          catalogId = variant?.product?.product_id ?? variant?.catalog_product_id;
+          detail = await getProduct(match.id);
+          firstVariant =
+            detail?.sync_variants?.[0] ?? detail?.variants?.[0] ?? null;
+          catalogId =
+            firstVariant?.product?.product_id ??
+            firstVariant?.catalog_product_id;
 
           // Optionally store sync ID for cart/checkout
           const article = document.querySelector("[data-product-id]");
@@ -191,8 +220,112 @@
       }
     }
 
+    // Enrich product page content when detail data is available.
+    if (detail?.sync_product) {
+      const syncProduct = detail.sync_product;
+      const heroImg = document.querySelector(".product-hero img");
+      const heading = document.querySelector("h1");
+      const article = document.querySelector("[data-product-id]");
+      const addBtn = document.querySelector("[data-add-to-cart]");
+      const priceEl = document.querySelector("[data-price-display]");
+
+      if (heading && syncProduct.name) heading.textContent = syncProduct.name;
+      if (heroImg && syncProduct.thumbnail_url) {
+        heroImg.src = syncProduct.thumbnail_url;
+        heroImg.alt = `${syncProduct.name || "Printful product"} hero image`;
+      }
+
+      const retailPrice = parseFloat(
+        detail?.sync_variants?.[0]?.retail_price ?? "0",
+      );
+      const priceJpy = Math.round(retailPrice);
+      const currency = window.TCDACurrency?.getCurrentCurrency?.() ?? "JPY";
+      if (priceEl) {
+        priceEl.setAttribute("data-price-jpy", String(priceJpy));
+        const formatted =
+          window.TCDACurrency?.formatPrice?.(priceJpy, currency) ??
+          `${currency} ${priceJpy.toLocaleString()}`;
+        priceEl.textContent = formatted;
+      }
+
+      if (article) {
+        article.dataset.productId = `printful-${syncProduct.id}`;
+        article.dataset.productName = syncProduct.name || "Printful Product";
+        article.dataset.printfulSyncId = String(syncProduct.id);
+      }
+
+      if (addBtn) {
+        addBtn.setAttribute("data-product-id", `printful-${syncProduct.id}`);
+        addBtn.setAttribute(
+          "data-product-name",
+          syncProduct.name || "Printful Product",
+        );
+        addBtn.setAttribute("data-product-price", String(priceJpy));
+      }
+
+      // Rebuild size buttons from synced variants when possible.
+      const sizeRow = document.querySelector(".size-row");
+      if (
+        sizeRow &&
+        Array.isArray(detail.sync_variants) &&
+        detail.sync_variants.length
+      ) {
+        const sizes = [
+          ...new Set(
+            detail.sync_variants
+              .map((v) =>
+                String(v?.name ?? "")
+                  .split("/")
+                  .pop()
+                  ?.trim(),
+              )
+              .filter(Boolean),
+          ),
+        ];
+        if (sizes.length) {
+          sizeRow.innerHTML = sizes
+            .map(
+              (s, i) =>
+                `<button class="size-btn" type="button" aria-pressed="${i === 0 ? "true" : "false"}">${esc(s)}</button>`,
+            )
+            .join("");
+        }
+      }
+    }
+
+    // Replace material info with Printful catalog description bullets.
+    const materialList = document.querySelector(".detail-list");
+    if (materialList && catalogId) {
+      const catalog = await getCatalogProduct(catalogId);
+      const description = String(catalog?.description ?? "");
+      let lines = description
+        .split("\n")
+        .map((line) => line.trim())
+        .filter((line) => line.startsWith("- "))
+        .map((line) => line.replace(/^-\s*/, ""));
+
+      if (!lines.length && description) {
+        lines = description
+          .split(".")
+          .map((s) => s.trim())
+          .filter(Boolean)
+          .slice(0, 4);
+      }
+
+      if (!lines.length) {
+        lines = ["Made to order by Printful", `Catalog ID: ${catalogId}`];
+      }
+
+      materialList.innerHTML = lines
+        .slice(0, 8)
+        .map((line) => `<li>${esc(line)}</li>`)
+        .join("");
+    }
+
     if (!catalogId) {
-      console.info("[TCDAPrintful] Could not resolve catalog ID — static size chart retained.");
+      console.info(
+        "[TCDAPrintful] Could not resolve catalog ID — static size chart retained.",
+      );
       return;
     }
 
@@ -200,7 +333,11 @@
     if (sizeData) {
       const rendered = renderSizeChart(tableEl, sizeData, lang);
       if (rendered) {
-        console.info("[TCDAPrintful] Live size chart loaded (catalog ID:", catalogId, ")");
+        console.info(
+          "[TCDAPrintful] Live size chart loaded (catalog ID:",
+          catalogId,
+          ")",
+        );
       }
     }
   }
@@ -244,7 +381,7 @@
         ?? `${currency} ${priceJpy.toLocaleString()}`;
 
       card.innerHTML =
-        `<a href="products/${esc(String(p.id))}.html" class="card-link" aria-label="${esc(p.name)}">` +
+        `<a href="products/chroma-noise-jacket.html?printfulId=${encodeURIComponent(String(p.id))}" class="card-link" aria-label="${esc(p.name)}">` +
         `<div class="media">${img}</div>` +
         `</a>` +
         `<div class="card-body">` +
@@ -277,6 +414,7 @@
   global.TCDAPrintful = {
     getProducts,
     getProduct,
+    getCatalogProduct,
     getSizeChart,
     renderSizeChart,
     initProductPage,
