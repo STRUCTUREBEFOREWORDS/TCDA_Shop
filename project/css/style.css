@@ -639,3 +639,44 @@ p {
   letter-spacing: 0.03em;
 }
 
+/* Size chart table */
+.size-chart {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--s3) 0;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.size-chart thead {
+  background-color: var(--paper-2);
+  border-bottom: 2px solid var(--line);
+}
+
+.size-chart th {
+  padding: var(--s2) var(--s3);
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.size-chart tbody tr {
+  border-bottom: 1px solid var(--line);
+  transition: background-color var(--ease);
+}
+
+.size-chart tbody tr:hover {
+  background-color: var(--paper-2);
+}
+
+.size-chart td {
+  padding: var(--s2) var(--s3);
+  color: var(--ink);
+}
+
+/* RTL support for size chart */
+[dir="rtl"] .size-chart th,
+[dir="rtl"] .size-chart td {
+  text-align: right;
+}
+
