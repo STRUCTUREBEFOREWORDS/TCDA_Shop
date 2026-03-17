@@ -98,8 +98,14 @@ img {
 
 .brand-logo {
   display: block;
-  height: 28px;
+  height: 42px;
   width: auto;
+}
+
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 34px;
+  }
 }
 
 .nav-toggle {
