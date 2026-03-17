@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shop | TCDA</title>
+    <meta
+      name="description"
+      content="Shop TCDA digital art fashion pieces. Minimal product cards and high-resolution previews."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "TCDA Product Grid",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "/products/chroma-noise-jacket.html",
+            "name": "Chroma Noise Jacket"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "/shop.html#spectral-veil-dress",
+            "name": "Spectral Veil Dress"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "/shop.html#prism-silence-shirt",
+            "name": "Prism Silence Shirt"
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a href="index.html" class="brand" aria-label="TCDA Home">TCDA</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="brand-story.html">Brand Story</a>
+          <a href="collection.html">Collection</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="archive.html">Archive</a>
+          <a href="shop.html" aria-current="page">Shop</a>
+        </nav>
+        <div class="nav-tools">
+          <a href="shop.html" class="icon-btn" aria-label="Open shop">Shop</a>
+          <span class="cart-badge" aria-live="polite">Cart <span data-cart-count>0</span></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div class="container flow" data-reveal>
+          <p class="eyebrow">Shop</p>
+          <h1>Curated Products, Built for Focus</h1>
+          <p class="lead">Minimal cards, accurate color rendering, and direct access to high-resolution detail pages.</p>
+          <div class="checkout-row">
+            <button type="button" class="cta" data-start-checkout>Secure Checkout</button>
+            <p class="checkout-status" data-checkout-status aria-live="polite">Stripe checkout ready when cart has items.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="shop-grid-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div class="flow">
+              <p class="eyebrow">Available Pieces</p>
+              <h2 id="shop-grid-title">TCDA Product Grid</h2>
+            </div>
+          </div>
+          <div class="product-grid" data-reveal>
+            <article class="product-card">
+              <a href="products/chroma-noise-jacket.html">
+                <div class="media">
+                  <img src="assets/images/product-chroma-jacket.webp" alt="Chroma Noise Jacket" loading="lazy" decoding="async" />
+                </div>
+                <div class="card-body">
+                  <p class="meta">Outerwear</p>
+                  <h3>Chroma Noise Jacket</h3>
+                  <p class="price">JPY 74,000</p>
+                </div>
+              </a>
+            </article>
+            <article class="product-card" id="spectral-veil-dress">
+              <div class="media">
+                <img src="assets/images/product-spectral-dress.webp" alt="Spectral Veil Dress" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-body">
+                <p class="meta">Dress</p>
+                <h3>Spectral Veil Dress</h3>
+                <p class="price">JPY 68,000</p>
+              </div>
+            </article>
+            <article class="product-card" id="prism-silence-shirt">
+              <div class="media">
+                <img src="assets/images/product-prism-shirt.webp" alt="Prism Silence Shirt" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-body">
+                <p class="meta">Shirt</p>
+                <h3>Prism Silence Shirt</h3>
+                <p class="price">JPY 41,000</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="media">
+                <img src="assets/images/product-cyan-coat.webp" alt="Cyan Echo Coat" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-body">
+                <p class="meta">Coat</p>
+                <h3>Cyan Echo Coat</h3>
+                <p class="price">JPY 82,000</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="media">
+                <img src="assets/images/product-afterglow-trousers.webp" alt="Afterglow Trousers" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-body">
+                <p class="meta">Bottoms</p>
+                <h3>Afterglow Trousers</h3>
+                <p class="price">JPY 49,000</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="media">
+                <img src="assets/images/product-monochrome-set.webp" alt="Monochrome Drift Set" loading="lazy" decoding="async" />
+              </div>
+              <div class="card-body">
+                <p class="meta">Set</p>
+                <h3>Monochrome Drift Set</h3>
+                <p class="price">JPY 97,000</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <p>TCDA Shop</p>
+        <p>Semantic product cards and headless-ready cart hooks.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/runtime-config.js" defer></script>
+    <script src="assets/js/commerce.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

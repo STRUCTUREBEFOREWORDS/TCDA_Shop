@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shop | TCDA</title>
+    <meta name="description" content="Minimal luxury product grid by TCDA." />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="index.html">TCDA</a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>Menu</button>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="brand.html">Brand</a>
+          <a href="collection.html">Collection</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="archive.html">Archive</a>
+          <a href="shop.html" aria-current="page">Shop</a>
+        </nav>
+        <div class="nav-tools"><div class="cart-pill">Cart <span data-cart-count>0</span></div></div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div class="container flow" data-reveal>
+          <p class="eyebrow">Shop</p>
+          <h1>Minimal Product Grid</h1>
+          <p class="lead">Clean cards, high-resolution previews, and a secure checkout placeholder ready for future API integration.</p>
+          <div class="action-row">
+            <button class="btn" type="button" data-checkout-placeholder>Secure Checkout Placeholder</button>
+            <p class="checkout-status" data-checkout-status aria-live="polite">Checkout backend ready for future Stripe/Printful integration.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="product-grid" data-reveal>
+            <article class="card"><a href="products/chroma-noise-jacket.html"><div class="media"><img src="images/product-chroma-jacket.webp" alt="Chroma Noise Jacket shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Outerwear</p><h3>Chroma Noise Jacket</h3><p class="price">JPY 74,000</p></div></a></article>
+            <article class="card"><div class="media"><img src="images/product-spectral-dress.webp" alt="Spectral Veil Dress shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Dress</p><h3>Spectral Veil Dress</h3><p class="price">JPY 68,000</p></div></article>
+            <article class="card"><div class="media"><img src="images/product-prism-shirt.webp" alt="Prism Silence Shirt shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Shirt</p><h3>Prism Silence Shirt</h3><p class="price">JPY 41,000</p></div></article>
+            <article class="card"><div class="media"><img src="images/product-cyan-coat.webp" alt="Cyan Echo Coat shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Coat</p><h3>Cyan Echo Coat</h3><p class="price">JPY 82,000</p></div></article>
+            <article class="card"><div class="media"><img src="images/product-afterglow-trousers.webp" alt="Afterglow Trousers shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Bottoms</p><h3>Afterglow Trousers</h3><p class="price">JPY 49,000</p></div></article>
+            <article class="card"><div class="media"><img src="images/product-monochrome-set.webp" alt="Monochrome Drift Set shop image" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">Set</p><h3>Monochrome Drift Set</h3><p class="price">JPY 97,000</p></div></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="footer-wrap"><p>TCDA Shop</p><p>Semantic markup, lightweight code, WebP optimized visuals.</p></div></footer>
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
