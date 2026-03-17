@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" dir="ltr" data-page-title-key="title_lookbook">
+<html lang="en" dir="ltr" data-page-title-key="title_brand">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lookbook | TCDA</title>
-    <meta name="description" content="Editorial fashion lookbook by TCDA." />
+    <title>Brand | TCDA</title>
+    <meta name="description" content="TCDA brand philosophy and storytelling behind wearable digital art." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -15,9 +15,9 @@
           data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
         <nav class="nav-links" aria-label="Main navigation">
           <a href="index.html" data-i18n="nav_home">Home</a>
-          <a href="brand.html" data-i18n="nav_brand">Brand</a>
+          <a href="brand.html" aria-current="page" data-i18n="nav_brand">Brand</a>
           <a href="collection.html" data-i18n="nav_collection">Collection</a>
-          <a href="lookbook.html" aria-current="page" data-i18n="nav_lookbook">Lookbook</a>
+          <a href="lookbook.html" data-i18n="nav_lookbook">Lookbook</a>
           <a href="archive.html" data-i18n="nav_archive">Archive</a>
           <a href="shop.html" data-i18n="nav_shop">Shop</a>
         </nav>
@@ -58,10 +58,42 @@
 
     <main class="page">
       <section class="hero">
-        <div class="container flow" data-reveal>
-          <p class="eyebrow" data-i18n="lb_eyebrow">Lookbook</p>
-          <h1 data-i18n="lb_h1">Editorial Frames in Motion</h1>
-          <p class="lead" data-i18n="lb_lead">Large-scale fashion imagery designed to immerse viewers before product decision.</p>
+        <div class="container hero-grid">
+          <div class="flow" data-reveal>
+            <p class="eyebrow" data-i18n="brand_eyebrow">Brand</p>
+            <h1 data-i18n-html="brand_h1_html">Art Becomes Clothing,<br />Clothing Becomes Voice.</h1>
+            <p class="lead" data-i18n="brand_lead">
+              TCDA exists to merge abstract digital art with premium garment craft. We design wearable pieces that carry
+              emotional color architecture into everyday movement.
+            </p>
+          </div>
+          <figure class="hero-art" data-reveal>
+            <img src="images/hero-story.webp"
+              data-i18n-attr='{"alt":"brand_hero_img_alt"}'
+              alt="Creative director shaping a digital art fashion garment"
+              loading="eager" decoding="async" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container split">
+          <article class="panel flow" data-reveal>
+            <p class="eyebrow" data-i18n="brand_concept_eyebrow">Wearable Art</p>
+            <h2 data-i18n="brand_concept_h2">Concept</h2>
+            <p data-i18n="brand_concept_p">
+              Each release starts from an original digital canvas. Layers of color, noise, and gradients are mapped to
+              texture, cut, and silhouette, preserving visual intensity in physical form.
+            </p>
+          </article>
+          <article class="panel flow" data-reveal>
+            <p class="eyebrow" data-i18n="brand_method_eyebrow">Creative Philosophy</p>
+            <h2 data-i18n="brand_method_h2">Method</h2>
+            <p data-i18n="brand_method_p">
+              We remove visual noise so the artwork can breathe. Neutral environments, disciplined typography, and cinematic
+              spacing place focus where it belongs: on color and shape.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -69,14 +101,26 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <div class="flow">
-              <p class="eyebrow" data-i18n="lb_vol_eyebrow">Volume 01</p>
-              <h2 data-i18n="lb_vol_h2">Echoes of Colorfield</h2>
+              <p class="eyebrow" data-i18n="brand_process_eyebrow">Storytelling</p>
+              <h2 data-i18n="brand_process_h2">Three-Step Creative Process</h2>
             </div>
           </div>
-          <div class="lookbook-grid" data-reveal>
-            <article class="card"><div class="media"><img src="images/lookbook-4.webp" alt="Lookbook editorial chapter one" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="lb_ch1_meta">Chapter 01</p><h3 data-i18n="lb_ch1_h3">Threshold</h3><p data-i18n="lb_ch1_p">A calm opening where silhouette meets chromatic density.</p></div></article>
-            <article class="card"><div class="media"><img src="images/lookbook-5.webp" alt="Lookbook editorial chapter two" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="lb_ch2_meta">Chapter 02</p><h3 data-i18n="lb_ch2_h3">Interference</h3><p data-i18n="lb_ch2_p">Color gradients shift with body movement and light.</p></div></article>
-            <article class="card"><div class="media"><img src="images/lookbook-2.webp" alt="Lookbook editorial chapter three" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="lb_ch3_meta">Chapter 03</p><h3 data-i18n="lb_ch3_h3">Release</h3><p data-i18n="lb_ch3_p">Garment as visual language and personal signature.</p></div></article>
+          <div class="grid-3" data-reveal>
+            <article class="panel flow">
+              <p class="meta" data-i18n="brand_step1_meta">01 Art Creation</p>
+              <h3 data-i18n="brand_step1_h3">Digital Abstraction</h3>
+              <p data-i18n="brand_step1_p">Original artwork is generated and curated for emotion, rhythm, and chromatic precision.</p>
+            </article>
+            <article class="panel flow">
+              <p class="meta" data-i18n="brand_step2_meta">02 Textile Translation</p>
+              <h3 data-i18n="brand_step2_h3">Material Dialogue</h3>
+              <p data-i18n="brand_step2_p">Color data is translated into print and fabric behavior while preserving tonal depth.</p>
+            </article>
+            <article class="panel flow">
+              <p class="meta" data-i18n="brand_step3_meta">03 Editorial Realization</p>
+              <h3 data-i18n="brand_step3_h3">Wearable Expression</h3>
+              <p data-i18n="brand_step3_p">Final garments are shaped for cinematic presence, comfort, and lasting visual identity.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -84,10 +128,11 @@
 
     <footer class="site-footer">
       <div class="footer-wrap">
-        <p data-i18n="lb_footer_p">TCDA Lookbook</p>
-        <p><a href="shop.html" data-i18n="lb_footer_link">Go to Shop</a></p>
+        <p data-i18n="brand_footer_p">TCDA Brand Story</p>
+        <p><a href="collection.html" data-i18n="brand_footer_link">Continue to Collection</a></p>
       </div>
     </footer>
+
     <script src="js/i18n.js"></script>
     <script src="js/currency.js"></script>
     <script src="js/script.js" defer></script>
