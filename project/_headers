@@ -15,3 +15,6 @@
 
 /api/*
   Cache-Control: no-store
+
+/_version.txt
+  Cache-Control: no-store, no-cache, must-revalidate
