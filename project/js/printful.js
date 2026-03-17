@@ -23,8 +23,18 @@
   "use strict";
 
   /* ── 1. Config ────────────────────────────────────────────── */
-  const API_BASE = "/api/printful";
-  const STATIC_PRODUCTS_URL = "/data/printful-products.json";
+  const BASE_PATH = detectBasePath();
+  const API_BASE = `${BASE_PATH}/api/printful`;
+  const STATIC_PRODUCTS_URL = `${BASE_PATH}/data/printful-products.json`;
+
+  function detectBasePath() {
+    const isGithubPages = global.location.hostname.endsWith("github.io");
+    if (!isGithubPages) return "";
+
+    const parts = global.location.pathname.split("/").filter(Boolean);
+    if (!parts.length) return "";
+    return `/${parts[0]}`;
+  }
 
   /* ── 2. Low-level fetch ───────────────────────────────────── */
   async function pfFetch(path) {
