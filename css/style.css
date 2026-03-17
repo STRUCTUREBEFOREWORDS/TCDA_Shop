@@ -88,10 +88,18 @@ img {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-weight: 600;
+}
+
+.brand-logo {
+  display: block;
+  height: 28px;
+  width: auto;
 }
 
 .nav-toggle {
