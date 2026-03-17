@@ -18,15 +18,15 @@
         <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
           data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html" aria-current="page" data-i18n="nav_home">Home</a>
-          <a href="brand.html" data-i18n="nav_brand">Brand</a>
-          <a href="collection.html" data-i18n="nav_collection">Collection</a>
-          <a href="lookbook.html" data-i18n="nav_lookbook">Lookbook</a>
-          <a href="archive.html" data-i18n="nav_archive">Archive</a>
-          <a href="shop.html" data-i18n="nav_shop">Shop</a>
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="archive.html">Art</a>
+          <a href="collection.html">Collection</a>
+          <a href="brand.html">About</a>
+          <a href="shop.html">Shop</a>
         </nav>
         <div class="nav-tools">
-          <a class="btn-inline" href="shop.html" data-i18n="nav_shop">Shop</a>
+          <a class="btn-inline" href="shop.html">Cart</a>
+          <a class="btn-inline" href="archive.html">Search</a>
           <div class="cart-pill"><span data-i18n="cart_label">Cart</span> <span data-cart-count>0</span></div>
           <!-- Language / Currency switcher -->
           <div class="locale-switcher" id="locale-switcher">
@@ -66,113 +66,134 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="flow" data-reveal>
-            <p class="eyebrow" data-i18n="home_eyebrow">Transcend Color Digital Apparel</p>
-            <h1 data-i18n-html="home_h1_html">Wear Art,<br />Liberate Sensibility.</h1>
-            <p class="lead" data-i18n="home_lead">
-              A premium digital art apparel house where abstract chromatic compositions become wearable expression.
-              The experience begins with art, then moves into philosophy, then product discovery.
+            <p class="eyebrow">Transcend Color Digital Apparel</p>
+            <h1>Art you can wear.</h1>
+            <p class="lead">
+              TCDA is an art gallery and a fashion label at once. Enter through worldbuilding, discover artwork,
+              then choose the piece that becomes part of your story.
             </p>
             <div class="hero-actions">
-              <a class="btn" href="shop.html" data-i18n="home_btn_shop">Enter Shop</a>
-              <a class="btn-ghost" href="lookbook.html" data-i18n="home_btn_lookbook">View Lookbook</a>
+              <a class="btn" href="collection.html">View Collection</a>
+              <a class="btn-ghost" href="archive.html">View Artwork</a>
             </div>
           </div>
           <figure class="hero-art" data-reveal>
-            <img src="images/hero-home.webp"
-              data-i18n-attr='{"alt":"home_hero_img_alt"}'
+            <img
+              src="images/hero-home.webp"
               alt="Editorial fashion model in immersive abstract color styling"
-              loading="eager" decoding="async" fetchpriority="high" />
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
           </figure>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="philosophy-title">
-        <div class="container split">
-          <div class="flow" data-reveal>
-            <p class="eyebrow" data-i18n="home_phi_eyebrow">Philosophy</p>
-            <h2 id="philosophy-title" data-i18n="home_phi_h2">A Digital Art Museum You Can Wear</h2>
-          </div>
-          <article class="panel flow" data-reveal>
-            <p data-i18n="home_phi_p1">
-              TCDA treats garments as moving gallery walls. Every drop starts as abstract digital artwork and is translated
-              into textile, silhouette, and motion.
-            </p>
-            <p data-i18n="home_phi_p2">
-              Our world is built for quiet intensity: neutral space, accurate color rendering, and deliberate visual rhythm.
-            </p>
-            <a class="btn-ghost" href="brand.html" data-i18n="home_phi_link">Explore Brand Story</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="featured-title">
+      <section class="section" aria-labelledby="artwork-title">
         <div class="container">
           <div class="section-head" data-reveal>
             <div class="flow">
-              <p class="eyebrow" data-i18n="home_feat_eyebrow">Featured Collection</p>
-              <h2 id="featured-title" data-i18n="home_feat_h2">Chromatic Drift</h2>
+              <p class="eyebrow">Featured Artwork</p>
+              <h2 id="artwork-title">Gallery Fragments</h2>
             </div>
-            <a class="btn-ghost" href="collection.html" data-i18n="home_feat_link">View All Pieces</a>
+            <a class="btn-ghost" href="archive.html">Open Art Archive</a>
           </div>
           <div class="grid-3" data-reveal>
             <article class="card">
-              <a href="products/chroma-noise-jacket.html">
+              <a href="archive.html">
                 <div class="media">
-                  <img src="images/product-chroma-jacket.webp" alt="Chroma Noise Jacket product image" loading="lazy" decoding="async" />
+                  <img src="images/archive-1.webp" alt="Featured artwork A-019" loading="lazy" decoding="async" />
                 </div>
                 <div class="card-body">
-                  <p class="meta" data-i18n="cat_outerwear">Outerwear</p>
-                  <h3 data-i18n="prod_chroma_jacket">Chroma Noise Jacket</h3>
-                  <p class="price" data-price-display data-price-jpy="74000">JPY 74,000</p>
+                  <p class="meta">Artwork</p>
+                  <h3>A-019 Color Echo Plane</h3>
                 </div>
               </a>
             </article>
             <article class="card">
-              <div class="media">
-                <img src="images/product-spectral-dress.webp" alt="Spectral Veil Dress product image" loading="lazy" decoding="async" />
-              </div>
-              <div class="card-body">
-                <p class="meta" data-i18n="cat_dress">Dress</p>
-                <h3 data-i18n="prod_spectral_dress">Spectral Veil Dress</h3>
-                <p class="price" data-price-display data-price-jpy="68000">JPY 68,000</p>
-              </div>
+              <a href="archive.html">
+                <div class="media">
+                  <img src="images/archive-2.webp" alt="Featured artwork A-027" loading="lazy" decoding="async" />
+                </div>
+                <div class="card-body">
+                  <p class="meta">Artwork</p>
+                  <h3>A-027 Vapor Contour Grid</h3>
+                </div>
+              </a>
             </article>
             <article class="card">
-              <div class="media">
-                <img src="images/product-prism-shirt.webp" alt="Prism Silence Shirt product image" loading="lazy" decoding="async" />
-              </div>
-              <div class="card-body">
-                <p class="meta" data-i18n="cat_shirt">Shirt</p>
-                <h3 data-i18n="prod_prism_shirt">Prism Silence Shirt</h3>
-                <p class="price" data-price-display data-price-jpy="41000">JPY 41,000</p>
-              </div>
+              <a href="archive.html">
+                <div class="media">
+                  <img src="images/archive-3.webp" alt="Featured artwork A-031" loading="lazy" decoding="async" />
+                </div>
+                <div class="card-body">
+                  <p class="meta">Artwork</p>
+                  <h3>A-031 Muted Prism Shift</h3>
+                </div>
+              </a>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="entry-title">
+      <section class="section" aria-labelledby="collection-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div class="flow">
+              <p class="eyebrow">Collection</p>
+              <h2 id="collection-title">Hoodie / T-shirt / Shoes</h2>
+            </div>
+            <a class="btn-ghost" href="shop.html">Go to Shop</a>
+          </div>
+          <div class="grid-3" data-reveal>
+            <article class="panel flow category-panel">
+              <p class="meta">01</p>
+              <h3>Hoodie</h3>
+              <p>Structured silhouettes for layered daily wear.</p>
+            </article>
+            <article class="panel flow category-panel">
+              <p class="meta">02</p>
+              <h3>T-shirt</h3>
+              <p>High-fidelity all-over print with gallery-grade color.</p>
+            </article>
+            <article class="panel flow category-panel">
+              <p class="meta">03</p>
+              <h3>Shoes</h3>
+              <p>Movement-focused pieces to complete the visual language.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="story-title">
         <div class="container split">
           <div class="flow" data-reveal>
-            <p class="eyebrow" data-i18n="home_journey_eyebrow">Journey</p>
-            <h2 id="entry-title" data-i18n="home_journey_h2">Art Inspiration to Purchase Decision</h2>
+            <p class="eyebrow">Brand Story</p>
+            <h2 id="story-title">Wear Art. Liberate Sensibility.</h2>
           </div>
           <article class="panel flow" data-reveal>
-            <p data-i18n="home_journey_p">Start with gallery immersion, understand the philosophy, then discover pieces designed for real-world wear.</p>
-            <div class="action-row">
-              <a class="btn" href="shop.html" data-i18n="home_journey_shop">Shop Collection</a>
-              <a class="btn-ghost" href="lookbook.html" data-i18n="home_journey_lookbook">Open Lookbook</a>
-            </div>
+            <p>
+              We do not sell garments as objects. We design an entry point into a world where color, memory,
+              and motion become identity.
+            </p>
+            <p>
+              The path is intentional: world view, artwork, collection, trust, and then purchase.
+            </p>
+            <a class="btn-ghost" href="brand.html">Read Concept</a>
           </article>
         </div>
       </section>
 
-      <section class="section" aria-label="Deploy check">
+      <section class="section" aria-labelledby="social-title">
         <div class="container" data-reveal>
-          <article class="panel flow" style="border: 2px solid var(--ink)">
-            <p class="eyebrow">DEPLOY CHECK</p>
-            <p>INDEX UPDATED: 2026-03-17 16:45 JST / commit bfa3198+</p>
-            <p><a class="btn" href="shop.html?v=1672400">Open Updated Shop</a></p>
+          <article class="panel social-panel flow">
+            <p class="eyebrow">Social</p>
+            <h2 id="social-title">Instagram Journal</h2>
+            <p>Follow artwork studies, in-progress drops, and editorial previews.</p>
+            <div class="action-row">
+              <a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Open Instagram</a>
+              <a class="btn-ghost" href="lookbook.html">View Lookbook</a>
+            </div>
           </article>
         </div>
       </section>
@@ -180,8 +201,13 @@
 
     <footer class="site-footer">
       <div class="footer-wrap">
-        <p data-i18n="footer_tagline">Transcend Color Digital Apparel / Wear Art, Liberate Sensibility.</p>
-        <p data-i18n="footer_tech">HTTPS ready, Cloudflare compatible, secure checkout placeholder included.</p>
+        <p>Transcend Color Digital Apparel / Art Gallery + Fashion EC</p>
+        <p>
+          <a href="brand.html">About</a> /
+          <a href="shop.html">Shop</a> /
+          <a href="archive.html">Policy</a> /
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">SNS</a>
+        </p>
       </div>
     </footer>
 

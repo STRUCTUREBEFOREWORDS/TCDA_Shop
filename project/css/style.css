@@ -293,6 +293,17 @@ p {
   padding: var(--s4);
 }
 
+.category-panel {
+  min-height: 220px;
+  justify-content: end;
+}
+
+.social-panel {
+  background:
+    linear-gradient(145deg, rgba(16, 16, 16, 0.02), rgba(30, 74, 87, 0.08)),
+    var(--paper);
+}
+
 .grid-3,
 .grid-2,
 .product-grid,
