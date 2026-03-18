@@ -222,6 +222,40 @@ p {
   gap: var(--s3);
 }
 
+.collection-intro {
+  max-width: 76ch;
+}
+
+.collection-manifesto {
+  font-size: clamp(1.06rem, 2vw, 1.28rem);
+  max-width: 62ch;
+  color: var(--ink);
+}
+
+.collection-actions {
+  margin-top: 0.3rem;
+}
+
+.collection-index {
+  display: grid;
+  gap: var(--s3);
+}
+
+.index-item {
+  padding-top: var(--s2);
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.45rem;
+}
+
+.index-item p {
+  max-width: 58ch;
+}
+
+.card-link {
+  display: block;
+}
+
 .hero-art {
   position: relative;
   overflow: hidden;
@@ -508,6 +542,11 @@ p {
 @media (min-width: 980px) {
   .split {
     grid-template-columns: 0.86fr 1.14fr;
+  }
+
+  .collection-index {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s4);
   }
 
   .product-layout {
