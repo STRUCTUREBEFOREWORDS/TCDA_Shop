@@ -14,7 +14,7 @@
     <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to content</a>
     <header class="site-header">
       <div class="nav-wrap">
-        <a class="brand" href="index.html" aria-label="TCDA Home">TCDA</a>
+        <a class="brand" href="index.html" aria-label="TCDA Home"><img src="images/brand-logo.jpg" alt="TCDA logo" class="brand-logo" /></a>
         <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
           data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
         <nav class="nav-links" aria-label="Main navigation">
@@ -25,8 +25,6 @@
           <a href="shop.html" data-i18n="nav_shop">Shop</a>
         </nav>
         <div class="nav-tools">
-          <a class="btn-inline" href="shop.html">Cart</a>
-          <a class="btn-inline" href="archive.html">Search</a>
           <div class="cart-pill"><span data-i18n="cart_label">Cart</span> <span data-cart-count>0</span></div>
           <!-- Language / Currency switcher -->
           <div class="locale-switcher" id="locale-switcher">
@@ -73,9 +71,10 @@
               then choose the piece that becomes part of your story.
             </p>
             <div class="hero-actions">
-              <a class="btn" href="collection.html" data-i18n="home_cta_collection">View Collection</a>
-              <a class="btn-ghost" href="archive.html" data-i18n="home_cta_artwork">View Artwork</a>
+              <a class="btn" href="shop.html" data-i18n="home_col_link_new">Go to Shop</a>
+              <a class="btn-ghost" href="collection.html" data-i18n="home_cta_collection">View Collection</a>
             </div>
+            <p class="hero-note">Design is reduced so color can speak first. Products appear after context.</p>
           </div>
           <figure class="hero-art" data-reveal>
             <img
@@ -86,6 +85,16 @@
               fetchpriority="high"
             />
           </figure>
+        </div>
+      </section>
+
+      <section class="section section-tight" aria-labelledby="manifesto-title">
+        <div class="container" data-reveal>
+          <article class="panel manifesto-strip">
+            <p class="eyebrow">Manifesto</p>
+            <h2 id="manifesto-title">We do not decorate clothing. We build visual language you can inhabit.</h2>
+            <p>Gallery logic first, product logic second. This is the operating rule for every TCDA drop.</p>
+          </article>
         </div>
       </section>
 
@@ -143,7 +152,7 @@
               <p class="eyebrow" data-i18n="home_col_eyebrow_new">Collection</p>
               <h2 id="collection-title" data-i18n="home_col_h2_new">Hoodie / T-shirt / Shoes</h2>
             </div>
-            <a class="btn-ghost" href="shop.html" data-i18n="home_col_link_new">Go to Shop</a>
+            <a class="btn-ghost" href="collection.html" data-i18n="home_cta_collection">View Collection</a>
           </div>
           <div class="grid-3" data-reveal>
             <article class="panel flow category-panel">

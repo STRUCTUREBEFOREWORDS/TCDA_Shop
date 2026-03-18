@@ -13,7 +13,7 @@
   <body>
     <header class="site-header">
       <div class="nav-wrap">
-        <a class="brand" href="../index.html">TCDA</a>
+        <a class="brand" href="../index.html" aria-label="TCDA Home"><img src="../images/brand-logo.jpg" alt="TCDA logo" class="brand-logo" /></a>
         <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
           data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
         <nav class="nav-links" aria-label="Main navigation">
@@ -68,13 +68,35 @@
 
           <article class="flow" data-reveal data-product-id="tcda-cnj-001" data-product-name="Chroma Noise Jacket">
             <p class="eyebrow" data-i18n="prod_cnj_eyebrow">Outerwear / Limited Edition</p>
-            <h1 style="font-size: clamp(2rem, 5vw, 3.5rem)" data-i18n="prod_cnj_title">Chroma Noise Jacket</h1>
+            <h1 class="product-title" data-i18n="prod_cnj_title">Chroma Noise Jacket</h1>
             <p class="price" data-price-display data-price-jpy="74000">JPY 74,000</p>
 
             <div class="tag-row">
               <span class="tag" data-i18n="prod_cnj_tag1">Artwork Mapped Print</span>
               <span class="tag" data-i18n="prod_cnj_tag2">Unisex Fit</span>
               <span class="tag" data-i18n="prod_cnj_tag3">Limited Drop</span>
+            </div>
+
+            <article class="panel product-narrative flow">
+              <p class="eyebrow">Drop Narrative</p>
+              <h2 class="product-subtitle">From Archive A-019 to Wearable Form</h2>
+              <p>This piece is designed to carry one specific emotional tone: tension between cyan luminosity and dark granular calm. The silhouette is intentionally restrained so the artwork remains the main voice.</p>
+              <p>Read the product top-to-bottom as a sequence: visual impact, material logic, size confidence, then purchase.</p>
+            </article>
+
+            <div class="flow product-buybox" aria-label="Size selection">
+              <p class="meta" data-i18n="prod_cnj_size_meta">Size</p>
+              <div class="size-row">
+                <button class="size-btn" type="button" aria-pressed="false">S</button>
+                <button class="size-btn" type="button" aria-pressed="true">M</button>
+                <button class="size-btn" type="button" aria-pressed="false">L</button>
+                <button class="size-btn" type="button" aria-pressed="false">XL</button>
+              </div>
+              <div class="action-row">
+                <button class="btn" type="button" data-add-to-cart data-product-id="tcda-cnj-001" data-product-name="Chroma Noise Jacket" data-product-price="74000" data-i18n="prod_cnj_add">Add to Cart</button>
+                <a class="btn-ghost" href="../archive.html" data-i18n="prod_footer_link">See Original Artwork Archive</a>
+              </div>
+              <p class="checkout-status" data-checkout-status aria-live="polite" data-i18n="prod_cnj_status">Future integrations: Stripe, Printful API, order system, customer accounts.</p>
             </div>
 
             <div class="flow">
@@ -134,23 +156,19 @@
                 </tbody>
               </table>
             </div>
-
-            <div class="flow" aria-label="Size selection">
-              <p class="meta" data-i18n="prod_cnj_size_meta">Size</p>
-              <div class="size-row">
-                <button class="size-btn" type="button" aria-pressed="false">S</button>
-                <button class="size-btn" type="button" aria-pressed="true">M</button>
-                <button class="size-btn" type="button" aria-pressed="false">L</button>
-                <button class="size-btn" type="button" aria-pressed="false">XL</button>
-              </div>
+            <div class="flow">
+              <h2 class="product-subtitle">Purchase Notes</h2>
+              <ul class="detail-list">
+                <li>Made-to-order production model to avoid excess inventory.</li>
+                <li>Estimated dispatch: 5-10 business days after order confirmation.</li>
+                <li>Color tone may vary slightly by display environment.</li>
+              </ul>
             </div>
 
             <div class="action-row">
-              <button class="btn" type="button" data-add-to-cart data-product-id="tcda-cnj-001" data-product-name="Chroma Noise Jacket" data-product-price="74000" data-i18n="prod_cnj_add">Add to Cart</button>
               <button class="btn-ghost" type="button" data-checkout-placeholder data-i18n="prod_cnj_checkout">Secure Checkout Placeholder</button>
               <a class="btn-ghost" href="../shop.html" data-i18n="prod_cnj_back">Back to Shop</a>
             </div>
-            <p class="checkout-status" data-checkout-status aria-live="polite" data-i18n="prod_cnj_status">Future integrations: Stripe, Printful API, order system, customer accounts.</p>
             <p class="notice" data-i18n="prod_cnj_notice">Cloudflare-compatible architecture and HTTPS-first deployment recommended.</p>
           </article>
         </div>

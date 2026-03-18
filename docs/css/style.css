@@ -287,6 +287,13 @@ p {
   gap: var(--s2);
 }
 
+.hero-note {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
 .btn,
 .btn-ghost,
 .btn-inline {
@@ -321,6 +328,10 @@ p {
   padding: clamp(3rem, 7vw, var(--s6)) 0;
 }
 
+.section-tight {
+  padding-top: 0;
+}
+
 .section-head {
   display: flex;
   justify-content: space-between;
@@ -339,6 +350,16 @@ p {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: var(--s4);
+}
+
+.manifesto-strip h2 {
+  font-size: clamp(1.45rem, 3.2vw, 2.3rem);
+  letter-spacing: -0.01em;
+  max-width: 26ch;
+}
+
+.manifesto-strip p:last-child {
+  max-width: 62ch;
 }
 
 .category-panel {
@@ -410,6 +431,25 @@ p {
 .product-layout {
   display: grid;
   gap: var(--s4);
+}
+
+.product-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.product-subtitle {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+}
+
+.product-narrative {
+  background: linear-gradient(145deg, rgba(16, 16, 16, 0.02), rgba(16, 16, 16, 0.04)), var(--paper);
+}
+
+.product-buybox {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--s3);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .product-hero {
