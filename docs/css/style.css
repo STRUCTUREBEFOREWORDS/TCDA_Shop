@@ -1167,3 +1167,97 @@ p {
   }
 }
 
+/* ────────────────────────────────────────────────────────────── */
+/* MONOGRAM DECORATION (TCDA) */
+/* ────────────────────────────────────────────────────────────── */
+
+.monogram-decoration {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.03;
+  font-size: 18vw;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  line-height: 1;
+}
+
+.page-header-monogram {
+  position: relative;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: var(--s4);
+}
+
+.page-header-monogram::before {
+  content: 'T';
+  position: absolute;
+  font-size: 120px;
+  font-weight: 900;
+  opacity: 0.05;
+  left: -20px;
+}
+
+.page-header-monogram::after {
+  content: 'TCDA';
+  position: absolute;
+  font-size: 48px;
+  font-weight: 700;
+  opacity: 0.08;
+  letter-spacing: 0.2em;
+  right: -40px;
+  transform: rotate(-15deg);
+}
+
+.footer-monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: var(--s4) 0;
+  opacity: 0.1;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.section {
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 120px;
+  height: 120px;
+  opacity: 0.02;
+  font-size: 100px;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.site-footer {
+  position: relative;
+}
+
+.site-footer::before {
+  content: 'TCDA';
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  font-size: 12vw;
+  font-weight: 900;
+  opacity: 0.03;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+  z-index: -1;
+}
+
