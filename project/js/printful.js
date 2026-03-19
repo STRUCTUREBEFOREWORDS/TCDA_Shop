@@ -26,6 +26,7 @@
   const BASE_PATH = detectBasePath();
   const API_BASE = `${BASE_PATH}/api/printful`;
   const STATIC_PRODUCTS_URL = `${BASE_PATH}/data/printful-products.json`;
+  const LOW_STOCK_THRESHOLD = 5;
   let _staticPayload = null;
 
   function detectBasePath() {
@@ -101,6 +102,80 @@
     if (Array.isArray(json?.result)) return json.result;
     if (Array.isArray(json?.products)) return json.products;
     return [];
+  }
+
+  /**
+   * Try to resolve numeric stock from a variant object.
+   * Returns null when no reliable numeric field exists.
+   */
+  function getVariantStockCount(variant) {
+    if (!variant || typeof variant !== "object") return null;
+
+    const stockCandidates = [
+      variant.stock,
+      variant.quantity,
+      variant.inventory,
+      variant.available,
+      variant.availability,
+      variant.warehouse_stock,
+      variant?.stock?.available,
+      variant?.availability?.quantity,
+      variant?.availability_data?.available,
+    ];
+
+    for (const value of stockCandidates) {
+      const n = typeof value === "number" ? value : Number(value);
+      if (Number.isFinite(n) && n >= 0) {
+        return Math.floor(n);
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Sum variant stock when numeric stock fields are available.
+   * Returns null if no numeric stock fields exist in any variant.
+   */
+  function getLowStockCount(productDetailOrSummary) {
+    if (!productDetailOrSummary || typeof productDetailOrSummary !== "object") {
+      return null;
+    }
+
+    const variants =
+      (Array.isArray(productDetailOrSummary.sync_variants) &&
+        productDetailOrSummary.sync_variants) ||
+      (Array.isArray(productDetailOrSummary.variants) &&
+        productDetailOrSummary.variants) ||
+      [];
+
+    if (!variants.length) return null;
+
+    let hasNumericStock = false;
+    let total = 0;
+
+    for (const variant of variants) {
+      const count = getVariantStockCount(variant);
+      if (count === null) continue;
+      hasNumericStock = true;
+      total += count;
+    }
+
+    if (!hasNumericStock) return null;
+    return total;
+  }
+
+  function formatLowStockLabel(count, lang) {
+    if (!Number.isFinite(count) || count > LOW_STOCK_THRESHOLD || count < 0) {
+      return "";
+    }
+
+    const baseLang = String(lang || "en").toLowerCase();
+    if (baseLang.startsWith("ja")) return `残り在庫 ${count} 点`;
+    if (baseLang.startsWith("zh")) return `仅剩 ${count} 件`;
+    if (baseLang.startsWith("es")) return `Solo quedan ${count}`;
+    if (baseLang.startsWith("ar")) return `المتبقي ${count}`;
+    return `Only ${count} left`;
   }
 
   /**
@@ -283,6 +358,19 @@
         addBtn.setAttribute("data-product-price", String(priceJpy));
       }
 
+      const stockCount = getLowStockCount(detail);
+      const stockLabel = formatLowStockLabel(stockCount, lang);
+      if (stockLabel) {
+        const buybox = document.querySelector(".product-buybox");
+        if (buybox && !buybox.querySelector("[data-low-stock-note]")) {
+          const stockEl = document.createElement("p");
+          stockEl.className = "stock-low";
+          stockEl.setAttribute("data-low-stock-note", "");
+          stockEl.textContent = stockLabel;
+          buybox.appendChild(stockEl);
+        }
+      }
+
       // Rebuild size buttons from synced variants when possible.
       const sizeRow = document.querySelector(".size-row");
       if (
@@ -379,6 +467,7 @@
     }
 
     const currency = window.TCDACurrency?.getCurrentCurrency?.() ?? "JPY";
+    const lang = document.documentElement.lang || "en";
     const fragment = document.createDocumentFragment();
 
     for (const p of products) {
@@ -400,6 +489,13 @@
       const priceDisplay = window.TCDACurrency?.formatPrice?.(priceJpy, currency)
         ?? `${currency} ${priceJpy.toLocaleString()}`;
 
+      const detail = await getProduct(p.id);
+      const stockCount = getLowStockCount(detail ?? p);
+      const stockLabel = formatLowStockLabel(stockCount, lang);
+      const stockHtml = stockLabel
+        ? `<p class="stock-low">${esc(stockLabel)}</p>`
+        : "";
+
       card.innerHTML =
         `<a href="products/chroma-noise-jacket.html?printfulId=${encodeURIComponent(String(p.id))}" class="card-link" aria-label="${esc(p.name)}">` +
         `<div class="media">${img}</div>` +
@@ -408,6 +504,7 @@
         `<p class="meta">${esc(categoryLabel || "PRODUCT")}</p>` +
         `<h3>${esc(p.name)}</h3>` +
         `<p class="price" data-price-display data-price-jpy="${priceJpy}">${esc(priceDisplay)}</p>` +
+        stockHtml +
         `</div>`;
 
       fragment.appendChild(card);
