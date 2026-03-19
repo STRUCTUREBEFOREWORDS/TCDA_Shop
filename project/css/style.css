@@ -1,11 +1,11 @@
 :root {
   --bg: #ffffff;
-  --paper: #fbfaf7;
-  --paper-2: #efede7;
-  --ink: #101010;
-  --muted: #65615a;
-  --line: #d6d6d6;
-  --accent: #1e4a57;
+  --paper: #ffffff;
+  --paper-2: #f5f5f5;
+  --ink: #000000;
+  --muted: #666666;
+  --line: #cccccc;
+  --accent: #000000;
   --max: 1240px;
   --s1: 0.5rem;
   --s2: 0.9rem;
@@ -28,10 +28,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.065) 0 1px, transparent 1px 28px),
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.065) 0 1px, transparent 1px 28px),
-    linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  background: #ffffff;
   font-family: "Avenir Next", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   letter-spacing: 0.01em;
