@@ -368,6 +368,55 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
+
+  /* ── Newsletter Signup ────────────────────────────────────── */
+  const newsletterForm = document.querySelector("[data-newsletter-form]");
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const emailInput = newsletterForm.querySelector("[type='email']");
+      const email = emailInput?.value?.trim();
+      const submitBtn = newsletterForm.querySelector("button[type='submit']");
+
+      if (email) {
+        // Store email in localStorage (simple solution; in production use backend API)
+        const emails = JSON.parse(
+          localStorage.getItem("tcda_newsletter") || "[]",
+        );
+        if (!emails.includes(email)) {
+          emails.push(email);
+          localStorage.setItem("tcda_newsletter", JSON.stringify(emails));
+        }
+
+        // Show success feedback
+        const origText = submitBtn?.textContent;
+        if (submitBtn) {
+          submitBtn.textContent = "✓ Subscribed!";
+          submitBtn.disabled = true;
+          setTimeout(() => {
+            submitBtn.textContent = origText;
+            submitBtn.disabled = false;
+            emailInput.value = "";
+          }, 2000);
+        }
+      }
+    });
+  }
+
+  /* ── Anchor Links (Smooth Scroll) ────────────────────────── */
+  document.querySelectorAll("a[href^='#']").forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      const targetId = anchor.getAttribute("href");
+      if (targetId && targetId !== "#") {
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          window.history.replaceState({}, "", targetId);
+        }
+      }
+    });
+  });
+};);
 
 

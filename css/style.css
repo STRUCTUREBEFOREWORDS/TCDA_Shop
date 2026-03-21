@@ -1168,6 +1168,238 @@ p {
 }
 
 /* ────────────────────────────────────────────────────────────── */
+/* CV OPTIMIZATION: Trust Signals, Newsletter, Enhanced CTA */
+/* ────────────────────────────────────────────────────────────── */
+
+.hero-trust {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+.hero-trust span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: white;
+  font-weight: 700;
+  padding: 0.95rem 1.8rem;
+  font-size: 0.78rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Trust Signals Grid */
+.trust-section {
+  background: #f9f9f9;
+  padding: clamp(2.5rem, 6vw, var(--s5)) 0;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--s4);
+}
+
+.trust-item {
+  text-align: center;
+  padding: var(--s3);
+}
+
+.trust-icon {
+  font-size: 2.4rem;
+  margin-bottom: var(--s2);
+  display: block;
+}
+
+.trust-item h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+
+.trust-item p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  padding: clamp(3rem, 7vw, var(--s6)) 0;
+}
+
+.newsletter-box {
+  background: var(--ink);
+  color: white;
+  padding: clamp(2.5rem, 5vw, 4rem);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s4);
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .newsletter-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+.newsletter-content h2 {
+  color: white;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  margin-bottom: var(--s2);
+}
+
+.newsletter-content p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+.newsletter-input::placeholder {
+  color: #999;
+}
+
+.newsletter-form .btn-primary {
+  background: white;
+  color: var(--ink);
+  border-color: white;
+  white-space: nowrap;
+}
+
+.newsletter-form .btn-primary:hover {
+  background: #f5f5f5;
+}
+
+/* Products Section */
+.products-section {
+  position: relative;
+}
+
+.product-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--ink);
+  color: white;
+  padding: 0.35rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  z-index: 5;
+}
+
+.product-badge.limited {
+  background: #d32f2f;
+}
+
+.product-badge.new {
+  background: #1976d2;
+}
+
+/* Quick View Overlay */
+.card {
+  position: relative;
+}
+
+.card-quick-buy {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: var(--s2);
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--ease), transform var(--ease);
+  border-radius: 0 0 6px 6px;
+}
+
+.card:hover .card-quick-buy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-quick-buy button {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: background var(--ease);
+}
+
+.card-quick-buy button:hover {
+  background: #f0f0f0;
+}
+
+/* Urgency indicators */
+.stock-low {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* Price Highlight */
+.was-price {
+  text-decoration: line-through;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-right: 0.5rem;
+}
+
+.sale-badge {
+  background: #d32f2f;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+/* ────────────────────────────────────────────────────────────── */
 /* MONOGRAM DECORATION (TCDA) */
 /* ────────────────────────────────────────────────────────────── */
 
