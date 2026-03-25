@@ -80,7 +80,7 @@
           <!-- Luxury Shop Layout: Sidebar + Main Grid -->
           <div class="luxury-shop-layout">
             <!-- Left Sidebar: Filters -->
-            <aside class="shop-sidebar" aria-label="Filter options">
+            <aside class="shop-sidebar" id="shop-sidebar" aria-label="Filter options">
               <div class="filter-group">
                 <button class="filter-toggle" type="button" aria-expanded="true" data-filter-toggle="category">
                   <span class="filter-label" data-i18n="filter_category">Category</span>
@@ -158,23 +158,24 @@
             <!-- Right Main Content: Search + Grid -->
             <div class="shop-main">
               <div class="shop-controls" data-reveal>
+                <!-- モバイル専用フィルタートグル -->
+                <button class="mobile-filter-toggle" type="button" id="mobile-filter-btn"
+                        aria-expanded="false" aria-controls="shop-sidebar"
+                        data-i18n="filter_toggle">☰ Filter</button>
                 <div class="search-box">
                   <input type="text" placeholder="Search products..." class="search-input" data-search-input data-i18n-attr='{"placeholder":"search_placeholder"}' />
                 </div>
                 <select class="sort-select" data-sort-select data-i18n-attr='{"aria-label":"sort_label"}'>
-                  <option value="featured">Featured</option>
-                  <option value="newest">Newest</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                  <option value="popularity">Popular</option>
+                  <option value="featured" data-i18n="sort_featured">Featured</option>
+                  <option value="newest"   data-i18n="sort_newest">Newest</option>
+                  <option value="price-low" data-i18n="sort_price_low">Price: Low to High</option>
+                  <option value="price-high" data-i18n="sort_price_high">Price: High to Low</option>
+                  <option value="popularity" data-i18n="sort_popularity">Popular</option>
                 </select>
               </div>
 
-              <div class="product-grid luxury-grid" data-reveal data-printful-shop-grid>
-            <article class="card"><a href="products/chroma-noise-jacket.html"><div class="media"><img src="images/product-prism-shirt.webp" alt="Men's T-shirt" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">TOPS / MEN'S</p><h3>Men's T-shirt</h3><p class="price" data-price-display data-price-jpy="4900">JPY 4,900</p></div></a></article>
-            <article class="card"><div class="media"><img src="images/product-spectral-dress.webp" alt="Women's T-shirt" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">TOPS / Women's</p><h3>Women's T-shirt</h3><p class="price" data-price-display data-price-jpy="4900">JPY 4,900</p></div></article>
-            <article class="card"><div class="media"><img src="images/product-chroma-jacket.webp" alt="Unisex Outer Jacket" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">OUTER / UNISEX</p><h3>Unisex Outer Jacket</h3><p class="price" data-price-display data-price-jpy="8900">JPY 8,900</p></div></article>
-            <article class="card"><div class="media"><img src="images/product-cyan-coat.webp" alt="Men's slip-on canvas shoes" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta">SHOES / MEN'S</p><h3>Men's slip-on canvas shoes</h3><p class="price" data-price-display data-price-jpy="6900">JPY 6,900</p></div></article>
+              <div class="product-grid luxury-grid" data-reveal data-printful-shop-grid id="shop-product-grid">
+                <p id="shop-loading" style="grid-column:1/-1;text-align:center;opacity:.4;padding:2rem">Loading products…</p>
               </div>
             </div>
           </div>
@@ -236,9 +237,160 @@
         <div class="footer-monogram" aria-hidden="true">T • C • D • A</div>
       </div>
     </footer>
+    <script src="data/products.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/currency.js"></script>
-    <script src="js/printful.js?v=20260317c"></script>
+    <script src="js/cart.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script>
+    /**
+     * ショップ商品グリッド — 動的レンダリング（多言語 · 多通貨対応）
+     *
+     * 優先度:
+     *   1. GET /api/printful/products（Printful 実データ）
+     *   2. window.ProductsData（data/products.js のローカルデータ）
+     */
+    (function () {
+      var SIZES = {
+        outer:  ["S", "M", "L", "XL"],
+        tshirt: ["XS", "S", "M", "L", "XL", "2XL"],
+        shoes:  ["24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"],
+      };
+      var META = { outer: "OUTER", tshirt: "TOPS", shoes: "SHOES" };
+
+      /** 現在の表示言語で "Add to Cart" ラベルを返す */
+      function addToCartLabel() {
+        if (window.TCDAi18n && TCDAi18n.t && TCDAi18n.getCurrentLang) {
+          return TCDAi18n.t("cart_add", TCDAi18n.getCurrentLang()) || "Add to Cart";
+        }
+        return "Add to Cart";
+      }
+
+      /** 価格を現在の通貨でフォーマット */
+      function fmtPrice(jpy) {
+        if (window.TCDACurrency && TCDACurrency.formatPrice && TCDACurrency.getCurrentCurrency) {
+          return TCDACurrency.formatPrice(jpy, TCDACurrency.getCurrentCurrency());
+        }
+        return "JPY " + jpy.toLocaleString();
+      }
+
+      function renderGrid(products) {
+        var grid    = document.getElementById("shop-product-grid");
+        var loading = document.getElementById("shop-loading");
+        if (!grid) return;
+        if (loading) loading.remove();
+
+        if (!products || !products.length) {
+          grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;opacity:.4;padding:2rem">No products found.</p>';
+          return;
+        }
+
+        var html = products.map(function (p) {
+          var category  = p.category || "tshirt";
+          var metaLabel = META[category] || category.toUpperCase();
+          var sizes     = SIZES[category] || ["S", "M", "L", "XL"];
+          var image     = p.image || "images/product-prism-shirt.webp";
+          var page      = p.page  || "#";
+          var price     = p.price || 0;
+          var addLabel  = addToCartLabel();
+
+          // デフォルト選択: サイズ配列の2番目（M相当）、なければ最初
+          var defaultIdx = Math.min(1, sizes.length - 1);
+          var sizeBtns = sizes.map(function (s, i) {
+            return '<button class="size-btn" type="button" aria-pressed="' + (i === defaultIdx ? "true" : "false") + '">' + s + '</button>';
+          }).join("");
+
+          return [
+            '<article class="card" data-product-id="' + p.id + '" data-category="' + category + '">',
+            '  <a href="' + page + '" class="card-image-link">',
+            '    <div class="media">',
+            '      <img src="' + image + '" alt="' + p.name + '" loading="lazy" decoding="async" />',
+            '    </div>',
+            '    <div class="card-body">',
+            '      <p class="meta">' + metaLabel + '</p>',
+            '      <h3>' + p.name + '</h3>',
+            '      <p class="price" data-price-display data-price-jpy="' + price + '">' + fmtPrice(price) + '</p>',
+            '    </div>',
+            '  </a>',
+            '  <div class="card-buy">',
+            '    <div class="size-row" role="group" aria-label="Size">' + sizeBtns + '</div>',
+            '    <button class="btn card-quick-add" type="button"',
+            '            data-add-to-cart',
+            '            data-i18n="cart_add"',
+            '            data-product-id="' + p.id + '"',
+            '            data-product-name="' + p.name + '"',
+            '            data-product-price="' + price + '">' + addLabel + '</button>',
+            '  </div>',
+            '</article>',
+          ].join("\n");
+        }).join("\n");
+
+        grid.innerHTML = html;
+
+        // 通貨表示を現在の選択通貨で更新
+        if (window.TCDACurrency && TCDACurrency.applyPrices) {
+          var cur = TCDACurrency.getCurrentCurrency ? TCDACurrency.getCurrentCurrency() : "JPY";
+          TCDACurrency.applyPrices(cur);
+        }
+
+        // 言語を現在の選択言語で更新
+        if (window.TCDAi18n && TCDAi18n.apply && TCDAi18n.getCurrentLang) {
+          TCDAi18n.apply(TCDAi18n.getCurrentLang());
+        }
+      }
+
+      function loadFromLocalData() {
+        console.log("[Shop] ローカル ProductsData を使用");
+        var data = window.ProductsData;
+        if (data && data.products && data.products.length) {
+          renderGrid(data.products);
+        } else {
+          var g = document.getElementById("shop-product-grid");
+          if (g) g.innerHTML = '<p style="grid-column:1/-1;text-align:center;opacity:.4;padding:2rem">No products configured.</p>';
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Live Server（5500）からは絶対 URL で Express（3000）を叩く
+        var apiBase = ["5500","5501"].includes(window.location.port) ? "http://localhost:3000" : "";
+
+        // Printful API を試みる
+        fetch(apiBase + "/api/printful/products")
+          .then(function (res) {
+            if (!res.ok) throw new Error("API " + res.status);
+            return res.json();
+          })
+          .then(function (data) {
+            console.log("[Shop] Printful API:", data.products.length, "件");
+            var mapped = (data.products || []).map(function (p) {
+              return {
+                id:       "pf-" + p.printful_id,
+                name:     p.name,
+                price:    Math.round(parseFloat((p.variants && p.variants[0] && p.variants[0].price) || 0) * 150),
+                image:    p.image,
+                page:     "#",
+                category: "tshirt",
+              };
+            });
+            renderGrid(mapped);
+          })
+          .catch(function (err) {
+            console.log("[Shop] API 失敗 (" + err.message + ") — ローカルデータ使用");
+            loadFromLocalData();
+          });
+      });
+
+      // 通貨切り替え時に価格を再描画
+      document.addEventListener("tcda:currency:changed", function () {
+        var grid = document.getElementById("shop-product-grid");
+        if (!grid) return;
+        var priceEls = grid.querySelectorAll("[data-price-display][data-price-jpy]");
+        priceEls.forEach(function (el) {
+          var jpy = parseInt(el.getAttribute("data-price-jpy"), 10);
+          if (!isNaN(jpy)) el.textContent = fmtPrice(jpy);
+        });
+      });
+    })();
+    </script>
   </body>
 </html>
