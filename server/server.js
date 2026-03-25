@@ -22,7 +22,7 @@
 
 // ─── 環境変数（server/.env を確実に読み込む）────────────────────────────────
 const path = require("path");
-require("dotenv").config({ path: path.resolve(__dirname, ".env") });
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
 const express = require("express");
 const cors    = require("cors");
