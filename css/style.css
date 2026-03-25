@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg: #f8f8f6;
-  --paper: #f8f8f6;
-  --paper-2: #edede9;
+  --bg: #fff;
+  --paper: #fff;
+  --paper-2: #f5f5f3;
   --ink: #0a0a0a;
   --muted: #5c5c5c;
-  --line: #d4d4d0;
+  --line: #e0e0dc;
   --accent: #0a0a0a;
   --max: 1240px;
   --s1: 0.5rem;
@@ -15,8 +15,9 @@
   --s4: 2rem;
   --s5: 3.6rem;
   --s6: 6rem;
-  --radius: 4px;
-  --ease: 340ms cubic-bezier(0.16, 1, 0.3, 1);
+  --radius: 2px;
+  --ease: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-reveal: 900ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -361,14 +362,13 @@ p {
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(10, 10, 10, 0.2);
+  opacity: 0.8;
 }
 
 .btn-ghost:hover,
 .btn-inline:hover {
   background: var(--ink);
-  color: #f8f8f6;
+  color: #fff;
   border-color: var(--ink);
 }
 
@@ -433,16 +433,15 @@ p {
 }
 
 .card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  background: transparent;
+  border: none;
+  border-radius: 0;
   overflow: hidden;
-  transition: transform var(--ease), box-shadow var(--ease);
+  transition: opacity var(--ease);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(10, 10, 10, 0.12);
+  opacity: 0.85;
 }
 
 .media {
@@ -508,17 +507,12 @@ p {
 }
 
 .product-buybox {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: var(--s3);
-  background: rgba(255, 255, 255, 0.75);
+  padding: var(--s3) 0;
 }
 
 .product-hero {
-  border: 1px solid var(--line);
-  border-radius: 4px;
   overflow: hidden;
-  background: var(--paper);
+  background: var(--paper-2);
 }
 
 .product-hero img {
@@ -602,8 +596,8 @@ p {
 
 [data-reveal] {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity var(--ease-reveal), transform var(--ease-reveal);
 }
 
 [data-reveal].in-view {
@@ -1092,11 +1086,11 @@ p {
   flex-direction: column;
   gap: 0.9rem;
   cursor: pointer;
-  transition: transform var(--ease);
+  transition: opacity var(--ease);
 }
 
 .luxury-card:hover {
-  transform: translateY(-3px);
+  opacity: 0.85;
 }
 
 .luxury-card-media {
@@ -1108,21 +1102,7 @@ p {
 }
 
 .luxury-card-media::after {
-  content: 'VIEW';
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 10, 10, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.35em;
-  color: #f8f8f6;
-  opacity: 0;
-  transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-  z-index: 2;
+  content: none;
 }
 
 .luxury-card-link {
@@ -1320,8 +1300,7 @@ p {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
 }
 
 /* Trust Signals Grid */

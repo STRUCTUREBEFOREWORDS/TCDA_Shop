@@ -6,9 +6,61 @@
     <title>Chroma Noise Jacket | TCDA</title>
     <meta
       name="description"
-      content="Chroma Noise Jacket by TCDA with artwork details, material information, size selection, and add-to-cart."
+      content="Chroma Noise Jacket — artwork from archive A-019 translated into wearable form. Limited edition, unisex fit."
     />
     <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      /* ── Product page specific ──────────────────────────── */
+      .product-visual {
+        background: var(--paper-2);
+        overflow: hidden;
+      }
+      .product-visual img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+      }
+      .product-info {
+        padding: var(--s4) 0;
+        display: grid;
+        gap: var(--s3);
+      }
+      .product-price-line {
+        display: flex;
+        align-items: baseline;
+        gap: var(--s2);
+      }
+      .product-price {
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .product-detail-section {
+        border-top: 1px solid var(--line);
+        padding-top: var(--s4);
+        margin-top: var(--s3);
+        display: grid;
+        gap: var(--s3);
+      }
+      .product-detail-section h2 {
+        font-size: clamp(1rem, 2vw, 1.3rem);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      @media (min-width: 980px) {
+        .product-page-grid {
+          display: grid;
+          grid-template-columns: 1fr 0.9fr;
+          gap: var(--s5);
+          align-items: start;
+        }
+        .product-visual {
+          position: sticky;
+          top: 100px;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -60,135 +112,110 @@
     </header>
 
     <main class="page">
-      <section class="section" style="padding-top: clamp(4.5rem, 9vw, 7rem)">
-        <div class="container product-layout">
-          <figure class="product-hero" data-reveal>
-            <img src="../images/product-chroma-jacket.webp" alt="Chroma Noise Jacket large hero image" loading="eager" decoding="async" />
-          </figure>
+      <section class="section" style="padding-top: clamp(3rem, 7vw, 5rem); padding-bottom: clamp(4rem, 9vw, 7rem)">
+        <div class="container">
+          <div class="product-page-grid">
 
-          <article class="flow" data-reveal data-product-id="tcda-cnj-001" data-product-name="Chroma Noise Jacket">
-            <p class="eyebrow" data-i18n="prod_cnj_eyebrow">Outerwear / Limited Edition</p>
-            <h1 class="product-title" data-i18n="prod_cnj_title">Chroma Noise Jacket</h1>
-            <p class="price" data-price-display data-price-jpy="74000">JPY 74,000</p>
+            <!-- 1. VISUAL（最優先）-->
+            <figure class="product-visual" data-reveal>
+              <img
+                src="../images/product-chroma-jacket.webp"
+                alt="Chroma Noise Jacket — archive A-019 on wearable form"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </figure>
 
-            <div class="tag-row">
-              <span class="tag" data-i18n="prod_cnj_tag1">Artwork Mapped Print</span>
-              <span class="tag" data-i18n="prod_cnj_tag2">Unisex Fit</span>
-              <span class="tag" data-i18n="prod_cnj_tag3">Limited Drop</span>
-            </div>
+            <!-- 2. INFO + BUY（最小テキスト → 購入）-->
+            <article class="product-info flow" data-reveal data-product-id="tcda-cnj-001" data-product-name="Chroma Noise Jacket">
+              <div>
+                <p class="eyebrow" data-i18n="prod_cnj_eyebrow">Outerwear · Limited Edition</p>
+                <h1 class="product-title" style="font-size: clamp(1.8rem, 4vw, 3rem); margin-top: 0.4rem" data-i18n="prod_cnj_title">Chroma Noise Jacket</h1>
+              </div>
 
-            <article class="panel product-narrative flow">
-              <p class="eyebrow">Drop Narrative</p>
-              <h2 class="product-subtitle">From Archive A-019 to Wearable Form</h2>
-              <p>This piece is designed to carry one specific emotional tone: tension between cyan luminosity and dark granular calm. The silhouette is intentionally restrained so the artwork remains the main voice.</p>
-              <p>Read the product top-to-bottom as a sequence: visual impact, material logic, size confidence, then purchase.</p>
+              <div class="product-price-line">
+                <p class="product-price" data-price-display data-price-jpy="74000">JPY 74,000</p>
+              </div>
+
+              <div class="tag-row">
+                <span class="tag" data-i18n="prod_cnj_tag1">Artwork Mapped Print</span>
+                <span class="tag" data-i18n="prod_cnj_tag2">Unisex Fit</span>
+                <span class="tag" data-i18n="prod_cnj_tag3">Limited Drop</span>
+              </div>
+
+              <!-- 購入ボックス -->
+              <div class="product-buybox flow" aria-label="Size selection">
+                <p class="meta" data-i18n="prod_cnj_size_meta">Select Size</p>
+                <div class="size-row">
+                  <button class="size-btn" type="button" aria-pressed="false">S</button>
+                  <button class="size-btn" type="button" aria-pressed="true">M</button>
+                  <button class="size-btn" type="button" aria-pressed="false">L</button>
+                  <button class="size-btn" type="button" aria-pressed="false">XL</button>
+                </div>
+                <button class="btn" type="button" style="width: 100%; justify-content: center" data-add-to-cart data-product-id="tcda-cnj-001" data-product-name="Chroma Noise Jacket" data-product-price="74000" data-i18n="prod_cnj_add">Add to Cart</button>
+                <p class="checkout-status" data-checkout-status aria-live="polite" style="min-height: 1.2em"></p>
+              </div>
+
+              <!-- 3. 詳細（スクロール後）-->
+              <div class="product-detail-section">
+                <h2 data-i18n="prod_cnj_art_h2">Artwork</h2>
+                <p data-i18n="prod_cnj_art_p">
+                  From archive A-019. This jacket carries one emotional tone: tension between cyan luminosity
+                  and dark granular calm. The silhouette is restrained so the artwork speaks first.
+                </p>
+              </div>
+
+              <div class="product-detail-section">
+                <h2 data-i18n="prod_cnj_mat_h2">Material</h2>
+                <ul class="detail-list">
+                  <li data-i18n="prod_cnj_mat_li1">Shell: 100% recycled technical polyester</li>
+                  <li data-i18n="prod_cnj_mat_li2">Lining: breathable cupro blend</li>
+                  <li data-i18n="prod_cnj_mat_li3">Print: high-fidelity transfer for color accuracy</li>
+                  <li data-i18n="prod_cnj_mat_li4">Production: small-batch, made in Japan</li>
+                </ul>
+              </div>
+
+              <div class="product-detail-section">
+                <p class="meta" data-i18n="prod_cnj_size_table">Size Chart</p>
+                <table class="size-chart">
+                  <thead>
+                    <tr>
+                      <th data-i18n="prod_cnj_size_col_size">Size</th>
+                      <th data-i18n="prod_cnj_size_col_chest">Chest</th>
+                      <th data-i18n="prod_cnj_size_col_sleeve">Sleeve</th>
+                      <th data-i18n="prod_cnj_size_col_length">Length</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>S</td><td>48 cm</td><td>62 cm</td><td>68 cm</td></tr>
+                    <tr><td>M</td><td>51 cm</td><td>65 cm</td><td>72 cm</td></tr>
+                    <tr><td>L</td><td>54 cm</td><td>68 cm</td><td>76 cm</td></tr>
+                    <tr><td>XL</td><td>57 cm</td><td>71 cm</td><td>80 cm</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="product-detail-section">
+                <ul class="detail-list">
+                  <li>Made-to-order. Estimated dispatch: 5–10 business days.</li>
+                  <li>Color tone may vary slightly by display.</li>
+                </ul>
+                <a class="btn-ghost" href="../shop.html" data-i18n="prod_cnj_back" style="display: inline-flex">Back to Shop</a>
+              </div>
             </article>
-
-            <div class="flow product-buybox" aria-label="Size selection">
-              <p class="meta" data-i18n="prod_cnj_size_meta">Size</p>
-              <div class="size-row">
-                <button class="size-btn" type="button" aria-pressed="false">S</button>
-                <button class="size-btn" type="button" aria-pressed="true">M</button>
-                <button class="size-btn" type="button" aria-pressed="false">L</button>
-                <button class="size-btn" type="button" aria-pressed="false">XL</button>
-              </div>
-              <div class="action-row">
-                <button class="btn" type="button" data-add-to-cart data-product-id="tcda-cnj-001" data-product-name="Chroma Noise Jacket" data-product-price="74000" data-i18n="prod_cnj_add">Add to Cart</button>
-                <a class="btn-ghost" href="../archive.html" data-i18n="prod_footer_link">See Original Artwork Archive</a>
-              </div>
-              <p class="checkout-status" data-checkout-status aria-live="polite" data-i18n="prod_cnj_status">Future integrations: Stripe, Printful API, order system, customer accounts.</p>
-            </div>
-
-            <div class="flow">
-              <h2 style="font-size: clamp(1.35rem, 2vw, 1.75rem)" data-i18n="prod_cnj_art_h2">Artwork Description</h2>
-              <p data-i18n="prod_cnj_art_p">
-                Inspired by digital archive piece A-019, this jacket captures cyan interference and dark granular rhythm.
-                The structure is shaped to preserve color impact under movement.
-              </p>
-            </div>
-
-            <div class="flow">
-              <h2 style="font-size: clamp(1.35rem, 2vw, 1.75rem)" data-i18n="prod_cnj_mat_h2">Material Information</h2>
-              <ul class="detail-list">
-                <li data-i18n="prod_cnj_mat_li1">Shell: 100% recycled technical polyester</li>
-                <li data-i18n="prod_cnj_mat_li2">Lining: breathable cupro blend</li>
-                <li data-i18n="prod_cnj_mat_li3">Print: high-fidelity transfer for color accuracy</li>
-                <li data-i18n="prod_cnj_mat_li4">Production: small-batch craftsmanship, made in Japan</li>
-              </ul>
-            </div>
-
-            <div class="flow">
-              <p class="meta" data-i18n="prod_cnj_size_table">Size Chart</p>
-              <table class="size-chart">
-                <thead>
-                  <tr>
-                    <th data-i18n="prod_cnj_size_col_size">Size</th>
-                    <th data-i18n="prod_cnj_size_col_chest">Chest Width</th>
-                    <th data-i18n="prod_cnj_size_col_sleeve">Sleeve Length</th>
-                    <th data-i18n="prod_cnj_size_col_length">Total Length</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>S</td>
-                    <td>48 cm</td>
-                    <td>62 cm</td>
-                    <td>68 cm</td>
-                  </tr>
-                  <tr>
-                    <td>M</td>
-                    <td>51 cm</td>
-                    <td>65 cm</td>
-                    <td>72 cm</td>
-                  </tr>
-                  <tr>
-                    <td>L</td>
-                    <td>54 cm</td>
-                    <td>68 cm</td>
-                    <td>76 cm</td>
-                  </tr>
-                  <tr>
-                    <td>XL</td>
-                    <td>57 cm</td>
-                    <td>71 cm</td>
-                    <td>80 cm</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="flow">
-              <h2 class="product-subtitle">Purchase Notes</h2>
-              <ul class="detail-list">
-                <li>Made-to-order production model to avoid excess inventory.</li>
-                <li>Estimated dispatch: 5-10 business days after order confirmation.</li>
-                <li>Color tone may vary slightly by display environment.</li>
-              </ul>
-            </div>
-
-            <div class="action-row">
-              <button class="btn-ghost" type="button" data-checkout-placeholder data-i18n="prod_cnj_checkout">Secure Checkout Placeholder</button>
-              <a class="btn-ghost" href="../shop.html" data-i18n="prod_cnj_back">Back to Shop</a>
-            </div>
-            <p class="notice" data-i18n="prod_cnj_notice">Cloudflare-compatible architecture and HTTPS-first deployment recommended.</p>
-          </article>
+          </div>
         </div>
       </section>
 
       <!-- Reviews -->
-      <section class="section">
+      <section class="section" style="padding-top: 0">
         <div class="container" style="max-width: 860px">
           <div data-reveal class="flow">
-            <p class="eyebrow">Customer Reviews</p>
-            <h2 style="font-size: clamp(1.6rem, 3vw, 2.4rem)">What People Say</h2>
+            <p class="eyebrow">Reviews</p>
+            <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem)">4.8 / 5</h2>
           </div>
           <div data-reveal style="margin-top: var(--s4)">
-            <div class="reviews-summary">
-              <span class="reviews-score">4.8</span>
-              <div>
-                <div class="reviews-stars">★★★★★</div>
-                <p class="reviews-count">12 reviews</p>
-              </div>
-            </div>
             <div class="review-list">
               <div class="review-card">
                 <div class="review-header">
@@ -196,8 +223,8 @@
                   <span class="review-date">2026.02.14</span>
                 </div>
                 <div class="review-stars">★★★★★</div>
-                <p class="review-body">The print quality is exceptional — colors appear exactly as shown on screen. The weight of the jacket feels premium and the fit is relaxed without being shapeless. Worth every yen.</p>
-                <span class="review-verified">✓ Verified Purchase</span>
+                <p class="review-body">The print quality is exceptional — colors appear exactly as shown. The weight feels premium and the fit is relaxed without being shapeless.</p>
+                <span class="review-verified">Verified Purchase</span>
               </div>
               <div class="review-card">
                 <div class="review-header">
@@ -205,8 +232,8 @@
                   <span class="review-date">2026.01.30</span>
                 </div>
                 <div class="review-stars">★★★★★</div>
-                <p class="review-body">I ordered M and the sizing was perfect as described. The artwork looks even more striking in person — especially in natural light. People stop me on the street to ask about it.</p>
-                <span class="review-verified">✓ Verified Purchase</span>
+                <p class="review-body">The artwork looks even more striking in person — especially in natural light. People stop me on the street to ask about it.</p>
+                <span class="review-verified">Verified Purchase</span>
               </div>
               <div class="review-card">
                 <div class="review-header">
@@ -214,26 +241,49 @@
                   <span class="review-date">2025.12.20</span>
                 </div>
                 <div class="review-stars">★★★★☆</div>
-                <p class="review-body">Shipping took about 10 days (made-to-order, as expected). The quality more than compensated for the wait. Minus one star only because I wish there were more colorway options.</p>
-                <span class="review-verified">✓ Verified Purchase</span>
+                <p class="review-body">Shipping took about 10 days (made-to-order, as expected). The quality more than compensated for the wait.</p>
+                <span class="review-verified">Verified Purchase</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <!-- Related -->
+      <section class="section" style="padding-top: 0">
         <div class="container">
           <div class="section-head" data-reveal>
             <div class="flow">
-              <p class="eyebrow" data-i18n="prod_related_eyebrow">Related Products</p>
-              <h2 data-i18n="prod_related_h2">Complete the Story</h2>
+              <p class="eyebrow" data-i18n="prod_related_eyebrow">Related</p>
+              <h2 style="font-size: clamp(1.4rem, 2.5vw, 2rem)" data-i18n="prod_related_h2">Complete the Story</h2>
             </div>
+            <a class="btn-ghost" href="../shop.html" data-i18n="nav_shop">All Products</a>
           </div>
           <div class="relate-grid" data-reveal>
-            <article class="card"><div class="media"><img src="../images/product-spectral-dress.webp" alt="Related product Spectral Veil Dress" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="cat_dress">Dress</p><h3 data-i18n="prod_spectral_dress">Spectral Veil Dress</h3><p class="price" data-price-display data-price-jpy="68000">JPY 68,000</p></div></article>
-            <article class="card"><div class="media"><img src="../images/product-cyan-coat.webp" alt="Related product Cyan Echo Coat" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="cat_coat">Coat</p><h3 data-i18n="prod_cyan_coat">Cyan Echo Coat</h3><p class="price" data-price-display data-price-jpy="82000">JPY 82,000</p></div></article>
-            <article class="card"><div class="media"><img src="../images/product-afterglow-trousers.webp" alt="Related product Afterglow Trousers" loading="lazy" decoding="async" /></div><div class="card-body"><p class="meta" data-i18n="cat_bottoms">Bottoms</p><h3 data-i18n="prod_afterglow">Afterglow Trousers</h3><p class="price" data-price-display data-price-jpy="49000">JPY 49,000</p></div></article>
+            <article class="card">
+              <div class="media"><img src="../images/product-spectral-dress.webp" alt="Spectral Veil Dress" loading="lazy" decoding="async" /></div>
+              <div class="card-body">
+                <p class="meta" data-i18n="cat_dress">Dress</p>
+                <h3 data-i18n="prod_spectral_dress">Spectral Veil Dress</h3>
+                <p class="price" data-price-display data-price-jpy="68000">JPY 68,000</p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="media"><img src="../images/product-cyan-coat.webp" alt="Cyan Echo Coat" loading="lazy" decoding="async" /></div>
+              <div class="card-body">
+                <p class="meta" data-i18n="cat_coat">Coat</p>
+                <h3 data-i18n="prod_cyan_coat">Cyan Echo Coat</h3>
+                <p class="price" data-price-display data-price-jpy="82000">JPY 82,000</p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="media"><img src="../images/product-afterglow-trousers.webp" alt="Afterglow Trousers" loading="lazy" decoding="async" /></div>
+              <div class="card-body">
+                <p class="meta" data-i18n="cat_bottoms">Bottoms</p>
+                <h3 data-i18n="prod_afterglow">Afterglow Trousers</h3>
+                <p class="price" data-price-display data-price-jpy="49000">JPY 49,000</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -241,16 +291,17 @@
 
     <footer class="site-footer">
       <div class="footer-wrap">
-        <p data-i18n="prod_footer_p">TCDA Product Page</p>
-        <p><a href="../archive.html" data-i18n="prod_footer_link">See Original Artwork Archive</a></p>
         <p>Transcend Color Digital Apparel（TCDA）</p>
+        <p>
+          <a href="../archive.html" data-i18n="prod_footer_link">Art Archive</a> /
+          <a href="../shop.html" data-i18n="nav_shop">Shop</a> /
+          <a href="../legal.html">特商法</a>
+        </p>
         <p>Contact：info@tcda.shop</p>
-        <p>TEL: <a href="tel:+815054768894">050-5476-8894</a> / <a href="tel:+815054768894">tel:+815054768894</a></p>
       </div>
     </footer>
     <script src="../js/i18n.js"></script>
     <script src="../js/currency.js"></script>
-    <script src="../js/printful.js?v=20260317c"></script>
     <script src="../js/cart.js" defer></script>
     <script src="../js/script.js" defer></script>
   </body>

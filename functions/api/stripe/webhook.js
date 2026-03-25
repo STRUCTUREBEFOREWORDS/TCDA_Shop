@@ -11,30 +11,39 @@
  */
 
 // 商品マスター（Cloudflare Functions 環境では dynamic import 不可のため直接定義）
-// data/products.js の variant_ids と同期させること
+// data/products.js の variant_ids と同期 — scripts/sync-variant-ids.js で自動更新可能
 const PRODUCTS = [
   {
-    id: "tcda-cnj-001",
-    variant_ids: { S: 0, M: 0, L: 0, XL: 0 },
+    id: "tcda-cnj-001", // Chroma Noise Jacket (printful_id: 424275426)
+    variant_ids: { "2XS": 5236394895, "XS": 5236394896, "S": 5236394897, "M": 5236394898, "L": 5236394899, "XL": 5236394900, "2XL": 5236394901 },
   },
   {
-    id: "tcda-csj-001",
-    variant_ids: { S: 0, M: 0, L: 0, XL: 0 },
+    id: "tcda-csj-001", // Chroma Signal Jacket (printful_id: 424275382)
+    variant_ids: { "2XS": 5236394603, "XS": 5236394604, "S": 5236394605, "M": 5236394606, "L": 5236394607, "XL": 5236394608, "2XL": 5236394609 },
   },
   {
-    id: "tcda-pts-001",
-    variant_ids: { XS: 0, S: 0, M: 0, L: 0, XL: 0, "2XL": 0 },
+    id: "tcda-pts-001", // Prism Noise T-shirt (printful_id: 424252402)
+    variant_ids: { "XS": 5236263305, "S": 5236263306, "M": 5236263307, "L": 5236263308, "XL": 5236263309, "2XL": 5236263310 },
   },
   {
-    id: "tcda-svt-001",
-    variant_ids: { XS: 0, S: 0, M: 0, L: 0, XL: 0, "2XL": 0 },
+    id: "tcda-svt-001", // Spectral Veil T-shirt (printful_id: 424274987)
+    variant_ids: { "XS": 5236374964, "S": 5236374965, "M": 5236374966, "L": 5236374967, "XL": 5236374968, "2XL": 5236374969 },
   },
   {
-    id: "tcda-ces-001",
-    variant_ids: {
-      "24.5": 0, "25": 0, "25.5": 0, "26": 0,
-      "26.5": 0, "27": 0, "27.5": 0, "28": 0,
-    },
+    id: "hoodie01", // Hoodie 01 (printful_id: 424275171)
+    variant_ids: { "2XS": 5236381209, "XS": 5236381210, "S": 5236381211, "M": 5236381212, "L": 5236381213, "XL": 5236381214, "2XL": 5236381215 },
+  },
+  {
+    id: "hoodie02", // Hoodie 02 (printful_id: 424275319)
+    variant_ids: { "2XS": 5236393974, "XS": 5236393975, "S": 5236393976, "M": 5236393977, "L": 5236393978, "XL": 5236393979, "2XL": 5236393980 },
+  },
+  {
+    id: "hoodie03", // Hoodie 03 (printful_id: 424275370)
+    variant_ids: { "2XS": 5236394474, "XS": 5236394475, "S": 5236394476, "M": 5236394477, "L": 5236394478, "XL": 5236394479, "2XL": 5236394480 },
+  },
+  {
+    id: "mens-tshirt01", // Mens T-shirt 01 (printful_id: 424261670)
+    variant_ids: { "XS": 5236288893, "S": 5236288894, "M": 5236288895, "L": 5236288896, "XL": 5236288897, "2XL": 5236288898 },
   },
 ];
 
