@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product | TCDA</title>
+    <meta name="description" content="TCDA product detail page." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      /* ── 商品ページ追加スタイル ── */
+      .product-layout {
+        display: grid;
+        gap: var(--s5);
+        align-items: start;
+      }
+      @media (min-width: 860px) {
+        .product-layout { grid-template-columns: 1fr 1fr; }
+      }
+
+      /* ── 画像ギャラリー ── */
+      .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s2);
+        position: sticky;
+        top: 5rem;
+      }
+      .gallery-main {
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        border-radius: 4px;
+        background: var(--paper-2);
+        border: 1px solid var(--line);
+      }
+      .gallery-main img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: opacity 240ms ease;
+      }
+      .gallery-thumbs {
+        display: flex;
+        gap: var(--s1);
+        flex-wrap: wrap;
+      }
+      .gallery-thumbs img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 3px;
+        border: 2px solid transparent;
+        transition: border-color 200ms;
+        display: block;
+      }
+      .gallery-thumbs img:hover,
+      .gallery-thumbs img.active { border-color: var(--ink); }
+
+      /* ── 商品情報 ── */
+      .product-info { display: flex; flex-direction: column; gap: var(--s3); }
+      .product-name {
+        font-size: clamp(1.6rem, 4vw, 2.8rem);
+        font-weight: 600;
+        line-height: 1.1;
+        margin: 0;
+      }
+      .product-price {
+        font-size: 1.1rem;
+        color: var(--ink);
+        margin: 0;
+      }
+
+      /* ── サイズ選択 ── */
+      .size-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+      .size-btn {
+        border: 1px solid var(--ink);
+        background: none;
+        padding: 0.4rem 0.9rem;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.85rem;
+        border-radius: var(--radius);
+        transition: background 180ms, color 180ms;
+      }
+      .size-btn.selected,
+      .size-btn:focus { background: var(--ink); color: var(--paper); outline: none; }
+
+      /* ── 購入ボタン ── */
+      .buy-area { display: flex; flex-direction: column; gap: var(--s2); }
+      .buy-area .btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.9rem 1.5rem;
+      }
+      .buy-note {
+        font-size: 0.72rem;
+        color: var(--muted);
+        text-align: center;
+        letter-spacing: 0.05em;
+        margin: 0;
+      }
+
+      /* ── エラー・ローディング ── */
+      .page-center {
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--s3);
+        text-align: center;
+        padding: var(--s5) var(--s4);
+      }
+      .page-center .eyebrow { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--muted); }
+
+      /* ── 関連商品 ── */
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: var(--s3);
+        margin-top: var(--s3);
+      }
+      .related-card { cursor: pointer; }
+      .related-card:hover .related-media img { transform: scale(1.05); }
+      .related-media {
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        border-radius: 3px;
+        background: var(--paper-2);
+      }
+      .related-media img {
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+        transition: transform 500ms ease;
+      }
+      .related-info { padding: 0.5rem 0; }
+      .related-info p { margin: 0; font-size: 0.78rem; }
+      .related-info .name { font-weight: 500; }
+      .related-info .price { color: var(--muted); font-size: 0.72rem; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="../index.html" aria-label="TCDA Home">
+          <img src="../images/brand-logo.jpg" alt="TCDA logo" class="brand-logo" />
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>Menu</button>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="../index.html">Home</a>
+          <a href="../brand.html">Brand</a>
+          <a href="../collection.html">Collection</a>
+          <a href="../archive.html">Archive</a>
+          <a href="../shop.html" aria-current="page">Shop</a>
+        </nav>
+        <div class="nav-tools">
+          <div class="cart-pill"><span>Cart</span> <span data-cart-count>0</span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- JS がここにコンテンツを挿入 -->
+    <main class="page" id="product-root"></main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <p>TCDA Product Page</p>
+        <p><a href="../archive.html">See Original Artwork Archive</a></p>
+        <p>Transcend Color Digital Apparel（TCDA）</p>
+        <p>Contact：info@tcda.shop</p>
+        <div class="footer-monogram" aria-hidden="true">T • C • D • A</div>
+      </div>
+    </footer>
+
+    <!--
+      PRODUCTS_BASE: product.html は /products/ 配下にあるため、
+      画像パスは {id}/main.jpg（先頭に products/ 不要）
+    -->
+    <script>window.PRODUCTS_BASE = '';</script>
+
+    <script src="../js/products.js"></script>
+    <script src="../js/images.js"></script>
+    <script src="../js/cart.js" defer></script>
+    <script src="../js/script.js" defer></script>
+
+    <script>
+    /* ── 商品詳細ページ描画エンジン ───────────────────────────── */
+    (function () {
+      var root = document.getElementById('product-root');
+
+      /* URL クエリから ID 取得 */
+      var params    = new URLSearchParams(location.search);
+      var productId = params.get('id');
+
+      /* products.js が読み込まれているか確認 */
+      if (!productId || typeof products === 'undefined') {
+        return renderError('商品IDが指定されていません', productId);
+      }
+
+      /* products 配列から該当商品を検索 */
+      var product = null;
+      for (var i = 0; i < products.length; i++) {
+        if (products[i].id === productId) { product = products[i]; break; }
+      }
+      if (!product) {
+        return renderError('商品が見つかりませんでした', productId);
+      }
+
+      /* ページタイトル更新 */
+      document.title = product.name + ' | TCDA';
+
+      /* ── DOM 構築 ───────────────────────────────────────────── */
+      var section = el('section', 'section');
+      section.style.paddingTop = 'clamp(4rem, 8vw, 7rem)';
+      var container = el('div', 'container product-layout');
+
+      /* 左: 画像ギャラリー */
+      var gallery       = el('figure', 'gallery');
+      var galleryMain   = el('div', 'gallery-main');
+      var galleryThumbs = el('div', 'gallery-thumbs');
+      gallery.appendChild(galleryMain);
+      gallery.appendChild(galleryThumbs);
+
+      /* 右: 商品情報 */
+      var info = el('article', 'product-info');
+
+      /* カテゴリ + 商品名 */
+      var eyebrow = el('p', 'eyebrow');
+      eyebrow.textContent = product.category || 'Product';
+      var title = el('h1', 'product-name');
+      title.textContent = product.name;
+      var priceEl = el('p', 'product-price');
+      priceEl.textContent = 'JPY ' + Number(product.price).toLocaleString();
+
+      /* サイズ選択 */
+      var sizeSection = el('div');
+      sizeSection.innerHTML = '<p class="meta" style="margin-bottom:0.5rem">Size</p>';
+      var sizeRow = el('div', 'size-row');
+      var sizes = (product.sizes && product.sizes.length)
+        ? product.sizes
+        : ['S', 'M', 'L', 'XL'];
+      var selectedSize = sizes[0];
+      sizes.forEach(function (s, idx) {
+        var btn = el('button', 'size-btn' + (idx === 0 ? ' selected' : ''));
+        btn.type = 'button';
+        btn.textContent = s;
+        btn.addEventListener('click', function () {
+          selectedSize = s;
+          sizeRow.querySelectorAll('.size-btn').forEach(function (b) {
+            b.classList.toggle('selected', b.textContent === s);
+          });
+        });
+        sizeRow.appendChild(btn);
+      });
+      sizeSection.appendChild(sizeRow);
+
+      /* 購入エリア */
+      var buyArea = el('div', 'buy-area');
+      var buyBtn  = el('button', 'btn');
+      buyBtn.type = 'button';
+      buyBtn.textContent = 'Add to Cart';
+      buyBtn.setAttribute('data-add-to-cart', '');
+      buyBtn.dataset.productId    = product.id;
+      buyBtn.dataset.productName  = product.name;
+      buyBtn.dataset.productPrice = product.price;
+      var buyNote = el('p', 'buy-note');
+      buyNote.textContent = 'Made-to-order · 5–10 business days';
+      buyArea.appendChild(buyBtn);
+      buyArea.appendChild(buyNote);
+
+      /* 戻るリンク */
+      var backLink = el('a', 'btn-ghost');
+      backLink.href = '../collection.html';
+      backLink.textContent = '← Back to Collection';
+      backLink.style.display = 'inline-block';
+      backLink.style.marginTop = 'var(--s1)';
+
+      /* 組み立て */
+      [eyebrow, title, priceEl, sizeSection, buyArea, backLink].forEach(function (n) {
+        info.appendChild(n);
+      });
+      container.appendChild(gallery);
+      container.appendChild(info);
+      section.appendChild(container);
+      root.appendChild(section);
+
+      /* ── 画像を描画 ──────────────────────────────────────────── */
+      buildGallery(productId, galleryMain, galleryThumbs);
+
+      /* ── 関連商品 ─────────────────────────────────────────────── */
+      buildRelated(product, root);
+
+      /* ── 画像ギャラリー構築 ───────────────────────────────────── */
+      function buildGallery(id, mainBox, thumbBox) {
+        var srcs = getImages(id);   /* images.js の関数 */
+
+        /* プレースホルダー */
+        var placeholder = el('div');
+        placeholder.style.cssText = 'width:100%;height:100%;background:var(--paper-2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;letter-spacing:.1em';
+        placeholder.textContent = 'Loading…';
+        mainBox.appendChild(placeholder);
+
+        var loaded   = false;
+        var mainImg  = null;
+
+        srcs.forEach(function (src, idx) {
+          var img = new Image();
+          img.decoding = 'async';
+          img.alt      = id + (idx === 0 ? '' : ' sub ' + idx);
+
+          img.onload = function () {
+            placeholder.remove();
+
+            if (idx === 0) {
+              /* メイン画像 */
+              img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;transition:opacity 240ms ease';
+              mainBox.appendChild(img);
+              mainImg = img;
+              loaded = true;
+            } else {
+              /* サムネイル */
+              var thumb = new Image();
+              thumb.src = src;
+              thumb.alt = '';
+              thumb.loading = 'lazy';
+              if (idx === 1) thumb.classList.add('active');
+              thumb.addEventListener('click', function () {
+                if (mainImg) {
+                  mainImg.style.opacity = '0';
+                  setTimeout(function () {
+                    mainImg.src = src;
+                    mainImg.style.opacity = '1';
+                  }, 120);
+                }
+                thumbBox.querySelectorAll('img').forEach(function (t) {
+                  t.classList.toggle('active', t === thumb);
+                });
+              });
+              thumbBox.appendChild(thumb);
+            }
+          };
+
+          img.onerror = function () {
+            /* main.jpg がなければ何もしない（placeholder のまま） */
+            if (idx === 0 && !loaded) {
+              placeholder.textContent = 'No image';
+            }
+          };
+
+          img.src = src;
+        });
+      }
+
+      /* ── 関連商品 ──────────────────────────────────────────────── */
+      function buildRelated(current, parent) {
+        var others = products.filter(function (p) {
+          return p.id !== current.id && p.category === current.category;
+        }).slice(0, 4);
+        if (others.length === 0) return;
+
+        var sec = el('section', 'section');
+        sec.style.borderTop = '1px solid var(--line)';
+        var cont = el('div', 'container');
+        var head = el('div');
+        head.innerHTML = '<p class="eyebrow">Related Products</p><h2 style="font-size:clamp(1.4rem,2.5vw,2rem);margin:0.3rem 0 0">Complete the Look</h2>';
+        var relGrid = el('div', 'related-grid');
+
+        others.forEach(function (p) {
+          var card  = el('div', 'related-card');
+          var media = el('div', 'related-media');
+          var img   = new Image();
+          img.src     = window.PRODUCTS_BASE + p.id + '/main.jpg';
+          img.alt     = p.name;
+          img.loading = 'lazy';
+          img.onerror = function () { media.style.background = 'var(--paper-2)'; this.remove(); };
+          media.appendChild(img);
+
+          var infoDiv = el('div', 'related-info');
+          infoDiv.innerHTML =
+            '<p class="name">' + escHtml(p.name) + '</p>' +
+            '<p class="price">JPY ' + Number(p.price).toLocaleString() + '</p>';
+
+          card.appendChild(media);
+          card.appendChild(infoDiv);
+          card.addEventListener('click', function () {
+            location.href = 'product.html?id=' + encodeURIComponent(p.id);
+          });
+          relGrid.appendChild(card);
+        });
+
+        cont.appendChild(head);
+        cont.appendChild(relGrid);
+        sec.appendChild(cont);
+        parent.appendChild(sec);
+      }
+
+      /* ── エラー画面 ────────────────────────────────────────────── */
+      function renderError(msg, id) {
+        var div = el('div', 'page-center container');
+        div.innerHTML =
+          '<p class="eyebrow">404</p>' +
+          '<h1 style="font-size:clamp(1.8rem,4vw,3rem);margin:0">' + escHtml(msg) + '</h1>' +
+          (id ? '<p style="color:var(--muted);font-size:.85rem">id: ' + escHtml(id) + '</p>' : '') +
+          '<a class="btn" href="../collection.html">コレクションに戻る</a>';
+        root.appendChild(div);
+      }
+
+      /* ── ユーティリティ ─────────────────────────────────────────── */
+      function el(tag, className) {
+        var e = document.createElement(tag);
+        if (className) e.className = className;
+        return e;
+      }
+      function escHtml(s) {
+        return String(s)
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+          .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+    })();
+    </script>
+  </body>
+</html>

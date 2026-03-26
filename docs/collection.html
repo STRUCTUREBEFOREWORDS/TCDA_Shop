@@ -1,57 +1,132 @@
 <!doctype html>
-<html lang="en" dir="ltr" data-page-title-key="title_collection">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Collection | TCDA</title>
     <meta name="description" content="Gallery-style wearable artwork collection by TCDA." />
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* ── 商品グリッド追加スタイル ── */
+      #auto-product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: var(--s4);
+        margin-top: var(--s4);
+      }
+      @media (max-width: 600px) {
+        #auto-product-grid { grid-template-columns: repeat(2, 1fr); gap: var(--s3); }
+      }
+      .auto-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        cursor: pointer;
+        transition: transform 340ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .auto-card:hover { transform: translateY(-3px); }
+      .auto-card-media {
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        border-radius: 3px;
+        background: var(--paper-2);
+        position: relative;
+      }
+      .auto-card-media::after {
+        content: 'VIEW';
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10,10,10,0.65);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.35em;
+        color: #f8f8f6;
+        opacity: 0;
+        transition: opacity 280ms ease;
+        pointer-events: none;
+      }
+      .auto-card:hover .auto-card-media::after { opacity: 1; }
+      .auto-card-media img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .auto-card:hover .auto-card-media img { transform: scale(1.06); }
+      .auto-card-info { padding: 0 0.2rem; }
+      .auto-card-info .meta {
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 0.25rem;
+      }
+      .auto-card-info h3 {
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin: 0 0 0.25rem;
+      }
+      .auto-card-info .price {
+        font-size: 0.82rem;
+        color: var(--ink);
+        margin: 0;
+      }
+      /* ── カテゴリフィルター ── */
+      .filter-row {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: var(--s3);
+      }
+      .filter-btn {
+        border: 1px solid var(--line);
+        background: none;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 999px;
+        font-family: inherit;
+        transition: background 200ms, color 200ms, border-color 200ms;
+      }
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+      }
+      /* ── ローディング ── */
+      .grid-loading {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: var(--s5);
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
       <div class="nav-wrap">
-        <a class="brand" href="index.html" aria-label="TCDA Home"><img src="images/brand-logo.jpg" alt="TCDA logo" class="brand-logo" /></a>
-        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
-          data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
+        <a class="brand" href="index.html" aria-label="TCDA Home">
+          <img src="images/brand-logo.jpg" alt="TCDA logo" class="brand-logo" />
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>Menu</button>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html" data-i18n="nav_home">Home</a>
-          <a href="brand.html" data-i18n="nav_brand">Brand</a>
-          <a href="collection.html" aria-current="page" data-i18n="nav_collection">Collection</a>
-          <a href="lookbook.html" data-i18n="nav_lookbook">Lookbook</a>
-          <a href="archive.html" data-i18n="nav_archive">Archive</a>
-          <a href="shop.html" data-i18n="nav_shop">Shop</a>
+          <a href="index.html">Home</a>
+          <a href="brand.html">Brand</a>
+          <a href="collection.html" aria-current="page">Collection</a>
+          <a href="archive.html">Archive</a>
+          <a href="shop.html">Shop</a>
         </nav>
         <div class="nav-tools">
-          <div class="cart-pill"><span data-i18n="cart_label">Cart</span> <span data-cart-count>0</span></div>
-          <div class="locale-switcher" id="locale-switcher">
-            <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
-              <span class="locale-toggle-lang" data-current-lang-label>EN</span>
-              <span class="locale-toggle-sep">·</span>
-              <span class="locale-toggle-currency" data-current-currency-label>JPY</span>
-            </button>
-            <div class="locale-panel" role="dialog" aria-label="Language and currency" hidden data-locale-panel>
-              <div class="locale-group">
-                <p class="locale-group-label" data-i18n="lang_label">Language</p>
-                <div class="locale-btns">
-                  <button type="button" class="locale-btn" data-lang-btn="en" aria-pressed="true">English</button>
-                  <button type="button" class="locale-btn" data-lang-btn="zh" aria-pressed="false">中文</button>
-                  <button type="button" class="locale-btn" data-lang-btn="es" aria-pressed="false">Español</button>
-                  <button type="button" class="locale-btn" data-lang-btn="ar" aria-pressed="false">العربية</button>
-                  <button type="button" class="locale-btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
-                </div>
-              </div>
-              <div class="locale-group">
-                <p class="locale-group-label" data-i18n="currency_label">Currency</p>
-                <div class="locale-btns">
-                  <button type="button" class="locale-btn" data-currency-btn="JPY" aria-pressed="true">JPY ¥</button>
-                  <button type="button" class="locale-btn" data-currency-btn="USD" aria-pressed="false">USD $</button>
-                  <button type="button" class="locale-btn" data-currency-btn="EUR" aria-pressed="false">EUR €</button>
-                  <button type="button" class="locale-btn" data-currency-btn="GBP" aria-pressed="false">GBP £</button>
-                  <button type="button" class="locale-btn" data-currency-btn="CNY" aria-pressed="false">CNY ¥</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="cart-pill"><span>Cart</span> <span data-cart-count>0</span></div>
         </div>
       </div>
     </header>
@@ -60,63 +135,10 @@
 
     <main class="page">
       <section class="hero">
-        <div class="container flow collection-intro" data-reveal>
-          <p class="eyebrow" data-i18n="col_eyebrow">Collection</p>
-          <h1 data-i18n="col_h1">Gallery of Wearable Color Works</h1>
-          <p class="lead collection-manifesto">TCDA treats garments as visual statements first. Every piece in this collection is edited as an artwork in sequence, then opened for acquisition.</p>
-          <div class="action-row collection-actions">
-            <a class="btn" href="shop.html" data-i18n="col_drop_link">Shop This Drop</a>
-            <a class="btn-ghost" href="archive.html">View Visual Archive</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-head" data-reveal>
-            <div class="flow">
-              <p class="eyebrow">Curated Index</p>
-              <h2 data-i18n="col_drop_h2">Chromatic Drift Series</h2>
-            </div>
-          </div>
-
-          <div class="collection-luxury-index" data-reveal>
-            <article class="index-card">
-              <div class="index-image">
-                <img src="images/product-chroma-jacket.webp" alt="Chroma Noise Jacket" loading="eager" decoding="async" />
-              </div>
-              <div class="index-content">
-                <p class="meta">01 / FORM</p>
-                <h3 data-i18n="prod_chroma_jacket">Chroma Noise Jacket</h3>
-                <p class="index-description">The silhouette anchors the full sequence and defines the chromatic direction of this drop. Tension between cyan luminosity and dark granular calm.</p>
-                <a href="products/chroma-noise-jacket.html" class="link-subtle">View Details →</a>
-              </div>
-            </article>
-
-            <article class="index-card">
-              <div class="index-image">
-                <img src="images/product-spectral-dress.webp" alt="Spectrum Fold Dress" loading="lazy" decoding="async" />
-              </div>
-              <div class="index-content">
-                <p class="meta">02 / LIGHT</p>
-                <h3 data-i18n="prod_spectrum_fold">Spectrum Fold Dress</h3>
-                <p class="index-description">A fold structure that changes color density with movement and ambient light. Movement as material, color as form.</p>
-                <a href="shop.html" class="link-subtle">Shop Collection →</a>
-              </div>
-            </article>
-
-            <article class="index-card">
-              <div class="index-image">
-                <img src="images/product-prism-shirt.webp" alt="Prism Silence Shirt" loading="lazy" decoding="async" />
-              </div>
-              <div class="index-content">
-                <p class="meta">03 / EDGE</p>
-                <h3 data-i18n="prod_prism_shirt">Prism Silence Shirt</h3>
-                <p class="index-description">Crisp transitions and restrained contrast for everyday editorial styling. Minimal chrome, maximum impact.</p>
-                <a href="shop.html" class="link-subtle">Discover More →</a>
-              </div>
-            </article>
-          </div>
+        <div class="container flow" data-reveal>
+          <p class="eyebrow">Collection</p>
+          <h1>Gallery of Wearable Color Works</h1>
+          <p class="lead">TCDA treats garments as visual statements first. Every piece in this collection is edited as an artwork in sequence, then opened for acquisition.</p>
         </div>
       </section>
 
@@ -127,89 +149,14 @@
               <p class="eyebrow">Gallery</p>
               <h2>Complete Collection</h2>
             </div>
-            <a href="shop.html" class="btn-ghost">Browse All →</a>
           </div>
 
-          <div class="luxury-collection-grid" data-reveal>
-            <article class="luxury-card">
-              <div class="luxury-card-media">
-                <a href="products/chroma-noise-jacket.html" class="luxury-card-link">
-                  <img src="images/lookbook-1.webp" alt="Chroma Noise Jacket" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="luxury-card-info">
-                <p class="meta">OUTER / UNISEX</p>
-                <h3 data-i18n="prod_chroma_jacket">Chroma Noise Jacket</h3>
-                <p class="price" data-price-display data-price-jpy="12000">JPY 12,000</p>
-                <p class="stock-low">残り在庫 3 点</p>
-              </div>
-            </article>
+          <!-- カテゴリフィルター（JS が動的生成） -->
+          <div class="filter-row" id="filter-row" data-reveal></div>
 
-            <article class="luxury-card">
-              <div class="luxury-card-media">
-                <a href="shop.html" class="luxury-card-link">
-                  <img src="images/product-spectral-dress.webp" alt="Spectrum Fold Dress" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="luxury-card-info">
-                <p class="meta">DRESS / WOMEN'S</p>
-                <h3 data-i18n="prod_spectrum_fold">Spectrum Fold Dress</h3>
-                <p class="price" data-price-display data-price-jpy="11800">JPY 11,800</p>
-              </div>
-            </article>
-
-            <article class="luxury-card">
-              <div class="luxury-card-media">
-                <a href="shop.html" class="luxury-card-link">
-                  <img src="images/product-prism-shirt.webp" alt="Prism Silence Shirt" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="luxury-card-info">
-                <p class="meta">TOPS / UNISEX</p>
-                <h3 data-i18n="prod_prism_shirt">Prism Silence Shirt</h3>
-                <p class="price" data-price-display data-price-jpy="9800">JPY 9,800</p>
-              </div>
-            </article>
-
-            <article class="luxury-card">
-              <div class="luxury-card-media">
-                <a href="shop.html" class="luxury-card-link">
-                  <img src="images/product-cyan-coat.webp" alt="Cyan Echo Coat" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="luxury-card-info">
-                <p class="meta">OUTER / UNISEX</p>
-                <h3 data-i18n="prod_cyan_coat">Cyan Echo Coat</h3>
-                <p class="price" data-price-display data-price-jpy="14200">JPY 14,200</p>
-              </div>
-            </article>
-
-            <article class="luxury-card">
-              <div class="luxury-card-media">
-                <a href="shop.html" class="luxury-card-link">
-                  <img src="images/product-afterglow-trousers.webp" alt="Afterglow Trousers" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="luxury-card-info">
-                <p class="meta">BOTTOMS / WOMEN'S</p>
-                <h3 data-i18n="prod_afterglow">Afterglow Trousers</h3>
-                <p class="price" data-price-display data-price-jpy="10200">JPY 10,200</p>
-                <p class="stock-low">残り在庫 2 点</p>
-              </div>
-            </article>
-
-            <article class="luxury-card">
-              <div class="luxury-card-media">
-                <a href="shop.html" class="luxury-card-link">
-                  <img src="images/product-monochrome-set.webp" alt="Monochrome Drift Set" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="luxury-card-info">
-                <p class="meta">SET / UNISEX</p>
-                <h3 data-i18n="prod_monochrome">Monochrome Drift Set</h3>
-                <p class="price" data-price-display data-price-jpy="13600">JPY 13,600</p>
-              </div>
-            </article>
+          <!-- 商品グリッド（JS が products.js から自動生成） -->
+          <div id="auto-product-grid" data-reveal>
+            <p class="grid-loading">Loading collection…</p>
           </div>
         </div>
       </section>
@@ -217,16 +164,118 @@
 
     <footer class="site-footer">
       <div class="footer-wrap">
-        <p data-i18n="col_footer_p">TCDA Collection</p>
-        <p><a href="products/chroma-noise-jacket.html" data-i18n="col_footer_link">Open Product Page</a></p>
+        <p>TCDA Collection</p>
         <p>Transcend Color Digital Apparel（TCDA）</p>
         <p>Contact：info@tcda.shop</p>
-        <p>TEL: <a href="tel:+815054768894">050-5476-8894</a> / <a href="tel:+815054768894">tel:+815054768894</a></p>
         <div class="footer-monogram" aria-hidden="true">T • C • D • A</div>
       </div>
     </footer>
-    <script src="js/i18n.js"></script>
-    <script src="js/currency.js"></script>
+
+    <!-- images.js で使うベースパス（collection.html はルートにあるため products/ が必要）-->
+    <script>window.PRODUCTS_BASE = 'products/';</script>
+
+    <script src="js/products.js"></script>
+    <script src="js/images.js"></script>
+    <script src="js/cart.js" defer></script>
     <script src="js/script.js" defer></script>
+
+    <script>
+    /* ── 商品グリッド自動生成 ──────────────────────────────────── */
+    (function () {
+      var grid      = document.getElementById('auto-product-grid');
+      var filterRow = document.getElementById('filter-row');
+      if (!grid || typeof products === 'undefined') return;
+
+      var currentFilter = 'all';
+
+      /* カテゴリ一覧を収集 */
+      var categories = ['all'];
+      products.forEach(function (p) {
+        if (p.category && categories.indexOf(p.category) === -1) {
+          categories.push(p.category);
+        }
+      });
+
+      /* フィルターボタン生成 */
+      categories.forEach(function (cat) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'filter-btn' + (cat === 'all' ? ' active' : '');
+        btn.textContent = cat === 'all' ? 'All' : cat;
+        btn.dataset.cat = cat;
+        btn.addEventListener('click', function () {
+          currentFilter = cat;
+          filterRow.querySelectorAll('.filter-btn').forEach(function (b) {
+            b.classList.toggle('active', b.dataset.cat === cat);
+          });
+          renderGrid();
+        });
+        filterRow.appendChild(btn);
+      });
+
+      /* カード DOM を生成 */
+      function makeCard(p) {
+        var article = document.createElement('article');
+        article.className = 'auto-card';
+        article.setAttribute('role', 'button');
+        article.setAttribute('tabindex', '0');
+        article.setAttribute('aria-label', p.name);
+        article.dataset.category = p.category || '';
+
+        var pageHref = 'products/product.html?id=' + encodeURIComponent(p.id);
+
+        article.innerHTML =
+          '<div class="auto-card-media">' +
+            '<img src="' + escHtml(window.PRODUCTS_BASE + p.id + '/main.jpg') + '"' +
+                 ' alt="' + escHtml(p.name) + '"' +
+                 ' loading="lazy" decoding="async"' +
+                 ' onerror="this.parentElement.style.background=\'var(--paper-2)\'">' +
+          '</div>' +
+          '<div class="auto-card-info">' +
+            '<p class="meta">' + escHtml(p.category || '') + '</p>' +
+            '<h3>' + escHtml(p.name) + '</h3>' +
+            '<p class="price">JPY ' + Number(p.price).toLocaleString() + '</p>' +
+          '</div>';
+
+        /* クリック / Enter で遷移 */
+        function navigate() { location.href = pageHref; }
+        article.addEventListener('click', navigate);
+        article.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') navigate();
+        });
+
+        return article;
+      }
+
+      /* グリッドを（再）描画 */
+      function renderGrid() {
+        grid.innerHTML = '';
+        var visible = products.filter(function (p) {
+          return currentFilter === 'all' || p.category === currentFilter;
+        });
+
+        if (visible.length === 0) {
+          var empty = document.createElement('p');
+          empty.className = 'grid-loading';
+          empty.textContent = 'No products found.';
+          grid.appendChild(empty);
+          return;
+        }
+
+        visible.forEach(function (p) {
+          grid.appendChild(makeCard(p));
+        });
+      }
+
+      /* 初回描画 */
+      renderGrid();
+
+      function escHtml(s) {
+        return String(s)
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+          .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+    })();
+    </script>
   </body>
 </html>
