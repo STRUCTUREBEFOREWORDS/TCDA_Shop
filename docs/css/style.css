@@ -2137,3 +2137,31 @@ p {
   opacity: 0.4;
 }
 
+/* ── サイズ提案システム ─────────────────────────────────────────────── */
+.size-rec-result {
+  padding: var(--s3) 0;
+  display: grid;
+  gap: 4px;
+}
+
+.size-rec-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.size-rec-value {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.size-rec-note {
+  font-size: 0.82rem;
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+

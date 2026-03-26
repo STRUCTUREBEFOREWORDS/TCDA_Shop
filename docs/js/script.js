@@ -19,7 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ── Printful: live size chart + product data ─────────────── */
   if (window.TCDAPrintful) {
-    TCDAPrintful.initProductPage();
+    TCDAPrintful.initProductPage().then(() => {
+      /* サイズシステム: タイプ判定・サイズ表生成・提案フォーム初期化 */
+      if (window.TCDASizeSystem) TCDASizeSystem.runSizeSystem();
+    });
 
     /* Shop grid: populate from Printful if [data-printful-shop-grid] exists */
     const shopGrid = document.querySelector("[data-printful-shop-grid]");

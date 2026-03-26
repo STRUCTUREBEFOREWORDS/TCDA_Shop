@@ -195,6 +195,41 @@
                 </table>
               </div>
 
+              <!-- サイズ提案フォーム -->
+              <div class="product-detail-section">
+                <p class="meta">Find Your Size</p>
+                <form id="sizeRecommendForm" style="display: grid; gap: var(--s2)">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2)">
+                    <label style="display: grid; gap: 4px">
+                      <span class="meta" style="font-size: 0.75rem">体重 (kg) *</span>
+                      <input type="number" name="weight" placeholder="65" min="30" max="200" required
+                        style="border: 1px solid var(--line); padding: 0.5rem 0.75rem; font-size: 1rem; width: 100%; background: var(--bg)" />
+                    </label>
+                    <label style="display: grid; gap: 4px">
+                      <span class="meta" style="font-size: 0.75rem">胸囲 (cm) 任意</span>
+                      <input type="number" name="chest" placeholder="92" min="60" max="160"
+                        style="border: 1px solid var(--line); padding: 0.5rem 0.75rem; font-size: 1rem; width: 100%; background: var(--bg)" />
+                    </label>
+                  </div>
+                  <fieldset style="border: none; padding: 0; margin: 0; display: grid; gap: 6px">
+                    <legend class="meta" style="font-size: 0.75rem; margin-bottom: 4px">フィット感</legend>
+                    <div style="display: flex; gap: var(--s2)">
+                      <label style="display: flex; align-items: center; gap: 6px; cursor: pointer">
+                        <input type="radio" name="fit" value="tight" /> タイト
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 6px; cursor: pointer">
+                        <input type="radio" name="fit" value="regular" checked /> レギュラー
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 6px; cursor: pointer">
+                        <input type="radio" name="fit" value="loose" /> ゆったり
+                      </label>
+                    </div>
+                  </fieldset>
+                  <button type="submit" class="btn" style="width: 100%; justify-content: center">サイズを提案する</button>
+                </form>
+                <div id="sizeResult" style="margin-top: var(--s2)"></div>
+              </div>
+
               <div class="product-detail-section">
                 <ul class="detail-list">
                   <li>Made-to-order. Estimated dispatch: 5–10 business days.</li>
@@ -301,6 +336,8 @@
     </footer>
     <script src="../js/i18n.js"></script>
     <script src="../js/currency.js"></script>
+    <script src="../js/printful.js"></script>
+    <script src="../js/sizeSystem.js" defer></script>
     <script src="../js/cart.js" defer></script>
     <script src="../js/script.js" defer></script>
   </body>
