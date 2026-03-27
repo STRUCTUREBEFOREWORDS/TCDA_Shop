@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TCDA Admin — Product CMS</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --c-bg: #fafafa;
+        --c-surface: #fff;
+        --c-border: #e0e0e0;
+        --c-text: #111;
+        --c-muted: #888;
+        --c-accent: #000;
+        --c-danger: #c00;
+        --c-success: #060;
+        --rad: 2px;
+        --gap: 1.25rem;
+      }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; background: var(--c-bg); color: var(--c-text); }
+      a { color: inherit; }
+
+      /* Layout */
+      .admin-layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+      .admin-sidebar { background: var(--c-accent); color: #fff; padding: 1.5rem 1rem; display: flex; flex-direction: column; gap: 1rem; }
+      .admin-sidebar h1 { font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; opacity: .6; }
+      .admin-sidebar h2 { font-size: 1rem; font-weight: 600; margin-top: -.5rem; }
+      .product-list { list-style: none; display: flex; flex-direction: column; gap: 2px; flex: 1; overflow-y: auto; }
+      .product-list li { border-radius: var(--rad); }
+      .product-list button { width: 100%; background: transparent; border: none; color: #fff; padding: .55rem .75rem; text-align: left; cursor: pointer; font-size: .82rem; border-radius: var(--rad); transition: background 150ms; }
+      .product-list button:hover, .product-list button.active { background: rgba(255,255,255,.15); }
+      .product-list .name { display: block; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .product-list .id-label { display: block; font-size: .72rem; opacity: .5; margin-top: 1px; }
+      .sidebar-actions { display: flex; flex-direction: column; gap: .5rem; border-top: 1px solid rgba(255,255,255,.15); padding-top: 1rem; margin-top: auto; }
+
+      /* Main content */
+      .admin-main { padding: 2rem; display: flex; flex-direction: column; gap: var(--gap); max-width: 860px; }
+      .admin-toolbar { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+      .admin-toolbar h3 { font-size: 1rem; font-weight: 600; flex: 1; }
+      .status-bar { font-size: .8rem; color: var(--c-muted); padding: .5rem .75rem; background: #f0f0f0; border-radius: var(--rad); min-height: 2rem; display: flex; align-items: center; }
+      .status-bar.ok  { color: var(--c-success); background: #f0faf0; }
+      .status-bar.err { color: var(--c-danger);  background: #fff0f0; }
+
+      /* Form */
+      .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+      .form-full { grid-column: 1 / -1; }
+      .field { display: flex; flex-direction: column; gap: .35rem; }
+      label { font-size: .78rem; font-weight: 600; letter-spacing: .05em; color: var(--c-muted); text-transform: uppercase; }
+      input[type=text], input[type=number], textarea, select {
+        border: 1px solid var(--c-border);
+        border-radius: var(--rad);
+        padding: .5rem .65rem;
+        font-size: .88rem;
+        width: 100%;
+        background: var(--c-surface);
+        color: var(--c-text);
+        transition: border-color 150ms;
+      }
+      input:focus, textarea:focus, select:focus { outline: none; border-color: var(--c-accent); }
+      textarea { resize: vertical; min-height: 72px; }
+      .input-row { display: flex; gap: .5rem; align-items: flex-end; }
+      .input-row input { flex: 1; }
+
+      /* Size rows */
+      .size-rows { display: flex; flex-direction: column; gap: .4rem; }
+      .size-row { display: grid; grid-template-columns: 80px 90px 90px 90px auto; gap: .4rem; align-items: center; }
+      .size-row input { padding: .35rem .5rem; font-size: .82rem; }
+      .size-row-del { background: transparent; border: 1px solid var(--c-border); color: var(--c-danger); width: 28px; height: 28px; cursor: pointer; border-radius: var(--rad); font-size: .9rem; display: flex; align-items: center; justify-content: center; }
+
+      /* Image list */
+      .img-list { display: flex; flex-direction: column; gap: .3rem; }
+      .img-row { display: flex; gap: .5rem; align-items: center; }
+      .img-row input { flex: 1; font-size: .82rem; }
+      .img-del { background: transparent; border: 1px solid var(--c-border); color: var(--c-danger); width: 26px; height: 26px; cursor: pointer; border-radius: var(--rad); font-size: .85rem; }
+      .img-preview { width: 44px; height: 44px; object-fit: cover; border: 1px solid var(--c-border); border-radius: var(--rad); flex-shrink: 0; background: #f5f5f5; }
+
+      /* Buttons */
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; border: 1px solid transparent; border-radius: var(--rad); padding: .5rem 1rem; font-size: .82rem; font-weight: 500; cursor: pointer; transition: opacity 180ms; white-space: nowrap; }
+      .btn:hover { opacity: .8; }
+      .btn-primary   { background: var(--c-accent); color: #fff; }
+      .btn-secondary { background: transparent; border-color: var(--c-border); color: var(--c-text); }
+      .btn-danger    { background: var(--c-danger); color: #fff; }
+      .btn-sm        { padding: .3rem .65rem; font-size: .78rem; }
+
+      /* Section card */
+      .card-section { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--rad); padding: 1.25rem; display: flex; flex-direction: column; gap: var(--gap); }
+      .section-title { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--c-muted); border-bottom: 1px solid var(--c-border); padding-bottom: .5rem; margin-bottom: .25rem; }
+
+      /* Empty state */
+      .empty-state { text-align: center; padding: 4rem 2rem; color: var(--c-muted); }
+      .empty-state p { margin-top: .5rem; font-size: .85rem; }
+
+      @media (max-width: 700px) {
+        .admin-layout { grid-template-columns: 1fr; }
+        .admin-sidebar { max-height: 220px; overflow-y: auto; }
+        .form-grid { grid-template-columns: 1fr; }
+        .size-row { grid-template-columns: 70px 80px 80px auto; }
+        .size-row input:nth-child(3) { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-layout">
+
+      <!-- Sidebar -->
+      <aside class="admin-sidebar">
+        <div>
+          <h1>TCDA</h1>
+          <h2>Product CMS</h2>
+        </div>
+        <ul class="product-list" id="product-list"></ul>
+        <div class="sidebar-actions">
+          <button class="btn btn-primary" id="btn-new">＋ New Product</button>
+          <button class="btn btn-secondary" style="color:#fff;border-color:rgba(255,255,255,.3)" id="btn-export">↓ Export JSON</button>
+          <button class="btn btn-secondary" style="color:#fff;border-color:rgba(255,255,255,.3)" id="btn-push">↑ Push to /api/products</button>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="admin-main">
+        <div id="status-bar" class="status-bar">製品を選択するか「＋ New Product」で追加してください。</div>
+
+        <div id="editor-area">
+          <div class="empty-state" id="empty-state">
+            <strong>No product selected</strong>
+            <p>Select a product from the sidebar or create a new one.</p>
+          </div>
+          <div id="editor-form" style="display:none">
+            <div class="admin-toolbar">
+              <h3 id="editor-title">New Product</h3>
+              <button class="btn btn-secondary btn-sm" id="btn-verify-product">✓ Verify Printful</button>
+              <button class="btn btn-danger btn-sm" id="btn-delete">Delete</button>
+              <button class="btn btn-primary" id="btn-save">Save</button>
+            </div>
+
+            <!-- Basic -->
+            <div class="card-section">
+              <p class="section-title">Basic Info</p>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="f-id">ID</label>
+                  <input type="text" id="f-id" placeholder="e.g. mens-tshirt01" />
+                </div>
+                <div class="field">
+                  <label for="f-printful-id">Printful ID</label>
+                  <input type="number" id="f-printful-id" placeholder="424252402" />
+                </div>
+                <div class="field">
+                  <label for="f-name-en">Name (EN)</label>
+                  <input type="text" id="f-name-en" placeholder="Prism Noise Tee" />
+                </div>
+                <div class="field">
+                  <label for="f-name-ja">Name (JA)</label>
+                  <input type="text" id="f-name-ja" placeholder="プリズムノイズTシャツ" />
+                </div>
+                <div class="field">
+                  <label for="f-price">Price (JPY)</label>
+                  <input type="number" id="f-price" placeholder="4900" />
+                </div>
+                <div class="field">
+                  <label for="f-material">Material</label>
+                  <input type="text" id="f-material" placeholder="100% Cotton" />
+                </div>
+                <div class="field">
+                  <label for="f-category">Category</label>
+                  <select id="f-category">
+                    <option value="tshirt">tshirt</option>
+                    <option value="outer">outer</option>
+                    <option value="shoes">shoes</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-segment">Segment</label>
+                  <select id="f-segment">
+                    <option value="mens">mens</option>
+                    <option value="womens">womens</option>
+                    <option value="unisex">unisex</option>
+                  </select>
+                </div>
+                <div class="field form-full">
+                  <label for="f-desc-en">Description (EN)</label>
+                  <textarea id="f-desc-en" rows="3"></textarea>
+                </div>
+                <div class="field form-full">
+                  <label for="f-desc-ja">Description (JA)</label>
+                  <textarea id="f-desc-ja" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Images -->
+            <div class="card-section">
+              <p class="section-title">Images <span style="font-weight:400;opacity:.5">(path relative to site root, e.g. products/id/main.jpg)</span></p>
+              <div class="img-list" id="img-list"></div>
+              <button class="btn btn-secondary btn-sm" id="btn-add-img" style="align-self:flex-start">＋ Add Image</button>
+            </div>
+
+            <!-- Sizes -->
+            <div class="card-section">
+              <p class="section-title">Size Chart</p>
+              <div style="display:grid;grid-template-columns:80px 90px 90px 90px auto;gap:.4rem;padding:.25rem 0;font-size:.72rem;font-weight:700;color:var(--c-muted);text-transform:uppercase">
+                <span>Size</span><span>Chest (cm)</span><span>Length (cm)</span><span>Sleeve (cm)</span><span></span>
+              </div>
+              <div class="size-rows" id="size-rows"></div>
+              <button class="btn btn-secondary btn-sm" id="btn-add-size" style="align-self:flex-start">＋ Add Size Row</button>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+    (function(){
+      var STORAGE_KEY = "tcda_admin_products";
+      var products = [];
+      var activeId  = null;
+
+      /* ── Storage ───────────────────────────────────────────── */
+      function load() {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) { try { products = JSON.parse(raw); } catch(e) { products = []; } }
+      }
+      function save() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+      }
+      function findIdx(id) { return products.findIndex(function(p){ return p.id === id; }); }
+
+      /* ── Sidebar list ──────────────────────────────────────── */
+      function renderSidebar() {
+        var ul = document.getElementById("product-list");
+        ul.innerHTML = "";
+        products.forEach(function(p){
+          var li = document.createElement("li");
+          var btn = document.createElement("button");
+          if (p.id === activeId) btn.classList.add("active");
+          btn.innerHTML = '<span class="name">' + esc(nameFor(p,"en")) + '</span>' +
+                          '<span class="id-label">' + esc(p.id) + ' · ¥' + Number(p.price||0).toLocaleString() + '</span>';
+          btn.addEventListener("click", function(){ openProduct(p.id); });
+          li.appendChild(btn);
+          ul.appendChild(li);
+        });
+      }
+
+      /* ── Open product in editor ────────────────────────────── */
+      function openProduct(id) {
+        activeId = id;
+        var p = products[findIdx(id)];
+        if (!p) return;
+
+        document.getElementById("empty-state").style.display = "none";
+        document.getElementById("editor-form").style.display = "";
+        document.getElementById("editor-title").textContent  = nameFor(p,"en") || p.id;
+
+        document.getElementById("f-id").value          = p.id || "";
+        document.getElementById("f-printful-id").value = p.printful_id || "";
+        document.getElementById("f-name-en").value     = (p.name && p.name.en) || "";
+        document.getElementById("f-name-ja").value     = (p.name && p.name.ja) || "";
+        document.getElementById("f-price").value       = p.price || "";
+        document.getElementById("f-material").value    = p.material || "";
+        document.getElementById("f-category").value    = p.category || "tshirt";
+        document.getElementById("f-segment").value     = p.segment  || "mens";
+        document.getElementById("f-desc-en").value     = (p.description && p.description.en) || "";
+        document.getElementById("f-desc-ja").value     = (p.description && p.description.ja) || "";
+
+        renderImgList(p.images || []);
+        renderSizeRows(p.sizes || []);
+        renderSidebar();
+        setStatus("");
+      }
+
+      /* ── New product ───────────────────────────────────────── */
+      function newProduct() {
+        var p = {
+          id: "product-" + Date.now(),
+          printful_id: null,
+          name: { en: "New Product", ja: "新商品" },
+          images: [],
+          description: { en: "", ja: "" },
+          material: "",
+          price: 4900,
+          category: "tshirt",
+          segment: "mens",
+          sizes: [
+            { size:"XS", chest:86, length:66 },
+            { size:"S",  chest:91, length:69 },
+            { size:"M",  chest:96, length:71 },
+            { size:"L",  chest:101,length:74 },
+            { size:"XL", chest:106,length:76 },
+          ]
+        };
+        products.push(p);
+        save();
+        openProduct(p.id);
+      }
+
+      /* ── Save form → product ───────────────────────────────── */
+      function saveForm() {
+        var idx = findIdx(activeId);
+        if (idx === -1) return;
+
+        var newId = document.getElementById("f-id").value.trim();
+        if (!newId) return setStatus("ID is required.", "err");
+
+        if (newId !== activeId && findIdx(newId) !== -1) return setStatus("ID already exists.", "err");
+
+        products[idx] = {
+          id:          newId,
+          printful_id: parseInt(document.getElementById("f-printful-id").value, 10) || null,
+          name: {
+            en: document.getElementById("f-name-en").value.trim(),
+            ja: document.getElementById("f-name-ja").value.trim(),
+          },
+          images: collectImages(),
+          description: {
+            en: document.getElementById("f-desc-en").value.trim(),
+            ja: document.getElementById("f-desc-ja").value.trim(),
+          },
+          material: document.getElementById("f-material").value.trim(),
+          price:    parseInt(document.getElementById("f-price").value, 10) || 0,
+          category: document.getElementById("f-category").value,
+          segment:  document.getElementById("f-segment").value,
+          sizes:    collectSizes(),
+        };
+
+        activeId = newId;
+        save();
+        renderSidebar();
+        document.getElementById("editor-title").textContent = products[idx].name.en || newId;
+        setStatus("Saved.", "ok");
+      }
+
+      /* ── Delete ────────────────────────────────────────────── */
+      function deleteProduct() {
+        if (!activeId) return;
+        if (!confirm("Delete "" + activeId + ""?")) return;
+        var idx = findIdx(activeId);
+        if (idx !== -1) products.splice(idx, 1);
+        save();
+        activeId = null;
+        document.getElementById("editor-form").style.display = "none";
+        document.getElementById("empty-state").style.display = "";
+        renderSidebar();
+        setStatus("Deleted.");
+      }
+
+      /* ── Image rows ────────────────────────────────────────── */
+      function renderImgList(imgs) {
+        var list = document.getElementById("img-list");
+        list.innerHTML = "";
+        (imgs||[]).forEach(function(src){ addImgRow(src); });
+      }
+      function addImgRow(src) {
+        var list = document.getElementById("img-list");
+        var row  = document.createElement("div");
+        row.className = "img-row";
+        var preview = document.createElement("img");
+        preview.className = "img-preview";
+        preview.src = src || "";
+        var inp = document.createElement("input");
+        inp.type  = "text";
+        inp.value = src || "";
+        inp.placeholder = "products/id/main.jpg";
+        inp.addEventListener("input", function(){ preview.src = inp.value; });
+        var del = document.createElement("button");
+        del.className = "img-del btn btn-sm";
+        del.textContent = "✕";
+        del.addEventListener("click", function(){ list.removeChild(row); });
+        row.appendChild(preview);
+        row.appendChild(inp);
+        row.appendChild(del);
+        list.appendChild(row);
+      }
+      function collectImages() {
+        return Array.from(document.querySelectorAll("#img-list .img-row input"))
+          .map(function(i){ return i.value.trim(); })
+          .filter(Boolean);
+      }
+
+      /* ── Size rows ─────────────────────────────────────────── */
+      function renderSizeRows(sizes) {
+        var rows = document.getElementById("size-rows");
+        rows.innerHTML = "";
+        (sizes||[]).forEach(function(s){ addSizeRow(s); });
+      }
+      function addSizeRow(s) {
+        var rows = document.getElementById("size-rows");
+        var row  = document.createElement("div");
+        row.className = "size-row";
+        ["size","chest","length","sleeve"].forEach(function(k){
+          var inp = document.createElement("input");
+          inp.type  = k === "size" ? "text" : "number";
+          inp.value = (s && s[k] != null) ? s[k] : "";
+          inp.placeholder = k;
+          inp.dataset.key = k;
+          row.appendChild(inp);
+        });
+        var del = document.createElement("button");
+        del.className = "size-row-del";
+        del.textContent = "✕";
+        del.addEventListener("click", function(){ rows.removeChild(row); });
+        row.appendChild(del);
+        rows.appendChild(row);
+      }
+      function collectSizes() {
+        return Array.from(document.querySelectorAll("#size-rows .size-row")).map(function(row){
+          var obj = {};
+          row.querySelectorAll("input").forEach(function(inp){
+            var k = inp.dataset.key;
+            if (!k) return;
+            var v = inp.value.trim();
+            if (!v) return;
+            obj[k] = k === "size" ? v : (parseFloat(v) || null);
+          });
+          return obj.size ? obj : null;
+        }).filter(Boolean);
+      }
+
+      /* ── Export JSON ───────────────────────────────────────── */
+      function exportJSON() {
+        var json = JSON.stringify({ products: products }, null, 2);
+        var blob = new Blob([json], { type: "application/json" });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "products.json";
+        a.click();
+        URL.revokeObjectURL(a.href);
+        setStatus("products.json をダウンロードしました。/data/ フォルダに配置してください。", "ok");
+      }
+
+      /* ── Push to Worker ────────────────────────────────────── */
+      function pushToAPI() {
+        setStatus("Pushing…");
+        fetch("/api/products", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ products: products }),
+        })
+          .then(function(r){ return r.ok ? r.json() : Promise.reject("HTTP " + r.status); })
+          .then(function(){ setStatus("Pushed to /api/products.", "ok"); })
+          .catch(function(err){ setStatus("Push failed: " + err + " — Use Export instead.", "err"); });
+      }
+
+      /* ── Verify product ────────────────────────────────────── */
+      function verifyProduct() {
+        var pfId = document.getElementById("f-printful-id").value;
+        if (!pfId) return setStatus("Printful ID を入力してください。", "err");
+        setStatus("Verifying…");
+        fetch("/api/verify?id=" + encodeURIComponent(pfId))
+          .then(function(r){ return r.ok ? r.json() : {valid:false}; })
+          .then(function(d){
+            if (d.valid) setStatus("✓ Printful に存在します: " + (d.name||pfId), "ok");
+            else         setStatus("✗ Printful に存在しません (ID: " + pfId + ")", "err");
+          })
+          .catch(function(){ setStatus("Verify API に接続できません。Cloudflare Pages で動作確認してください。", "err"); });
+      }
+
+      /* ── Status bar ────────────────────────────────────────── */
+      function setStatus(msg, type) {
+        var el = document.getElementById("status-bar");
+        el.textContent  = msg || "";
+        el.className    = "status-bar" + (type ? " " + type : "");
+      }
+
+      /* ── Helpers ───────────────────────────────────────────── */
+      function nameFor(p, lang) {
+        if (!p.name) return p.id || "";
+        return typeof p.name === "object" ? (p.name[lang||"en"] || p.name.en || "") : p.name;
+      }
+      function esc(s) {
+        return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+      }
+
+      /* ── Init ──────────────────────────────────────────────── */
+      function init() {
+        load();
+
+        if (!products.length) {
+          // Seed from data/products.json on first run
+          fetch("data/products.json")
+            .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+            .then(function(d){
+              products = d.products || [];
+              save();
+              renderSidebar();
+              setStatus("data/products.json を読み込みました (" + products.length + " 件)。");
+            })
+            .catch(function(){
+              renderSidebar();
+              setStatus("製品を追加してください。");
+            });
+        } else {
+          renderSidebar();
+          setStatus(products.length + " 件のキャッシュを読み込みました (localStorage)。");
+        }
+
+        document.getElementById("btn-new").addEventListener("click", newProduct);
+        document.getElementById("btn-save").addEventListener("click", saveForm);
+        document.getElementById("btn-delete").addEventListener("click", deleteProduct);
+        document.getElementById("btn-export").addEventListener("click", exportJSON);
+        document.getElementById("btn-push").addEventListener("click", pushToAPI);
+        document.getElementById("btn-verify-product").addEventListener("click", verifyProduct);
+        document.getElementById("btn-add-img").addEventListener("click", function(){ addImgRow(""); });
+        document.getElementById("btn-add-size").addEventListener("click", function(){ addSizeRow({}); });
+      }
+
+      init();
+    })();
+    </script>
+  </body>
+</html>

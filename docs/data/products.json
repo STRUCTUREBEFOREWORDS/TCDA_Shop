@@ -1,0 +1,373 @@
+{
+  "products": [
+    {
+      "id": "mens-tshirt01",
+      "printful_id": 424252402,
+      "name": { "ja": "プリズムノイズ Tシャツ", "en": "Prism Noise Tee" },
+      "images": [
+        "products/mens-tshirt01/main.jpg",
+        "products/mens-tshirt01/sub1.jpg",
+        "products/mens-tshirt01/sub2.jpg",
+        "products/mens-tshirt01/sub3.jpg",
+        "products/mens-tshirt01/sub4.jpg"
+      ],
+      "description": {
+        "ja": "グラフィックノイズとプリズム効果を融合させた限定Tシャツ。100%コットンのソフトな着心地と、独自のアートワークが日常を非日常へと変える。",
+        "en": "Limited tee fusing graphic noise and prism effects. Soft 100% cotton drape with original artwork that transforms the everyday."
+      },
+      "material": "100% Cotton",
+      "price": 4900,
+      "category": "tshirt",
+      "segment": "mens",
+      "sizes": [
+        { "size": "XS", "chest": 86, "length": 66 },
+        { "size": "S",  "chest": 91, "length": 69 },
+        { "size": "M",  "chest": 96, "length": 71 },
+        { "size": "L",  "chest": 101, "length": 74 },
+        { "size": "XL", "chest": 106, "length": 76 },
+        { "size": "2XL","chest": 111, "length": 79 }
+      ]
+    },
+    {
+      "id": "mens-tshirt02",
+      "printful_id": 424261670,
+      "name": { "ja": "スタティック ウェーブ Tシャツ", "en": "Static Wave Tee" },
+      "images": [
+        "products/mens-tshirt02/main.jpg",
+        "products/mens-tshirt02/sub1.jpg",
+        "products/mens-tshirt02/sub2.jpg",
+        "products/mens-tshirt02/sub3.jpg",
+        "products/mens-tshirt02/sub4.jpg"
+      ],
+      "description": {
+        "ja": "静電波紋をモチーフにしたグラフィックTシャツ。ノイズアートが持つ独特の緊張感を着こなしへ。",
+        "en": "Graphic tee inspired by electrostatic ripples. Wear the tension of noise art."
+      },
+      "material": "100% Cotton",
+      "price": 4900,
+      "category": "tshirt",
+      "segment": "mens",
+      "sizes": [
+        { "size": "XS", "chest": 86, "length": 66 },
+        { "size": "S",  "chest": 91, "length": 69 },
+        { "size": "M",  "chest": 96, "length": 71 },
+        { "size": "L",  "chest": 101, "length": 74 },
+        { "size": "XL", "chest": 106, "length": 76 },
+        { "size": "2XL","chest": 111, "length": 79 }
+      ]
+    },
+    {
+      "id": "mens-tshirt03",
+      "printful_id": 424262004,
+      "name": { "ja": "サーキット プリント Tシャツ", "en": "Circuit Print Tee" },
+      "images": [
+        "products/mens-tshirt03/main.jpg",
+        "products/mens-tshirt03/sub1.jpg",
+        "products/mens-tshirt03/sub2.jpg",
+        "products/mens-tshirt03/sub3.jpg",
+        "products/mens-tshirt03/sub4.jpg"
+      ],
+      "description": {
+        "ja": "回路基板のテクスチャをアパレルに落とし込んだ、テクノロジーとアートの融合作。",
+        "en": "Circuit board texture translated into apparel — the fusion of technology and art."
+      },
+      "material": "100% Cotton",
+      "price": 4900,
+      "category": "tshirt",
+      "segment": "mens",
+      "sizes": [
+        { "size": "XS", "chest": 86, "length": 66 },
+        { "size": "S",  "chest": 91, "length": 69 },
+        { "size": "M",  "chest": 96, "length": 71 },
+        { "size": "L",  "chest": 101, "length": 74 },
+        { "size": "XL", "chest": 106, "length": 76 },
+        { "size": "2XL","chest": 111, "length": 79 }
+      ]
+    },
+    {
+      "id": "mens-tshirt04",
+      "printful_id": 424274859,
+      "name": { "ja": "グリッチコア Tシャツ", "en": "Glitch Core Tee" },
+      "images": [
+        "products/mens-tshirt04/main-womens-001.webp",
+        "products/mens-tshirt04/sub-womens-002.webp",
+        "products/mens-tshirt04/sub-womens-003.webp",
+        "products/mens-tshirt04/sub-womens-004.webp",
+        "products/mens-tshirt04/sub-womens-005.webp"
+      ],
+      "description": {
+        "ja": "デジタルグリッチを視覚化した、TCDAシグネチャーグラフィック。",
+        "en": "TCDA signature graphic visualizing digital glitch phenomena."
+      },
+      "material": "100% Cotton",
+      "price": 4900,
+      "category": "tshirt",
+      "segment": "mens",
+      "sizes": [
+        { "size": "XS", "chest": 86, "length": 66 },
+        { "size": "S",  "chest": 91, "length": 69 },
+        { "size": "M",  "chest": 96, "length": 71 },
+        { "size": "L",  "chest": 101, "length": 74 },
+        { "size": "XL", "chest": 106, "length": 76 },
+        { "size": "2XL","chest": 111, "length": 79 }
+      ]
+    },
+    {
+      "id": "womens-tshirt01",
+      "printful_id": 424274987,
+      "name": { "ja": "スペクトラル ヴェール Tシャツ", "en": "Spectral Veil Tee" },
+      "images": [
+        "products/womens-tshirt01/main.jpg",
+        "products/womens-tshirt01/sub1.jpg",
+        "products/womens-tshirt01/sub2.jpg",
+        "products/womens-tshirt01/sub3.jpg",
+        "products/womens-tshirt01/sub4.jpg"
+      ],
+      "description": {
+        "ja": "スペクトル光を纏うような透明感あるウィメンズTシャツ。リラックスフィットで快適な着用感。",
+        "en": "Women's tee with spectral luminosity. Relaxed fit for effortless wear."
+      },
+      "material": "100% Cotton",
+      "price": 4900,
+      "category": "tshirt",
+      "segment": "womens",
+      "sizes": [
+        { "size": "XS", "chest": 82, "length": 60 },
+        { "size": "S",  "chest": 86, "length": 63 },
+        { "size": "M",  "chest": 91, "length": 65 },
+        { "size": "L",  "chest": 96, "length": 68 },
+        { "size": "XL", "chest": 101, "length": 70 },
+        { "size": "2XL","chest": 106, "length": 73 }
+      ]
+    },
+    {
+      "id": "womens-tshirt02",
+      "printful_id": 424275001,
+      "name": { "ja": "デジタル フローラ Tシャツ", "en": "Digital Flora Tee" },
+      "images": [
+        "products/womens-tshirt02/main.jpg",
+        "products/womens-tshirt02/sub1.jpg",
+        "products/womens-tshirt02/sub2.jpg",
+        "products/womens-tshirt02/sub3.jpg",
+        "products/womens-tshirt02/sub4.jpg"
+      ],
+      "description": {
+        "ja": "デジタルフローラルアートが咲き乱れるウィメンズTシャツ。自然とテクノロジーの融合。",
+        "en": "Digital floral art in full bloom. Women's tee at the intersection of nature and technology."
+      },
+      "material": "100% Cotton",
+      "price": 4900,
+      "category": "tshirt",
+      "segment": "womens",
+      "sizes": [
+        { "size": "XS", "chest": 82, "length": 60 },
+        { "size": "S",  "chest": 86, "length": 63 },
+        { "size": "M",  "chest": 91, "length": 65 },
+        { "size": "L",  "chest": 96, "length": 68 },
+        { "size": "XL", "chest": 101, "length": 70 },
+        { "size": "2XL","chest": 106, "length": 73 }
+      ]
+    },
+    {
+      "id": "womens-tshirt03",
+      "printful_id": 424275027,
+      "name": { "ja": "ピクセル ブルーム Tシャツ", "en": "Pixel Bloom Tee" },
+      "images": [
+        "products/womens-tshirt03/main.jpg",
+        "products/womens-tshirt03/sub1.jpg",
+        "products/womens-tshirt03/sub2.jpg",
+        "products/womens-tshirt03/sub3.jpg",
+        "products/womens-tshirt03/sub4.jpg"
+      ],
+      "description": {
+        "ja": "ピクセルアートが花開くウィメンズTシャツ。柔らかなコットン素材で日常のスタイルを彩る。",
+        "en": "Pixel art in full bloom on soft cotton. Women's tee for everyday expression."
+      },
+      "material": "100% Cotton",
+      "price": 4900,
+      "category": "tshirt",
+      "segment": "womens",
+      "sizes": [
+        { "size": "XS", "chest": 82, "length": 60 },
+        { "size": "S",  "chest": 86, "length": 63 },
+        { "size": "M",  "chest": 91, "length": 65 },
+        { "size": "L",  "chest": 96, "length": 68 },
+        { "size": "XL", "chest": 101, "length": 70 },
+        { "size": "2XL","chest": 106, "length": 73 }
+      ]
+    },
+    {
+      "id": "womens-tshirt04",
+      "printful_id": 424275122,
+      "name": { "ja": "ネオン ヘイズ Tシャツ", "en": "Neon Haze Tee" },
+      "images": [
+        "products/womens-tshirt04/main-womens-001.webp",
+        "products/womens-tshirt04/sub-womens-002.webp",
+        "products/womens-tshirt04/sub-womens-003.webp",
+        "products/womens-tshirt04/sub-womens-004.webp",
+        "products/womens-tshirt04/sub-womens-005.webp"
+      ],
+      "description": {
+        "ja": "ネオン霞をまとうようなウィメンズTシャツ。夜の都市を連想させる発光グラフィック。",
+        "en": "Luminous neon-haze graphic on women's tee. Urban night energy in wearable form."
+      },
+      "material": "100% Cotton",
+      "price": 4900,
+      "category": "tshirt",
+      "segment": "womens",
+      "sizes": [
+        { "size": "XS", "chest": 82, "length": 60 },
+        { "size": "S",  "chest": 86, "length": 63 },
+        { "size": "M",  "chest": 91, "length": 65 },
+        { "size": "L",  "chest": 96, "length": 68 },
+        { "size": "XL", "chest": 101, "length": 70 },
+        { "size": "2XL","chest": 106, "length": 73 }
+      ]
+    },
+    {
+      "id": "hoodie01",
+      "printful_id": 424275171,
+      "name": { "ja": "ディストーション フーディー", "en": "Distortion Hoodie" },
+      "images": [
+        "products/hoodie01/main.jpg",
+        "products/hoodie01/sub1.jpg",
+        "products/hoodie01/sub2.jpg",
+        "products/hoodie01/sub3.jpg",
+        "products/hoodie01/sub4.jpg"
+      ],
+      "description": {
+        "ja": "ディストーションエフェクトをアートワークに昇華させたユニセックスフーディー。厚手のフレンチテリー素材。",
+        "en": "Unisex hoodie elevating distortion effects to wearable art. Heavy French terry construction."
+      },
+      "material": "80% Cotton, 20% Polyester",
+      "price": 8900,
+      "category": "outer",
+      "segment": "unisex",
+      "sizes": [
+        { "size": "2XS","chest": 88, "length": 65 },
+        { "size": "XS", "chest": 93, "length": 67 },
+        { "size": "S",  "chest": 98, "length": 69 },
+        { "size": "M",  "chest": 103, "length": 71 },
+        { "size": "L",  "chest": 108, "length": 73 },
+        { "size": "XL", "chest": 113, "length": 75 },
+        { "size": "2XL","chest": 118, "length": 77 }
+      ]
+    },
+    {
+      "id": "hoodie02",
+      "printful_id": 424275319,
+      "name": { "ja": "ノイズフィールド フーディー", "en": "Noise Field Hoodie" },
+      "images": [
+        "products/hoodie02/main.jpg",
+        "products/hoodie02/sub1.jpg",
+        "products/hoodie02/sub2.jpg",
+        "products/hoodie02/sub3.jpg",
+        "products/hoodie02/sub4.jpg"
+      ],
+      "description": {
+        "ja": "ノイズフィールドのビジュアルを纏うユニセックスフーディー。着るたびに異なる表情を見せる。",
+        "en": "Unisex hoodie wearing a noise field visual. Every wear reveals a different face."
+      },
+      "material": "80% Cotton, 20% Polyester",
+      "price": 8900,
+      "category": "outer",
+      "segment": "unisex",
+      "sizes": [
+        { "size": "2XS","chest": 88, "length": 65 },
+        { "size": "XS", "chest": 93, "length": 67 },
+        { "size": "S",  "chest": 98, "length": 69 },
+        { "size": "M",  "chest": 103, "length": 71 },
+        { "size": "L",  "chest": 108, "length": 73 },
+        { "size": "XL", "chest": 113, "length": 75 },
+        { "size": "2XL","chest": 118, "length": 77 }
+      ]
+    },
+    {
+      "id": "zip-hoodie01",
+      "printful_id": 424275370,
+      "name": { "ja": "クロマ フラックス ジャケット", "en": "Chroma Flux Jacket" },
+      "images": [
+        "products/zip-hoodie01/main.jpg",
+        "products/zip-hoodie01/sub1.jpg",
+        "products/zip-hoodie01/sub2.jpg",
+        "products/zip-hoodie01/sub3.jpg",
+        "products/zip-hoodie01/sub4.jpg"
+      ],
+      "description": {
+        "ja": "クロマティックカラー変移をモチーフにしたユニセックスジップジャケット。フルジップ仕様で着脱しやすく、独自アートワークで存在感を放つ。",
+        "en": "Unisex zip jacket inspired by chromatic color shift. Full-zip for easy wear, bold artwork for maximum presence."
+      },
+      "material": "80% Cotton, 20% Polyester",
+      "price": 8900,
+      "category": "outer",
+      "segment": "unisex",
+      "sizes": [
+        { "size": "2XS","chest": 88, "length": 65 },
+        { "size": "XS", "chest": 93, "length": 67 },
+        { "size": "S",  "chest": 98, "length": 69 },
+        { "size": "M",  "chest": 103, "length": 71 },
+        { "size": "L",  "chest": 108, "length": 73 },
+        { "size": "XL", "chest": 113, "length": 75 },
+        { "size": "2XL","chest": 118, "length": 77 }
+      ]
+    },
+    {
+      "id": "zip-hoodie02",
+      "printful_id": 424275382,
+      "name": { "ja": "クロマ シグナル ジャケット", "en": "Chroma Signal Jacket" },
+      "images": [
+        "products/zip-hoodie02/main.jpg",
+        "products/zip-hoodie02/sub1.jpg",
+        "products/zip-hoodie02/sub2.jpg",
+        "products/zip-hoodie02/sub3.jpg",
+        "products/zip-hoodie02/sub4.jpg"
+      ],
+      "description": {
+        "ja": "デジタル信号を意匠化したクロマシリーズのジップジャケット。ユニセックスシルエットに大胆なグラフィック。",
+        "en": "Zip jacket in the Chroma series, designed from digital signal patterns. Bold graphics on a unisex silhouette."
+      },
+      "material": "80% Cotton, 20% Polyester",
+      "price": 8900,
+      "category": "outer",
+      "segment": "unisex",
+      "sizes": [
+        { "size": "2XS","chest": 88, "length": 65 },
+        { "size": "XS", "chest": 93, "length": 67 },
+        { "size": "S",  "chest": 98, "length": 69 },
+        { "size": "M",  "chest": 103, "length": 71 },
+        { "size": "L",  "chest": 108, "length": 73 },
+        { "size": "XL", "chest": 113, "length": 75 },
+        { "size": "2XL","chest": 118, "length": 77 }
+      ]
+    },
+    {
+      "id": "zip-hoodie03",
+      "printful_id": 424275426,
+      "name": { "ja": "クロマ ノイズ ジャケット", "en": "Chroma Noise Jacket" },
+      "images": [
+        "products/zip-hoodie03/main.jpg",
+        "products/zip-hoodie03/sub1.jpg",
+        "products/zip-hoodie03/sub2.jpg",
+        "products/zip-hoodie03/sub3.jpg",
+        "products/zip-hoodie03/sub4.jpg"
+      ],
+      "description": {
+        "ja": "TCDAフラッグシップ。クロマティックノイズを全面に展開したフルジップジャケット。受注生産・限定アイテム。",
+        "en": "TCDA flagship. Full-zip jacket with chromatic noise spread across the entire surface. Made-to-order, limited."
+      },
+      "material": "80% Cotton, 20% Polyester",
+      "price": 74000,
+      "category": "outer",
+      "segment": "unisex",
+      "sizes": [
+        { "size": "2XS","chest": 88, "length": 65 },
+        { "size": "XS", "chest": 93, "length": 67 },
+        { "size": "S",  "chest": 98, "length": 69 },
+        { "size": "M",  "chest": 103, "length": 71 },
+        { "size": "L",  "chest": 108, "length": 73 },
+        { "size": "XL", "chest": 113, "length": 75 },
+        { "size": "2XL","chest": 118, "length": 77 }
+      ]
+    }
+  ]
+}
