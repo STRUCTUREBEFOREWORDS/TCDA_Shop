@@ -467,10 +467,24 @@
       document.addEventListener("DOMContentLoaded", function(){
         wireEvents();
 
-        fetch("data/products.json")
-          .then(function(r){ return r.ok ? r.json() : Promise.reject("HTTP " + r.status); })
-          .then(function(data){
+        // Fetch products.json and live Printful prices in parallel
+        Promise.all([
+          fetch("data/products.json").then(function(r){ return r.ok ? r.json() : Promise.reject("HTTP " + r.status); }),
+          fetch("/api/prices").then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+        ])
+          .then(function(pair){
+            var data     = pair[0];
+            var liveData = pair[1];
             var products = data.products || [];
+
+            // Patch prices from Printful if live data available
+            if (liveData && liveData.prices) {
+              products.forEach(function(p){
+                var live = liveData.prices[p.printful_id];
+                if (live && live.price) p.price = live.price;
+              });
+            }
+
             var checks = products.map(function(p){
               return verify(p.printful_id).then(function(ok){ return ok ? p : null; });
             });
@@ -479,7 +493,7 @@
           .then(function(results){
             allProducts = results.filter(Boolean);
             if (!allProducts.length) {
-              // no valid products (verify endpoint not configured): show all
+              // verify endpoint not configured — show all with current prices
               return fetch("data/products.json")
                 .then(function(r){ return r.json(); })
                 .then(function(d){ allProducts = d.products || []; renderGrid(allProducts); });

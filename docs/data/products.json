@@ -99,96 +99,77 @@
       "id": "zip-hoodie02",
       "printful_id": 424275382,
       "name": {
-        "ja": "クロマ シグナル ジャケット",
-        "en": "Chroma Signal Jacket"
+        "ja": "ユニセックス ジップアップパーカー",
+        "en": "Unisex Zip Hoodie"
       },
       "images": [
-        "products/zip-hoodie02/main.jpg",
-        "products/zip-hoodie02/sub1.jpg",
-        "products/zip-hoodie02/sub2.jpg",
-        "products/zip-hoodie02/sub3.jpg",
-        "products/zip-hoodie02/sub4.jpg"
+        "products/zip-hoodie02/Photoroom_20251127_145215.jpg",
+        "products/zip-hoodie02/Photoroom_20251127_145210.jpg",
+        "products/zip-hoodie02/Photoroom_20251127_142953.jpg",
+        "products/zip-hoodie02/Photoroom_20251127_142948.jpg",
+        "products/zip-hoodie02/Photoroom_20251127_142900.jpg",
+        "products/zip-hoodie02/Photoroom_20251127_142431.PNG",
+        "products/zip-hoodie02/Photoroom_20251127_142412.jpg",
+        "products/zip-hoodie02/Photoroom_20251127_142404.jpg",
+        "products/zip-hoodie02/Photoroom_20251127_142358.jpg"
       ],
-      "thumbnail_url": "https://files.cdn.printful.com/files/616/6169e2474a8a7f97e9af853e79fc74f9_preview.png",
       "description": {
         "ja": "デジタル信号を意匠化したクロマシリーズのジップジャケット。ユニセックスシルエットに大胆なグラフィック。",
         "en": "Zip jacket in the Chroma series, designed from digital signal patterns. Bold graphics on a unisex silhouette."
       },
-      "material": "80% Cotton, 20% Polyester",
-      "price": 8900,
+      "material": "素材・仕様  ・リサイクルポリエステル95％、スパンデックス5％ ・生地重量：308 g/m² ・コットンタッチ表地／起毛フリース裏地 ・二重裏地フード、ドローストリング、メタルパーツ ・プレミアム昇華プリント ・GRS／OEKO-TEX Standard 100 認証生地",
+      "price": 14999,
       "category": "outer",
       "segment": "unisex",
       "sizes": [
         {
           "size": "2XS",
-          "chest": 96,
+          "chest": 88,
           "length": 65
         },
         {
           "size": "XS",
-          "chest": 100,
-          "length": 65
+          "chest": 93,
+          "length": 67
         },
         {
           "size": "S",
-          "chest": 104,
-          "length": 68
+          "chest": 98,
+          "length": 69
         },
         {
           "size": "M",
-          "chest": 108,
-          "length": 68
+          "chest": 103,
+          "length": 71
         },
         {
           "size": "L",
-          "chest": 116,
-          "length": 71
+          "chest": 108,
+          "length": 73
         },
         {
           "size": "XL",
-          "chest": 124,
-          "length": 71
+          "chest": 113,
+          "length": 75
         },
         {
           "size": "2XL",
-          "chest": 132,
-          "length": 74
+          "chest": 118,
+          "length": 77
         },
         {
-          "size": "3XL",
-          "chest": 140,
-          "length": 74
+          "size": "3XL"
         },
         {
-          "size": "4XL",
-          "chest": 148,
-          "length": 78
+          "size": "4XL"
         },
         {
-          "size": "5XL",
-          "chest": 156,
-          "length": 78
+          "size": "5XL"
         },
         {
-          "size": "6XL",
-          "chest": 164,
-          "length": 78
+          "size": "6XL"
         }
-      ],
-      "variant_ids": {
-        "2XS": 5236394603,
-        "XS": 5236394604,
-        "S": 5236394605,
-        "M": 5236394606,
-        "L": 5236394607,
-        "XL": 5236394608,
-        "2XL": 5236394609,
-        "3XL": 5236394610,
-        "4XL": 5236394611,
-        "5XL": 5236394612,
-        "6XL": 5236394613
-      },
-      "synced": 11
+      ]
     },
     {
       "id": "zip-hoodie01",

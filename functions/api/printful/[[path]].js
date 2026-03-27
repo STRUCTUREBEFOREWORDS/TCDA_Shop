@@ -29,6 +29,8 @@ const PRINTFUL_API = "https://api.printful.com";
 
 // Allowed origins (update if your domain is different)
 const ALLOWED_ORIGINS = [
+  "https://tcdashop.com",
+  "https://www.tcdashop.com",
   "https://tcda.shop",
   "https://www.tcda.shop",
   "http://localhost",
