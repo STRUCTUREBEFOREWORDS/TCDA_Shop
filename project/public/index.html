@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TCDA</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;min-height:100%;background:#000;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-x:hidden}
+
+#entry{position:fixed;inset:0;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease}
+#entry p{font-size:clamp(1rem,3vw,1.5rem);letter-spacing:.25em;font-weight:300;color:#fff}
+
+#main{opacity:0;transition:opacity .8s ease}
+#main.show{opacity:1}
+
+.product{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6vh 4vw;gap:3vh;position:relative}
+.product img{width:min(480px,88vw);aspect-ratio:1;object-fit:cover;display:block}
+.tags{display:flex;gap:1.5rem;font-size:.75rem;letter-spacing:.2em;opacity:.55}
+.choose{font-size:.8rem;letter-spacing:.3em;cursor:pointer;opacity:.4;transition:opacity .4s;padding:.5rem 0;user-select:none}
+.choose:hover{opacity:1}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+@keyframes hue{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(360deg)}}
+
+body.v2 .product img{animation:pulse 5s ease-in-out infinite}
+body.v3{animation:hue 12s linear infinite}
+</style>
+</head>
+<body>
+
+<div id="entry"><p>これは服ではない</p></div>
+<div id="main"></div>
+
+<script>
+const TAGS=[["覚醒","再生"],["静寂","深層"],["衝動","解放"],["境界","消失"],["均衡","歪み"]];
+
+(function(){
+  const n=(parseInt(localStorage.getItem('vc')||'0'))+1;
+  localStorage.setItem('vc',n);
+  if(n===2) document.body.classList.add('v2');
+  if(n>=3)  document.body.classList.add('v3');
+})();
+
+setTimeout(()=>{
+  const e=document.getElementById('entry');
+  e.style.opacity='0';
+  setTimeout(()=>{e.remove();document.getElementById('main').classList.add('show')},600);
+},1200);
+
+fetch('/api/products')
+  .then(r=>r.json())
+  .then(({products})=>{
+    const main=document.getElementById('main');
+    products.forEach((p,i)=>{
+      const tag=TAGS[i%TAGS.length];
+      const sec=document.createElement('section');
+      sec.className='product';
+      sec.innerHTML=`
+        <img src="${p.thumbnail_url}" alt="">
+        <div class="tags"><span>${tag[0]}</span><span>${tag[1]}</span></div>
+        <span class="choose" data-price="${p.price}" data-variant="${p.variant_id}" data-tag="${tag[0]} / ${tag[1]}">これを選ぶ</span>
+      `;
+      main.appendChild(sec);
+    });
+    main.querySelectorAll('.choose').forEach(el=>{
+      el.addEventListener('click',async()=>{
+        const {price,variant,tag}=el.dataset;
+        const r=await fetch('/create-checkout-session',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({price:+price,variant_id:+variant,tag}),
+        });
+        const {url}=await r.json();
+        if(url) location.href=url;
+      });
+    });
+  });
+</script>
+</body>
+</html>
