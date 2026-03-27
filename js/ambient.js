@@ -14,7 +14,8 @@
   all.forEach(function(src){
     var img=document.createElement("img");
     img.loading="lazy";img.decoding="async";
-    img.style.cssText="position:absolute;width:"+rnd(14,32)+"vw;left:"+rnd(-4,86)+"vw;top:"+rnd(-4,86)+"vh;opacity:0;object-fit:cover;aspect-ratio:1/1;filter:blur("+rnd(1,2.5)+"px) saturate(0.4);transition:transform "+DUR+"s ease,opacity "+DUR+"s ease;";
+    var s=rnd(14,26);var sz="clamp(110px,"+s+"vw,280px)";
+    img.style.cssText="position:absolute;width:"+sz+";height:"+sz+";left:"+rnd(-4,86)+"vw;top:"+rnd(-4,86)+"vh;opacity:0;object-fit:cover;filter:blur("+rnd(1,2.5)+"px) saturate(0.4);transition:transform "+DUR+"s ease,opacity "+DUR+"s ease;";
     wrap.appendChild(img);els.push(img);
     img.src=src;
     img.onload=function(){requestAnimationFrame(function(){anim(img);});};
