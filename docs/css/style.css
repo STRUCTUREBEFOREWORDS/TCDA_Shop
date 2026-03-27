@@ -2173,3 +2173,29 @@ p {
   margin-top: 2px;
 }
 
+
+
+/* ── Ambient background ───────────────────────────────── */
+.page-ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+
+/* ── Nav redesign ─────────────────────────────────────── */
+.nav-toggle{
+  border:none;
+  background-image:repeating-linear-gradient(to bottom,var(--ink) 0,var(--ink) 1.5px,transparent 1.5px,transparent 8px);
+  background-size:22px 18px;background-repeat:no-repeat;background-position:center;
+  color:transparent;font-size:0;width:36px;height:36px;cursor:pointer;
+}
+.nav-links{border-width:1px;border-radius:0;box-shadow:0 8px 24px rgba(10,10,10,.07)}
+.nav-links a{font-weight:300;letter-spacing:.22em;font-size:.65rem;transition:color var(--ease),letter-spacing var(--ease)}
+.nav-links a::after{display:none}
+.nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+.nav-links a[aria-current="page"]::before{
+  content:'';position:absolute;bottom:-3px;left:50%;transform:translateX(-50%);
+  width:3px;height:3px;background:var(--ink);border-radius:50%;opacity:.8;
+}
+.nav-links a:hover{color:var(--ink);letter-spacing:.28em}
+
+/* ── Cart bag icon ────────────────────────────────────── */
+.cart-pill.cart-bag{border:none;padding:4px 8px;display:inline-flex;align-items:center;gap:5px;background:transparent}
+.cart-pill.cart-bag svg{width:22px;height:22px;stroke:currentColor;flex-shrink:0}
+.cart-pill.cart-bag [data-cart-count]{font-size:.6rem;font-weight:600;letter-spacing:.02em;min-width:10px}

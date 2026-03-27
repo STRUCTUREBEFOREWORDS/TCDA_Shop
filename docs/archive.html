@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <div class="page-ambient" id="page-ambient"></div>
     <header class="site-header">
       <div class="nav-wrap">
         <a class="brand" href="index.html" aria-label="TCDA Home"><img src="images/logo/tcda_black.svg" alt="Transcend Color Digital Apparel" class="brand-logo" width="160" height="48" /></a>
@@ -21,7 +22,7 @@
           <a href="shop.html" data-i18n="nav_shop">Shop</a>
         </nav>
         <div class="nav-tools">
-          <div class="cart-pill"><span data-i18n="cart_label">Cart</span> <span data-cart-count>0</span></div>
+          <div class="cart-pill cart-bag" role="button" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span data-cart-count>0</span></div>
           <div class="locale-switcher" id="locale-switcher">
             <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
               <span class="locale-toggle-lang" data-current-lang-label>EN</span>
@@ -94,5 +95,6 @@
     <script src="js/currency.js"></script>
     <script src="js/cart.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="js/ambient.js"></script>
   </body>
 </html>
