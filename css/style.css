@@ -99,13 +99,21 @@ img {
 
 .brand-logo {
   display: block;
-  height: 42px;
+  height: 48px;
   width: auto;
+  /* CLS防止: width/heightはHTMLで指定済み */
 }
 
 @media (max-width: 768px) {
   .brand-logo {
-    height: 34px;
+    height: 40px;
+  }
+}
+
+/* ダークモード: SVGをCSSフィルターで白に反転 */
+@media (prefers-color-scheme: dark) {
+  .brand-logo {
+    filter: invert(1);
   }
 }
 
