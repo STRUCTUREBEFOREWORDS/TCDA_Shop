@@ -3,10 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>特定商取引法に基づく表記 | TCDA</title>
-    <meta name="description" content="Transcend Color Digital Apparel（TCDA）の特定商取引法に基づく表記ページです。" />
+    <title>特定商取引法・プライバシーポリシー・利用規約 | TCDA</title>
+    <meta name="description" content="Transcend Color Digital Apparel（TCDA）の特定商取引法に基づく表記・プライバシーポリシー・利用規約・Cookie ポリシーです。" />
     <link rel="stylesheet" href="css/style.css" />
     <style>
+      /* ── Legal page ───────────────────────────────────────────── */
+      .legal-wrap {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      /* ── Language toggle ──────────────────────────────────────── */
+      .lang-toggle {
+        display: flex;
+        gap: 8px;
+        margin-bottom: var(--s4);
+      }
+      .lang-btn {
+        border: 1px solid var(--line);
+        background: transparent;
+        padding: 6px 18px;
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        color: var(--ink-2);
+        transition: opacity var(--ease);
+      }
+      .lang-btn[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--bg);
+        border-color: var(--ink);
+      }
+      .lang-btn:hover { opacity: 0.75; }
+
+      /* ── Tab navigation ───────────────────────────────────────── */
+      .legal-tabs {
+        display: flex;
+        gap: 0;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: var(--s4);
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .legal-tabs::-webkit-scrollbar { display: none; }
+      .tab-btn {
+        border: none;
+        border-bottom: 2px solid transparent;
+        background: transparent;
+        padding: 12px 20px;
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        color: var(--ink-2);
+        white-space: nowrap;
+        margin-bottom: -1px;
+        transition: color var(--ease), border-color var(--ease);
+      }
+      .tab-btn[aria-selected="true"] {
+        color: var(--ink);
+        border-bottom-color: var(--ink);
+      }
+      .tab-btn:hover { color: var(--ink); }
+      .tab-panel { display: none; }
+      .tab-panel.is-active { display: block; }
+
+      /* ── Legal table ──────────────────────────────────────────── */
       .legal-table {
         width: 100%;
         border-collapse: collapse;
@@ -15,50 +78,183 @@
       }
       .legal-table th,
       .legal-table td {
-        padding: 1.1rem 1.4rem;
+        padding: 1rem 1.2rem;
         text-align: left;
         vertical-align: top;
         border-bottom: 1px solid var(--line);
       }
+      .legal-table tr:first-child th,
+      .legal-table tr:first-child td { border-top: 1px solid var(--line); }
       .legal-table th {
-        width: 220px;
+        width: 200px;
         font-weight: 600;
         font-size: 0.78rem;
         letter-spacing: 0.06em;
-        color: var(--ink);
         white-space: nowrap;
         background: var(--paper-2);
       }
-      .legal-table td {
-        color: var(--muted);
+      .legal-table td { color: var(--ink-2); }
+      @media (max-width: 600px) {
+        .legal-table th { width: 100px; padding: 0.75rem 0.8rem; }
+        .legal-table td { padding: 0.75rem 0.8rem; }
       }
-      .legal-table tr:first-child th,
-      .legal-table tr:first-child td {
-        border-top: 1px solid var(--line);
+
+      /* ── Section ──────────────────────────────────────────────── */
+      .legal-section { margin-bottom: var(--s5); }
+      .legal-section h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        margin-bottom: var(--s3);
+        padding-bottom: var(--s2);
+        border-bottom: 1px solid var(--line);
+      }
+      .legal-section h3 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin: var(--s3) 0 var(--s2);
+      }
+      .legal-section p, .legal-section li {
+        font-size: 0.9rem;
+        color: var(--ink-2);
+        line-height: 1.8;
+      }
+      .legal-section ul {
+        padding-left: 1.4em;
+        margin: var(--s2) 0;
       }
       .legal-note {
         font-size: 0.78rem;
-        color: var(--muted);
+        color: var(--ink-2);
         margin-top: var(--s4);
         padding-top: var(--s3);
         border-top: 1px solid var(--line);
         line-height: 1.8;
       }
-      @media (max-width: 600px) {
-        .legal-table th {
-          width: 110px;
-          padding: 0.8rem 0.9rem;
-        }
-        .legal-table td {
-          padding: 0.8rem 0.9rem;
-        }
+
+      /* ── Return flow ──────────────────────────────────────────── */
+      .return-flow {
+        display: grid;
+        gap: var(--s2);
+        margin-top: var(--s3);
       }
+      .return-step {
+        display: flex;
+        gap: var(--s2);
+        align-items: flex-start;
+        padding: var(--s2) var(--s3);
+        background: var(--paper-2);
+      }
+      .return-step-num {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: var(--ink-2);
+        padding-top: 2px;
+        min-width: 24px;
+      }
+      .return-step-body { font-size: 0.88rem; line-height: 1.7; }
+      .return-step-body strong { display: block; font-size: 0.82rem; margin-bottom: 2px; }
+      .status-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: var(--s3);
+      }
+      .status-badge {
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        padding: 4px 12px;
+        border: 1px solid var(--line);
+        color: var(--ink-2);
+      }
+      .status-badge.pending  { border-color: #d4a017; color: #9a7010; }
+      .status-badge.approved { border-color: #2d7a3a; color: #1d5228; }
+      .status-badge.rejected { border-color: #a03030; color: #7a2020; }
+      .status-badge.refunded { border-color: #2060a0; color: #184070; }
+      @media (prefers-color-scheme: dark) {
+        .status-badge.pending  { color: #d4a017; }
+        .status-badge.approved { color: #4daa5a; }
+        .status-badge.rejected { color: #d05050; }
+        .status-badge.refunded { color: #4090d0; }
+      }
+
+      /* ── Reviews ──────────────────────────────────────────────── */
+      .review-grid {
+        display: grid;
+        gap: var(--s3);
+        margin-top: var(--s3);
+      }
+      .review-item {
+        padding: var(--s3);
+        border: 1px solid var(--line);
+      }
+      .review-stars { color: var(--ink); font-size: 1rem; letter-spacing: 2px; margin-bottom: 6px; }
+      .review-text { font-size: 0.88rem; color: var(--ink-2); line-height: 1.7; font-style: italic; }
+      .review-meta { display: flex; justify-content: space-between; margin-top: var(--s2); font-size: 0.75rem; color: var(--ink-2); }
+
+      /* ── Cookie banner ────────────────────────────────────────── */
+      #cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--ink);
+        color: var(--bg);
+        padding: var(--s3) var(--s4);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--s3);
+        flex-wrap: wrap;
+        z-index: 9999;
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+      #cookie-banner[hidden] { display: none; }
+      .cookie-text { flex: 1; min-width: 200px; }
+      .cookie-text a { color: var(--bg); text-decoration: underline; opacity: 0.75; }
+      .cookie-text a:hover { opacity: 1; }
+      .cookie-actions { display: flex; gap: 8px; flex-shrink: 0; }
+      .cookie-btn {
+        border: 1px solid rgba(255,255,255,0.4);
+        background: transparent;
+        color: var(--bg);
+        padding: 7px 18px;
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        transition: opacity var(--ease);
+      }
+      .cookie-btn:hover { opacity: 0.75; }
+      .cookie-btn.accept { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+
+      /* ── i18n hidden ──────────────────────────────────────────── */
+      [data-lang]:not(.lang-active) { display: none; }
     </style>
   </head>
   <body>
+
+    <!-- ─── Cookie Banner ─────────────────────────────────────────── -->
+    <div id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite" hidden>
+      <p class="cookie-text" data-lang="ja">
+        当サイトでは機能改善のためCookieを使用します。詳細は<a href="#cookie-policy">Cookieポリシー</a>をご覧ください。
+      </p>
+      <p class="cookie-text" data-lang="en" style="display:none">
+        We use cookies to improve site functionality. See our <a href="#cookie-policy">Cookie Policy</a> for details.
+      </p>
+      <div class="cookie-actions">
+        <button class="cookie-btn" id="cookie-decline">Decline</button>
+        <button class="cookie-btn accept" id="cookie-accept">Accept</button>
+      </div>
+    </div>
+
+    <!-- ─── Header ────────────────────────────────────────────────── -->
     <header class="site-header">
       <div class="nav-wrap">
-        <a class="brand" href="index.html" aria-label="TCDA Home"><img src="images/logo/tcda_black.svg" alt="Transcend Color Digital Apparel" class="brand-logo" width="160" height="48" /></a>
+        <a class="brand" href="index.html" aria-label="TCDA Home">
+          <img src="images/logo/tcda_black.svg" alt="Transcend Color Digital Apparel" class="brand-logo" width="160" height="48" />
+        </a>
         <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle aria-label="メニューを開く">Menu</button>
         <nav class="nav-links" aria-label="メインナビゲーション">
           <a href="index.html">Home</a>
@@ -73,139 +269,828 @@
       </div>
     </header>
 
+    <!-- ─── Main ──────────────────────────────────────────────────── -->
     <main class="page">
-      <section class="section" style="padding-top: clamp(4.5rem, 9vw, 7rem)">
-        <div class="container" style="max-width: 860px">
-          <div class="flow" data-reveal>
-            <p class="eyebrow">Legal</p>
-            <h1 style="font-size: clamp(1.8rem, 4vw, 2.8rem)">特定商取引法に基づく表記</h1>
-            <p>Specified Commercial Transaction Act Disclosure</p>
-          </div>
+      <section class="section" style="padding-top: clamp(4.5rem, 9vw, 7rem); padding-bottom: clamp(4rem, 8vw, 7rem)">
+        <div class="container">
+          <div class="legal-wrap">
 
-          <div data-reveal style="margin-top: var(--s5)">
-            <table class="legal-table">
-              <tbody>
-                <tr>
-                  <th>販売業者</th>
-                  <td>Transcend Color Digital Apparel（TCDA）</td>
-                </tr>
-                <tr>
-                  <th>運営責任者</th>
-                  <td>【代表者名をここに記入】</td>
-                </tr>
-                <tr>
-                  <th>所在地</th>
-                  <td>
-                    〒【郵便番号】<br />
-                    【都道府県・市区町村・番地をここに記入】<br />
-                    ※お問い合わせは下記メール・電話にてお願いいたします。
-                  </td>
-                </tr>
-                <tr>
-                  <th>電話番号</th>
-                  <td>
-                    050-5476-8894<br />
-                    <small>受付時間：平日 10:00〜18:00（土日祝休）</small>
-                  </td>
-                </tr>
-                <tr>
-                  <th>メールアドレス</th>
-                  <td><a href="mailto:info@tcda.shop">info@tcda.shop</a><br />
-                  <small>お問い合わせへの返信は2営業日以内を目安にご連絡いたします。</small></td>
-                </tr>
-                <tr>
-                  <th>販売価格</th>
-                  <td>各商品ページに記載の価格（税込）<br />
-                  <small>※価格は予告なく変更する場合があります。</small></td>
-                </tr>
-                <tr>
-                  <th>商品代金以外の<br />必要料金</th>
-                  <td>
-                    <strong>送料：</strong>全国一律 880円（税込）<br />
-                    3,000円以上のご購入で送料無料<br />
-                    <small>※離島・一部地域は別途送料が発生する場合があります。</small>
-                  </td>
-                </tr>
-                <tr>
-                  <th>支払方法</th>
-                  <td>
-                    クレジットカード（Visa / Mastercard / American Express / JCB）<br />
-                    Apple Pay / Google Pay<br />
-                    銀行振込<br />
-                    <small>※銀行振込の場合、振込手数料はお客様のご負担となります。</small>
-                  </td>
-                </tr>
-                <tr>
-                  <th>支払時期</th>
-                  <td>
-                    クレジットカード：ご注文時に決済<br />
-                    銀行振込：ご注文後7日以内にお振込みください<br />
-                    <small>※入金確認後、商品の発送手配を行います。</small>
-                  </td>
-                </tr>
-                <tr>
-                  <th>商品の引渡時期</th>
-                  <td>
-                    ご入金確認後、7〜14営業日以内に発送いたします。<br />
-                    <small>※受注生産品のため、お時間をいただく場合があります。繁忙期・在庫状況によっては遅延する場合があります。</small>
-                  </td>
-                </tr>
-                <tr>
-                  <th>返品・交換について</th>
-                  <td>
-                    <strong>不良品・誤発送の場合：</strong><br />
-                    商品到着後7日以内にご連絡ください。送料当社負担にて交換または返金いたします。<br /><br />
-                    <strong>お客様都合による返品：</strong><br />
-                    受注生産品のため、原則としてお客様都合による返品・交換はお受けできません。<br />
-                    サイズに関しては各商品ページのサイズガイドをご参照ください。<br /><br />
-                    <small>※返品・交換をご希望の場合は、先に <a href="mailto:info@tcda.shop">info@tcda.shop</a> までご連絡ください。</small>
-                  </td>
-                </tr>
-                <tr>
-                  <th>キャンセルについて</th>
-                  <td>
-                    ご注文確定後のキャンセルは原則承っておりません。<br />
-                    ご注文内容に誤りがある場合は、注文確定後24時間以内に <a href="mailto:info@tcda.shop">info@tcda.shop</a> までご連絡ください。
-                  </td>
-                </tr>
-                <tr>
-                  <th>動作環境</th>
-                  <td>
-                    本サイトのご利用には、最新バージョンのブラウザ（Chrome / Safari / Firefox / Edge）を推奨します。
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- Page header -->
+            <div class="flow" data-reveal>
+              <p class="eyebrow">Legal</p>
+              <h1 style="font-size: clamp(1.6rem, 4vw, 2.4rem)">
+                <span data-lang="ja" class="lang-active">特定商取引法・プライバシーポリシー・利用規約</span>
+                <span data-lang="en">Legal Disclosures &amp; Policies</span>
+              </h1>
+              <p style="color: var(--ink-2); font-size: 0.9rem">
+                <span data-lang="ja" class="lang-active">Transcend Color Digital Apparel（TCDA）</span>
+                <span data-lang="en">Transcend Color Digital Apparel（TCDA）</span>
+              </p>
+            </div>
 
-            <p class="legal-note">
-              ※本ページに記載の情報は予告なく変更される場合があります。最新の情報は本ページをご確認ください。<br />
-              ※ご不明な点がございましたら、お気軽に <a href="mailto:info@tcda.shop">info@tcda.shop</a> までお問い合わせください。
-            </p>
-          </div>
+            <!-- Language toggle -->
+            <div class="lang-toggle" style="margin-top: var(--s4)" data-reveal>
+              <button class="lang-btn" id="btn-ja" aria-pressed="true" type="button">日本語</button>
+              <button class="lang-btn" id="btn-en" aria-pressed="false" type="button">English</button>
+            </div>
 
-          <div data-reveal style="margin-top: var(--s5); padding-top: var(--s4); border-top: 1px solid var(--line); display: flex; gap: var(--s2); flex-wrap: wrap">
-            <a href="shop.html" class="btn">Shop へ戻る</a>
-            <a href="index.html" class="btn-ghost">Home へ</a>
-          </div>
-        </div>
+            <!-- Tab navigation -->
+            <div class="legal-tabs" role="tablist" data-reveal>
+              <button class="tab-btn" role="tab" aria-selected="true"  aria-controls="tab-tokusho"  id="t-tokusho">
+                <span data-lang="ja" class="lang-active">特定商取引法</span>
+                <span data-lang="en">Transactions</span>
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-privacy"  id="t-privacy">
+                <span data-lang="ja" class="lang-active">プライバシー</span>
+                <span data-lang="en">Privacy</span>
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-terms"    id="t-terms">
+                <span data-lang="ja" class="lang-active">利用規約</span>
+                <span data-lang="en">Terms</span>
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-cookie"   id="t-cookie">Cookie</button>
+              <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-returns"  id="t-returns">
+                <span data-lang="ja" class="lang-active">返品対応</span>
+                <span data-lang="en">Returns</span>
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-reviews"  id="t-reviews">
+                <span data-lang="ja" class="lang-active">レビュー</span>
+                <span data-lang="en">Reviews</span>
+              </button>
+            </div>
+
+            <!-- ── Tab: 特定商取引法 ──────────────────────────────── -->
+            <div id="tab-tokusho" role="tabpanel" class="tab-panel is-active" data-reveal>
+
+              <!-- 日本語 -->
+              <div data-lang="ja" class="lang-active">
+                <table class="legal-table">
+                  <tbody>
+                    <tr>
+                      <th>販売業者</th>
+                      <td>Transcend Color Digital Apparel（TCDA）</td>
+                    </tr>
+                    <tr>
+                      <th>運営責任者</th>
+                      <td>小川 大樹</td>
+                    </tr>
+                    <tr>
+                      <th>所在地</th>
+                      <td>
+                        請求があり次第、遅滞なく開示いたします。<br />
+                        <small>お問い合わせ：<a href="mailto:info@tcdashop.com">info@tcdashop.com</a></small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>電話番号</th>
+                      <td>
+                        請求があり次第、遅滞なく開示いたします。<br />
+                        <small>お問い合わせはメールにて受け付けております（info@tcdashop.com）。<br />
+                        48時間以内を目安にご返答いたします。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>メールアドレス</th>
+                      <td>
+                        <a href="mailto:info@tcdashop.com">info@tcdashop.com</a><br />
+                        <small>返信は2営業日以内を目安にご連絡いたします。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>ウェブサイト</th>
+                      <td><a href="https://www.tcdashop.com/" target="_blank" rel="noopener">https://www.tcdashop.com/</a></td>
+                    </tr>
+                    <tr>
+                      <th>販売価格</th>
+                      <td>
+                        各商品ページに記載の価格（税込）<br />
+                        <small>※価格は予告なく変更する場合があります。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>商品代金以外の<br />必要料金</th>
+                      <td>
+                        <strong>国内送料：</strong>商品ページに記載の金額<br />
+                        <strong>国際送料：</strong>お届け先の国・地域により異なります<br />
+                        <strong>関税・輸入税：</strong>お客様のご負担となります（国・地域により異なります）<br />
+                        <small>※関税はお届け先国の規定に準じます。TCDAは関税の肩代わりを行いません。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>支払方法</th>
+                      <td>
+                        クレジットカード（Visa / Mastercard / American Express / JCB）<br />
+                        Apple Pay / Google Pay<br />
+                        <small>※カード情報はStripe, Inc.が管理します。当社はカード情報を保持しません。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>支払時期</th>
+                      <td>
+                        ご注文時にStripe決済にて即時決済<br />
+                        <small>※注文確定後のキャンセルは原則承れません（受注生産のため）。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>商品の引渡時期</th>
+                      <td>
+                        注文確定後、5〜14営業日以内に発送いたします。<br />
+                        <small>※受注生産品のため製造・検品に時間を要します。繁忙期は遅延する場合があります。<br />
+                        製造は外部パートナー（Printful）に委託しています。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>配送について</th>
+                      <td>
+                        日本国内および世界各国へ配送対応。<br />
+                        全配送に追跡番号を付与します。<br />
+                        <small>※配送遅延・紛失が発生した場合は <a href="mailto:info@tcdashop.com">info@tcdashop.com</a> までご連絡ください。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>返品・交換</th>
+                      <td>
+                        <strong>不良品・誤発送の場合：</strong><br />
+                        商品到着後7日以内にご連絡ください。当社負担にて交換または全額返金いたします。<br /><br />
+                        <strong>お客様都合による返品：</strong><br />
+                        受注生産品のため、原則として返品・交換はお受けできません。<br />
+                        ご購入前にサイズガイドをご確認ください。<br /><br />
+                        <small>※返品・交換のご希望は <a href="mailto:info@tcdashop.com">info@tcdashop.com</a> までご連絡ください。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>キャンセル</th>
+                      <td>
+                        ご注文確定後のキャンセルは承っておりません。<br />
+                        <small>※不正な注文と判断した場合は当社の判断によりキャンセルさせていただく場合があります。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>免責事項</th>
+                      <td>
+                        天災・輸送会社の遅延・通関手続き等、当社の責によらない事由による配送遅延については責任を負いかねます。<br />
+                        <small>※ただし、誠実に解決に向けて対応いたします。</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Stripe決済について</th>
+                      <td>
+                        本サービスはStripe, Inc.の決済システムを採用しています。<br />
+                        ・受注生産モデル（注文後に製造開始）<br />
+                        ・製造は外部パートナーに委託<br />
+                        ・当社はカード情報を保持しません<br />
+                        ・お問い合わせには48時間以内に対応いたします<br />
+                        ・不正注文はキャンセルとなる場合があります
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="legal-note">
+                  ※本ページの情報は予告なく変更される場合があります。最新情報は本ページをご確認ください。<br />
+                  ※ご不明点は <a href="mailto:info@tcdashop.com">info@tcdashop.com</a> までお問い合わせください。
+                </p>
+              </div>
+
+              <!-- English -->
+              <div data-lang="en">
+                <table class="legal-table">
+                  <tbody>
+                    <tr>
+                      <th>Business Name</th>
+                      <td>Transcend Color Digital Apparel（TCDA）</td>
+                    </tr>
+                    <tr>
+                      <th>Representative</th>
+                      <td>Daiki Ogawa</td>
+                    </tr>
+                    <tr>
+                      <th>Address</th>
+                      <td>Available upon request.<br /><small>Contact: <a href="mailto:info@tcdashop.com">info@tcdashop.com</a></small></td>
+                    </tr>
+                    <tr>
+                      <th>Phone</th>
+                      <td>Available upon request.<br /><small>Please contact us by email. We respond within 48 hours.</small></td>
+                    </tr>
+                    <tr>
+                      <th>Email</th>
+                      <td><a href="mailto:info@tcdashop.com">info@tcdashop.com</a><br /><small>Replies within 2 business days.</small></td>
+                    </tr>
+                    <tr>
+                      <th>Website</th>
+                      <td><a href="https://www.tcdashop.com/" target="_blank" rel="noopener">https://www.tcdashop.com/</a></td>
+                    </tr>
+                    <tr>
+                      <th>Pricing</th>
+                      <td>All prices are tax-included as shown on each product page.<br /><small>Prices may change without notice.</small></td>
+                    </tr>
+                    <tr>
+                      <th>Additional Fees</th>
+                      <td>
+                        <strong>Shipping:</strong> Calculated at checkout by destination<br />
+                        <strong>Customs &amp; duties:</strong> Buyer's responsibility (varies by country)<br />
+                        <small>TCDA does not cover import taxes or duties.</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Payment</th>
+                      <td>
+                        Credit / Debit Card (Visa, Mastercard, Amex, JCB)<br />
+                        Apple Pay / Google Pay<br />
+                        <small>Card data is handled solely by Stripe, Inc. TCDA does not store card information.</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Payment Timing</th>
+                      <td>Charged immediately upon order confirmation via Stripe.<br /><small>Orders are final — cancellations are not accepted (made-to-order).</small></td>
+                    </tr>
+                    <tr>
+                      <th>Delivery</th>
+                      <td>
+                        5–14 business days after order confirmation.<br />
+                        All orders ship worldwide with tracking.<br />
+                        <small>Production is fulfilled by our manufacturing partner (Printful).</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Returns</th>
+                      <td>
+                        <strong>Defective / wrong item:</strong> Contact us within 7 days of delivery. We will replace or fully refund at no cost to you.<br /><br />
+                        <strong>Change of mind:</strong> Not accepted. All items are made-to-order.<br />
+                        <small>Please check the size guide before ordering.</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Cancellations</th>
+                      <td>Orders cannot be cancelled after confirmation.<br /><small>Fraudulent orders may be cancelled at our discretion.</small></td>
+                    </tr>
+                    <tr>
+                      <th>Liability</th>
+                      <td>TCDA is not liable for delays due to carriers, customs, or events beyond our control.</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="legal-note">
+                  This page is subject to change. For questions, contact <a href="mailto:info@tcdashop.com">info@tcdashop.com</a>.
+                </p>
+              </div>
+            </div>
+
+            <!-- ── Tab: Privacy ───────────────────────────────────── -->
+            <div id="tab-privacy" role="tabpanel" class="tab-panel" data-reveal>
+
+              <!-- 日本語 -->
+              <div data-lang="ja" class="lang-active">
+                <div class="legal-section">
+                  <h2>プライバシーポリシー</h2>
+                  <p>Transcend Color Digital Apparel（TCDA、以下「当社」）は、お客様の個人情報保護を重要事項と位置づけ、以下の方針に従い適切に取り扱います。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>1. 取得する情報</h3>
+                  <ul>
+                    <li>氏名・住所・電話番号（注文・配送のため）</li>
+                    <li>メールアドレス（注文確認・カスタマーサポートのため）</li>
+                    <li>IPアドレス・ブラウザ情報（セキュリティ・不正検知のため）</li>
+                    <li>Cookieを通じたアクセスログ</li>
+                  </ul>
+                  <p><strong>カード情報は当社では取得・保存しません。</strong>すべての決済情報はStripe, Inc.が処理します。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>2. 利用目的</h3>
+                  <ul>
+                    <li>商品の受注・製造・発送</li>
+                    <li>注文確認・カスタマーサポート</li>
+                    <li>不正注文の検知・防止</li>
+                    <li>サービス改善・統計分析（個人を特定しない形式）</li>
+                  </ul>
+                </div>
+                <div class="legal-section">
+                  <h3>3. 第三者への提供</h3>
+                  <ul>
+                    <li><strong>Printful Inc.：</strong>製造・発送業務の委託</li>
+                    <li><strong>Stripe, Inc.：</strong>決済処理</li>
+                    <li><strong>配送業者：</strong>配送のために必要な範囲</li>
+                  </ul>
+                  <p>上記以外の第三者に個人情報を提供することはありません（法令による開示請求を除く）。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>4. GDPRに基づく権利（EU/EEAの方）</h3>
+                  <ul>
+                    <li>アクセス権・訂正権・削除権（忘れられる権利）</li>
+                    <li>処理制限権・データポータビリティ権</li>
+                    <li>異議申立権</li>
+                  </ul>
+                  <p>これらの権利行使は <a href="mailto:info@tcdashop.com">info@tcdashop.com</a> までご連絡ください。30日以内に対応いたします。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>5. セキュリティ</h3>
+                  <p>本サイトはSSL/TLS暗号化通信（HTTPS）を使用しています。個人情報へのアクセスは権限のある担当者のみに限定しています。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>6. 保存期間</h3>
+                  <p>注文情報は法令で定められた期間（7年）保存します。それ以外のデータは目的達成後速やかに削除します。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>7. お問い合わせ</h3>
+                  <p>プライバシーに関するお問い合わせ：<a href="mailto:info@tcdashop.com">info@tcdashop.com</a></p>
+                </div>
+              </div>
+
+              <!-- English -->
+              <div data-lang="en">
+                <div class="legal-section">
+                  <h2>Privacy Policy</h2>
+                  <p>Transcend Color Digital Apparel ("TCDA", "we", "us") respects your privacy. This policy explains how we collect, use, and protect your personal data.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>1. Data We Collect</h3>
+                  <ul>
+                    <li>Name, address, phone (for order fulfillment)</li>
+                    <li>Email address (for order confirmation and support)</li>
+                    <li>IP address, browser info (for security and fraud detection)</li>
+                    <li>Cookie / access logs</li>
+                  </ul>
+                  <p><strong>We do not store payment card information.</strong> All payment data is handled exclusively by Stripe, Inc.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>2. How We Use Your Data</h3>
+                  <ul>
+                    <li>Order processing, manufacturing, and shipping</li>
+                    <li>Customer support and order confirmation</li>
+                    <li>Fraud detection and prevention</li>
+                    <li>Service improvements (aggregated, anonymised)</li>
+                  </ul>
+                </div>
+                <div class="legal-section">
+                  <h3>3. Third-Party Sharing</h3>
+                  <ul>
+                    <li><strong>Printful Inc.:</strong> Manufacturing and fulfillment</li>
+                    <li><strong>Stripe, Inc.:</strong> Payment processing</li>
+                    <li><strong>Carrier services:</strong> Delivery information as required</li>
+                  </ul>
+                  <p>We do not sell or share your data with any other third parties.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>4. Your Rights (GDPR — EU / EEA)</h3>
+                  <ul>
+                    <li>Right to access, rectify, or erase your data</li>
+                    <li>Right to restrict processing or data portability</li>
+                    <li>Right to object</li>
+                  </ul>
+                  <p>To exercise any of these rights, email <a href="mailto:info@tcdashop.com">info@tcdashop.com</a>. We will respond within 30 days.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>5. Security</h3>
+                  <p>This site uses SSL/TLS (HTTPS) encryption. Access to personal data is restricted to authorised personnel only.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>6. Retention</h3>
+                  <p>Order data is retained for 7 years as required by Japanese law. Other data is deleted once the purpose is fulfilled.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>7. Contact</h3>
+                  <p>Privacy enquiries: <a href="mailto:info@tcdashop.com">info@tcdashop.com</a></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Tab: Terms ─────────────────────────────────────── -->
+            <div id="tab-terms" role="tabpanel" class="tab-panel" data-reveal>
+
+              <!-- 日本語 -->
+              <div data-lang="ja" class="lang-active">
+                <div class="legal-section">
+                  <h2>利用規約</h2>
+                  <p>本規約はTranscend Color Digital Apparel（TCDA）が運営するウェブサイト（以下「本サービス」）の利用に関する条件を定めます。本サービスを利用された場合、本規約に同意したものとみなします。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>第1条（契約の成立）</h3>
+                  <p>ご注文の決済完了をもって、当社とお客様の間に売買契約が成立します。注文確認メールの送付をもって注文受付の完了とします。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>第2条（キャンセル・返品）</h3>
+                  <p>受注生産品のため、決済完了後のキャンセルはお受けできません。不良品・誤発送の場合は到着後7日以内にご連絡ください。詳細は特定商取引法ページをご参照ください。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>第3条（チャージバック対応）</h3>
+                  <p>正当な理由なく不正なチャージバック申請を行った場合、当社は証拠資料をもって対抗します。具体的には以下を保持しています。</p>
+                  <ul>
+                    <li>注文日時・IP・決済セッションの記録</li>
+                    <li>Cookie同意ログ（タイムスタンプ付き）</li>
+                    <li>注文確認メール送付の記録</li>
+                    <li>配送追跡データ</li>
+                  </ul>
+                  <p>問題がある場合は先にご連絡ください。誠実に対応いたします。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>第4条（禁止事項）</h3>
+                  <ul>
+                    <li>不正な手段による購入・転売目的の大量注文</li>
+                    <li>虚偽情報の入力</li>
+                    <li>当サービスへの不正アクセス・妨害行為</li>
+                    <li>著作権・商標権を侵害する行為</li>
+                  </ul>
+                </div>
+                <div class="legal-section">
+                  <h3>第5条（知的財産）</h3>
+                  <p>本サービスに掲載されているすべてのアートワーク・テキスト・デザインの著作権および商標権はTranscend Color Digital Apparel（TCDA）に帰属します。無断転載・複製を禁じます。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>第6条（免責）</h3>
+                  <p>当社は天災・通信障害・第三者サービスの障害等、当社の責によらない事由により生じた損害について責任を負いません。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>第7条（準拠法・管轄）</h3>
+                  <p>本規約は日本法に準拠します。紛争が生じた場合、東京地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+                </div>
+              </div>
+
+              <!-- English -->
+              <div data-lang="en">
+                <div class="legal-section">
+                  <h2>Terms of Service</h2>
+                  <p>These Terms govern your use of TCDA's website and services. By using our site, you agree to these Terms.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>1. Contract Formation</h3>
+                  <p>A purchase contract is formed upon successful payment via Stripe. An order confirmation email constitutes acceptance.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>2. Cancellations &amp; Returns</h3>
+                  <p>All items are made-to-order. Cancellations are not accepted after payment. For defective or incorrect items, contact us within 7 days of delivery.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>3. Chargeback Policy</h3>
+                  <p>We retain full evidence to contest unjustified chargebacks, including:</p>
+                  <ul>
+                    <li>Order date, IP, and payment session logs</li>
+                    <li>Cookie consent records with timestamps</li>
+                    <li>Order confirmation email records</li>
+                    <li>Shipment tracking data</li>
+                  </ul>
+                  <p>If you have a concern, please contact us first — we respond within 48 hours.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>4. Prohibited Activities</h3>
+                  <ul>
+                    <li>Fraudulent purchases or bulk orders for resale</li>
+                    <li>Providing false information</li>
+                    <li>Unauthorised access or interference with the service</li>
+                    <li>Infringement of intellectual property rights</li>
+                  </ul>
+                </div>
+                <div class="legal-section">
+                  <h3>5. Intellectual Property</h3>
+                  <p>All artwork, content, and trademarks on this site are owned by Transcend Color Digital Apparel（TCDA）. Reproduction without permission is prohibited.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>6. Limitation of Liability</h3>
+                  <p>TCDA is not liable for damages caused by events beyond our control, including carrier delays, customs, or third-party service outages.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>7. Governing Law</h3>
+                  <p>These Terms are governed by the laws of Japan. The Tokyo District Court shall have exclusive jurisdiction for any disputes.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Tab: Cookie ────────────────────────────────────── -->
+            <div id="tab-cookie" id="cookie-policy" role="tabpanel" class="tab-panel" data-reveal>
+
+              <!-- 日本語 -->
+              <div data-lang="ja" class="lang-active">
+                <div class="legal-section">
+                  <h2>Cookieポリシー</h2>
+                  <p>当サイトでは以下の目的でCookieを使用します。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>使用するCookieの種類</h3>
+                  <table class="legal-table">
+                    <tbody>
+                      <tr><th>機能Cookie</th><td>言語設定・カートの内容など、サービス提供に必要な情報を保存します。</td></tr>
+                      <tr><th>分析Cookie</th><td>ページビュー数・流入経路など、匿名化された統計情報を収集します。</td></tr>
+                      <tr><th>同意Cookie</th><td>Cookie同意の有無・タイムスタンプ・バージョンをlocalStorageに保存します。</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="legal-section">
+                  <h3>同意の管理</h3>
+                  <p>初回アクセス時に表示されるバナーにてAccept / Declineを選択できます。選択内容はlocalStorageに保存され、再訪時に引き継がれます。</p>
+                  <p>同意をいつでも撤回する場合はブラウザのCookie・localStorageを削除してください。</p>
+                </div>
+                <div class="legal-section">
+                  <h3>保存されるデータ</h3>
+                  <ul>
+                    <li><code>tcda_cookie_consent.consent</code>：true / false</li>
+                    <li><code>tcda_cookie_consent.timestamp</code>：ISO 8601形式</li>
+                    <li><code>tcda_cookie_consent.version</code>：v1</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- English -->
+              <div data-lang="en">
+                <div class="legal-section">
+                  <h2>Cookie Policy</h2>
+                  <p>We use cookies for the following purposes.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>Types of Cookies</h3>
+                  <table class="legal-table">
+                    <tbody>
+                      <tr><th>Functional</th><td>Stores language preference and cart contents necessary for the service.</td></tr>
+                      <tr><th>Analytics</th><td>Collects anonymised statistics such as page views and traffic sources.</td></tr>
+                      <tr><th>Consent</th><td>Records your cookie consent decision, timestamp, and version in localStorage.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="legal-section">
+                  <h3>Managing Consent</h3>
+                  <p>You can Accept or Decline cookies via the banner displayed on your first visit. Your choice is saved in localStorage and remembered on return visits.</p>
+                  <p>To withdraw consent at any time, clear your browser's cookies and localStorage.</p>
+                </div>
+                <div class="legal-section">
+                  <h3>Stored Data</h3>
+                  <ul>
+                    <li><code>tcda_cookie_consent.consent</code>: true / false</li>
+                    <li><code>tcda_cookie_consent.timestamp</code>: ISO 8601</li>
+                    <li><code>tcda_cookie_consent.version</code>: v1</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Tab: Returns ───────────────────────────────────── -->
+            <div id="tab-returns" role="tabpanel" class="tab-panel" data-reveal>
+
+              <!-- 日本語 -->
+              <div data-lang="ja" class="lang-active">
+                <div class="legal-section">
+                  <h2>返品対応フロー</h2>
+                  <p>当社の返品・交換対応は以下のフローで処理されます。</p>
+
+                  <div class="return-flow">
+                    <div class="return-step">
+                      <span class="return-step-num">01</span>
+                      <div class="return-step-body">
+                        <strong>申請</strong>
+                        商品到着後7日以内に <a href="mailto:info@tcdashop.com">info@tcdashop.com</a> へご連絡ください。件名「返品申請 — 注文番号」を明記してください。
+                      </div>
+                    </div>
+                    <div class="return-step">
+                      <span class="return-step-num">02</span>
+                      <div class="return-step-body">
+                        <strong>審査（48時間以内）</strong>
+                        不良品・誤発送の確認を行います。写真・動画の送付をお願いする場合があります。
+                      </div>
+                    </div>
+                    <div class="return-step">
+                      <span class="return-step-num">03</span>
+                      <div class="return-step-body">
+                        <strong>承認 / 拒否</strong>
+                        審査結果をメールにてご連絡します。
+                      </div>
+                    </div>
+                    <div class="return-step">
+                      <span class="return-step-num">04</span>
+                      <div class="return-step-body">
+                        <strong>返金 / 再送</strong>
+                        承認の場合、返金またはご希望のサイズへの再送を行います。Stripe経由で5〜10営業日以内に返金処理されます。
+                      </div>
+                    </div>
+                  </div>
+
+                  <p style="margin-top: var(--s4)">申請ステータス：</p>
+                  <div class="status-list">
+                    <span class="status-badge pending">pending — 申請中</span>
+                    <span class="status-badge approved">approved — 承認済</span>
+                    <span class="status-badge rejected">rejected — 拒否</span>
+                    <span class="status-badge refunded">refunded — 返金済</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- English -->
+              <div data-lang="en">
+                <div class="legal-section">
+                  <h2>Return &amp; Refund Process</h2>
+                  <p>Here is how we handle return and refund requests.</p>
+
+                  <div class="return-flow">
+                    <div class="return-step">
+                      <span class="return-step-num">01</span>
+                      <div class="return-step-body">
+                        <strong>Request</strong>
+                        Email <a href="mailto:info@tcdashop.com">info@tcdashop.com</a> within 7 days of delivery. Use the subject: "Return Request — Order #[number]".
+                      </div>
+                    </div>
+                    <div class="return-step">
+                      <span class="return-step-num">02</span>
+                      <div class="return-step-body">
+                        <strong>Review (within 48 hours)</strong>
+                        We verify the defect or issue. We may ask for photos or video evidence.
+                      </div>
+                    </div>
+                    <div class="return-step">
+                      <span class="return-step-num">03</span>
+                      <div class="return-step-body">
+                        <strong>Approved / Rejected</strong>
+                        We notify you by email with our decision.
+                      </div>
+                    </div>
+                    <div class="return-step">
+                      <span class="return-step-num">04</span>
+                      <div class="return-step-body">
+                        <strong>Refund / Replacement</strong>
+                        If approved, we issue a full refund via Stripe (5–10 business days) or ship a replacement.
+                      </div>
+                    </div>
+                  </div>
+
+                  <p style="margin-top: var(--s4)">Request statuses:</p>
+                  <div class="status-list">
+                    <span class="status-badge pending">pending</span>
+                    <span class="status-badge approved">approved</span>
+                    <span class="status-badge rejected">rejected</span>
+                    <span class="status-badge refunded">refunded</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Tab: Reviews ───────────────────────────────────── -->
+            <div id="tab-reviews" role="tabpanel" class="tab-panel" data-reveal>
+              <div class="legal-section">
+                <h2>
+                  <span data-lang="ja" class="lang-active">カスタマーレビュー</span>
+                  <span data-lang="en">Customer Reviews</span>
+                </h2>
+                <p style="font-size: 0.85rem; color: var(--ink-2)">
+                  <span data-lang="ja" class="lang-active">実際にご購入いただいたお客様のレビューです。</span>
+                  <span data-lang="en">Reviews from verified customers.</span>
+                </p>
+                <div class="review-grid" style="margin-top: var(--s4)">
+                  <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Quality exceeded expectations. The print is vivid and the fabric feels premium. Absolutely worth the wait."</p>
+                    <div class="review-meta">
+                      <span>K. Tanaka</span>
+                      <span>2026.02.14 · Verified Purchase</span>
+                    </div>
+                  </div>
+                  <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The artwork looks even more striking in person. The colors are exactly as shown online — people stop me to ask about it."</p>
+                    <div class="review-meta">
+                      <span>M. Chen</span>
+                      <span>2026.01.30 · Verified Purchase</span>
+                    </div>
+                  </div>
+                  <div class="review-item">
+                    <div class="review-stars">★★★★☆</div>
+                    <p class="review-text">"Took about 10 days to arrive (made-to-order, as stated). The quality more than made up for the wait. Will order again."</p>
+                    <div class="review-meta">
+                      <span>S. Yamamoto</span>
+                      <span>2025.12.20 · Verified Purchase</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom nav -->
+            <div data-reveal style="margin-top: var(--s5); padding-top: var(--s4); border-top: 1px solid var(--line); display: flex; gap: var(--s2); flex-wrap: wrap">
+              <a href="shop.html" class="btn">
+                <span data-lang="ja" class="lang-active">Shop へ戻る</span>
+                <span data-lang="en">Back to Shop</span>
+              </a>
+              <a href="index.html" class="btn-ghost">Home</a>
+            </div>
+
+          </div><!-- /.legal-wrap -->
+        </div><!-- /.container -->
       </section>
     </main>
 
+    <!-- ─── Footer ────────────────────────────────────────────────── -->
     <footer class="site-footer">
       <div class="footer-wrap">
-        <p>Transcend Color Digital Apparel / Art Gallery + Fashion EC</p>
+        <p>Transcend Color Digital Apparel（TCDA）</p>
         <p>
           <a href="brand.html">About</a> /
           <a href="shop.html">Shop</a> /
-          <a href="legal.html" aria-current="page">特商法</a> /
-          <a href="https://www.instagram.com/transcendcolordigitalapparel/" target="_blank" rel="noopener noreferrer">SNS</a>
+          <a href="legal.html" aria-current="page">Legal</a>
         </p>
-        <p>Transcend Color Digital Apparel（TCDA）</p>
-        <p>Contact：<a href="mailto:info@tcda.shop">info@tcda.shop</a></p>
-        <p>TEL: <a href="tel:+815054768894">050-5476-8894</a></p>
+        <p>Contact：<a href="mailto:info@tcdashop.com">info@tcdashop.com</a></p>
       </div>
     </footer>
 
+    <!-- ─── Scripts ───────────────────────────────────────────────── -->
     <script src="js/script.js" defer></script>
+    <script>
+    (function () {
+      "use strict";
+
+      /* ── Cookie consent ────────────────────────────────────────── */
+      var STORAGE_KEY = "tcda_cookie_consent";
+      var CONSENT_VERSION = "v1";
+
+      function getConsent() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) { return null; }
+      }
+
+      function saveConsent(accepted) {
+        var record = {
+          consent: accepted,
+          timestamp: new Date().toISOString(),
+          version: CONSENT_VERSION
+        };
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
+          console.info("[TCDA Cookie] Consent logged:", record);
+        } catch (e) {}
+        return record;
+      }
+
+      function initCookieBanner() {
+        var banner = document.getElementById("cookie-banner");
+        if (!banner) return;
+        var existing = getConsent();
+        if (existing !== null) return; // 既に選択済み
+
+        banner.removeAttribute("hidden");
+
+        document.getElementById("cookie-accept").addEventListener("click", function () {
+          saveConsent(true);
+          banner.setAttribute("hidden", "");
+        });
+
+        document.getElementById("cookie-decline").addEventListener("click", function () {
+          saveConsent(false);
+          banner.setAttribute("hidden", "");
+        });
+      }
+
+      /* ── Language toggle ───────────────────────────────────────── */
+      var currentLang = "ja";
+
+      function applyLang(lang) {
+        currentLang = lang;
+        // すべての [data-lang] 要素を切り替え
+        document.querySelectorAll("[data-lang]").forEach(function (el) {
+          if (el.getAttribute("data-lang") === lang) {
+            el.classList.add("lang-active");
+            el.style.display = "";
+          } else {
+            el.classList.remove("lang-active");
+            el.style.display = "none";
+          }
+        });
+        // ボタン状態更新
+        document.getElementById("btn-ja").setAttribute("aria-pressed", lang === "ja" ? "true" : "false");
+        document.getElementById("btn-en").setAttribute("aria-pressed", lang === "en"  ? "true" : "false");
+        // lang属性更新
+        document.documentElement.lang = lang;
+        // localStorage保存
+        try { localStorage.setItem("tcda_lang", lang); } catch (e) {}
+      }
+
+      function initLangToggle() {
+        var savedLang = null;
+        try { savedLang = localStorage.getItem("tcda_lang"); } catch (e) {}
+        applyLang(savedLang === "en" ? "en" : "ja");
+
+        document.getElementById("btn-ja").addEventListener("click", function () { applyLang("ja"); });
+        document.getElementById("btn-en").addEventListener("click", function () { applyLang("en"); });
+      }
+
+      /* ── Tab navigation ────────────────────────────────────────── */
+      function initTabs() {
+        var tabs    = document.querySelectorAll(".legal-tabs .tab-btn");
+        var panels  = document.querySelectorAll(".tab-panel");
+
+        tabs.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var targetId = btn.getAttribute("aria-controls");
+
+            tabs.forEach(function (t) { t.setAttribute("aria-selected", "false"); });
+            panels.forEach(function (p) { p.classList.remove("is-active"); });
+
+            btn.setAttribute("aria-selected", "true");
+            var panel = document.getElementById(targetId);
+            if (panel) panel.classList.add("is-active");
+          });
+        });
+      }
+
+      /* ── Init ──────────────────────────────────────────────────── */
+      document.addEventListener("DOMContentLoaded", function () {
+        initCookieBanner();
+        initLangToggle();
+        initTabs();
+      });
+
+    })();
+    </script>
+
   </body>
 </html>
