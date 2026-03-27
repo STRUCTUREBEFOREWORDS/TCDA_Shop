@@ -506,3 +506,6 @@ p {
     scroll-behavior: auto !important;
   }
 }
+/* ── Section visible images ───────────────────────────── */
+.panel-img-wrap{margin:calc(-1 * var(--s4)) calc(-1 * var(--s4)) var(--s3)}
+.panel-img-wrap img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
