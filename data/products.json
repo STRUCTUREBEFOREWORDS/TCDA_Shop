@@ -26,58 +26,58 @@
       "sizes": [
         {
           "size": "2XS",
-          "chest": 88,
+          "chest": 96,
           "length": 65
         },
         {
           "size": "XS",
-          "chest": 93,
-          "length": 67
+          "chest": 100,
+          "length": 65
         },
         {
           "size": "S",
-          "chest": 98,
-          "length": 69
+          "chest": 104,
+          "length": 68
         },
         {
           "size": "M",
-          "chest": 103,
-          "length": 71
+          "chest": 108,
+          "length": 68
         },
         {
           "size": "L",
-          "chest": 108,
-          "length": 73
+          "chest": 116,
+          "length": 71
         },
         {
           "size": "XL",
-          "chest": 113,
-          "length": 75
+          "chest": 124,
+          "length": 71
         },
         {
           "size": "2XL",
-          "chest": 118,
-          "length": 77
+          "chest": 132,
+          "length": 74
         },
         {
           "size": "3XL",
-          "chest": 123,
-          "length": 79
+          "chest": 140,
+          "length": 74
         },
         {
           "size": "4XL",
-          "chest": 128,
-          "length": 81
+          "chest": 148,
+          "length": 78
         },
         {
           "size": "5XL",
-          "chest": 133,
-          "length": 83
+          "chest": 156,
+          "length": 78
         },
         {
           "size": "6XL",
-          "chest": 138,
-          "length": 85
+          "chest": 164,
+          "length": 78
         }
       ],
       "variant_ids": {
@@ -121,58 +121,58 @@
       "sizes": [
         {
           "size": "2XS",
-          "chest": 88,
+          "chest": 96,
           "length": 65
         },
         {
           "size": "XS",
-          "chest": 93,
-          "length": 67
+          "chest": 100,
+          "length": 65
         },
         {
           "size": "S",
-          "chest": 98,
-          "length": 69
+          "chest": 104,
+          "length": 68
         },
         {
           "size": "M",
-          "chest": 103,
-          "length": 71
+          "chest": 108,
+          "length": 68
         },
         {
           "size": "L",
-          "chest": 108,
-          "length": 73
+          "chest": 116,
+          "length": 71
         },
         {
           "size": "XL",
-          "chest": 113,
-          "length": 75
+          "chest": 124,
+          "length": 71
         },
         {
           "size": "2XL",
-          "chest": 118,
-          "length": 77
+          "chest": 132,
+          "length": 74
         },
         {
           "size": "3XL",
-          "chest": 123,
-          "length": 79
+          "chest": 140,
+          "length": 74
         },
         {
           "size": "4XL",
-          "chest": 128,
-          "length": 81
+          "chest": 148,
+          "length": 78
         },
         {
           "size": "5XL",
-          "chest": 133,
-          "length": 83
+          "chest": 156,
+          "length": 78
         },
         {
           "size": "6XL",
-          "chest": 138,
-          "length": 85
+          "chest": 164,
+          "length": 78
         }
       ],
       "variant_ids": {
@@ -216,58 +216,58 @@
       "sizes": [
         {
           "size": "2XS",
-          "chest": 88,
+          "chest": 96,
           "length": 65
         },
         {
           "size": "XS",
-          "chest": 93,
-          "length": 67
+          "chest": 100,
+          "length": 65
         },
         {
           "size": "S",
-          "chest": 98,
-          "length": 69
+          "chest": 104,
+          "length": 68
         },
         {
           "size": "M",
-          "chest": 103,
-          "length": 71
+          "chest": 108,
+          "length": 68
         },
         {
           "size": "L",
-          "chest": 108,
-          "length": 73
+          "chest": 116,
+          "length": 71
         },
         {
           "size": "XL",
-          "chest": 113,
-          "length": 75
+          "chest": 124,
+          "length": 71
         },
         {
           "size": "2XL",
-          "chest": 118,
-          "length": 77
+          "chest": 132,
+          "length": 74
         },
         {
           "size": "3XL",
-          "chest": 123,
-          "length": 79
+          "chest": 140,
+          "length": 74
         },
         {
           "size": "4XL",
-          "chest": 128,
-          "length": 81
+          "chest": 148,
+          "length": 78
         },
         {
           "size": "5XL",
-          "chest": 133,
-          "length": 83
+          "chest": 156,
+          "length": 78
         },
         {
           "size": "6XL",
-          "chest": 138,
-          "length": 85
+          "chest": 164,
+          "length": 78
         }
       ],
       "variant_ids": {
@@ -311,57 +311,57 @@
       "sizes": [
         {
           "size": "2XS",
-          "chest": 88,
-          "length": 65
+          "chest": 96,
+          "length": 66
         },
         {
           "size": "XS",
-          "chest": 93,
+          "chest": 100,
           "length": 67
         },
         {
           "size": "S",
-          "chest": 98,
-          "length": 69
+          "chest": 104,
+          "length": 68
         },
         {
           "size": "M",
-          "chest": 103,
-          "length": 71
+          "chest": 108,
+          "length": 69
         },
         {
           "size": "L",
-          "chest": 108,
-          "length": 73
+          "chest": 116,
+          "length": 71
         },
         {
           "size": "XL",
-          "chest": 113,
-          "length": 75
+          "chest": 124,
+          "length": 72
         },
         {
           "size": "2XL",
-          "chest": 118,
-          "length": 77
+          "chest": 132,
+          "length": 74
         },
         {
           "size": "3XL",
-          "chest": 123,
-          "length": 79
+          "chest": 140,
+          "length": 75
         },
         {
           "size": "4XL",
-          "chest": 128,
-          "length": 81
+          "chest": 148,
+          "length": 79
         },
         {
           "size": "5XL",
-          "chest": 133,
-          "length": 83
+          "chest": 156,
+          "length": 82
         },
         {
           "size": "6XL",
-          "chest": 138,
+          "chest": 164,
           "length": 85
         }
       ],
@@ -406,57 +406,57 @@
       "sizes": [
         {
           "size": "2XS",
-          "chest": 88,
-          "length": 65
+          "chest": 96,
+          "length": 66
         },
         {
           "size": "XS",
-          "chest": 93,
+          "chest": 100,
           "length": 67
         },
         {
           "size": "S",
-          "chest": 98,
-          "length": 69
+          "chest": 104,
+          "length": 68
         },
         {
           "size": "M",
-          "chest": 103,
-          "length": 71
+          "chest": 108,
+          "length": 69
         },
         {
           "size": "L",
-          "chest": 108,
-          "length": 73
+          "chest": 116,
+          "length": 71
         },
         {
           "size": "XL",
-          "chest": 113,
-          "length": 75
+          "chest": 124,
+          "length": 72
         },
         {
           "size": "2XL",
-          "chest": 118,
-          "length": 77
+          "chest": 132,
+          "length": 74
         },
         {
           "size": "3XL",
-          "chest": 123,
-          "length": 79
+          "chest": 140,
+          "length": 75
         },
         {
           "size": "4XL",
-          "chest": 128,
-          "length": 81
+          "chest": 148,
+          "length": 79
         },
         {
           "size": "5XL",
-          "chest": 133,
-          "length": 83
+          "chest": 156,
+          "length": 82
         },
         {
           "size": "6XL",
-          "chest": 138,
+          "chest": 164,
           "length": 85
         }
       ],
@@ -501,33 +501,33 @@
       "sizes": [
         {
           "size": "XS",
-          "chest": 82,
-          "length": 60
+          "chest": 80,
+          "length": 59
         },
         {
           "size": "S",
-          "chest": 86,
-          "length": 63
+          "chest": 84,
+          "length": 60
         },
         {
           "size": "M",
-          "chest": 91,
-          "length": 65
+          "chest": 88,
+          "length": 61
         },
         {
           "size": "L",
           "chest": 96,
-          "length": 68
+          "length": 64
         },
         {
           "size": "XL",
-          "chest": 101,
-          "length": 70
+          "chest": 104,
+          "length": 67
         },
         {
           "size": "2XL",
-          "chest": 106,
-          "length": 73
+          "chest": 112,
+          "length": 70
         }
       ],
       "variant_ids": {
@@ -566,33 +566,33 @@
       "sizes": [
         {
           "size": "XS",
-          "chest": 82,
-          "length": 60
+          "chest": 80,
+          "length": 59
         },
         {
           "size": "S",
-          "chest": 86,
-          "length": 63
+          "chest": 84,
+          "length": 60
         },
         {
           "size": "M",
-          "chest": 91,
-          "length": 65
+          "chest": 88,
+          "length": 61
         },
         {
           "size": "L",
           "chest": 96,
-          "length": 68
+          "length": 64
         },
         {
           "size": "XL",
-          "chest": 101,
-          "length": 70
+          "chest": 104,
+          "length": 67
         },
         {
           "size": "2XL",
-          "chest": 106,
-          "length": 73
+          "chest": 112,
+          "length": 70
         }
       ],
       "variant_ids": {
@@ -631,33 +631,33 @@
       "sizes": [
         {
           "size": "XS",
-          "chest": 82,
-          "length": 60
+          "chest": 80,
+          "length": 59
         },
         {
           "size": "S",
-          "chest": 86,
-          "length": 63
+          "chest": 84,
+          "length": 60
         },
         {
           "size": "M",
-          "chest": 91,
-          "length": 65
+          "chest": 88,
+          "length": 61
         },
         {
           "size": "L",
           "chest": 96,
-          "length": 68
+          "length": 64
         },
         {
           "size": "XL",
-          "chest": 101,
-          "length": 70
+          "chest": 104,
+          "length": 67
         },
         {
           "size": "2XL",
-          "chest": 106,
-          "length": 73
+          "chest": 112,
+          "length": 70
         }
       ],
       "variant_ids": {
@@ -696,33 +696,33 @@
       "sizes": [
         {
           "size": "XS",
-          "chest": 82,
-          "length": 60
+          "chest": 80,
+          "length": 59
         },
         {
           "size": "S",
-          "chest": 86,
-          "length": 63
+          "chest": 84,
+          "length": 60
         },
         {
           "size": "M",
-          "chest": 91,
-          "length": 65
+          "chest": 88,
+          "length": 61
         },
         {
           "size": "L",
           "chest": 96,
-          "length": 68
+          "length": 64
         },
         {
           "size": "XL",
-          "chest": 101,
-          "length": 70
+          "chest": 104,
+          "length": 67
         },
         {
           "size": "2XL",
-          "chest": 106,
-          "length": 73
+          "chest": 112,
+          "length": 70
         }
       ],
       "variant_ids": {
@@ -761,33 +761,33 @@
       "sizes": [
         {
           "size": "XS",
-          "chest": 86,
-          "length": 66
-        },
-        {
-          "size": "S",
-          "chest": 91,
-          "length": 69
-        },
-        {
-          "size": "M",
-          "chest": 96,
+          "chest": 78,
           "length": 71
         },
         {
+          "size": "S",
+          "chest": 86,
+          "length": 73
+        },
+        {
+          "size": "M",
+          "chest": 94,
+          "length": 75
+        },
+        {
           "size": "L",
-          "chest": 101,
-          "length": 74
+          "chest": 106,
+          "length": 77
         },
         {
           "size": "XL",
-          "chest": 106,
-          "length": 76
+          "chest": 118,
+          "length": 79
         },
         {
           "size": "2XL",
-          "chest": 111,
-          "length": 79
+          "chest": 130,
+          "length": 81
         }
       ],
       "variant_ids": {
@@ -826,33 +826,33 @@
       "sizes": [
         {
           "size": "XS",
-          "chest": 86,
-          "length": 66
-        },
-        {
-          "size": "S",
-          "chest": 91,
-          "length": 69
-        },
-        {
-          "size": "M",
-          "chest": 96,
+          "chest": 78,
           "length": 71
         },
         {
+          "size": "S",
+          "chest": 86,
+          "length": 73
+        },
+        {
+          "size": "M",
+          "chest": 94,
+          "length": 75
+        },
+        {
           "size": "L",
-          "chest": 101,
-          "length": 74
+          "chest": 106,
+          "length": 77
         },
         {
           "size": "XL",
-          "chest": 106,
-          "length": 76
+          "chest": 118,
+          "length": 79
         },
         {
           "size": "2XL",
-          "chest": 111,
-          "length": 79
+          "chest": 130,
+          "length": 81
         }
       ],
       "variant_ids": {
@@ -891,33 +891,33 @@
       "sizes": [
         {
           "size": "XS",
-          "chest": 86,
-          "length": 66
-        },
-        {
-          "size": "S",
-          "chest": 91,
-          "length": 69
-        },
-        {
-          "size": "M",
-          "chest": 96,
+          "chest": 78,
           "length": 71
         },
         {
+          "size": "S",
+          "chest": 86,
+          "length": 73
+        },
+        {
+          "size": "M",
+          "chest": 94,
+          "length": 75
+        },
+        {
           "size": "L",
-          "chest": 101,
-          "length": 74
+          "chest": 106,
+          "length": 77
         },
         {
           "size": "XL",
-          "chest": 106,
-          "length": 76
+          "chest": 118,
+          "length": 79
         },
         {
           "size": "2XL",
-          "chest": 111,
-          "length": 79
+          "chest": 130,
+          "length": 81
         }
       ],
       "variant_ids": {
@@ -956,33 +956,33 @@
       "sizes": [
         {
           "size": "XS",
-          "chest": 86,
-          "length": 66
-        },
-        {
-          "size": "S",
-          "chest": 91,
-          "length": 69
-        },
-        {
-          "size": "M",
-          "chest": 96,
+          "chest": 78,
           "length": 71
         },
         {
+          "size": "S",
+          "chest": 86,
+          "length": 73
+        },
+        {
+          "size": "M",
+          "chest": 94,
+          "length": 75
+        },
+        {
           "size": "L",
-          "chest": 101,
-          "length": 74
+          "chest": 106,
+          "length": 77
         },
         {
           "size": "XL",
-          "chest": 106,
-          "length": 76
+          "chest": 118,
+          "length": 79
         },
         {
           "size": "2XL",
-          "chest": 111,
-          "length": 79
+          "chest": 130,
+          "length": 81
         }
       ],
       "variant_ids": {
