@@ -55,6 +55,7 @@
       .modal-size-btn[aria-pressed="true"], .modal-size-btn:hover { background: #000; color: #fff; border-color: #000; }
       .modal-buy-btn { width: 100%; background: #000; color: #fff; border: none; padding: .9rem; font-size: .9rem; letter-spacing: .08em; cursor: pointer; transition: opacity 220ms; }
       .modal-buy-btn:hover { opacity: .75; }
+      .currency-select { width: 100%; border: 1.5px solid #e0e0dc; background: #fff; padding: .4rem .5rem; font-family: inherit; font-size: .75rem; letter-spacing: .04em; color: #0a0a0a; cursor: pointer; border-radius: 2px; }
       @media (max-width: 640px) {
         .product-modal { grid-template-columns: 1fr; }
         .modal-gallery-wrap { max-height: 260px; }
@@ -86,22 +87,17 @@
               <div class="locale-group">
                 <p class="locale-group-label" data-i18n="lang_label">Language</p>
                 <div class="locale-btns">
-                  <button type="button" class="locale-btn" data-lang-btn="en" aria-pressed="true">English</button>
-                  <button type="button" class="locale-btn" data-lang-btn="zh" aria-pressed="false">中文</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ja" aria-pressed="true">日本語</button>
+                  <button type="button" class="locale-btn" data-lang-btn="en" aria-pressed="false">English</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ko" aria-pressed="false">한국어</button>
+                  <button type="button" class="locale-btn" data-lang-btn="zh-hans" aria-pressed="false">中文</button>
                   <button type="button" class="locale-btn" data-lang-btn="es" aria-pressed="false">Español</button>
-                  <button type="button" class="locale-btn" data-lang-btn="ar" aria-pressed="false">العربية</button>
-                  <button type="button" class="locale-btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+                  <button type="button" class="locale-btn" data-lang-btn="fr" aria-pressed="false">Français</button>
                 </div>
               </div>
               <div class="locale-group">
                 <p class="locale-group-label" data-i18n="currency_label">Currency</p>
-                <div class="locale-btns">
-                  <button type="button" class="locale-btn" data-currency-btn="JPY" aria-pressed="true">JPY ¥</button>
-                  <button type="button" class="locale-btn" data-currency-btn="USD" aria-pressed="false">USD $</button>
-                  <button type="button" class="locale-btn" data-currency-btn="EUR" aria-pressed="false">EUR €</button>
-                  <button type="button" class="locale-btn" data-currency-btn="GBP" aria-pressed="false">GBP £</button>
-                  <button type="button" class="locale-btn" data-currency-btn="CNY" aria-pressed="false">CNY ¥</button>
-                </div>
+                <select class="currency-select" id="currency-select" aria-label="Select currency"></select>
               </div>
             </div>
           </div>
@@ -235,18 +231,39 @@
     (function () {
       var allProducts = [];
       var sizeTemplates = {};
+      var fxRates    = {};
+      var shopI18n   = {};
       var verifyCache = {};
       var currentProduct = null;
       var selectedSize = null;
+      var ZERO_DECIMAL = {JPY:1,KRW:1,BIF:1,CLP:1,DJF:1,GNF:1,ISK:1,KMF:1,MGA:1,PYG:1,RWF:1,UGX:1,VND:1,VUV:1,XAF:1,XOF:1,XPF:1};
+      var CUR_SYMBOLS  = {JPY:"¥",USD:"$",EUR:"€",GBP:"£",AUD:"A$",CAD:"C$",SGD:"S$",HKD:"HK$",CNY:"¥",KRW:"₩",CHF:"Fr",SEK:"kr",NOK:"kr",DKK:"kr",NZD:"NZ$",MXN:"$",BRL:"R$",INR:"₹",THB:"฿",MYR:"RM",PHP:"₱",IDR:"Rp",TWD:"NT$",ZAR:"R",AED:"د.إ",SAR:"﷼",TRY:"₺",CZK:"Kč",PLN:"zł",HUF:"Ft"};
 
-      function getLang() {
-        return (window.TCDAi18n && TCDAi18n.getCurrentLang) ? TCDAi18n.getCurrentLang() : "en";
+      function getCurrency() {
+        try { return localStorage.getItem("tcda-currency-v1") || "JPY"; } catch(_) { return "JPY"; }
       }
-      function fmtPrice(jpy) {
-        if (window.TCDACurrency && TCDACurrency.formatPrice && TCDACurrency.getCurrentCurrency) {
-          return TCDACurrency.formatPrice(jpy, TCDACurrency.getCurrentCurrency());
+      function getLang() {
+        try { return localStorage.getItem("tcda-lang-v1") || "ja"; } catch(_) { return "ja"; }
+      }
+      function getRate(code) { return (fxRates[code] !== undefined) ? fxRates[code] : (code === "JPY" ? 1 : 1); }
+      function calcDisplay(jpy, code) { return jpy * getRate(code); }
+      function fmtPrice(jpy, code) {
+        code = code || getCurrency();
+        var val = calcDisplay(jpy, code);
+        var sym = CUR_SYMBOLS[code] || (code + " ");
+        if (ZERO_DECIMAL[code]) return sym + Math.round(val).toLocaleString();
+        return sym + val.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+      function applyAllPrices(code) {
+        code = code || getCurrency();
+        document.querySelectorAll("[data-price-jpy]").forEach(function(el) {
+          var jpy = parseInt(el.dataset.priceJpy, 10);
+          if (!isNaN(jpy)) el.textContent = fmtPrice(jpy, code);
+        });
+        if (currentProduct) {
+          var mp = document.getElementById("modal-price");
+          if (mp) mp.textContent = fmtPrice(currentProduct.price, code);
         }
-        return "¥" + Number(jpy).toLocaleString();
       }
       function esc(s) {
         return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
@@ -267,6 +284,61 @@
         return Object.keys(tmpl).map(function(sz) {
           return Object.assign({ size: sz }, tmpl[sz]);
         });
+      }
+
+      /* ── Buy Now → /api/create-checkout ──────────────────────── */
+      function buyNow() {
+        if (!currentProduct) return;
+        if (!selectedSize) {
+          alert(shopI18n.select_size || "サイズを選択してください");
+          return;
+        }
+        var code = getCurrency();
+        var lang = getLang();
+        var pd   = calcDisplay(currentProduct.price, code);
+        var img  = (currentProduct.images && currentProduct.images[0])
+          ? (location.origin + "/" + currentProduct.images[0]) : "";
+        var payload = {
+          product_id:    currentProduct.id,
+          currency:      code,
+          price_display: pd,
+          lang:          lang,
+          size:          selectedSize,
+          name:          nameFor(currentProduct) + " (" + selectedSize + ")",
+          image:         img
+        };
+        var btn = document.getElementById("modal-buy");
+        btn.disabled = true;
+        btn.textContent = shopI18n.processing || "…";
+        fetch("/api/create-checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+          if (d.url) { location.href = d.url; return; }
+          alert(d.error || (shopI18n.checkout_error || "Checkout error"));
+          btn.disabled = false;
+          btn.textContent = shopI18n.buy || "購入する";
+        })
+        .catch(function() {
+          alert(shopI18n.network_error || "Network error");
+          btn.disabled = false;
+          btn.textContent = shopI18n.buy || "購入する";
+        });
+      }
+
+      /* ── Reload i18n on lang change ───────────────────────────── */
+      function loadShopI18n(lang) {
+        fetch("i18n/" + lang + ".json")
+          .then(function(r) { return r.ok ? r.json() : {}; })
+          .catch(function() { return {}; })
+          .then(function(d) {
+            shopI18n = d;
+            var btn = document.getElementById("modal-buy");
+            if (btn && !btn.disabled && d.buy) btn.textContent = d.buy;
+          });
       }
 
       /* ── Printful verification ───────────────────────────── */
@@ -311,15 +383,13 @@
         if (loading) loading.remove();
         grid.innerHTML = "";
         if (!list.length) {
-          grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;opacity:.4;padding:3rem">No products found.</p>';
+          grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;opacity:.4;padding:3rem">' + (shopI18n.no_products || "No products found.") + '</p>';
           return;
         }
         var frag = document.createDocumentFragment();
         list.forEach(function(p){ frag.appendChild(makeCard(p)); });
         grid.appendChild(frag);
-        if (window.TCDACurrency && TCDACurrency.applyPrices) {
-          TCDACurrency.applyPrices(TCDACurrency.getCurrentCurrency ? TCDACurrency.getCurrentCurrency() : "JPY");
-        }
+        applyAllPrices(getCurrency());
       }
 
       /* ── Filter + Sort ───────────────────────────────────── */
@@ -452,21 +522,31 @@
           applyFilters();
         });
 
-        document.getElementById("modal-buy").addEventListener("click", function(){
-          if (!currentProduct || !selectedSize) return;
-          var name = nameFor(currentProduct) + " (" + selectedSize + ")";
-          if (window.TCDACart && TCDACart.addItem) {
-            TCDACart.addItem({ id: currentProduct.id+"-"+selectedSize, name: name, price: currentProduct.price });
-          }
-          closeModal();
+        document.getElementById("modal-buy").addEventListener("click", buyNow);
+
+        document.addEventListener("tcda:currency:changed", function(e){
+          var code = (e.detail && e.detail.currency) || getCurrency();
+          applyAllPrices(code);
+          var sel = document.getElementById("currency-select");
+          if (sel) sel.value = code;
         });
 
-        document.addEventListener("tcda:currency:changed", function(){
-          document.querySelectorAll("[data-price-jpy]").forEach(function(el){
-            var jpy = parseInt(el.dataset.priceJpy, 10);
-            if (!isNaN(jpy)) el.textContent = fmtPrice(jpy);
+        /* Wire currency select */
+        var currSel = document.getElementById("currency-select");
+        if (currSel) {
+          currSel.addEventListener("change", function() {
+            var code = this.value;
+            try { localStorage.setItem("tcda-currency-v1", code); } catch(_) {}
+            applyAllPrices(code);
+            document.dispatchEvent(new CustomEvent("tcda:currency:changed", { detail: { currency: code } }));
           });
-          if (currentProduct) document.getElementById("modal-price").textContent = fmtPrice(currentProduct.price);
+        }
+
+        /* Wire lang buttons → reload i18n */
+        document.querySelectorAll("[data-lang-btn]").forEach(function(btn) {
+          btn.addEventListener("click", function() {
+            loadShopI18n(this.dataset.langBtn);
+          });
         });
       }
 
@@ -474,17 +554,39 @@
       document.addEventListener("DOMContentLoaded", function(){
         wireEvents();
 
-        // Fetch products.json, sizeTemplates.json and live Printful prices in parallel
+        // Fetch all data in parallel
+        var initLang = getLang();
         Promise.all([
           fetch("data/products.json").then(function(r){ return r.ok ? r.json() : Promise.reject("HTTP " + r.status); }),
           fetch("data/sizeTemplates.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
+          fetch("data/currency.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
+          fetch("i18n/" + initLang + ".json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
           fetch("/api/prices").then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
         ])
-          .then(function(triple){
-            var data     = triple[0];
-            sizeTemplates = triple[1];
-            var liveData = triple[2];
-            var products = data.products || [];
+          .then(function(arr){
+            var data      = arr[0];
+            sizeTemplates = arr[1];
+            fxRates       = arr[2];
+            shopI18n      = arr[3];
+            var liveData  = arr[4];
+            var products  = data.products || [];
+
+            // Populate currency select from currency.json
+            var sel = document.getElementById("currency-select");
+            if (sel && Object.keys(fxRates).length) {
+              var curCode = getCurrency();
+              Object.keys(fxRates).forEach(function(code) {
+                var opt = document.createElement("option");
+                opt.value = code;
+                opt.textContent = code;
+                if (code === curCode) opt.selected = true;
+                sel.appendChild(opt);
+              });
+            }
+
+            // Set buy button text from i18n
+            var buyBtn = document.getElementById("modal-buy");
+            if (buyBtn && shopI18n.buy) buyBtn.textContent = shopI18n.buy;
 
             // Patch prices from Printful if live data available
             if (liveData && liveData.prices) {
