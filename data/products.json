@@ -328,11 +328,11 @@
         "en": "Glitch Core Tee"
       },
       "images": [
-        "products/mens-tshirt04/main-womens-001.webp",
-        "products/mens-tshirt04/sub-womens-002.webp",
-        "products/mens-tshirt04/sub-womens-003.webp",
-        "products/mens-tshirt04/sub-womens-004.webp",
-        "products/mens-tshirt04/sub-womens-005.webp"
+        "products/mens-tshirt04/main.jpg",
+        "products/mens-tshirt04/sub1.jpg",
+        "products/mens-tshirt04/sub2.jpg",
+        "products/mens-tshirt04/sub3.jpg",
+        "products/mens-tshirt04/sub4.jpg"
       ],
       "thumbnail_url": "https://files.cdn.printful.com/files/210/210d3288dca66c113e708f90b30d041a_preview.png",
       "description": {
