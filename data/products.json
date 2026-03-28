@@ -23,63 +23,6 @@
       "price": 74000,
       "category": "outer",
       "segment": "unisex",
-      "sizes": [
-        {
-          "size": "2XS",
-          "chest": 96,
-          "length": 65
-        },
-        {
-          "size": "XS",
-          "chest": 100,
-          "length": 65
-        },
-        {
-          "size": "S",
-          "chest": 104,
-          "length": 68
-        },
-        {
-          "size": "M",
-          "chest": 108,
-          "length": 68
-        },
-        {
-          "size": "L",
-          "chest": 116,
-          "length": 71
-        },
-        {
-          "size": "XL",
-          "chest": 124,
-          "length": 71
-        },
-        {
-          "size": "2XL",
-          "chest": 132,
-          "length": 74
-        },
-        {
-          "size": "3XL",
-          "chest": 140,
-          "length": 74
-        },
-        {
-          "size": "4XL",
-          "chest": 148,
-          "length": 78
-        },
-        {
-          "size": "5XL",
-          "chest": 156,
-          "length": 78
-        },
-        {
-          "size": "6XL",
-          "chest": 164,
-          "length": 78
-        }
-      ],
       "variant_ids": {
         "2XS": 5236394895,
         "XS": 5236394896,
@@ -93,7 +36,8 @@
         "5XL": 5236394904,
         "6XL": 5236394905
       },
-      "synced": 11
+      "synced": 11,
+      "size_template": "zip_hoodie"
     },
     {
       "id": "zip-hoodie02",
@@ -121,55 +65,7 @@
       "price": 14999,
       "category": "outer",
       "segment": "unisex",
-      "sizes": [
-        {
-          "size": "2XS",
-          "chest": 88,
-          "length": 65
-        },
-        {
-          "size": "XS",
-          "chest": 93,
-          "length": 67
-        },
-        {
-          "size": "S",
-          "chest": 98,
-          "length": 69
-        },
-        {
-          "size": "M",
-          "chest": 103,
-          "length": 71
-        },
-        {
-          "size": "L",
-          "chest": 108,
-          "length": 73
-        },
-        {
-          "size": "XL",
-          "chest": 113,
-          "length": 75
-        },
-        {
-          "size": "2XL",
-          "chest": 118,
-          "length": 77
-        },
-        {
-          "size": "3XL"
-        },
-        {
-          "size": "4XL"
-        },
-        {
-          "size": "5XL"
-        },
-        {
-          "size": "6XL"
-        }
-      ]
+      "size_template": "zip_hoodie_recycled"
     },
     {
       "id": "zip-hoodie01",
@@ -194,63 +90,6 @@
       "price": 8900,
       "category": "outer",
       "segment": "unisex",
-      "sizes": [
-        {
-          "size": "2XS",
-          "chest": 96,
-          "length": 65
-        },
-        {
-          "size": "XS",
-          "chest": 100,
-          "length": 65
-        },
-        {
-          "size": "S",
-          "chest": 104,
-          "length": 68
-        },
-        {
-          "size": "M",
-          "chest": 108,
-          "length": 68
-        },
-        {
-          "size": "L",
-          "chest": 116,
-          "length": 71
-        },
-        {
-          "size": "XL",
-          "chest": 124,
-          "length": 71
-        },
-        {
-          "size": "2XL",
-          "chest": 132,
-          "length": 74
-        },
-        {
-          "size": "3XL",
-          "chest": 140,
-          "length": 74
-        },
-        {
-          "size": "4XL",
-          "chest": 148,
-          "length": 78
-        },
-        {
-          "size": "5XL",
-          "chest": 156,
-          "length": 78
-        },
-        {
-          "size": "6XL",
-          "chest": 164,
-          "length": 78
-        }
-      ],
       "variant_ids": {
         "2XS": 5236394474,
         "XS": 5236394475,
@@ -264,7 +103,8 @@
         "5XL": 5236394483,
         "6XL": 5236394484
       },
-      "synced": 11
+      "synced": 11,
+      "size_template": "zip_hoodie"
     },
     {
       "id": "hoodie02",
@@ -289,63 +129,6 @@
       "price": 8900,
       "category": "outer",
       "segment": "unisex",
-      "sizes": [
-        {
-          "size": "2XS",
-          "chest": 96,
-          "length": 66
-        },
-        {
-          "size": "XS",
-          "chest": 100,
-          "length": 67
-        },
-        {
-          "size": "S",
-          "chest": 104,
-          "length": 68
-        },
-        {
-          "size": "M",
-          "chest": 108,
-          "length": 69
-        },
-        {
-          "size": "L",
-          "chest": 116,
-          "length": 71
-        },
-        {
-          "size": "XL",
-          "chest": 124,
-          "length": 72
-        },
-        {
-          "size": "2XL",
-          "chest": 132,
-          "length": 74
-        },
-        {
-          "size": "3XL",
-          "chest": 140,
-          "length": 75
-        },
-        {
-          "size": "4XL",
-          "chest": 148,
-          "length": 79
-        },
-        {
-          "size": "5XL",
-          "chest": 156,
-          "length": 82
-        },
-        {
-          "size": "6XL",
-          "chest": 164,
-          "length": 85
-        }
-      ],
       "variant_ids": {
         "2XS": 5236393974,
         "XS": 5236393975,
@@ -359,7 +142,8 @@
         "5XL": 5236393983,
         "6XL": 5236393984
       },
-      "synced": 11
+      "synced": 11,
+      "size_template": "hoodie"
     },
     {
       "id": "hoodie01",
@@ -384,63 +168,6 @@
       "price": 8900,
       "category": "outer",
       "segment": "unisex",
-      "sizes": [
-        {
-          "size": "2XS",
-          "chest": 96,
-          "length": 66
-        },
-        {
-          "size": "XS",
-          "chest": 100,
-          "length": 67
-        },
-        {
-          "size": "S",
-          "chest": 104,
-          "length": 68
-        },
-        {
-          "size": "M",
-          "chest": 108,
-          "length": 69
-        },
-        {
-          "size": "L",
-          "chest": 116,
-          "length": 71
-        },
-        {
-          "size": "XL",
-          "chest": 124,
-          "length": 72
-        },
-        {
-          "size": "2XL",
-          "chest": 132,
-          "length": 74
-        },
-        {
-          "size": "3XL",
-          "chest": 140,
-          "length": 75
-        },
-        {
-          "size": "4XL",
-          "chest": 148,
-          "length": 79
-        },
-        {
-          "size": "5XL",
-          "chest": 156,
-          "length": 82
-        },
-        {
-          "size": "6XL",
-          "chest": 164,
-          "length": 85
-        }
-      ],
       "variant_ids": {
         "2XS": 5236381209,
         "XS": 5236381210,
@@ -454,7 +181,8 @@
         "5XL": 5236381218,
         "6XL": 5236381219
       },
-      "synced": 11
+      "synced": 11,
+      "size_template": "hoodie"
     },
     {
       "id": "womens-tshirt04",
@@ -479,38 +207,6 @@
       "price": 4900,
       "category": "tshirt",
       "segment": "womens",
-      "sizes": [
-        {
-          "size": "XS",
-          "chest": 80,
-          "length": 59
-        },
-        {
-          "size": "S",
-          "chest": 84,
-          "length": 60
-        },
-        {
-          "size": "M",
-          "chest": 88,
-          "length": 61
-        },
-        {
-          "size": "L",
-          "chest": 96,
-          "length": 64
-        },
-        {
-          "size": "XL",
-          "chest": 104,
-          "length": 67
-        },
-        {
-          "size": "2XL",
-          "chest": 112,
-          "length": 70
-        }
-      ],
       "variant_ids": {
         "XS": 5236380860,
         "S": 5236380861,
@@ -519,7 +215,8 @@
         "XL": 5236380865,
         "2XL": 5236380866
       },
-      "synced": 6
+      "synced": 6,
+      "size_template": "womens_tshirt"
     },
     {
       "id": "womens-tshirt03",
@@ -544,38 +241,6 @@
       "price": 4900,
       "category": "tshirt",
       "segment": "womens",
-      "sizes": [
-        {
-          "size": "XS",
-          "chest": 80,
-          "length": 59
-        },
-        {
-          "size": "S",
-          "chest": 84,
-          "length": 60
-        },
-        {
-          "size": "M",
-          "chest": 88,
-          "length": 61
-        },
-        {
-          "size": "L",
-          "chest": 96,
-          "length": 64
-        },
-        {
-          "size": "XL",
-          "chest": 104,
-          "length": 67
-        },
-        {
-          "size": "2XL",
-          "chest": 112,
-          "length": 70
-        }
-      ],
       "variant_ids": {
         "XS": 5236380629,
         "S": 5236380630,
@@ -584,7 +249,8 @@
         "XL": 5236380633,
         "2XL": 5236380634
       },
-      "synced": 6
+      "synced": 6,
+      "size_template": "womens_tshirt"
     },
     {
       "id": "womens-tshirt02",
@@ -609,38 +275,6 @@
       "price": 4900,
       "category": "tshirt",
       "segment": "womens",
-      "sizes": [
-        {
-          "size": "XS",
-          "chest": 80,
-          "length": 59
-        },
-        {
-          "size": "S",
-          "chest": 84,
-          "length": 60
-        },
-        {
-          "size": "M",
-          "chest": 88,
-          "length": 61
-        },
-        {
-          "size": "L",
-          "chest": 96,
-          "length": 64
-        },
-        {
-          "size": "XL",
-          "chest": 104,
-          "length": 67
-        },
-        {
-          "size": "2XL",
-          "chest": 112,
-          "length": 70
-        }
-      ],
       "variant_ids": {
         "XS": 5236375151,
         "S": 5236375152,
@@ -649,7 +283,8 @@
         "XL": 5236375155,
         "2XL": 5236375156
       },
-      "synced": 6
+      "synced": 6,
+      "size_template": "womens_tshirt"
     },
     {
       "id": "womens-tshirt01",
@@ -674,38 +309,6 @@
       "price": 4900,
       "category": "tshirt",
       "segment": "womens",
-      "sizes": [
-        {
-          "size": "XS",
-          "chest": 80,
-          "length": 59
-        },
-        {
-          "size": "S",
-          "chest": 84,
-          "length": 60
-        },
-        {
-          "size": "M",
-          "chest": 88,
-          "length": 61
-        },
-        {
-          "size": "L",
-          "chest": 96,
-          "length": 64
-        },
-        {
-          "size": "XL",
-          "chest": 104,
-          "length": 67
-        },
-        {
-          "size": "2XL",
-          "chest": 112,
-          "length": 70
-        }
-      ],
       "variant_ids": {
         "XS": 5236374964,
         "S": 5236374965,
@@ -714,7 +317,8 @@
         "XL": 5236374968,
         "2XL": 5236374969
       },
-      "synced": 6
+      "synced": 6,
+      "size_template": "womens_tshirt"
     },
     {
       "id": "mens-tshirt04",
@@ -739,38 +343,6 @@
       "price": 4900,
       "category": "tshirt",
       "segment": "mens",
-      "sizes": [
-        {
-          "size": "XS",
-          "chest": 78,
-          "length": 71
-        },
-        {
-          "size": "S",
-          "chest": 86,
-          "length": 73
-        },
-        {
-          "size": "M",
-          "chest": 94,
-          "length": 75
-        },
-        {
-          "size": "L",
-          "chest": 106,
-          "length": 77
-        },
-        {
-          "size": "XL",
-          "chest": 118,
-          "length": 79
-        },
-        {
-          "size": "2XL",
-          "chest": 130,
-          "length": 81
-        }
-      ],
       "variant_ids": {
         "XS": 5236374650,
         "S": 5236374652,
@@ -779,7 +351,8 @@
         "XL": 5236374655,
         "2XL": 5236374656
       },
-      "synced": 6
+      "synced": 6,
+      "size_template": "mens_tshirt"
     },
     {
       "id": "mens-tshirt03",
@@ -804,38 +377,6 @@
       "price": 4900,
       "category": "tshirt",
       "segment": "mens",
-      "sizes": [
-        {
-          "size": "XS",
-          "chest": 78,
-          "length": 71
-        },
-        {
-          "size": "S",
-          "chest": 86,
-          "length": 73
-        },
-        {
-          "size": "M",
-          "chest": 94,
-          "length": 75
-        },
-        {
-          "size": "L",
-          "chest": 106,
-          "length": 77
-        },
-        {
-          "size": "XL",
-          "chest": 118,
-          "length": 79
-        },
-        {
-          "size": "2XL",
-          "chest": 130,
-          "length": 81
-        }
-      ],
       "variant_ids": {
         "XS": 5236290194,
         "S": 5236290195,
@@ -844,7 +385,8 @@
         "XL": 5236290198,
         "2XL": 5236290199
       },
-      "synced": 6
+      "synced": 6,
+      "size_template": "mens_tshirt"
     },
     {
       "id": "mens-tshirt02",
@@ -869,38 +411,6 @@
       "price": 4900,
       "category": "tshirt",
       "segment": "mens",
-      "sizes": [
-        {
-          "size": "XS",
-          "chest": 78,
-          "length": 71
-        },
-        {
-          "size": "S",
-          "chest": 86,
-          "length": 73
-        },
-        {
-          "size": "M",
-          "chest": 94,
-          "length": 75
-        },
-        {
-          "size": "L",
-          "chest": 106,
-          "length": 77
-        },
-        {
-          "size": "XL",
-          "chest": 118,
-          "length": 79
-        },
-        {
-          "size": "2XL",
-          "chest": 130,
-          "length": 81
-        }
-      ],
       "variant_ids": {
         "XS": 5236288893,
         "S": 5236288894,
@@ -909,7 +419,8 @@
         "XL": 5236288897,
         "2XL": 5236288898
       },
-      "synced": 6
+      "synced": 6,
+      "size_template": "mens_tshirt"
     },
     {
       "id": "mens-tshirt01",
@@ -934,38 +445,6 @@
       "price": 4900,
       "category": "tshirt",
       "segment": "mens",
-      "sizes": [
-        {
-          "size": "XS",
-          "chest": 78,
-          "length": 71
-        },
-        {
-          "size": "S",
-          "chest": 86,
-          "length": 73
-        },
-        {
-          "size": "M",
-          "chest": 94,
-          "length": 75
-        },
-        {
-          "size": "L",
-          "chest": 106,
-          "length": 77
-        },
-        {
-          "size": "XL",
-          "chest": 118,
-          "length": 79
-        },
-        {
-          "size": "2XL",
-          "chest": 130,
-          "length": 81
-        }
-      ],
       "variant_ids": {
         "XS": 5236263305,
         "S": 5236263306,
@@ -974,7 +453,8 @@
         "XL": 5236263309,
         "2XL": 5236263310
       },
-      "synced": 6
+      "synced": 6,
+      "size_template": "mens_tshirt"
     }
   ]
 }

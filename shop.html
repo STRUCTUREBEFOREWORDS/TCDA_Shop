@@ -234,6 +234,7 @@
     <script>
     (function () {
       var allProducts = [];
+      var sizeTemplates = {};
       var verifyCache = {};
       var currentProduct = null;
       var selectedSize = null;
@@ -260,6 +261,13 @@
       }
       function catLabel(c) { return {tshirt:"TOPS",outer:"OUTER",shoes:"SHOES"}[c] || c.toUpperCase(); }
       function segLabel(s) { return {mens:"Men's",womens:"Women's",unisex:"Unisex"}[s] || s; }
+      function getSizes(p) {
+        var tmpl = sizeTemplates[p.size_template];
+        if (!tmpl) return [];
+        return Object.keys(tmpl).map(function(sz) {
+          return Object.assign({ size: sz }, tmpl[sz]);
+        });
+      }
 
       /* ── Printful verification ───────────────────────────── */
       function verify(printfulId) {
@@ -381,32 +389,31 @@
           thumbs.appendChild(img);
         });
 
+        var sizes = getSizes(p);
         var sizesEl = document.getElementById("modal-sizes");
         sizesEl.innerHTML = "";
-        selectedSize = p.sizes && p.sizes[0] ? p.sizes[0].size : null;
-        if (p.sizes && p.sizes.length) {
-          p.sizes.forEach(function(s, i){
-            var btn = document.createElement("button");
-            btn.className = "modal-size-btn";
-            btn.type = "button";
-            btn.textContent = s.size;
-            btn.setAttribute("aria-pressed", i === 0 ? "true" : "false");
-            btn.addEventListener("click", function(){
-              sizesEl.querySelectorAll(".modal-size-btn").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
-              btn.setAttribute("aria-pressed","true");
-              selectedSize = s.size;
-            });
-            sizesEl.appendChild(btn);
+        selectedSize = sizes[0] ? sizes[0].size : null;
+        sizes.forEach(function(s, i){
+          var btn = document.createElement("button");
+          btn.className = "modal-size-btn";
+          btn.type = "button";
+          btn.textContent = s.size;
+          btn.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+          btn.addEventListener("click", function(){
+            sizesEl.querySelectorAll(".modal-size-btn").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+            btn.setAttribute("aria-pressed","true");
+            selectedSize = s.size;
           });
-        }
+          sizesEl.appendChild(btn);
+        });
 
         var thead = document.getElementById("modal-table-head");
         var tbody = document.getElementById("modal-table-body");
         var COL_LABELS = {chest:"胸囲 (cm)",length:"着丈 (cm)",sleeve:"袖丈 (cm)",foot_length:"足長 (cm)"};
-        if (p.sizes && p.sizes.length) {
-          var cols = Object.keys(p.sizes[0]).filter(function(k){ return k !== "size"; });
+        if (sizes.length) {
+          var cols = Object.keys(sizes[0]).filter(function(k){ return k !== "size"; });
           thead.innerHTML = "<tr><th>Size</th>" + cols.map(function(c){ return "<th>" + (COL_LABELS[c]||c) + "</th>"; }).join("") + "</tr>";
-          tbody.innerHTML = p.sizes.map(function(s){
+          tbody.innerHTML = sizes.map(function(s){
             return "<tr><td>" + esc(s.size) + "</td>" + cols.map(function(c){ return "<td>" + (s[c]!=null?s[c]:"—") + "</td>"; }).join("") + "</tr>";
           }).join("");
         } else {
@@ -467,14 +474,16 @@
       document.addEventListener("DOMContentLoaded", function(){
         wireEvents();
 
-        // Fetch products.json and live Printful prices in parallel
+        // Fetch products.json, sizeTemplates.json and live Printful prices in parallel
         Promise.all([
           fetch("data/products.json").then(function(r){ return r.ok ? r.json() : Promise.reject("HTTP " + r.status); }),
+          fetch("data/sizeTemplates.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
           fetch("/api/prices").then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
         ])
-          .then(function(pair){
-            var data     = pair[0];
-            var liveData = pair[1];
+          .then(function(triple){
+            var data     = triple[0];
+            sizeTemplates = triple[1];
+            var liveData = triple[2];
             var products = data.products || [];
 
             // Patch prices from Printful if live data available
