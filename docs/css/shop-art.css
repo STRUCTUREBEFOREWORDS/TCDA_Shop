@@ -38,8 +38,9 @@ body.page-art {
   pointer-events: none;
 }
 
-/* ── 4. Header — glass over art ────────────────────────────────── */
+/* ── 4. Header — glass over art, z-index above cards ───────────── */
 body.page-art .site-header {
+  z-index: 100;
   background: rgba(12, 11, 10, 0.52);
   border-bottom-color: rgba(255, 255, 255, 0.09);
 }
