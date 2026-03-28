@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product | TCDA</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .product-page { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+      .product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+      .product-gallery { display: flex; flex-direction: column; gap: .5rem; }
+      .product-hero { width: 100%; aspect-ratio: 1; object-fit: cover; background: #f5f5f5; display: block; }
+      .product-thumbs { display: flex; gap: 6px; overflow-x: auto; }
+      .product-thumbs img { width: 72px; height: 72px; object-fit: cover; cursor: pointer; opacity: .55; transition: opacity 150ms; flex-shrink: 0; }
+      .product-thumbs img.active { opacity: 1; outline: 2px solid #000; outline-offset: -2px; }
+      .product-info { display: flex; flex-direction: column; gap: 1.5rem; }
+      .product-eyebrow { font-size: .75rem; letter-spacing: .12em; opacity: .45; text-transform: uppercase; margin: 0; }
+      .product-name { font-size: 1.75rem; font-weight: 600; line-height: 1.2; margin: 0; }
+      .product-price { font-size: 1.3rem; font-weight: 500; margin: 0; }
+      .product-desc { font-size: .9rem; line-height: 1.7; opacity: .75; margin: 0; }
+      .product-material { font-size: .82rem; opacity: .55; margin: 0; }
+      .section-label { font-size: .75rem; letter-spacing: .1em; opacity: .45; text-transform: uppercase; margin: 0 0 .5rem; }
+      .size-btns { display: flex; flex-wrap: wrap; gap: .5rem; }
+      .size-btn { border: 1px solid #d0d0d0; background: transparent; padding: .35rem .75rem; font-size: .82rem; cursor: pointer; transition: background 180ms, border-color 180ms; }
+      .size-btn[aria-pressed="true"], .size-btn:hover { background: #000; color: #fff; border-color: #000; }
+      .size-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+      .size-table th, .size-table td { border: 1px solid #e0e0e0; padding: .35rem .6rem; text-align: center; }
+      .size-table th { background: #f8f8f8; font-weight: 600; }
+      .buy-btn { width: 100%; background: #000; color: #fff; border: none; padding: 1rem; font-size: .95rem; letter-spacing: .08em; cursor: pointer; transition: opacity 220ms; }
+      .buy-btn:hover { opacity: .75; }
+      .back-link { font-size: .82rem; opacity: .5; text-decoration: none; display: inline-block; margin-bottom: 1.5rem; }
+      .back-link:hover { opacity: 1; }
+      .currency-select { border: 1.5px solid #e0e0dc; background: #fff; padding: .4rem .5rem; font-family: inherit; font-size: .75rem; color: #0a0a0a; cursor: pointer; border-radius: 2px; }
+      @media (max-width: 640px) {
+        .product-layout { grid-template-columns: 1fr; }
+      }
+      #product-loading { text-align: center; opacity: .4; padding: 5rem 0; }
+      #product-error   { text-align: center; color: #c00; padding: 5rem 0; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="index.html" aria-label="TCDA Home"><img src="images/logo/tcda_black.svg" alt="TCDA" class="brand-logo" width="160" height="48" /></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>Menu</button>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">Brand</a>
+          <a href="collection.html">Collection</a>
+          <a href="archive.html">Archive</a>
+          <a href="shop.html">Shop</a>
+        </nav>
+        <div class="nav-tools">
+          <div class="cart-pill cart-bag" role="button" aria-label="Cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span data-cart-count>0</span>
+          </div>
+          <div class="locale-switcher" id="locale-switcher">
+            <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
+              <span id="label-lang">JA</span>
+              <span>·</span>
+              <span id="label-currency">JPY</span>
+            </button>
+            <div class="locale-panel" role="dialog" hidden data-locale-panel>
+              <div class="locale-group">
+                <p class="locale-group-label">Language</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-lang-btn="ja">日本語</button>
+                  <button type="button" class="locale-btn" data-lang-btn="en">English</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ko">한국어</button>
+                  <button type="button" class="locale-btn" data-lang-btn="zh-hans">中文</button>
+                  <button type="button" class="locale-btn" data-lang-btn="es">Español</button>
+                  <button type="button" class="locale-btn" data-lang-btn="fr">Français</button>
+                </div>
+              </div>
+              <div class="locale-group">
+                <p class="locale-group-label">Currency</p>
+                <select class="currency-select" id="currency-select"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="product-page">
+        <a class="back-link" href="shop.html" id="back-link">← Shop</a>
+        <div id="product-loading">Loading…</div>
+        <div id="product-error" hidden></div>
+        <div id="product-content" hidden>
+          <div class="product-layout">
+            <div class="product-gallery">
+              <img class="product-hero" id="product-hero" src="" alt="" />
+              <div class="product-thumbs" id="product-thumbs"></div>
+            </div>
+            <div class="product-info">
+              <div>
+                <p class="product-eyebrow" id="product-eyebrow"></p>
+                <h1 class="product-name" id="product-name"></h1>
+              </div>
+              <p class="product-price" id="product-price"></p>
+              <p class="product-desc" id="product-desc"></p>
+              <p class="product-material" id="product-material"></p>
+              <div>
+                <p class="section-label" id="label-size">Size</p>
+                <div class="size-btns" id="size-btns"></div>
+              </div>
+              <div>
+                <p class="section-label" id="label-size-chart">Size Chart</p>
+                <table class="size-table">
+                  <thead id="size-table-head"></thead>
+                  <tbody id="size-table-body"></tbody>
+                </table>
+              </div>
+              <button class="buy-btn" id="buy-btn" type="button">購入する</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <p>Transcend Color Digital Apparel（TCDA）</p>
+        <p><a href="about.html">About</a> / <a href="shop.html">Shop</a> / <a href="legal.html">特商法</a></p>
+        <p>Contact：info@tcda.shop</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+    <script>
+    (function() {
+      "use strict";
+
+      var API = "https://tcda-worker.patient-bush-5f73.workers.dev";
+
+      var ZERO_DECIMAL = {JPY:1,KRW:1,BIF:1,CLP:1,DJF:1,GNF:1,ISK:1,KMF:1,MGA:1,PYG:1,RWF:1,UGX:1,VND:1,VUV:1,XAF:1,XOF:1,XPF:1};
+      var CUR_SYMBOLS  = {JPY:"¥",USD:"$",EUR:"€",GBP:"£",AUD:"A$",CAD:"C$",SGD:"S$",HKD:"HK$",CNY:"¥",KRW:"₩",CHF:"Fr",SEK:"kr",NOK:"kr",DKK:"kr",NZD:"NZ$",MXN:"$",BRL:"R$",INR:"₹",THB:"฿",MYR:"RM",PHP:"₱",IDR:"Rp",TWD:"NT$",ZAR:"R",AED:"د.إ",SAR:"﷼",TRY:"₺",CZK:"Kč",PLN:"zł",HUF:"Ft"};
+
+      var INLINE_I18N = {
+        ja: { buy:"購入する", select_size:"サイズを選択してください", processing:"処理中…",
+              checkout_error:"決済エラーが発生しました", network_error:"ネットワークエラー",
+              material:"素材", size:"サイズ", size_chart:"サイズ表",
+              chest:"胸囲 (cm)", length:"着丈 (cm)",
+              mens:"メンズ", womens:"ウィメンズ", unisex:"ユニセックス",
+              tops:"トップス", outer:"アウター", back_to_shop:"← ショップに戻る" },
+        en: { buy:"Buy Now", select_size:"Please select a size", processing:"Processing…",
+              checkout_error:"Checkout error occurred", network_error:"Network error",
+              material:"Material", size:"Size", size_chart:"Size Chart",
+              chest:"Chest (cm)", length:"Length (cm)",
+              mens:"Men's", womens:"Women's", unisex:"Unisex",
+              tops:"Tops", outer:"Outerwear", back_to_shop:"← Back to Shop" }
+      };
+
+      var state = {
+        lang:     (function(){ try{ return localStorage.getItem("tcda-lang-v1")||"ja"; }catch(e){ return "ja"; } })(),
+        currency: (function(){ try{ return localStorage.getItem("tcda-currency-v1")||"JPY"; }catch(e){ return "JPY"; } })()
+      };
+
+      var i18n          = INLINE_I18N[state.lang] || INLINE_I18N.en;
+      var fxRates       = {};
+      var sizeTemplates = {};
+      var currentProduct = null;
+      var selectedSize   = null;
+
+      function t(key) { return (i18n && i18n[key]) || key; }
+      function esc(s) { return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+      function nameFor(p) {
+        if (typeof p.name === "object") return p.name[state.lang] || p.name.en || p.name.ja || "";
+        return p.name || "";
+      }
+      function descFor(p) {
+        if (typeof p.description === "object") return p.description[state.lang] || p.description.en || p.description.ja || "";
+        return p.description || "";
+      }
+      function catLabel(c) { return {tshirt: t("tops"), outer: t("outer")}[c] || c.toUpperCase(); }
+      function segLabel(s) { return {mens: t("mens"), womens: t("womens"), unisex: t("unisex")}[s] || s; }
+
+      function getRate(code) { return fxRates[code] !== undefined ? fxRates[code] : (code==="JPY"?1:1); }
+      function formatPrice(jpyPrice) {
+        var code = state.currency;
+        var val  = jpyPrice * getRate(code);
+        var sym  = CUR_SYMBOLS[code] || (code + " ");
+        if (ZERO_DECIMAL[code]) return sym + Math.round(val).toLocaleString();
+        return sym + val.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
+      function getSizeRows(p) {
+        var tmpl = sizeTemplates[p.size_template];
+        if (!tmpl) return [];
+        return Object.keys(tmpl).map(function(sz){ return Object.assign({ size: sz }, tmpl[sz]); });
+      }
+
+      /* ─ ID は URL から自動取得 → リンクは p.id から自動生成 ─ */
+      function getProductId() {
+        return new URLSearchParams(location.search).get("id");
+      }
+
+      function renderProduct(p) {
+        currentProduct = p;
+        var imgs = (p.images && p.images.length) ? p.images : ["images/product-prism-shirt.webp"];
+
+        document.title = nameFor(p) + " | TCDA";
+        document.getElementById("product-eyebrow").textContent  = catLabel(p.category) + " · " + segLabel(p.segment);
+        document.getElementById("product-name").textContent     = nameFor(p);
+        document.getElementById("product-price").textContent    = formatPrice(p.price);
+        document.getElementById("product-desc").textContent     = descFor(p);
+        document.getElementById("product-material").textContent = t("material") + ": " + (p.material || "—");
+        document.getElementById("label-size").textContent       = t("size");
+        document.getElementById("label-size-chart").textContent = t("size_chart");
+        document.getElementById("buy-btn").textContent          = t("buy");
+
+        var hero = document.getElementById("product-hero");
+        hero.src = imgs[0]; hero.alt = nameFor(p);
+
+        var thumbs = document.getElementById("product-thumbs");
+        thumbs.innerHTML = "";
+        if (imgs.length > 1) {
+          imgs.forEach(function(src, i) {
+            var img = document.createElement("img");
+            img.src = src; img.alt = nameFor(p) + " " + (i+1);
+            if (i===0) img.classList.add("active");
+            img.addEventListener("click", function() {
+              hero.src = src;
+              thumbs.querySelectorAll("img").forEach(function(t){ t.classList.remove("active"); });
+              img.classList.add("active");
+            });
+            thumbs.appendChild(img);
+          });
+        }
+
+        var sizes   = getSizeRows(p);
+        var sizesEl = document.getElementById("size-btns");
+        sizesEl.innerHTML = "";
+        selectedSize = sizes[0] ? sizes[0].size : null;
+        sizes.forEach(function(s, i) {
+          var btn = document.createElement("button");
+          btn.className = "size-btn"; btn.type = "button";
+          btn.textContent = s.size;
+          btn.setAttribute("aria-pressed", i===0 ? "true" : "false");
+          btn.addEventListener("click", function() {
+            sizesEl.querySelectorAll(".size-btn").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+            btn.setAttribute("aria-pressed","true"); selectedSize = s.size;
+          });
+          sizesEl.appendChild(btn);
+        });
+
+        var COL_LABELS = { chest: t("chest"), length: t("length") };
+        var thead = document.getElementById("size-table-head");
+        var tbody = document.getElementById("size-table-body");
+        if (sizes.length) {
+          var cols = Object.keys(sizes[0]).filter(function(k){ return k!=="size"; });
+          thead.innerHTML = "<tr><th>Size</th>" + cols.map(function(c){ return "<th>" + esc(COL_LABELS[c]||c) + "</th>"; }).join("") + "</tr>";
+          tbody.innerHTML = sizes.map(function(s){
+            return "<tr><td>" + esc(s.size) + "</td>" + cols.map(function(c){ return "<td>" + (s[c]!=null?s[c]:"—") + "</td>"; }).join("") + "</tr>";
+          }).join("");
+        } else {
+          thead.innerHTML = ""; tbody.innerHTML = '<tr><td style="opacity:.4">—</td></tr>';
+        }
+
+        document.getElementById("product-loading").hidden = true;
+        document.getElementById("product-content").hidden = false;
+      }
+
+      function updateUI() {
+        if (!currentProduct) return;
+        document.getElementById("product-price").textContent    = formatPrice(currentProduct.price);
+        document.getElementById("product-name").textContent     = nameFor(currentProduct);
+        document.getElementById("product-desc").textContent     = descFor(currentProduct);
+        document.getElementById("product-eyebrow").textContent  = catLabel(currentProduct.category) + " · " + segLabel(currentProduct.segment);
+        document.getElementById("product-material").textContent = t("material") + ": " + (currentProduct.material || "—");
+        document.getElementById("label-size").textContent       = t("size");
+        document.getElementById("label-size-chart").textContent = t("size_chart");
+        var bb = document.getElementById("buy-btn");
+        if (bb && !bb.disabled) bb.textContent = t("buy");
+        var bl = document.getElementById("back-link");
+        if (bl) bl.textContent = t("back_to_shop");
+        document.getElementById("label-lang").textContent     = state.lang.toUpperCase();
+        document.getElementById("label-currency").textContent = state.currency;
+        var sel = document.getElementById("currency-select");
+        if (sel) sel.value = state.currency;
+      }
+
+      function buyNow() {
+        if (!currentProduct) return;
+        if (!selectedSize) { alert(t("select_size")); return; }
+        var code = state.currency;
+        var pd   = currentProduct.price * getRate(code);
+        var img  = (currentProduct.images && currentProduct.images[0])
+          ? (location.origin + "/" + currentProduct.images[0]) : "";
+        var btn = document.getElementById("buy-btn");
+        btn.disabled = true; btn.textContent = t("processing");
+        fetch(API + "/api/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            product_id: currentProduct.id, currency: code,
+            price_display: pd, lang: state.lang,
+            size: selectedSize,
+            name: nameFor(currentProduct) + " (" + selectedSize + ")",
+            image: img
+          })
+        })
+        .then(function(r){ return r.json(); })
+        .then(function(d) {
+          if (d.url) { location.href = d.url; return; }
+          alert(d.error || t("checkout_error"));
+          btn.disabled = false; btn.textContent = t("buy");
+        })
+        .catch(function() {
+          alert(t("network_error"));
+          btn.disabled = false; btn.textContent = t("buy");
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        /* locale panel */
+        var localeToggle = document.querySelector("[data-locale-toggle]");
+        var localePanel  = document.querySelector("[data-locale-panel]");
+        if (localeToggle && localePanel) {
+          localeToggle.addEventListener("click", function(e) {
+            e.stopPropagation();
+            var open = !localePanel.hidden;
+            localePanel.hidden = open;
+            localeToggle.setAttribute("aria-expanded", String(!open));
+          });
+          document.addEventListener("click", function(){ localePanel.hidden = true; localeToggle.setAttribute("aria-expanded","false"); });
+          localePanel.addEventListener("click", function(e){ e.stopPropagation(); });
+        }
+
+        document.getElementById("buy-btn").addEventListener("click", buyNow);
+
+        /* 言語切替 */
+        document.querySelectorAll("[data-lang-btn]").forEach(function(btn) {
+          btn.addEventListener("click", function() {
+            var lang = this.dataset.langBtn;
+            fetch("i18n/" + lang + ".json")
+              .then(function(r){ return r.ok ? r.json() : null; })
+              .catch(function(){ return null; })
+              .then(function(d) {
+                i18n = d || INLINE_I18N[lang] || INLINE_I18N.en;
+                state.lang = lang;
+                try { localStorage.setItem("tcda-lang-v1", lang); } catch(e){}
+                updateUI();
+              });
+          });
+        });
+
+        /* 通貨切替 */
+        var currSel = document.getElementById("currency-select");
+        if (currSel) {
+          currSel.addEventListener("change", function() {
+            state.currency = this.value;
+            try { localStorage.setItem("tcda-currency-v1", this.value); } catch(e){}
+            updateUI();
+          });
+        }
+
+        /* データロード */
+        var productId = getProductId();
+        if (!productId) {
+          document.getElementById("product-loading").hidden = true;
+          document.getElementById("product-error").hidden = false;
+          document.getElementById("product-error").textContent = "Product ID not specified.";
+          return;
+        }
+
+        Promise.all([
+          fetch("data/currency.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
+          fetch("data/sizeTemplates.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
+          fetch("i18n/" + state.lang + ".json").then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+        ]).then(function(arr) {
+          fxRates       = arr[0];
+          sizeTemplates = arr[1];
+          if (arr[2]) i18n = arr[2];
+
+          /* 通貨セレクト生成 */
+          var sel = document.getElementById("currency-select");
+          if (sel && Object.keys(fxRates).length) {
+            Object.keys(fxRates).forEach(function(code) {
+              var opt = document.createElement("option");
+              opt.value = code; opt.textContent = code;
+              if (code === state.currency) opt.selected = true;
+              sel.appendChild(opt);
+            });
+          }
+
+          /* 商品を /api/products から取得 → id で検索 */
+          return fetch(API + "/api/products?ts=" + Date.now())
+            .then(function(r) {
+              if (!r.ok) throw new Error("HTTP " + r.status);
+              return r.json();
+            })
+            .then(function(data) {
+              var products = data.products;
+              if (!Array.isArray(products)) throw new Error("Invalid products response");
+              var p = products.find(function(x){ return x.id === productId; });
+              if (!p) throw new Error("Product not found: " + productId);
+              renderProduct(p);
+            });
+        })
+        .catch(function(err) {
+          console.error("[Product] load failed:", err);
+          document.getElementById("product-loading").hidden = true;
+          var errEl = document.getElementById("product-error");
+          errEl.hidden = false;
+          errEl.textContent = "Failed to load product: " + err.message;
+        });
+      });
+    })();
+    </script>
+  </body>
+</html>

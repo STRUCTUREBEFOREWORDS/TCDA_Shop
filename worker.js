@@ -436,7 +436,7 @@ function guessCategory(n) {
   n = n.toLowerCase();
   if (n.includes("hoodie") || n.includes("jacket")) return "outer";
   if (n.includes("shoe") || n.includes("sneaker")) return "shoes";
-  return "tops";
+  return "tshirt";
 }
 function guessSegment(n, variants) {
   n = n.toLowerCase();
