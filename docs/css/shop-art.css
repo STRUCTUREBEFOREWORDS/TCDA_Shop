@@ -16,6 +16,7 @@ body.page-art {
   /* overflow -6% to eliminate blur edge artifacts */
   inset: -6%;
   z-index: -3;
+  pointer-events: none;
   background-image: url('../images/作品/artifact-03-main.webp');
   background-size: cover;
   background-position: center center;
@@ -249,21 +250,5 @@ body.page-art .site-footer a:hover {
   .art-bg {
     /* Reduce blur on mobile for performance */
     filter: blur(36px) brightness(0.55) saturate(1.18);
-  }
-  body.page-art .shop-sidebar {
-    /* Slide-in on mobile — keep glass treatment */
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100dvh;
-    width: min(300px, 88vw);
-    z-index: 40;
-    overflow-y: auto;
-    transform: translateX(-110%);
-    transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
-    border-radius: 0 8px 8px 0;
-  }
-  body.page-art .shop-sidebar.is-open {
-    transform: translateX(0);
   }
 }
