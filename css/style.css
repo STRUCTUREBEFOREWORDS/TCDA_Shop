@@ -2219,4 +2219,16 @@ p {
 [data-protect] { user-select: none; -webkit-user-select: none; }
 [data-protect] img { pointer-events: none; -webkit-user-drag: none; -webkit-touch-callout: none; }
 [data-protect] .media { position: relative; }
+
+/* ── TCDA Global: black base for all page-art pages ─────────── */
+body.page-art {
+  background: #000;
+}
+body.page-art main,
+body.page-art header,
+body.page-art nav,
+body.page-art footer {
+  position: relative;
+  z-index: 2;
+}
 [data-protect] .media::after { content: ''; position: absolute; inset: 0; }

@@ -4,81 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Shop | TCDA</title>
-    <meta name="description" content="Minimal luxury product grid by TCDA." />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/shop-art.css" />
     <style>
-      .product-modal-overlay {
-        position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 900;
-        display: flex; align-items: center; justify-content: center; padding: 1rem;
-        opacity: 0; pointer-events: none; transition: opacity 220ms ease;
+      .gallery-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 7rem 2rem 10rem;
       }
-      .product-modal-overlay.is-open { opacity: 1; pointer-events: auto; }
-      .product-modal {
-        background: #fff; max-width: 900px; width: 100%; max-height: 90vh;
-        overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr;
-        position: relative; transform: translateY(20px); transition: transform 220ms ease;
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
       }
-      .product-modal-overlay.is-open .product-modal { transform: translateY(0); }
-      .modal-gallery-wrap { display: flex; flex-direction: column; background: #f5f5f5; }
-      .modal-hero-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
-      .modal-thumbs { display: flex; gap: 4px; padding: 4px; overflow-x: auto; background: #f0f0f0; }
-      .modal-thumbs img { width: 64px; height: 64px; object-fit: cover; cursor: pointer; opacity: .55; transition: opacity 150ms; flex-shrink: 0; }
-      .modal-thumbs img.active { opacity: 1; outline: 2px solid #000; outline-offset: -2px; }
-      .modal-info { padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 1.25rem; }
-      .modal-close { position: absolute; top: 1rem; right: 1rem; background: #000; color: #fff; border: none; width: 32px; height: 32px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; z-index: 10; }
-      .modal-meta { font-size: .75rem; letter-spacing: .12em; opacity: .45; text-transform: uppercase; margin: 0; }
-      .modal-name { font-size: 1.35rem; font-weight: 600; line-height: 1.25; margin: .25rem 0 0; }
-      .modal-price { font-size: 1.1rem; font-weight: 500; margin: 0; }
-      .modal-desc { font-size: .9rem; line-height: 1.7; opacity: .75; margin: 0; }
-      .modal-material { font-size: .82rem; opacity: .55; margin: 0; }
-      .modal-section-label { font-size: .75rem; letter-spacing: .1em; opacity: .45; text-transform: uppercase; margin: 0 0 .5rem; }
-      .modal-size-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
-      .modal-size-table th, .modal-size-table td { border: 1px solid #e0e0e0; padding: .35rem .6rem; text-align: center; }
-      .modal-size-table th { background: #f8f8f8; font-weight: 600; }
-      .modal-sizes { display: flex; flex-wrap: wrap; gap: .5rem; }
-      .modal-size-btn { border: 1px solid #d0d0d0; background: transparent; padding: .35rem .75rem; font-size: .82rem; cursor: pointer; transition: background 180ms, border-color 180ms; }
-      .modal-size-btn[aria-pressed="true"], .modal-size-btn:hover { background: #000; color: #fff; border-color: #000; }
-      .modal-buy-btn { width: 100%; background: #000; color: #fff; border: none; padding: .9rem; font-size: .9rem; letter-spacing: .08em; cursor: pointer; transition: opacity 220ms; }
-      .modal-buy-btn:hover { opacity: .75; }
-      .modal-page-link { display: block; text-align: center; font-size: .8rem; letter-spacing: .06em; opacity: .5; text-decoration: none; margin-top: -.5rem; }
-      .modal-page-link:hover { opacity: 1; }
-      .currency-select { width: 100%; border: 1.5px solid #e0e0dc; background: #fff; padding: .4rem .5rem; font-family: inherit; font-size: .75rem; letter-spacing: .04em; color: #0a0a0a; cursor: pointer; border-radius: 2px; }
-      @media (max-width: 640px) {
-        .product-modal { grid-template-columns: 1fr; }
-        .modal-gallery-wrap { max-height: 260px; }
+      .gallery-item {
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .gallery-item img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        transition: opacity 320ms ease, transform 320ms ease;
+      }
+      .gallery-item:hover img {
+        opacity: 0.82;
+        transform: scale(1.022);
+      }
+      .item-id {
+        display: block;
+        margin-top: 0.8rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.26em;
+        color: rgba(240,237,232,0.32);
+        text-transform: uppercase;
+        font-family: inherit;
+      }
+      .gallery-status {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 6rem 0;
+        font-size: 0.65rem;
+        letter-spacing: 0.22em;
+        color: rgba(240,237,232,0.25);
+        text-transform: uppercase;
+      }
+      @media (max-width: 960px) {
+        .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+      }
+      @media (max-width: 600px) {
+        .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        .gallery-wrap  { padding: 5rem 1rem 7rem; }
       }
     </style>
   </head>
   <body class="page-art">
     <div class="art-bg" aria-hidden="true"></div>
     <div class="art-vignette" aria-hidden="true"></div>
+
     <header class="site-header">
       <div class="nav-wrap">
-        <a class="brand" href="index.html" aria-label="TCDA Home"><img src="images/logo/tcda_black.svg" alt="Transcend Color Digital Apparel" class="brand-logo" width="160" height="48" /></a>
-        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
-          data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
+        <a class="brand" href="index.html" aria-label="TCDA Home">
+          <img src="images/logo/tcda_black.svg" alt="TCDA" class="brand-logo" width="160" height="48" />
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>Menu</button>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html" data-i18n="nav_home">Home</a>
-          <a href="about.html" data-i18n="nav_about">Brand</a>
-          <a href="collection.html" data-i18n="nav_collection">Collection</a>
-          <a href="archive.html" data-i18n="nav_archive">Archive</a>
-          <a href="shop.html" aria-current="page" data-i18n="nav_shop">Shop</a>
+          <a href="index.html">Home</a>
+          <a href="about.html">Brand</a>
+          <a href="collection.html">Collection</a>
+          <a href="archive.html">Archive</a>
+          <a href="shop.html" aria-current="page">Shop</a>
         </nav>
         <div class="nav-tools">
-          <div class="cart-pill cart-bag" role="button" aria-label="Cart">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-            <span data-cart-count>0</span>
-          </div>
           <div class="locale-switcher" id="locale-switcher">
             <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
-              <span class="locale-toggle-lang" id="label-lang">JA</span>
+              <span id="label-lang">JA</span>
               <span class="locale-toggle-sep">·</span>
-              <span class="locale-toggle-currency" id="label-currency">JPY</span>
+              <span id="label-currency">JPY</span>
             </button>
-            <div class="locale-panel" role="dialog" aria-label="Language and currency" hidden data-locale-panel>
+            <div class="locale-panel" role="dialog" hidden data-locale-panel>
               <div class="locale-group">
-                <p class="locale-group-label" data-i18n="lang_label">Language</p>
+                <p class="locale-group-label">Language</p>
                 <div class="locale-btns">
                   <button type="button" class="locale-btn" data-lang-btn="ja">日本語</button>
                   <button type="button" class="locale-btn" data-lang-btn="en">English</button>
@@ -88,127 +96,26 @@
                   <button type="button" class="locale-btn" data-lang-btn="fr">Français</button>
                 </div>
               </div>
-              <div class="locale-group">
-                <p class="locale-group-label" data-i18n="currency_label">Currency</p>
-                <select class="currency-select" id="currency-select" aria-label="Select currency"></select>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <main class="page">
-      <section class="hero">
-        <div class="container flow" data-reveal>
-          <p class="eyebrow" data-i18n="shop_eyebrow">Shop</p>
-          <h1 data-i18n="shop_h1">Curated Collections</h1>
-          <p class="lead" data-i18n="shop_lead">Limited edition pieces. Each garment carries one artwork.</p>
-        </div>
-      </section>
-
-      <section class="section" id="products">
-        <div class="container products-section">
-          <div class="luxury-shop-layout">
-            <aside class="shop-sidebar" id="shop-sidebar" aria-label="Filter options">
-              <div class="filter-group">
-                <button class="filter-toggle" type="button" aria-expanded="true" data-filter-toggle="category">
-                  <span class="filter-label" data-i18n="filter_category">Category</span>
-                  <span class="filter-icon">−</span>
-                </button>
-                <div class="filter-options" data-filter-options="category">
-                  <label class="filter-checkbox"><input type="checkbox" value="tshirt" data-filter="category" /><span data-i18n="tops">Tops</span></label>
-                  <label class="filter-checkbox"><input type="checkbox" value="outer" data-filter="category" /><span data-i18n="outer">Outerwear</span></label>
-                </div>
-              </div>
-              <div class="filter-group">
-                <button class="filter-toggle" type="button" aria-expanded="true" data-filter-toggle="price">
-                  <span class="filter-label" data-i18n="filter_price">Price Range</span>
-                  <span class="filter-icon">−</span>
-                </button>
-                <div class="filter-options" data-filter-options="price">
-                  <label class="filter-checkbox"><input type="checkbox" value="0-5000" data-filter="price" /><span>¥0 – ¥5,000</span></label>
-                  <label class="filter-checkbox"><input type="checkbox" value="5000-15000" data-filter="price" /><span>¥5,000 – ¥15,000</span></label>
-                  <label class="filter-checkbox"><input type="checkbox" value="15000-50000" data-filter="price" /><span>¥15,000 – ¥50,000</span></label>
-                  <label class="filter-checkbox"><input type="checkbox" value="50000+" data-filter="price" /><span>¥50,000+</span></label>
-                </div>
-              </div>
-              <div class="filter-group">
-                <button class="filter-toggle" type="button" aria-expanded="true" data-filter-toggle="segment">
-                  <span class="filter-label" data-i18n="filter_segment">Collection</span>
-                  <span class="filter-icon">−</span>
-                </button>
-                <div class="filter-options" data-filter-options="segment">
-                  <label class="filter-checkbox"><input type="checkbox" value="mens" data-filter="segment" /><span data-i18n="mens">Men's</span></label>
-                  <label class="filter-checkbox"><input type="checkbox" value="womens" data-filter="segment" /><span data-i18n="womens">Women's</span></label>
-                  <label class="filter-checkbox"><input type="checkbox" value="unisex" data-filter="segment" /><span data-i18n="unisex">Unisex</span></label>
-                </div>
-              </div>
-              <button class="filter-reset" type="button" data-i18n="filter_reset">Clear Filters</button>
-            </aside>
-
-            <div class="shop-main">
-              <div class="shop-controls" data-reveal>
-                <button class="mobile-filter-toggle" type="button" id="mobile-filter-btn"
-                        aria-expanded="false" aria-controls="shop-sidebar"
-                        data-i18n="filter_toggle">Filter</button>
-                <div class="search-box">
-                  <input type="text" class="search-input" id="shop-search" />
-                </div>
-                <select class="sort-select" id="shop-sort">
-                  <option value="featured" data-i18n-opt="sort_featured">Featured</option>
-                  <option value="price-low" data-i18n-opt="sort_price_low">Price: Low → High</option>
-                  <option value="price-high" data-i18n-opt="sort_price_high">Price: High → Low</option>
-                </select>
-              </div>
-              <div class="product-grid luxury-grid" id="shop-grid" data-reveal>
-                <p id="shop-loading" style="grid-column:1/-1;text-align:center;opacity:.4;padding:3rem" data-i18n="loading">Loading…</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Modal -->
-    <div class="product-modal-overlay" id="product-modal" role="dialog" aria-modal="true" aria-label="Product detail" hidden>
-      <div class="product-modal">
-        <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
-        <div class="modal-gallery-wrap">
-          <img class="modal-hero-img" id="modal-hero" src="" alt="" />
-          <div class="modal-thumbs" id="modal-thumbs"></div>
-        </div>
-        <div class="modal-info">
-          <div>
-            <p class="modal-meta" id="modal-meta"></p>
-            <h2 class="modal-name" id="modal-name"></h2>
-          </div>
-          <p class="modal-price" id="modal-price"></p>
-          <p class="modal-desc" id="modal-desc"></p>
-          <p class="modal-material" id="modal-material"></p>
-          <div>
-            <p class="modal-section-label" data-i18n="size">Size</p>
-            <div class="modal-sizes" id="modal-sizes"></div>
-          </div>
-          <div>
-            <p class="modal-section-label" data-i18n="size_chart">Size Chart</p>
-            <table class="modal-size-table">
-              <thead id="modal-table-head"></thead>
-              <tbody id="modal-table-body"></tbody>
-            </table>
-          </div>
-          <button class="modal-buy-btn" id="modal-buy" type="button" data-i18n="buy">購入する</button>
-          <a class="modal-page-link" id="modal-page-link" href="#">→ 商品ページで見る</a>
+    <main>
+      <div class="gallery-wrap">
+        <div class="gallery-grid" id="gallery-grid">
+          <p class="gallery-status" id="gallery-status">—</p>
         </div>
       </div>
-    </div>
+    </main>
 
     <footer class="site-footer">
       <div class="footer-wrap">
         <p>Transcend Color Digital Apparel（TCDA）</p>
         <p>
-          <a href="about.html" data-i18n="nav_about">About</a> /
-          <a href="shop.html" data-i18n="nav_shop">Shop</a> /
+          <a href="about.html">About</a> /
+          <a href="shop.html">Shop</a> /
           <a href="legal.html">特商法</a>
         </p>
         <p>Contact：info@tcda.shop</p>
@@ -220,503 +127,97 @@
     (function () {
       "use strict";
 
-      /* ═══════════════════════════════════════════════════════════
-         CONFIG
-      ═══════════════════════════════════════════════════════════ */
       var API        = "https://tcda-worker.patient-bush-5f73.workers.dev";
       var CATEGORIES = ["tshirt", "outer"];
 
-      var ZERO_DECIMAL = {JPY:1,KRW:1,BIF:1,CLP:1,DJF:1,GNF:1,ISK:1,KMF:1,MGA:1,PYG:1,RWF:1,UGX:1,VND:1,VUV:1,XAF:1,XOF:1,XPF:1};
-      var CUR_SYMBOLS  = {JPY:"¥",USD:"$",EUR:"€",GBP:"£",AUD:"A$",CAD:"C$",SGD:"S$",HKD:"HK$",CNY:"¥",KRW:"₩",CHF:"Fr",SEK:"kr",NOK:"kr",DKK:"kr",NZD:"NZ$",MXN:"$",BRL:"R$",INR:"₹",THB:"฿",MYR:"RM",PHP:"₱",IDR:"Rp",TWD:"NT$",ZAR:"R",AED:"د.إ",SAR:"﷼",TRY:"₺",CZK:"Kč",PLN:"zł",HUF:"Ft"};
-
-      /* インライン翻訳 (ja / en) — ファイルが存在する言語はfetchで上書き */
-      var INLINE_TRANSLATIONS = {
-        ja: {
-          buy:"購入する", buy_now:"今すぐ購入", select_size:"サイズを選択してください",
-          loading:"読み込み中…", no_products:"商品が見つかりません",
-          processing:"処理中…", checkout_error:"決済エラーが発生しました",
-          network_error:"ネットワークエラー",
-          filter_category:"カテゴリー", filter_price:"価格帯", filter_segment:"コレクション",
-          filter_reset:"フィルターをクリア", filter_toggle:"フィルター",
-          search_placeholder:"商品を検索…",
-          sort_featured:"おすすめ順", sort_price_low:"価格：安い順", sort_price_high:"価格：高い順",
-          view_details:"詳細を見る", size:"サイズ", size_chart:"サイズ表", material:"素材",
-          chest:"胸囲 (cm)", length:"着丈 (cm)",
-          mens:"メンズ", womens:"ウィメンズ", unisex:"ユニセックス",
-          tops:"トップス", outer:"アウター",
-          lang_label:"言語", currency_label:"通貨",
-          shop_eyebrow:"Shop", shop_h1:"Curated Collections",
-          shop_lead:"Limited edition pieces. Each garment carries one artwork.",
-          nav_home:"ホーム", nav_about:"ブランド", nav_collection:"コレクション",
-          nav_archive:"アーカイブ", nav_shop:"ショップ", nav_menu:"メニュー",
-          modal_view_page:"→ 商品ページで見る"
-        },
-        en: {
-          buy:"Buy Now", buy_now:"Buy Now", select_size:"Please select a size",
-          loading:"Loading…", no_products:"No products found.",
-          processing:"Processing…", checkout_error:"Checkout error occurred",
-          network_error:"Network error",
-          filter_category:"Category", filter_price:"Price Range", filter_segment:"Collection",
-          filter_reset:"Clear Filters", filter_toggle:"☰ Filter",
-          search_placeholder:"Search products…",
-          sort_featured:"Featured", sort_price_low:"Price: Low → High", sort_price_high:"Price: High → Low",
-          view_details:"View Details", size:"Size", size_chart:"Size Chart", material:"Material",
-          chest:"Chest (cm)", length:"Length (cm)",
-          mens:"Men's", womens:"Women's", unisex:"Unisex",
-          tops:"Tops", outer:"Outerwear",
-          lang_label:"Language", currency_label:"Currency",
-          shop_eyebrow:"Shop", shop_h1:"Curated Collections",
-          shop_lead:"Limited edition pieces. Each garment carries one artwork.",
-          nav_home:"Home", nav_about:"Brand", nav_collection:"Collection",
-          nav_archive:"Archive", nav_shop:"Shop", nav_menu:"Menu",
-          modal_view_page:"→ View product page"
-        }
-      };
-
-      /* ═══════════════════════════════════════════════════════════
-         STATE — 唯一の真実
-      ═══════════════════════════════════════════════════════════ */
-      var state = {
-        lang:     (function(){ try{ return localStorage.getItem("tcda-lang-v1")||"ja"; }catch(e){ return "ja"; } })(),
-        currency: (function(){ try{ return localStorage.getItem("tcda-currency-v1")||"JPY"; }catch(e){ return "JPY"; } })()
-      };
-
-      /* ═══════════════════════════════════════════════════════════
-         DATA (loaded once)
-      ═══════════════════════════════════════════════════════════ */
-      var allProducts   = [];
-      var sizeTemplates = {};
-      var fxRates       = {};
-      var i18n          = INLINE_TRANSLATIONS[state.lang] || INLINE_TRANSLATIONS.en;
-      var currentProduct = null;
-      var selectedSize   = null;
-
-      /* ═══════════════════════════════════════════════════════════
-         HELPERS
-      ═══════════════════════════════════════════════════════════ */
-      function t(key) {
-        return (i18n && i18n[key]) || key;
-      }
-
-      function esc(s) {
-        return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-      }
+      var lang = (function () {
+        try { return localStorage.getItem("tcda-lang-v1") || "ja"; } catch (e) { return "ja"; }
+      })();
 
       function nameFor(p) {
-        if (typeof p.name === "object") return p.name[state.lang] || p.name.en || p.name.ja || "";
+        if (typeof p.name === "object") return p.name[lang] || p.name.en || p.name.ja || "";
         return p.name || "";
       }
-      function descFor(p) {
-        if (typeof p.description === "object") return p.description[state.lang] || p.description.en || p.description.ja || "";
-        return p.description || "";
-      }
-      function catLabel(c) {
-        return {tshirt: t("tops"), outer: t("outer")}[c] || c.toUpperCase();
-      }
-      function segLabel(s) {
-        return {mens: t("mens"), womens: t("womens"), unisex: t("unisex")}[s] || s;
+
+      function pad(n) { return n < 10 ? "0" + n : String(n); }
+
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
       }
 
-      function getRate(code) {
-        return (fxRates[code] !== undefined) ? fxRates[code] : (code === "JPY" ? 1 : 1);
-      }
-      function formatPrice(jpyPrice) {
-        var code = state.currency;
-        var val  = jpyPrice * getRate(code);
-        var sym  = CUR_SYMBOLS[code] || (code + " ");
-        if (ZERO_DECIMAL[code]) return sym + Math.round(val).toLocaleString();
-        return sym + val.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      }
-
-      function getSizeRows(p) {
-        var tmpl = sizeTemplates[p.size_template];
-        if (!tmpl) return [];
-        return Object.keys(tmpl).map(function(sz){ return Object.assign({ size: sz }, tmpl[sz]); });
-      }
-
-      /* ⑤ 自動リンク生成 — p.id から決定。手動リンク禁止 */
-      function generateLink(p) {
-        return "product.html?id=" + encodeURIComponent(p.id);
-      }
-
-      /* ═══════════════════════════════════════════════════════════
-         TRANSLATIONS APPLY — data-i18n 全要素に一括適用
-      ═══════════════════════════════════════════════════════════ */
-      function applyTranslations() {
-        document.querySelectorAll("[data-i18n]").forEach(function(el) {
-          var key = el.dataset.i18n;
-          if (t(key) !== key) el.textContent = t(key);
-        });
-        /* placeholder */
-        var inp = document.getElementById("shop-search");
-        if (inp) inp.placeholder = t("search_placeholder");
-        /* sort options */
-        document.querySelectorAll("[data-i18n-opt]").forEach(function(opt) {
-          var key = opt.dataset.i18nOpt;
-          if (t(key) !== key) opt.textContent = t(key);
-        });
-        /* modal buy button (disable中は変えない) */
-        var buyBtn = document.getElementById("modal-buy");
-        if (buyBtn && !buyBtn.disabled) buyBtn.textContent = t("buy");
-        /* locale labels */
-        var ll = document.getElementById("label-lang");
-        if (ll) ll.textContent = state.lang.toUpperCase();
-        var lc = document.getElementById("label-currency");
-        if (lc) lc.textContent = state.currency;
-        /* active lang button */
-        document.querySelectorAll("[data-lang-btn]").forEach(function(btn) {
-          btn.setAttribute("aria-pressed", btn.dataset.langBtn === state.lang ? "true" : "false");
-        });
-        /* modal page link text */
-        var mpl = document.getElementById("modal-page-link");
-        if (mpl) mpl.textContent = t("modal_view_page");
-      }
-
-      /* ═══════════════════════════════════════════════════════════
-         RENDER GRID
-      ═══════════════════════════════════════════════════════════ */
-      function makeCard(p) {
-        var img  = (p.images && p.images[0]) || "images/product-prism-shirt.webp";
-        var link = generateLink(p);
-        var a    = document.createElement("article");
-        a.className           = "card";
-        a.dataset.productId   = p.id;
-        a.dataset.category    = p.category || "";
-        a.dataset.segment     = p.segment  || "";
-        a.dataset.priceJpy    = p.price    || 0;
-        a.innerHTML = [
-          '<a class="card-link" href="' + esc(link) + '" tabindex="-1" aria-hidden="true">',
-          '  <div class="media">',
-          '    <img src="' + esc(img) + '" alt="' + esc(nameFor(p)) + '" loading="lazy" decoding="async" />',
-          '  </div>',
-          '</a>',
-          '<div class="card-body">',
-          '  <p class="meta">' + esc(catLabel(p.category)) + ' · ' + esc(segLabel(p.segment)) + '</p>',
-          '  <h3><a href="' + esc(link) + '">' + esc(nameFor(p)) + '</a></h3>',
-          '  <p class="price">' + esc(formatPrice(p.price)) + '</p>',
-          '</div>',
-          '<div class="card-buy">',
-          '  <button class="btn card-quick-add" type="button">' + esc(t("view_details")) + '</button>',
-          '</div>',
-        ].join("");
-        a.querySelector(".media").addEventListener("click", function(){ openModal(p); });
-        a.querySelector(".card-quick-add").addEventListener("click", function(){ openModal(p); });
-        return a;
-      }
-
-      function renderGrid(list) {
-        var grid    = document.getElementById("shop-grid");
-        var loading = document.getElementById("shop-loading");
-        if (loading) loading.remove();
+      function renderGallery(products) {
+        var grid   = document.getElementById("gallery-grid");
+        var status = document.getElementById("gallery-status");
+        if (status) status.remove();
         grid.innerHTML = "";
-        if (!list || !list.length) {
-          grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;opacity:.4;padding:3rem">' + esc(t("no_products")) + '</p>';
+
+        if (!products.length) {
+          grid.innerHTML = '<p class="gallery-status">—</p>';
           return;
         }
+
         var frag = document.createDocumentFragment();
-        list.forEach(function(p){ frag.appendChild(makeCard(p)); });
+        products.forEach(function (p, i) {
+          var img  = (p.images && p.images[0]) || "";
+          var link = "product.html?id=" + encodeURIComponent(p.id);
+          var a    = document.createElement("a");
+          a.className = "gallery-item";
+          a.href      = link;
+          a.innerHTML =
+            '<img src="' + esc(img) + '" alt="' + esc(nameFor(p)) + '" loading="eager" decoding="async" />' +
+            '<span class="item-id">NO.' + pad(i + 1) + '</span>';
+          frag.appendChild(a);
+        });
         grid.appendChild(frag);
       }
 
-      /* ⑥ 状態変更時再描画 */
-      function updateUI() {
-        applyTranslations();
-        applyFilters(); /* フィルター→renderGrid */
-        /* モーダルが開いていれば内容も更新 */
-        if (currentProduct) {
-          document.getElementById("modal-name").textContent  = nameFor(currentProduct);
-          document.getElementById("modal-desc").textContent  = descFor(currentProduct);
-          document.getElementById("modal-price").textContent = formatPrice(currentProduct.price);
-          document.getElementById("modal-meta").textContent  =
-            catLabel(currentProduct.category) + " · " + segLabel(currentProduct.segment);
-        }
-      }
-
-      /* ═══════════════════════════════════════════════════════════
-         FILTER + SORT
-      ═══════════════════════════════════════════════════════════ */
-      function applyFilters() {
-        var q    = (document.getElementById("shop-search").value || "").toLowerCase();
-        var srt  = document.getElementById("shop-sort").value;
-        var cats = [], prices = [], segs = [];
-        document.querySelectorAll("[data-filter]").forEach(function(cb) {
-          if (!cb.checked) return;
-          var type = cb.dataset.filter, val = cb.value;
-          if (type === "category")     cats.push(val);
-          else if (type === "price")   prices.push(val);
-          else if (type === "segment") segs.push(val);
-        });
-
-        var list = allProducts.filter(function(p) {
-          if (q) {
-            var n = (nameFor(p) + " " + (typeof p.name==="object" ? (p.name.ja||"")+(p.name.en||"") : "")).toLowerCase();
-            if (!n.includes(q)) return false;
-          }
-          if (cats.length   && cats.indexOf(p.category) === -1) return false;
-          if (segs.length   && segs.indexOf(p.segment)  === -1) return false;
-          if (prices.length) {
-            var pr = p.price;
-            if (!prices.some(function(r) {
-              if (r==="0-5000")      return pr <= 5000;
-              if (r==="5000-15000")  return pr > 5000  && pr <= 15000;
-              if (r==="15000-50000") return pr > 15000 && pr <= 50000;
-              if (r==="50000+")      return pr > 50000;
-            })) return false;
-          }
-          return true;
-        });
-
-        if (srt === "price-low")  list.sort(function(a,b){ return a.price - b.price; });
-        if (srt === "price-high") list.sort(function(a,b){ return b.price - a.price; });
-        renderGrid(list);
-      }
-
-      /* ═══════════════════════════════════════════════════════════
-         MODAL
-      ═══════════════════════════════════════════════════════════ */
-      function openModal(p) {
-        currentProduct = p;
-        var imgs = (p.images && p.images.length) ? p.images : ["images/product-prism-shirt.webp"];
-
-        document.getElementById("modal-name").textContent  = nameFor(p);
-        document.getElementById("modal-meta").textContent  = catLabel(p.category) + " · " + segLabel(p.segment);
-        document.getElementById("modal-price").textContent = formatPrice(p.price);
-        document.getElementById("modal-desc").textContent  = descFor(p);
-        document.getElementById("modal-material").textContent = t("material") + ": " + (p.material || "—");
-
-        /* 自動生成リンクをモーダルにもセット */
-        var mpl = document.getElementById("modal-page-link");
-        if (mpl) { mpl.href = generateLink(p); mpl.textContent = t("modal_view_page"); }
-
-        var hero = document.getElementById("modal-hero");
-        hero.src = imgs[0]; hero.alt = nameFor(p);
-
-        var thumbs = document.getElementById("modal-thumbs");
-        thumbs.innerHTML = "";
-        imgs.forEach(function(src, i) {
-          var img = document.createElement("img");
-          img.src = src; img.alt = nameFor(p) + " " + (i+1);
-          if (i === 0) img.classList.add("active");
-          img.addEventListener("click", function() {
-            hero.src = src;
-            thumbs.querySelectorAll("img").forEach(function(t){ t.classList.remove("active"); });
-            img.classList.add("active");
-          });
-          thumbs.appendChild(img);
-        });
-
-        var sizes  = getSizeRows(p);
-        var sizesEl = document.getElementById("modal-sizes");
-        sizesEl.innerHTML = "";
-        selectedSize = sizes[0] ? sizes[0].size : null;
-        sizes.forEach(function(s, i) {
-          var btn = document.createElement("button");
-          btn.className = "modal-size-btn"; btn.type = "button";
-          btn.textContent = s.size;
-          btn.setAttribute("aria-pressed", i === 0 ? "true" : "false");
-          btn.addEventListener("click", function() {
-            sizesEl.querySelectorAll(".modal-size-btn").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
-            btn.setAttribute("aria-pressed","true");
-            selectedSize = s.size;
-          });
-          sizesEl.appendChild(btn);
-        });
-
-        var COL_LABELS = { chest: t("chest"), length: t("length") };
-        var thead = document.getElementById("modal-table-head");
-        var tbody = document.getElementById("modal-table-body");
-        if (sizes.length) {
-          var cols = Object.keys(sizes[0]).filter(function(k){ return k !== "size"; });
-          thead.innerHTML = "<tr><th>Size</th>" + cols.map(function(c){ return "<th>" + esc(COL_LABELS[c]||c) + "</th>"; }).join("") + "</tr>";
-          tbody.innerHTML = sizes.map(function(s) {
-            return "<tr><td>" + esc(s.size) + "</td>" + cols.map(function(c){ return "<td>" + (s[c]!=null?s[c]:"—") + "</td>"; }).join("") + "</tr>";
-          }).join("");
-        } else {
-          thead.innerHTML = ""; tbody.innerHTML = '<tr><td style="opacity:.4">—</td></tr>';
-        }
-
-        var overlay = document.getElementById("product-modal");
-        overlay.removeAttribute("hidden");
-        requestAnimationFrame(function(){ overlay.classList.add("is-open"); });
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeModal() {
-        var overlay = document.getElementById("product-modal");
-        overlay.classList.remove("is-open");
-        overlay.addEventListener("transitionend", function h() {
-          overlay.setAttribute("hidden","");
-          overlay.removeEventListener("transitionend", h);
-        });
-        document.body.style.overflow = "";
-        currentProduct = null;
-      }
-
-      /* ═══════════════════════════════════════════════════════════
-         CHECKOUT
-      ═══════════════════════════════════════════════════════════ */
-      function buyNow() {
-        if (!currentProduct) return;
-        if (!selectedSize) { alert(t("select_size")); return; }
-        var code = state.currency;
-        var pd   = currentProduct.price * getRate(code);
-        var img  = (currentProduct.images && currentProduct.images[0])
-          ? (location.origin + "/" + currentProduct.images[0]) : "";
-        var btn = document.getElementById("modal-buy");
-        btn.disabled = true; btn.textContent = t("processing");
-        fetch(API + "/api/checkout", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            product_id: currentProduct.id, currency: code,
-            price_display: pd, lang: state.lang,
-            size: selectedSize,
-            name: nameFor(currentProduct) + " (" + selectedSize + ")",
-            image: img
-          })
-        })
-        .then(function(r){ return r.json(); })
-        .then(function(d) {
-          if (d.url) { location.href = d.url; return; }
-          alert(d.error || t("checkout_error"));
-          btn.disabled = false; btn.textContent = t("buy");
-        })
-        .catch(function() {
-          alert(t("network_error"));
-          btn.disabled = false; btn.textContent = t("buy");
-        });
-      }
-
-      /* ═══════════════════════════════════════════════════════════
-         EVENTS
-      ═══════════════════════════════════════════════════════════ */
-      function wireEvents() {
-        document.getElementById("modal-close").addEventListener("click", closeModal);
-        document.getElementById("product-modal").addEventListener("click", function(e){ if(e.target===this) closeModal(); });
-        document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeModal(); });
-        document.getElementById("modal-buy").addEventListener("click", buyNow);
-
-        document.getElementById("shop-search").addEventListener("input", applyFilters);
-        document.getElementById("shop-sort").addEventListener("change", applyFilters);
-        document.querySelectorAll("[data-filter]").forEach(function(cb){ cb.addEventListener("change", applyFilters); });
-        document.querySelector(".filter-reset").addEventListener("click", function() {
-          document.querySelectorAll("[data-filter]").forEach(function(cb){ cb.checked = false; });
-          document.getElementById("shop-search").value = "";
-          applyFilters();
-        });
-
-        /* ─ 言語切替 ─ */
-        document.querySelectorAll("[data-lang-btn]").forEach(function(btn) {
-          btn.addEventListener("click", function() {
-            var lang = this.dataset.langBtn;
-            /* i18nファイルをfetch（ja/enはインラインにもあるがファイル優先） */
-            fetch("i18n/" + lang + ".json")
-              .then(function(r){ return r.ok ? r.json() : null; })
-              .catch(function(){ return null; })
-              .then(function(d) {
-                i18n = d || INLINE_TRANSLATIONS[lang] || INLINE_TRANSLATIONS.en;
-                state.lang = lang;
-                try { localStorage.setItem("tcda-lang-v1", lang); } catch(e){}
-                updateUI();
-              });
-          });
-        });
-
-        /* ─ 通貨切替 ─ */
-        var currSel = document.getElementById("currency-select");
-        if (currSel) {
-          currSel.addEventListener("change", function() {
-            state.currency = this.value;
-            try { localStorage.setItem("tcda-currency-v1", this.value); } catch(e){}
-            updateUI();
-          });
-        }
-
-        /* locale panel toggle */
-        var localeToggle = document.querySelector("[data-locale-toggle]");
-        var localePanel  = document.querySelector("[data-locale-panel]");
-        if (localeToggle && localePanel) {
-          localeToggle.addEventListener("click", function(e) {
+      /* locale toggle */
+      document.addEventListener("DOMContentLoaded", function () {
+        var lt = document.querySelector("[data-locale-toggle]");
+        var lp = document.querySelector("[data-locale-panel]");
+        if (lt && lp) {
+          lt.addEventListener("click", function (e) {
             e.stopPropagation();
-            var open = !localePanel.hidden;
-            localePanel.hidden = open;
-            localeToggle.setAttribute("aria-expanded", String(!open));
+            var open = !lp.hidden;
+            lp.hidden = open;
+            lt.setAttribute("aria-expanded", String(!open));
           });
-          document.addEventListener("click", function() { localePanel.hidden = true; localeToggle.setAttribute("aria-expanded","false"); });
-          localePanel.addEventListener("click", function(e){ e.stopPropagation(); });
+          document.addEventListener("click", function () { lp.hidden = true; lt.setAttribute("aria-expanded", "false"); });
+          lp.addEventListener("click", function (e) { e.stopPropagation(); });
         }
 
-        /* mobile filter */
-        var mfb = document.getElementById("mobile-filter-btn");
-        var sidebar = document.getElementById("shop-sidebar");
-        if (mfb && sidebar) {
-          mfb.addEventListener("click", function() {
-            var open = sidebar.classList.toggle("is-open");
-            mfb.setAttribute("aria-expanded", String(open));
-          });
-        }
-      }
-
-      /* ═══════════════════════════════════════════════════════════
-         BOOTSTRAP — ① 商品表示バグ修正
-      ═══════════════════════════════════════════════════════════ */
-      document.addEventListener("DOMContentLoaded", function() {
-        wireEvents();
-
-        /* Printful sync — fire-and-forget */
-        fetch(API + "/api/printful-sync").catch(function(){});
-
-        /* i18nをロード（インラインで先に描画しておき、後でファイル版で上書き） */
-        fetch("i18n/" + state.lang + ".json")
-          .then(function(r){ return r.ok ? r.json() : null; })
-          .catch(function(){ return null; })
-          .then(function(d) {
-            if (d) i18n = d;
-            applyTranslations();
-          });
-
-        /* 通貨レート + サイズテンプレートを並列ロード */
-        Promise.all([
-          fetch("data/currency.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
-          fetch("data/sizeTemplates.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; })
-        ]).then(function(arr) {
-          fxRates       = arr[0];
-          sizeTemplates = arr[1];
-
-          /* 通貨セレクト生成 */
-          var sel = document.getElementById("currency-select");
-          if (sel && Object.keys(fxRates).length) {
-            Object.keys(fxRates).forEach(function(code) {
-              var opt = document.createElement("option");
-              opt.value = code; opt.textContent = code;
-              if (code === state.currency) opt.selected = true;
-              sel.appendChild(opt);
+        document.querySelectorAll("[data-lang-btn]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            lang = this.dataset.langBtn;
+            try { localStorage.setItem("tcda-lang-v1", lang); } catch (e) {}
+            document.getElementById("label-lang").textContent = lang.toUpperCase();
+            /* 再描画 */
+            document.querySelectorAll(".gallery-item img").forEach(function (img) {
+              var id = img.parentElement.href.split("id=")[1];
+              /* name は再fetchせず既データから */
             });
-          }
+          });
         });
 
-        /* ─ 商品ロード（唯一のデータソース: /api/products） ─ */
+        fetch(API + "/api/printful-sync").catch(function () {});
+
         fetch(API + "/api/products?ts=" + Date.now())
-          .then(function(r) {
+          .then(function (r) {
             if (!r.ok) throw new Error("HTTP " + r.status);
             return r.json();
           })
-          .then(function(data) {
-            var products = data.products;
-            if (!Array.isArray(products)) throw new Error("Invalid products response");
-
-            /* カテゴリフィルタ（shoes除外） */
-            allProducts = products.filter(function(p) {
+          .then(function (data) {
+            var products = (data.products || []).filter(function (p) {
               return CATEGORIES.indexOf(p.category) !== -1;
             });
-
-            renderGrid(allProducts);
-            applyTranslations();
+            renderGallery(products);
           })
-          .catch(function(err) {
-            console.error("[Shop] /api/products failed:", err);
-            var loading = document.getElementById("shop-loading");
-            if (loading) loading.textContent = "Failed to load products: " + err.message;
+          .catch(function (err) {
+            console.error("[Shop]", err);
+            var s = document.getElementById("gallery-status");
+            if (s) s.textContent = err.message;
           });
       });
     })();
