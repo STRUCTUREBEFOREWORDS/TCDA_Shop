@@ -7,8 +7,9 @@
  *               PRINTFUL_WEBHOOK_SECRET
  */
 
+const SHOP_ORIGIN = "https://tcdashop.com";
 const ALLOWED_ORIGINS = [
-  "https://tcdashop.com",
+  SHOP_ORIGIN,
   "https://www.tcdashop.com",
   "http://localhost",
   "http://127.0.0.1",
@@ -20,6 +21,16 @@ const ZERO_DECIMAL = new Set([
 ]);
 
 const KV_KEY      = "products_json";
+
+/* currency.json をWorker内に直接保持（外部fetch不要・改ざん不可） */
+const CURRENCY_RATES = {
+  JPY:1, USD:0.0067, EUR:0.0062, GBP:0.0053, AUD:0.0102,
+  CAD:0.0091, SGD:0.0090, HKD:0.052, CNY:0.048, KRW:9.1,
+  CHF:0.0058, SEK:0.070, NOK:0.072, DKK:0.046, NZD:0.011,
+  MXN:0.13, BRL:0.038, INR:0.57, THB:0.24, MYR:0.031,
+  PHP:0.39, IDR:107, TWD:0.22, ZAR:0.12, AED:0.025,
+  SAR:0.025, TRY:0.23, CZK:0.15, PLN:0.027, HUF:2.6,
+};
 const PF_API      = "https://api.printful.com";
 const MAX_RETRY   = 3;
 
@@ -74,65 +85,63 @@ async function handleProduct(url, env, origin) {
 
 /* ── POST /api/checkout ──────────────────────────────────────────── */
 async function handleCheckout(req, env, origin) {
+  /* ⑥ CORS固定 */
   if (!allowedOrigin(origin)) return new Response("Forbidden", { status: 403 });
 
   const secretKey = env.STRIPE_SECRET_KEY;
-  if (!secretKey) return corsJson({ error: "Stripe not configured" }, 503, origin);
+  if (!secretKey) return corsJson({ error: "Stripe not configured" }, 400, origin);
 
   let body;
   try { body = await req.json(); }
   catch { return corsJson({ error: "Invalid JSON" }, 400, origin); }
 
-  const { product_id, currency, price_display, lang, size, name, image } = body;
+  const { product_id, currency, price_display, lang, size, image } = body;
 
+  /* ⑦ 必須フィールド検証 */
   if (!product_id || !currency || price_display == null) {
     return corsJson({ error: "Missing: product_id, currency, price_display" }, 400, origin);
   }
 
   const CUR = String(currency).toUpperCase();
+  const pd  = Number(price_display);
+  if (!Number.isFinite(pd) || pd <= 0) return corsJson({ error: "Invalid price_display" }, 400, origin);
 
-  /* Load products + currency rates from Worker origin */
-  const base = new URL(req.url).origin;
-  let productsData, rates;
-  try {
-    const [pr, cr] = await Promise.all([
-      fetch(base + "/api/products"),
-      fetch(base + "/data/currency.json"),
-    ]);
-    if (!pr.ok) throw new Error("products " + pr.status);
-    if (!cr.ok) throw new Error("currency " + cr.status);
-    [productsData, rates] = await Promise.all([pr.json(), cr.json()]);
-  } catch (err) {
-    return corsJson({ error: "Failed to load reference data: " + err }, 502, origin);
-  }
+  /* 商品データ: KVから直接取得。レート: Worker内定数（外部fetch不要・改ざん不可） */
+  const productsData = await kvGet(env);
+  const rates        = CURRENCY_RATES;
 
+  /* ③ 存在しない商品ID → 400 */
   const product = (productsData.products || []).find((p) => p.id === product_id);
-  if (!product) return corsJson({ error: "Product not found: " + product_id }, 404, origin);
+  if (!product) return corsJson({ error: "Invalid product" }, 400, origin);
 
+  /* ④ 未同期商品: variant_ids がなければ注文不可 → 400 */
+  const hasVariants = product.variant_ids && Object.keys(product.variant_ids).length > 0;
+  if (!hasVariants) return corsJson({ error: "Product not synced" }, 400, origin);
+
+  /* ② 通貨レート確認 */
   const rate = rates[CUR];
-  if (rate === undefined) return corsJson({ error: "Unsupported currency: " + CUR }, 400, origin);
+  if (rate === undefined) return corsJson({ error: "Unsupported currency" }, 400, origin);
 
-  /* Server-side price validation */
-  const recalc = product.price * rate;
-  if (Math.round(recalc * 100) !== Math.round(Number(price_display) * 100)) {
-    return corsJson({ error: "Price mismatch", expected: recalc, received: price_display }, 400, origin);
+  /* ① 価格改ざんチェック */
+  const recalculated = product.price * rate;
+  if (Math.round(recalculated * 100) !== Math.round(pd * 100)) {
+    return corsJson({ error: "Invalid price" }, 400, origin);   /* 詳細は返さない */
   }
 
+  /* unit_amount: zero-decimal は整数、それ以外は ×100 */
   const isZero     = ZERO_DECIMAL.has(CUR);
-  const unitAmount = isZero
-    ? Math.round(Number(price_display))
-    : Math.round(Number(price_display) * 100);
+  const unitAmount = isZero ? Math.round(pd) : Math.round(pd * 100);
 
-  const safeLang   = String(lang || "ja").replace(/[^a-z-]/gi, "");
+  /* ⑤ 多言語: Stripe表示は英語固定 */
   const productName = typeof product.name === "object"
-    ? (product.name[safeLang] || product.name.ja || product.name.en || product_id)
+    ? (product.name.en || product.name.ja || product_id)
     : String(product.name || product_id);
-  const displayName = name || (productName + (size ? ` (${size})` : ""));
+  const displayName = productName + (size ? ` (${size})` : "");
 
   const params = new URLSearchParams();
   params.append("mode",                    "payment");
-  params.append("success_url",             "https://tcdashop.com/success.html?session_id={CHECKOUT_SESSION_ID}");
-  params.append("cancel_url",              "https://tcdashop.com/shop.html?cancelled=1");
+  params.append("success_url",             `${SHOP_ORIGIN}/success.html?session_id={CHECKOUT_SESSION_ID}`);
+  params.append("cancel_url",              `${SHOP_ORIGIN}/shop.html?cancelled=1`);
   params.append("payment_method_types[]",  "card");
   params.append("billing_address_collection", "auto");
   params.append("line_items[0][price_data][currency]",           CUR.toLowerCase());
@@ -143,7 +152,7 @@ async function handleCheckout(req, env, origin) {
   params.append("metadata[product_id]", product_id);
   params.append("metadata[size]",       size || "");
   params.append("metadata[currency]",   CUR);
-  params.append("metadata[lang]",       safeLang);
+  params.append("metadata[lang]",       String(lang || "ja").replace(/[^a-z-]/gi, ""));
 
   try {
     const res     = await fetch("https://api.stripe.com/v1/checkout/sessions", {
@@ -155,10 +164,10 @@ async function handleCheckout(req, env, origin) {
       body: params.toString(),
     });
     const session = await res.json();
-    if (!res.ok) return corsJson({ error: session.error?.message || "Stripe error" }, res.status, origin);
+    if (!res.ok) return corsJson({ error: session.error?.message || "Stripe error" }, 400, origin);
     return corsJson({ url: session.url, sessionId: session.id }, 200, origin);
-  } catch (err) {
-    return corsJson({ error: "Checkout failed", detail: String(err) }, 502, origin);
+  } catch (e) {
+    return corsJson({ error: "Checkout failed" }, 400, origin);
   }
 }
 
@@ -348,9 +357,12 @@ function allowedOrigin(origin) {
   return ALLOWED_ORIGINS.some((o) => origin.startsWith(o));
 }
 function corsHeaders(origin) {
+  /* ⑥ 本番はSHOP_ORIGIN固定、localhost/127のみ動的許可 */
+  const allow = (origin.startsWith("http://localhost") || origin.startsWith("http://127.0.0.1"))
+    ? origin : SHOP_ORIGIN;
   return {
-    "Access-Control-Allow-Origin":  origin || "*",
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Origin":  allow,
+    "Access-Control-Allow-Methods": "GET, POST",
     "Access-Control-Allow-Headers": "Content-Type",
   };
 }
