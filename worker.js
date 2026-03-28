@@ -20,7 +20,7 @@ const ZERO_DECIMAL = new Set([
   "RWF","UGX","VND","VUV","XAF","XOF","XPF",
 ]);
 
-const KV_KEY      = "products_json";
+const KV_KEY      = "products";
 
 /* currency.json をWorker内に直接保持（外部fetch不要・改ざん不可） */
 const CURRENCY_RATES = {
@@ -58,6 +58,14 @@ export default {
       return handleCheckout(req, env, origin);
     }
 
+    if (url.pathname === "/api/product-update" && method === "POST") {
+      return handleProductUpdate(req, env, origin);
+    }
+
+    if (url.pathname === "/api/products-save" && method === "POST") {
+      return handleProductsSave(req, env, origin);
+    }
+
     if (url.pathname === "/api/printful-webhook" && method === "POST") {
       return handleWebhook(req, env);
     }
@@ -65,6 +73,36 @@ export default {
     return new Response("Not found", { status: 404 });
   },
 };
+
+/* ── POST /api/product-update ────────────────────────────────────── */
+async function handleProductUpdate(req, env, origin) {
+  let product;
+  try { product = await req.json(); }
+  catch { return corsJson({ error: "Invalid JSON" }, 400, origin); }
+
+  if (!product.id)                                             return corsJson({ error: "id required" }, 422, origin);
+  if (product.price == null)                                   return corsJson({ error: "price required" }, 422, origin);
+  if (!product.variant_ids || !Object.keys(product.variant_ids).length)
+                                                               return corsJson({ error: "variant_ids empty" }, 422, origin);
+
+  if (!env.PRODUCTS_KV) return corsJson({ error: "PRODUCTS_KV missing" }, 503, origin);
+
+  await upsertProduct(env.PRODUCTS_KV, product);
+  return corsJson({ ok: true, id: product.id }, 200, origin);
+}
+
+/* ── POST /api/products-save (full replace — CMS reorder/bulk) ───── */
+async function handleProductsSave(req, env, origin) {
+  let body;
+  try { body = await req.json(); }
+  catch { return corsJson({ error: "Invalid JSON" }, 400, origin); }
+
+  if (!Array.isArray(body.products)) return corsJson({ error: "products array required" }, 400, origin);
+  if (!env.PRODUCTS_KV) return corsJson({ error: "PRODUCTS_KV missing" }, 503, origin);
+
+  await env.PRODUCTS_KV.put(KV_KEY, JSON.stringify({ products: body.products }));
+  return corsJson({ ok: true }, 200, origin);
+}
 
 /* ── GET /api/products ───────────────────────────────────────────── */
 async function handleProducts(env, origin) {
