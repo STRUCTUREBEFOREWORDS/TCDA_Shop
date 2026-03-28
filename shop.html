@@ -229,11 +229,11 @@
     <script src="js/script.js" defer></script>
     <script>
     (function () {
+      var API = "https://tcda-worker.patient-bush-5f73.workers.dev";
       var allProducts = [];
       var sizeTemplates = {};
       var fxRates    = {};
       var shopI18n   = {};
-      var verifyCache = {};
       var currentProduct = null;
       var selectedSize = null;
       var ZERO_DECIMAL = {JPY:1,KRW:1,BIF:1,CLP:1,DJF:1,GNF:1,ISK:1,KMF:1,MGA:1,PYG:1,RWF:1,UGX:1,VND:1,VUV:1,XAF:1,XOF:1,XPF:1};
@@ -310,7 +310,7 @@
         var btn = document.getElementById("modal-buy");
         btn.disabled = true;
         btn.textContent = shopI18n.processing || "…";
-        fetch("/api/create-checkout", {
+        fetch(API + "/api/checkout", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
@@ -341,16 +341,7 @@
           });
       }
 
-      /* ── Printful verification ───────────────────────────── */
-      function verify(printfulId) {
-        if (verifyCache[printfulId] !== undefined) return Promise.resolve(verifyCache[printfulId]);
-        return fetch("/api/verify?id=" + encodeURIComponent(printfulId))
-          .then(function(r){ return r.ok ? r.json() : {valid:false}; })
-          .then(function(d){ verifyCache[printfulId] = d.valid !== false; return verifyCache[printfulId]; })
-          .catch(function(){ verifyCache[printfulId] = false; return false; });
-      }
-
-      /* ── Card rendering ──────────────────────────────────── */
+/* ── Card rendering ──────────────────────────────────── */
       function makeCard(p) {
         var img = (p.images && p.images[0]) || "images/product-prism-shirt.webp";
         var a = document.createElement("article");
@@ -554,22 +545,20 @@
       document.addEventListener("DOMContentLoaded", function(){
         wireEvents();
 
-        // Fetch all data in parallel
+        // Fetch all data in parallel — products from API, static files for templates/fx/i18n
         var initLang = getLang();
         Promise.all([
-          fetch("data/products.json").then(function(r){ return r.ok ? r.json() : Promise.reject("HTTP " + r.status); }),
+          fetch(API + "/api/products").then(function(r){ return r.ok ? r.json() : Promise.reject("HTTP " + r.status); }),
           fetch("data/sizeTemplates.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
           fetch("data/currency.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
-          fetch("i18n/" + initLang + ".json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
-          fetch("/api/prices").then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+          fetch("i18n/" + initLang + ".json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; })
         ])
           .then(function(arr){
-            var data      = arr[0];
+            var data  = arr[0];
             sizeTemplates = arr[1];
             fxRates       = arr[2];
             shopI18n      = arr[3];
-            var liveData  = arr[4];
-            var products  = data.products || [];
+            allProducts   = data.products || [];
 
             // Populate currency select from currency.json
             var sel = document.getElementById("currency-select");
@@ -588,27 +577,6 @@
             var buyBtn = document.getElementById("modal-buy");
             if (buyBtn && shopI18n.buy) buyBtn.textContent = shopI18n.buy;
 
-            // Patch prices from Printful if live data available
-            if (liveData && liveData.prices) {
-              products.forEach(function(p){
-                var live = liveData.prices[p.printful_id];
-                if (live && live.price) p.price = live.price;
-              });
-            }
-
-            var checks = products.map(function(p){
-              return verify(p.printful_id).then(function(ok){ return ok ? p : null; });
-            });
-            return Promise.all(checks);
-          })
-          .then(function(results){
-            allProducts = results.filter(Boolean);
-            if (!allProducts.length) {
-              // verify endpoint not configured — show all with current prices
-              return fetch("data/products.json")
-                .then(function(r){ return r.json(); })
-                .then(function(d){ allProducts = d.products || []; renderGrid(allProducts); });
-            }
             renderGrid(allProducts);
           })
           .catch(function(err){
