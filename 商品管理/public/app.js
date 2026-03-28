@@ -508,21 +508,101 @@ async function confirmDelete() {
 }
 
 // ─── Printful ─────────────────────────────────────────────────────────────────
+
+// 同期ステータスUIを更新
+function updatePfSyncStatus(synced, ts) {
+  const el = document.getElementById('pf-sync-status');
+  if (!el) return;
+  const time = new Date(ts).toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+  el.textContent = `PF: ${time} (${synced}件)`;
+}
+
+// Printful フルシンク（Worker経由）
+async function syncFromPrintful() {
+  const btn = document.getElementById('btn-pf-sync');
+  if (btn) { btn.disabled = true; btn.textContent = '同期中...'; }
+  const indicator = document.getElementById('sync-indicator');
+  indicator.classList.remove('hidden');
+
+  try {
+    const r = await apiPost('/api/printful/sync', {});
+    if (r.ok) {
+      await loadProducts();
+      updatePfSyncStatus(r.synced, Date.now());
+      const msg = r.removed > 0
+        ? `Printful同期完了 — ${r.synced}件取得, ${r.removed}件削除`
+        : `Printful同期完了 — ${r.synced}件取得`;
+      toast(msg, 'success');
+    } else {
+      toast(r.error || 'Printful同期に失敗しました', 'error');
+    }
+  } catch (e) {
+    toast('Printful同期エラー: ' + e.message, 'error');
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = 'Printful同期'; }
+    indicator.classList.add('hidden');
+  }
+}
+
+// 10分ごとに自動同期
+function startAutoSync() {
+  setInterval(syncFromPrintful, 10 * 60 * 1000);
+}
+
+// Printfulから取得 — 全フィールド補完
 async function fetchFromPrintful() {
   const pfId = document.getElementById('f-printful-id').value.trim();
   if (!pfId) { toast('Printful IDを入力してください', 'error'); return; }
 
-  const r = await apiPost(`/api/printful/verify/${pfId}`, {});
-  if (r.ok && r.data) {
-    const nameEnInput = document.getElementById('f-name-en');
-    if (!nameEnInput.value && r.data.name) {
-      nameEnInput.value = r.data.name;
-      toast('英語名を自動補完しました', 'success');
-    } else {
-      toast('Printful接続成功');
+  const indicator = document.getElementById('sync-indicator');
+  indicator.classList.remove('hidden');
+
+  try {
+    const r = await apiGet(`/api/printful/product/${pfId}`);
+    if (!r.ok || !r.data) {
+      toast(r.error || 'Printful取得に失敗しました', 'error');
+      return;
     }
-  } else {
-    toast(r.error || 'Printful取得に失敗しました', 'error');
+
+    const sp       = r.data.sync_product;
+    const variants = r.data.sync_variants || [];
+
+    // 英語名（未入力なら補完）
+    const enInput = document.getElementById('f-name-en');
+    if (!enInput.value && sp.name) enInput.value = sp.name;
+
+    // 価格（未入力なら補完）
+    const priceInput = document.getElementById('f-price');
+    if (!priceInput.value) {
+      const prices = variants.map(v => parseFloat(v.retail_price || 0)).filter(Boolean);
+      if (prices.length) priceInput.value = Math.round(Math.min(...prices));
+    }
+
+    // サムネイル → 画像リストに追加（まだなければ）
+    if (sp.thumbnail_url && !S.images.includes(sp.thumbnail_url)) {
+      // プレビュー画像（CDN）を画像候補として表示
+      const previewUrls = [];
+      if (sp.thumbnail_url) previewUrls.push(sp.thumbnail_url);
+      variants.forEach(v => (v.files || []).forEach(f => {
+        if (f.type === 'preview' && f.preview_url && !previewUrls.includes(f.preview_url))
+          previewUrls.push(f.preview_url);
+      }));
+      // 既存画像がなければCDN URLをセット
+      if (!S.images.length && previewUrls.length) {
+        S.images = previewUrls;
+        renderImages();
+      }
+    }
+
+    const filled = [];
+    if (!enInput.value && sp.name) filled.push('英語名');
+    if (!document.getElementById('f-price').value) filled.push('価格');
+
+    toast(`Printful取得成功 — ${variants.length}バリアント同期済み`, 'success');
+  } catch (e) {
+    toast('Printful取得エラー: ' + e.message, 'error');
+  } finally {
+    indicator.classList.add('hidden');
   }
 }
 
@@ -530,18 +610,8 @@ async function verifyAll() {
   const targets = S.products.filter(p => p.printful_id);
   if (!targets.length) { toast('Printful IDが設定された商品がありません'); return; }
 
-  toast(`${targets.length}件を検証中...`);
-  const indicator = document.getElementById('sync-indicator');
-  indicator.classList.remove('hidden');
-
-  await Promise.allSettled(targets.map(async p => {
-    const r = await apiPost(`/api/printful/verify/${p.printful_id}`, {});
-    S.verifyStatus[p.id] = r.ok ? 'ok' : 'error';
-  }));
-
-  indicator.classList.add('hidden');
-  renderDashboard();
-  toast('一括検証完了', 'success');
+  toast(`Printfulと同期中 (${targets.length}件)...`);
+  await syncFromPrintful();
 }
 
 // ─── Config ───────────────────────────────────────────────────────────────────
@@ -839,6 +909,13 @@ function setupSSE() {
     await loadProducts();
     toast('外部変更を検知 — 自動更新しました');
   });
+  // サーバー起動時Printful同期完了イベント
+  es.addEventListener('pf-synced', async (e) => {
+    const d = JSON.parse(e.data);
+    await loadProducts();
+    updatePfSyncStatus(d.synced, d.ts);
+    toast(`Printful同期完了 — ${d.synced}件取得`, 'success');
+  });
   es.onerror = () => {};
 }
 
@@ -869,6 +946,9 @@ function setupEvents() {
   document.getElementById('btn-duplicate').addEventListener('click', duplicateProduct);
   document.getElementById('btn-printful-fetch').addEventListener('click', fetchFromPrintful);
   document.getElementById('btn-add-size').addEventListener('click', () => appendSizeRow());
+
+  // Printful
+  document.getElementById('btn-pf-sync').addEventListener('click', syncFromPrintful);
 
   // Deploy
   document.getElementById('btn-deploy').addEventListener('click', openDeployModal);
@@ -923,4 +1003,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupSizeImport();
   setupSSE();
   await Promise.all([loadProducts(), loadConfig()]);
+  startAutoSync();  // 10分ごとに定期同期
 });
