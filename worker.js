@@ -71,7 +71,7 @@ export default {
     }
 
     if (url.pathname === "/api/printful-sync" && method === "GET") {
-      return handlePrintfulSync(env, origin);
+      return handlePrintfulSync(url, env, origin);
     }
 
     return new Response("Not found", { status: 404 });
@@ -214,16 +214,20 @@ async function handleCheckout(req, env, origin) {
 }
 
 /* ── GET /api/printful-sync ──────────────────────────────────────── */
-async function handlePrintfulSync(env, origin) {
+async function handlePrintfulSync(url, env, origin) {
   const apiKey  = env.PRINTFUL_API_KEY;
   const storeId = env.PRINTFUL_STORE_ID || "17873034";
-  if (!apiKey)         return corsJson({ error: "PRINTFUL_API_KEY missing" }, 503, origin);
+  if (!apiKey)          return corsJson({ error: "PRINTFUL_API_KEY missing" }, 503, origin);
   if (!env.PRODUCTS_KV) return corsJson({ error: "PRODUCTS_KV missing" },     503, origin);
 
-  /* Rate-limit: skip if synced within 5 minutes */
-  const lastSync = await env.PRODUCTS_KV.get("_last_sync", "text");
-  if (lastSync && Date.now() - parseInt(lastSync, 10) < 5 * 60 * 1000) {
-    return corsJson({ ok: true, skipped: true, message: "Recently synced" }, 200, origin);
+  const force = url.searchParams.get("force") === "1";
+
+  /* Rate-limit: skip if synced within 5 minutes (unless force=1) */
+  if (!force) {
+    const lastSync = await env.PRODUCTS_KV.get("_last_sync", "text");
+    if (lastSync && Date.now() - parseInt(lastSync, 10) < 5 * 60 * 1000) {
+      return corsJson({ ok: true, skipped: true, message: "Recently synced" }, 200, origin);
+    }
   }
 
   /* 1. List all sync products */
@@ -252,28 +256,28 @@ async function handlePrintfulSync(env, origin) {
     } catch { continue; }
   }
 
-  /* 3. Merge into existing KV data */
-  const existing  = await kvGet(env);
-  const list      = existing.products || [];
-  for (const product of incoming) {
-    const idx = list.findIndex((p) => p.printful_id === product.printful_id || p.id === product.id);
-    if (idx >= 0) {
-      const old = list[idx];
-      list[idx] = {
-        ...old, ...product,
-        name:        mergeLocalised(old.name,        product.name),
-        description: mergeLocalised(old.description, product.description),
-        material:    old.material || product.material,
-      };
-    } else {
-      list.push(product);
-    }
-  }
+  /* 3. Merge with existing KV data, preserve custom fields (ja desc, material, images) */
+  const existing = await kvGet(env);
+  const oldList  = existing.products || [];
 
-  await env.PRODUCTS_KV.put(KV_KEY, JSON.stringify({ products: list }));
+  const merged = incoming.map((product) => {
+    const old = oldList.find((p) => p.printful_id === product.printful_id || p.id === product.id);
+    if (!old) return product;
+    return {
+      ...old, ...product,
+      name:        mergeLocalised(old.name,        product.name),
+      description: mergeLocalised(old.description, product.description),
+      material:    old.material || product.material,
+      /* preserve local image paths if they exist, otherwise use Printful CDN */
+      images:      (old.images && old.images.length > 0) ? old.images : product.images,
+    };
+  });
+
+  /* 4. Products no longer in Printful are dropped (full replace) */
+  await env.PRODUCTS_KV.put(KV_KEY, JSON.stringify({ products: merged }));
   await env.PRODUCTS_KV.put("_last_sync", String(Date.now()));
 
-  return corsJson({ ok: true, synced: incoming.length }, 200, origin);
+  return corsJson({ ok: true, synced: incoming.length, removed: oldList.length - merged.length }, 200, origin);
 }
 
 /* ── POST /api/printful-webhook ──────────────────────────────────── */
