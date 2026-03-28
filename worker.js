@@ -70,6 +70,10 @@ export default {
       return handleWebhook(req, env);
     }
 
+    if (url.pathname === "/api/printful-sync" && method === "GET") {
+      return handlePrintfulSync(env, origin);
+    }
+
     return new Response("Not found", { status: 404 });
   },
 };
@@ -82,8 +86,8 @@ async function handleProductUpdate(req, env, origin) {
 
   if (!product.id)                                             return corsJson({ error: "id required" }, 422, origin);
   if (product.price == null)                                   return corsJson({ error: "price required" }, 422, origin);
-  if (!product.variant_ids || !Object.keys(product.variant_ids).length)
-                                                               return corsJson({ error: "variant_ids empty" }, 422, origin);
+  if (product.variant_ids == null)
+                                                               return corsJson({ error: "variant_ids required" }, 422, origin);
 
   if (!env.PRODUCTS_KV) return corsJson({ error: "PRODUCTS_KV missing" }, 503, origin);
 
@@ -207,6 +211,69 @@ async function handleCheckout(req, env, origin) {
   } catch (e) {
     return corsJson({ error: "Checkout failed" }, 400, origin);
   }
+}
+
+/* ── GET /api/printful-sync ──────────────────────────────────────── */
+async function handlePrintfulSync(env, origin) {
+  const apiKey  = env.PRINTFUL_API_KEY;
+  const storeId = env.PRINTFUL_STORE_ID || "17873034";
+  if (!apiKey)         return corsJson({ error: "PRINTFUL_API_KEY missing" }, 503, origin);
+  if (!env.PRODUCTS_KV) return corsJson({ error: "PRODUCTS_KV missing" },     503, origin);
+
+  /* Rate-limit: skip if synced within 5 minutes */
+  const lastSync = await env.PRODUCTS_KV.get("_last_sync", "text");
+  if (lastSync && Date.now() - parseInt(lastSync, 10) < 5 * 60 * 1000) {
+    return corsJson({ ok: true, skipped: true, message: "Recently synced" }, 200, origin);
+  }
+
+  /* 1. List all sync products */
+  let syncList = [];
+  try {
+    const r = await fetch(`${PF_API}/sync/products`, {
+      headers: { Authorization: `Bearer ${apiKey}`, "X-PF-Store-Id": storeId },
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const d = await r.json();
+    syncList = d.result || [];
+  } catch (e) {
+    return corsJson({ error: "Printful list error: " + e.message }, 502, origin);
+  }
+
+  /* 2. Fetch each product's variants */
+  const incoming = [];
+  for (const sp of syncList) {
+    try {
+      const r = await fetch(`${PF_API}/sync/products/${sp.id}`, {
+        headers: { Authorization: `Bearer ${apiKey}`, "X-PF-Store-Id": storeId },
+      });
+      if (!r.ok) continue;
+      const d = await r.json();
+      incoming.push(transformProduct(d.result));
+    } catch { continue; }
+  }
+
+  /* 3. Merge into existing KV data */
+  const existing  = await kvGet(env);
+  const list      = existing.products || [];
+  for (const product of incoming) {
+    const idx = list.findIndex((p) => p.printful_id === product.printful_id || p.id === product.id);
+    if (idx >= 0) {
+      const old = list[idx];
+      list[idx] = {
+        ...old, ...product,
+        name:        mergeLocalised(old.name,        product.name),
+        description: mergeLocalised(old.description, product.description),
+        material:    old.material || product.material,
+      };
+    } else {
+      list.push(product);
+    }
+  }
+
+  await env.PRODUCTS_KV.put(KV_KEY, JSON.stringify({ products: list }));
+  await env.PRODUCTS_KV.put("_last_sync", String(Date.now()));
+
+  return corsJson({ ok: true, synced: incoming.length }, 200, origin);
 }
 
 /* ── POST /api/printful-webhook ──────────────────────────────────── */

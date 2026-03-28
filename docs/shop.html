@@ -126,7 +126,6 @@
                 <div class="filter-options" data-filter-options="category">
                   <label class="filter-checkbox"><input type="checkbox" value="tshirt" data-filter="category" /><span>Tops</span></label>
                   <label class="filter-checkbox"><input type="checkbox" value="outer" data-filter="category" /><span>Outerwear</span></label>
-                  <label class="filter-checkbox"><input type="checkbox" value="shoes" data-filter="category" /><span>Shoes</span></label>
                 </div>
               </div>
               <div class="filter-group">
@@ -230,6 +229,7 @@
     <script>
     (function () {
       var API = "https://tcda-worker.patient-bush-5f73.workers.dev";
+      var CATEGORIES = ['tshirt', 'outer'];
       var allProducts = [];
       var sizeTemplates = {};
       var fxRates    = {};
@@ -276,7 +276,7 @@
         var l = getLang();
         return typeof p.description === "object" ? (p.description[l] || p.description.en || "") : (p.description || "");
       }
-      function catLabel(c) { return {tshirt:"TOPS",outer:"OUTER",shoes:"SHOES"}[c] || c.toUpperCase(); }
+      function catLabel(c) { return {tshirt:"TOPS",outer:"OUTER"}[c] || c.toUpperCase(); }
       function segLabel(s) { return {mens:"Men's",womens:"Women's",unisex:"Unisex"}[s] || s; }
       function getSizes(p) {
         var tmpl = sizeTemplates[p.size_template];
@@ -545,8 +545,12 @@
       document.addEventListener("DOMContentLoaded", function(){
         wireEvents();
 
-        // Fetch all data in parallel — products from API, static files for templates/fx/i18n
         var initLang = getLang();
+
+        // Fire-and-forget Printful sync (best effort, don't block product load)
+        fetch(API + "/api/printful-sync").catch(function(){});
+
+        // Fetch all data in parallel
         Promise.all([
           fetch(API + "/api/products").then(function(r){ return r.ok ? r.json() : Promise.reject("HTTP " + r.status); }),
           fetch("data/sizeTemplates.json").then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; }),
@@ -558,7 +562,11 @@
             sizeTemplates = arr[1];
             fxRates       = arr[2];
             shopI18n      = arr[3];
-            allProducts   = data.products || [];
+
+            // Filter to supported categories only (no shoes)
+            allProducts = (data.products || []).filter(function(p){
+              return CATEGORIES.indexOf(p.category) !== -1;
+            });
 
             // Populate currency select from currency.json
             var sel = document.getElementById("currency-select");
