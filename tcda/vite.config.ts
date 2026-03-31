@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/TCDA_Shop/',
+  base: '/',
   build: {
     outDir: '../docs',
     emptyOutDir: true,
