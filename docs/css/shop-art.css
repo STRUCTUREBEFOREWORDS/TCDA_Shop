@@ -1,0 +1,318 @@
+/*
+ * TCDA — Art Background Layer
+ * body.page-art が付いたページにのみ適用。
+ */
+
+/* ── 1. Body reset ─────────────────────────────────────────────── */
+body.page-art {
+  background: #0c0b0a; /* フォールバック：画像未ロード時も黒背景 */
+}
+
+/* ── 2. Art background — iOS Safari 対応: filter を fixed 要素に
+        直接適用すると新 stacking context が生まれページが隠れる。
+        ::before に移動して回避。 ──────────────────────────────── */
+.art-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  overflow: hidden;     /* ::before の inset:-6% をクリップ */
+}
+.art-bg::before {
+  content: '';
+  position: absolute;
+  inset: -6%;           /* blur端のアーティファクト消去 */
+  background-image: url('../images/作品/artifact-03-main.webp');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(52px) brightness(0.55) saturate(1.22);
+}
+
+/* ── 3. Vignette ───────────────────────────────────────────────── */
+.art-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 46%,
+    rgba(0,0,0,0)    0%,
+    rgba(0,0,0,0.28) 55%,
+    rgba(0,0,0,0.62) 100%
+  );
+}
+
+/* ── 4. Header ─────────────────────────────────────────────────── */
+body.page-art .site-header {
+  z-index: 100;
+  background: rgba(12,11,10,0.52);
+  border-bottom-color: rgba(255,255,255,0.09);
+}
+body.page-art .site-header.is-scrolled {
+  background: rgba(12,11,10,0.78);
+  border-bottom-color: rgba(255,255,255,0.14);
+}
+
+/* ── 5. ハンバーガー三本線 — var(--ink)=黒は暗背景で不可視
+        gradient の色を白に上書き ─────────────────────────────── */
+body.page-art .nav-toggle {
+  border-color: rgba(255,255,255,0.25);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(240,237,232,0.9) 0,
+    rgba(240,237,232,0.9) 1.5px,
+    transparent 1.5px,
+    transparent 8px
+  );
+}
+body.page-art .nav-toggle:hover {
+  border-color: rgba(255,255,255,0.6);
+}
+
+/* ── 6. Nav links ──────────────────────────────────────────────── */
+body.page-art .nav-links {
+  z-index: 200; /* カード(z:1)より確実に上 */
+  background: rgba(18,16,14,0.95);
+  border-color: rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+body.page-art .nav-links a {
+  color: rgba(220,212,200,0.8);
+}
+body.page-art .nav-links a[aria-current="page"],
+body.page-art .nav-links a:hover {
+  color: #fff;
+}
+body.page-art .brand {
+  color: rgba(240,237,232,0.9);
+}
+body.page-art .cart-pill {
+  color: rgba(240,237,232,0.7);
+  border-color: rgba(255,255,255,0.18);
+}
+body.page-art .cart-pill:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.55);
+}
+body.page-art .locale-toggle {
+  color: rgba(240,237,232,0.7);
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* ── 7. テキスト — art 背景直上は白系、白パネル内は黒に戻す ─── */
+body.page-art .hero .eyebrow {
+  color: rgba(200,190,180,0.7);
+}
+body.page-art .hero h1 {
+  color: #f0ede8;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+}
+body.page-art .hero .lead {
+  color: rgba(230,222,212,0.78);
+  text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+}
+/* section テキスト（art背景上） */
+body.page-art .section > .container > *:not(.panel):not(.card) h2,
+body.page-art .section > .container > *:not(.panel):not(.card) h3,
+body.page-art .section-head .flow h2 {
+  color: #f0ede8;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+}
+body.page-art .eyebrow {
+  color: rgba(200,190,180,0.65);
+}
+/* 白背景パネル内はカラー維持 */
+body.page-art .panel,
+body.page-art .panel h2,
+body.page-art .panel h3,
+body.page-art .panel p {
+  color: var(--ink);
+}
+body.page-art .panel p {
+  color: var(--muted);
+}
+
+/* ── 8. サイドバー ─────────────────────────────────────────────── */
+body.page-art .shop-sidebar {
+  background: rgba(14,13,11,0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(255,255,255,0.1);
+  color: rgba(230,222,210,0.9);
+}
+body.page-art .filter-toggle,
+body.page-art .filter-checkbox span {
+  color: rgba(220,212,200,0.8);
+}
+body.page-art .filter-toggle:hover,
+body.page-art .filter-checkbox input:checked ~ span {
+  color: #fff;
+}
+body.page-art .filter-group {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+body.page-art .filter-reset {
+  border-color: rgba(255,255,255,0.18);
+  color: rgba(220,212,200,0.7);
+}
+body.page-art .filter-reset:hover {
+  background: rgba(255,255,255,0.9);
+  color: #0a0a0a;
+  border-color: transparent;
+}
+
+/* ── 9. コントロール ───────────────────────────────────────────── */
+body.page-art .search-input,
+body.page-art .sort-select {
+  background: rgba(14,13,11,0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(255,255,255,0.18);
+  color: #f0ede8;
+}
+body.page-art .search-input::placeholder {
+  color: rgba(200,190,180,0.5);
+}
+body.page-art .search-input:focus,
+body.page-art .sort-select:focus,
+body.page-art .sort-select:hover {
+  border-color: rgba(255,255,255,0.5);
+  outline: none;
+}
+body.page-art .mobile-filter-toggle {
+  background: rgba(14,13,11,0.55);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(230,222,210,0.9);
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ── 10. 商品カード — 白背景・浮かせる ─────────────────────────── */
+body.page-art .card {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.25),
+    0 16px 48px rgba(0,0,0,0.35),
+    0 0 0 1px rgba(255,255,255,0.06);
+  transition:
+    transform 260ms cubic-bezier(0.16,1,0.3,1),
+    box-shadow 260ms cubic-bezier(0.16,1,0.3,1);
+}
+body.page-art .card:hover {
+  transform: translateY(-4px) scale(1.012);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.3),
+    0 28px 64px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.1);
+}
+body.page-art .card .card-body h3,
+body.page-art .card .card-body .price {
+  color: #0a0a0a;
+}
+body.page-art .card .card-body .meta {
+  color: #5c5c5c;
+}
+body.page-art .card .card-body p {
+  color: #5c5c5c;
+}
+body.page-art .card .card-buy .card-quick-add {
+  background: #0a0a0a;
+  color: #fff;
+  width: 100%;
+  border-radius: 0;
+  padding: 0.7rem 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: opacity 180ms;
+}
+body.page-art .card .card-buy .card-quick-add:hover {
+  opacity: 0.78;
+}
+
+/* ── 11. Loading ───────────────────────────────────────────────── */
+body.page-art #shop-loading {
+  color: rgba(220,212,200,0.5);
+}
+
+/* ── 12. Locale panel ──────────────────────────────────────────── */
+body.page-art .locale-panel {
+  background: rgba(18,16,14,0.96);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+body.page-art .locale-btn {
+  color: rgba(220,212,200,0.8);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+body.page-art .locale-btn:hover,
+body.page-art .locale-btn[aria-pressed="true"] {
+  background: rgba(255,255,255,0.9);
+  color: #0a0a0a;
+  border-color: transparent;
+}
+body.page-art .locale-group-label {
+  color: rgba(180,172,160,0.7);
+}
+body.page-art .currency-select {
+  background: rgba(255,255,255,0.08);
+  color: rgba(230,222,210,0.9);
+  border-color: rgba(255,255,255,0.14);
+}
+
+/* ── 13. Footer ────────────────────────────────────────────────── */
+body.page-art .site-footer {
+  background: rgba(10,9,8,0.75);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: rgba(180,172,160,0.6);
+}
+body.page-art .site-footer a {
+  color: rgba(200,192,180,0.7);
+}
+body.page-art .site-footer a:hover {
+  color: #fff;
+}
+
+/* ── 14. ボタン ────────────────────────────────────────────────── */
+body.page-art .btn {
+  background: rgba(240,237,232,0.95);
+  border-color: rgba(240,237,232,0.95);
+  color: #0a0a0a;
+}
+body.page-art .btn:hover {
+  background: #fff;
+  opacity: 1;
+}
+body.page-art .btn-ghost {
+  color: rgba(240,237,232,0.85);
+  border-color: rgba(240,237,232,0.35);
+}
+body.page-art .btn-ghost:hover {
+  background: rgba(240,237,232,0.9);
+  color: #0a0a0a;
+  border-color: transparent;
+}
+
+/* ── 15. モバイル ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .art-bg::before {
+    filter: blur(36px) brightness(0.55) saturate(1.18);
+  }
+  /* nav-links がカードの上に出るよう保証 */
+  body.page-art .nav-links {
+    z-index: 200;
+  }
+}

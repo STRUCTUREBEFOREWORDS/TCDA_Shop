@@ -1,0 +1,53 @@
+{
+  "zip_hoodie": {
+    "2XS": { "chest": 96,  "length": 65 },
+    "XS":  { "chest": 100, "length": 65 },
+    "S":   { "chest": 104, "length": 68 },
+    "M":   { "chest": 108, "length": 68 },
+    "L":   { "chest": 116, "length": 71 },
+    "XL":  { "chest": 124, "length": 71 },
+    "2XL": { "chest": 132, "length": 74 },
+    "3XL": { "chest": 140, "length": 74 },
+    "4XL": { "chest": 148, "length": 78 },
+    "5XL": { "chest": 156, "length": 78 },
+    "6XL": { "chest": 164, "length": 78 }
+  },
+  "zip_hoodie_recycled": {
+    "2XS": { "chest": 88,  "length": 65 },
+    "XS":  { "chest": 93,  "length": 67 },
+    "S":   { "chest": 98,  "length": 69 },
+    "M":   { "chest": 103, "length": 71 },
+    "L":   { "chest": 108, "length": 73 },
+    "XL":  { "chest": 113, "length": 75 },
+    "2XL": { "chest": 118, "length": 77 }
+  },
+  "hoodie": {
+    "2XS": { "chest": 96,  "length": 66 },
+    "XS":  { "chest": 100, "length": 67 },
+    "S":   { "chest": 104, "length": 68 },
+    "M":   { "chest": 108, "length": 69 },
+    "L":   { "chest": 116, "length": 71 },
+    "XL":  { "chest": 124, "length": 72 },
+    "2XL": { "chest": 132, "length": 74 },
+    "3XL": { "chest": 140, "length": 75 },
+    "4XL": { "chest": 148, "length": 79 },
+    "5XL": { "chest": 156, "length": 82 },
+    "6XL": { "chest": 164, "length": 85 }
+  },
+  "womens_tshirt": {
+    "XS":  { "chest": 80,  "length": 59 },
+    "S":   { "chest": 84,  "length": 60 },
+    "M":   { "chest": 88,  "length": 61 },
+    "L":   { "chest": 96,  "length": 64 },
+    "XL":  { "chest": 104, "length": 67 },
+    "2XL": { "chest": 112, "length": 70 }
+  },
+  "mens_tshirt": {
+    "XS":  { "chest": 78,  "length": 71 },
+    "S":   { "chest": 86,  "length": 73 },
+    "M":   { "chest": 94,  "length": 75 },
+    "L":   { "chest": 106, "length": 77 },
+    "XL":  { "chest": 118, "length": 79 },
+    "2XL": { "chest": 130, "length": 81 }
+  }
+}

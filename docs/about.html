@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja" dir="ltr" data-page-title-key="title_about">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About | TCDA</title>
+    <meta name="description" content="TCDAのコンセプト、ブランドフィロソフィー、プロダクション体制について。" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/shop-art.css" />
+    <style>
+      .about-page {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 80px 2rem 120px;
+      }
+      .about-section {
+        margin-bottom: 80px;
+      }
+      .about-eyebrow {
+        font-size: .7rem;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        opacity: .4;
+        margin: 0 0 2.5rem;
+        font-weight: 400;
+      }
+      .about-body {
+        font-size: clamp(1rem, 2.2vw, 1.15rem);
+        line-height: 2;
+        color: #0a0a0a;
+        margin: 0;
+      }
+      .about-body p {
+        margin: 0 0 1.8em;
+      }
+      .about-body p:last-child {
+        margin-bottom: 0;
+      }
+      .about-em {
+        font-weight: 700;
+        letter-spacing: .04em;
+      }
+      .about-divider {
+        border: none;
+        border-top: 1px solid #e0e0dc;
+        margin: 80px 0;
+      }
+    </style>
+  </head>
+  <body class="page-art">
+    <div class="art-bg" aria-hidden="true"></div>
+    <div class="art-vignette" aria-hidden="true"></div>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="index.html" aria-label="TCDA Home"><img src="images/logo/tcda_black.svg" alt="Transcend Color Digital Apparel" class="brand-logo" width="160" height="48" /></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle
+          data-i18n-attr='{"aria-label":"nav_open_menu"}' data-i18n="nav_menu">Menu</button>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="archive.html" data-i18n="nav_art">Art</a>
+          <a href="collection.html" data-i18n="nav_collection">Collection</a>
+          <a href="about.html" aria-current="page" data-i18n="nav_about">About</a>
+          <a href="shop.html" data-i18n="nav_shop">Shop</a>
+        </nav>
+        <div class="nav-tools">
+          <div class="cart-pill cart-bag" role="button" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span data-cart-count>0</span></div>
+          <div class="locale-switcher" id="locale-switcher">
+            <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
+              <span class="locale-toggle-lang" data-current-lang-label>EN</span>
+              <span class="locale-toggle-sep">·</span>
+              <span class="locale-toggle-currency" data-current-currency-label>JPY</span>
+            </button>
+            <div class="locale-panel" role="dialog" aria-label="Language and currency" hidden data-locale-panel>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="lang_label">Language</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+                  <button type="button" class="locale-btn" data-lang-btn="en" aria-pressed="false">English</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ko" aria-pressed="false">한국어</button>
+                  <button type="button" class="locale-btn" data-lang-btn="zh" aria-pressed="false">中文</button>
+                  <button type="button" class="locale-btn" data-lang-btn="es" aria-pressed="false">Español</button>
+                  <button type="button" class="locale-btn" data-lang-btn="fr" aria-pressed="false">Français</button>
+                </div>
+              </div>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="currency_label">Currency</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-currency-btn="JPY" aria-pressed="true">JPY ¥</button>
+                  <button type="button" class="locale-btn" data-currency-btn="USD" aria-pressed="false">USD $</button>
+                  <button type="button" class="locale-btn" data-currency-btn="EUR" aria-pressed="false">EUR €</button>
+                  <button type="button" class="locale-btn" data-currency-btn="GBP" aria-pressed="false">GBP £</button>
+                  <button type="button" class="locale-btn" data-currency-btn="CNY" aria-pressed="false">CNY ¥</button>
+                  <button type="button" class="locale-btn" data-currency-btn="KRW" aria-pressed="false">KRW ₩</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="about-page">
+
+        <section class="about-section">
+          <p class="about-eyebrow">Concept</p>
+          <div class="about-body">
+            <p>Transcend Color Digital Apparel（TCDA）は、<br>
+              <span class="about-em">「アートをまとう、感性を解き放つ。」</span>をコンセプトにした<br>
+              ユニセックス・アパレルブランドです。</p>
+
+            <p>日常を舞台に変え、<br>
+              あなたという存在を、色と形で立ち上がらせる。<br>
+              TCDAの服は、動きに呼応して表情を変える<br>
+              <span class="about-em">〈動くキャンバス〉</span>として設計されています。</p>
+
+            <p>Sairenの抽象的な色彩表現と、<br>
+              ストリートウェアが持つ機能美を融合し、<br>
+              年齢・性別・シーズンという境界を越えるデザインを展開しています。</p>
+
+            <p>TCDAのアイテムは、<br>
+              「似合うかどうか」ではなく、<br>
+              <span class="about-em">「なぜか目が離せないかどうか」</span>で選ぶためのアートピース。</p>
+
+            <p>すべてのデザインは数量限定で制作され、<br>
+              完売後の再販は行いません。</p>
+          </div>
+        </section>
+
+        <hr class="about-divider" />
+
+        <section class="about-section">
+          <p class="about-eyebrow">Production &amp; Delivery</p>
+          <div class="about-body">
+            <p>TCDAのアイテムは、受注生産（オンデマンド）にて制作されています。<br>
+              必要な分だけを生産することで、在庫ロスを抑え、<br>
+              品質と表現を大切にしています。</p>
+
+            <p>生産および発送は、信頼性の高いグローバルパートナーを通じて行われ、<br>
+              日本国内および海外へお届けしています。</p>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <p>Transcend Color Digital Apparel（TCDA）</p>
+        <p>
+          <a href="about.html">About</a> /
+          <a href="shop.html" data-i18n="nav_shop">Shop</a> /
+          <a href="legal.html">特商法</a> /
+          <a href="https://www.instagram.com/transcendcolordigitalapparel/" target="_blank" rel="noopener noreferrer">SNS</a>
+        </p>
+        <p>Contact：info@tcda.shop</p>
+        <p>TEL: <a href="tel:+815054768894">050-5476-8894</a></p>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/script.js" defer></script>
+  </body>
+</html>

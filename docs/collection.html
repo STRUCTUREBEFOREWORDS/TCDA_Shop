@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Collection | TCDA</title>
+    <meta name="description" content="Gallery-style wearable artwork collection by TCDA." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/shop-art.css" />
+    <style>
+      /* ── 商品グリッド追加スタイル ── */
+      #auto-product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: var(--s4);
+        margin-top: var(--s4);
+      }
+      @media (max-width: 600px) {
+        #auto-product-grid { grid-template-columns: repeat(2, 1fr); gap: var(--s3); }
+      }
+      .auto-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        cursor: pointer;
+        transition: transform 340ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .auto-card:hover { transform: translateY(-3px); }
+      .auto-card-media {
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+        border-radius: 3px;
+        background: var(--paper-2);
+        position: relative;
+      }
+      .auto-card-media::after {
+        content: 'VIEW';
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10,10,10,0.65);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.35em;
+        color: #f8f8f6;
+        opacity: 0;
+        transition: opacity 280ms ease;
+        pointer-events: none;
+      }
+      .auto-card:hover .auto-card-media::after { opacity: 1; }
+      .auto-card-media img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .auto-card:hover .auto-card-media img { transform: scale(1.06); }
+      .auto-card-info { padding: 0 0.2rem; }
+      .auto-card-info .meta {
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 0.25rem;
+      }
+      .auto-card-info h3 {
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin: 0 0 0.25rem;
+      }
+      .auto-card-info .price {
+        font-size: 0.82rem;
+        color: var(--ink);
+        margin: 0;
+      }
+      /* ── カテゴリフィルター ── */
+      .filter-row {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: var(--s3);
+      }
+      .filter-btn {
+        border: 1px solid var(--line);
+        background: none;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 999px;
+        font-family: inherit;
+        transition: background 200ms, color 200ms, border-color 200ms;
+      }
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+      }
+      /* ── ローディング ── */
+      .grid-loading {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: var(--s5);
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body class="page-art">
+    <div class="art-bg" aria-hidden="true"></div>
+    <div class="art-vignette" aria-hidden="true"></div>
+    
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="index.html" aria-label="TCDA Home">
+          <img src="images/logo/tcda_black.svg" alt="Transcend Color Digital Apparel" class="brand-logo" width="160" height="48" />
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>Menu</button>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="brand.html">Brand</a>
+          <a href="collection.html" aria-current="page">Collection</a>
+          <a href="archive.html">Archive</a>
+          <a href="shop.html">Shop</a>
+        </nav>
+        <div class="nav-tools">
+          <div class="cart-pill cart-bag" role="button" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span data-cart-count>0</span></div>
+          <div class="locale-switcher" id="locale-switcher">
+            <button class="locale-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-locale-toggle>
+              <span class="locale-toggle-lang" data-current-lang-label>EN</span>
+              <span class="locale-toggle-sep">·</span>
+              <span class="locale-toggle-currency" data-current-currency-label>JPY</span>
+            </button>
+            <div class="locale-panel" role="dialog" aria-label="Language and currency" hidden data-locale-panel>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="lang_label">Language</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-lang-btn="ja" aria-pressed="false">日本語</button>
+                  <button type="button" class="locale-btn" data-lang-btn="en" aria-pressed="false">English</button>
+                  <button type="button" class="locale-btn" data-lang-btn="ko" aria-pressed="false">한국어</button>
+                  <button type="button" class="locale-btn" data-lang-btn="zh" aria-pressed="false">中文</button>
+                  <button type="button" class="locale-btn" data-lang-btn="es" aria-pressed="false">Español</button>
+                  <button type="button" class="locale-btn" data-lang-btn="fr" aria-pressed="false">Français</button>
+                </div>
+              </div>
+              <div class="locale-group">
+                <p class="locale-group-label" data-i18n="currency_label">Currency</p>
+                <div class="locale-btns">
+                  <button type="button" class="locale-btn" data-currency-btn="JPY" aria-pressed="true">JPY ¥</button>
+                  <button type="button" class="locale-btn" data-currency-btn="USD" aria-pressed="false">USD $</button>
+                  <button type="button" class="locale-btn" data-currency-btn="EUR" aria-pressed="false">EUR €</button>
+                  <button type="button" class="locale-btn" data-currency-btn="GBP" aria-pressed="false">GBP £</button>
+                  <button type="button" class="locale-btn" data-currency-btn="CNY" aria-pressed="false">CNY ¥</button>
+                  <button type="button" class="locale-btn" data-currency-btn="KRW" aria-pressed="false">KRW ₩</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="monogram-decoration">TCDA</div>
+
+    <main class="page">
+      <section class="hero">
+        <div class="container flow" data-reveal>
+          <p class="eyebrow">Collection</p>
+          <h1>Gallery of Wearable Color Works</h1>
+          <p class="lead">TCDA treats garments as visual statements first. Every piece in this collection is edited as an artwork in sequence, then opened for acquisition.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div class="flow">
+              <p class="eyebrow">Gallery</p>
+              <h2>Complete Collection</h2>
+            </div>
+          </div>
+
+          <!-- カテゴリフィルター（JS が動的生成） -->
+          <div class="filter-row" id="filter-row" data-reveal></div>
+
+          <!-- 商品グリッド（JS が products.js から自動生成） -->
+          <div id="auto-product-grid" data-reveal>
+            <p class="grid-loading">Loading collection…</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <p>TCDA Collection</p>
+        <p>Transcend Color Digital Apparel（TCDA）</p>
+        <p>Contact：info@tcda.shop</p>
+        <div class="footer-monogram" aria-hidden="true">T • C • D • A</div>
+      </div>
+    </footer>
+
+    <!-- images.js で使うベースパス（collection.html はルートにあるため products/ が必要）-->
+    <script>window.PRODUCTS_BASE = 'products/';</script>
+
+    <script src="js/products.js"></script>
+    <script src="js/images.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/script.js" defer></script>
+
+    <script>
+    /* ── 商品グリッド自動生成 ──────────────────────────────────── */
+    (function () {
+      var grid      = document.getElementById('auto-product-grid');
+      var filterRow = document.getElementById('filter-row');
+      if (!grid || typeof products === 'undefined') return;
+
+      var currentFilter = 'all';
+
+      /* カテゴリ一覧を収集 */
+      var categories = ['all'];
+      products.forEach(function (p) {
+        if (p.category && categories.indexOf(p.category) === -1) {
+          categories.push(p.category);
+        }
+      });
+
+      /* フィルターボタン生成 */
+      categories.forEach(function (cat) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'filter-btn' + (cat === 'all' ? ' active' : '');
+        btn.textContent = cat === 'all' ? 'All' : cat;
+        btn.dataset.cat = cat;
+        btn.addEventListener('click', function () {
+          currentFilter = cat;
+          filterRow.querySelectorAll('.filter-btn').forEach(function (b) {
+            b.classList.toggle('active', b.dataset.cat === cat);
+          });
+          renderGrid();
+        });
+        filterRow.appendChild(btn);
+      });
+
+      /* カード DOM を生成 */
+      function makeCard(p) {
+        var article = document.createElement('article');
+        article.className = 'auto-card';
+        article.setAttribute('role', 'button');
+        article.setAttribute('tabindex', '0');
+        article.setAttribute('aria-label', p.name);
+        article.dataset.category = p.category || '';
+
+        var pageHref = 'products/product.html?id=' + encodeURIComponent(p.id);
+
+        article.innerHTML =
+          '<div class="auto-card-media">' +
+            '<img src="' + escHtml(window.PRODUCTS_BASE + p.id + '/main.jpg') + '"' +
+                 ' alt="' + escHtml(p.name) + '"' +
+                 ' loading="lazy" decoding="async"' +
+                 ' onerror="this.parentElement.style.background=\'var(--paper-2)\'">' +
+          '</div>' +
+          '<div class="auto-card-info">' +
+            '<p class="meta">' + escHtml(p.category || '') + '</p>' +
+            '<h3>' + escHtml(p.name) + '</h3>' +
+            '<p class="price">JPY ' + Number(p.price).toLocaleString() + '</p>' +
+          '</div>';
+
+        /* クリック / Enter で遷移 */
+        function navigate() { location.href = pageHref; }
+        article.addEventListener('click', navigate);
+        article.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') navigate();
+        });
+
+        return article;
+      }
+
+      /* グリッドを（再）描画 */
+      function renderGrid() {
+        grid.innerHTML = '';
+        var visible = products.filter(function (p) {
+          return currentFilter === 'all' || p.category === currentFilter;
+        });
+
+        if (visible.length === 0) {
+          var empty = document.createElement('p');
+          empty.className = 'grid-loading';
+          empty.textContent = 'No products found.';
+          grid.appendChild(empty);
+          return;
+        }
+
+        visible.forEach(function (p) {
+          grid.appendChild(makeCard(p));
+        });
+      }
+
+      /* 初回描画 */
+      renderGrid();
+
+      function escHtml(s) {
+        return String(s)
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+          .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+    })();
+    </script>
+    
+  </body>
+</html>
