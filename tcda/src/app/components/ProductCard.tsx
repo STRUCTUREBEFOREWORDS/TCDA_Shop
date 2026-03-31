@@ -42,39 +42,36 @@ export function ProductCard({ product, onClick, index }: ProductCardProps) {
       onClick={onClick}
     >
       {/* Product Image */}
-      <motion.div
-        className="relative overflow-hidden"
-        whileHover={{ scale: 1.03 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <img
+      <div className="relative overflow-hidden">
+        <motion.img
           src={product.image}
           alt={product.tag}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          loading="lazy"
         />
 
-        {/* Hover Overlay */}
+        {/* Hover Overlay — desktop only */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="absolute inset-0 flex items-center justify-center bg-black/40"
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="absolute inset-0 hidden items-center justify-center bg-black/40 sm:flex"
         >
-          <div className="text-center">
-            <p className="mb-4 text-sm tracking-widest text-white">
+          <div className="text-center px-4">
+            <p className="mb-4 text-xs leading-relaxed tracking-widest text-white">
               {product.description}
             </p>
-            <button className="border border-white px-8 py-3 text-xs tracking-widest text-white transition-colors hover:bg-white hover:text-black">
+            <span className="border border-white px-6 py-3 text-xs tracking-widest text-white">
               {translatedView}
-            </button>
+            </span>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Product Info (Always Visible) */}
-      <div className="mt-4 flex items-center justify-between">
-        <p className="text-xs tracking-[0.2em] text-neutral-400">{translatedTag}</p>
-        <p className="text-sm">{symbol}{displayPrice}</p>
+      {/* Product Info */}
+      <div className="mt-3 flex items-center justify-between gap-2 sm:mt-4">
+        <p className="text-xs tracking-[0.2em] text-neutral-400 truncate">{translatedTag}</p>
+        <p className="shrink-0 text-sm">{symbol}{displayPrice}</p>
       </div>
     </motion.div>
   );

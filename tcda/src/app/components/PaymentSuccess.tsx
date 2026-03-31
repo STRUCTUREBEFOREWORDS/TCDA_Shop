@@ -48,7 +48,7 @@ export function PaymentSuccess({ onClose }: PaymentSuccessProps) {
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="w-full max-w-md bg-white p-12 text-center"
+        className="w-full max-w-sm bg-white p-8 text-center sm:max-w-md sm:p-12"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Success Icon */}
@@ -56,19 +56,15 @@ export function PaymentSuccess({ onClose }: PaymentSuccessProps) {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-          className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-black"
+          className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-black sm:mb-8 sm:h-20 sm:w-20"
         >
-          <Check className="h-10 w-10 text-white" strokeWidth={2} />
+          <Check className="h-8 w-8 text-white sm:h-10 sm:w-10" strokeWidth={2} />
         </motion.div>
 
-        {/* Title */}
-        <h2 className="mb-4 text-2xl tracking-widest">{text.title}</h2>
-
-        {/* Message */}
+        <h2 className="mb-3 text-xl tracking-widest sm:mb-4 sm:text-2xl">{text.title}</h2>
         <p className="mb-2 text-neutral-600">{text.message}</p>
-        <p className="mb-12 text-sm text-neutral-400">{text.details}</p>
+        <p className="mb-8 text-sm text-neutral-400 sm:mb-12">{text.details}</p>
 
-        {/* CTA */}
         <button
           onClick={onClose}
           className="w-full bg-black py-4 text-xs tracking-widest text-white transition-colors hover:bg-neutral-800"

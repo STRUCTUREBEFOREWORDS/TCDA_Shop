@@ -25,16 +25,16 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       message: 'Message',
       order: 'Order',
       support: 'Support',
-      collaboration: 'Collaboration',
+      collaboration: 'Collab',
       send: 'SEND',
     },
     es: {
       title: 'CONTACTO',
-      email: 'Correo electrónico',
+      email: 'Correo',
       message: 'Mensaje',
       order: 'Pedido',
       support: 'Soporte',
-      collaboration: 'Colaboración',
+      collaboration: 'Collab',
       send: 'ENVIAR',
     },
     fr: {
@@ -43,7 +43,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       message: 'Message',
       order: 'Commande',
       support: 'Support',
-      collaboration: 'Collaboration',
+      collaboration: 'Collab',
       send: 'ENVOYER',
     },
     ja: {
@@ -52,7 +52,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       message: 'メッセージ',
       order: '注文',
       support: 'サポート',
-      collaboration: 'コラボレーション',
+      collaboration: 'コラボ',
       send: '送信',
     },
   };
@@ -61,7 +61,6 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log({ email, message, type });
     onClose();
   };
@@ -72,56 +71,59 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+        className="fixed inset-0 z-[60] flex items-end justify-center bg-black/90 backdrop-blur-sm sm:items-center sm:p-4"
         onClick={onClose}
       >
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-2xl bg-white p-12"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 40 }}
+          className="relative w-full max-h-[92dvh] overflow-y-auto bg-white sm:max-w-xl sm:rounded-none"
+          style={{ borderRadius: '12px 12px 0 0' }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute right-6 top-6 text-neutral-400 transition-colors hover:text-black"
-          >
-            <X className="h-6 w-6" strokeWidth={1} />
-          </button>
+          {/* Mobile drag handle */}
+          <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-neutral-200 sm:hidden" />
 
-          {/* Title */}
-          <h2 className="mb-12 text-3xl tracking-widest">{text.title}</h2>
+          <div className="p-6 sm:p-10">
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute right-4 top-4 text-neutral-400 transition-colors hover:text-black sm:right-6 sm:top-6"
+              aria-label="Close"
+            >
+              <X className="h-5 w-5" strokeWidth={1.5} />
+            </button>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Email */}
-            <div>
-              <label className="mb-3 block text-xs tracking-widest text-neutral-400">
-                {text.email}
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full border-b border-neutral-300 bg-transparent pb-3 text-sm focus:border-black focus:outline-none"
-              />
-            </div>
+            {/* Title */}
+            <h2 className="mb-8 text-2xl tracking-widest sm:mb-10 sm:text-3xl">{text.title}</h2>
 
-            {/* Type Selector */}
-            <div>
-              <label className="mb-3 block text-xs tracking-widest text-neutral-400">
-                TYPE
-              </label>
-              <div className="flex gap-4">
-                {(['order', 'support', 'collaboration'] as ContactType[]).map(
-                  (contactType) => (
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+              {/* Email */}
+              <div>
+                <label className="mb-2 block text-xs tracking-widest text-neutral-400">
+                  {text.email}
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full border-b border-neutral-300 bg-transparent pb-3 text-sm focus:border-black focus:outline-none"
+                />
+              </div>
+
+              {/* Type Selector */}
+              <div>
+                <label className="mb-2 block text-xs tracking-widest text-neutral-400">TYPE</label>
+                <div className="flex flex-wrap gap-2">
+                  {(['order', 'support', 'collaboration'] as ContactType[]).map((contactType) => (
                     <button
                       key={contactType}
                       type="button"
                       onClick={() => setType(contactType)}
-                      className={`border px-6 py-3 text-xs tracking-widest transition-colors ${
+                      className={`border px-5 py-2.5 text-xs tracking-widest transition-colors ${
                         type === contactType
                           ? 'border-black bg-black text-white'
                           : 'border-neutral-300 text-neutral-600 hover:border-black'
@@ -129,38 +131,38 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     >
                       {text[contactType]}
                     </button>
-                  )
-                )}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Message */}
-            <div>
-              <label className="mb-3 block text-xs tracking-widest text-neutral-400">
-                {text.message}
-              </label>
-              <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                rows={6}
-                className="w-full resize-none border-b border-neutral-300 bg-transparent pb-3 text-sm focus:border-black focus:outline-none"
-              />
-            </div>
+              {/* Message */}
+              <div>
+                <label className="mb-2 block text-xs tracking-widest text-neutral-400">
+                  {text.message}
+                </label>
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                  rows={5}
+                  className="w-full resize-none border-b border-neutral-300 bg-transparent pb-3 text-sm focus:border-black focus:outline-none"
+                />
+              </div>
 
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={!email || !message}
-              className={`w-full py-4 text-xs tracking-widest transition-all ${
-                email && message
-                  ? 'bg-black text-white hover:bg-neutral-800'
-                  : 'cursor-not-allowed bg-neutral-200 text-neutral-400'
-              }`}
-            >
-              {text.send}
-            </button>
-          </form>
+              {/* Submit */}
+              <button
+                type="submit"
+                disabled={!email || !message}
+                className={`w-full py-4 text-xs tracking-widest transition-all ${
+                  email && message
+                    ? 'bg-black text-white hover:bg-neutral-800'
+                    : 'cursor-not-allowed bg-neutral-200 text-neutral-400'
+                }`}
+              >
+                {text.send}
+              </button>
+            </form>
+          </div>
         </motion.div>
       </motion.div>
     </AnimatePresence>

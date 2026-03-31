@@ -27,7 +27,7 @@ export function PaymentCancelled({ onClose, onRetry }: PaymentCancelledProps) {
     },
     fr: {
       title: 'PAIEMENT ANNULÉ',
-      message: 'Votre paiement n\'a pas été complété',
+      message: "Votre paiement n'a pas été complété",
       details: 'Vous pouvez réessayer ou continuer vos achats.',
       retry: 'RÉESSAYER',
       continue: 'CONTINUER VOS ACHATS',
@@ -53,7 +53,7 @@ export function PaymentCancelled({ onClose, onRetry }: PaymentCancelledProps) {
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="w-full max-w-md bg-white p-12 text-center"
+        className="w-full max-w-sm bg-white p-8 text-center sm:max-w-md sm:p-12"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Cancel Icon */}
@@ -61,19 +61,15 @@ export function PaymentCancelled({ onClose, onRetry }: PaymentCancelledProps) {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-          className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full border-2 border-neutral-300"
+          className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border-2 border-neutral-300 sm:mb-8 sm:h-20 sm:w-20"
         >
-          <X className="h-10 w-10 text-neutral-400" strokeWidth={2} />
+          <X className="h-8 w-8 text-neutral-400 sm:h-10 sm:w-10" strokeWidth={2} />
         </motion.div>
 
-        {/* Title */}
-        <h2 className="mb-4 text-2xl tracking-widest">{text.title}</h2>
-
-        {/* Message */}
+        <h2 className="mb-3 text-xl tracking-widest sm:mb-4 sm:text-2xl">{text.title}</h2>
         <p className="mb-2 text-neutral-600">{text.message}</p>
-        <p className="mb-12 text-sm text-neutral-400">{text.details}</p>
+        <p className="mb-8 text-sm text-neutral-400 sm:mb-12">{text.details}</p>
 
-        {/* CTAs */}
         <div className="space-y-3">
           <button
             onClick={onRetry}
