@@ -169,43 +169,44 @@ export function Navigation({ onNavigate }: NavigationProps) {
                 </button>
               ))}
 
-              {/* Currency + Lang row */}
-              <div className="flex items-center gap-6 py-4">
-                <div className="relative">
-                  <button
-                    onClick={() => setShowCurrMenu(!showCurrMenu)}
-                    className="text-xs tracking-[0.2em] text-black transition-opacity hover:opacity-60"
-                  >
-                    {currency}
-                  </button>
-                  <AnimatePresence>
-                    {showCurrMenu && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.18 }}
-                        className="absolute left-0 top-full z-50 mt-1 bg-white shadow-lg"
-                      >
-                        {currencies.map((curr) => (
-                          <button
-                            key={curr.code}
-                            onClick={() => { setCurrency(curr.code); setShowCurrMenu(false); }}
-                            className={`block w-full px-6 py-3 text-left text-xs tracking-widest transition-colors hover:bg-neutral-100 ${currency === curr.code ? 'bg-neutral-100' : ''}`}
-                          >
-                            {curr.label}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+              {/* Currency — inline buttons */}
+              <div className="border-b border-neutral-100 py-4">
+                <p className="mb-3 text-[10px] tracking-[0.2em] text-neutral-400">CURRENCY</p>
+                <div className="flex flex-wrap gap-2">
+                  {currencies.map((curr) => (
+                    <button
+                      key={curr.code}
+                      onClick={() => setCurrency(curr.code)}
+                      className={`px-4 py-2 text-xs tracking-widest transition-colors ${
+                        currency === curr.code
+                          ? 'bg-black text-white'
+                          : 'bg-neutral-100 text-neutral-600'
+                      }`}
+                    >
+                      {curr.label}
+                    </button>
+                  ))}
                 </div>
-                <button
-                  onClick={cycleLanguage}
-                  className="text-xs tracking-[0.2em] text-black transition-opacity hover:opacity-60"
-                >
-                  {language.toUpperCase()}
-                </button>
+              </div>
+
+              {/* Language — inline buttons */}
+              <div className="py-4">
+                <p className="mb-3 text-[10px] tracking-[0.2em] text-neutral-400">LANGUAGE</p>
+                <div className="flex flex-wrap gap-2">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => setLanguage(lang.code)}
+                      className={`px-4 py-2 text-xs tracking-widest transition-colors ${
+                        language === lang.code
+                          ? 'bg-black text-white'
+                          : 'bg-neutral-100 text-neutral-600'
+                      }`}
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
