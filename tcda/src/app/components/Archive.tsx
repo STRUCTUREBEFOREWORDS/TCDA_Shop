@@ -43,7 +43,7 @@ export function Archive() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="flex min-h-screen items-center justify-center bg-white px-8 py-32"
+      className="flex min-h-screen items-center justify-center bg-white px-4 py-20 md:px-8 md:py-32"
     >
       <div className="text-center">
         <motion.h2
@@ -51,7 +51,7 @@ export function Archive() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-4 text-6xl tracking-[0.3em]"
+          className="mb-4 text-4xl tracking-[0.3em] md:text-6xl"
         >
           {text.title}
         </motion.h2>

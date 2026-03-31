@@ -8,7 +8,7 @@ interface ProductGridProps {
 
 export function ProductGrid({ products, onProductClick }: ProductGridProps) {
   return (
-    <section className="min-h-screen bg-white px-8 py-24">
+    <section className="min-h-screen bg-white px-4 py-20 md:px-8 md:py-24">
       <ResponsiveMasonry
         columnsCountBreakPoints={{ 350: 1, 640: 2, 1024: 3, 1536: 4 }}
       >

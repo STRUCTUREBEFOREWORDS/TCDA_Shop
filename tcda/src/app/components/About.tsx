@@ -9,7 +9,7 @@ export function About() {
 
   const content = {
     en: {
-      title: 'ATELIER',
+      title: 'TRANSCEND COLOR\nDIGITAL APPAREL',
       description:
         'Where fashion transcends commerce. Each piece is a digital artifact, curated for those who see clothing as art.',
       philosophy:
@@ -17,7 +17,7 @@ export function About() {
       contact: 'CONTACT',
     },
     es: {
-      title: 'ATELIER',
+      title: 'TRANSCEND COLOR\nDIGITAL APPAREL',
       description:
         'Donde la moda trasciende el comercio. Cada pieza es un artefacto digital, curado para aquellos que ven la ropa como arte.',
       philosophy:
@@ -25,7 +25,7 @@ export function About() {
       contact: 'CONTACTO',
     },
     fr: {
-      title: 'ATELIER',
+      title: 'TRANSCEND COLOR\nDIGITAL APPAREL',
       description:
         'Où la mode transcende le commerce. Chaque pièce est un artefact numérique, organisé pour ceux qui voient les vêtements comme de l\'art.',
       philosophy:
@@ -33,7 +33,7 @@ export function About() {
       contact: 'CONTACT',
     },
     ja: {
-      title: 'ATELIER',
+      title: 'TRANSCEND COLOR\nDIGITAL APPAREL',
       description:
         'ファッションが商業を超える場所。それぞれの作品は、服をアートとして見る人々のためにキュレーションされたデジタルアーティファクトです。',
       philosophy:
@@ -51,7 +51,7 @@ export function About() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="min-h-screen bg-black px-8 py-32 text-white"
+        className="min-h-screen bg-black px-4 py-20 text-white md:px-8 md:py-32"
       >
         <div className="mx-auto max-w-4xl">
           {/* Title */}
@@ -60,7 +60,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-16 text-6xl tracking-[0.3em]"
+            className="mb-10 whitespace-pre-line text-3xl leading-tight tracking-[0.2em] md:mb-16 md:text-5xl md:tracking-[0.3em]"
           >
             {text.title}
           </motion.h2>

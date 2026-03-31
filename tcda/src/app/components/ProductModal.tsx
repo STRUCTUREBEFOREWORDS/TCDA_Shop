@@ -98,7 +98,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
               </div>
 
               {/* Product Details */}
-              <div className="flex flex-col p-12">
+              <div className="flex flex-col p-6 md:p-12">
                 {/* Tabs */}
                 <div className="mb-8 flex border-b border-neutral-200">
                   <button
