@@ -5,6 +5,7 @@ import { Product } from './ProductCard';
 import { useApp } from '../context/AppContext';
 import { t } from '../utils/translations';
 import { redirectToCheckout } from '../utils/stripe';
+import { SizeChartTable } from './SizeChartTable';
 
 interface ProductModalProps {
   product: Product | null;
@@ -12,13 +13,18 @@ interface ProductModalProps {
 }
 
 type Tab = 'product' | 'size';
-type Unit = 'cm' | 'inch';
+
+const PRINTFUL_TO_CATEGORY: Record<number, string> = {
+  388: 'hoodie',
+  257: 'mens_crew_neck',
+  717: 'zip_hoodie',
+  261: 'womens_crew_neck',
+};
 
 export function ProductModal({ product, onClose }: ProductModalProps) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [showDescription, setShowDescription] = useState(false);
   const [activeTab, setActiveTab] = useState<Tab>('product');
-  const [unit, setUnit] = useState<Unit>('cm');
   const [isProcessing, setIsProcessing] = useState(false);
 
   const { language, convertPrice, getCurrencySymbol, currency } = useApp();
@@ -28,11 +34,9 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
   const displayPrice = convertPrice(product.price);
   const symbol = getCurrencySymbol();
   const translatedTag = t(product.tag, language);
-
-  const convertMeasurement = (value: number): string => {
-    if (unit === 'inch') return (value / 2.54).toFixed(1);
-    return value.toString();
-  };
+  const sizeCategory = product.printful_product_id
+    ? PRINTFUL_TO_CATEGORY[product.printful_product_id]
+    : undefined;
 
   const handleBuyNow = async () => {
     if (!selectedSize) return;
@@ -218,50 +222,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                     transition={{ duration: 0.25 }}
                     className="flex-1"
                   >
-                    {/* Unit Toggle */}
-                    <div className="mb-5 flex items-center justify-end gap-2">
-                      {(['cm', 'inch'] as Unit[]).map((u) => (
-                        <button
-                          key={u}
-                          onClick={() => setUnit(u)}
-                          className={`px-4 py-2 text-xs tracking-widest transition-colors ${
-                            unit === u
-                              ? 'bg-black text-white'
-                              : 'bg-neutral-100 text-neutral-600'
-                          }`}
-                        >
-                          {u.toUpperCase()}
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Size Chart Table */}
-                    <div className="mb-6 overflow-x-auto">
-                      <table className="w-full border-collapse text-sm">
-                        <thead>
-                          <tr className="border-b border-neutral-300">
-                            {[t('SIZE', language), t('CHEST', language), t('WAIST', language), t('LENGTH', language)].map((h, i) => (
-                              <th
-                                key={i}
-                                className={`pb-3 text-xs tracking-widest text-neutral-400 ${i === 0 ? 'pr-4 text-left' : 'pr-4 text-right last:pr-0'}`}
-                              >
-                                {h}
-                              </th>
-                            ))}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {product.sizeChart.map((sizeData) => (
-                            <tr key={sizeData.size} className="border-b border-neutral-200">
-                              <td className="py-3 pr-4 text-left tracking-widest">{sizeData.size}</td>
-                              <td className="py-3 pr-4 text-right">{convertMeasurement(sizeData.chest)}</td>
-                              <td className="py-3 pr-4 text-right">{convertMeasurement(sizeData.waist)}</td>
-                              <td className="py-3 text-right">{convertMeasurement(sizeData.length)}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
+                    <SizeChartTable category={sizeCategory} />
 
                     {/* Fit Info */}
                     <div className="space-y-2 border-t border-neutral-200 pt-5">

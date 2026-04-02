@@ -13,6 +13,7 @@ export interface Product {
   description: string;
   sizes: string[];
   sizeChart: SizeChart[];
+  printful_product_id?: number;
 }
 
 interface ProductCardProps {

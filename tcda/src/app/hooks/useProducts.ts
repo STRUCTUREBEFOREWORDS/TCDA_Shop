@@ -33,6 +33,7 @@ export function useProducts() {
             description: '',
             sizes: [],
             sizeChart: [],
+            printful_product_id: p.printful_product_id,
           }))
         );
       })
