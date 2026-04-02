@@ -7,8 +7,6 @@ import { ProductGrid } from './components/ProductGrid';
 import { About } from './components/About';
 import { ProductModal } from './components/ProductModal';
 import { Product } from './components/ProductCard';
-import { products } from './data/products';
-
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -51,7 +49,7 @@ export default function App() {
 
         {/* Product Grid (Shop) */}
         <div ref={shopRef}>
-          <ProductGrid products={products} onProductClick={setSelectedProduct} />
+          <ProductGrid onProductClick={setSelectedProduct} />
         </div>
 
         {/* About Section */}
