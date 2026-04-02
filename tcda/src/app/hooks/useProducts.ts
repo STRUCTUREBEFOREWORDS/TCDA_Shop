@@ -8,6 +8,7 @@ interface ApiProduct {
   name: string;
   price: number;
   printful_product_id: number;
+  thumbnail_url: string;
 }
 
 export function useProducts() {
@@ -27,7 +28,7 @@ export function useProducts() {
             id: p.id,
             name: p.name,
             price: p.price,
-            image: '',
+            image: p.thumbnail_url,
             tag: '',
             description: '',
             sizes: [],
