@@ -14,11 +14,11 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-const currencyRates: Record<Currency, number> = {
-  USD: 1,
-  EUR: 0.92,
-  GBP: 0.79,
-  JPY: 149.5,
+const jpyRates: Record<Currency, number> = {
+  JPY: 1,
+  USD: 0.0067,
+  EUR: 0.0062,
+  GBP: 0.0053,
 };
 
 const currencySymbols: Record<Currency, string> = {
@@ -33,7 +33,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [currency, setCurrency] = useState<Currency>('USD');
 
   const convertPrice = (price: number): number => {
-    const converted = price * currencyRates[currency];
+    const converted = price * jpyRates[currency];
     return currency === 'JPY' ? Math.round(converted) : Math.round(converted * 100) / 100;
   };
 
