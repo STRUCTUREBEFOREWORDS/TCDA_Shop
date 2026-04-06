@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
 import { getTranslation } from "../data/translations";
@@ -66,6 +67,7 @@ export function ArchivePage() {
                 transition={{ duration: 0.6, delay: (index % 4) * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="group">
+                  <Link to={`/product/${product.id}`}>
                   <div className="relative aspect-[3/4] overflow-hidden bg-black/5 mb-4">
                     <img
                       src={product.thumbnail_url}
@@ -73,6 +75,7 @@ export function ArchivePage() {
                       className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                     />
                   </div>
+                  </Link>
                   <div className="space-y-1.5">
                     <h3 className="text-black text-xs font-light tracking-widest uppercase opacity-70">
                       {product.name}
