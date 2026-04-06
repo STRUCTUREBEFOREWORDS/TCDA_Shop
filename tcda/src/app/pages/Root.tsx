@@ -32,7 +32,7 @@ export function Root() {
   const [currency, setCurrency] = useState<Currency>("JPY");
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [rates, setRates] = useState<Record<string, number>>({ JPY: 1, USD: 0.0067, EUR: 0.0062, GBP: 0.0053 });
+  const [rates, setRates] = useState<Record<string, number>>({ JPY: 1, USD: 0.0067, EUR: 0.0062, GBP: 0.0053, KRW: 9.5, CNY: 0.043 });
 
   useEffect(() => {
     fetch("https://api.tcdashop.com/exchange-rates")

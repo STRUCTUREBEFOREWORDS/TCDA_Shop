@@ -24,7 +24,7 @@ export function TCDA_LanguageCurrencySwitcher({
     { code: "zh", label: "ZH" },
   ];
 
-  const currencies: Currency[] = ["JPY", "USD", "EUR"];
+  const currencies: Currency[] = ["JPY", "USD", "EUR", "GBP", "KRW", "CNY"];
 
   return (
     <div className="flex items-center gap-4">
