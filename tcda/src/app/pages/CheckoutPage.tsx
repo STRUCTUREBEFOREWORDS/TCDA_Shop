@@ -169,11 +169,11 @@ export function CheckoutPage() {
 
                   {[
                     { key: "email", label: "Email", type: "email", placeholder: "your@email.com" },
-                    { key: "name", label: language === "ja" ? "お名前" : "Name", type: "text", placeholder: "Full name" },
-                    { key: "address", label: language === "ja" ? "住所" : "Address", type: "text", placeholder: "Street address" },
-                    { key: "city", label: language === "ja" ? "市区町村" : "City", type: "text", placeholder: "City" },
-                    { key: "postalCode", label: language === "ja" ? "郵便番号" : "Postal Code", type: "text", placeholder: "000-0000" },
-                    { key: "country", label: language === "ja" ? "国" : "Country", type: "text", placeholder: "Japan" },
+                    { key: "name", label: t("fieldName"), type: "text", placeholder: "Full name" },
+                    { key: "address", label: t("fieldAddress"), type: "text", placeholder: "Street address" },
+                    { key: "city", label: t("fieldCity"), type: "text", placeholder: "City" },
+                    { key: "postalCode", label: t("fieldPostalCode"), type: "text", placeholder: "000-0000" },
+                    { key: "country", label: t("fieldCountry"), type: "text", placeholder: "Japan" },
                   ].map(({ key, label, type, placeholder }) => (
                     <div key={key}>
                       <label className="block text-black/40 text-[10px] font-light tracking-[0.25em] uppercase mb-2">
@@ -194,7 +194,7 @@ export function CheckoutPage() {
                     type="submit"
                     className="w-full mt-4 py-4 bg-black text-white text-xs font-light tracking-[0.25em] uppercase hover:bg-black/80 transition-colors duration-300"
                   >
-                    {language === "ja" ? "次へ" : language === "fr" ? "Suivant" : "Continue"}
+                    {t("next")}
                   </button>
                 </motion.form>
               )}
@@ -215,8 +215,8 @@ export function CheckoutPage() {
                   </h2>
 
                   {[
-                    { key: "cardName", label: language === "ja" ? "カード名義" : "Cardholder Name", placeholder: "Name on card" },
-                    { key: "cardNumber", label: language === "ja" ? "カード番号" : "Card Number", placeholder: "0000 0000 0000 0000" },
+                    { key: "cardName", label: t("fieldCardName"), placeholder: "Name on card" },
+                    { key: "cardNumber", label: t("fieldCardNumber"), placeholder: "0000 0000 0000 0000" },
                   ].map(({ key, label, placeholder }) => (
                     <div key={key}>
                       <label className="block text-black/40 text-[10px] font-light tracking-[0.25em] uppercase mb-2">
@@ -235,7 +235,7 @@ export function CheckoutPage() {
 
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { key: "expiry", label: language === "ja" ? "有効期限" : "Expiry", placeholder: "MM/YY" },
+                      { key: "expiry", label: t("fieldExpiry"), placeholder: "MM/YY" },
                       { key: "cvv", label: "CVV", placeholder: "000" },
                     ].map(({ key, label, placeholder }) => (
                       <div key={key}>
@@ -260,7 +260,7 @@ export function CheckoutPage() {
                       onClick={() => setStep(1)}
                       className="flex-1 py-4 border border-black/15 text-black text-xs font-light tracking-[0.25em] uppercase hover:border-black/40 transition-colors duration-200"
                     >
-                      {language === "ja" ? "戻る" : language === "fr" ? "Retour" : "Back"}
+                      {t("back")}
                     </button>
                     <button
                       type="submit"
@@ -286,25 +286,17 @@ export function CheckoutPage() {
                   </div>
                   <div className="space-y-3">
                     <h2 className="text-black text-sm font-extralight tracking-[0.3em] uppercase">
-                      {language === "ja"
-                        ? "注文が完了しました"
-                        : language === "fr"
-                        ? "Commande confirmée"
-                        : "Order Confirmed"}
+                      {t("orderConfirmed")}
                     </h2>
                     <p className="text-black/40 text-xs font-light leading-relaxed max-w-xs mx-auto">
-                      {language === "ja"
-                        ? "確認メールをお送りします。これはアーカイブの一部となります。"
-                        : language === "fr"
-                        ? "Un e-mail de confirmation vous sera envoyé. Ceci devient partie des archives."
-                        : "A confirmation email will be sent. This becomes part of the archive."}
+                      {t("orderConfirmedMessage")}
                     </p>
                   </div>
                   <button
                     onClick={() => navigate("/")}
                     className="text-black/40 text-[10px] font-light tracking-[0.3em] uppercase border-b border-black/15 pb-1 hover:text-black hover:border-black/40 transition-all duration-300"
                   >
-                    {language === "ja" ? "ホームへ" : language === "fr" ? "Accueil" : "Return Home"}
+                    {t("returnHome")}
                   </button>
                 </motion.div>
               )}
