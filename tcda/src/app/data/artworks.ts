@@ -25,6 +25,7 @@ export interface ArtworkData {
     USD: number;
     JPY: number;
     EUR: number;
+    GBP: number;
   };
 }
 
@@ -57,6 +58,7 @@ export const artworks: ArtworkData[] = [
       USD: 420,
       JPY: 62000,
       EUR: 390,
+      GBP: 335,
     },
   },
   {
@@ -87,6 +89,7 @@ export const artworks: ArtworkData[] = [
       USD: 450,
       JPY: 66000,
       EUR: 420,
+      GBP: 360,
     },
   },
   {
@@ -117,6 +120,7 @@ export const artworks: ArtworkData[] = [
       USD: 480,
       JPY: 71000,
       EUR: 450,
+      GBP: 385,
     },
   },
 ];
