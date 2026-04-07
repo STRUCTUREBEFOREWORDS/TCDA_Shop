@@ -9,7 +9,7 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { CartItem } from "../types";
 import { redirectToCheckout } from "../utils/stripe";
 
-type Step = 1 | 2 | 3;
+type Step = 1 | 2;
 
 interface LocationState {
   artworkId?: string;
@@ -30,6 +30,7 @@ export function CheckoutPage() {
   const state = location.state as LocationState;
 
   const [step, setStep] = useState<Step>(1);
+  const [isLoading, setIsLoading] = useState(false);
   const [shipping, setShipping] = useState({
     email: "",
     name: "",
@@ -38,16 +39,9 @@ export function CheckoutPage() {
     postalCode: "",
     country: "",
   });
-  const [payment, setPayment] = useState({
-    cardNumber: "",
-    expiry: "",
-    cvv: "",
-    cardName: "",
-  });
 
   const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
 
-  // Derive items and total
   const items: CartItem[] = state?.fromCart && state.cartItems
     ? state.cartItems
     : state?.artworkName
@@ -85,8 +79,9 @@ export function CheckoutPage() {
   }
 
   const handlePlaceOrder = async () => {
+    setIsLoading(true);
     try {
-      const items = state?.fromCart
+      const checkoutItems = state?.fromCart
         ? (state.cartItems ?? []).map((c) => ({
             name: c.artworkName,
             price_jpy: c.price_jpy,
@@ -95,24 +90,67 @@ export function CheckoutPage() {
           }))
         : [
             {
-              name: state?.artworkName ?? 'TCDA Product',
+              name: state?.artworkName ?? "TCDA Product",
               price_jpy: state?.price_jpy ?? state?.price ?? 0,
               quantity: 1,
-              size: state?.size ?? 'M',
+              size: state?.size ?? "M",
             },
           ];
-      await redirectToCheckout(items);
+      await redirectToCheckout(checkoutItems);
     } catch (e) {
       console.error(e);
+      setIsLoading(false);
     }
   };
 
-  // Step labels
   const steps: { num: Step; label: string }[] = [
     { num: 1, label: t("shippingInfo") },
-    { num: 2, label: t("paymentInfo") },
-    { num: 3, label: t("confirmOrder") },
+    { num: 2, label: t("confirmOrder") },
   ];
+
+  const OrderSummary = () => (
+    <div className="border border-black/10 p-6 space-y-6 sticky top-20">
+      <h3 className="text-black/40 text-[10px] font-light tracking-[0.3em] uppercase">
+        {t("orderSummary")}
+      </h3>
+      <div className="space-y-4">
+        {items.map((item) => (
+          <div key={`${item.artworkId}-${item.size}`} className="flex gap-3">
+            <div className="w-14 aspect-[3/4] flex-shrink-0 bg-black/5">
+              <ImageWithFallback
+                src={item.imageUrl}
+                alt={item.artworkName}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex-1 min-w-0 space-y-1">
+              <p className="text-black text-xs font-light leading-snug truncate">
+                {item.artworkName}
+              </p>
+              <p className="text-black/40 text-[10px] font-light">
+                {t("size")}: {item.size} · {t("quantity")}: {item.quantity}
+              </p>
+              <p className="text-black text-xs font-extralight">
+                {formatPrice(item.price * item.quantity, currency)}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="border-t border-black/10 pt-4 space-y-2">
+        <div className="flex justify-between text-xs font-light text-black/40">
+          <span>{t("shipping")}</span>
+          <span>{t("free")}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-black text-xs font-light tracking-[0.2em] uppercase">{t("total")}</span>
+          <span className="text-black text-base font-extralight tracking-wider">
+            {formatPrice(total, currency)}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-white pt-14">
@@ -149,10 +187,9 @@ export function CheckoutPage() {
         </div>
 
         <div className="lg:grid lg:grid-cols-[1fr_300px] lg:gap-16">
-          {/* Form area */}
           <div>
             <AnimatePresence mode="wait">
-              {/* ── STEP 1: SHIPPING ──────────────────────────── */}
+              {/* ── STEP 1: SHIPPING ── */}
               {step === 1 && (
                 <motion.form
                   key="step1"
@@ -199,158 +236,52 @@ export function CheckoutPage() {
                 </motion.form>
               )}
 
-              {/* ── STEP 2: PAYMENT ───────────────────────────── */}
+              {/* ── STEP 2: CONFIRM & PAY ── */}
               {step === 2 && (
-                <motion.form
+                <motion.div
                   key="step2"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
-                  onSubmit={(e) => { e.preventDefault(); handlePlaceOrder(); }}
                   className="space-y-6"
                 >
                   <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-8">
-                    {t("paymentInfo")}
+                    {t("confirmOrder")}
                   </h2>
 
-                  {[
-                    { key: "cardName", label: t("fieldCardName"), placeholder: "Name on card" },
-                    { key: "cardNumber", label: t("fieldCardNumber"), placeholder: "0000 0000 0000 0000" },
-                  ].map(({ key, label, placeholder }) => (
-                    <div key={key}>
-                      <label className="block text-black/40 text-[10px] font-light tracking-[0.25em] uppercase mb-2">
-                        {label}
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={payment[key as keyof typeof payment]}
-                        onChange={(e) => setPayment({ ...payment, [key]: e.target.value })}
-                        placeholder={placeholder}
-                        className="w-full px-4 py-3 bg-white border border-black/15 text-black text-sm font-light placeholder:text-black/20 focus:outline-none focus:border-black transition-colors duration-200"
-                      />
+                  {/* Shipping summary */}
+                  <div className="border border-black/10 p-5 space-y-3">
+                    <p className="text-black/40 text-[10px] font-light tracking-[0.25em] uppercase">{t("shippingInfo")}</p>
+                    <div className="space-y-1">
+                      {[shipping.name, shipping.email, shipping.address, `${shipping.city} ${shipping.postalCode}`, shipping.country].map((v, i) => (
+                        <p key={i} className="text-black text-xs font-light">{v}</p>
+                      ))}
                     </div>
-                  ))}
-
-                  <div className="grid grid-cols-2 gap-4">
-                    {[
-                      { key: "expiry", label: t("fieldExpiry"), placeholder: "MM/YY" },
-                      { key: "cvv", label: "CVV", placeholder: "000" },
-                    ].map(({ key, label, placeholder }) => (
-                      <div key={key}>
-                        <label className="block text-black/40 text-[10px] font-light tracking-[0.25em] uppercase mb-2">
-                          {label}
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={payment[key as keyof typeof payment]}
-                          onChange={(e) => setPayment({ ...payment, [key]: e.target.value })}
-                          placeholder={placeholder}
-                          className="w-full px-4 py-3 bg-white border border-black/15 text-black text-sm font-light placeholder:text-black/20 focus:outline-none focus:border-black transition-colors duration-200"
-                        />
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-3 mt-4">
                     <button
-                      type="button"
                       onClick={() => setStep(1)}
-                      className="flex-1 py-4 border border-black/15 text-black text-xs font-light tracking-[0.25em] uppercase hover:border-black/40 transition-colors duration-200"
+                      className="text-black/40 text-[10px] font-light tracking-[0.2em] uppercase border-b border-black/15 pb-0.5 hover:text-black hover:border-black/40 transition-all duration-200"
                     >
                       {t("back")}
                     </button>
-                    <button
-                      type="submit"
-                      className="flex-1 py-4 bg-black text-white text-xs font-light tracking-[0.25em] uppercase hover:bg-black/80 transition-colors duration-300"
-                    >
-                      {t("placeOrder")}
-                    </button>
                   </div>
-                </motion.form>
-              )}
 
-              {/* ── STEP 3: CONFIRM ───────────────────────────── */}
-              {step === 3 && (
-                <motion.div
-                  key="step3"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-center py-20 space-y-8"
-                >
-                  <div className="w-12 h-12 border border-black/20 flex items-center justify-center mx-auto">
-                    <Check size={18} strokeWidth={1} className="text-black" />
-                  </div>
-                  <div className="space-y-3">
-                    <h2 className="text-black text-sm font-extralight tracking-[0.3em] uppercase">
-                      {t("orderConfirmed")}
-                    </h2>
-                    <p className="text-black/40 text-xs font-light leading-relaxed max-w-xs mx-auto">
-                      {t("orderConfirmedMessage")}
-                    </p>
-                  </div>
                   <button
-                    onClick={() => navigate("/")}
-                    className="text-black/40 text-[10px] font-light tracking-[0.3em] uppercase border-b border-black/15 pb-1 hover:text-black hover:border-black/40 transition-all duration-300"
+                    onClick={handlePlaceOrder}
+                    disabled={isLoading}
+                    className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.25em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-40"
                   >
-                    {t("returnHome")}
+                    {isLoading ? "..." : t("placeOrder")}
                   </button>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          {/* Order summary (right column) */}
-          {step < 3 && (
-            <div className="mt-12 lg:mt-0">
-              <div className="border border-black/8 p-6 space-y-6 sticky top-20">
-                <h3 className="text-black/40 text-[10px] font-light tracking-[0.3em] uppercase">
-                  {t("orderSummary")}
-                </h3>
-
-                <div className="space-y-4">
-                  {items.map((item) => (
-                    <div key={`${item.artworkId}-${item.size}`} className="flex gap-3">
-                      <div className="w-14 aspect-[3/4] flex-shrink-0 bg-black/5">
-                        <ImageWithFallback
-                          src={item.imageUrl}
-                          alt={item.artworkName}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0 space-y-1">
-                        <p className="text-black text-xs font-light leading-snug truncate">
-                          {item.artworkName}
-                        </p>
-                        <p className="text-black/40 text-[10px] font-light">
-                          {t("size")}: {item.size} · {t("quantity")}: {item.quantity}
-                        </p>
-                        <p className="text-black text-xs font-extralight">
-                          {formatPrice(item.price * item.quantity, currency)}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="border-t border-black/8 pt-4 space-y-2">
-                  <div className="flex justify-between text-xs font-light text-black/40">
-                    <span>{t("shipping")}</span>
-                    <span>{t("free")}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-black text-xs font-light tracking-[0.2em] uppercase">{t("total")}</span>
-                    <span className="text-black text-base font-extralight tracking-wider">
-                      {formatPrice(total, currency)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          {/* Order summary */}
+          <div className="mt-12 lg:mt-0">
+            <OrderSummary />
+          </div>
         </div>
       </div>
     </div>
