@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
 import { getTranslation } from "../data/translations";
+import { formatPrice } from "../utils/formatPrice";
 
 interface Product {
   id: string;
@@ -27,15 +28,12 @@ export function ArchivePage() {
       .finally(() => setLoading(false));
   }, []);
 
-  const symbols: Record<string, string> = {
-    JPY: "¥", USD: "$", EUR: "€", GBP: "£", KRW: "₩", CNY: "CN¥",
-  };
-
-  const formatPrice = (jpy: number) => {
+  const convertAndFormat = (jpy: number) => {
     const rate = rates[currency] ?? 1;
-    const amount = Math.round(jpy * rate);
-    const symbol = symbols[currency] ?? "¥";
-    return `${symbol}${amount.toLocaleString()}`;
+    const converted = currency === "JPY"
+      ? Math.round(jpy)
+      : Math.round(jpy * rate * 100) / 100;
+    return formatPrice(converted, currency);
   };
 
   return (
@@ -55,7 +53,7 @@ export function ArchivePage() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-12">
         {loading ? (
-          <p className="text-black/40 text-xs tracking-widest text-center py-24">Loading...</p>
+          <p className="text-black/40 text-xs tracking-widest text-center py-24">{t("loading")}</p>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
             {products.map((product, index) => (
@@ -81,7 +79,7 @@ export function ArchivePage() {
                       {product.name}
                     </h3>
                     <p className="text-black text-sm font-extralight tracking-wider">
-                      {formatPrice(product.price)}
+                      {convertAndFormat(product.price)}
                     </p>
                   </div>
                 </div>
