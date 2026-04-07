@@ -87,11 +87,12 @@ export function CheckoutPage() {
   const handlePlaceOrder = async () => {
     console.log('checkout state:', state);
     try {
+      const item = state?.fromCart ? state.cartItems?.[0] : null;
       await redirectToCheckout({
-        name: state?.artworkName ?? 'TCDA Product',
-        price_jpy: state?.price_jpy ?? state?.price ?? 0,
+        name: item ? item.artworkName : (state?.artworkName ?? 'TCDA Product'),
+        price_jpy: item ? item.price_jpy : (state?.price_jpy ?? state?.price ?? 0),
         quantity: 1,
-        size: state?.size ?? 'M',
+        size: item ? item.size : (state?.size ?? 'M'),
       });
     } catch (e) {
       console.error(e);
