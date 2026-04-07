@@ -117,7 +117,7 @@ export function CartPage() {
 
           {/* Summary */}
           <div className="mt-12 lg:mt-0">
-            <div className="border border-black/8 p-8 space-y-6 sticky top-20">
+            <div className="border border-black/10 p-8 space-y-6 sticky top-20">
               <h2 className="text-black text-[10px] font-light tracking-[0.3em] uppercase">
                 {t("orderSummary")}
               </h2>
@@ -133,7 +133,7 @@ export function CartPage() {
                 </div>
               </div>
 
-              <div className="border-t border-black/8 pt-4 flex justify-between">
+              <div className="border-t border-black/10 pt-4 flex justify-between">
                 <span className="text-black text-xs font-light tracking-[0.2em] uppercase">
                   {t("total")}
                 </span>

@@ -85,7 +85,6 @@ export function CheckoutPage() {
   }
 
   const handlePlaceOrder = async () => {
-    console.log('checkout state:', state);
     try {
       const items = state?.fromCart
         ? (state.cartItems ?? []).map((c) => ({
