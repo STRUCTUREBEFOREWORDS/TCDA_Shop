@@ -1,4 +1,4 @@
-import { Currency } from "../components/LanguageCurrencySwitcher";
+import { Currency } from "../types";
 
 export function formatPrice(amount: number, currency: Currency): string {
   const formatters: Record<Currency, Intl.NumberFormat> = {
@@ -15,6 +15,21 @@ export function formatPrice(amount: number, currency: Currency): string {
     EUR: new Intl.NumberFormat("fr-FR", {
       style: "currency",
       currency: "EUR",
+      minimumFractionDigits: 0,
+    }),
+    GBP: new Intl.NumberFormat("en-GB", {
+      style: "currency",
+      currency: "GBP",
+      minimumFractionDigits: 0,
+    }),
+    KRW: new Intl.NumberFormat("ko-KR", {
+      style: "currency",
+      currency: "KRW",
+      minimumFractionDigits: 0,
+    }),
+    CNY: new Intl.NumberFormat("zh-CN", {
+      style: "currency",
+      currency: "CNY",
       minimumFractionDigits: 0,
     }),
   };
