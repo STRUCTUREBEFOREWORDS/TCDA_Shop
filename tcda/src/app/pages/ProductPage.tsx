@@ -92,6 +92,7 @@ export function ProductPage() {
       artworkId: product.id,
       artworkName: product.name,
       price: convertedPrice,
+      price_jpy: product.price,
       currency,
       size: selectedSize,
       imageUrl: product.thumbnail_url,

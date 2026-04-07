@@ -5,6 +5,7 @@ export interface CartItem {
   artworkId: string;
   artworkName: string;
   price: number;
+  price_jpy: number;
   currency: Currency;
   size: string;
   imageUrl: string;
