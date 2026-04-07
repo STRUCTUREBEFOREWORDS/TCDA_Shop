@@ -85,6 +85,7 @@ export function CheckoutPage() {
   }
 
   const handlePlaceOrder = async () => {
+    console.log('checkout state:', state);
     try {
       await redirectToCheckout({
         name: state?.artworkName ?? 'TCDA Product',
