@@ -1,11 +1,7 @@
 
   <!DOCTYPE html>
   <html lang="en">
-    <head>
-      <script>
-        const redirect = new URLSearchParams(window.location.search).get('redirect');
-        if (redirect) window.history.replaceState(null, '', redirect);
-      </script>
+    <head><script>const r=new URLSearchParams(window.location.search).get('redirect');if(r)window.history.replaceState(null,'',r);</script>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>TCDA</title>
