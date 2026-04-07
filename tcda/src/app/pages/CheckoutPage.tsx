@@ -7,6 +7,7 @@ import { getTranslation } from "../data/translations";
 import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { CartItem } from "../types";
+import { redirectToCheckout } from "../utils/stripe";
 
 type Step = 1 | 2 | 3;
 
@@ -14,6 +15,7 @@ interface LocationState {
   artworkId?: string;
   artworkName?: string;
   price?: number;
+  price_jpy?: number;
   currency?: string;
   size?: string;
   imageUrl?: string;
@@ -82,8 +84,17 @@ export function CheckoutPage() {
     );
   }
 
-  const handlePlaceOrder = () => {
-    setStep(3);
+  const handlePlaceOrder = async () => {
+    try {
+      await redirectToCheckout({
+        name: state?.artworkName ?? 'TCDA Product',
+        price_jpy: state?.price_jpy ?? state?.price ?? 0,
+        quantity: 1,
+        size: state?.size ?? 'M',
+      });
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   // Step labels

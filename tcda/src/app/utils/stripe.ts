@@ -1,10 +1,8 @@
 // 商品情報の型定義
 export interface CheckoutProduct {
   name: string;
-  price: number;
-  currency: string;
+  price_jpy: number;
   size: string;
-  image: string;
   quantity?: number;
 }
 
