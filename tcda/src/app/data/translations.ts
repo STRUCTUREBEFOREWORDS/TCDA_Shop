@@ -56,6 +56,8 @@ export const translations = {
     shoulder: "Shoulder",
     // Philosophy block (compressed)
     philosophyBlock: "Not a sale. A decision. Each piece is numbered, unrepeatable. TCDA exists at the intersection of wearable object and emotional record.",
+    collection: "Collection",
+    viewAll: "View All",
   },
   ja: {
     heroPhilosophical1: "その違和感は、間違いではない。",
@@ -110,6 +112,8 @@ export const translations = {
     length: "着丈",
     shoulder: "肩幅",
     philosophyBlock: "販売ではなく、決断。各ピースはナンバリングされ、再現されない。TCDAは着用可能なオブジェクトと感情の記録の交点に存在する。",
+    collection: "現在のコレクション",
+    viewAll: "すべて見る",
   },
   fr: {
     heroPhilosophical1: "Cet inconfort n'est pas une erreur.",
@@ -164,6 +168,8 @@ export const translations = {
     length: "Longueur",
     shoulder: "Épaule",
     philosophyBlock: "Pas une vente. Une décision. Chaque pièce est numérotée, irremplaçable. TCDA existe à l'intersection de l'objet portable et du registre émotionnel.",
+    collection: "Collection",
+    viewAll: "Voir tout",
   },
   es: {
     heroPhilosophical1: "Esa incomodidad no es un error.",
@@ -218,6 +224,8 @@ export const translations = {
     length: "Largo",
     shoulder: "Hombro",
     philosophyBlock: "No una venta. Una decisión. Cada pieza está numerada, irrepetible. TCDA existe en la intersección del objeto portable y el registro emocional.",
+    collection: "Colección",
+    viewAll: "Ver todo",
   },
   ko: {
     heroPhilosophical1: "그 불편함은 실수가 아닙니다.",
@@ -272,6 +280,8 @@ export const translations = {
     length: "기장",
     shoulder: "어깨",
     philosophyBlock: "판매가 아닌, 결정. 각 피스는 번호가 매겨지고 반복되지 않습니다. TCDA는 착용 가능한 오브젝트와 감정적 기록의 교차점에 존재합니다.",
+    collection: "컬렉션",
+    viewAll: "전체 보기",
   },
   zh: {
     heroPhilosophical1: "那种不适不是错误。",
@@ -326,6 +336,8 @@ export const translations = {
     length: "衣长",
     shoulder: "肩宽",
     philosophyBlock: "不是销售，而是决定。每件作品都有编号，独一无二。TCDA存在于可穿戴物件与情感记录的交汇处。",
+    collection: "系列",
+    viewAll: "查看全部",
   },
 };
 

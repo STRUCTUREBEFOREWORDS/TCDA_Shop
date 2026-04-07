@@ -82,13 +82,13 @@ export function TopPage() {
           {/* Section label */}
           <div className="mb-10 flex items-center justify-between">
             <p className="text-white/20 text-[10px] font-light tracking-[0.4em] uppercase">
-              {language === "ja" ? "現在のコレクション" : language === "fr" ? "Collection" : "Collection"}
+              {t("collection")}
             </p>
             <Link
               to="/products"
               className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
             >
-              {language === "ja" ? "すべて見る" : language === "fr" ? "Voir tout" : "View All"}
+              {t("viewAll")}
             </Link>
           </div>
 
@@ -107,7 +107,7 @@ export function TopPage() {
                   <div className="aspect-[3/4] overflow-hidden bg-white/5 mb-4">
                     <ImageWithFallback
                       src={artwork.imageUrl}
-                      alt={artwork.name[language]}
+                      alt={(artwork.name as Record<string, string>)[language] ?? artwork.name.en}
                       className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                     />
                   </div>
@@ -117,7 +117,7 @@ export function TopPage() {
                       {artwork.shortName}
                     </p>
                     <p className="text-white/70 text-xs font-light">
-                      {artwork.name[language]}
+                      {(artwork.name as Record<string, string>)[language] ?? artwork.name.en}
                     </p>
                     <p className="text-white text-sm font-extralight tracking-wider">
                       {formatPrice(artwork.price[currency], currency)}
@@ -141,7 +141,7 @@ export function TopPage() {
               to="/look"
               className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
             >
-              {language === "ja" ? "すべて見る" : language === "fr" ? "Voir tout" : "View All"}
+              {t("viewAll")}
             </Link>
           </div>
 
