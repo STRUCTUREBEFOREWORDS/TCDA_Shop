@@ -26,6 +26,8 @@ export interface ArtworkData {
     JPY: number;
     EUR: number;
     GBP: number;
+    KRW: number;
+    CNY: number;
   };
 }
 
@@ -59,6 +61,8 @@ export const artworks: ArtworkData[] = [
       JPY: 62000,
       EUR: 390,
       GBP: 335,
+      KRW: 560000,
+      CNY: 3000,
     },
   },
   {
@@ -90,6 +94,8 @@ export const artworks: ArtworkData[] = [
       JPY: 66000,
       EUR: 420,
       GBP: 360,
+      KRW: 600000,
+      CNY: 3250,
     },
   },
   {
@@ -121,6 +127,8 @@ export const artworks: ArtworkData[] = [
       JPY: 71000,
       EUR: 450,
       GBP: 385,
+      KRW: 640000,
+      CNY: 3450,
     },
   },
 ];

@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-type Language = 'en' | 'es' | 'fr' | 'ja';
-type Currency = 'USD' | 'EUR' | 'GBP' | 'JPY';
+import { Language, Currency } from '../types';
 interface AppContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
@@ -15,12 +14,16 @@ const currencySymbols: Record<Currency, string> = {
   EUR: '€',
   GBP: '£',
   JPY: '¥',
+  KRW: '₩',
+  CNY: 'CN¥',
 };
 const fallbackRates: Record<Currency, number> = {
   JPY: 1,
   USD: 0.0067,
   EUR: 0.0062,
   GBP: 0.0053,
+  KRW: 9.1,
+  CNY: 0.048,
 };
 export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('en');
