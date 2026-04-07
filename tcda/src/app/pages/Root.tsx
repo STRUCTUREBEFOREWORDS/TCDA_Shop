@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, createContext, useContext } from "react";
 import { Language, Currency, CartItem } from "../types";
 import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
 import { CartDrawer } from "../components/CartDrawer";
@@ -16,7 +16,6 @@ interface GlobalContextType {
   updateQuantity: (artworkId: string, size: string, quantity: number) => void;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
-  rates: Record<string, number>;
 }
 
 const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -32,14 +31,6 @@ export function Root() {
   const [currency, setCurrency] = useState<Currency>("JPY");
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [rates, setRates] = useState<Record<string, number>>({ JPY: 1, USD: 0.0067, EUR: 0.0062, GBP: 0.0053, KRW: 9.5, CNY: 0.043 });
-
-  useEffect(() => {
-    fetch("https://api.tcdashop.com/exchange-rates")
-      .then((res) => res.json())
-      .then((data) => { if (data.rates) setRates({ JPY: 1, ...data.rates }); })
-      .catch(() => {});
-  }, []);
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -92,7 +83,6 @@ export function Root() {
         updateQuantity,
         isCartOpen,
         setIsCartOpen,
-        rates,
       }}
     >
       <div className="font-[Inter] bg-white antialiased min-h-screen">
