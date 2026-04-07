@@ -1,268 +1,332 @@
-import { useParams, useNavigate, Link } from "react-router";
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { artworks } from "../data/artworks";
-import { getTranslation } from "../data/translations";
-import { formatPrice } from "../utils/formatPrice";
+import { useParams, Link } from "react-router";
+import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
-import { BuyBox } from "../components/BuyBox";
-import { SizeGuideModal } from "../components/SizeGuideModal";
+import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+
+interface Variant {
+  id: number;
+  size: string;
+  color: string;
+  retail_price: string;
+  availability_status: string;
+}
+
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  thumbnail_url: string;
+  sizes: string[];
+  stock: number;
+  variants: Variant[];
+}
+
+const SIZE_TABLE: { size: string; chest: string; length: string }[] = [
+  { size: "XS", chest: "86-91", length: "66" },
+  { size: "S",  chest: "91-97", length: "69" },
+  { size: "M",  chest: "97-102", length: "71" },
+  { size: "L",  chest: "107-112", length: "74" },
+  { size: "XL", chest: "117-122", length: "76" },
+  { size: "2XL", chest: "127-132", length: "79" },
+];
+
+const FAQ = [
+  {
+    q: "How long does shipping take?",
+    a: "Orders are fulfilled within 2–5 business days, then shipped. Total delivery is typically 5–10 business days.",
+  },
+  {
+    q: "Can I return or exchange?",
+    a: "We accept returns within 14 days for defective items. Size exchanges are available once per order.",
+  },
+  {
+    q: "What if I'm between sizes?",
+    a: "We recommend sizing up for a relaxed fit. The model wears size M at 180 cm.",
+  },
+];
 
 export function ProductPage() {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const { language, currency, addToCart } = useGlobalContext();
-  const [selectedSize, setSelectedSize] = useState("M");
-  const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
-  const [mobileCTAVisible, setMobileCTAVisible] = useState(false);
-  const buyBoxRef = useRef<HTMLDivElement>(null);
-
-  const artwork = artworks.find((a) => a.id === id);
+  const { currency, rates, addToCart } = useGlobalContext();
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [selectedSize, setSelectedSize] = useState<string>("");
+  const [added, setAdded] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
-    setSelectedSize("M");
+    setLoading(true);
+    fetch(`https://api.tcdashop.com/products/${id}`)
+      .then((res) => res.json())
+      .then((data: Product) => {
+        setProduct(data);
+        if (data.sizes?.length) setSelectedSize(data.sizes[0]);
+      })
+      .finally(() => setLoading(false));
   }, [id]);
 
-  // Mobile sticky CTA: show when BuyBox scrolls out of view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setMobileCTAVisible(!entry.isIntersecting),
-      { threshold: 0 }
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-black text-sm font-light tracking-widest opacity-40">Loading...</p>
+      </div>
     );
-    if (buyBoxRef.current) observer.observe(buyBoxRef.current);
-    return () => observer.disconnect();
-  }, [artwork]);
-
-  if (!artwork) {
-    navigate("/");
-    return null;
   }
 
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+  if (!product) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-black text-sm font-light tracking-widest opacity-40">Product not found.</p>
+      </div>
+    );
+  }
 
-  const handleBuyNow = () => {
-    navigate("/checkout", {
-      state: {
-        artworkId: artwork.id,
-        artworkName: artwork.name[language],
-        price: artwork.price[currency],
-        currency,
-        size: selectedSize,
-        imageUrl: artwork.imageUrl,
-      },
-    });
-  };
+  const convertedPrice = Math.round(product.price * rates[currency]);
 
   const handleAddToCart = () => {
+    if (!selectedSize) return;
     addToCart({
-      artworkId: artwork.id,
-      artworkName: artwork.name[language],
-      price: artwork.price[currency],
+      artworkId: product.id,
+      artworkName: product.name,
+      price: convertedPrice,
       currency,
       size: selectedSize,
-      imageUrl: artwork.imageUrl,
+      imageUrl: product.thumbnail_url,
     });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
   };
 
-  // Related products: exclude current
-  const related = artworks.filter((a) => a.id !== artwork.id);
-
-  // Previous / next navigation
-  const currentIndex = artworks.findIndex((a) => a.id === artwork.id);
-  const prevArtwork = artworks[currentIndex - 1];
-  const nextArtwork = artworks[currentIndex + 1];
-
   return (
-    <div className="bg-black min-h-screen">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={artwork.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+    <div className="min-h-screen bg-white pt-20">
+      {/* BACK */}
+      <div className="px-8 md:px-20 py-6 max-w-7xl mx-auto">
+        <Link
+          to="/products"
+          className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-40 hover:opacity-100 transition-opacity duration-300"
         >
-          {/* ── HERO: 2-COLUMN ───────────────────────────────────── */}
-          {/* Desktop: left 60% sticky gallery / right 40% BuyBox   */}
-          {/* Mobile: stacked image → BuyBox                        */}
-          <div className="lg:flex lg:min-h-screen">
-            {/* LEFT — Gallery (sticky on desktop) */}
-            <div className="lg:w-[60%] lg:sticky lg:top-0 lg:h-screen bg-black overflow-hidden">
-              <div className="relative h-[60vw] lg:h-full">
-                <ImageWithFallback
-                  src={artwork.imageUrl}
-                  alt={artwork.name[language]}
-                  className="w-full h-full object-cover"
-                />
-                {/* Subtle gradient at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/40 to-transparent" />
+          ← BACK
+        </Link>
+      </div>
 
-                {/* Prev / Next nav (desktop) */}
-                <div className="absolute bottom-8 right-8 hidden lg:flex gap-3">
-                  {prevArtwork && (
-                    <Link
-                      to={`/product/${prevArtwork.id}`}
-                      className="w-9 h-9 border border-white/20 flex items-center justify-center text-white/50 hover:text-white hover:border-white/60 transition-all duration-200"
-                    >
-                      <ChevronLeft size={14} strokeWidth={1.5} />
-                    </Link>
-                  )}
-                  {nextArtwork && (
-                    <Link
-                      to={`/product/${nextArtwork.id}`}
-                      className="w-9 h-9 border border-white/20 flex items-center justify-center text-white/50 hover:text-white hover:border-white/60 transition-all duration-200"
-                    >
-                      <ChevronRight size={14} strokeWidth={1.5} />
-                    </Link>
-                  )}
-                </div>
-
-                {/* Short name label */}
-                <div className="absolute top-20 left-8">
-                  <p className="text-white/30 text-[10px] font-light tracking-[0.4em] uppercase">
-                    {artwork.shortName}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT — BuyBox + scrollable content */}
-            <div className="lg:w-[40%]">
-              {/* BuyBox — visible in first viewport on desktop */}
-              <div ref={buyBoxRef} className="lg:min-h-screen">
-                <BuyBox
-                  name={artwork.name[language]}
-                  price={formatPrice(artwork.price[currency], currency)}
-                  selectedSize={selectedSize}
-                  onSizeChange={setSelectedSize}
-                  onBuyNow={handleBuyNow}
-                  onAddToCart={handleAddToCart}
-                  language={language}
-                  onOpenSizeGuide={() => setSizeGuideOpen(true)}
-                  material={t("material")}
-                />
-              </div>
-
-              {/* ── DETAILS ───────────────────────────────────────── */}
-              <section className="bg-black px-8 lg:px-10 py-16 border-t border-white/10 space-y-10">
-                {/* Color palette */}
-                <div className="space-y-3">
-                  <p className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase">
-                    Palette
-                  </p>
-                  <div className="flex gap-2">
-                    {artwork.colorPalette.map((color, i) => (
-                      <div
-                        key={i}
-                        className="w-7 h-7 rounded-full border border-white/10"
-                        style={{ backgroundColor: color }}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Concept */}
-                <div className="space-y-3">
-                  <p className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase">
-                    Concept
-                  </p>
-                  <p className="text-white/70 text-sm font-light leading-[180%]">
-                    {artwork.concept[language]}
-                  </p>
-                </div>
-
-                {/* Spec grid */}
-                <div className="grid grid-cols-1 gap-4 pt-4 border-t border-white/10">
-                  {[
-                    { label: t("materialLabel"), value: t("material") },
-                    { label: t("size"), value: t("sizeInfo") },
-                    { label: "Edition", value: t("limited") },
-                    { label: "Details", value: t("details") },
-                  ].map(({ label, value }) => (
-                    <div key={label} className="flex gap-6">
-                      <span className="text-white/30 text-[10px] font-light tracking-[0.2em] uppercase w-20 flex-shrink-0 pt-0.5">
-                        {label}
-                      </span>
-                      <span className="text-white/60 text-xs font-light leading-relaxed">
-                        {value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* ── TCDA PHILOSOPHY (compressed) ─────────────────── */}
-              <section className="bg-black px-8 lg:px-10 py-12 border-t border-white/5">
-                <p className="text-white/25 text-xs font-light leading-[200%] tracking-wide">
-                  {t("philosophyBlock")}
-                </p>
-              </section>
-
-              {/* ── RELATED PRODUCTS ──────────────────────────────── */}
-              <section className="bg-black px-8 lg:px-10 py-16 border-t border-white/10">
-                <p className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase mb-8">
-                  {t("relatedProducts")}
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  {related.slice(0, 4).map((rel) => (
-                    <Link key={rel.id} to={`/product/${rel.id}`} className="group block">
-                      <div className="aspect-[3/4] overflow-hidden bg-white/5 mb-3">
-                        <ImageWithFallback
-                          src={rel.imageUrl}
-                          alt={rel.name[language]}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                      </div>
-                      <p className="text-white/60 text-[10px] font-light tracking-widest uppercase group-hover:text-white transition-colors duration-300">
-                        {rel.shortName}
-                      </p>
-                      <p className="text-white/40 text-xs font-extralight mt-1">
-                        {formatPrice(rel.price[currency], currency)}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            </div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-      {/* ── MOBILE STICKY CTA ───────────────────────────────────── */}
-      <AnimatePresence>
-        {mobileCTAVisible && (
+      {/* MAIN: image + info */}
+      <section className="px-8 md:px-20 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          {/* Left: Image */}
           <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-t border-white/10 px-6 py-4 flex items-center gap-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="aspect-[3/4] overflow-hidden bg-black/5"
           >
-            <div className="flex-1 min-w-0">
-              <p className="text-white text-xs font-light truncate">{artwork.shortName}</p>
-              <p className="text-white/50 text-xs font-extralight">
-                {formatPrice(artwork.price[currency], currency)}
+            <ImageWithFallback
+              src={product.thumbnail_url}
+              alt={product.name}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          {/* Right: Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col gap-8 pt-4"
+          >
+            {/* Name */}
+            <h1 className="text-black text-2xl font-light tracking-widest uppercase">
+              {product.name}
+            </h1>
+
+            {/* Price */}
+            <p className="text-black text-xl font-light">
+              {formatPrice(convertedPrice, currency)}
+            </p>
+
+            {/* Stock */}
+            {product.stock <= 5 ? (
+              <p className="text-red-500 text-xs font-light tracking-widest">
+                残り{product.stock}点
+              </p>
+            ) : (
+              <p className="text-black text-xs font-light opacity-40 tracking-widest">
+                残り{product.stock}点
+              </p>
+            )}
+
+            {/* Size selection */}
+            <div>
+              <p className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-40 mb-4">
+                Size
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {(product.sizes ?? ["XS", "S", "M", "L", "XL", "2XL"]).map((size) => (
+                  <button
+                    key={size}
+                    onClick={() => setSelectedSize(size)}
+                    className={`w-14 h-14 flex items-center justify-center text-xs font-light tracking-widest uppercase transition-all duration-300 ${
+                      selectedSize === size
+                        ? "bg-black text-white"
+                        : "bg-white text-black border border-black/20 hover:border-black/60"
+                    }`}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* ADD TO CART */}
+            <button
+              onClick={handleAddToCart}
+              disabled={!selectedSize}
+              className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.3em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-30"
+            >
+              {added ? "ADDED" : "ADD TO CART"}
+            </button>
+
+            {/* Delivery */}
+            <div className="border-t border-black/10 pt-6">
+              <p className="text-black text-xs font-light tracking-widest uppercase opacity-40 mb-2">
+                Delivery
+              </p>
+              <p className="text-black text-xs font-light opacity-60 leading-relaxed">
+                通常5〜10営業日でお届け
               </p>
             </div>
-            <button
-              onClick={handleBuyNow}
-              className="flex-shrink-0 px-6 py-3 bg-white text-black text-xs font-light tracking-[0.2em] uppercase hover:bg-white/90 transition-colors duration-200"
-            >
-              {t("ctaText")}
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
-      {/* Size Guide Modal */}
-      <SizeGuideModal
-        isOpen={sizeGuideOpen}
-        onClose={() => setSizeGuideOpen(false)}
-        language={language}
-      />
+            {/* Model info */}
+            <div className="border-t border-black/10 pt-6">
+              <p className="text-black text-xs font-light tracking-widest uppercase opacity-40 mb-2">
+                Model
+              </p>
+              <p className="text-black text-xs font-light opacity-60 leading-relaxed">
+                モデル身長180cm / Mサイズ着用
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* DETAILS SECTION */}
+      <section className="px-8 md:px-20 max-w-7xl mx-auto mt-24 space-y-16 pb-32">
+        {/* Material */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="border-t border-black/10 pt-8"
+        >
+          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+            Material &amp; Details
+          </h2>
+          <p className="text-black text-sm font-light opacity-60 leading-relaxed">
+            100% polyester, sublimation print. Machine wash cold. Do not tumble dry.
+            All-over dye sublimation process produces vibrant, fade-resistant graphics
+            that are part of the fabric itself.
+          </p>
+        </motion.div>
+
+        {/* Size table */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="border-t border-black/10 pt-8"
+        >
+          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-6">
+            Size Guide (cm)
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs font-light">
+              <thead>
+                <tr className="border-b border-black/10">
+                  <th className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
+                    Size
+                  </th>
+                  <th className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
+                    Chest (cm)
+                  </th>
+                  <th className="text-left py-2 text-black opacity-40 font-light tracking-widest uppercase">
+                    Length (cm)
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {SIZE_TABLE.map((row) => (
+                  <tr key={row.size} className="border-b border-black/5">
+                    <td className="py-3 pr-8 text-black opacity-70">{row.size}</td>
+                    <td className="py-3 pr-8 text-black opacity-70">{row.chest}</td>
+                    <td className="py-3 text-black opacity-70">{row.length}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </motion.div>
+
+        {/* Shipping & Returns */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="border-t border-black/10 pt-8"
+        >
+          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+            Shipping &amp; Returns
+          </h2>
+          <p className="text-black text-sm font-light opacity-60 leading-relaxed">
+            Orders are processed within 2–5 business days via Printful. Delivery typically
+            takes 5–10 business days depending on region. Returns are accepted within 14 days
+            for defective or incorrect items. Customers are responsible for return shipping costs
+            unless the item is defective.
+          </p>
+        </motion.div>
+
+        {/* FAQ */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="border-t border-black/10 pt-8"
+        >
+          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-6">
+            FAQ
+          </h2>
+          <div className="space-y-0">
+            {FAQ.map((item, i) => (
+              <div key={i} className="border-b border-black/10">
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full text-left py-4 flex justify-between items-center"
+                >
+                  <span className="text-black text-sm font-light opacity-80">{item.q}</span>
+                  <span className="text-black text-xs font-light opacity-40 ml-4">
+                    {openFaq === i ? "−" : "+"}
+                  </span>
+                </button>
+                {openFaq === i && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="text-black text-xs font-light opacity-60 leading-relaxed pb-4"
+                  >
+                    {item.a}
+                  </motion.p>
+                )}
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
     </div>
   );
 }

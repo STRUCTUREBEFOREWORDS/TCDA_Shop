@@ -68,13 +68,13 @@ export function ArchivePage() {
               >
                 <div className="group">
                   <Link to={`/product/${product.id}`}>
-                  <div className="relative aspect-[3/4] overflow-hidden bg-black/5 mb-4">
-                    <img
-                      src={product.thumbnail_url}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                    />
-                  </div>
+                    <div className="relative aspect-[3/4] overflow-hidden bg-black/5 mb-4">
+                      <img
+                        src={product.thumbnail_url}
+                        alt={product.name}
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                      />
+                    </div>
                   </Link>
                   <div className="space-y-1.5">
                     <h3 className="text-black text-xs font-light tracking-widest uppercase opacity-70">

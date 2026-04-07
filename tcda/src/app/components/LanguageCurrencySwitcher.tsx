@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 
 export type Language = "en" | "ja" | "fr";
-export type Currency = "USD" | "JPY" | "EUR";
+export type Currency = "USD" | "EUR" | "GBP" | "JPY" | "KRW" | "CNY";
 
 interface LanguageCurrencySwitcherProps {
   language: Language;
@@ -22,7 +22,7 @@ export function LanguageCurrencySwitcher({
     { code: "fr", label: "FR" },
   ];
 
-  const currencies: Currency[] = ["USD", "JPY", "EUR"];
+  const currencies: Currency[] = ["USD", "EUR", "GBP", "JPY", "KRW", "CNY"];
 
   return (
     <motion.div
