@@ -5,6 +5,19 @@ import { useGlobalContext } from "./Root";
 import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
+function toFraction(value: number | string): string {
+  const num = typeof value === 'string' ? parseFloat(value) : value;
+  if (isNaN(num)) return String(value);
+  const whole = Math.floor(num);
+  const decimal = Math.round((num - whole) * 8) / 8;
+  const fractionMap: Record<number, string> = {
+    0: '', 0.125: '⅛', 0.25: '¼', 0.375: '⅜',
+    0.5: '½', 0.625: '⅝', 0.75: '¾', 0.875: '⅞',
+  };
+  const frac = fractionMap[decimal] ?? '';
+  return whole === 0 ? (frac || '0') : frac ? `${whole}${frac}` : `${whole}`;
+}
+
 interface Variant {
   id: number;
   size: string;
@@ -388,7 +401,7 @@ export function ProductPage() {
                     <tr key={size} className="border-b border-black/5">
                       <td className="py-3 pr-8 text-black opacity-70">{size}</td>
                       {values.map((v, i) => (
-                        <td key={i} className="py-3 pr-8 text-black opacity-70">{v}</td>
+                        <td key={i} className="py-3 pr-8 text-black opacity-70">{sizeUnit === 'inch' ? toFraction(v) : v}</td>
                       ))}
                     </tr>
                   ))}
