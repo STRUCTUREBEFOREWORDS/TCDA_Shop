@@ -23,7 +23,9 @@ interface Product {
   stock: number;
   variants: Variant[];
   size_category?: string;
+  fabric_composition?: string;
   description?: string;
+  printful_variant_id?: number;
 }
 
 interface SizeChartUnit {
@@ -312,10 +314,8 @@ export function ProductPage() {
           <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
             Material &amp; Details
           </h2>
-          <p className="text-black text-sm font-light opacity-60 leading-relaxed">
-            100% polyester, sublimation print. Machine wash cold. Do not tumble dry.
-            All-over dye sublimation process produces vibrant, fade-resistant graphics
-            that are part of the fabric itself.
+          <p className="text-black text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
+            {product.fabric_composition || '100% polyester, sublimation print. Machine wash cold. Do not tumble dry. All-over dye sublimation process produces vibrant, fade-resistant graphics that are part of the fabric itself.'}
           </p>
         </motion.div>
 
