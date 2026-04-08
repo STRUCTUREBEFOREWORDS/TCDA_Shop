@@ -22,16 +22,24 @@ interface Product {
   sizes: string[];
   stock: number;
   variants: Variant[];
+  size_category?: string;
 }
 
-const SIZE_TABLE: { size: string; chest: string; length: string }[] = [
-  { size: "XS", chest: "86-91", length: "66" },
-  { size: "S",  chest: "91-97", length: "69" },
-  { size: "M",  chest: "97-102", length: "71" },
-  { size: "L",  chest: "107-112", length: "74" },
-  { size: "XL", chest: "117-122", length: "76" },
-  { size: "2XL", chest: "127-132", length: "79" },
-];
+interface SizeChartRow {
+  size: string;
+  chest_cm?: number;
+  length_cm?: number;
+  waist_cm?: number;
+  hip_cm?: number;
+  chest_inch?: number;
+  length_inch?: number;
+  waist_inch?: number;
+  hip_inch?: number;
+}
+
+interface SizeChart {
+  rows: SizeChartRow[];
+}
 
 const FAQ = [
   {
@@ -56,15 +64,23 @@ export function ProductPage() {
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [added, setAdded] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [sizeUnit, setSizeUnit] = useState<'cm' | 'inch'>('cm');
+  const [sizeChart, setSizeChart] = useState<SizeChart | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
     setLoading(true);
+    setSizeChart(null);
     fetch(`https://api.tcdashop.com/products/${id}`)
       .then((res) => res.json())
-      .then((data: Product) => {
+      .then(async (data: Product) => {
         setProduct(data);
         if (data.sizes?.length) setSelectedSize(data.sizes[0]);
+        if (data.size_category) {
+          const chartRes = await fetch(`https://api.tcdashop.com/size-charts/${data.size_category}`);
+          const chartData = await chartRes.json();
+          setSizeChart(chartData);
+        }
       })
       .finally(() => setLoading(false));
   }, [id]);
@@ -101,6 +117,16 @@ export function ProductPage() {
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
+
+  // Derive chart columns based on available keys in first row
+  const chartColumns = sizeChart?.rows?.[0]
+    ? Object.keys(sizeChart.rows[0])
+        .filter((k) => k !== "size" && k.endsWith(sizeUnit === 'cm' ? '_cm' : '_inch'))
+        .map((k) => ({
+          key: k,
+          label: k.replace(`_${sizeUnit}`, '').replace(/_/g, ' '),
+        }))
+    : [];
 
   return (
     <div className="min-h-screen bg-white pt-20">
@@ -241,35 +267,61 @@ export function ProductPage() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="border-t border-black/10 pt-8"
         >
-          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-6">
-            Size Guide (cm)
-          </h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs font-light">
-              <thead>
-                <tr className="border-b border-black/10">
-                  <th className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
-                    Size
-                  </th>
-                  <th className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
-                    Chest (cm)
-                  </th>
-                  <th className="text-left py-2 text-black opacity-40 font-light tracking-widest uppercase">
-                    Length (cm)
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {SIZE_TABLE.map((row) => (
-                  <tr key={row.size} className="border-b border-black/5">
-                    <td className="py-3 pr-8 text-black opacity-70">{row.size}</td>
-                    <td className="py-3 pr-8 text-black opacity-70">{row.chest}</td>
-                    <td className="py-3 text-black opacity-70">{row.length}</td>
-                  </tr>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase">
+              Size Guide
+            </h2>
+            {sizeChart && (
+              <div className="flex gap-1">
+                {(['cm', 'inch'] as const).map((unit) => (
+                  <button
+                    key={unit}
+                    onClick={() => setSizeUnit(unit)}
+                    className={`px-3 py-1 text-[10px] font-light tracking-widest uppercase transition-all duration-200 ${
+                      sizeUnit === unit
+                        ? "bg-black text-white"
+                        : "text-black/40 hover:text-black/70"
+                    }`}
+                  >
+                    {unit}
+                  </button>
                 ))}
-              </tbody>
-            </table>
+              </div>
+            )}
           </div>
+
+          {sizeChart ? (
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs font-light">
+                <thead>
+                  <tr className="border-b border-black/10">
+                    <th className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
+                      Size
+                    </th>
+                    {chartColumns.map((col) => (
+                      <th key={col.key} className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
+                        {col.label} ({sizeUnit})
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {sizeChart.rows.map((row) => (
+                    <tr key={row.size} className="border-b border-black/5">
+                      <td className="py-3 pr-8 text-black opacity-70">{row.size}</td>
+                      {chartColumns.map((col) => (
+                        <td key={col.key} className="py-3 pr-8 text-black opacity-70">
+                          {row[col.key as keyof SizeChartRow] ?? "—"}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="text-black text-xs font-light opacity-30">—</p>
+          )}
         </motion.div>
 
         {/* Shipping & Returns */}
