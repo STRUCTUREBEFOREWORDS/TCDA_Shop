@@ -29,6 +29,28 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('en');
   const [currency, setCurrency] = useState<Currency>('USD');
   const [rates, setRates] = useState<Record<Currency, number>>(fallbackRates);
+
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then((res) => res.json())
+      .then((data) => {
+        const country = data.country_code;
+        const lang = data.languages?.split(',')[0]?.split('-')[0] || 'en';
+        const currencyMap: Record<string, Currency> = {
+          JP: 'JPY', US: 'USD', GB: 'GBP',
+          KR: 'KRW', CN: 'CNY',
+          DE: 'EUR', FR: 'EUR', IT: 'EUR', ES: 'EUR',
+          NL: 'EUR', BE: 'EUR', AT: 'EUR', PT: 'EUR',
+        };
+        const langMap: Record<string, Language> = {
+          ja: 'ja', en: 'en', ko: 'ko', zh: 'zh', fr: 'fr', es: 'es',
+        };
+        if (currencyMap[country]) setCurrency(currencyMap[country]);
+        if (langMap[lang]) setLanguage(langMap[lang]);
+      })
+      .catch(() => {});
+  }, []);
+
   useEffect(() => {
     fetch('https://api.tcdashop.com/exchange-rates')
       .then((res) => res.json())
