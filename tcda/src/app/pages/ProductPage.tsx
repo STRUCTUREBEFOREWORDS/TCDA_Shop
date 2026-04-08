@@ -67,6 +67,7 @@ export function ProductPage() {
   const [sizeChart, setSizeChart] = useState<SizeChart | null>(null);
   const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [deliveryDate, setDeliveryDate] = useState<{ min: string; max: string } | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -84,6 +85,20 @@ export function ProductPage() {
           const chartRes = await fetch(`https://api.tcdashop.com/size-charts/${data.size_category}`);
           const chartData = await chartRes.json();
           setSizeChart(chartData);
+        }
+        if (data.printful_variant_id) {
+          const currencyToCountry: Record<string, string> = {
+            JPY: 'JP', USD: 'US', EUR: 'DE', GBP: 'GB', KRW: 'KR', CNY: 'CN',
+          };
+          const countryCode = currencyToCountry[currency] ?? 'US';
+          fetch(`https://api.tcdashop.com/shipping/rates?country_code=${countryCode}&variant_id=${data.printful_variant_id}`)
+            .then((r) => r.json())
+            .then((d) => {
+              if (d.min_delivery_date && d.max_delivery_date) {
+                setDeliveryDate({ min: d.min_delivery_date, max: d.max_delivery_date });
+              }
+            })
+            .catch(() => {});
         }
       })
       .finally(() => setLoading(false));
@@ -384,6 +399,13 @@ export function ProductPage() {
             <p className="text-black text-xs font-light opacity-30">サイズ情報を準備中です</p>
           )}
         </motion.div>
+
+        {/* Delivery date */}
+        {deliveryDate && (
+          <p style={{ fontSize: '0.85rem', color: '#888', marginTop: '8px' }}>
+            お届け予定：{deliveryDate.min} 〜 {deliveryDate.max}
+          </p>
+        )}
 
         {/* Notes */}
         {product.description && (
