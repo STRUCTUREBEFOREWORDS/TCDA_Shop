@@ -290,7 +290,7 @@ export function ProductPage() {
             )}
           </div>
 
-          {sizeChart ? (
+          {sizeChart && sizeChart.rows && sizeChart.rows.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="w-full text-xs font-light">
                 <thead>
@@ -320,7 +320,7 @@ export function ProductPage() {
               </table>
             </div>
           ) : (
-            <p className="text-black text-xs font-light opacity-30">—</p>
+            <p className="text-black text-xs font-light opacity-30">サイズ情報を準備中です</p>
           )}
         </motion.div>
 
