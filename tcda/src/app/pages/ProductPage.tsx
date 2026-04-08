@@ -18,6 +18,7 @@ interface Product {
   name: string;
   price: number;
   thumbnail_url: string;
+  images?: string[];
   sizes: string[];
   stock: number;
   variants: Variant[];
@@ -95,7 +96,7 @@ export function ProductPage() {
       price_jpy: product.price,
       currency,
       size: selectedSize,
-      imageUrl: product.thumbnail_url,
+      imageUrl: product.images?.[0] || product.thumbnail_url,
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
@@ -124,7 +125,7 @@ export function ProductPage() {
             className="aspect-[3/4] overflow-hidden bg-black/5"
           >
             <ImageWithFallback
-              src={product.thumbnail_url}
+              src={product.images?.[0] || product.thumbnail_url}
               alt={product.name}
               className="w-full h-full object-cover"
             />
