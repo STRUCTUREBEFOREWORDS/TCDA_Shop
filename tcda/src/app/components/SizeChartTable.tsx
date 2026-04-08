@@ -1,6 +1,19 @@
 import { useState } from 'react';
 import { useSizeChart } from '../hooks/useSizeChart';
 
+function toFraction(value: number | string): string {
+  const num = typeof value === 'string' ? parseFloat(value) : value;
+  if (isNaN(num)) return String(value);
+  const whole = Math.floor(num);
+  const decimal = Math.round((num - whole) * 8) / 8;
+  const fractionMap: Record<number, string> = {
+    0: '', 0.125: '⅛', 0.25: '¼', 0.375: '⅜',
+    0.5: '½', 0.625: '⅝', 0.75: '¾', 0.875: '⅞',
+  };
+  const frac = fractionMap[decimal] ?? '';
+  return whole === 0 ? (frac || '0') : frac ? `${whole}${frac}` : `${whole}`;
+}
+
 type Unit = 'cm' | 'inch';
 
 interface SizeChartTableProps {
@@ -63,7 +76,7 @@ export function SizeChartTable({ category }: SizeChartTableProps) {
                 <td className="py-3 pr-4 text-left tracking-widest">{size}</td>
                 {values.map((v, i) => (
                   <td key={i} className="py-3 pr-4 text-right last:pr-0">
-                    {v}
+                    {unit === 'inch' ? toFraction(v) : v}
                   </td>
                 ))}
               </tr>
