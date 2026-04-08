@@ -25,21 +25,19 @@ interface Product {
   size_category?: string;
 }
 
-interface SizeChartRow {
-  size: string;
-  chest_cm?: number;
-  length_cm?: number;
-  waist_cm?: number;
-  hip_cm?: number;
-  chest_inch?: number;
-  length_inch?: number;
-  waist_inch?: number;
-  hip_inch?: number;
+interface SizeChartUnit {
+  sizes: Record<string, number[]>;
+  measurements: string[];
 }
 
 interface SizeChart {
-  rows: SizeChartRow[];
+  chart_data: {
+    unit_cm: SizeChartUnit;
+    unit_inch: SizeChartUnit;
+  };
 }
+
+const SIZE_ORDER = ["2XS","XS","S","M","L","XL","2XL","3XL","4XL","5XL","6XL"];
 
 const FAQ = [
   {
@@ -118,14 +116,11 @@ export function ProductPage() {
     setTimeout(() => setAdded(false), 2000);
   };
 
-  // Derive chart columns based on available keys in first row
-  const chartColumns = sizeChart?.rows?.[0]
-    ? Object.keys(sizeChart.rows[0])
-        .filter((k) => k !== "size" && k.endsWith(sizeUnit === 'cm' ? '_cm' : '_inch'))
-        .map((k) => ({
-          key: k,
-          label: k.replace(`_${sizeUnit}`, '').replace(/_/g, ' '),
-        }))
+  const chartUnit = sizeChart?.chart_data?.[sizeUnit === 'cm' ? 'unit_cm' : 'unit_inch'];
+  const chartSizeEntries = chartUnit
+    ? Object.entries(chartUnit.sizes).sort(
+        (a, b) => SIZE_ORDER.indexOf(a[0]) - SIZE_ORDER.indexOf(b[0])
+      )
     : [];
 
   return (
@@ -290,7 +285,7 @@ export function ProductPage() {
             )}
           </div>
 
-          {sizeChart && sizeChart.rows && sizeChart.rows.length > 0 ? (
+          {chartUnit && chartSizeEntries.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="w-full text-xs font-light">
                 <thead>
@@ -298,21 +293,19 @@ export function ProductPage() {
                     <th className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
                       Size
                     </th>
-                    {chartColumns.map((col) => (
-                      <th key={col.key} className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
-                        {col.label} ({sizeUnit})
+                    {chartUnit.measurements.map((m) => (
+                      <th key={m} className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
+                        {m} ({sizeUnit})
                       </th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {sizeChart.rows.map((row) => (
-                    <tr key={row.size} className="border-b border-black/5">
-                      <td className="py-3 pr-8 text-black opacity-70">{row.size}</td>
-                      {chartColumns.map((col) => (
-                        <td key={col.key} className="py-3 pr-8 text-black opacity-70">
-                          {row[col.key as keyof SizeChartRow] ?? "—"}
-                        </td>
+                  {chartSizeEntries.map(([size, values]) => (
+                    <tr key={size} className="border-b border-black/5">
+                      <td className="py-3 pr-8 text-black opacity-70">{size}</td>
+                      {values.map((v, i) => (
+                        <td key={i} className="py-3 pr-8 text-black opacity-70">{v}</td>
                       ))}
                     </tr>
                   ))}
