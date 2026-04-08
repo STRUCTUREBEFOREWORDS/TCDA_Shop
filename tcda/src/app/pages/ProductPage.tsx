@@ -23,6 +23,7 @@ interface Product {
   stock: number;
   variants: Variant[];
   size_category?: string;
+  description?: string;
 }
 
 interface SizeChartUnit {
@@ -303,6 +304,24 @@ export function ProductPage() {
           </p>
         </motion.div>
 
+        {/* Description */}
+        {product.description && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="border-t border-black/10 pt-8"
+          >
+            <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+              Description
+            </h2>
+            <p className="text-black text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
+              {product.description}
+            </p>
+          </motion.div>
+        )}
+
         {/* Size table */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -365,6 +384,25 @@ export function ProductPage() {
             <p className="text-black text-xs font-light opacity-30">サイズ情報を準備中です</p>
           )}
         </motion.div>
+
+        {/* Notes */}
+        {product.description && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="border-t border-black/10 pt-8"
+          >
+            <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+              ご注意
+            </h2>
+            <ul className="text-black text-sm font-light opacity-60 leading-relaxed space-y-2">
+              <li>・モニター環境や照明条件により、実物と色味が異なる場合があります</li>
+              <li>・海外生産品のため、梱包に軽微な擦れや凹みが生じる場合があります</li>
+            </ul>
+          </motion.div>
+        )}
 
         {/* Shipping & Returns */}
         <motion.div
