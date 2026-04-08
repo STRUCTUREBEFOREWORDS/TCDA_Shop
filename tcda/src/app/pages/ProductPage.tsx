@@ -64,6 +64,8 @@ export function ProductPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [sizeUnit, setSizeUnit] = useState<'cm' | 'inch'>('cm');
   const [sizeChart, setSizeChart] = useState<SizeChart | null>(null);
+  const [images, setImages] = useState<string[]>([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -73,6 +75,9 @@ export function ProductPage() {
       .then((res) => res.json())
       .then(async (data: Product) => {
         setProduct(data);
+        const imageList = data.images?.length ? data.images : [data.thumbnail_url];
+        setImages(imageList);
+        setCurrentImageIndex(0);
         if (data.sizes?.length) setSelectedSize(data.sizes[0]);
         if (data.size_category) {
           const chartRes = await fetch(`https://api.tcdashop.com/size-charts/${data.size_category}`);
@@ -143,13 +148,57 @@ export function ProductPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="aspect-[3/4] overflow-hidden bg-black/5"
+            className="flex flex-col gap-4"
           >
-            <ImageWithFallback
-              src={product.images?.[0] || product.thumbnail_url}
-              alt={product.name}
-              className="w-full h-full object-cover"
-            />
+            {/* Main image */}
+            <div className="relative aspect-[3/4] overflow-hidden bg-black/5">
+              <ImageWithFallback
+                src={images[currentImageIndex] || product.thumbnail_url}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={() => setCurrentImageIndex((i) => Math.max(i - 1, 0))}
+                    disabled={currentImageIndex === 0}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-white/80 text-black disabled:opacity-20 transition-opacity duration-200"
+                    aria-label="前の画像"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    onClick={() => setCurrentImageIndex((i) => Math.min(i + 1, images.length - 1))}
+                    disabled={currentImageIndex === images.length - 1}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-white/80 text-black disabled:opacity-20 transition-opacity duration-200"
+                    aria-label="次の画像"
+                  >
+                    ›
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Thumbnails */}
+            {images.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto pb-1">
+                {images.map((src, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentImageIndex(i)}
+                    className={`flex-shrink-0 w-16 aspect-[3/4] overflow-hidden bg-black/5 transition-all duration-200 ${
+                      i === currentImageIndex ? "ring-1 ring-black" : "opacity-50 hover:opacity-80"
+                    }`}
+                  >
+                    <ImageWithFallback
+                      src={src}
+                      alt={`${product.name} ${i + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </motion.div>
 
           {/* Right: Info */}
