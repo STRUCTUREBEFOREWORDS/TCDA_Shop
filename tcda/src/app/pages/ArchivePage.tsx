@@ -11,6 +11,7 @@ interface Product {
   price: number;
   printful_product_id: number;
   thumbnail_url: string;
+  images?: string[];
 }
 
 export function ArchivePage() {
@@ -68,7 +69,7 @@ export function ArchivePage() {
                   <Link to={`/product/${product.id}`}>
                     <div className="relative aspect-[3/4] overflow-hidden bg-black/5 mb-4">
                       <img
-                        src={product.thumbnail_url}
+                        src={product.images?.[0] || product.thumbnail_url}
                         alt={product.name}
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                       />
