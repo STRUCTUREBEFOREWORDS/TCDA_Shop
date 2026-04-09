@@ -7,12 +7,12 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 const CDN = "https://cdn.tcdashop.com/look";
 
 const LOOKS = [
-  { img: `${CDN}/001.webp`, name: "Unisex Zip Hoodie", productId: "e6dfc933-6c59-46c6-9858-ed2f06cdd2d6", span: "full" },
+  { img: `${CDN}/001.webp`, name: "Unisex Zip Hoodie", productId: "4a69aec4-915d-4bd5-9eed-ccbd2b50c0ae", span: "full" },
   { img: `${CDN}/002.webp`, name: "Unisex Zip Hoodie", productId: "e8437d7c-e040-44da-a5c0-211996a6f75a", span: "half" },
-  { img: `${CDN}/003.webp`, name: "Unisex Zip Hoodie", productId: "4a69aec4-915d-4bd5-9eed-ccbd2b50c0ae", span: "half" },
-  { img: `${CDN}/004.webp`, name: "Unisex Hoodie", productId: "42aa7b08-c68a-489a-a7ac-9bc14263adee", span: "half" },
+  { img: `${CDN}/003.webp`, name: "Unisex Zip Hoodie", productId: "e6dfc933-6c59-46c6-9858-ed2f06cdd2d6", span: "half" },
+  { img: `${CDN}/004.webp`, name: "Unisex Hoodie", productId: "80f7385f-2d2d-4a00-a2b9-73fc1db31540", span: "half" },
   { img: `${CDN}/005.webp`, name: "Unisex Hoodie", productId: "923fb75d-33e3-4d36-83ae-b1d11bd8a321", span: "half" },
-  { img: `${CDN}/006.webp`, name: "Unisex Hoodie", productId: "80f7385f-2d2d-4a00-a2b9-73fc1db31540", span: "full" },
+  { img: `${CDN}/006.webp`, name: "Unisex Hoodie", productId: "42aa7b08-c68a-489a-a7ac-9bc14263adee", span: "full" },
   { img: `${CDN}/007.webp`, name: "Men's T-shirt", productId: "624896bf-d906-425b-ae3c-bf64f95142ee", span: "full" },
   { img: `${CDN}/008.webp`, name: "Men's T-shirt", productId: "a0af00b9-8743-426b-be56-433c671a7ee1", span: "half" },
   { img: `${CDN}/009.webp`, name: "Men's T-shirt", productId: "3c2c6e54-99ab-496a-b392-26dacd5fa1c8", span: "half" },
@@ -67,7 +67,7 @@ export function LookbookPage() {
                 key={idx}
                 to={`/product/${look.productId}`}
                 className="group relative overflow-hidden flex-1"
-                style={{ height: row.length === 1 ? "100vh" : "70vh" }}
+                style={{ height: row.length === 1 ? "100vh" : "60vh" }}
               >
                 <ImageWithFallback
                   src={look.img}
