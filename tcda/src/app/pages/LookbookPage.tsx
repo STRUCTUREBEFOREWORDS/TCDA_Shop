@@ -4,11 +4,10 @@ import { useGlobalContext } from "./Root";
 import { getTranslation } from "../data/translations";
 import { useProducts } from "../hooks/useProducts";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { useApp } from "../context/AppContext";
 
 export function LookbookPage() {
-  const { language } = useGlobalContext();
-  const { convertPrice, getCurrencySymbol } = useApp();
+  const { language, currency } = useGlobalContext();
+  const convertPrice = (price: number) => price;
   const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
   const { products, loading } = useProducts();
 
@@ -66,7 +65,7 @@ export function LookbookPage() {
                     {product.name}
                   </p>
                   <p className="text-white/60 text-sm font-extralight tracking-wider group-hover:text-white transition-colors duration-300">
-                    {getCurrencySymbol()}{convertPrice(product.price).toLocaleString()}
+                    {currency === 'JPY' ? '¥' : '$'}{convertPrice(product.price).toLocaleString()}
                   </p>
                   <span className="text-white/30 text-[9px] font-light tracking-[0.3em] uppercase border-b border-white/20 pb-0.5 group-hover:text-white/60 group-hover:border-white/50 transition-all duration-300">
                     VIEW ITEM
