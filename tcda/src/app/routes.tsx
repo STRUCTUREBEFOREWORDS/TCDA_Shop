@@ -9,6 +9,8 @@ import { CheckoutPage } from "./pages/CheckoutPage";
 import { PaymentSuccessPage } from "./pages/PaymentSuccessPage";
 import { PaymentCancelledPage } from "./pages/PaymentCancelledPage";
 import { LookbookPage } from "./pages/LookbookPage";
+import { LegalPage } from "./pages/LegalPage";
+import { PrivacyPage } from "./pages/PrivacyPage";
 import { NotFound } from "./pages/NotFound";
 
 export const router = createBrowserRouter([
@@ -28,6 +30,8 @@ export const router = createBrowserRouter([
       { path: "payment-success", Component: PaymentSuccessPage },
       { path: "payment-cancelled", Component: PaymentCancelledPage },
       { path: "about", Component: AboutPage },
+      { path: "legal", Component: LegalPage },
+      { path: "privacy", Component: PrivacyPage },
       { path: "*", Component: NotFound },
     ],
   },
