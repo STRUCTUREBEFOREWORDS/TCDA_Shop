@@ -2,23 +2,41 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useGlobalContext } from "./Root";
 import { getTranslation } from "../data/translations";
-import { useProducts } from "../hooks/useProducts";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
+const CDN = "https://cdn.tcdashop.com/look";
+
+const LOOKS = [
+  { img: `${CDN}/001.webp`, name: "Unisex Zip Hoodie", productId: "e6dfc933-6c59-46c6-9858-ed2f06cdd2d6", span: "full" },
+  { img: `${CDN}/002.webp`, name: "Unisex Zip Hoodie", productId: "e8437d7c-e040-44da-a5c0-211996a6f75a", span: "half" },
+  { img: `${CDN}/003.webp`, name: "Unisex Zip Hoodie", productId: "4a69aec4-915d-4bd5-9eed-ccbd2b50c0ae", span: "half" },
+  { img: `${CDN}/004.webp`, name: "Unisex Hoodie", productId: "42aa7b08-c68a-489a-a7ac-9bc14263adee", span: "half" },
+  { img: `${CDN}/005.webp`, name: "Unisex Hoodie", productId: "923fb75d-33e3-4d36-83ae-b1d11bd8a321", span: "half" },
+  { img: `${CDN}/006.webp`, name: "Unisex Hoodie", productId: "80f7385f-2d2d-4a00-a2b9-73fc1db31540", span: "full" },
+  { img: `${CDN}/007.webp`, name: "Men's T-shirt", productId: "624896bf-d906-425b-ae3c-bf64f95142ee", span: "full" },
+  { img: `${CDN}/008.webp`, name: "Men's T-shirt", productId: "a0af00b9-8743-426b-be56-433c671a7ee1", span: "half" },
+  { img: `${CDN}/009.webp`, name: "Men's T-shirt", productId: "3c2c6e54-99ab-496a-b392-26dacd5fa1c8", span: "half" },
+  { img: `${CDN}/010.webp`, name: "Men's T-shirt", productId: "88314d0d-cbc5-4c63-9d5c-b6c2f0d8a44d", span: "full" },
+  { img: `${CDN}/011.webp`, name: "Women's T-shirt", productId: "d5664f2e-776c-44a7-ae81-ac29c3775cb1", span: "half" },
+  { img: `${CDN}/012.webp`, name: "Women's T-shirt", productId: "a75e2f20-f668-46c5-a2b7-54df0d133f9d", span: "half" },
+  { img: `${CDN}/013.webp`, name: "Women's T-shirt", productId: "dc0db78d-864c-40bd-89a8-0defa8f74b40", span: "full" },
+  { img: `${CDN}/014.webp`, name: "Women's T-shirt", productId: "f4aff5c0-c546-44c5-b79e-866805ab8ea2", span: "full" },
+];
+
 export function LookbookPage() {
-  const { language, currency } = useGlobalContext();
-  const convertPrice = (price: number) => price;
+  const { language } = useGlobalContext();
   const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
-  const { products, loading } = useProducts();
 
-  const looks = products.filter(p => p.images && p.images.length > 0);
-
-  if (loading) {
-    return (
-      <div className="bg-black min-h-screen flex items-center justify-center">
-        <p className="text-white/20 text-xs tracking-[0.3em]">LOADING...</p>
-      </div>
-    );
+  const rows: (typeof LOOKS[number])[][] = [];
+  let i = 0;
+  while (i < LOOKS.length) {
+    if (LOOKS[i].span === "full") {
+      rows.push([LOOKS[i]]);
+      i++;
+    } else {
+      rows.push([LOOKS[i], LOOKS[i + 1]].filter(Boolean) as typeof LOOKS);
+      i += 2;
+    }
   }
 
   return (
@@ -34,62 +52,39 @@ export function LookbookPage() {
         </motion.p>
       </div>
 
-      <div className="space-y-px">
-        {looks.map((product, index) => (
+      <div className="flex flex-col gap-px">
+        {rows.map((row, rowIndex) => (
           <motion.div
-            key={product.id}
+            key={rowIndex}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
+            className="flex gap-px"
           >
-            <div
-              className={`relative overflow-hidden ${
-                index % 3 === 0 ? "h-screen" : index % 3 === 1 ? "h-[70vh]" : "h-[85vh]"
-              }`}
-            >
-              <ImageWithFallback
-                src={product.images![0]}
-                alt={product.name}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/15" />
-
-              <div className="absolute bottom-8 right-8">
-                <Link
-                  to={`/product/${product.id}`}
-                  className="group flex flex-col items-end gap-2"
-                >
-                  <p className="text-white/40 text-[10px] font-light tracking-[0.3em] uppercase group-hover:text-white/80 transition-colors duration-300">
-                    {product.name}
+            {row.map((look, idx) => (
+              <Link
+                key={idx}
+                to={`/product/${look.productId}`}
+                className="group relative overflow-hidden flex-1"
+                style={{ height: row.length === 1 ? "100vh" : "70vh" }}
+              >
+                <ImageWithFallback
+                  src={look.img}
+                  alt={look.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
+                <div className="absolute bottom-6 right-6 flex flex-col items-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-[10px] font-light tracking-[0.3em] uppercase">
+                    {look.name}
                   </p>
-                  <p className="text-white/60 text-sm font-extralight tracking-wider group-hover:text-white transition-colors duration-300">
-                    {currency === 'JPY' ? '¥' : '$'}{convertPrice(product.price).toLocaleString()}
-                  </p>
-                  <span className="text-white/30 text-[9px] font-light tracking-[0.3em] uppercase border-b border-white/20 pb-0.5 group-hover:text-white/60 group-hover:border-white/50 transition-all duration-300">
+                  <span className="text-white/60 text-[9px] font-light tracking-[0.3em] uppercase border-b border-white/30 pb-0.5">
                     VIEW ITEM
                   </span>
-                </Link>
-              </div>
-
-              {index === 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.2, delay: 0.4 }}
-                  className="absolute top-20 left-8 md:left-12"
-                >
-                  <p className="text-white/40 text-xs font-extralight tracking-[0.2em] max-w-xs leading-[180%]">
-                    {language === "ja"
-                      ? "着るという行為そのものが、表明である。"
-                      : language === "fr"
-                      ? "L'acte de s'habiller est lui-même une déclaration."
-                      : "The act of wearing is itself a statement."}
-                  </p>
-                </motion.div>
-              )}
-            </div>
+                </div>
+              </Link>
+            ))}
           </motion.div>
         ))}
       </div>
