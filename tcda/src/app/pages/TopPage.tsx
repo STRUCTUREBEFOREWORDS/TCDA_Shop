@@ -1,44 +1,62 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { artworks } from "../data/artworks";
 import { useGlobalContext } from "./Root";
 import { getTranslation } from "../data/translations";
+import { useProducts } from "../hooks/useProducts";
 import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-// Look preview images — editorial shots
-const LOOK_IMAGES = [
-  artworks[0].imageUrl,
-  artworks[1].imageUrl,
-  artworks[2].imageUrl,
+const WORLD_IMAGES = [
+  "https://cdn.tcdashop.com/top/2.jpg",
+  "https://cdn.tcdashop.com/top/3.jpg",
+  "https://cdn.tcdashop.com/top/4.jpg",
 ];
 
-export function TopPage() {
-  const { language, currency } = useGlobalContext();
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+const heroLine: Record<string, string> = {
+  en: "You were never meant to fit in.",
+  ja: "あなたは最初から「普通」に属していなかった。",
+  fr: "Vous n'étiez jamais censé vous conformer.",
+  es: "Nunca se supuso que encajaras.",
+  ko: "당신은 처음부터 맞지 않았습니다.",
+  zh: "你从来都不是为了融入而生的。",
+};
 
-  const heroLine: Record<string, string> = {
-    en: "You were never meant to fit in.",
-    ja: "あなたは最初から「普通」に属していなかった。",
-    fr: "Vous n'étiez jamais censé vous conformer.",
-    es: "Nunca se supuso que encajaras.",
-    ko: "당신은 처음부터 맞지 않았습니다.",
-    zh: "你从来都不是为了融入而生的。",
+const worldText: Record<string, { line1: string; line2: string }> = {
+  en: { line1: "Art you wear.", line2: "Identity you claim." },
+  ja: { line1: "アートを着る。", line2: "感性を解放する。" },
+  fr: { line1: "L'art que vous portez.", line2: "L'identité que vous revendiquez." },
+  es: { line1: "Arte que vistes.", line2: "Identidad que proclamas." },
+  ko: { line1: "입는 아트.", line2: "선언하는 정체성." },
+  zh: { line1: "穿戴的艺术。", line2: "宣示的身份。" },
+};
+
+export function TopPage() {
+  const { language, currency, rates } = useGlobalContext();
+  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+  const { products } = useProducts();
+
+  const w = worldText[language] ?? worldText.en;
+
+  const convertAndFormat = (jpy: number) => {
+    const rate = rates[currency] ?? 1;
+    const converted = currency === "JPY"
+      ? Math.round(jpy)
+      : Math.round(jpy * rate * 100) / 100;
+    return formatPrice(converted, currency);
   };
 
   return (
     <div className="min-h-screen bg-black">
-      {/* ── HERO ─────────────────────────────────────────────────── */}
+
+      {/* 1. HERO */}
       <section className="relative h-screen w-full overflow-hidden">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1769866631763-169df2a7acb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxldGhlcmVhbCUyMG1pbmltYWwlMjBibGFjayUyMHdoaXRlJTIwYWJzdHJhY3R8ZW58MXx8fHwxNzc1MDk2NjI0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+        <img
+          src="https://cdn.tcdashop.com/top/1.jpg"
           alt="TCDA"
           className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/55" />
-
-        {/* Hero text — 1 line only */}
+        <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -48,24 +66,20 @@ export function TopPage() {
           >
             {heroLine[language] ?? heroLine.en}
           </motion.p>
-
-          {/* Shop CTA — small */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 1.2 }}
+            transition={{ duration: 1.2, delay: 1.4 }}
             className="mt-16"
           >
             <Link
               to="/products"
-              className="text-white/50 text-[10px] font-light tracking-[0.4em] uppercase hover:text-white transition-colors duration-500 border-b border-white/20 hover:border-white/60 pb-2"
+              className="text-white/40 text-[10px] font-light tracking-[0.4em] uppercase hover:text-white transition-colors duration-500 border-b border-white/20 hover:border-white/60 pb-2"
             >
               {t("shop")}
             </Link>
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,10 +90,67 @@ export function TopPage() {
         </motion.div>
       </section>
 
-      {/* ── PRODUCT GRID (immediate — no philosophy) ─────────────── */}
-      <section className="bg-black py-20 px-6 md:px-10">
+      {/* 2. WORLD */}
+      <section className="bg-black py-32 px-6 md:px-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-3xl mx-auto"
+        >
+          <p className="text-white text-4xl md:text-6xl font-extralight tracking-wide leading-[1.4] mb-4">
+            {w.line1}
+          </p>
+          <p className="text-white/40 text-4xl md:text-6xl font-extralight tracking-wide leading-[1.4]">
+            {w.line2}
+          </p>
+        </motion.div>
+      </section>
+
+      {/* 3. VISUAL — 3枚横並び */}
+      <section className="bg-black px-6 md:px-10 pb-32">
+        <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3 md:gap-6">
+          {WORLD_IMAGES.map((src, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.9, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Link to="/look">
+                <div className="aspect-[2/3] overflow-hidden bg-white/5">
+                  <img
+                    src={src}
+                    alt={`TCDA ${i + 1}`}
+                    className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+                    loading="lazy"
+                  />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="max-w-7xl mx-auto mt-8 flex justify-end"
+        >
+          <Link
+            to="/look"
+            className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
+          >
+            {t("viewAll")}
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* 4. COLLECTION */}
+      <section className="bg-black py-20 px-6 md:px-10 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
-          {/* Section label */}
           <div className="mb-10 flex items-center justify-between">
             <p className="text-white/20 text-[10px] font-light tracking-[0.4em] uppercase">
               {t("collection")}
@@ -91,36 +162,29 @@ export function TopPage() {
               {t("viewAll")}
             </Link>
           </div>
-
-          {/* Grid: 2 col mobile / 3 col desktop */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14">
-            {artworks.map((artwork, index) => (
+            {products.slice(0, 6).map((product, index) => (
               <motion.div
-                key={artwork.id}
+                key={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
               >
-                <Link to={`/product/${artwork.id}`} className="group block">
-                  {/* Image */}
+                <Link to={`/product/${product.id}`} className="group block">
                   <div className="aspect-[3/4] overflow-hidden bg-white/5 mb-4">
                     <ImageWithFallback
-                      src={artwork.imageUrl}
-                      alt={(artwork.name as Record<string, string>)[language] ?? artwork.name.en}
+                      src={product.images?.[0] || product.image}
+                      alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                     />
                   </div>
-                  {/* Name + Price */}
                   <div className="space-y-1.5">
                     <p className="text-white/50 text-[10px] font-light tracking-[0.3em] uppercase group-hover:text-white/90 transition-colors duration-300">
-                      {artwork.shortName}
-                    </p>
-                    <p className="text-white/70 text-xs font-light">
-                      {(artwork.name as Record<string, string>)[language] ?? artwork.name.en}
+                      {product.name}
                     </p>
                     <p className="text-white text-sm font-extralight tracking-wider">
-                      {formatPrice(artwork.price[currency], currency)}
+                      {convertAndFormat(product.price)}
                     </p>
                   </div>
                 </Link>
@@ -130,47 +194,6 @@ export function TopPage() {
         </div>
       </section>
 
-      {/* ── LOOK PREVIEW ────────────────────────────────────────── */}
-      <section className="bg-black py-20 px-6 md:px-10 border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-10 flex items-center justify-between">
-            <p className="text-white/20 text-[10px] font-light tracking-[0.4em] uppercase">
-              {t("look")}
-            </p>
-            <Link
-              to="/look"
-              className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
-            >
-              {t("viewAll")}
-            </Link>
-          </div>
-
-          {/* Editorial images — horizontal */}
-          <div className="grid grid-cols-3 gap-4">
-            {LOOK_IMAGES.map((src, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="relative"
-              >
-                <Link to="/look">
-                  <div className="aspect-[2/3] overflow-hidden bg-white/5">
-                    <ImageWithFallback
-                      src={src}
-                      alt={`Look ${i + 1}`}
-                      className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-500" />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
