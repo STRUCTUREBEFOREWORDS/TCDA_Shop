@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { X, Minus, Plus } from "lucide-react";
-import { Link } from "react-router";
 import { useGlobalContext } from "../pages/Root";
+import { redirectToCheckout } from "../utils/stripe";
 import { getTranslation } from "../data/translations";
 import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -150,18 +150,21 @@ export function CartDrawer() {
                     {formatPrice(total, currency)}
                   </span>
                 </div>
-                <Link
-                  to="/checkout"
-                  onClick={() => setIsCartOpen(false)}
-                  state={{
-                    fromCart: true,
-                    cartItems,
-                    currency,
+                <button
+                  onClick={async () => {
+                    setIsCartOpen(false);
+                    const items = cartItems.map((item) => ({
+                      name: item.artworkName,
+                      price_jpy: item.price,
+                      quantity: item.quantity,
+                      size: item.size,
+                    }));
+                    await redirectToCheckout(items, currency);
                   }}
                   className="block w-full py-4 bg-white text-black text-xs font-light tracking-[0.25em] uppercase text-center hover:bg-white/90 transition-colors duration-200"
                 >
                   {t("checkout")}
-                </Link>
+                </button>
               </div>
             )}
           </motion.div>
