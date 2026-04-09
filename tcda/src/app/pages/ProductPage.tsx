@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
 import { formatPrice } from "../utils/formatPrice";
+import { getTranslation } from "../data/translations";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 function toFraction(value: number | string): string {
@@ -55,24 +56,17 @@ interface SizeChart {
 
 const SIZE_ORDER = ["2XS","XS","S","M","L","XL","2XL","3XL","4XL","5XL","6XL"];
 
-const FAQ = [
-  {
-    q: "How long does shipping take?",
-    a: "Orders are fulfilled within 2–5 business days, then shipped. Total delivery is typically 5–10 business days.",
-  },
-  {
-    q: "Can I return or exchange?",
-    a: "We accept returns within 14 days for defective items. Size exchanges are available once per order.",
-  },
-  {
-    q: "What if I'm between sizes?",
-    a: "We recommend sizing up for a relaxed fit. The model wears size M at 180 cm.",
-  },
-];
+
 
 export function ProductPage() {
   const { id } = useParams();
-  const { currency, rates, addToCart } = useGlobalContext();
+  const { language, currency, rates, addToCart } = useGlobalContext();
+  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+  const faq = [
+    { q: t("faqQ1"), a: t("faqA1") },
+    { q: t("faqQ2"), a: t("faqA2") },
+    { q: t("faqQ3"), a: t("faqA3") },
+  ];
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string>("");
@@ -325,7 +319,7 @@ export function ProductPage() {
           className="border-t border-black/10 pt-8"
         >
           <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
-            Material &amp; Details
+            {t("materialDetailsLabel")}
           </h2>
           <p className="text-black text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
             {product.fabric_composition || '100% polyester, sublimation print. Machine wash cold. Do not tumble dry. All-over dye sublimation process produces vibrant, fade-resistant graphics that are part of the fabric itself.'}
@@ -433,8 +427,8 @@ export function ProductPage() {
               ご注意
             </h2>
             <ul className="text-black text-sm font-light opacity-60 leading-relaxed space-y-2">
-              <li>・モニター環境や照明条件により、実物と色味が異なる場合があります</li>
-              <li>・海外生産品のため、梱包に軽微な擦れや凹みが生じる場合があります</li>
+              <li>{t("notesItem1")}</li>
+              <li>{t("notesItem2")}</li>
             </ul>
           </motion.div>
         )}
@@ -448,13 +442,10 @@ export function ProductPage() {
           className="border-t border-black/10 pt-8"
         >
           <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
-            Shipping &amp; Returns
+            {t("shippingInfo")}
           </h2>
           <p className="text-black text-sm font-light opacity-60 leading-relaxed">
-            Orders are processed within 2–5 business days via Printful. Delivery typically
-            takes 5–10 business days depending on region. Returns are accepted within 14 days
-            for defective or incorrect items. Customers are responsible for return shipping costs
-            unless the item is defective.
+            {t("shippingReturnsText")}
           </p>
         </motion.div>
 
@@ -470,7 +461,7 @@ export function ProductPage() {
             FAQ
           </h2>
           <div className="space-y-0">
-            {FAQ.map((item, i) => (
+            {faq.map((item, i) => (
               <div key={i} className="border-b border-black/10">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
