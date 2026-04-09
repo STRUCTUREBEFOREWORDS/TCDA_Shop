@@ -14,13 +14,13 @@ const LOOKS = [
   { img: `${CDN}/005.webp`, name: "Unisex Hoodie", productId: "923fb75d-33e3-4d36-83ae-b1d11bd8a321", span: "half" },
   { img: `${CDN}/006.webp`, name: "Unisex Hoodie", productId: "42aa7b08-c68a-489a-a7ac-9bc14263adee", span: "full" },
   { img: `${CDN}/007.webp`, name: "Men's T-shirt", productId: "624896bf-d906-425b-ae3c-bf64f95142ee", span: "full" },
-  { img: `${CDN}/008.webp`, name: "Men's T-shirt", productId: "a0af00b9-8743-426b-be56-433c671a7ee1", span: "half" },
-  { img: `${CDN}/009.webp`, name: "Men's T-shirt", productId: "3c2c6e54-99ab-496a-b392-26dacd5fa1c8", span: "half" },
-  { img: `${CDN}/010.webp`, name: "Men's T-shirt", productId: "88314d0d-cbc5-4c63-9d5c-b6c2f0d8a44d", span: "full" },
+  { img: `${CDN}/008.webp`, name: "Men's T-shirt", productId: "3c2c6e54-99ab-496a-b392-26dacd5fa1c8", span: "half" },
+  { img: `${CDN}/009.webp`, name: "Men's T-shirt", productId: "88314d0d-cbc5-4c63-9d5c-b6c2f0d8a44d", span: "half" },
+  { img: `${CDN}/010.webp`, name: "Men's T-shirt", productId: "a0af00b9-8743-426b-be56-433c671a7ee1", span: "full" },
   { img: `${CDN}/011.webp`, name: "Women's T-shirt", productId: "d5664f2e-776c-44a7-ae81-ac29c3775cb1", span: "half" },
-  { img: `${CDN}/012.webp`, name: "Women's T-shirt", productId: "a75e2f20-f668-46c5-a2b7-54df0d133f9d", span: "half" },
+  { img: `${CDN}/012.webp`, name: "Women's T-shirt", productId: "f4aff5c0-c546-44c5-b79e-866805ab8ea2", span: "half" },
   { img: `${CDN}/013.webp`, name: "Women's T-shirt", productId: "dc0db78d-864c-40bd-89a8-0defa8f74b40", span: "full" },
-  { img: `${CDN}/014.webp`, name: "Women's T-shirt", productId: "f4aff5c0-c546-44c5-b79e-866805ab8ea2", span: "full" },
+  { img: `${CDN}/014.webp`, name: "Women's T-shirt", productId: "a75e2f20-f668-46c5-a2b7-54df0d133f9d", span: "full" },
 ];
 
 export function LookbookPage() {
@@ -67,7 +67,7 @@ export function LookbookPage() {
                 key={idx}
                 to={`/product/${look.productId}`}
                 className="group relative overflow-hidden flex-1"
-                style={{ height: row.length === 1 ? "100vh" : "60vh" }}
+                style={{ height: row.length === 1 ? "80vh" : "60vh" }}
               >
                 <ImageWithFallback
                   src={look.img}
