@@ -60,7 +60,7 @@ const SIZE_ORDER = ["2XS","XS","S","M","L","XL","2XL","3XL","4XL","5XL","6XL"];
 
 export function ProductPage() {
   const { id } = useParams();
-  const { language, currency, rates, addToCart } = useGlobalContext();
+  const { language, currency, rates, addToCart, countryCode } = useGlobalContext();
   const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
   const faq = [
     { q: t("faqQ1"), a: t("faqA1") },
@@ -96,10 +96,6 @@ export function ProductPage() {
           setSizeChart(chartData);
         }
         if (data.printful_variant_id) {
-          const currencyToCountry: Record<string, string> = {
-            JPY: 'JP', USD: 'US', EUR: 'DE', GBP: 'GB', KRW: 'KR', CNY: 'CN',
-          };
-          const countryCode = currencyToCountry[currency] ?? 'US';
           fetch(`https://api.tcdashop.com/shipping/rates?country_code=${countryCode}&variant_id=${data.printful_variant_id}`)
             .then((r) => r.json())
             .then((d) => {
@@ -409,9 +405,20 @@ export function ProductPage() {
 
         {/* Delivery date */}
         {deliveryDate && (
-          <p style={{ fontSize: '0.85rem', color: '#888', marginTop: '8px' }}>
-            お届け予定：{deliveryDate.min} 〜 {deliveryDate.max}
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="border-t border-black/10 pt-8"
+          >
+            <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+              {t("deliveryLabel")}
+            </h2>
+            <p className="text-black text-sm font-light opacity-60 leading-relaxed">
+              {deliveryDate.min} 〜 {deliveryDate.max}
+            </p>
+          </motion.div>
         )}
 
         {/* Notes */}

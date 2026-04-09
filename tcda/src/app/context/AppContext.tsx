@@ -7,6 +7,7 @@ interface AppContextType {
   setCurrency: (curr: Currency) => void;
   convertPrice: (price: number) => number;
   getCurrencySymbol: () => string;
+  countryCode: string;
 }
 const AppContext = createContext<AppContextType | undefined>(undefined);
 const currencySymbols: Record<Currency, string> = {
@@ -29,12 +30,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('en');
   const [currency, setCurrency] = useState<Currency>('USD');
   const [rates, setRates] = useState<Record<Currency, number>>(fallbackRates);
+  const [countryCode, setCountryCode] = useState<string>('US');
 
   useEffect(() => {
     fetch('https://ipapi.co/json/')
       .then((res) => res.json())
       .then((data) => {
         const country = data.country_code;
+        setCountryCode(country);
         const lang = data.languages?.split(',')[0]?.split('-')[0] || 'en';
         const currencyMap: Record<string, Currency> = {
           JP: 'JPY', US: 'USD', GB: 'GBP',
@@ -67,7 +70,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   };
   const getCurrencySymbol = (): string => currencySymbols[currency];
   return (
-    <AppContext.Provider value={{ language, setLanguage, currency, setCurrency, convertPrice, getCurrencySymbol }}>
+    <AppContext.Provider value={{ language, setLanguage, currency, setCurrency, convertPrice, getCurrencySymbol, countryCode }}>
       {children}
     </AppContext.Provider>
   );
