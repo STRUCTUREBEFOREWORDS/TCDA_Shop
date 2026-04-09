@@ -107,7 +107,7 @@ export function ProductPage() {
         }
       })
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, countryCode]);
 
   if (loading) {
     return (
