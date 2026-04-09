@@ -3,6 +3,7 @@ import { useState, useEffect, createContext, useContext } from "react";
 import { Language, Currency, CartItem } from "../types";
 import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
 import { CartDrawer } from "../components/CartDrawer";
+import { Footer } from "../components/Footer";
 
 export const RATES: Record<Currency, number> = {
   JPY: 1,
@@ -122,6 +123,7 @@ export function Root() {
       <div className="font-[Inter] bg-white antialiased min-h-screen">
         <TCDA_GlobalNav />
         <Outlet />
+        <Footer />
         <CartDrawer />
       </div>
     </GlobalContext.Provider>
