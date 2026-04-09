@@ -14,6 +14,7 @@ export interface Product {
   sizes: string[];
   sizeChart: SizeChart[];
   printful_product_id?: number;
+  images?: string[];
 }
 
 interface ProductCardProps {

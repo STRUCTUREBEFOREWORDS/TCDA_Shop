@@ -1,27 +1,29 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { artworks } from "../data/artworks";
 import { useGlobalContext } from "./Root";
 import { getTranslation } from "../data/translations";
-import { formatPrice } from "../utils/formatPrice";
+import { useProducts } from "../hooks/useProducts";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-
-// Lookbook entries: pair of image + product link
-const LOOKS = [
-  { artwork: artworks[0], caption: null },
-  { artwork: artworks[1], caption: null },
-  { artwork: artworks[2], caption: null },
-  { artwork: artworks[0], caption: null },  // repeat for fullness
-  { artwork: artworks[2], caption: null },
-];
+import { useApp } from "../context/AppContext";
 
 export function LookbookPage() {
-  const { language, currency } = useGlobalContext();
+  const { language } = useGlobalContext();
+  const { convertPrice, getCurrencySymbol } = useApp();
   const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+  const { products, loading } = useProducts();
+
+  const looks = products.filter(p => p.images && p.images.length > 0);
+
+  if (loading) {
+    return (
+      <div className="bg-black min-h-screen flex items-center justify-center">
+        <p className="text-white/20 text-xs tracking-[0.3em]">LOADING...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-black min-h-screen">
-      {/* Page label */}
       <div className="pt-24 pb-4 px-8 md:px-12">
         <motion.p
           initial={{ opacity: 0 }}
@@ -33,54 +35,45 @@ export function LookbookPage() {
         </motion.p>
       </div>
 
-      {/* Fullscreen continuous visuals */}
       <div className="space-y-px">
-        {LOOKS.map((look, index) => (
+        {looks.map((product, index) => (
           <motion.div
-            key={index}
+            key={product.id}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            {/* Full-width image */}
             <div
               className={`relative overflow-hidden ${
-                index % 3 === 0
-                  ? "h-screen"
-                  : index % 3 === 1
-                  ? "h-[70vh]"
-                  : "h-[85vh]"
+                index % 3 === 0 ? "h-screen" : index % 3 === 1 ? "h-[70vh]" : "h-[85vh]"
               }`}
             >
               <ImageWithFallback
-                src={look.artwork.imageUrl}
-                alt={look.artwork.name[language]}
+                src={product.images![0]}
+                alt={product.name}
                 className="w-full h-full object-cover"
               />
-              {/* Subtle overlay */}
               <div className="absolute inset-0 bg-black/15" />
 
-              {/* Product overlay — bottom right */}
               <div className="absolute bottom-8 right-8">
                 <Link
-                  to={`/product/${look.artwork.id}`}
+                  to={`/product/${product.id}`}
                   className="group flex flex-col items-end gap-2"
                 >
                   <p className="text-white/40 text-[10px] font-light tracking-[0.3em] uppercase group-hover:text-white/80 transition-colors duration-300">
-                    {look.artwork.shortName}
+                    {product.name}
                   </p>
                   <p className="text-white/60 text-sm font-extralight tracking-wider group-hover:text-white transition-colors duration-300">
-                    {formatPrice(look.artwork.price[currency], currency)}
+                    {getCurrencySymbol()}{convertPrice(product.price).toLocaleString()}
                   </p>
                   <span className="text-white/30 text-[9px] font-light tracking-[0.3em] uppercase border-b border-white/20 pb-0.5 group-hover:text-white/60 group-hover:border-white/50 transition-all duration-300">
-                    {t("shop")}
+                    VIEW ITEM
                   </span>
                 </Link>
               </div>
 
-              {/* Minimal copy — top left, only on first */}
               {index === 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 12 }}
@@ -102,7 +95,6 @@ export function LookbookPage() {
         ))}
       </div>
 
-      {/* Footer CTA */}
       <div className="py-20 flex justify-center border-t border-white/5">
         <Link
           to="/products"

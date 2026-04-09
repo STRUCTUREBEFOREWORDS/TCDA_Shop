@@ -9,6 +9,7 @@ interface ApiProduct {
   price: number;
   printful_product_id: number;
   thumbnail_url: string;
+  images: string[];
 }
 
 export function useProducts() {
@@ -34,6 +35,7 @@ export function useProducts() {
             sizes: [],
             sizeChart: [],
             printful_product_id: p.printful_product_id,
+            images: p.images || [],
           }))
         );
       })
