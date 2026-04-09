@@ -1,0 +1,7 @@
+name = "tcda-ogp-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+routes = [
+  { pattern = "tcdashop.com/*", zone_name = "tcdashop.com" }
+]
