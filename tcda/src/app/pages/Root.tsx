@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { useState, createContext, useContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import { Language, Currency, CartItem } from "../types";
 import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
 import { CartDrawer } from "../components/CartDrawer";
@@ -26,6 +26,7 @@ interface GlobalContextType {
   updateQuantity: (artworkId: string, size: string, quantity: number) => void;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
+  countryCode: string;
 }
 
 const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -41,6 +42,27 @@ export function Root() {
   const [currency, setCurrency] = useState<Currency>("JPY");
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [countryCode, setCountryCode] = useState<string>("JP");
+
+  useEffect(() => {
+    fetch("https://ipapi.co/json/")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.country_code) setCountryCode(data.country_code);
+        const currencyMap: Record<string, Currency> = {
+          JP: "JPY", US: "USD", GB: "GBP",
+          KR: "KRW", CN: "CNY",
+          DE: "EUR", FR: "EUR", IT: "EUR", ES: "EUR",
+        };
+        const langMap: Record<string, Language> = {
+          ja: "ja", en: "en", ko: "ko", zh: "zh", fr: "fr", es: "es",
+        };
+        const lang = data.languages?.split(",")[0]?.split("-")[0] || "en";
+        if (currencyMap[data.country_code]) setCurrency(currencyMap[data.country_code]);
+        if (langMap[lang]) setLanguage(langMap[lang]);
+      })
+      .catch(() => {});
+  }, []);
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -94,6 +116,7 @@ export function Root() {
         updateQuantity,
         isCartOpen,
         setIsCartOpen,
+        countryCode,
       }}
     >
       <div className="font-[Inter] bg-white antialiased min-h-screen">
