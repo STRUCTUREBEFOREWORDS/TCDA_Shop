@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "shop": "Boutique",
+    "look": "Look",
+    "about": "À propos",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité"
+  },
+  "hero": {
+    "philosophical1": "Ce malaise n'est pas une erreur.",
+    "philosophical2": "Le vide n'est pas l'absence. Il est l'espace où naît la forme.",
+    "philosophical3": "Tu n'as jamais appartenu à l'ordinaire.",
+    "cta": "Cela deviendra une part de toi",
+    "emotion1": "Tu portes depuis longtemps ce qui résiste aux mots. Cette pièce offre un lieu à ce qui ne peut être dit.",
+    "emotion2": "Entre le silence et le bruit, il existe une fréquence que toi seul entends. Voici sa forme.",
+    "emotion3": "Le monde t'a contraint à t'adapter. Ceci existe pour l'instant où tu as choisi de te dissoudre.",
+    "identity1": "Pour ceux qui ne trouvent pas leur place dans le monde.",
+    "identity2": "Pour ceux qui existent entre les mots.",
+    "identity3": "Pour ceux qui refusent le confort et choisissent la vérité.",
+    "philosophyBlock": "Non une vente, mais une décision. Chaque pièce est numérotée, jamais reproduite. TCDA existe à l'intersection de l'objet porté et de la mémoire sensible."
+  },
+  "product": {
+    "material": "100% coton biologique, impression numérique",
+    "sizeInfo": "XS / S / M / L / XL",
+    "details": "Chaque pièce reçoit un numéro de série unique. Cette œuvre ne sera pas rééditée. Ce que tu portes devient une part de l'archive.",
+    "limited": "50 exemplaires dans le monde",
+    "ctaText": "Acquérir maintenant",
+    "stockAvailable": "En stock",
+    "stockLow": "Presque épuisé",
+    "stockOut": "Épuisé",
+    "materialLabel": "Matière",
+    "deliveryLabel": "Livraison",
+    "modelLabel": "Modèle",
+    "materialDetailsLabel": "Matière & détails",
+    "relatedProducts": "Voir aussi",
+    "collection": "Collection actuelle",
+    "notesTitle": "Notes",
+    "notesItem1": "Selon votre écran et les conditions d'éclairage, les couleurs peuvent légèrement différer du produit réel.",
+    "notesItem2": "En raison de la fabrication à l'étranger, l'emballage peut présenter de légères marques ou déformations mineures."
+  },
+  "cart": {
+    "addToCart": "Ajouter au panier",
+    "viewCart": "Voir le panier",
+    "cartEmpty": "Votre panier est vide",
+    "checkout": "Commander",
+    "continueShopping": "Continuer les achats",
+    "total": "Total",
+    "quantity": "Quantité",
+    "remove": "Retirer",
+    "orderSummary": "Récapitulatif",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "free": "Offerte",
+    "placeOrder": "Confirmer la commande",
+    "quickView": "Aperçu rapide"
+  },
+  "shop": {
+    "filterAll": "Tout",
+    "sortNewest": "Nouveautés",
+    "sortPriceAsc": "Prix croissant",
+    "sortPriceDesc": "Prix décroissant",
+    "viewAll": "Tout voir"
+  },
+  "size": {
+    "guide": "Guide des tailles",
+    "guideTitle": "Guide des tailles",
+    "guideNote": "Mesures en cm. En cas de doute entre deux tailles, optez pour la taille supérieure.",
+    "label": "Taille",
+    "chest": "Tour de poitrine",
+    "length": "Longueur",
+    "shoulder": "Largeur d'épaules"
+  },
+  "checkout": {
+    "fieldName": "Nom",
+    "fieldAddress": "Adresse",
+    "fieldCity": "Ville",
+    "fieldPostalCode": "Code postal",
+    "fieldCountry": "Pays",
+    "next": "Suivant",
+    "back": "Retour",
+    "fieldCardName": "Nom sur la carte",
+    "fieldCardNumber": "Numéro de carte",
+    "fieldExpiry": "Date d'expiration",
+    "shippingInfo": "Livraison",
+    "paymentInfo": "Paiement",
+    "confirmOrder": "Confirmer",
+    "shippingReturnsText": "Votre commande est traitée via Printful sous 2 à 5 jours ouvrés. La livraison prend généralement 5 à 10 jours ouvrés selon votre région. Les retours pour article défectueux ou erroné sont acceptés dans les 14 jours suivant la réception. En l'absence de défaut, les frais de retour restent à la charge du client."
+  },
+  "order": {
+    "confirmed": "Commande confirmée",
+    "confirmedMessage": "Un e-mail de confirmation vous sera envoyé. Cette pièce rejoint vos archives.",
+    "returnHome": "Retour à l'accueil",
+    "cancelled": "Commande annulée",
+    "cancelledMessage": "Le paiement a été annulé."
+  },
+  "faq": {
+    "q1": "Quel est le délai de livraison ?",
+    "a1": "Vos commandes sont expédiées sous 2 à 5 jours ouvrés, puis livrées sous 5 à 10 jours ouvrés en règle générale.",
+    "q2": "Les retours et échanges sont-ils possibles ?",
+    "a2": "Les articles défectueux peuvent être retournés dans les 14 jours suivant la réception. Un échange de taille est possible une fois par commande.",
+    "q3": "Que faire si je me situe entre deux tailles ?",
+    "a3": "Pour un port décontracté, nous recommandons la taille supérieure. Le modèle mesure 180 cm et porte une taille M."
+  },
+  "common": {
+    "loading": "Chargement..."
+  }
+}

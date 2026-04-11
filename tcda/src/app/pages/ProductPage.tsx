@@ -3,8 +3,9 @@ import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
+import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
-import { getTranslation } from "../data/translations";
+
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 function toFraction(value: number | string): string {
@@ -62,11 +63,12 @@ const SIZE_ORDER = ["2XS","XS","S","M","L","XL","2XL","3XL","4XL","5XL","6XL"];
 export function ProductPage() {
   const { id } = useParams();
   const { language, currency, rates, addToCart, countryCode } = useGlobalContext();
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+const { t } = useTranslation();
+  
   const faq = [
-    { q: t("faqQ1"), a: t("faqA1") },
-    { q: t("faqQ2"), a: t("faqA2") },
-    { q: t("faqQ3"), a: t("faqA3") },
+    { q: t("faq.q1"), a: t("faq.a1") },
+    { q: t("faq.q2"), a: t("faq.a2") },
+    { q: t("faq.q3"), a: t("faq.a3") },
   ];
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
@@ -331,7 +333,7 @@ export function ProductPage() {
           className="border-t border-black/10 pt-8"
         >
           <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
-            {t("materialDetailsLabel")}
+            {t("product.materialDetailsLabel")}
           </h2>
           <p className="text-black text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
             {product.fabric_composition || '100% polyester, sublimation print. Machine wash cold. Do not tumble dry. All-over dye sublimation process produces vibrant, fade-resistant graphics that are part of the fabric itself.'}
@@ -429,7 +431,7 @@ export function ProductPage() {
             className="border-t border-black/10 pt-8"
           >
             <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
-              {t("deliveryLabel")}
+              {t("product.deliveryLabel")}
             </h2>
             <p className="text-black text-sm font-light opacity-60 leading-relaxed">
               {deliveryDate.min} 〜 {deliveryDate.max}
@@ -450,8 +452,8 @@ export function ProductPage() {
               ご注意
             </h2>
             <ul className="text-black text-sm font-light opacity-60 leading-relaxed space-y-2">
-              <li>{t("notesItem1")}</li>
-              <li>{t("notesItem2")}</li>
+              <li>{t("product.notesItem1")}</li>
+              <li>{t("product.notesItem2")}</li>
             </ul>
           </motion.div>
         )}
@@ -465,10 +467,10 @@ export function ProductPage() {
           className="border-t border-black/10 pt-8"
         >
           <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
-            {t("shippingInfo")}
+            {t("checkout.shippingInfo")}
           </h2>
           <p className="text-black text-sm font-light opacity-60 leading-relaxed">
-            {t("shippingReturnsText")}
+            {t("checkout.shippingReturnsText")}
           </p>
         </motion.div>
 

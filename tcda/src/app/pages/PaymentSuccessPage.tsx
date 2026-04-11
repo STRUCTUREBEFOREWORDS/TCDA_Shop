@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router";
 import { Check } from "lucide-react";
 import { useGlobalContext } from "./Root";
-import { getTranslation } from "../data/translations";
+import { useTranslation } from "react-i18next";
 
 export function PaymentSuccessPage() {
   const navigate = useNavigate();
   const { language } = useGlobalContext();
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center pt-14">
@@ -16,21 +16,17 @@ export function PaymentSuccessPage() {
         </div>
         <div className="space-y-3">
           <h1 className="text-black text-xs font-light tracking-[0.4em] uppercase">
-            {language === "ja" ? "注文完了" : language === "fr" ? "Commande confirmée" : "Order Confirmed"}
+            {t("order.confirmed")}
           </h1>
           <p className="text-black/40 text-xs font-light tracking-widest">
-            {language === "ja"
-              ? "ご購入ありがとうございます。確認メールをお送りします。"
-              : language === "fr"
-              ? "Merci pour votre achat. Un e-mail de confirmation vous sera envoyé."
-              : "Thank you for your purchase. A confirmation email will be sent shortly."}
+            {t("order.confirmedMessage")}
           </p>
         </div>
         <button
           onClick={() => navigate(`/${language}/`)}
           className="text-black text-xs font-light tracking-[0.25em] uppercase border-b border-black/20 pb-1 hover:border-black transition-colors"
         >
-          {t("continueShopping")}
+          {t("order.returnHome")}
         </button>
       </div>
     </div>

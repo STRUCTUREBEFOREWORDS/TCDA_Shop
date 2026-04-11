@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "shop": "Shop",
+    "look": "Look",
+    "about": "About",
+    "legal": "Legal",
+    "privacy": "Privacy Policy"
+  },
+  "hero": {
+    "philosophical1": "That sense of dissonance is not a mistake.",
+    "philosophical2": "The void is not emptiness. It is space for becoming.",
+    "philosophical3": "You never belonged to the ordinary — not from the beginning.",
+    "cta": "This will become part of you.",
+    "emotion1": "For a long time, you have carried something words could not hold. This work gives place to what cannot be said.",
+    "emotion2": "Between silence and noise, there exists a frequency only you can hear. This is its form.",
+    "emotion3": "The world demanded you conform. This exists for the moment you chose to dissolve.",
+    "identity1": "For those who find no place in this world.",
+    "identity2": "For those who exist between words.",
+    "identity3": "For those who refuse comfort and choose truth.",
+    "philosophyBlock": "Not a sale — a decision. Each piece is numbered and will not be reproduced. TCDA exists at the intersection of wearable objects and the record of emotion."
+  },
+  "product": {
+    "material": "100% Organic Cotton, Digital Print",
+    "sizeInfo": "XS / S / M / L / XL",
+    "details": "Each piece is assigned an individual serial number. This artwork will not be restocked. What you wear becomes part of the archive.",
+    "limited": "50 pieces in the world only",
+    "ctaText": "Acquire Now",
+    "stockAvailable": "In Stock",
+    "stockLow": "Almost Gone",
+    "stockOut": "Sold Out",
+    "materialLabel": "Material",
+    "deliveryLabel": "Delivery",
+    "modelLabel": "Model",
+    "materialDetailsLabel": "Materials & Details",
+    "relatedProducts": "You May Also Like",
+    "collection": "Current Collection",
+    "notesTitle": "Please Note",
+    "notesItem1": "Colors may vary slightly from the original depending on your monitor settings and lighting conditions.",
+    "notesItem2": "As this item is produced overseas, minor scuffs or dents on the packaging may occasionally occur."
+  },
+  "cart": {
+    "addToCart": "Add to Cart",
+    "viewCart": "View Cart",
+    "cartEmpty": "Your cart is empty.",
+    "checkout": "Checkout",
+    "continueShopping": "Continue Shopping",
+    "total": "Total",
+    "quantity": "Quantity",
+    "remove": "Remove",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "placeOrder": "Place Order",
+    "quickView": "Quick View"
+  },
+  "shop": {
+    "filterAll": "All",
+    "sortNewest": "Newest",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low",
+    "viewAll": "View All"
+  },
+  "size": {
+    "guide": "Size Guide",
+    "guideTitle": "Size Guide",
+    "guideNote": "Measurements in cm. If you are between sizes, we recommend sizing up.",
+    "label": "Size",
+    "chest": "Chest",
+    "length": "Length",
+    "shoulder": "Shoulder"
+  },
+  "checkout": {
+    "fieldName": "Name",
+    "fieldAddress": "Address",
+    "fieldCity": "City",
+    "fieldPostalCode": "Postal Code",
+    "fieldCountry": "Country",
+    "next": "Next",
+    "back": "Back",
+    "fieldCardName": "Name on Card",
+    "fieldCardNumber": "Card Number",
+    "fieldExpiry": "Expiry Date",
+    "shippingInfo": "Shipping",
+    "paymentInfo": "Payment",
+    "confirmOrder": "Confirm",
+    "shippingReturnsText": "Orders are fulfilled within 2–5 business days via Printful. Delivery typically takes 5–10 business days depending on your region. Returns are accepted within 14 days for defective or incorrect items. Return shipping costs for non-defective items remain the responsibility of the customer."
+  },
+  "order": {
+    "confirmed": "Order Confirmed",
+    "confirmedMessage": "A confirmation has been sent to your email. This piece is now part of the archive.",
+    "returnHome": "Return Home",
+    "cancelled": "Order Cancelled",
+    "cancelledMessage": "Your payment was cancelled."
+  },
+  "faq": {
+    "q1": "How long does shipping take?",
+    "a1": "Orders are dispatched within 2–5 business days and typically arrive within 5–10 business days.",
+    "q2": "Do you accept returns or exchanges?",
+    "a2": "Returns are accepted within 14 days for defective items. One size exchange per order is available.",
+    "q3": "What if I'm between sizes?",
+    "a3": "For a relaxed fit, we recommend sizing up. Our model is 180 cm tall and wears a size M."
+  },
+  "common": {
+    "loading": "Loading..."
+  }
+}

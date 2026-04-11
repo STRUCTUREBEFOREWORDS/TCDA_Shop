@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Language } from "../types";
-import { getTranslation } from "../data/translations";
+import { useTranslation } from "react-i18next";
 
 const SIZES = ["XS", "S", "M", "L", "XL"] as const;
 type Size = (typeof SIZES)[number];
@@ -22,16 +21,15 @@ interface BuyBoxProps {
   onSizeChange: (size: string) => void;
   onBuyNow: () => void;
   onAddToCart: () => void;
-  language: Language;
   onOpenSizeGuide: () => void;
   material: string;
 }
 
-function StockLabel({ stock, language }: { stock: number; language: Language }) {
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
-  if (stock === 0) return <span className="text-red-400 text-[10px] font-light tracking-widest uppercase">{t("stockOut")}</span>;
-  if (stock <= 2) return <span className="text-amber-400 text-[10px] font-light tracking-widest uppercase">{t("stockLow")} — {stock}</span>;
-  return <span className="text-white/40 text-[10px] font-light tracking-widest uppercase">{t("stockAvailable")}</span>;
+function StockLabel({ stock }: { stock: number }) {
+  const { t } = useTranslation();
+  if (stock === 0) return <span className="text-red-400 text-[10px] font-light tracking-widest uppercase">{t("product.stockOut")}</span>;
+  if (stock <= 2) return <span className="text-amber-400 text-[10px] font-light tracking-widest uppercase">{t("product.stockLow")} — {stock}</span>;
+  return <span className="text-white/40 text-[10px] font-light tracking-widest uppercase">{t("product.stockAvailable")}</span>;
 }
 
 export function BuyBox({
@@ -41,11 +39,10 @@ export function BuyBox({
   onSizeChange,
   onBuyNow,
   onAddToCart,
-  language,
   onOpenSizeGuide,
   material,
 }: BuyBoxProps) {
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+  const { t } = useTranslation();
   const stock = MOCK_STOCK[selectedSize as Size] ?? 10;
 
   return (
@@ -65,13 +62,13 @@ export function BuyBox({
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <p className="text-white/40 text-[10px] font-light tracking-[0.3em] uppercase">
-            {t("size")}
+            {t("size.label")}
           </p>
           <button
             onClick={onOpenSizeGuide}
             className="text-white/30 text-[10px] font-light tracking-widest uppercase hover:text-white/70 transition-colors duration-300 underline underline-offset-4"
           >
-            {t("sizeGuide")}
+            {t("size.guide")}
           </button>
         </div>
 
@@ -116,7 +113,7 @@ export function BuyBox({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <StockLabel stock={stock} language={language} />
+            <StockLabel stock={stock} />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -136,7 +133,7 @@ export function BuyBox({
           disabled={stock === 0}
           className="w-full py-4 bg-white text-black text-xs font-light tracking-[0.25em] uppercase hover:bg-white/90 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300"
         >
-          {t("ctaText")}
+          {t("product.ctaText")}
         </button>
 
         {/* Add to Cart */}
@@ -145,7 +142,7 @@ export function BuyBox({
           disabled={stock === 0}
           className="w-full py-3.5 border border-white/30 text-white text-xs font-light tracking-[0.25em] uppercase hover:border-white/70 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300"
         >
-          {t("addToCart")}
+          {t("cart.addToCart")}
         </button>
       </div>
     </div>

@@ -4,11 +4,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { ShoppingBag, X, Menu } from "lucide-react";
 import { useGlobalContext } from "../pages/Root";
 import { TCDA_LanguageCurrencySwitcher } from "./TCDA_LanguageCurrencySwitcher";
-import { getTranslation } from "../data/translations";
+import { useTranslation } from "react-i18next";
 
 export function TCDA_GlobalNav() {
   const { language, currency, setLanguage, setCurrency, cartCount, setIsCartOpen } =
     useGlobalContext();
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -17,8 +18,6 @@ export function TCDA_GlobalNav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
 
   return (
     <>
@@ -45,19 +44,19 @@ export function TCDA_GlobalNav() {
               to={`/${language}/products`}
               className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
-              {t("shop")}
+              {t("nav.shop")}
             </Link>
             <Link
               to={`/${language}/look`}
               className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
-              {t("look")}
+              {t("nav.look")}
             </Link>
             <Link
               to={`/${language}/about`}
               className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
-              {t("about")}
+              {t("nav.about")}
             </Link>
           </nav>
 

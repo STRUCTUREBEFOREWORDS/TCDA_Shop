@@ -1,12 +1,10 @@
 import { motion, AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
-import { Language } from "../types";
-import { getTranslation } from "../data/translations";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
-  language: Language;
 }
 
 const SIZE_DATA = [
@@ -17,8 +15,8 @@ const SIZE_DATA = [
   { size: "XL", chest: "98–104", length: "73", shoulder: "48" },
 ];
 
-export function SizeGuideModal({ isOpen, onClose, language }: Props) {
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+export function SizeGuideModal({ isOpen, onClose }: Props) {
+  const { t } = useTranslation();
 
   return (
     <AnimatePresence>
@@ -45,7 +43,7 @@ export function SizeGuideModal({ isOpen, onClose, language }: Props) {
             {/* Header */}
             <div className="flex items-center justify-between px-8 py-6 border-b border-white/10">
               <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase">
-                {t("sizeGuideTitle")}
+                {t("size.guideTitle")}
               </h2>
               <button
                 onClick={onClose}
@@ -61,16 +59,16 @@ export function SizeGuideModal({ isOpen, onClose, language }: Props) {
                 <thead>
                   <tr className="border-b border-white/10">
                     <th className="text-left text-[10px] font-light tracking-[0.2em] uppercase text-white/40 pb-3">
-                      {t("size")}
+                      {t("size.label")}
                     </th>
                     <th className="text-left text-[10px] font-light tracking-[0.2em] uppercase text-white/40 pb-3">
-                      {t("chest")}
+                      {t("size.chest")}
                     </th>
                     <th className="text-left text-[10px] font-light tracking-[0.2em] uppercase text-white/40 pb-3">
-                      {t("length")}
+                      {t("size.length")}
                     </th>
                     <th className="text-left text-[10px] font-light tracking-[0.2em] uppercase text-white/40 pb-3">
-                      {t("shoulder")}
+                      {t("size.shoulder")}
                     </th>
                   </tr>
                 </thead>
@@ -86,7 +84,7 @@ export function SizeGuideModal({ isOpen, onClose, language }: Props) {
                 </tbody>
               </table>
               <p className="text-white/30 text-[10px] font-light mt-5 leading-relaxed">
-                {t("sizeGuideNote")}
+                {t("size.guideNote")}
               </p>
             </div>
           </motion.div>

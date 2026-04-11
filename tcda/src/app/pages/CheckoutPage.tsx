@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { useLocation, useNavigate } from "react-router";
 import { Check } from "lucide-react";
 import { useGlobalContext } from "./Root";
-import { getTranslation } from "../data/translations";
+import { useTranslation } from "react-i18next";
+
 import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { CartItem } from "../types";
@@ -27,6 +28,7 @@ export function CheckoutPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const { language, currency } = useGlobalContext();
+const { t } = useTranslation();
   const state = location.state as LocationState;
 
   const [step, setStep] = useState<Step>(1);
@@ -40,7 +42,7 @@ export function CheckoutPage() {
     country: "",
   });
 
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+  
 
   const items: CartItem[] = state?.fromCart && state.cartItems
     ? state.cartItems
@@ -71,7 +73,7 @@ export function CheckoutPage() {
             onClick={() => navigate(`/${language}/products`)}
             className="text-black text-xs font-light tracking-widest uppercase border-b border-black/20 pb-1 hover:border-black transition-colors"
           >
-            {t("continueShopping")}
+            {t("cart.continueShopping")}
           </button>
         </div>
       </div>
@@ -104,14 +106,14 @@ export function CheckoutPage() {
   };
 
   const steps: { num: Step; label: string }[] = [
-    { num: 1, label: t("shippingInfo") },
-    { num: 2, label: t("confirmOrder") },
+    { num: 1, label: t("checkout.shippingInfo") },
+    { num: 2, label: t("checkout.confirmOrder") },
   ];
 
   const OrderSummary = () => (
     <div className="border border-black/10 p-6 space-y-6 sticky top-20">
       <h3 className="text-black/40 text-[10px] font-light tracking-[0.3em] uppercase">
-        {t("orderSummary")}
+        {t("cart.orderSummary")}
       </h3>
       <div className="space-y-4">
         {items.map((item) => (
@@ -128,7 +130,7 @@ export function CheckoutPage() {
                 {item.artworkName}
               </p>
               <p className="text-black/40 text-[10px] font-light">
-                {t("size")}: {item.size} · {t("quantity")}: {item.quantity}
+                {t("size.label")}: {item.size} · {t("quantity")}: {item.quantity}
               </p>
               <p className="text-black text-xs font-extralight">
                 {formatPrice(item.price * item.quantity, currency)}
@@ -139,8 +141,8 @@ export function CheckoutPage() {
       </div>
       <div className="border-t border-black/10 pt-4 space-y-2">
         <div className="flex justify-between text-xs font-light text-black/40">
-          <span>{t("shipping")}</span>
-          <span>{t("free")}</span>
+          <span>{t("cart.shipping")}</span>
+          <span>{t("cart.free")}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-black text-xs font-light tracking-[0.2em] uppercase">{t("total")}</span>
@@ -201,16 +203,16 @@ export function CheckoutPage() {
                   className="space-y-6"
                 >
                   <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-8">
-                    {t("shippingInfo")}
+                    {t("checkout.shippingInfo")}
                   </h2>
 
                   {[
                     { key: "email", label: "Email", type: "email", placeholder: "your@email.com" },
-                    { key: "name", label: t("fieldName"), type: "text", placeholder: "Full name" },
-                    { key: "address", label: t("fieldAddress"), type: "text", placeholder: "Street address" },
-                    { key: "city", label: t("fieldCity"), type: "text", placeholder: "City" },
-                    { key: "postalCode", label: t("fieldPostalCode"), type: "text", placeholder: "000-0000" },
-                    { key: "country", label: t("fieldCountry"), type: "text", placeholder: "Japan" },
+                    { key: "name", label: t("checkout.fieldName"), type: "text", placeholder: "Full name" },
+                    { key: "address", label: t("checkout.fieldAddress"), type: "text", placeholder: "Street address" },
+                    { key: "city", label: t("checkout.fieldCity"), type: "text", placeholder: "City" },
+                    { key: "postalCode", label: t("checkout.fieldPostalCode"), type: "text", placeholder: "000-0000" },
+                    { key: "country", label: t("checkout.fieldCountry"), type: "text", placeholder: "Japan" },
                   ].map(({ key, label, type, placeholder }) => (
                     <div key={key}>
                       <label className="block text-black/40 text-[10px] font-light tracking-[0.25em] uppercase mb-2">
@@ -231,7 +233,7 @@ export function CheckoutPage() {
                     type="submit"
                     className="w-full mt-4 py-4 bg-black text-white text-xs font-light tracking-[0.25em] uppercase hover:bg-black/80 transition-colors duration-300"
                   >
-                    {t("next")}
+                    {t("checkout.next")}
                   </button>
                 </motion.form>
               )}
@@ -247,12 +249,12 @@ export function CheckoutPage() {
                   className="space-y-6"
                 >
                   <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-8">
-                    {t("confirmOrder")}
+                    {t("checkout.confirmOrder")}
                   </h2>
 
                   {/* Shipping summary */}
                   <div className="border border-black/10 p-5 space-y-3">
-                    <p className="text-black/40 text-[10px] font-light tracking-[0.25em] uppercase">{t("shippingInfo")}</p>
+                    <p className="text-black/40 text-[10px] font-light tracking-[0.25em] uppercase">{t("checkout.shippingInfo")}</p>
                     <div className="space-y-1">
                       {[shipping.name, shipping.email, shipping.address, `${shipping.city} ${shipping.postalCode}`, shipping.country].map((v, i) => (
                         <p key={i} className="text-black text-xs font-light">{v}</p>
@@ -262,7 +264,7 @@ export function CheckoutPage() {
                       onClick={() => setStep(1)}
                       className="text-black/40 text-[10px] font-light tracking-[0.2em] uppercase border-b border-black/15 pb-0.5 hover:text-black hover:border-black/40 transition-all duration-200"
                     >
-                      {t("back")}
+                      {t("checkout.back")}
                     </button>
                   </div>
 
@@ -271,7 +273,7 @@ export function CheckoutPage() {
                     disabled={isLoading}
                     className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.25em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-40"
                   >
-                    {isLoading ? "..." : t("placeOrder")}
+                    {isLoading ? "..." : t("cart.placeOrder")}
                   </button>
                 </motion.div>
               )}

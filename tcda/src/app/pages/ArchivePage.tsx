@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
-import { getTranslation } from "../data/translations";
+import { useTranslation } from "react-i18next";
+
 import { formatPrice } from "../utils/formatPrice";
 interface Product {
   id: string;
@@ -23,10 +24,11 @@ function getCategory(name: string): Category {
 }
 export function ArchivePage() {
   const { language, currency, rates } = useGlobalContext();
+const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState<Category>('ALL');
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+  
   useEffect(() => {
     fetch("https://api.tcdashop.com/products")
       .then((res) => res.json())
@@ -48,7 +50,7 @@ export function ArchivePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-4">
           <div className="flex items-center gap-4 mb-3">
             <h1 className="text-black text-xs font-light tracking-[0.3em] uppercase">
-              {t("shop")}
+              {t("nav.shop")}
             </h1>
             <span className="text-black/30 text-[10px] font-light">
               {filtered.length}
@@ -73,7 +75,7 @@ export function ArchivePage() {
       </div>
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-12">
         {loading ? (
-          <p className="text-black/40 text-xs tracking-widest text-center py-24">{t("loading")}</p>
+          <p className="text-black/40 text-xs tracking-widest text-center py-24">{t("common.loading")}</p>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
             {filtered.map((product, index) => (

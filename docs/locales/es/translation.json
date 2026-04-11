@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "shop": "Tienda",
+    "look": "Look",
+    "about": "Acerca de",
+    "legal": "Legal",
+    "privacy": "Política de privacidad"
+  },
+  "hero": {
+    "philosophical1": "Esa incomodidad no es un error.",
+    "philosophical2": "El vacío no es ausencia. Es el espacio donde algo nace.",
+    "philosophical3": "Nunca perteneciste a lo ordinario.",
+    "cta": "Esto se convertirá en parte de ti",
+    "emotion1": "Durante mucho tiempo has cargado algo que no podías nombrar. Esta pieza le da un lugar a lo indecible.",
+    "emotion2": "Entre el silencio y el ruido existe una frecuencia que solo tú puedes escuchar. Esta es su forma.",
+    "emotion3": "El mundo te exigió encajar. Esto existe para el momento en que elegiste disolverse.",
+    "identity1": "Para quienes no encuentran su lugar en el mundo.",
+    "identity2": "Para quienes habitan el espacio entre las palabras.",
+    "identity3": "Para quienes rechazan la comodidad y eligen la verdad.",
+    "philosophyBlock": "No una venta, una decisión. Cada pieza está numerada y no será reproducida. TCDA existe en la intersección entre el objeto que se viste y el registro de una emoción."
+  },
+  "product": {
+    "material": "100% algodón orgánico, impresión digital",
+    "sizeInfo": "XS / S / M / L / XL",
+    "details": "Cada pieza lleva un número de serie individual. Esta obra no volverá a ponerse a la venta. Lo que vistes se convierte en parte del archivo.",
+    "limited": "Solo 50 piezas en el mundo",
+    "ctaText": "Obtener ahora",
+    "stockAvailable": "Disponible",
+    "stockLow": "Últimas unidades",
+    "stockOut": "Agotado",
+    "materialLabel": "Material",
+    "deliveryLabel": "Envío",
+    "modelLabel": "Modelo",
+    "materialDetailsLabel": "Material y detalles",
+    "relatedProducts": "También te puede interesar",
+    "collection": "Colección actual",
+    "notesTitle": "Notas",
+    "notesItem1": "El color real puede variar según la configuración del monitor y las condiciones de iluminación.",
+    "notesItem2": "Al ser un producto de fabricación internacional, el embalaje puede presentar pequeñas marcas o abolladuras."
+  },
+  "cart": {
+    "addToCart": "Añadir al carrito",
+    "viewCart": "Ver carrito",
+    "cartEmpty": "El carrito está vacío",
+    "checkout": "Finalizar compra",
+    "continueShopping": "Seguir comprando",
+    "total": "Total",
+    "quantity": "Cantidad",
+    "remove": "Eliminar",
+    "orderSummary": "Resumen del pedido",
+    "subtotal": "Subtotal",
+    "shipping": "Envío",
+    "free": "Gratuito",
+    "placeOrder": "Confirmar pedido",
+    "quickView": "Vista rápida"
+  },
+  "shop": {
+    "filterAll": "Todo",
+    "sortNewest": "Más recientes",
+    "sortPriceAsc": "Precio: menor a mayor",
+    "sortPriceDesc": "Precio: mayor a menor",
+    "viewAll": "Ver todo"
+  },
+  "size": {
+    "guide": "Guía de tallas",
+    "guideTitle": "Guía de tallas",
+    "guideNote": "Medidas en cm. Si estás entre dos tallas, elige la superior.",
+    "label": "Talla",
+    "chest": "Contorno de pecho",
+    "length": "Largo",
+    "shoulder": "Ancho de hombros"
+  },
+  "checkout": {
+    "fieldName": "Nombre",
+    "fieldAddress": "Dirección",
+    "fieldCity": "Ciudad",
+    "fieldPostalCode": "Código postal",
+    "fieldCountry": "País",
+    "next": "Siguiente",
+    "back": "Volver",
+    "fieldCardName": "Titular de la tarjeta",
+    "fieldCardNumber": "Número de tarjeta",
+    "fieldExpiry": "Fecha de caducidad",
+    "shippingInfo": "Envío",
+    "paymentInfo": "Pago",
+    "confirmOrder": "Confirmar",
+    "shippingReturnsText": "Los pedidos se procesan a través de Printful en un plazo de 2 a 5 días hábiles. El tiempo de entrega es habitualmente de 5 a 10 días hábiles según la región. Aceptamos devoluciones en un plazo de 14 días en caso de producto defectuoso o envío incorrecto. Si el artículo no presenta defecto, los gastos de devolución corren a cargo del cliente."
+  },
+  "order": {
+    "confirmed": "Pedido completado",
+    "confirmedMessage": "Recibirás un correo de confirmación. Este pedido forma parte de tu archivo.",
+    "returnHome": "Volver al inicio",
+    "cancelled": "Pedido cancelado",
+    "cancelledMessage": "El pago ha sido cancelado."
+  },
+  "faq": {
+    "q1": "¿Cuánto tarda el envío?",
+    "a1": "Los pedidos se envían en un plazo de 2 a 5 días hábiles tras la compra, con entrega habitual en 5 a 10 días hábiles.",
+    "q2": "¿Se aceptan devoluciones o cambios?",
+    "a2": "Aceptamos devoluciones de productos defectuosos dentro de los 14 días. Los cambios de talla se gestionan una vez por pedido.",
+    "q3": "¿Qué hago si estoy entre dos tallas?",
+    "a3": "Para un ajuste más holgado, recomendamos la talla superior. El modelo mide 180 cm y viste talla M."
+  },
+  "common": {
+    "loading": "Cargando..."
+  }
+}

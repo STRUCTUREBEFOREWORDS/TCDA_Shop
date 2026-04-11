@@ -2,13 +2,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { X, Minus, Plus } from "lucide-react";
 import { useGlobalContext } from "../pages/Root";
 import { redirectToCheckout } from "../utils/stripe";
-import { getTranslation } from "../data/translations";
+import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function CartDrawer() {
   const {
-    language,
     currency,
     cartItems,
     cartCount,
@@ -18,7 +17,7 @@ export function CartDrawer() {
     setIsCartOpen,
   } = useGlobalContext();
 
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+  const { t } = useTranslation();
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -47,7 +46,7 @@ export function CartDrawer() {
             {/* Header */}
             <div className="flex items-center justify-between px-8 py-6 border-b border-white/10">
               <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase">
-                {t("viewCart")}
+                {t("cart.viewCart")}
                 {cartCount > 0 && (
                   <span className="ml-2 text-white/40">({cartCount})</span>
                 )}
@@ -65,13 +64,13 @@ export function CartDrawer() {
               {cartItems.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full space-y-6 px-8">
                   <p className="text-white/30 text-xs font-light tracking-widest uppercase">
-                    {t("cartEmpty")}
+                    {t("cart.cartEmpty")}
                   </p>
                   <button
                     onClick={() => setIsCartOpen(false)}
                     className="text-white/50 text-xs font-light tracking-widest uppercase border-b border-white/20 pb-1 hover:text-white hover:border-white/60 transition-all duration-300"
                   >
-                    {t("continueShopping")}
+                    {t("cart.continueShopping")}
                   </button>
                 </div>
               ) : (
@@ -96,7 +95,7 @@ export function CartDrawer() {
                           {item.artworkName}
                         </p>
                         <p className="text-white/40 text-[10px] font-light tracking-widest uppercase">
-                          {t("size")}: {item.size}
+                          {t("size.label")}: {item.size}
                         </p>
                         <p className="text-white text-sm font-extralight">
                           {formatPrice(item.price, currency)}
@@ -144,7 +143,7 @@ export function CartDrawer() {
               <div className="border-t border-white/10 px-8 py-6 space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-white/40 text-[10px] font-light tracking-[0.25em] uppercase">
-                    {t("total")}
+                    {t("cart.total")}
                   </span>
                   <span className="text-white text-lg font-extralight tracking-wider">
                     {formatPrice(total, currency)}
@@ -163,7 +162,7 @@ export function CartDrawer() {
                   }}
                   className="block w-full py-4 bg-white text-black text-xs font-light tracking-[0.25em] uppercase text-center hover:bg-white/90 transition-colors duration-200"
                 >
-                  {t("checkout")}
+                  {t("cart.checkout")}
                 </button>
               </div>
             )}

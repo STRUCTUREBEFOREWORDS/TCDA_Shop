@@ -2,7 +2,8 @@ import { motion } from "motion/react";
 import { Link, useNavigate } from "react-router";
 import { Minus, Plus, X } from "lucide-react";
 import { useGlobalContext } from "./Root";
-import { getTranslation } from "../data/translations";
+import { useTranslation } from "react-i18next";
+
 import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
@@ -10,7 +11,8 @@ export function CartPage() {
   const { language, currency, cartItems, removeFromCart, updateQuantity } =
     useGlobalContext();
   const navigate = useNavigate();
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+const { t } = useTranslation();
+  
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -24,13 +26,13 @@ export function CartPage() {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center gap-8 pt-14">
         <p className="text-black/30 text-xs font-light tracking-[0.3em] uppercase">
-          {t("cartEmpty")}
+          {t("cart.cartEmpty")}
         </p>
         <Link
           to={`/${language}/products`}
           className="text-black text-xs font-light tracking-[0.3em] uppercase border-b border-black/20 pb-1 hover:border-black/60 transition-colors duration-300"
         >
-          {t("continueShopping")}
+          {t("cart.continueShopping")}
         </Link>
       </div>
     );
@@ -119,17 +121,17 @@ export function CartPage() {
           <div className="mt-12 lg:mt-0">
             <div className="border border-black/10 p-8 space-y-6 sticky top-20">
               <h2 className="text-black text-[10px] font-light tracking-[0.3em] uppercase">
-                {t("orderSummary")}
+                {t("cart.orderSummary")}
               </h2>
 
               <div className="space-y-3">
                 <div className="flex justify-between text-xs font-light text-black/60">
-                  <span>{t("subtotal")}</span>
+                  <span>{t("cart.subtotal")}</span>
                   <span>{formatPrice(subtotal, currency)}</span>
                 </div>
                 <div className="flex justify-between text-xs font-light text-black/60">
-                  <span>{t("shipping")}</span>
-                  <span>{t("free")}</span>
+                  <span>{t("cart.shipping")}</span>
+                  <span>{t("cart.free")}</span>
                 </div>
               </div>
 
@@ -146,14 +148,14 @@ export function CartPage() {
                 onClick={handleCheckout}
                 className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.25em] uppercase hover:bg-black/80 transition-colors duration-300"
               >
-                {t("checkout")}
+                {t("cart.checkout")}
               </button>
 
               <Link
                 to={`/${language}/products`}
                 className="block text-center text-black/30 text-[10px] font-light tracking-widest uppercase hover:text-black/60 transition-colors duration-300"
               >
-                {t("continueShopping")}
+                {t("cart.continueShopping")}
               </Link>
             </div>
           </div>

@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useGlobalContext } from "./Root";
-import { getTranslation } from "../data/translations";
+import { useTranslation } from "react-i18next";
+
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 const CDN = "https://cdn.tcdashop.com/look";
@@ -25,7 +26,8 @@ const LOOKS = [
 
 export function LookbookPage() {
   const { language } = useGlobalContext();
-  const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
+const { t } = useTranslation();
+  
 
   const rows: (typeof LOOKS[number])[][] = [];
   let i = 0;
@@ -94,7 +96,7 @@ export function LookbookPage() {
           to={`/${language}/products`}
           className="text-white/30 text-[10px] font-light tracking-[0.4em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-2"
         >
-          {t("shop")}
+          {t("nav.shop")}
         </Link>
       </div>
     </div>

@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "shop": "选品",
+    "look": "造型",
+    "about": "关于",
+    "legal": "特定商业交易法",
+    "privacy": "隐私政策"
+  },
+  "hero": {
+    "philosophical1": "那种违和感，并非错误。",
+    "philosophical2": "虚无并非空洞。它是生成的留白。",
+    "philosophical3": "你从一开始，就不属于「普通」",
+    "cta": "这将成为你的一部分",
+    "emotion1": "你长久以来，怀抱着无法言说之物。这件作品，为那些说不出口的，给予了位置。",
+    "emotion2": "在沉默与喧嚣之间，存在着只有你能听见的频率。这，是它的形状。",
+    "emotion3": "世界曾强迫你去融入。这一件，为那个选择消融的瞬间而存在。",
+    "identity1": "为那些在世界中找不到归处的人。",
+    "identity2": "为那些存在于言语与言语之间的人。",
+    "identity3": "为那些拒绝舒适、选择真实的人。",
+    "philosophyBlock": "不是销售，而是抉择。每一件均有编号，不再复刻。TCDA 存在于可穿着之物与情感记录的交汇之处。"
+  },
+  "product": {
+    "material": "100% 有机棉，数码印刷",
+    "sizeInfo": "XS / S / M / L / XL",
+    "details": "每件作品均赋予独立序列编号。此艺术品不再复售。你所穿着之物，将成为档案的一部分。",
+    "limited": "全球限量50件",
+    "ctaText": "立即获取",
+    "stockAvailable": "有货",
+    "stockLow": "所剩无几",
+    "stockOut": "已售罄",
+    "materialLabel": "材质",
+    "deliveryLabel": "配送",
+    "modelLabel": "模特",
+    "materialDetailsLabel": "材质・详情",
+    "relatedProducts": "同系列作品",
+    "collection": "当前系列",
+    "notesTitle": "注意事项",
+    "notesItem1": "因显示器环境及光线条件不同，实物颜色可能与图片略有差异。",
+    "notesItem2": "本品为海外生产，包装可能存在轻微摩擦或凹痕。"
+  },
+  "cart": {
+    "addToCart": "加入购物车",
+    "viewCart": "查看购物车",
+    "cartEmpty": "购物车为空",
+    "checkout": "结算",
+    "continueShopping": "继续选购",
+    "total": "合计",
+    "quantity": "数量",
+    "remove": "移除",
+    "orderSummary": "订单明细",
+    "subtotal": "小计",
+    "shipping": "运费",
+    "free": "免费",
+    "placeOrder": "确认下单",
+    "quickView": "快速预览"
+  },
+  "shop": {
+    "filterAll": "全部",
+    "sortNewest": "最新上架",
+    "sortPriceAsc": "价格：由低至高",
+    "sortPriceDesc": "价格：由高至低",
+    "viewAll": "查看全部"
+  },
+  "size": {
+    "guide": "尺码指南",
+    "guideTitle": "尺码指南",
+    "guideNote": "单位为cm。若介于两个尺码之间，建议选择较大尺码。",
+    "label": "尺码",
+    "chest": "胸围",
+    "length": "衣长",
+    "shoulder": "肩宽"
+  },
+  "checkout": {
+    "fieldName": "姓名",
+    "fieldAddress": "地址",
+    "fieldCity": "城市",
+    "fieldPostalCode": "邮政编码",
+    "fieldCountry": "国家",
+    "next": "下一步",
+    "back": "返回",
+    "fieldCardName": "持卡人姓名",
+    "fieldCardNumber": "卡号",
+    "fieldExpiry": "有效期",
+    "shippingInfo": "配送信息",
+    "paymentInfo": "支付方式",
+    "confirmOrder": "确认订单",
+    "shippingReturnsText": "订单将通过 Printful 在2至5个工作日内处理完毕。配送时效因地区而异，通常需5至10个工作日。如收到残次品或错发商品，请于14日内申请退换。若商品本身无质量问题，退货运费由买家承担。"
+  },
+  "order": {
+    "confirmed": "订单已完成",
+    "confirmedMessage": "确认邮件即将发送至您的邮箱。此订单将成为您档案的一部分。",
+    "returnHome": "返回首页",
+    "cancelled": "订单已取消",
+    "cancelledMessage": "支付已取消。"
+  },
+  "faq": {
+    "q1": "配送需要多长时间？",
+    "a1": "下单后2至5个工作日内发货，通常于5至10个工作日内送达。",
+    "q2": "可以退货或换货吗？",
+    "a2": "商品存在质量问题时，我们接受14天内的退货申请。尺码更换每笔订单限一次。",
+    "q3": "如果我的尺码介于两者之间，该怎么选？",
+    "a3": "若偏好宽松的穿着感，建议选择较大尺码。模特身高180cm，穿着M码。"
+  },
+  "common": {
+    "loading": "加载中..."
+  }
+}

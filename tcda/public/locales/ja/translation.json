@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "shop": "ショップ",
+    "look": "ルック",
+    "about": "について",
+    "legal": "特定商取引法",
+    "privacy": "プライバシーポリシー"
+  },
+  "hero": {
+    "philosophical1": "その違和感は、間違いではない。",
+    "philosophical2": "虚無は空虚ではない。それは生成のための余白だ。",
+    "philosophical3": "あなたは、最初から「普通」に属していなかった",
+    "cta": "これはあなたの一部になる",
+    "emotion1": "あなたは長い間、言葉にできないものを抱えてきた。この作品は、言えないものに場所を与える。",
+    "emotion2": "沈黙と喧騒の間に、あなたにしか聞こえない周波数が存在する。これがその形だ。",
+    "emotion3": "世界はあなたに馴染むことを強いた。これは、溶解を選んだ瞬間のためにある。",
+    "identity1": "これは、世界に居場所を感じない者たちのために。",
+    "identity2": "言葉と言葉の間に存在する者たちのために。",
+    "identity3": "快適さを拒み、真実を選ぶ者たちのために。",
+    "philosophyBlock": "販売ではなく、決断。各ピースはナンバリングされ、再現されない。TCDAは着用可能なオブジェクトと感情の記録の交点に存在する。"
+  },
+  "product": {
+    "material": "100% オーガニックコットン、デジタル印刷",
+    "sizeInfo": "XS / S / M / L / XL",
+    "details": "各ピースには個別のシリアルナンバーが付与されます。このアートワークは再販されません。あなたが身につけるものは、アーカイブの一部となります。",
+    "limited": "世界に50着のみ",
+    "ctaText": "今すぐ手に入れる",
+    "stockAvailable": "在庫あり",
+    "stockLow": "残りわずか",
+    "stockOut": "売り切れ",
+    "materialLabel": "素材",
+    "deliveryLabel": "お届け",
+    "modelLabel": "モデル",
+    "materialDetailsLabel": "素材・詳細",
+    "relatedProducts": "あわせて見る",
+    "collection": "現在のコレクション",
+    "notesTitle": "ご注意",
+    "notesItem1": "モニター環境や照明条件により、実物と色味が異なる場合があります。",
+    "notesItem2": "海外生産品のため、梱包に軽微な擦れや凹みが生じる場合があります。"
+  },
+  "cart": {
+    "addToCart": "カートに追加",
+    "viewCart": "カートを見る",
+    "cartEmpty": "カートは空です",
+    "checkout": "チェックアウト",
+    "continueShopping": "ショッピングを続ける",
+    "total": "合計",
+    "quantity": "数量",
+    "remove": "削除",
+    "orderSummary": "注文内容",
+    "subtotal": "小計",
+    "shipping": "配送料",
+    "free": "無料",
+    "placeOrder": "注文を確定する",
+    "quickView": "クイックビュー"
+  },
+  "shop": {
+    "filterAll": "すべて",
+    "sortNewest": "新着順",
+    "sortPriceAsc": "価格: 安い順",
+    "sortPriceDesc": "価格: 高い順",
+    "viewAll": "すべて見る"
+  },
+  "size": {
+    "guide": "サイズガイド",
+    "guideTitle": "サイズガイド",
+    "guideNote": "単位はcm。サイズ間の場合は上のサイズをお選びください。",
+    "label": "サイズ",
+    "chest": "胸囲",
+    "length": "着丈",
+    "shoulder": "肩幅"
+  },
+  "checkout": {
+    "fieldName": "お名前",
+    "fieldAddress": "住所",
+    "fieldCity": "市区町村",
+    "fieldPostalCode": "郵便番号",
+    "fieldCountry": "国",
+    "next": "次へ",
+    "back": "戻る",
+    "fieldCardName": "カード名義",
+    "fieldCardNumber": "カード番号",
+    "fieldExpiry": "有効期限",
+    "shippingInfo": "配送",
+    "paymentInfo": "お支払い",
+    "confirmOrder": "確認",
+    "shippingReturnsText": "ご注文はPrintful経由で2〜5営業日以内に処理されます。配送は地域により通常5〜10営業日かかります。不良品・誤送品の場合は14日以内に返品を受け付けます。商品に欠陥がない場合、返送料はお客様負担となります。"
+  },
+  "order": {
+    "confirmed": "注文が完了しました",
+    "confirmedMessage": "確認メールをお送りします。これはアーカイブの一部となります。",
+    "returnHome": "ホームへ",
+    "cancelled": "注文キャンセル",
+    "cancelledMessage": "お支払いがキャンセルされました。"
+  },
+  "faq": {
+    "q1": "配送にどのくらいかかりますか？",
+    "a1": "ご注文後2〜5営業日以内に発送し、通常5〜10営業日でお届けします。",
+    "q2": "返品・交換はできますか？",
+    "a2": "不良品の場合は14日以内に返品を受け付けます。サイズ交換は1注文につき1回対応します。",
+    "q3": "サイズの間にいる場合はどうすればいいですか？",
+    "a3": "ゆったり着たい場合は上のサイズをおすすめします。モデルは身長180cmでMサイズを着用しています。"
+  },
+  "common": {
+    "loading": "読み込み中..."
+  }
+}

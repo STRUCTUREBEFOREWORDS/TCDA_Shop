@@ -1,5 +1,6 @@
 import { Outlet, useParams, useNavigate, useLocation } from "react-router";
 import { useState, useEffect, createContext, useContext } from "react";
+import i18n from "../i18n";
 import { Language, Currency, CartItem } from "../types";
 import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
 import { CartDrawer } from "../components/CartDrawer";
@@ -54,10 +55,12 @@ export function Root() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [countryCode, setCountryCode] = useState<string>("JP");
 
-  // Redirect if lang segment is invalid
+  // Redirect if lang segment is invalid; sync i18next language
   useEffect(() => {
     if (!SUPPORTED_LANGS.includes(lang as Language)) {
       navigate("/en/", { replace: true });
+    } else {
+      i18n.changeLanguage(lang);
     }
   }, [lang]);
 
