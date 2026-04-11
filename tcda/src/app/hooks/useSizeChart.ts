@@ -2,35 +2,38 @@ import { useState, useEffect } from 'react';
 
 const API_BASE = 'https://api.tcdashop.com';
 
-export type SizeChartData = {
-  category: string;
-  product_id: number;
-  chart_data: {
-    unit_cm: {
-      measurements: string[];
-      sizes: Record<string, number[]>;
-    };
-    unit_inch: {
-      measurements: string[];
-      sizes: Record<string, number[]>;
-    };
-  };
+export type SizeTableEntry = {
+  type: string;
+  unit: string;
+  description: string;
+  image_url: string;
+  image_description: string;
+  measurements: {
+    type_label: string;
+    values: { size: string; value: string }[];
+  }[];
 };
 
-export function useSizeChart(category: string | undefined) {
+export type SizeChartData = {
+  catalog_product_id: number;
+  available_sizes: string[];
+  size_tables: SizeTableEntry[];
+};
+
+export function useSizeChart(printfulProductId: number | undefined) {
   const [data, setData] = useState<SizeChartData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!category) {
+    if (!printfulProductId) {
       setLoading(false);
       return;
     }
-    fetch(`${API_BASE}/size-charts/${category}`)
+    fetch(`${API_BASE}/size-charts/by-product/${printfulProductId}`)
       .then((r) => r.json())
       .then((d) => { setData(d); setLoading(false); })
       .catch(() => setLoading(false));
-  }, [category]);
+  }, [printfulProductId]);
 
   return { data, loading };
 }

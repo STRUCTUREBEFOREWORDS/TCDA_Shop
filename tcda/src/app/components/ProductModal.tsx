@@ -14,13 +14,6 @@ interface ProductModalProps {
 
 type Tab = 'product' | 'size';
 
-const PRINTFUL_TO_CATEGORY: Record<number, string> = {
-  388: 'hoodie',
-  257: 'mens_crew_neck',
-  717: 'zip_hoodie',
-  261: 'womens_crew_neck',
-};
-
 export function ProductModal({ product, onClose }: ProductModalProps) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [showDescription, setShowDescription] = useState(false);
@@ -34,9 +27,6 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
   const displayPrice = convertPrice(product.price);
   const symbol = getCurrencySymbol();
   const translatedTag = t(product.tag, language);
-  const sizeCategory = product.printful_product_id
-    ? PRINTFUL_TO_CATEGORY[product.printful_product_id]
-    : undefined;
 
   const handleBuyNow = async () => {
     if (!selectedSize) return;
@@ -222,7 +212,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                     transition={{ duration: 0.25 }}
                     className="flex-1"
                   >
-                    <SizeChartTable category={sizeCategory} />
+                    <SizeChartTable printfulProductId={product.printful_product_id ?? undefined} />
 
                     {/* Fit Info */}
                     <div className="space-y-2 border-t border-neutral-200 pt-5">
