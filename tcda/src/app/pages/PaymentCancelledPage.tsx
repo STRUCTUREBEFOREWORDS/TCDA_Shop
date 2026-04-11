@@ -34,7 +34,7 @@ export function PaymentCancelledPage() {
             {language === "ja" ? "カートに戻る" : language === "fr" ? "Retour au panier" : "Back to Cart"}
           </button>
           <button
-            onClick={() => navigate("/")}
+            onClick={() => navigate(`/${language}/`)}
             className="text-black/40 text-xs font-light tracking-[0.25em] uppercase hover:text-black transition-colors"
           >
             {t("continueShopping")}

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, useParams, useNavigate, useLocation } from "react-router";
 import { useState, useEffect, createContext, useContext } from "react";
 import { Language, Currency, CartItem } from "../types";
 import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
@@ -13,6 +13,8 @@ export const RATES: Record<Currency, number> = {
   KRW: 8.9,
   CNY: 0.048,
 };
+
+export const SUPPORTED_LANGS: Language[] = ["en", "ja", "fr", "es", "ko", "zh"];
 
 interface GlobalContextType {
   language: Language;
@@ -39,11 +41,25 @@ export const useGlobalContext = () => {
 };
 
 export function Root() {
-  const [language, setLanguage] = useState<Language>("ja");
+  const { lang } = useParams<{ lang: string }>();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const language: Language = SUPPORTED_LANGS.includes(lang as Language)
+    ? (lang as Language)
+    : "en";
+
   const [currency, setCurrency] = useState<Currency>("JPY");
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [countryCode, setCountryCode] = useState<string>("JP");
+
+  // Redirect if lang segment is invalid
+  useEffect(() => {
+    if (!SUPPORTED_LANGS.includes(lang as Language)) {
+      navigate("/en/", { replace: true });
+    }
+  }, [lang]);
 
   useEffect(() => {
     fetch("https://ipapi.co/json/")
@@ -55,15 +71,16 @@ export function Root() {
           KR: "KRW", CN: "CNY",
           DE: "EUR", FR: "EUR", IT: "EUR", ES: "EUR",
         };
-        const langMap: Record<string, Language> = {
-          ja: "ja", en: "en", ko: "ko", zh: "zh", fr: "fr", es: "es",
-        };
-        const lang = data.languages?.split(",")[0]?.split("-")[0] || "en";
         if (currencyMap[data.country_code]) setCurrency(currencyMap[data.country_code]);
-        if (langMap[lang]) setLanguage(langMap[lang]);
       })
       .catch(() => {});
   }, []);
+
+  const setLanguage = (newLang: Language) => {
+    // Replace /:lang segment in current path
+    const newPath = location.pathname.replace(`/${language}`, `/${newLang}`);
+    navigate(newPath, { replace: true });
+  };
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 

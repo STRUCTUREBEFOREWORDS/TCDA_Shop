@@ -33,7 +33,7 @@ export function TCDA_GlobalNav() {
         <div className="flex items-center justify-between px-6 md:px-10 h-14">
           {/* Left — Logo */}
           <Link
-            to="/"
+            to={`/${language}/`}
             className="text-white text-xs font-light tracking-[0.4em] uppercase opacity-90 hover:opacity-100 transition-opacity duration-300"
           >
             <img src="https://cdn.tcdashop.com/logo/1.png" alt="TCDA" className="h-6 w-auto" />
@@ -42,19 +42,19 @@ export function TCDA_GlobalNav() {
           {/* Center — Nav links (desktop) */}
           <nav className="hidden md:flex items-center gap-8">
             <Link
-              to="/products"
+              to={`/${language}/products`}
               className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
               {t("shop")}
             </Link>
             <Link
-              to="/look"
+              to={`/${language}/look`}
               className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
               {t("look")}
             </Link>
             <Link
-              to="/about"
+              to={`/${language}/about`}
               className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
               {t("about")}
@@ -109,9 +109,9 @@ export function TCDA_GlobalNav() {
               className="md:hidden bg-black/95 backdrop-blur-sm border-t border-white/10 px-6 py-6 space-y-5"
             >
               {[
-                { to: "/products", label: t("shop") },
-                { to: "/look", label: t("look") },
-                { to: "/about", label: t("about") },
+                { to: `/${language}/products`, label: t("shop") },
+                { to: `/${language}/look`, label: t("look") },
+                { to: `/${language}/about`, label: t("about") },
               ].map(({ to, label }) => (
                 <Link
                   key={to}

@@ -15,7 +15,7 @@ export function NotFound() {
         </p>
         <p className="text-black text-xl font-light mb-12">This space does not exist.</p>
         <Link
-          to="/"
+          to="/en/"
           className="inline-block text-black text-xs font-light tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity duration-300 border-b border-black/30 pb-1"
         >
           Return

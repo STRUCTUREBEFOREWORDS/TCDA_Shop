@@ -27,7 +27,7 @@ export function PaymentSuccessPage() {
           </p>
         </div>
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate(`/${language}/`)}
           className="text-black text-xs font-light tracking-[0.25em] uppercase border-b border-black/20 pb-1 hover:border-black transition-colors"
         >
           {t("continueShopping")}

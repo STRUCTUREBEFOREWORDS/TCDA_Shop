@@ -73,7 +73,7 @@ export function TopPage() {
             className="mt-16"
           >
             <Link
-              to="/products"
+              to={`/${language}/products`}
               className="text-white/40 text-[10px] font-light tracking-[0.4em] uppercase hover:text-white transition-colors duration-500 border-b border-white/20 hover:border-white/60 pb-2"
             >
               {t("shop")}
@@ -119,7 +119,7 @@ export function TopPage() {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.9, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Link to="/look">
+              <Link to={`/${language}/look`}>
                 <div className="aspect-[2/3] overflow-hidden bg-white/5">
                   <img
                     src={src}
@@ -140,7 +140,7 @@ export function TopPage() {
           className="max-w-7xl mx-auto mt-8 flex justify-end"
         >
           <Link
-            to="/look"
+            to={`/${language}/look`}
             className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
           >
             {t("viewAll")}
@@ -156,7 +156,7 @@ export function TopPage() {
               {t("collection")}
             </p>
             <Link
-              to="/products"
+              to={`/${language}/products`}
               className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
             >
               {t("viewAll")}
@@ -171,7 +171,7 @@ export function TopPage() {
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
               >
-                <Link to={`/product/${product.id}`} className="group block">
+                <Link to={`/${language}/product/${product.id}`} className="group block">
                   <div className="aspect-[3/4] overflow-hidden bg-white/5 mb-4">
                     <ImageWithFallback
                       src={product.images?.[0] || product.image}

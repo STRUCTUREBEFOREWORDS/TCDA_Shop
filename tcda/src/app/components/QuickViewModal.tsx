@@ -116,7 +116,7 @@ export function QuickViewModal({ artwork, isOpen, onClose, language, currency }:
                   {t("addToCart")}
                 </button>
                 <Link
-                  to={`/product/${artwork.id}`}
+                  to={`/${language}/product/${artwork.id}`}
                   onClick={onClose}
                   className="block w-full py-3 border border-white/20 text-white text-xs font-light tracking-[0.25em] uppercase text-center hover:border-white/50 transition-colors duration-200"
                 >

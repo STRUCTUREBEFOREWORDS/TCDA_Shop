@@ -170,7 +170,7 @@ export function ProductPage() {
       {/* BACK */}
       <div className="px-8 md:px-20 py-6 max-w-7xl mx-auto">
         <Link
-          to="/products"
+          to={`/${language}/products`}
           className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-40 hover:opacity-100 transition-opacity duration-300"
         >
           ← BACK

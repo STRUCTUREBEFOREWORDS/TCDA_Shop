@@ -378,7 +378,7 @@ export function AboutPage() {
       <section className="px-8 md:px-20 py-32 bg-black flex items-center justify-center">
         <motion.div {...fadeUp} className="text-center">
           <Link
-            to="/products"
+            to={`/${language}/products`}
             className="inline-block px-16 py-5 bg-white text-black text-xs font-light tracking-[0.4em] uppercase hover:bg-white/90 transition-colors duration-300"
           >
             {t.cta}

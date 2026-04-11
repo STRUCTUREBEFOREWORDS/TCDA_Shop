@@ -1,5 +1,6 @@
-import { createBrowserRouter, Navigate } from "react-router";
+import { createBrowserRouter } from "react-router";
 import { Root } from "./pages/Root";
+import { LangRedirect } from "./pages/LangRedirect";
 import { TopPage } from "./pages/TopPage";
 import { ProductPage } from "./pages/ProductPage";
 import { AboutPage } from "./pages/AboutPage";
@@ -14,16 +15,15 @@ import { PrivacyPage } from "./pages/PrivacyPage";
 import { NotFound } from "./pages/NotFound";
 
 export const router = createBrowserRouter([
+  // Root "/" → detect language → redirect to /:lang/
+  { index: true, Component: LangRedirect },
   {
-    path: "/",
+    path: "/:lang",
     Component: Root,
     children: [
       { index: true, Component: TopPage },
       { path: "product/:id", Component: ProductPage },
-      // PLP — /products is canonical; /archive redirects
       { path: "products", Component: ArchivePage },
-      { path: "archive", element: <Navigate to="/products" replace /> },
-      // New pages
       { path: "look", Component: LookbookPage },
       { path: "cart", Component: CartPage },
       { path: "checkout", Component: CheckoutPage },
@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
       { path: "about", Component: AboutPage },
       { path: "legal", Component: LegalPage },
       { path: "privacy", Component: PrivacyPage },
-      { path: "*", Component: NotFound },
     ],
   },
+  { path: "*", Component: NotFound },
 ]);

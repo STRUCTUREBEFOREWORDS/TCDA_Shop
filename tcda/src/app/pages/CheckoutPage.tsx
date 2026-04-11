@@ -68,7 +68,7 @@ export function CheckoutPage() {
             No items
           </p>
           <button
-            onClick={() => navigate("/products")}
+            onClick={() => navigate(`/${language}/products`)}
             className="text-black text-xs font-light tracking-widest uppercase border-b border-black/20 pb-1 hover:border-black transition-colors"
           >
             {t("continueShopping")}

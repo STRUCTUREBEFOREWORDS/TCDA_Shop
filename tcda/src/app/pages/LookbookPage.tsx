@@ -65,7 +65,7 @@ export function LookbookPage() {
             {row.map((look, idx) => (
               <Link
                 key={idx}
-                to={`/product/${look.productId}`}
+                to={`/${language}/product/${look.productId}`}
                 className="group relative overflow-hidden flex-1"
                 style={{ height: row.length === 1 ? "80vh" : "60vh" }}
               >
@@ -91,7 +91,7 @@ export function LookbookPage() {
 
       <div className="py-20 flex justify-center border-t border-white/5">
         <Link
-          to="/products"
+          to={`/${language}/products`}
           className="text-white/30 text-[10px] font-light tracking-[0.4em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-2"
         >
           {t("shop")}

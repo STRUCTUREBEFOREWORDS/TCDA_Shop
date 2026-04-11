@@ -85,7 +85,7 @@ export function ArchivePage() {
                 transition={{ duration: 0.6, delay: (index % 4) * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="group">
-                  <Link to={`/product/${product.id}`}>
+                  <Link to={`/${language}/product/${product.id}`}>
                     <div className="relative aspect-[3/4] overflow-hidden bg-black/5 mb-4">
                       <img
                         src={product.images?.[0] || product.thumbnail_url}

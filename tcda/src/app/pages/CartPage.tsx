@@ -15,7 +15,7 @@ export function CartPage() {
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleCheckout = () => {
-    navigate("/checkout", {
+    navigate(`/${language}/checkout`, {
       state: { fromCart: true, cartItems, currency },
     });
   };
@@ -27,7 +27,7 @@ export function CartPage() {
           {t("cartEmpty")}
         </p>
         <Link
-          to="/products"
+          to={`/${language}/products`}
           className="text-black text-xs font-light tracking-[0.3em] uppercase border-b border-black/20 pb-1 hover:border-black/60 transition-colors duration-300"
         >
           {t("continueShopping")}
@@ -60,7 +60,7 @@ export function CartPage() {
               >
                 {/* Image */}
                 <Link
-                  to={`/product/${item.artworkId}`}
+                  to={`/${language}/product/${item.artworkId}`}
                   className="w-24 flex-shrink-0 aspect-[3/4] bg-black/5 block"
                 >
                   <ImageWithFallback
@@ -150,7 +150,7 @@ export function CartPage() {
               </button>
 
               <Link
-                to="/products"
+                to={`/${language}/products`}
                 className="block text-center text-black/30 text-[10px] font-light tracking-widest uppercase hover:text-black/60 transition-colors duration-300"
               >
                 {t("continueShopping")}
