@@ -59,6 +59,13 @@ interface SizeChart {
 
 const SIZE_ORDER = ["2XS","XS","S","M","L","XL","2XL","3XL","4XL","5XL","6XL"];
 
+/** API が返す日本語測定ラベル → i18n キー のマッピング */
+const MEASUREMENT_I18N: Record<string, string> = {
+  "身幅": "size.width",
+  "着丈": "size.length",
+  "袖丈": "size.sleeveLength",
+};
+
 
 
 export function ProductPage() {
@@ -410,11 +417,11 @@ const { t } = useTranslation();
                 <thead>
                   <tr className="border-b border-black/10">
                     <th className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
-                      Size
+                      {t("size.label")}
                     </th>
                     {chartUnit.measurements.map((m) => (
                       <th key={m} className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
-                        {m} ({sizeUnit})
+                        {t(MEASUREMENT_I18N[m] ?? m)} ({sizeUnit})
                       </th>
                     ))}
                   </tr>

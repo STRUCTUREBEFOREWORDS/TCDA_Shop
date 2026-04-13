@@ -79,7 +79,9 @@
     "chest": "가슴둘레",
     "length": "기장",
     "shoulder": "어깨너비",
-    "noChartAvailable": "사이즈 정보를 준비 중입니다"
+    "noChartAvailable": "사이즈 정보를 준비 중입니다",
+    "width": "가슴 너비",
+    "sleeveLength": "소매 길이"
   },
   "checkout": {
     "fieldName": "이름",

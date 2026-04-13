@@ -79,7 +79,9 @@
     "chest": "Contorno de pecho",
     "length": "Largo",
     "shoulder": "Ancho de hombros",
-    "noChartAvailable": "Guía de tallas en preparación"
+    "noChartAvailable": "Guía de tallas en preparación",
+    "width": "Ancho",
+    "sleeveLength": "Largo de manga"
   },
   "checkout": {
     "fieldName": "Nombre",

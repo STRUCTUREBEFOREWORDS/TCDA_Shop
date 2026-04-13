@@ -79,7 +79,9 @@
     "chest": "胸围",
     "length": "衣长",
     "shoulder": "肩宽",
-    "noChartAvailable": "尺码信息即将呈现"
+    "noChartAvailable": "尺码信息即将呈现",
+    "width": "衣宽",
+    "sleeveLength": "袖长"
   },
   "checkout": {
     "fieldName": "姓名",

@@ -79,7 +79,9 @@
     "chest": "Chest",
     "length": "Length",
     "shoulder": "Shoulder",
-    "noChartAvailable": "Size guide coming soon"
+    "noChartAvailable": "Size guide coming soon",
+    "width": "Width",
+    "sleeveLength": "Sleeve Length"
   },
   "checkout": {
     "fieldName": "Name",

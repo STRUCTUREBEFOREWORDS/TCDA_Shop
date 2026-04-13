@@ -79,7 +79,9 @@
     "chest": "Tour de poitrine",
     "length": "Longueur",
     "shoulder": "Largeur d'épaules",
-    "noChartAvailable": "Guide des tailles bientôt disponible"
+    "noChartAvailable": "Guide des tailles bientôt disponible",
+    "width": "Largeur",
+    "sleeveLength": "Longueur de manche"
   },
   "checkout": {
     "fieldName": "Nom",

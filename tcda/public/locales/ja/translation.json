@@ -77,6 +77,8 @@
     "guideNote": "単位はcm。サイズ間の場合は上のサイズをお選びください。",
     "label": "サイズ",
     "noChartAvailable": "サイズ情報を準備中です",
+    "width": "身幅",
+    "sleeveLength": "袖丈",
     "chest": "胸囲",
     "length": "着丈",
     "shoulder": "肩幅"
