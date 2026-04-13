@@ -85,7 +85,7 @@ const { t } = useTranslation();
     window.scrollTo({ top: 0, behavior: "instant" });
     setLoading(true);
     setSizeChart(null);
-    fetch(`https://api.tcdashop.com/products/${id}`)
+    fetch(`https://api.tcdashop.com/products/${id}?lang=${language}`)
       .then((res) => res.json())
       .then(async (data: Product) => {
         setProduct(data);
@@ -110,7 +110,7 @@ const { t } = useTranslation();
         }
       })
       .finally(() => setLoading(false));
-  }, [id, countryCode]);
+  }, [id, countryCode, language]);
 
   if (loading) {
     return (
