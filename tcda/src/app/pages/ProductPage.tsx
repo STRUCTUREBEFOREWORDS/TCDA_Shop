@@ -314,9 +314,17 @@ const { t } = useTranslation();
               <p className="text-black text-xs font-light tracking-widest uppercase opacity-40 mb-2">
                 {t("product.modelLabel")}
               </p>
-              <p className="text-black text-xs font-light opacity-60 leading-relaxed">
-                {t("product.modelText")}
-              </p>
+              <div className="space-y-1">
+                <p className="text-black text-xs font-light opacity-60 leading-relaxed">
+                  {t("product.mensModel")}
+                </p>
+                <p className="text-black text-xs font-light opacity-60 leading-relaxed">
+                  {t("product.womensModel")}
+                </p>
+                <p className="text-black text-xs font-light opacity-30 leading-relaxed mt-2">
+                  {t("product.aiModelNote")}
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>

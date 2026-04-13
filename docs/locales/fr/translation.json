@@ -38,12 +38,14 @@
     "notesItem1": "Selon votre écran et les conditions d'éclairage, les couleurs peuvent légèrement différer du produit réel.",
     "notesItem2": "En raison de la fabrication à l'étranger, l'emballage peut présenter de légères marques ou déformations mineures.",
     "deliveryText": "Livraison estimée sous 5 à 10 jours ouvrés",
-    "modelText": "Le mannequin mesure 180 cm et porte une taille M",
     "notFound": "Article introuvable",
     "stockRemaining": "Plus que {{count}} en stock",
     "descriptionLabel": "Description",
     "prevImage": "Image précédente",
-    "nextImage": "Image suivante"
+    "nextImage": "Image suivante",
+    "mensModel": "Modèle homme : 175 cm / taille M",
+    "womensModel": "Modèle femme : 160 cm / taille S",
+    "aiModelNote": "※ Visuels générés par IA"
   },
   "cart": {
     "addToCart": "Ajouter au panier",

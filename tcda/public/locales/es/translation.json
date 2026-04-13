@@ -38,12 +38,14 @@
     "notesItem1": "El color real puede variar según la configuración del monitor y las condiciones de iluminación.",
     "notesItem2": "Al ser un producto de fabricación internacional, el embalaje puede presentar pequeñas marcas o abolladuras.",
     "deliveryText": "Entrega en 5 a 10 días hábiles",
-    "modelText": "Modelo: 180 cm de altura / talla M",
     "notFound": "Producto no encontrado",
     "stockRemaining": "{{count}} unidades restantes",
     "descriptionLabel": "Descripción",
     "prevImage": "Imagen anterior",
-    "nextImage": "Imagen siguiente"
+    "nextImage": "Imagen siguiente",
+    "mensModel": "Modelo masculino: 175 cm / talla M",
+    "womensModel": "Modelo femenino: 160 cm / talla S",
+    "aiModelNote": "※ Imagen generada con modelo IA"
   },
   "cart": {
     "addToCart": "Añadir al carrito",
