@@ -38,7 +38,12 @@
     "notesItem1": "El color real puede variar según la configuración del monitor y las condiciones de iluminación.",
     "notesItem2": "Al ser un producto de fabricación internacional, el embalaje puede presentar pequeñas marcas o abolladuras.",
     "deliveryText": "Entrega en 5 a 10 días hábiles",
-    "modelText": "Modelo: 180 cm de altura / talla M"
+    "modelText": "Modelo: 180 cm de altura / talla M",
+    "notFound": "Producto no encontrado",
+    "stockRemaining": "{{count}} unidades restantes",
+    "descriptionLabel": "Descripción",
+    "prevImage": "Imagen anterior",
+    "nextImage": "Imagen siguiente"
   },
   "cart": {
     "addToCart": "Añadir al carrito",
@@ -54,7 +59,8 @@
     "shipping": "Envío",
     "free": "Gratuito",
     "placeOrder": "Confirmar pedido",
-    "quickView": "Vista rápida"
+    "quickView": "Vista rápida",
+    "added": "Agregado"
   },
   "shop": {
     "filterAll": "Todo",
@@ -70,7 +76,8 @@
     "label": "Talla",
     "chest": "Contorno de pecho",
     "length": "Largo",
-    "shoulder": "Ancho de hombros"
+    "shoulder": "Ancho de hombros",
+    "noChartAvailable": "Guía de tallas en preparación"
   },
   "checkout": {
     "fieldName": "Nombre",

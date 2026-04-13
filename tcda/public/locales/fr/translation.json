@@ -38,7 +38,12 @@
     "notesItem1": "Selon votre écran et les conditions d'éclairage, les couleurs peuvent légèrement différer du produit réel.",
     "notesItem2": "En raison de la fabrication à l'étranger, l'emballage peut présenter de légères marques ou déformations mineures.",
     "deliveryText": "Livraison estimée sous 5 à 10 jours ouvrés",
-    "modelText": "Le mannequin mesure 180 cm et porte une taille M"
+    "modelText": "Le mannequin mesure 180 cm et porte une taille M",
+    "notFound": "Article introuvable",
+    "stockRemaining": "Plus que {{count}} en stock",
+    "descriptionLabel": "Description",
+    "prevImage": "Image précédente",
+    "nextImage": "Image suivante"
   },
   "cart": {
     "addToCart": "Ajouter au panier",
@@ -54,7 +59,8 @@
     "shipping": "Livraison",
     "free": "Offerte",
     "placeOrder": "Confirmer la commande",
-    "quickView": "Aperçu rapide"
+    "quickView": "Aperçu rapide",
+    "added": "Ajouté"
   },
   "shop": {
     "filterAll": "Tout",
@@ -70,7 +76,8 @@
     "label": "Taille",
     "chest": "Tour de poitrine",
     "length": "Longueur",
-    "shoulder": "Largeur d'épaules"
+    "shoulder": "Largeur d'épaules",
+    "noChartAvailable": "Guide des tailles bientôt disponible"
   },
   "checkout": {
     "fieldName": "Nom",

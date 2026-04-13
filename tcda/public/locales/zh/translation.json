@@ -38,7 +38,12 @@
     "notesItem1": "因显示器环境及光线条件不同，实物颜色可能与图片略有差异。",
     "notesItem2": "本品为海外生产，包装可能存在轻微摩擦或凹痕。",
     "deliveryText": "通常5至10个工作日内送达",
-    "modelText": "模特身高180cm / 穿着M码"
+    "modelText": "模特身高180cm / 穿着M码",
+    "notFound": "商品不存在",
+    "stockRemaining": "仅剩 {{count}} 件",
+    "descriptionLabel": "详情",
+    "prevImage": "上一张",
+    "nextImage": "下一张"
   },
   "cart": {
     "addToCart": "加入购物车",
@@ -54,7 +59,8 @@
     "shipping": "运费",
     "free": "免费",
     "placeOrder": "确认下单",
-    "quickView": "快速预览"
+    "quickView": "快速预览",
+    "added": "已加入"
   },
   "shop": {
     "filterAll": "全部",
@@ -70,7 +76,8 @@
     "label": "尺码",
     "chest": "胸围",
     "length": "衣长",
-    "shoulder": "肩宽"
+    "shoulder": "肩宽",
+    "noChartAvailable": "尺码信息即将呈现"
   },
   "checkout": {
     "fieldName": "姓名",

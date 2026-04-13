@@ -115,7 +115,7 @@ const { t } = useTranslation();
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-black text-sm font-light tracking-widest opacity-40">Loading...</p>
+        <p className="text-black text-sm font-light tracking-widest opacity-40">{t("common.loading")}</p>
       </div>
     );
   }
@@ -123,7 +123,7 @@ const { t } = useTranslation();
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-black text-sm font-light tracking-widest opacity-40">Product not found.</p>
+        <p className="text-black text-sm font-light tracking-widest opacity-40">{t("product.notFound")}</p>
       </div>
     );
   }
@@ -202,7 +202,7 @@ const { t } = useTranslation();
                     onClick={() => setCurrentImageIndex((i) => Math.max(i - 1, 0))}
                     disabled={currentImageIndex === 0}
                     className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-white/80 text-black disabled:opacity-20 transition-opacity duration-200"
-                    aria-label="前の画像"
+                    aria-label={t("product.prevImage")}
                   >
                     ‹
                   </button>
@@ -210,7 +210,7 @@ const { t } = useTranslation();
                     onClick={() => setCurrentImageIndex((i) => Math.min(i + 1, images.length - 1))}
                     disabled={currentImageIndex === images.length - 1}
                     className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-white/80 text-black disabled:opacity-20 transition-opacity duration-200"
-                    aria-label="次の画像"
+                    aria-label={t("product.nextImage")}
                   >
                     ›
                   </button>
@@ -260,18 +260,18 @@ const { t } = useTranslation();
             {/* Stock */}
             {product.stock <= 5 ? (
               <p className="text-red-500 text-xs font-light tracking-widest">
-                残り{product.stock}点
+                {t("product.stockRemaining", { count: product.stock })}
               </p>
             ) : (
               <p className="text-black text-xs font-light opacity-40 tracking-widest">
-                残り{product.stock}点
+                {t("product.stockRemaining", { count: product.stock })}
               </p>
             )}
 
             {/* Size selection */}
             <div>
               <p className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-40 mb-4">
-                Size
+                {t("size.label")}
               </p>
               <div className="flex flex-wrap gap-3">
                 {(product.sizes ?? ["XS", "S", "M", "L", "XL", "2XL"]).map((size) => (
@@ -296,7 +296,7 @@ const { t } = useTranslation();
               disabled={!selectedSize}
               className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.3em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-30"
             >
-              {added ? "ADDED" : "ADD TO CART"}
+              {added ? t("cart.added") : t("cart.addToCart")}
             </button>
 
             {/* Delivery */}
@@ -350,7 +350,7 @@ const { t } = useTranslation();
             className="border-t border-black/10 pt-8"
           >
             <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
-              Description
+              {t("product.descriptionLabel")}
             </h2>
             <p className="text-black text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
               {product.description}
@@ -368,7 +368,7 @@ const { t } = useTranslation();
         >
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase">
-              Size Guide
+              {t("size.guide")}
             </h2>
             {sizeChart && (
               <div className="flex gap-1">
@@ -417,7 +417,7 @@ const { t } = useTranslation();
               </table>
             </div>
           ) : (
-            <p className="text-black text-xs font-light opacity-30">サイズ情報を準備中です</p>
+            <p className="text-black text-xs font-light opacity-30">{t("size.noChartAvailable")}</p>
           )}
         </motion.div>
 

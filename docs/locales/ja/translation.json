@@ -36,6 +36,11 @@
     "materialDetailsLabel": "素材・詳細",
     "relatedProducts": "あわせて見る",
     "collection": "現在のコレクション",
+    "notFound": "商品が見つかりません",
+    "stockRemaining": "残り{{count}}点",
+    "descriptionLabel": "説明",
+    "prevImage": "前の画像",
+    "nextImage": "次の画像",
     "notesTitle": "ご注意",
     "notesItem1": "モニター環境や照明条件により、実物と色味が異なる場合があります。",
     "notesItem2": "海外生産品のため、梱包に軽微な擦れや凹みが生じる場合があります。"
@@ -54,6 +59,7 @@
     "shipping": "配送料",
     "free": "無料",
     "placeOrder": "注文を確定する",
+    "added": "追加済み",
     "quickView": "クイックビュー"
   },
   "shop": {
@@ -68,6 +74,7 @@
     "guideTitle": "サイズガイド",
     "guideNote": "単位はcm。サイズ間の場合は上のサイズをお選びください。",
     "label": "サイズ",
+    "noChartAvailable": "サイズ情報を準備中です",
     "chest": "胸囲",
     "length": "着丈",
     "shoulder": "肩幅"
