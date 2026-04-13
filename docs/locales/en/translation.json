@@ -36,7 +36,9 @@
     "collection": "Current Collection",
     "notesTitle": "Please Note",
     "notesItem1": "Colors may vary slightly from the original depending on your monitor settings and lighting conditions.",
-    "notesItem2": "As this item is produced overseas, minor scuffs or dents on the packaging may occasionally occur."
+    "notesItem2": "As this item is produced overseas, minor scuffs or dents on the packaging may occasionally occur.",
+    "deliveryText": "Delivered within 5–10 business days",
+    "modelText": "Model is 180 cm / wearing size M"
   },
   "cart": {
     "addToCart": "Add to Cart",

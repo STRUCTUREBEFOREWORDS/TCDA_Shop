@@ -302,20 +302,20 @@ const { t } = useTranslation();
             {/* Delivery */}
             <div className="border-t border-black/10 pt-6">
               <p className="text-black text-xs font-light tracking-widest uppercase opacity-40 mb-2">
-                Delivery
+                {t("product.deliveryLabel")}
               </p>
               <p className="text-black text-xs font-light opacity-60 leading-relaxed">
-                通常5〜10営業日でお届け
+                {t("product.deliveryText")}
               </p>
             </div>
 
             {/* Model info */}
             <div className="border-t border-black/10 pt-6">
               <p className="text-black text-xs font-light tracking-widest uppercase opacity-40 mb-2">
-                Model
+                {t("product.modelLabel")}
               </p>
               <p className="text-black text-xs font-light opacity-60 leading-relaxed">
-                モデル身長180cm / Mサイズ着用
+                {t("product.modelText")}
               </p>
             </div>
           </motion.div>
@@ -449,7 +449,7 @@ const { t } = useTranslation();
             className="border-t border-black/10 pt-8"
           >
             <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
-              ご注意
+              {t("product.notesTitle")}
             </h2>
             <ul className="text-black text-sm font-light opacity-60 leading-relaxed space-y-2">
               <li>{t("product.notesItem1")}</li>

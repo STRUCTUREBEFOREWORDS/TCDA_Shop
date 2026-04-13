@@ -36,7 +36,9 @@
     "collection": "当前系列",
     "notesTitle": "注意事项",
     "notesItem1": "因显示器环境及光线条件不同，实物颜色可能与图片略有差异。",
-    "notesItem2": "本品为海外生产，包装可能存在轻微摩擦或凹痕。"
+    "notesItem2": "本品为海外生产，包装可能存在轻微摩擦或凹痕。",
+    "deliveryText": "通常5至10个工作日内送达",
+    "modelText": "模特身高180cm / 穿着M码"
   },
   "cart": {
     "addToCart": "加入购物车",
