@@ -39,6 +39,7 @@ interface Product {
   stock: number;
   variants: Variant[];
   size_category?: string;
+  gender_type?: "mens" | "womens" | "unisex";
   fabric_composition?: string;
   description?: string;
   printful_variant_id?: number;
@@ -315,15 +316,21 @@ const { t } = useTranslation();
                 {t("product.modelLabel")}
               </p>
               <div className="space-y-1">
-                <p className="text-black text-xs font-light opacity-60 leading-relaxed">
-                  {t("product.mensModel")}
-                </p>
-                <p className="text-black text-xs font-light opacity-60 leading-relaxed">
-                  {t("product.womensModel")}
-                </p>
-                <p className="text-black text-xs font-light opacity-30 leading-relaxed mt-2">
-                  {t("product.aiModelNote")}
-                </p>
+                {product.gender_type !== "womens" && (
+                  <p className="text-black text-xs font-light opacity-60 leading-relaxed">
+                    {t("product.mensModel")}
+                  </p>
+                )}
+                {product.gender_type !== "mens" && (
+                  <p className="text-black text-xs font-light opacity-60 leading-relaxed">
+                    {t("product.womensModel")}
+                  </p>
+                )}
+                {(product.gender_type === "unisex" || !product.gender_type) && (
+                  <p className="text-black text-xs font-light opacity-30 leading-relaxed mt-2">
+                    {t("product.aiModelNote")}
+                  </p>
+                )}
               </div>
             </div>
           </motion.div>
