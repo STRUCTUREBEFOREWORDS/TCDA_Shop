@@ -6,6 +6,7 @@ import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
 import { CartDrawer } from "../components/CartDrawer";
 import { Footer } from "../components/Footer";
 
+/** Fallback rates used before live rates arrive from the backend */
 export const RATES: Record<Currency, number> = {
   JPY: 1,
   USD: 0.0067,
@@ -51,9 +52,29 @@ export function Root() {
     : "en";
 
   const [currency, setCurrency] = useState<Currency>("JPY");
+  const [rates, setRates] = useState<Record<Currency, number>>(RATES);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [countryCode, setCountryCode] = useState<string>("JP");
+
+  // Fetch live exchange rates from backend (updated daily via frankfurter.app)
+  useEffect(() => {
+    fetch("https://api.tcdashop.com/exchange-rates")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.rates) {
+          setRates({
+            JPY: 1,
+            USD: data.rates.USD ?? RATES.USD,
+            EUR: data.rates.EUR ?? RATES.EUR,
+            GBP: data.rates.GBP ?? RATES.GBP,
+            KRW: data.rates.KRW ?? RATES.KRW,
+            CNY: data.rates.CNY ?? RATES.CNY,
+          });
+        }
+      })
+      .catch(() => {}); // keep fallback RATES on error
+  }, []);
 
   // Redirect if lang segment is invalid; sync i18next language
   useEffect(() => {
@@ -127,7 +148,7 @@ export function Root() {
       value={{
         language,
         currency,
-        rates: RATES,
+        rates,
         cartItems,
         cartCount,
         setLanguage,
