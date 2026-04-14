@@ -98,7 +98,7 @@ const { t } = useTranslation();
               size: state?.size ?? "M",
             },
           ];
-      await redirectToCheckout(checkoutItems);
+      await redirectToCheckout(checkoutItems, currency, language);
     } catch (e) {
       console.error(e);
       setIsLoading(false);
@@ -130,7 +130,7 @@ const { t } = useTranslation();
                 {item.artworkName}
               </p>
               <p className="text-black/40 text-[10px] font-light">
-                {t("size.label")}: {item.size} · {t("quantity")}: {item.quantity}
+                {t("size.label")}: {item.size} · {t("cart.quantity")}: {item.quantity}
               </p>
               <p className="text-black text-xs font-extralight">
                 {formatPrice(item.price * item.quantity, currency)}
@@ -145,7 +145,7 @@ const { t } = useTranslation();
           <span>{t("cart.free")}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-black text-xs font-light tracking-[0.2em] uppercase">{t("total")}</span>
+          <span className="text-black text-xs font-light tracking-[0.2em] uppercase">{t("cart.total")}</span>
           <span className="text-black text-base font-extralight tracking-wider">
             {formatPrice(total, currency)}
           </span>

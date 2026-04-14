@@ -8,6 +8,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function CartDrawer() {
   const {
+    language,
     currency,
     cartItems,
     cartCount,
@@ -154,11 +155,11 @@ export function CartDrawer() {
                     setIsCartOpen(false);
                     const items = cartItems.map((item) => ({
                       name: item.artworkName,
-                      price_jpy: item.price,
+                      price_jpy: item.price_jpy,
                       quantity: item.quantity,
                       size: item.size,
                     }));
-                    await redirectToCheckout(items, currency);
+                    await redirectToCheckout(items, currency, language);
                   }}
                   className="block w-full py-4 bg-white text-black text-xs font-light tracking-[0.25em] uppercase text-center hover:bg-white/90 transition-colors duration-200"
                 >
