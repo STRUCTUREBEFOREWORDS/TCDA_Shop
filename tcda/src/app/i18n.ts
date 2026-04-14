@@ -25,7 +25,7 @@ i18n
     ns: ["translation"],
     defaultNS: "translation",
     backend: {
-      loadPath: "/locales/{{lng}}/translation.json?v=20260414",
+      loadPath: "/locales/{{lng}}/translation.json?v=20260414b",
     },
     interpolation: { escapeValue: false },
     react: { useSuspense: false },

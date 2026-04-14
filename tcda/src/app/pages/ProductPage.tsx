@@ -350,11 +350,9 @@ const { t } = useTranslation();
                     {t("product.womensModel")}
                   </p>
                 )}
-                {(product.gender_type === "unisex" || !product.gender_type) && (
-                  <p className="text-black text-xs font-light opacity-30 leading-relaxed mt-2">
-                    {t("product.aiModelNote")}
-                  </p>
-                )}
+                <p className="text-black text-xs font-light opacity-30 leading-relaxed mt-2">
+                  {t("product.aiModelNote")}
+                </p>
               </div>
             </div>
           </motion.div>

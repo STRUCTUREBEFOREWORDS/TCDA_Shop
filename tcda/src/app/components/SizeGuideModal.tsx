@@ -108,9 +108,9 @@ export function SizeGuideModal({
   const activeMeasurements = (chartUnit?.measurements ?? []).map((raw) => {
     const key = MEASUREMENT_TO_KEY[raw] ?? MEASUREMENT_TO_KEY[raw.toLowerCase()];
     if (!key) return null;
-    const { marker, labelKey } = MEASUREMENT_LABEL_MAP[key];
-    return { key, marker, labelKey, raw };
-  }).filter((x): x is { key: MeasurementKey; marker: string; labelKey: string; raw: string } => x !== null);
+    const { marker, labelKey, helpKey } = MEASUREMENT_LABEL_MAP[key];
+    return { key, marker, labelKey, helpKey, raw };
+  }).filter((x): x is { key: MeasurementKey; marker: string; labelKey: string; helpKey: string; raw: string } => x !== null);
 
   // Fallback: use measure_yourself_image_url from chart_data if product-level URL is absent
   const resolvedMeasuringImageUrl =
