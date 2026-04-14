@@ -97,7 +97,7 @@
     "shippingInfo": "Livraison",
     "paymentInfo": "Paiement",
     "confirmOrder": "Confirmer",
-    "shippingReturnsText": "Votre commande est traitée via Printful sous 2 à 5 jours ouvrés. La livraison prend généralement 5 à 10 jours ouvrés selon votre région. Les retours pour article défectueux ou erroné sont acceptés dans les 14 jours suivant la réception. En l'absence de défaut, les frais de retour restent à la charge du client."
+    "shippingReturnsText": "Votre commande est traitée via Printful sous 2 à 5 jours ouvrés. La livraison prend généralement 5 à 10 jours ouvrés selon votre région. En cas de produit endommagé, d'impression défectueuse ou d'envoi incorrect, contactez-nous à info@tcdashop.com dans les 7 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification."
   },
   "order": {
     "confirmed": "Commande confirmée",
@@ -117,7 +117,7 @@
     "fullTitle": "FAQ",
     "sizeHelp": {
       "q": "Je ne sais pas quelle taille choisir.",
-      "a": "Consultez le guide des tailles pour des repères selon votre taille et morphologie. En cas de doute entre deux tailles, prenez la plus grande."
+      "a": "Consultez le guide des tailles pour les dimensions du vêtement. En cas de doute entre deux tailles, prenez la plus grande."
     },
     "oversized": {
       "q": "Comment obtenir un look oversize ?",
@@ -129,7 +129,7 @@
     },
     "deliveryTime": {
       "q": "Quel est le délai de livraison ?",
-      "a": "La livraison prend généralement 5 à 10 jours ouvrés. Un numéro de suivi est envoyé après l'expédition."
+      "a": "Les commandes sont traitées sous 2 à 5 jours ouvrés, puis livrées sous 5 à 10 jours ouvrés après expédition. Un numéro de suivi est envoyé après l'expédition."
     },
     "internationalShipping": {
       "q": "La livraison est-elle internationale ?",
@@ -137,7 +137,7 @@
     },
     "returns": {
       "q": "Les retours ou échanges sont-ils possibles ?",
-      "a": "Nous acceptons les retours uniquement pour les articles défectueux. Les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés."
+      "a": "Nous acceptons les retours uniquement en cas de produit endommagé, d'impression défectueuse ou d'envoi incorrect. Les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés."
     },
     "colorDifference": {
       "q": "La couleur sera-t-elle identique à l'écran ?",
@@ -149,7 +149,7 @@
     },
     "paymentMethods": {
       "q": "Quels modes de paiement sont acceptés ?",
-      "a": "Nous acceptons les principales cartes bancaires et divers moyens de paiement en ligne."
+      "a": "Seules les cartes bancaires sont acceptées (Visa, Mastercard, JCB, American Express, Diners Club)."
     },
     "orderChange": {
       "q": "Puis-je modifier ou annuler ma commande après l'avoir passée ?",
@@ -157,11 +157,11 @@
     },
     "restock": {
       "q": "Les articles épuisés seront-ils réapprovisionnés ?",
-      "a": "Les dates de réapprovisionnement ne sont pas confirmées. Les mises à jour seront partagées via nos réseaux sociaux officiels et par e-mail."
+      "a": "Les dates de réapprovisionnement ne sont pas confirmées. Les mises à jour seront partagées via nos réseaux sociaux officiels lorsque disponibles."
     },
     "defect": {
       "q": "Que faire si mon article est défectueux ?",
-      "a": "Contactez-nous dans les 7 jours suivant la réception. Un échange sera organisé après vérification."
+      "a": "Contactez-nous à info@tcdashop.com dans les 7 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification."
     }
   },
   "sizeTable": {

@@ -97,7 +97,7 @@
     "shippingInfo": "Envío",
     "paymentInfo": "Pago",
     "confirmOrder": "Confirmar",
-    "shippingReturnsText": "Los pedidos se procesan a través de Printful en un plazo de 2 a 5 días hábiles. El tiempo de entrega es habitualmente de 5 a 10 días hábiles según la región. Aceptamos devoluciones en un plazo de 14 días en caso de producto defectuoso o envío incorrecto. Si el artículo no presenta defecto, los gastos de devolución corren a cargo del cliente."
+    "shippingReturnsText": "Los pedidos se procesan a través de Printful en un plazo de 2 a 5 días hábiles. El tiempo de entrega es habitualmente de 5 a 10 días hábiles según la región. En caso de producto dañado, defecto de impresión o envío incorrecto, contáctanos en info@tcdashop.com dentro de los 7 días siguientes a la recepción. Gestionaremos un reenvío o reembolso tras la verificación."
   },
   "order": {
     "confirmed": "Pedido completado",
@@ -117,7 +117,7 @@
     "fullTitle": "FAQ",
     "sizeHelp": {
       "q": "¿Cómo elijo la talla correcta?",
-      "a": "Consulta la guía de tallas para referencias según tu altura y tipo de cuerpo. Si dudas entre dos tallas, elige la más grande."
+      "a": "Consulta la guía de tallas para ver las medidas del producto. Si dudas entre dos tallas, elige la más grande."
     },
     "oversized": {
       "q": "¿Cómo consigo un look oversize?",
@@ -129,7 +129,7 @@
     },
     "deliveryTime": {
       "q": "¿Cuánto tarda el envío?",
-      "a": "Los pedidos suelen llegar en 5–10 días hábiles. Se envía un número de seguimiento tras el despacho."
+      "a": "Los pedidos se procesan en 2–5 días hábiles y suelen llegar en 5–10 días hábiles adicionales tras el envío. Se envía un número de seguimiento tras el despacho."
     },
     "internationalShipping": {
       "q": "¿Se realiza envío internacional?",
@@ -137,7 +137,7 @@
     },
     "returns": {
       "q": "¿Aceptáis devoluciones o cambios?",
-      "a": "Aceptamos devoluciones solo por artículos defectuosos. No se aceptan devoluciones por talla o preferencia personal."
+      "a": "Aceptamos devoluciones solo por artículos dañados, con defectos de impresión o envíos incorrectos. No se aceptan devoluciones por talla o preferencia personal."
     },
     "colorDifference": {
       "q": "¿El color coincidirá con lo que veo en pantalla?",
@@ -149,7 +149,7 @@
     },
     "paymentMethods": {
       "q": "¿Qué métodos de pago se aceptan?",
-      "a": "Aceptamos las principales tarjetas de crédito y diversos métodos de pago en línea."
+      "a": "Solo aceptamos tarjetas de crédito (Visa, Mastercard, JCB, American Express, Diners Club)."
     },
     "orderChange": {
       "q": "¿Puedo cambiar o cancelar mi pedido después de realizarlo?",
@@ -157,11 +157,11 @@
     },
     "restock": {
       "q": "¿Se repondrán los artículos agotados?",
-      "a": "Las fechas de reposición no están confirmadas. Las actualizaciones se compartirán por redes sociales oficiales y correo electrónico."
+      "a": "Las fechas de reposición no están confirmadas. Las actualizaciones se compartirán por redes sociales oficiales cuando estén disponibles."
     },
     "defect": {
       "q": "¿Qué hago si mi artículo tiene un defecto?",
-      "a": "Contáctanos en un plazo de 7 días desde la recepción. Gestionaremos un cambio tras la verificación."
+      "a": "Contáctanos en info@tcdashop.com en un plazo de 7 días desde la recepción. Gestionaremos un reenvío o reembolso tras la verificación."
     }
   },
   "sizeTable": {

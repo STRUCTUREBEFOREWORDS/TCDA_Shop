@@ -97,7 +97,7 @@
     "shippingInfo": "Shipping",
     "paymentInfo": "Payment",
     "confirmOrder": "Confirm",
-    "shippingReturnsText": "Orders are fulfilled within 2–5 business days via Printful. Delivery typically takes 5–10 business days depending on your region. Returns are accepted within 14 days for defective or incorrect items. Return shipping costs for non-defective items remain the responsibility of the customer."
+    "shippingReturnsText": "Orders are fulfilled within 2–5 business days via Printful. Delivery typically takes 5–10 business days depending on your region. For damaged, misprinted, or incorrectly shipped items, please contact us at info@tcdashop.com within 7 days of receipt. We will arrange a replacement or refund after verification."
   },
   "order": {
     "confirmed": "Order Confirmed",
@@ -117,7 +117,7 @@
     "fullTitle": "FAQ",
     "sizeHelp": {
       "q": "Not sure which size to pick?",
-      "a": "Check the Size Guide for reference by height and body type. When between sizes, we recommend sizing up."
+      "a": "Check the Size Guide for garment measurements. When between sizes, we recommend sizing up."
     },
     "oversized": {
       "q": "How do I get an oversized fit?",
@@ -129,7 +129,7 @@
     },
     "deliveryTime": {
       "q": "How long does delivery take?",
-      "a": "Orders typically arrive within 5–10 business days. A tracking number is sent after dispatch."
+      "a": "Orders are fulfilled within 2–5 business days, then typically arrive within 5–10 business days after dispatch. A tracking number is sent after shipment."
     },
     "internationalShipping": {
       "q": "Is this shipped internationally?",
@@ -137,7 +137,7 @@
     },
     "returns": {
       "q": "Are returns or exchanges available?",
-      "a": "We accept returns for defective items only. Returns due to size or personal preference are not accepted."
+      "a": "We accept returns for damaged, misprinted, or incorrectly shipped items only. Returns due to size or personal preference are not accepted."
     },
     "colorDifference": {
       "q": "Will the color match what I see on screen?",
@@ -149,7 +149,7 @@
     },
     "paymentMethods": {
       "q": "What payment methods are accepted?",
-      "a": "We accept major credit cards and various online payment methods."
+      "a": "We accept credit cards only (Visa, Mastercard, JCB, American Express, Diners Club)."
     },
     "orderChange": {
       "q": "Can I change or cancel my order after placing it?",
@@ -157,11 +157,11 @@
     },
     "restock": {
       "q": "Will sold-out items be restocked?",
-      "a": "Restocking dates are not confirmed. Updates will be shared via our official social channels and email."
+      "a": "Restocking dates are not confirmed. Updates will be shared via our official social channels when available."
     },
     "defect": {
       "q": "What if my item has a defect?",
-      "a": "Please contact us within 7 days of receiving your order. We will arrange an exchange after verification."
+      "a": "Please contact us at info@tcdashop.com within 7 days of receiving your order. We will arrange a replacement or refund after verification."
     }
   },
   "sizeTable": {
