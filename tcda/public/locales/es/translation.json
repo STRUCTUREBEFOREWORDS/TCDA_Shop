@@ -168,7 +168,14 @@
       "waist": "Cintura"
     },
     "measurementFlatNote": "Medidas tomadas en plano",
-    "measurementVariationNote": "Puede haber una ligera variación (±1–2 cm) por tolerancias de producción."
+    "measurementVariationNote": "Puede haber una ligera variación (±1–2 cm) por tolerancias de producción.",
+    "measurementHelp": {
+      "width": "plano, a la altura de las axilas",
+      "length": "desde el hombro hasta el bajo",
+      "sleeve": "desde la costura del hombro hasta el puño",
+      "shoulder": "de costura a costura por la espalda",
+      "waist": "plano, a la altura de la cintura"
+    }
   },
   "fit": {
     "slim": "Slim",

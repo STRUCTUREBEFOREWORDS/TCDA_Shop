@@ -168,7 +168,14 @@
       "waist": "ウエスト"
     },
     "measurementFlatNote": "平置き採寸",
-    "measurementVariationNote": "生産誤差として±1〜2cmの範囲で誤差が生じる場合があります。"
+    "measurementVariationNote": "生産誤差として±1〜2cmの範囲で誤差が生じる場合があります。",
+    "measurementHelp": {
+      "width": "脇下の横幅（平置き）",
+      "length": "肩の最上部から裾まで",
+      "sleeve": "肩先から袖口まで",
+      "shoulder": "背面の肩から肩まで（縫い目間）",
+      "waist": "ウエスト位置の横幅（平置き）"
+    }
   },
   "fit": {
     "slim": "スリム",

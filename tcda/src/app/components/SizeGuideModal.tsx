@@ -48,20 +48,12 @@ const MEASUREMENT_TO_KEY: Record<string, MeasurementKey> = {
   "waist": "waist",
 };
 
-const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, { marker: string; labelKey: string }> = {
-  width:    { marker: "A", labelKey: "sizeGuide.measurements.width" },
-  length:   { marker: "B", labelKey: "sizeGuide.measurements.length" },
-  sleeve:   { marker: "C", labelKey: "sizeGuide.measurements.sleeve" },
-  shoulder: { marker: "D", labelKey: "sizeGuide.measurements.shoulder" },
-  waist:    { marker: "E", labelKey: "sizeGuide.measurements.waist" },
-};
-
-/** Description key for text fallback (no image) */
-const MEASUREMENT_DESC_KEY: Partial<Record<MeasurementKey, string>> = {
-  width:    "sizeGuide.measureChest",
-  length:   "sizeGuide.measureLength",
-  shoulder: "sizeGuide.measureShoulder",
-  sleeve:   "sizeGuide.measureSleeve",
+const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, { marker: string; labelKey: string; helpKey: string }> = {
+  width:    { marker: "A", labelKey: "sizeGuide.measurements.width",    helpKey: "sizeGuide.measurementHelp.width" },
+  length:   { marker: "B", labelKey: "sizeGuide.measurements.length",   helpKey: "sizeGuide.measurementHelp.length" },
+  sleeve:   { marker: "C", labelKey: "sizeGuide.measurements.sleeve",   helpKey: "sizeGuide.measurementHelp.sleeve" },
+  shoulder: { marker: "D", labelKey: "sizeGuide.measurements.shoulder", helpKey: "sizeGuide.measurementHelp.shoulder" },
+  waist:    { marker: "E", labelKey: "sizeGuide.measurements.waist",    helpKey: "sizeGuide.measurementHelp.waist" },
 };
 
 // ─── Fit color map ──────────────────────────────────────────────────────────
@@ -249,45 +241,24 @@ export function SizeGuideModal({
                   />
                 )}
 
-                {/* Legend: A / Width, B / Length, C / Sleeve … */}
+                {/* Legend: A / Width + help text (always shown when measurements exist) */}
                 {activeMeasurements.length > 0 && (
-                  <ul className="grid grid-cols-2 gap-x-6 gap-y-2 mb-4">
-                    {activeMeasurements.map(({ marker, labelKey }) => (
-                      <li key={marker} className="flex items-center gap-2.5">
-                        <span className="w-5 h-5 flex items-center justify-center bg-black text-white text-[9px] font-light rounded-full flex-shrink-0">
+                  <ul className="space-y-3 mb-4">
+                    {activeMeasurements.map(({ marker, labelKey, helpKey }) => (
+                      <li key={marker} className="flex gap-2.5">
+                        <span className="w-5 h-5 flex items-center justify-center bg-black text-white text-[9px] font-light rounded-full flex-shrink-0 mt-0.5">
                           {marker}
                         </span>
-                        <span className="text-black/60 text-xs font-light">
-                          {t(labelKey)}
-                        </span>
+                        <div className="min-w-0">
+                          <p className="text-black/70 text-[11px] font-light tracking-widest uppercase leading-none mb-1">
+                            {t(labelKey)}
+                          </p>
+                          <p className="text-black/40 text-[10px] font-light leading-snug">
+                            {t(helpKey)}
+                          </p>
+                        </div>
                       </li>
                     ))}
-                  </ul>
-                )}
-
-                {/* Text fallback: when no image, show brief descriptions */}
-                {!resolvedMeasuringImageUrl && activeMeasurements.length > 0 && (
-                  <ul className="space-y-3 mb-4">
-                    {activeMeasurements.map(({ key, marker, labelKey }) => {
-                      const descKey = MEASUREMENT_DESC_KEY[key];
-                      return (
-                        <li key={marker} className="flex gap-3">
-                          <span className="w-5 h-5 flex items-center justify-center bg-black text-white text-[9px] font-light rounded-full flex-shrink-0 mt-0.5">
-                            {marker}
-                          </span>
-                          <div>
-                            <span className="text-black/50 text-[10px] font-light tracking-widest uppercase mr-2">
-                              {t(labelKey)}
-                            </span>
-                            {descKey && (
-                              <span className="text-black/50 text-xs font-light leading-relaxed">
-                                — {t(descKey)}
-                              </span>
-                            )}
-                          </div>
-                        </li>
-                      );
-                    })}
                   </ul>
                 )}
 

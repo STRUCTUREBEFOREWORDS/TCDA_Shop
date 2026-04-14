@@ -168,7 +168,14 @@
       "waist": "Waist"
     },
     "measurementFlatNote": "Measurements taken flat",
-    "measurementVariationNote": "Slight variation (±1–2 cm) may occur due to production tolerances."
+    "measurementVariationNote": "Slight variation (±1–2 cm) may occur due to production tolerances.",
+    "measurementHelp": {
+      "width": "flat across the chest at underarm",
+      "length": "from shoulder top down to hem",
+      "sleeve": "from shoulder seam to cuff",
+      "shoulder": "across the back, seam to seam",
+      "waist": "flat across the waist"
+    }
   },
   "fit": {
     "slim": "Slim",

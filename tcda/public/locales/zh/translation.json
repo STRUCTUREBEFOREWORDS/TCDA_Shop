@@ -168,7 +168,14 @@
       "waist": "腰围"
     },
     "measurementFlatNote": "平铺测量",
-    "measurementVariationNote": "因生产公差，尺寸可能存在±1–2 cm的误差。"
+    "measurementVariationNote": "因生产公差，尺寸可能存在±1–2 cm的误差。",
+    "measurementHelp": {
+      "width": "腋下平铺，量胸部最宽处",
+      "length": "从肩部最高点量至下摆",
+      "sleeve": "从肩缝量至袖口",
+      "shoulder": "背面从一侧肩缝量至另一侧",
+      "waist": "腰部平铺宽度"
+    }
   },
   "fit": {
     "slim": "修身",
