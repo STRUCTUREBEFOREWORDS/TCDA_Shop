@@ -446,6 +446,7 @@ const { t } = useTranslation();
           onClose={() => setSizeGuideOpen(false)}
           productName={product.name}
           productType={product.product_type}
+          sizeCategory={product.size_category}
           sizeChart={sizeChart}
           sizeUnit={sizeUnit}
           onSwitchUnit={setSizeUnit}
