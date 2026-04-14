@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
+import { MEASUREMENT_LABEL_MAP, MEASUREMENT_KEYS_ORDER } from "../utils/measurementMeta";
 
 const FIT_KEYS = ["slim", "regular", "relaxed", "oversized"] as const;
 
@@ -22,13 +23,6 @@ export function SizeGuidePage() {
     q: t(`sizeGuide.faq${i + 1}q`),
     a: t(`sizeGuide.faq${i + 1}a`),
   }));
-
-  const measurements = [
-    { key: "chest",   label: t("size.chest"),         note: t("sizeGuide.measureChest") },
-    { key: "length",  label: t("size.length"),         note: t("sizeGuide.measureLength") },
-    { key: "shoulder",label: t("size.shoulder"),       note: t("sizeGuide.measureShoulder") },
-    { key: "sleeve",  label: t("sizeTable.sleeveLength"), note: t("sizeGuide.measureSleeve") },
-  ];
 
   return (
     <div className="min-h-screen bg-white pt-20">
@@ -102,22 +96,43 @@ export function SizeGuidePage() {
             {t("sizeGuide.howToMeasure")}
           </motion.h2>
           <div className="space-y-0">
-            {measurements.map(({ key, label, note }) => (
-              <motion.div
-                key={key}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.5 }}
-                className="border-t border-black/8 py-5 grid grid-cols-[100px_1fr] gap-4"
-              >
-                <span className="text-black/40 text-[10px] font-light tracking-widest uppercase pt-0.5">
-                  {label}
-                </span>
-                <span className="text-black/60 text-xs font-light leading-relaxed">{note}</span>
-              </motion.div>
-            ))}
+            {MEASUREMENT_KEYS_ORDER.map((key) => {
+              const { marker, labelKey, helpKey } = MEASUREMENT_LABEL_MAP[key];
+              return (
+                <motion.div
+                  key={key}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.5 }}
+                  className="border-t border-black/8 py-5 flex gap-4 items-start"
+                >
+                  {/* Marker badge */}
+                  <span className="w-6 h-6 flex items-center justify-center bg-black text-white text-[9px] font-light rounded-full flex-shrink-0 mt-0.5">
+                    {marker}
+                  </span>
+                  {/* Label + help */}
+                  <div className="min-w-0">
+                    <p className="text-black/60 text-[10px] font-light tracking-widest uppercase mb-1">
+                      {t(labelKey)}
+                    </p>
+                    <p className="text-black/45 text-xs font-light leading-relaxed">
+                      {t(helpKey)}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
             <div className="border-t border-black/8" />
+          </div>
+          {/* Notes */}
+          <div className="mt-5 space-y-1.5">
+            <p className="text-black/30 text-[10px] font-light">
+              {t("sizeGuide.measurementFlatNote")}
+            </p>
+            <p className="text-black/25 text-[10px] font-light">
+              {t("sizeGuide.measurementVariationNote")}
+            </p>
           </div>
         </section>
 

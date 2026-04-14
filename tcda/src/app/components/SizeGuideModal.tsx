@@ -3,6 +3,11 @@ import { motion, AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { FitLabelNormalized, ProductFitMetadata } from "../types";
+import {
+  MeasurementKey,
+  MEASUREMENT_LABEL_MAP,
+  MEASUREMENT_TO_KEY,
+} from "../utils/measurementMeta";
 
 // ─── Fraction display (inch mode) ──────────────────────────────────────────
 function toFraction(value: number | string): string {
@@ -20,41 +25,6 @@ function toFraction(value: number | string): string {
 
 // ─── Size ordering ──────────────────────────────────────────────────────────
 const SIZE_ORDER = ["2XS","XS","S","M","L","XL","2XL","3XL","4XL","5XL","6XL"];
-
-// ─── Measurement label system ───────────────────────────────────────────────
-type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist";
-
-/**
- * Maps DB column names (Japanese + English variants) → MeasurementKey.
- * All keys are lowercase for case-insensitive matching.
- */
-const MEASUREMENT_TO_KEY: Record<string, MeasurementKey> = {
-  // Japanese (stored in DB)
-  "身幅": "width",
-  "着丈": "length",
-  "袖丈": "sleeve",
-  "肩幅": "shoulder",
-  "ウエスト": "waist",
-  // English variants
-  "width": "width",
-  "body width": "width",
-  "chest": "width",
-  "length": "length",
-  "body length": "length",
-  "sleeve": "sleeve",
-  "sleeve length": "sleeve",
-  "shoulder": "shoulder",
-  "shoulder width": "shoulder",
-  "waist": "waist",
-};
-
-const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, { marker: string; labelKey: string; helpKey: string }> = {
-  width:    { marker: "A", labelKey: "sizeGuide.measurements.width",    helpKey: "sizeGuide.measurementHelp.width" },
-  length:   { marker: "B", labelKey: "sizeGuide.measurements.length",   helpKey: "sizeGuide.measurementHelp.length" },
-  sleeve:   { marker: "C", labelKey: "sizeGuide.measurements.sleeve",   helpKey: "sizeGuide.measurementHelp.sleeve" },
-  shoulder: { marker: "D", labelKey: "sizeGuide.measurements.shoulder", helpKey: "sizeGuide.measurementHelp.shoulder" },
-  waist:    { marker: "E", labelKey: "sizeGuide.measurements.waist",    helpKey: "sizeGuide.measurementHelp.waist" },
-};
 
 // ─── Fit color map ──────────────────────────────────────────────────────────
 const FIT_COLOR: Record<FitLabelNormalized, string> = {
