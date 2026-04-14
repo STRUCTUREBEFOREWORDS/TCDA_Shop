@@ -159,7 +159,16 @@
     "faq11q": "Que faire si le guide des tailles n'est pas encore disponible pour un produit ?",
     "faq11a": "Nous ajoutons progressivement des guides pour tous les produits. Revenez bientôt ou contactez-nous.",
     "faq12q": "Comment entretenir ma pièce ?",
-    "faq12a": "Lavage en machine à froid, cycle délicat. Ne pas mettre au sèche-linge. Repasser à l'envers à basse température."
+    "faq12a": "Lavage en machine à froid, cycle délicat. Ne pas mettre au sèche-linge. Repasser à l'envers à basse température.",
+    "measurements": {
+      "width": "Largeur",
+      "length": "Longueur",
+      "sleeve": "Manche",
+      "shoulder": "Épaule",
+      "waist": "Tour de taille"
+    },
+    "measurementFlatNote": "Mesures prises à plat",
+    "measurementVariationNote": "Une légère variation (±1–2 cm) est possible selon les tolérances de fabrication."
   },
   "fit": {
     "slim": "Slim",

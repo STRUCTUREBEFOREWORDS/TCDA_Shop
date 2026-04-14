@@ -159,7 +159,16 @@
     "faq11q": "What if the size guide is not yet available for a product?",
     "faq11a": "We are adding size guides for all products. Check back soon, or contact us for guidance.",
     "faq12q": "How should I care for my piece?",
-    "faq12a": "Machine wash cold, gentle cycle. Do not tumble dry. Iron inside out on low heat."
+    "faq12a": "Machine wash cold, gentle cycle. Do not tumble dry. Iron inside out on low heat.",
+    "measurements": {
+      "width": "Width",
+      "length": "Length",
+      "sleeve": "Sleeve",
+      "shoulder": "Shoulder",
+      "waist": "Waist"
+    },
+    "measurementFlatNote": "Measurements taken flat",
+    "measurementVariationNote": "Slight variation (±1–2 cm) may occur due to production tolerances."
   },
   "fit": {
     "slim": "Slim",
