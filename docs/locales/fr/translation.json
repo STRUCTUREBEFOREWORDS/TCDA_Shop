@@ -64,7 +64,8 @@
     "placeOrder": "Confirmer la commande",
     "quickView": "Aperçu rapide",
     "added": "Ajouté",
-    "taxNote": "Taxes calculées lors du paiement"
+    "taxNote": "Taxes calculées lors du paiement",
+    "shippingNote": "Livraison calculée lors du paiement"
   },
   "shop": {
     "filterAll": "Tout",

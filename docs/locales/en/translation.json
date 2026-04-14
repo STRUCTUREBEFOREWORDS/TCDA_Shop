@@ -64,7 +64,8 @@
     "placeOrder": "Place Order",
     "quickView": "Quick View",
     "added": "Added",
-    "taxNote": "Taxes calculated at checkout"
+    "taxNote": "Taxes calculated at checkout",
+    "shippingNote": "Shipping calculated at checkout"
   },
   "shop": {
     "filterAll": "All",

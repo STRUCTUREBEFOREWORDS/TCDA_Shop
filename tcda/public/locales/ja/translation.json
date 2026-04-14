@@ -64,7 +64,8 @@
     "placeOrder": "注文を確定する",
     "added": "追加済み",
     "quickView": "クイックビュー",
-    "taxNote": "税はチェックアウト時に計算されます"
+    "taxNote": "税はチェックアウト時に計算されます",
+    "shippingNote": "配送料はチェックアウト時に計算されます"
   },
   "shop": {
     "filterAll": "すべて",

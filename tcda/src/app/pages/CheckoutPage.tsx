@@ -142,7 +142,7 @@ const { t } = useTranslation();
       <div className="border-t border-black/10 pt-4 space-y-2">
         <div className="flex justify-between text-xs font-light text-black/40">
           <span>{t("cart.shipping")}</span>
-          <span>{t("cart.free")}</span>
+          <span className="text-right">{t("cart.shippingNote")}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-black text-xs font-light tracking-[0.2em] uppercase">{t("cart.total")}</span>
@@ -150,6 +150,9 @@ const { t } = useTranslation();
             {formatPrice(total, currency)}
           </span>
         </div>
+        <p className="text-black/30 text-[9px] font-light tracking-wide text-right">
+          {t("cart.taxNote")}
+        </p>
       </div>
     </div>
   );

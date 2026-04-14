@@ -64,7 +64,8 @@
     "placeOrder": "주문 확정",
     "quickView": "퀵뷰",
     "added": "추가됨",
-    "taxNote": "세금은 결제 시 계산됩니다"
+    "taxNote": "세금은 결제 시 계산됩니다",
+    "shippingNote": "배송비는 결제 시 계산됩니다"
   },
   "shop": {
     "filterAll": "전체",
