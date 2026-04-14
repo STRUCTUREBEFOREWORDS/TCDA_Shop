@@ -79,9 +79,7 @@
     "chest": "Tour de poitrine",
     "length": "Longueur",
     "shoulder": "Largeur d'épaules",
-    "noChartAvailable": "Guide des tailles bientôt disponible",
-    "width": "Largeur",
-    "sleeveLength": "Longueur de manche"
+    "noChartAvailable": "Guide des tailles bientôt disponible"
   },
   "checkout": {
     "fieldName": "Nom",
@@ -113,6 +111,12 @@
     "a2": "Les articles défectueux peuvent être retournés dans les 14 jours suivant la réception. Un échange de taille est possible une fois par commande.",
     "q3": "Que faire si je me situe entre deux tailles ?",
     "a3": "Pour un port décontracté, nous recommandons la taille supérieure. Le modèle mesure 180 cm et porte une taille M."
+  },
+  "sizeTable": {
+    "size": "Taille",
+    "width": "Largeur",
+    "length": "Longueur",
+    "sleeveLength": "Longueur de manche"
   },
   "common": {
     "loading": "Chargement..."

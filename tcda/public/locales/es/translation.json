@@ -79,9 +79,7 @@
     "chest": "Contorno de pecho",
     "length": "Largo",
     "shoulder": "Ancho de hombros",
-    "noChartAvailable": "Guía de tallas en preparación",
-    "width": "Ancho",
-    "sleeveLength": "Largo de manga"
+    "noChartAvailable": "Guía de tallas en preparación"
   },
   "checkout": {
     "fieldName": "Nombre",
@@ -113,6 +111,12 @@
     "a2": "Aceptamos devoluciones de productos defectuosos dentro de los 14 días. Los cambios de talla se gestionan una vez por pedido.",
     "q3": "¿Qué hago si estoy entre dos tallas?",
     "a3": "Para un ajuste más holgado, recomendamos la talla superior. El modelo mide 180 cm y viste talla M."
+  },
+  "sizeTable": {
+    "size": "Talla",
+    "width": "Ancho",
+    "length": "Largo",
+    "sleeveLength": "Largo de manga"
   },
   "common": {
     "loading": "Cargando..."

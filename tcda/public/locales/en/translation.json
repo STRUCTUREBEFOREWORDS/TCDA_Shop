@@ -79,9 +79,7 @@
     "chest": "Chest",
     "length": "Length",
     "shoulder": "Shoulder",
-    "noChartAvailable": "Size guide coming soon",
-    "width": "Width",
-    "sleeveLength": "Sleeve Length"
+    "noChartAvailable": "Size guide coming soon"
   },
   "checkout": {
     "fieldName": "Name",
@@ -113,6 +111,12 @@
     "a2": "Returns are accepted within 14 days for defective items. One size exchange per order is available.",
     "q3": "What if I'm between sizes?",
     "a3": "For a relaxed fit, we recommend sizing up. Our model is 180 cm tall and wears a size M."
+  },
+  "sizeTable": {
+    "size": "Size",
+    "width": "Width",
+    "length": "Length",
+    "sleeveLength": "Sleeve Length"
   },
   "common": {
     "loading": "Loading..."

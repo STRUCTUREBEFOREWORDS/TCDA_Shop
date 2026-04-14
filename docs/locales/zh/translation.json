@@ -79,9 +79,7 @@
     "chest": "胸围",
     "length": "衣长",
     "shoulder": "肩宽",
-    "noChartAvailable": "尺码信息即将呈现",
-    "width": "衣宽",
-    "sleeveLength": "袖长"
+    "noChartAvailable": "尺码信息即将呈现"
   },
   "checkout": {
     "fieldName": "姓名",
@@ -113,6 +111,12 @@
     "a2": "商品存在质量问题时，我们接受14天内的退货申请。尺码更换每笔订单限一次。",
     "q3": "如果我的尺码介于两者之间，该怎么选？",
     "a3": "若偏好宽松的穿着感，建议选择较大尺码。模特身高180cm，穿着M码。"
+  },
+  "sizeTable": {
+    "size": "尺码",
+    "width": "衣宽",
+    "length": "衣长",
+    "sleeveLength": "袖长"
   },
   "common": {
     "loading": "加载中..."

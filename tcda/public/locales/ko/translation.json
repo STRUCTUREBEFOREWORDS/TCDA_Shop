@@ -79,9 +79,7 @@
     "chest": "가슴둘레",
     "length": "기장",
     "shoulder": "어깨너비",
-    "noChartAvailable": "사이즈 정보를 준비 중입니다",
-    "width": "가슴 너비",
-    "sleeveLength": "소매 길이"
+    "noChartAvailable": "사이즈 정보를 준비 중입니다"
   },
   "checkout": {
     "fieldName": "이름",
@@ -113,6 +111,12 @@
     "a2": "불량품의 경우 14일 이내 반품을 받아드립니다. 사이즈 교환은 1주문당 1회 대응합니다.",
     "q3": "사이즈 사이에 해당하는 경우 어떻게 하면 좋을까요?",
     "a3": "여유롭게 입고 싶으신 경우 위 사이즈를 권장합니다. 모델은 신장 180cm에 M사이즈를 착용하고 있습니다."
+  },
+  "sizeTable": {
+    "size": "사이즈",
+    "width": "가슴 너비",
+    "length": "기장",
+    "sleeveLength": "소매 길이"
   },
   "common": {
     "loading": "불러오는 중..."
