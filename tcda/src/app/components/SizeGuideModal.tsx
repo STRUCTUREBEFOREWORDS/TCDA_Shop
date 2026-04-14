@@ -65,64 +65,29 @@ interface Props {
   measuringGuideImageUrl?: string | null;
 }
 
-// ─── T-shirt garment measurement diagram ────────────────────────────────────
-// The Printful measure_yourself_image_url shows body measurements (Chest/Waist),
-// not garment measurements — so for T-shirt categories we render our own diagram.
-const TSHIRT_CATEGORIES = new Set(["mens_crew_neck", "womens_crew_neck"]);
+// ─── Size guide image map ────────────────────────────────────────────────────
+// Maps normalized size_category → custom garment guide image path (served from public/).
+// The Printful measure_yourself_image_url shows body measurements, not garment diagrams,
+// so we use our own images for known categories and fall back to Printful for others.
+const SIZE_GUIDE_IMAGE_MAP: Record<string, string> = {
+  mens_crew_neck:     "/size-guide/mens-tee-guide.png",
+  womens_crew_neck:   "/size-guide/womens-tee-guide.png",
+  unisex_hoodie:      "/size-guide/unisex-hoodie-guide.png",
+  unisex_zip_hoodie:  "/size-guide/unisex-zip-hoodie-guide.png",
+};
 
-function TShirtDiagram({
-  activeMeasurements,
-}: {
-  activeMeasurements: Array<{ key: MeasurementKey; marker: string }>;
-}) {
-  const set = new Set(activeMeasurements.map((m) => m.key));
-  return (
-    <svg
-      viewBox="0 0 200 215"
-      className="w-full max-w-xs mx-auto mb-5"
-      aria-hidden="true"
-    >
-      {/* T-shirt silhouette */}
-      <path
-        d="M75,55 Q100,70 125,55 L158,55 L180,85 L155,85 L158,70 L158,190 L42,190 L42,70 L45,85 L20,85 L42,55 Z"
-        fill="#f0f0f0"
-        stroke="#c5c5c5"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-
-      {/* A – Width (身幅): horizontal line spanning body width */}
-      {set.has("width") && (
-        <>
-          <line x1="42" y1="128" x2="158" y2="128" stroke="#111" strokeWidth="1" strokeDasharray="4,3" />
-          <line x1="42" y1="122" x2="42" y2="134" stroke="#111" strokeWidth="1.5" />
-          <line x1="158" y1="122" x2="158" y2="134" stroke="#111" strokeWidth="1.5" />
-          <circle cx="30" cy="128" r="8" fill="#111" />
-          <text x="30" y="131.5" textAnchor="middle" fill="white" fontSize="8" fontFamily="sans-serif">A</text>
-        </>
-      )}
-
-      {/* B – Length (着丈): vertical line from shoulder to hem, right of body */}
-      {set.has("length") && (
-        <>
-          <line x1="167" y1="55" x2="167" y2="190" stroke="#111" strokeWidth="1" strokeDasharray="4,3" />
-          <line x1="161" y1="55" x2="173" y2="55" stroke="#111" strokeWidth="1.5" />
-          <line x1="161" y1="190" x2="173" y2="190" stroke="#111" strokeWidth="1.5" />
-          <circle cx="167" cy="40" r="8" fill="#111" />
-          <text x="167" y="43.5" textAnchor="middle" fill="white" fontSize="8" fontFamily="sans-serif">B</text>
-        </>
-      )}
-
-      {/* C – Sleeve (袖丈): line from left shoulder point to sleeve cuff */}
-      {set.has("sleeve") && (
-        <>
-          <line x1="42" y1="55" x2="20" y2="85" stroke="#111" strokeWidth="1" strokeDasharray="4,3" />
-          <circle cx="13" cy="91" r="8" fill="#111" />
-          <text x="13" y="94.5" textAnchor="middle" fill="white" fontSize="8" fontFamily="sans-serif">C</text>
-        </>
-      )}
-    </svg>
-  );
+/**
+ * Normalise size_category strings so minor naming variations from Printful
+ * or manual entries (e.g. "hoodie" vs "unisex_hoodie") all hit the same key.
+ */
+function normalizeSizeCategory(value?: string | null): string | null {
+  if (!value) return null;
+  const v = value.trim().toLowerCase();
+  if (["mens_crew", "mens_crew_neck"].includes(v)) return "mens_crew_neck";
+  if (["womens_crew", "womens_crew_neck"].includes(v)) return "womens_crew_neck";
+  if (["unisex_hoodie", "hoodie"].includes(v)) return "unisex_hoodie";
+  if (["unisex_zip_hoodie", "zip_hoodie"].includes(v)) return "unisex_zip_hoodie";
+  return v;
 }
 
 // ─── Component ──────────────────────────────────────────────────────────────
@@ -174,13 +139,13 @@ export function SizeGuideModal({
     return { key, marker, labelKey, helpKey, raw };
   }).filter((x): x is { key: MeasurementKey; marker: string; labelKey: string; helpKey: string; raw: string } => x !== null);
 
-  // Fallback: use measure_yourself_image_url from chart_data if product-level URL is absent
-  const resolvedMeasuringImageUrl =
-    measuringGuideImageUrl ?? sizeChart?.chart_data?.measure_yourself_image_url ?? null;
-
-  // For T-shirt categories the Printful image shows body measurements (Chest/Waist),
-  // not garment measurements — swap it for our custom SVG garment diagram.
-  const isTshirtCategory = sizeCategory ? TSHIRT_CATEGORIES.has(sizeCategory) : false;
+  // Resolve the guide image: custom map wins, then product-level URL, then Printful fallback.
+  const normalizedCategory = normalizeSizeCategory(sizeCategory);
+  const guideImageSrc =
+    (normalizedCategory && SIZE_GUIDE_IMAGE_MAP[normalizedCategory]) ||
+    measuringGuideImageUrl ||
+    sizeChart?.chart_data?.measure_yourself_image_url ||
+    null;
 
   const fitKey: FitLabelNormalized = (fitMetadata?.fit_label_normalized ?? "unknown") as FitLabelNormalized;
 
@@ -268,16 +233,15 @@ export function SizeGuideModal({
                   {t("sizeGuide.howToMeasure")}
                 </p>
 
-                {/* Image / garment diagram */}
-                {isTshirtCategory ? (
-                  <TShirtDiagram activeMeasurements={activeMeasurements} />
-                ) : resolvedMeasuringImageUrl ? (
+                {/* Garment guide image */}
+                {guideImageSrc && (
                   <img
-                    src={resolvedMeasuringImageUrl}
-                    alt={t("sizeGuide.howToMeasure")}
+                    src={guideImageSrc}
+                    alt={t("sizeGuide.figureAlt", { product: productName })}
                     className="w-full max-w-xs mx-auto mb-5"
+                    loading="lazy"
                   />
-                ) : null}
+                )}
 
                 {/* Legend: A / Width + help text (always shown when measurements exist) */}
                 {activeMeasurements.length > 0 && (

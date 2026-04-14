@@ -226,7 +226,8 @@
       "sleeve": "de la couture d'épaule jusqu'au poignet",
       "shoulder": "d'une couture d'épaule à l'autre dans le dos",
       "waist": "à plat, largeur à la taille"
-    }
+    },
+    "figureAlt": "Illustration du guide des tailles {{product}}"
   },
   "fit": {
     "slim": "Slim",

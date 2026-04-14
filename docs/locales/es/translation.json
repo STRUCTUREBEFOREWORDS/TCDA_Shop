@@ -226,7 +226,8 @@
       "sleeve": "desde la costura del hombro hasta el puño",
       "shoulder": "de costura a costura por la espalda",
       "waist": "plano, a la altura de la cintura"
-    }
+    },
+    "figureAlt": "Ilustración de la guía de tallas {{product}}"
   },
   "fit": {
     "slim": "Slim",

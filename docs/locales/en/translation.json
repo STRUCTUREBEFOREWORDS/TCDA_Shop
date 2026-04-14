@@ -226,7 +226,8 @@
       "sleeve": "from shoulder seam to cuff",
       "shoulder": "across the back, seam to seam",
       "waist": "flat across the waist"
-    }
+    },
+    "figureAlt": "{{product}} size guide illustration"
   },
   "fit": {
     "slim": "Slim",

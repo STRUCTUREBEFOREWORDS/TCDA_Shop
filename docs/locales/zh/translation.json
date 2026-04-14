@@ -226,7 +226,8 @@
       "sleeve": "从肩缝量至袖口",
       "shoulder": "背面从一侧肩缝量至另一侧",
       "waist": "腰部平铺宽度"
-    }
+    },
+    "figureAlt": "{{product}}尺码指南插图"
   },
   "fit": {
     "slim": "修身",
