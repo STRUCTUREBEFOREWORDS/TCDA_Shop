@@ -62,7 +62,8 @@
     "free": "Free",
     "placeOrder": "Place Order",
     "quickView": "Quick View",
-    "added": "Added"
+    "added": "Added",
+    "taxNote": "Taxes calculated at checkout"
   },
   "shop": {
     "filterAll": "All",

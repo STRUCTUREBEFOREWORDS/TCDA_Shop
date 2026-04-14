@@ -264,6 +264,9 @@ const { t } = useTranslation();
             <p className="text-black text-xl font-light">
               {formatPrice(convertedPrice, currency)}
             </p>
+            <p className="text-black/40 text-[10px] font-light tracking-wide -mt-6">
+              {t("cart.taxNote")}
+            </p>
 
             {/* Stock */}
             {product.stock <= 5 ? (

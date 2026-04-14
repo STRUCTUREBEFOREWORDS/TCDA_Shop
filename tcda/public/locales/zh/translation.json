@@ -62,7 +62,8 @@
     "free": "免费",
     "placeOrder": "确认下单",
     "quickView": "快速预览",
-    "added": "已加入"
+    "added": "已加入",
+    "taxNote": "税款将在结账时计算"
   },
   "shop": {
     "filterAll": "全部",

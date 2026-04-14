@@ -62,7 +62,8 @@
     "free": "Offerte",
     "placeOrder": "Confirmer la commande",
     "quickView": "Aperçu rapide",
-    "added": "Ajouté"
+    "added": "Ajouté",
+    "taxNote": "Taxes calculées lors du paiement"
   },
   "shop": {
     "filterAll": "Tout",

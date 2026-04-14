@@ -150,6 +150,9 @@ export function CartDrawer() {
                     {formatPrice(total, currency)}
                   </span>
                 </div>
+                <p className="text-white/30 text-[10px] font-light tracking-wide text-right -mt-2">
+                  {t("cart.taxNote")}
+                </p>
                 <button
                   onClick={async () => {
                     setIsCartOpen(false);

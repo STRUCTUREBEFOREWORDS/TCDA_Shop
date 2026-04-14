@@ -62,7 +62,8 @@
     "free": "Gratuito",
     "placeOrder": "Confirmar pedido",
     "quickView": "Vista rápida",
-    "added": "Agregado"
+    "added": "Agregado",
+    "taxNote": "Impuestos calculados al pagar"
   },
   "shop": {
     "filterAll": "Todo",

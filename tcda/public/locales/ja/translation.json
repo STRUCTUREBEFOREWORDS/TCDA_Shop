@@ -62,7 +62,8 @@
     "free": "無料",
     "placeOrder": "注文を確定する",
     "added": "追加済み",
-    "quickView": "クイックビュー"
+    "quickView": "クイックビュー",
+    "taxNote": "税はチェックアウト時に計算されます"
   },
   "shop": {
     "filterAll": "すべて",
