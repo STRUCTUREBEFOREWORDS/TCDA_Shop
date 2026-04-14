@@ -47,10 +47,10 @@ export function TCDA_GlobalNav() {
               {t("nav.shop")}
             </Link>
             <Link
-              to={`/${language}/look`}
+              to={`/${language}/collection`}
               className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
-              {t("nav.look")}
+              {t("nav.collection")}
             </Link>
             <Link
               to={`/${language}/about`}
@@ -108,9 +108,9 @@ export function TCDA_GlobalNav() {
               className="md:hidden bg-black/95 backdrop-blur-sm border-t border-white/10 px-6 py-6 space-y-5"
             >
               {[
-                { to: `/${language}/products`, label: t("shop") },
-                { to: `/${language}/look`, label: t("look") },
-                { to: `/${language}/about`, label: t("about") },
+                { to: `/${language}/products`, label: t("nav.shop") },
+                { to: `/${language}/collection`, label: t("nav.collection") },
+                { to: `/${language}/about`, label: t("nav.about") },
               ].map(({ to, label }) => (
                 <Link
                   key={to}

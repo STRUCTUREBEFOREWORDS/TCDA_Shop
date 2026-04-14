@@ -50,7 +50,7 @@ const { t } = useTranslation();
           transition={{ duration: 1 }}
           className="text-white/20 text-[10px] font-light tracking-[0.5em] uppercase"
         >
-          {t("look")}
+          {t("nav.collection")}
         </motion.p>
       </div>
 

@@ -5,21 +5,10 @@ import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
+import { FitLabelNormalized, ProductFitMetadata } from "../types";
+import { SizeGuideModal } from "../components/SizeGuideModal";
 
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-
-function toFraction(value: number | string): string {
-  const num = typeof value === 'string' ? parseFloat(value) : value;
-  if (isNaN(num)) return String(value);
-  const whole = Math.floor(num);
-  const decimal = Math.round((num - whole) * 8) / 8;
-  const fractionMap: Record<number, string> = {
-    0: '', 0.125: '⅛', 0.25: '¼', 0.375: '⅜',
-    0.5: '½', 0.625: '⅝', 0.75: '¾', 0.875: '⅞',
-  };
-  const frac = fractionMap[decimal] ?? '';
-  return whole === 0 ? (frac || '0') : frac ? `${whole}${frac}` : `${whole}`;
-}
 
 interface Variant {
   id: number;
@@ -43,6 +32,9 @@ interface Product {
   fabric_composition?: string;
   description?: string;
   printful_variant_id?: number;
+  product_type?: string | null;
+  measuring_guide_image_url?: string | null;
+  fit_metadata?: ProductFitMetadata | null;
 }
 
 interface SizeChartUnit {
@@ -57,13 +49,13 @@ interface SizeChart {
   };
 }
 
-const SIZE_ORDER = ["2XS","XS","S","M","L","XL","2XL","3XL","4XL","5XL","6XL"];
 
-/** API が返す日本語測定ラベル → サイズ表専用 i18n キー のマッピング */
-const MEASUREMENT_I18N: Record<string, string> = {
-  "身幅": "sizeTable.width",
-  "着丈": "sizeTable.length",
-  "袖丈": "sizeTable.sleeveLength",
+const FIT_LABEL_MAP: Record<FitLabelNormalized, string> = {
+  slim:     "fit.slim",
+  regular:  "fit.regular",
+  relaxed:  "fit.relaxed",
+  oversized:"fit.oversized",
+  unknown:  "fit.unknown",
 };
 
 
@@ -83,7 +75,8 @@ const { t } = useTranslation();
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [added, setAdded] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [sizeUnit, setSizeUnit] = useState<'cm' | 'inch'>('cm');
+  const [sizeUnit, setSizeUnit] = useState<"cm" | "inch">("cm");
+  const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const [sizeChart, setSizeChart] = useState<SizeChart | null>(null);
   const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -152,13 +145,6 @@ const { t } = useTranslation();
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
-
-  const chartUnit = sizeChart?.chart_data?.[sizeUnit === 'cm' ? 'unit_cm' : 'unit_inch'];
-  const chartSizeEntries = chartUnit
-    ? Object.entries(chartUnit.sizes).sort(
-        (a, b) => SIZE_ORDER.indexOf(a[0]) - SIZE_ORDER.indexOf(b[0])
-      )
-    : [];
 
   return (
     <div className="min-h-screen bg-white pt-20">
@@ -383,7 +369,7 @@ const { t } = useTranslation();
           </motion.div>
         )}
 
-        {/* Size table */}
+        {/* Fit summary + size guide */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -391,60 +377,55 @@ const { t } = useTranslation();
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="border-t border-black/10 pt-8"
         >
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase">
-              {t("size.guide")}
-            </h2>
-            {sizeChart && (
-              <div className="flex gap-1">
-                {(['cm', 'inch'] as const).map((unit) => (
-                  <button
-                    key={unit}
-                    onClick={() => setSizeUnit(unit)}
-                    className={`px-3 py-1 text-[10px] font-light tracking-widest uppercase transition-all duration-200 ${
-                      sizeUnit === unit
-                        ? "bg-black text-white"
-                        : "text-black/40 hover:text-black/70"
-                    }`}
-                  >
-                    {unit}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+            {t("size.guide")}
+          </h2>
 
-          {chartUnit && chartSizeEntries.length > 0 ? (
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs font-light">
-                <thead>
-                  <tr className="border-b border-black/10">
-                    <th className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
-                      {t("sizeTable.size")}
-                    </th>
-                    {chartUnit.measurements.map((m) => (
-                      <th key={m} className="text-left py-2 pr-8 text-black opacity-40 font-light tracking-widest uppercase">
-                        {t(MEASUREMENT_I18N[m] ?? m)} ({sizeUnit})
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {chartSizeEntries.map(([size, values]) => (
-                    <tr key={size} className="border-b border-black/5">
-                      <td className="py-3 pr-8 text-black opacity-70">{size}</td>
-                      {values.map((v, i) => (
-                        <td key={i} className="py-3 pr-8 text-black opacity-70">{sizeUnit === 'inch' ? toFraction(v) : v}</td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          {product.fit_metadata && product.fit_metadata.fit_label_normalized !== "unknown" && (
+            <div className="mb-5 space-y-1.5">
+              <div className="flex items-center gap-2">
+                <span className="text-black text-xs font-light tracking-widest uppercase opacity-40">
+                  {t("sizeGuide.fit")}
+                </span>
+                <span className="text-black text-xs font-light tracking-[0.2em] uppercase">
+                  {t(FIT_LABEL_MAP[product.fit_metadata.fit_label_normalized])}
+                </span>
+              </div>
+              {product.fit_metadata.model_height_cm && product.fit_metadata.model_wear_size && (
+                <p className="text-black/50 text-xs font-light">
+                  {product.fit_metadata.model_height_cm}cm / {product.fit_metadata.model_wear_size}
+                  {product.fit_metadata.is_ai_model && (
+                    <span className="ml-2 opacity-50">{t("product.aiModelNote")}</span>
+                  )}
+                </p>
+              )}
+              {product.fit_metadata.recommendation_note && (
+                <p className="text-black/50 text-xs font-light leading-relaxed">
+                  {product.fit_metadata.recommendation_note}
+                </p>
+              )}
             </div>
-          ) : (
-            <p className="text-black text-xs font-light opacity-30">{t("size.noChartAvailable")}</p>
           )}
+
+          <button
+            onClick={() => setSizeGuideOpen(true)}
+            className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300 border-b border-black/20 pb-0.5"
+          >
+            {t("sizeGuide.seeGuide")} →
+          </button>
         </motion.div>
+
+        <SizeGuideModal
+          isOpen={sizeGuideOpen}
+          onClose={() => setSizeGuideOpen(false)}
+          productName={product.name}
+          productType={product.product_type}
+          sizeChart={sizeChart}
+          sizeUnit={sizeUnit}
+          onSwitchUnit={setSizeUnit}
+          fitMetadata={product.fit_metadata}
+          measuringGuideImageUrl={product.measuring_guide_image_url}
+        />
 
         {/* Delivery date */}
         {deliveryDate && (
