@@ -304,6 +304,26 @@ const { t } = useTranslation();
               {added ? t("cart.added") : t("cart.addToCart")}
             </button>
 
+            {/* Trust Block */}
+            <div className="pt-4 pb-2">
+              <ul className="space-y-1.5 mb-3">
+                {(["processed", "delivered", "supported"] as const).map((key) => (
+                  <li key={key} className="flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-black/25 flex-shrink-0" />
+                    <span className="text-black/45 text-[10px] font-light leading-relaxed">
+                      {t(`trust.${key}`)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to={`/${language}/shipping-returns`}
+                className="text-black/30 text-[10px] font-light tracking-widest uppercase hover:text-black/60 transition-colors duration-200"
+              >
+                {t("trust.shippingReturnsLink")} →
+              </Link>
+            </div>
+
             {/* Delivery */}
             <div className="border-t border-black/10 pt-6">
               <p className="text-black text-xs font-light tracking-widest uppercase opacity-40 mb-2">

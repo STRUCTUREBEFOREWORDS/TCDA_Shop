@@ -238,6 +238,51 @@
     "relaxedNote": "ゆとりのあるシルエット。体から離れて落ちます。すっきり着たい場合は下のサイズをお選びください。",
     "oversizedNote": "意図的にオーバーサイズに設計されています。通常のシルエットに近づけたい場合は下のサイズをお選びください。"
   },
+  "trust": {
+    "processed": "2〜5営業日で発送",
+    "delivered": "5〜10営業日でお届け",
+    "supported": "不備・誤配送は到着後7日以内にご連絡ください",
+    "shippingReturnsLink": "配送・返品について"
+  },
+  "footer": {
+    "support": "サポート",
+    "faq": "よくある質問",
+    "sizeGuide": "サイズガイド",
+    "shippingReturns": "配送・返品",
+    "contact": "お問い合わせ"
+  },
+  "shippingReturns": {
+    "title": "配送・返品",
+    "pageIntro": "配送・返品に関するご案内です。ご不明点はinfo@tcdashop.comまでご連絡ください。",
+    "shippingTitle": "発送",
+    "shippingBody": "ご注文確定後、2〜5営業日以内にPrintful経由で発送いたします。発送後は追跡番号をお送りします。",
+    "deliveryTitle": "お届け",
+    "deliveryBody": "発送後、通常5〜10営業日でお届けします。地域によって前後する場合があります。",
+    "returnsTitle": "返品・交換について",
+    "returnsCondition": "対応条件：商品の破損・印刷不良・誤配送の場合のみ",
+    "returnsPeriod": "対応期間：商品到着後7日以内にご連絡ください",
+    "returnsMethod": "対応方法：確認後、再送または返金にて対応いたします",
+    "returnsNote": "サイズ違い・イメージ違いによる返品・交換はお受けできません。",
+    "contactTitle": "お問い合わせ",
+    "contactBody": "上記以外のご不明点は、下記メールアドレスまでお気軽にご連絡ください。"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "pageIntro": "ご質問・ご不明点がございましたらこちらからご連絡ください。",
+    "name": "お名前",
+    "namePlaceholder": "例：山田 太郎",
+    "email": "メールアドレス",
+    "emailPlaceholder": "例：your@email.com",
+    "orderNumber": "注文番号（任意）",
+    "orderNumberPlaceholder": "例：CS-XXXX",
+    "message": "メッセージ",
+    "messagePlaceholder": "お問い合わせ内容をご記入ください",
+    "submit": "送信する",
+    "submitting": "送信中...",
+    "success": "お問い合わせを受け付けました。担当者より順次ご返信いたします。",
+    "error": "送信に失敗しました。お手数ですが info@tcdashop.com へ直接ご連絡ください。",
+    "orEmail": "または直接メールで："
+  },
   "common": {
     "loading": "読み込み中..."
   }

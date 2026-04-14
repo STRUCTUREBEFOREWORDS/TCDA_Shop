@@ -238,6 +238,51 @@
     "relaxedNote": "Silhouette ample. Tombe loin du corps. Prenez une taille en dessous pour une coupe plus ajustée.",
     "oversizedNote": "Intentionnellement oversize. Conçu pour flotter. Prenez une taille en dessous pour une silhouette standard."
   },
+  "trust": {
+    "processed": "Traitement sous 2 à 5 jours ouvrés",
+    "delivered": "Livraison sous 5 à 10 jours ouvrés",
+    "supported": "Produit défectueux ou envoi incorrect ? Contactez-nous dans les 7 jours",
+    "shippingReturnsLink": "Livraison & retours"
+  },
+  "footer": {
+    "support": "Assistance",
+    "faq": "FAQ",
+    "sizeGuide": "Guide des tailles",
+    "shippingReturns": "Livraison & retours",
+    "contact": "Contact"
+  },
+  "shippingReturns": {
+    "title": "Livraison & retours",
+    "pageIntro": "Toutes les informations sur la livraison et notre politique de retour. Questions ? Écrivez-nous à info@tcdashop.com.",
+    "shippingTitle": "Expédition",
+    "shippingBody": "Les commandes sont traitées sous 2 à 5 jours ouvrés via Printful. Un numéro de suivi vous sera envoyé après expédition.",
+    "deliveryTitle": "Livraison",
+    "deliveryBody": "Après expédition, la livraison prend généralement 5 à 10 jours ouvrés. Les délais peuvent varier selon la région.",
+    "returnsTitle": "Retours & assistance",
+    "returnsCondition": "Cas éligibles : produit endommagé, impression défectueuse ou envoi incorrect uniquement",
+    "returnsPeriod": "Délai : contactez-nous dans les 7 jours suivant la réception",
+    "returnsMethod": "Résolution : renvoi ou remboursement après vérification",
+    "returnsNote": "Les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés.",
+    "contactTitle": "Nous contacter",
+    "contactBody": "Pour toute autre question, contactez-nous à l'adresse ci-dessous."
+  },
+  "contact": {
+    "title": "Contact",
+    "pageIntro": "Une question ou besoin d'aide pour votre commande ? Nous sommes là.",
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "email": "E-mail",
+    "emailPlaceholder": "votre@email.com",
+    "orderNumber": "Numéro de commande (facultatif)",
+    "orderNumberPlaceholder": "ex. CS-XXXX",
+    "message": "Message",
+    "messagePlaceholder": "Comment pouvons-nous vous aider ?",
+    "submit": "Envoyer",
+    "submitting": "Envoi en cours...",
+    "success": "Message reçu. Nous vous répondrons dans les plus brefs délais.",
+    "error": "Une erreur s'est produite. Veuillez nous contacter directement à info@tcdashop.com.",
+    "orEmail": "Ou écrivez-nous directement :"
+  },
   "common": {
     "loading": "Chargement..."
   }

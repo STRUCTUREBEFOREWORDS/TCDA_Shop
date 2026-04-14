@@ -238,6 +238,51 @@
     "relaxedNote": "Loose silhouette. Falls away from the body. Size down if you prefer a fitted look.",
     "oversizedNote": "Intentionally oversized. Designed to drape. Size down for a regular silhouette."
   },
+  "trust": {
+    "processed": "Processed in 2–5 business days",
+    "delivered": "Delivered in 5–10 business days",
+    "supported": "Defect or shipping error? Contact us within 7 days of receipt",
+    "shippingReturnsLink": "Shipping & Returns"
+  },
+  "footer": {
+    "support": "Support",
+    "faq": "FAQ",
+    "sizeGuide": "Size Guide",
+    "shippingReturns": "Shipping & Returns",
+    "contact": "Contact"
+  },
+  "shippingReturns": {
+    "title": "Shipping & Returns",
+    "pageIntro": "Everything you need to know about shipping and our returns policy. Questions? Email info@tcdashop.com.",
+    "shippingTitle": "Shipping",
+    "shippingBody": "Orders are fulfilled within 2–5 business days via Printful. A tracking number will be sent once dispatched.",
+    "deliveryTitle": "Delivery",
+    "deliveryBody": "After dispatch, delivery typically takes 5–10 business days. Times may vary by region.",
+    "returnsTitle": "Returns & Support",
+    "returnsCondition": "Eligible cases: damaged, misprinted, or incorrectly shipped items only",
+    "returnsPeriod": "Timeframe: contact us within 7 days of receiving your order",
+    "returnsMethod": "Resolution: replacement or refund after verification",
+    "returnsNote": "Returns due to size preference or change of mind are not accepted.",
+    "contactTitle": "Contact Us",
+    "contactBody": "For any other questions, please reach out at the address below."
+  },
+  "contact": {
+    "title": "Contact",
+    "pageIntro": "Have a question or need help with your order? We're here.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "orderNumber": "Order Number (optional)",
+    "orderNumberPlaceholder": "e.g. CS-XXXX",
+    "message": "Message",
+    "messagePlaceholder": "How can we help?",
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "success": "Message received. We'll get back to you as soon as possible.",
+    "error": "Something went wrong. Please email us directly at info@tcdashop.com.",
+    "orEmail": "Or email us directly:"
+  },
   "common": {
     "loading": "Loading..."
   }

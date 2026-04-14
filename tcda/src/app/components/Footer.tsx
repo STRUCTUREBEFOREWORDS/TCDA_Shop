@@ -7,11 +7,41 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-black border-t border-white/10 px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-light tracking-widest uppercase text-white/20">
-      <span>© 2026 TCDA</span>
-      <div className="flex gap-8">
-        <Link to={`/${language}/legal`} className="hover:text-white/60 transition-colors">{t("nav.legal")}</Link>
-        <Link to={`/${language}/privacy`} className="hover:text-white/60 transition-colors">{t("nav.privacy")}</Link>
+    <footer className="bg-black border-t border-white/10 px-8 md:px-12 py-12">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row gap-10 sm:gap-0 sm:justify-between">
+
+        {/* Brand + legal */}
+        <div className="flex flex-col gap-4">
+          <span className="text-[10px] font-light tracking-widest uppercase text-white/20">© 2026 TCDA</span>
+          <div className="flex flex-col gap-2">
+            <Link to={`/${language}/legal`} className="text-[10px] font-light tracking-widest uppercase text-white/20 hover:text-white/60 transition-colors">
+              {t("nav.legal")}
+            </Link>
+            <Link to={`/${language}/privacy`} className="text-[10px] font-light tracking-widest uppercase text-white/20 hover:text-white/60 transition-colors">
+              {t("nav.privacy")}
+            </Link>
+          </div>
+        </div>
+
+        {/* Support */}
+        <div className="flex flex-col gap-4">
+          <span className="text-[10px] font-light tracking-[0.3em] uppercase text-white/20">
+            {t("footer.support")}
+          </span>
+          <div className="flex flex-col gap-2">
+            {[
+              { to: `/${language}/size-guide`, label: t("footer.faq") },
+              { to: `/${language}/size-guide`, label: t("footer.sizeGuide") },
+              { to: `/${language}/shipping-returns`, label: t("footer.shippingReturns") },
+              { to: `/${language}/contact`, label: t("footer.contact") },
+            ].map(({ to, label }) => (
+              <Link key={to + label} to={to} className="text-[10px] font-light tracking-widest uppercase text-white/20 hover:text-white/60 transition-colors">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
       </div>
     </footer>
   );

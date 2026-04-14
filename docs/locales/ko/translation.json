@@ -238,6 +238,51 @@
     "relaxedNote": "여유로운 실루엣. 몸에서 떨어져 내려앉습니다. 핏하게 입고 싶다면 아래 사이즈를 선택하세요.",
     "oversizedNote": "의도적으로 오버사이즈로 설계되었습니다. 일반적인 실루엣을 원하면 아래 사이즈를 선택하세요."
   },
+  "trust": {
+    "processed": "2~5 영업일 이내 발송",
+    "delivered": "발송 후 5~10 영업일 이내 배송",
+    "supported": "파손·오배송은 수령 후 7일 이내에 연락해 주세요",
+    "shippingReturnsLink": "배송·반품 안내"
+  },
+  "footer": {
+    "support": "고객 지원",
+    "faq": "자주 묻는 질문",
+    "sizeGuide": "사이즈 가이드",
+    "shippingReturns": "배송·반품",
+    "contact": "문의하기"
+  },
+  "shippingReturns": {
+    "title": "배송·반품",
+    "pageIntro": "배송 및 반품 정책에 관한 안내입니다. 문의 사항은 info@tcdashop.com으로 연락해 주세요.",
+    "shippingTitle": "발송",
+    "shippingBody": "주문 확정 후 2~5 영업일 이내에 Printful을 통해 발송됩니다. 발송 후 운송장 번호를 전달드립니다.",
+    "deliveryTitle": "배송",
+    "deliveryBody": "발송 후 통상 5~10 영업일 이내에 도착합니다. 지역에 따라 다소 차이가 있을 수 있습니다.",
+    "returnsTitle": "반품·대응 안내",
+    "returnsCondition": "대응 조건：파손·인쇄 불량·오배송의 경우에 한함",
+    "returnsPeriod": "대응 기간：수령 후 7일 이내에 연락해 주세요",
+    "returnsMethod": "대응 방법：확인 후 재발송 또는 환불로 처리",
+    "returnsNote": "사이즈 착오나 개인 사정에 의한 반품·교환은 불가합니다.",
+    "contactTitle": "문의하기",
+    "contactBody": "그 외 궁금한 점은 아래 이메일 주소로 연락해 주세요."
+  },
+  "contact": {
+    "title": "문의하기",
+    "pageIntro": "주문이나 상품에 관한 문의 사항이 있으신가요?",
+    "name": "이름",
+    "namePlaceholder": "성함을 입력해 주세요",
+    "email": "이메일",
+    "emailPlaceholder": "your@email.com",
+    "orderNumber": "주문 번호（선택）",
+    "orderNumberPlaceholder": "예: CS-XXXX",
+    "message": "메시지",
+    "messagePlaceholder": "문의 내용을 입력해 주세요",
+    "submit": "전송하기",
+    "submitting": "전송 중...",
+    "success": "문의가 접수되었습니다. 순차적으로 답변 드리겠습니다.",
+    "error": "전송에 실패했습니다. info@tcdashop.com으로 직접 연락해 주세요.",
+    "orEmail": "또는 직접 이메일로:"
+  },
   "common": {
     "loading": "불러오는 중..."
   }

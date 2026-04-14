@@ -238,6 +238,51 @@
     "relaxedNote": "宽松廓形，自然垂坠。如需更合身的效果，建议选小一码。",
     "oversizedNote": "有意设计的宽大版型，呈现垂坠感。如需常规廓形，建议选小一码。"
   },
+  "trust": {
+    "processed": "2–5个工作日内发货",
+    "delivered": "发货后5–10个工作日内送达",
+    "supported": "破损或错发？请在收货后7日内联系我们",
+    "shippingReturnsLink": "配送与退货"
+  },
+  "footer": {
+    "support": "客户支持",
+    "faq": "常见问题",
+    "sizeGuide": "尺码指南",
+    "shippingReturns": "配送与退货",
+    "contact": "联系我们"
+  },
+  "shippingReturns": {
+    "title": "配送与退货",
+    "pageIntro": "有关配送及退货政策的说明。如有疑问，请联系 info@tcdashop.com。",
+    "shippingTitle": "发货",
+    "shippingBody": "订单确认后，将于2–5个工作日内通过Printful发货。发货后将向您发送快递追踪单号。",
+    "deliveryTitle": "配送",
+    "deliveryBody": "发货后通常5–10个工作日内送达。实际时间因地区而异。",
+    "returnsTitle": "退货与售后",
+    "returnsCondition": "受理条件：仅限商品破损、印刷不良或错发商品",
+    "returnsPeriod": "受理期限：请于收货后7日内联系我们",
+    "returnsMethod": "处理方式：核实后安排补发或退款",
+    "returnsNote": "因尺码或个人偏好原因申请的退货将不予受理。",
+    "contactTitle": "联系我们",
+    "contactBody": "如有其他疑问，请通过以下邮件地址与我们联系。"
+  },
+  "contact": {
+    "title": "联系我们",
+    "pageIntro": "如有任何问题或需要订单帮助，请随时联系我们。",
+    "name": "姓名",
+    "namePlaceholder": "请输入您的姓名",
+    "email": "电子邮件",
+    "emailPlaceholder": "your@email.com",
+    "orderNumber": "订单编号（选填）",
+    "orderNumberPlaceholder": "例：CS-XXXX",
+    "message": "留言",
+    "messagePlaceholder": "请输入您的问题或留言",
+    "submit": "发送",
+    "submitting": "发送中...",
+    "success": "您的留言已收到。我们将尽快与您联系。",
+    "error": "发送失败。请直接发送邮件至 info@tcdashop.com。",
+    "orEmail": "或直接发送邮件至："
+  },
   "common": {
     "loading": "加载中..."
   }

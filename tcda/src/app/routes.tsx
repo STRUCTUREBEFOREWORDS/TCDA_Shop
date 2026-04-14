@@ -13,6 +13,8 @@ import { LookbookPage } from "./pages/LookbookPage";
 import { SizeGuidePage } from "./pages/SizeGuidePage";
 import { LegalPage } from "./pages/LegalPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
+import { ShippingReturnsPage } from "./pages/ShippingReturnsPage";
+import { ContactPage } from "./pages/ContactPage";
 import { NotFound } from "./pages/NotFound";
 
 export const router = createBrowserRouter([
@@ -35,6 +37,8 @@ export const router = createBrowserRouter([
       { path: "about", Component: AboutPage },
       { path: "legal", Component: LegalPage },
       { path: "privacy", Component: PrivacyPage },
+      { path: "shipping-returns", Component: ShippingReturnsPage },
+      { path: "contact", Component: ContactPage },
     ],
   },
   { path: "*", Component: NotFound },

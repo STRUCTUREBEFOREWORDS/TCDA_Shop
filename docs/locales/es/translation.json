@@ -238,6 +238,51 @@
     "relaxedNote": "Silueta amplia. Cae lejos del cuerpo. Baja una talla si prefieres un ajuste más entallado.",
     "oversizedNote": "Intencionalmente oversized. Diseñado para caer. Baja una talla para una silueta más estándar."
   },
+  "trust": {
+    "processed": "Procesado en 2–5 días hábiles",
+    "delivered": "Entregado en 5–10 días hábiles",
+    "supported": "¿Defecto o envío incorrecto? Contáctanos en los 7 días siguientes",
+    "shippingReturnsLink": "Envíos y devoluciones"
+  },
+  "footer": {
+    "support": "Soporte",
+    "faq": "FAQ",
+    "sizeGuide": "Guía de tallas",
+    "shippingReturns": "Envíos y devoluciones",
+    "contact": "Contacto"
+  },
+  "shippingReturns": {
+    "title": "Envíos y devoluciones",
+    "pageIntro": "Todo sobre el envío y nuestra política de devoluciones. ¿Preguntas? Escríbenos a info@tcdashop.com.",
+    "shippingTitle": "Envío",
+    "shippingBody": "Los pedidos se procesan en 2–5 días hábiles a través de Printful. Recibirás un número de seguimiento una vez enviado.",
+    "deliveryTitle": "Entrega",
+    "deliveryBody": "Tras el envío, la entrega suele tardar 5–10 días hábiles. Los plazos pueden variar según la región.",
+    "returnsTitle": "Devoluciones y asistencia",
+    "returnsCondition": "Casos elegibles: artículos dañados, con defectos de impresión o envíos incorrectos únicamente",
+    "returnsPeriod": "Plazo: contáctanos en los 7 días siguientes a la recepción",
+    "returnsMethod": "Resolución: reenvío o reembolso tras verificación",
+    "returnsNote": "No se aceptan devoluciones por talla o cambio de opinión.",
+    "contactTitle": "Contacto",
+    "contactBody": "Para cualquier otra consulta, escríbenos a la dirección indicada a continuación."
+  },
+  "contact": {
+    "title": "Contacto",
+    "pageIntro": "¿Tienes alguna pregunta o necesitas ayuda con tu pedido? Estamos aquí.",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "orderNumber": "Número de pedido (opcional)",
+    "orderNumberPlaceholder": "ej. CS-XXXX",
+    "message": "Mensaje",
+    "messagePlaceholder": "¿En qué podemos ayudarte?",
+    "submit": "Enviar mensaje",
+    "submitting": "Enviando...",
+    "success": "Mensaje recibido. Te responderemos lo antes posible.",
+    "error": "Algo salió mal. Por favor, escríbenos directamente a info@tcdashop.com.",
+    "orEmail": "O escríbenos directamente:"
+  },
   "common": {
     "loading": "Cargando..."
   }
