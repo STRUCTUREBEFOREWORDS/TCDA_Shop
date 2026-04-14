@@ -33,6 +33,9 @@ export default defineConfig({
     spaPlugin,
   ],
   base: '/',
+  define: {
+    __BUILD_VERSION__: JSON.stringify(Date.now().toString(36)),
+  },
   build: {
     outDir: '../docs',
     emptyOutDir: false,

@@ -2,6 +2,8 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import HttpBackend from "i18next-http-backend";
 
+declare const __BUILD_VERSION__: string;
+
 const SUPPORTED_LANGS = ["ja", "en", "fr", "es", "ko", "zh"];
 
 /**
@@ -25,7 +27,7 @@ i18n
     ns: ["translation"],
     defaultNS: "translation",
     backend: {
-      loadPath: "/locales/{{lng}}/translation.json?v=20260415",
+      loadPath: `/locales/{{lng}}/translation.json?v=${__BUILD_VERSION__}`,
     },
     interpolation: { escapeValue: false },
     react: { useSuspense: false },
