@@ -94,7 +94,7 @@ const { t } = useTranslation();
     setLoading(true);
     setSizeChart(null);
     fetch(`https://api.tcdashop.com/products/${id}?lang=${language}`)
-      .then((res) => res.json())
+      .then((res) => { if (!res.ok) throw new Error(`API ${res.status}`); return res.json(); })
       .then(async (data: Product) => {
         setProduct(data);
         const imageList = data.images?.length ? data.images : [data.thumbnail_url];
