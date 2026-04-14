@@ -35,6 +35,8 @@ interface Product {
   product_type?: string | null;
   measuring_guide_image_url?: string | null;
   fit_metadata?: ProductFitMetadata | null;
+  printful_description?: string | null;
+  printful_product_type?: string | null;
 }
 
 interface SizeChartUnit {
@@ -46,6 +48,10 @@ interface SizeChart {
   chart_data: {
     unit_cm: SizeChartUnit;
     unit_inch: SizeChartUnit;
+    measure_yourself_cm?: SizeChartUnit;
+    measure_yourself_inch?: SizeChartUnit;
+    measure_yourself_image_url?: string;
+    measure_yourself_description?: string;
   };
 }
 

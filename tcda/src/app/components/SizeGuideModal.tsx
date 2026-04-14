@@ -42,6 +42,10 @@ interface SizeChart {
   chart_data: {
     unit_cm: SizeChartUnit;
     unit_inch: SizeChartUnit;
+    measure_yourself_cm?: SizeChartUnit;
+    measure_yourself_inch?: SizeChartUnit;
+    measure_yourself_image_url?: string;
+    measure_yourself_description?: string;
   };
 }
 
@@ -87,6 +91,7 @@ export function SizeGuideModal({
   }, [onClose]);
 
   const chartUnit = sizeChart?.chart_data?.[sizeUnit === "cm" ? "unit_cm" : "unit_inch"];
+  const resolvedMeasuringImageUrl = measuringGuideImageUrl ?? sizeChart?.chart_data?.measure_yourself_image_url ?? null;
   const chartSizeEntries = chartUnit
     ? Object.entries(chartUnit.sizes).sort(
         (a, b) => SIZE_ORDER.indexOf(a[0]) - SIZE_ORDER.indexOf(b[0])
@@ -244,13 +249,13 @@ export function SizeGuideModal({
                 <p className="text-black/25 text-[10px] font-light mt-3">{t("size.guideNote")}</p>
               </div>
 
-              {measuringGuideImageUrl ? (
+              {resolvedMeasuringImageUrl ? (
                 <div>
                   <p className="text-black/30 text-[9px] font-light tracking-[0.4em] uppercase mb-4">
                     {t("sizeGuide.howToMeasure")}
                   </p>
                   <img
-                    src={measuringGuideImageUrl}
+                    src={resolvedMeasuringImageUrl}
                     alt={t("sizeGuide.howToMeasure")}
                     className="w-full max-w-sm mx-auto"
                   />
