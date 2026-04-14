@@ -112,7 +112,57 @@
     "q2": "¿Se aceptan devoluciones o cambios?",
     "a2": "Aceptamos devoluciones de productos defectuosos dentro de los 14 días. Los cambios de talla se gestionan una vez por pedido.",
     "q3": "¿Qué hago si estoy entre dos tallas?",
-    "a3": "Para un ajuste más holgado, recomendamos la talla superior. El modelo mide 180 cm y viste talla M."
+    "a3": "Para un ajuste más holgado, recomendamos la talla superior. El modelo mide 180 cm y viste talla M.",
+    "purchaseTitle": "FAQ",
+    "fullTitle": "FAQ",
+    "sizeHelp": {
+      "q": "¿Cómo elijo la talla correcta?",
+      "a": "Consulta la guía de tallas para referencias según tu altura y tipo de cuerpo. Si dudas entre dos tallas, elige la más grande."
+    },
+    "oversized": {
+      "q": "¿Cómo consigo un look oversize?",
+      "a": "Elige una talla más de lo habitual. La silueta varía según el producto — revisa la información de corte en la página del producto."
+    },
+    "modelSize": {
+      "q": "¿Qué talla lleva el modelo?",
+      "a": "La altura y la talla del modelo se indican en cada página de producto. Nota: se utilizan imágenes de modelo generadas por IA."
+    },
+    "deliveryTime": {
+      "q": "¿Cuánto tarda el envío?",
+      "a": "Los pedidos suelen llegar en 5–10 días hábiles. Se envía un número de seguimiento tras el despacho."
+    },
+    "internationalShipping": {
+      "q": "¿Se realiza envío internacional?",
+      "a": "Los artículos se envían desde un socio de producción en el extranjero. El estado puede rastrearse con el número proporcionado."
+    },
+    "returns": {
+      "q": "¿Aceptáis devoluciones o cambios?",
+      "a": "Aceptamos devoluciones solo por artículos defectuosos. No se aceptan devoluciones por talla o preferencia personal."
+    },
+    "colorDifference": {
+      "q": "¿El color coincidirá con lo que veo en pantalla?",
+      "a": "Los colores pueden variar ligeramente según la configuración de tu monitor y las condiciones de iluminación."
+    },
+    "washing": {
+      "q": "¿Se puede lavar?",
+      "a": "Se puede lavar a máquina. Para mayor durabilidad, recomendamos lavar del revés."
+    },
+    "paymentMethods": {
+      "q": "¿Qué métodos de pago se aceptan?",
+      "a": "Aceptamos las principales tarjetas de crédito y diversos métodos de pago en línea."
+    },
+    "orderChange": {
+      "q": "¿Puedo cambiar o cancelar mi pedido después de realizarlo?",
+      "a": "Los pedidos no pueden modificarse ni cancelarse una vez confirmados. Revisa los detalles antes de comprar."
+    },
+    "restock": {
+      "q": "¿Se repondrán los artículos agotados?",
+      "a": "Las fechas de reposición no están confirmadas. Las actualizaciones se compartirán por redes sociales oficiales y correo electrónico."
+    },
+    "defect": {
+      "q": "¿Qué hago si mi artículo tiene un defecto?",
+      "a": "Contáctanos en un plazo de 7 días desde la recepción. Gestionaremos un cambio tras la verificación."
+    }
   },
   "sizeTable": {
     "size": "Talla",

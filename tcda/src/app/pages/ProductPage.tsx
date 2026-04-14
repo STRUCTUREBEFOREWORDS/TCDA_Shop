@@ -9,6 +9,7 @@ import { FitLabelNormalized, ProductFitMetadata } from "../types";
 import { SizeGuideModal } from "../components/SizeGuideModal";
 
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { FaqAccordion } from "../components/FaqAccordion";
 
 interface Variant {
   id: number;
@@ -71,16 +72,17 @@ export function ProductPage() {
   const { language, currency, rates, addToCart, countryCode } = useGlobalContext();
 const { t } = useTranslation();
   
-  const faq = [
-    { q: t("faq.q1"), a: t("faq.a1") },
-    { q: t("faq.q2"), a: t("faq.a2") },
-    { q: t("faq.q3"), a: t("faq.a3") },
-  ];
+  const PURCHASE_FAQ_KEYS = [
+    "sizeHelp", "oversized", "deliveryTime", "returns", "colorDifference", "orderChange",
+  ] as const;
+  const purchaseFaqItems = PURCHASE_FAQ_KEYS.map((key) => ({
+    q: t(`faq.${key}.q`),
+    a: t(`faq.${key}.a`),
+  }));
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [added, setAdded] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [sizeUnit, setSizeUnit] = useState<"cm" | "inch">("cm");
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const [sizeChart, setSizeChart] = useState<SizeChart | null>(null);
@@ -486,7 +488,7 @@ const { t } = useTranslation();
           </p>
         </motion.div>
 
-        {/* FAQ */}
+        {/* Purchase FAQ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -495,33 +497,9 @@ const { t } = useTranslation();
           className="border-t border-black/10 pt-8"
         >
           <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-6">
-            FAQ
+            {t("faq.purchaseTitle")}
           </h2>
-          <div className="space-y-0">
-            {faq.map((item, i) => (
-              <div key={i} className="border-b border-black/10">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full text-left py-4 flex justify-between items-center"
-                >
-                  <span className="text-black text-sm font-light opacity-80">{item.q}</span>
-                  <span className="text-black text-xs font-light opacity-40 ml-4">
-                    {openFaq === i ? "−" : "+"}
-                  </span>
-                </button>
-                {openFaq === i && (
-                  <motion.p
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="text-black text-xs font-light opacity-60 leading-relaxed pb-4"
-                  >
-                    {item.a}
-                  </motion.p>
-                )}
-              </div>
-            ))}
-          </div>
+          <FaqAccordion items={purchaseFaqItems} />
         </motion.div>
       </section>
     </div>

@@ -112,7 +112,57 @@
     "q2": "Les retours et échanges sont-ils possibles ?",
     "a2": "Les articles défectueux peuvent être retournés dans les 14 jours suivant la réception. Un échange de taille est possible une fois par commande.",
     "q3": "Que faire si je me situe entre deux tailles ?",
-    "a3": "Pour un port décontracté, nous recommandons la taille supérieure. Le modèle mesure 180 cm et porte une taille M."
+    "a3": "Pour un port décontracté, nous recommandons la taille supérieure. Le modèle mesure 180 cm et porte une taille M.",
+    "purchaseTitle": "FAQ",
+    "fullTitle": "FAQ",
+    "sizeHelp": {
+      "q": "Je ne sais pas quelle taille choisir.",
+      "a": "Consultez le guide des tailles pour des repères selon votre taille et morphologie. En cas de doute entre deux tailles, prenez la plus grande."
+    },
+    "oversized": {
+      "q": "Comment obtenir un look oversize ?",
+      "a": "Choisissez une taille au-dessus de votre taille habituelle. La silhouette varie selon les produits — consultez les informations de coupe sur la page produit."
+    },
+    "modelSize": {
+      "q": "Quelle taille porte le modèle ?",
+      "a": "La taille et la pointure du modèle sont indiquées sur chaque page produit. Note : des visuels de modèles générés par IA sont utilisés."
+    },
+    "deliveryTime": {
+      "q": "Quel est le délai de livraison ?",
+      "a": "La livraison prend généralement 5 à 10 jours ouvrés. Un numéro de suivi est envoyé après l'expédition."
+    },
+    "internationalShipping": {
+      "q": "La livraison est-elle internationale ?",
+      "a": "Les articles sont expédiés depuis un partenaire de production à l'étranger. Le statut peut être suivi avec le numéro fourni."
+    },
+    "returns": {
+      "q": "Les retours ou échanges sont-ils possibles ?",
+      "a": "Nous acceptons les retours uniquement pour les articles défectueux. Les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés."
+    },
+    "colorDifference": {
+      "q": "La couleur sera-t-elle identique à l'écran ?",
+      "a": "Les couleurs peuvent légèrement varier selon les paramètres de votre écran et les conditions d'éclairage."
+    },
+    "washing": {
+      "q": "Le lavage est-il possible ?",
+      "a": "Le lavage en machine est possible. Pour une meilleure durabilité, nous recommandons de laver à l'envers."
+    },
+    "paymentMethods": {
+      "q": "Quels modes de paiement sont acceptés ?",
+      "a": "Nous acceptons les principales cartes bancaires et divers moyens de paiement en ligne."
+    },
+    "orderChange": {
+      "q": "Puis-je modifier ou annuler ma commande après l'avoir passée ?",
+      "a": "Les commandes ne peuvent pas être modifiées ni annulées une fois confirmées. Veuillez vérifier les détails avant d'acheter."
+    },
+    "restock": {
+      "q": "Les articles épuisés seront-ils réapprovisionnés ?",
+      "a": "Les dates de réapprovisionnement ne sont pas confirmées. Les mises à jour seront partagées via nos réseaux sociaux officiels et par e-mail."
+    },
+    "defect": {
+      "q": "Que faire si mon article est défectueux ?",
+      "a": "Contactez-nous dans les 7 jours suivant la réception. Un échange sera organisé après vérification."
+    }
   },
   "sizeTable": {
     "size": "Taille",

@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import { MEASUREMENT_LABEL_MAP, MEASUREMENT_KEYS_ORDER } from "../utils/measurementMeta";
+import { FaqAccordion } from "../components/FaqAccordion";
 
 const FIT_KEYS = ["slim", "regular", "relaxed", "oversized"] as const;
 
@@ -13,15 +13,18 @@ const FIT_BADGE_COLOR: Record<typeof FIT_KEYS[number], string> = {
   oversized:"bg-purple-50 text-purple-500 border-purple-100",
 };
 
-const FAQ_COUNT = 12;
+const FULL_FAQ_KEYS = [
+  "sizeHelp", "oversized", "modelSize", "deliveryTime", "internationalShipping",
+  "returns", "colorDifference", "washing", "paymentMethods", "orderChange",
+  "restock", "defect",
+] as const;
 
 export function SizeGuidePage() {
   const { t } = useTranslation();
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const faqs = Array.from({ length: FAQ_COUNT }, (_, i) => ({
-    q: t(`sizeGuide.faq${i + 1}q`),
-    a: t(`sizeGuide.faq${i + 1}a`),
+  const fullFaqItems = FULL_FAQ_KEYS.map((key) => ({
+    q: t(`faq.${key}.q`),
+    a: t(`faq.${key}.a`),
   }));
 
   return (
@@ -145,41 +148,9 @@ export function SizeGuidePage() {
             transition={{ duration: 0.6 }}
             className="text-black text-xs font-light tracking-[0.4em] uppercase mb-8 opacity-40"
           >
-            FAQ
+            {t("faq.fullTitle")}
           </motion.h2>
-          <div className="space-y-0">
-            {faqs.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.4 }}
-                className="border-b border-black/8"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full text-left py-5 flex justify-between items-start gap-4"
-                >
-                  <span className="text-black text-sm font-light opacity-70 leading-relaxed">
-                    {item.q}
-                  </span>
-                  <span className="text-black/30 text-xs font-light flex-shrink-0 mt-0.5">
-                    {openFaq === i ? "−" : "+"}
-                  </span>
-                </button>
-                {openFaq === i && (
-                  <motion.p
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    className="text-black/50 text-xs font-light leading-relaxed pb-5 pr-8"
-                  >
-                    {item.a}
-                  </motion.p>
-                )}
-              </motion.div>
-            ))}
-          </div>
+          <FaqAccordion items={fullFaqItems} />
         </section>
 
       </div>

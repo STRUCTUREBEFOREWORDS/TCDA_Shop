@@ -112,7 +112,57 @@
     "q2": "Do you accept returns or exchanges?",
     "a2": "Returns are accepted within 14 days for defective items. One size exchange per order is available.",
     "q3": "What if I'm between sizes?",
-    "a3": "For a relaxed fit, we recommend sizing up. Our model is 180 cm tall and wears a size M."
+    "a3": "For a relaxed fit, we recommend sizing up. Our model is 180 cm tall and wears a size M.",
+    "purchaseTitle": "FAQ",
+    "fullTitle": "FAQ",
+    "sizeHelp": {
+      "q": "Not sure which size to pick?",
+      "a": "Check the Size Guide for reference by height and body type. When between sizes, we recommend sizing up."
+    },
+    "oversized": {
+      "q": "How do I get an oversized fit?",
+      "a": "Choose one size up from your usual size. Silhouettes vary by product — check the fit info on each product page."
+    },
+    "modelSize": {
+      "q": "What size does the model wear?",
+      "a": "Height and size worn are listed on each product page. Note: AI-generated model imagery is used."
+    },
+    "deliveryTime": {
+      "q": "How long does delivery take?",
+      "a": "Orders typically arrive within 5–10 business days. A tracking number is sent after dispatch."
+    },
+    "internationalShipping": {
+      "q": "Is this shipped internationally?",
+      "a": "Items are dispatched from an overseas production partner. Delivery can be tracked using the provided tracking number."
+    },
+    "returns": {
+      "q": "Are returns or exchanges available?",
+      "a": "We accept returns for defective items only. Returns due to size or personal preference are not accepted."
+    },
+    "colorDifference": {
+      "q": "Will the color match what I see on screen?",
+      "a": "Colors may vary slightly depending on your monitor settings and lighting conditions."
+    },
+    "washing": {
+      "q": "Is it safe to wash?",
+      "a": "Machine wash is available. For longevity, we recommend washing inside out."
+    },
+    "paymentMethods": {
+      "q": "What payment methods are accepted?",
+      "a": "We accept major credit cards and various online payment methods."
+    },
+    "orderChange": {
+      "q": "Can I change or cancel my order after placing it?",
+      "a": "Orders cannot be modified or cancelled once confirmed. Please review carefully before purchasing."
+    },
+    "restock": {
+      "q": "Will sold-out items be restocked?",
+      "a": "Restocking dates are not confirmed. Updates will be shared via our official social channels and email."
+    },
+    "defect": {
+      "q": "What if my item has a defect?",
+      "a": "Please contact us within 7 days of receiving your order. We will arrange an exchange after verification."
+    }
   },
   "sizeTable": {
     "size": "Size",
