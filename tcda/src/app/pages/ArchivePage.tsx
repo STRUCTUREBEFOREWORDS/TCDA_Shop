@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
-
+import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { formatPrice } from "../utils/formatPrice";
 interface Product {
   id: string;
@@ -89,7 +89,7 @@ const { t } = useTranslation();
                 <div className="group">
                   <Link to={`/${language}/product/${product.id}`}>
                     <div className="relative aspect-[3/4] overflow-hidden bg-black/5 mb-4">
-                      <img
+                      <ImageWithFallback
                         src={product.images?.[0] || product.thumbnail_url}
                         alt={product.name}
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
