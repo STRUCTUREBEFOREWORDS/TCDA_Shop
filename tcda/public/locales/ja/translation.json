@@ -73,7 +73,11 @@
     "sortNewest": "新着順",
     "sortPriceAsc": "価格: 安い順",
     "sortPriceDesc": "価格: 高い順",
-    "viewAll": "すべて見る"
+    "viewAll": "すべて見る",
+    "all": "すべて",
+    "hoodie": "フーディー",
+    "zipHoodie": "ジップフーディー",
+    "tshirt": "Tシャツ"
   },
   "size": {
     "guide": "サイズガイド",

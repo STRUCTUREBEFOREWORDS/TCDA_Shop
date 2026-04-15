@@ -69,6 +69,10 @@
     "shippingNote": "배송비는 결제 시 계산됩니다"
   },
   "shop": {
+    "all": "전체",
+    "hoodie": "후디",
+    "zipHoodie": "집업 후디",
+    "tshirt": "티셔츠",
     "filterAll": "전체",
     "sortNewest": "신상품순",
     "sortPriceAsc": "가격: 낮은순",

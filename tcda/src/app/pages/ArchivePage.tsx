@@ -15,6 +15,12 @@ interface Product {
 }
 type Category = 'ALL' | 'HOODIE' | 'ZIP HOODIE' | 'T-SHIRT';
 const CATEGORIES: Category[] = ['ALL', 'HOODIE', 'ZIP HOODIE', 'T-SHIRT'];
+const CATEGORY_I18N_KEY: Record<Category, string> = {
+  'ALL':       'shop.all',
+  'HOODIE':    'shop.hoodie',
+  'ZIP HOODIE':'shop.zipHoodie',
+  'T-SHIRT':   'shop.tshirt',
+};
 function getCategory(name: string): Category {
   const n = name.toLowerCase();
   if (n.includes('zip')) return 'ZIP HOODIE';
@@ -67,7 +73,7 @@ const { t } = useTranslation();
                     : 'bg-white text-black border-black hover:bg-black hover:text-white'
                 }`}
               >
-                {cat}
+                {t(CATEGORY_I18N_KEY[cat])}
               </button>
             ))}
           </div>

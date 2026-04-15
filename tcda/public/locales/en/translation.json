@@ -69,6 +69,10 @@
     "shippingNote": "Shipping calculated at checkout"
   },
   "shop": {
+    "all": "ALL",
+    "hoodie": "HOODIE",
+    "zipHoodie": "ZIP HOODIE",
+    "tshirt": "T-SHIRT",
     "filterAll": "All",
     "sortNewest": "Newest",
     "sortPriceAsc": "Price: Low to High",

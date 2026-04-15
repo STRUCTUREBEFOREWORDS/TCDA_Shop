@@ -69,6 +69,10 @@
     "shippingNote": "Livraison calculée lors du paiement"
   },
   "shop": {
+    "all": "Tout",
+    "hoodie": "Sweat",
+    "zipHoodie": "Sweat Zippé",
+    "tshirt": "T-Shirt",
     "filterAll": "Tout",
     "sortNewest": "Nouveautés",
     "sortPriceAsc": "Prix croissant",
