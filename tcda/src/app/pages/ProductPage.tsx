@@ -164,10 +164,10 @@ const { t } = useTranslation();
     <div className="min-h-screen bg-white pt-20">
       <Helmet>
         <title>{product.name} | TCDA</title>
-        <meta name="description" content={product.fabric_composition || "Transcend Color Digital Apparel — アートを着る、感性を解放する。"} />
+        <meta name="description" content={product.description || product.fabric_composition || "Transcend Color Digital Apparel — アートを着る、感性を解放する。"} />
         <meta property="og:type" content="product" />
         <meta property="og:title" content={`${product.name} | TCDA`} />
-        <meta property="og:description" content={product.fabric_composition || "Transcend Color Digital Apparel — アートを着る、感性を解放する。"} />
+        <meta property="og:description" content={product.description || product.fabric_composition || "Transcend Color Digital Apparel — アートを着る、感性を解放する。"} />
         <meta property="og:url" content={`https://tcdashop.com/${language}/product/${product.id}`} />
         <meta property="og:image" content={product.images?.[0] || product.thumbnail_url} />
         <meta property="og:site_name" content="TCDA" />
@@ -175,6 +175,7 @@ const { t } = useTranslation();
         <meta property="product:price:currency" content="JPY" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${product.name} | TCDA`} />
+        <meta name="twitter:description" content={product.description || product.fabric_composition || "Transcend Color Digital Apparel — アートを着る、感性を解放する。"} />
         <meta name="twitter:image" content={product.images?.[0] || product.thumbnail_url} />
         <script type="application/ld+json">
           {JSON.stringify({
