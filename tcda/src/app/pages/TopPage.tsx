@@ -77,6 +77,8 @@ export function TopPage() {
           alt="TCDA"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
@@ -148,6 +150,7 @@ export function TopPage() {
                     alt={`TCDA ${i + 1}`}
                     className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </Link>
