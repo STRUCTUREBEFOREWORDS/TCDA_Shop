@@ -69,7 +69,7 @@ const FIT_LABEL_MAP: Record<FitLabelNormalized, string> = {
 
 export function ProductPage() {
   const { id } = useParams();
-  const { language, currency, rates, addToCart, countryCode } = useGlobalContext();
+  const { language, currency, rates, addToCart, countryCode, addRecentProduct } = useGlobalContext();
 const { t } = useTranslation();
   
   const PURCHASE_FAQ_KEYS = [
@@ -98,6 +98,12 @@ const { t } = useTranslation();
       .then((res) => { if (!res.ok) throw new Error(`API ${res.status}`); return res.json(); })
       .then(async (data: Product) => {
         setProduct(data);
+        addRecentProduct({
+          id: data.id,
+          name: data.name,
+          price: data.price,
+          imageUrl: data.images?.[0] || data.thumbnail_url,
+        });
         const imageList = data.images?.length ? data.images : [data.thumbnail_url];
         setImages(imageList);
         setCurrentImageIndex(0);

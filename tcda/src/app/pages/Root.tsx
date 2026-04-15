@@ -3,7 +3,7 @@ import { useState, useEffect, createContext, useContext } from "react";
 import { AnimatePresence } from "motion/react";
 import { Helmet } from "react-helmet-async";
 import i18n from "../i18n";
-import { Language, Currency, CartItem } from "../types";
+import { Language, Currency, CartItem, RecentProduct } from "../types";
 import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
 import { CartDrawer } from "../components/CartDrawer";
 import { Footer } from "../components/Footer";
@@ -76,6 +76,8 @@ interface GlobalContextType {
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
   countryCode: string;
+  recentProducts: RecentProduct[];
+  addRecentProduct: (product: RecentProduct) => void;
 }
 
 const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -103,6 +105,23 @@ export function Root() {
   const [consent, setConsent] = useState<ConsentValue | null>(
     () => (localStorage.getItem(STORAGE_KEY) as ConsentValue | null)
   );
+  const [recentProducts, setRecentProducts] = useState<RecentProduct[]>(() => {
+    try {
+      const stored = localStorage.getItem("tcda_recent_products");
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const addRecentProduct = (product: RecentProduct) => {
+    setRecentProducts((prev) => {
+      const filtered = prev.filter((p) => p.id !== product.id);
+      const next = [product, ...filtered].slice(0, 5);
+      localStorage.setItem("tcda_recent_products", JSON.stringify(next));
+      return next;
+    });
+  };
 
   // Restore previous consent decision into gtag on mount
   useEffect(() => {
@@ -216,6 +235,8 @@ export function Root() {
         isCartOpen,
         setIsCartOpen,
         countryCode,
+        recentProducts,
+        addRecentProduct,
       }}
     >
       <HreflangHelmet pathname={location.pathname} />

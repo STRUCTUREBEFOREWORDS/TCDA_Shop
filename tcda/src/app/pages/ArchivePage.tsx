@@ -29,7 +29,7 @@ function getCategory(name: string): Category {
   return 'ALL';
 }
 export function ArchivePage() {
-  const { language, currency, rates } = useGlobalContext();
+  const { language, currency, rates, recentProducts } = useGlobalContext();
 const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -116,6 +116,42 @@ const { t } = useTranslation();
           </div>
         )}
       </div>
+
+      {/* RECENTLY VIEWED */}
+      {recentProducts.length > 0 && (
+        <div className="border-t border-white/5 px-6 md:px-10 py-12">
+          <div className="max-w-7xl mx-auto">
+            <p className="text-white/20 text-[10px] font-light tracking-[0.4em] uppercase mb-8">
+              {t("shop.recentlyViewed")}
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-8 md:gap-x-6 md:gap-y-10">
+              {recentProducts.slice(0, 4).map((product) => (
+                <Link
+                  key={product.id}
+                  to={`/${language}/product/${product.id}`}
+                  className="group block"
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden bg-white/5 mb-3">
+                    <ImageWithFallback
+                      src={product.imageUrl}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-white/60 text-[10px] font-light tracking-widest uppercase truncate group-hover:text-white/90 transition-colors duration-300">
+                      {product.name}
+                    </p>
+                    <p className="text-white/40 text-xs font-extralight tracking-wider">
+                      {convertAndFormat(product.price)}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

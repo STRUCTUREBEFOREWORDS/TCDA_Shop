@@ -12,6 +12,13 @@ export interface ProductFitMetadata {
   is_ai_model: boolean;
 }
 
+export interface RecentProduct {
+  id: string;
+  name: string;
+  price: number;
+  imageUrl: string;
+}
+
 export interface CartItem {
   artworkId: string;
   artworkName: string;
