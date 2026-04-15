@@ -51,14 +51,14 @@ const { t } = useTranslation();
   };
   const filtered = active === 'ALL' ? products : products.filter((p) => getCategory(p.name) === active);
   return (
-    <div className="min-h-screen bg-white">
-      <div className="sticky top-14 z-30 bg-white/95 backdrop-blur-sm border-b border-black/5">
+    <div className="min-h-screen bg-black">
+      <div className="sticky top-14 z-30 bg-black/95 backdrop-blur-sm border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-4">
           <div className="flex items-center gap-4 mb-3">
-            <h1 className="text-black text-xs font-light tracking-[0.3em] uppercase">
+            <h1 className="text-white text-xs font-light tracking-[0.3em] uppercase">
               {t("nav.shop")}
             </h1>
-            <span className="text-black/30 text-[10px] font-light">
+            <span className="text-white/30 text-[10px] font-light">
               {filtered.length}
             </span>
           </div>
@@ -69,8 +69,8 @@ const { t } = useTranslation();
                 onClick={() => setActive(cat)}
                 className={`px-5 py-2 text-[10px] tracking-widest border transition-colors whitespace-nowrap min-h-[44px] ${
                   active === cat
-                    ? 'bg-black text-white border-black'
-                    : 'bg-white text-black border-black hover:bg-black hover:text-white'
+                    ? 'bg-white text-black border-white'
+                    : 'bg-black text-white border-white/30 hover:bg-white hover:text-black hover:border-white'
                 }`}
               >
                 {t(CATEGORY_I18N_KEY[cat])}
@@ -81,7 +81,7 @@ const { t } = useTranslation();
       </div>
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-12">
         {loading ? (
-          <p className="text-black/40 text-xs tracking-widest text-center py-24">{t("common.loading")}</p>
+          <p className="text-white/40 text-xs tracking-widest text-center py-24">{t("common.loading")}</p>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
             {filtered.map((product, index) => (
@@ -94,7 +94,7 @@ const { t } = useTranslation();
               >
                 <div className="group">
                   <Link to={`/${language}/product/${product.id}`}>
-                    <div className="relative aspect-[3/4] overflow-hidden bg-black/5 mb-4">
+                    <div className="relative aspect-[3/4] overflow-hidden bg-white/5 mb-4">
                       <ImageWithFallback
                         src={product.images?.[0] || product.thumbnail_url}
                         alt={product.name}
@@ -103,10 +103,10 @@ const { t } = useTranslation();
                     </div>
                   </Link>
                   <div className="space-y-1.5">
-                    <h3 className="text-black text-xs font-light tracking-widest uppercase opacity-70">
+                    <h3 className="text-white text-xs font-light tracking-widest uppercase opacity-70">
                       {product.name}
                     </h3>
-                    <p className="text-black text-sm font-extralight tracking-wider">
+                    <p className="text-white text-sm font-extralight tracking-wider">
                       {convertAndFormat(product.price)}
                     </p>
                   </div>
