@@ -78,12 +78,12 @@ export function LookbookPage() {
   return (
     <div className="bg-black min-h-screen">
       {/* Page header */}
-      <div className="pt-24 pb-8 px-8 md:px-12">
+      <div className="pt-20 pb-6 px-8 md:px-12">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-white/20 text-[10px] font-light tracking-[0.5em] uppercase"
+          className="text-white/20 text-[10px] font-light tracking-[0.3em] md:tracking-[0.5em] uppercase"
         >
           {t("nav.collection")}
         </motion.p>
