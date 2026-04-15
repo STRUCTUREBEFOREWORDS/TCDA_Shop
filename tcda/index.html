@@ -33,6 +33,11 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      // Default consent: denied until user accepts (GDPR)
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      });
       gtag('js', new Date());
       gtag('config', 'G-1VW5BN3XE0');
     </script>

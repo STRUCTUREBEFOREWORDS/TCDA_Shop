@@ -341,6 +341,12 @@
       "browser":       { "label": "运行环境", "value": "最新版 Chrome / Safari / Firefox / Edge" }
     }
   },
+  "cookie": {
+    "message": "本网站通过 Google Analytics（GA4）使用 Cookie 分析访问情况。请选择您的偏好设置。",
+    "accept": "同意",
+    "decline": "拒绝",
+    "learnMore": "隐私政策"
+  },
   "common": {
     "loading": "加载中..."
   }

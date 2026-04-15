@@ -341,6 +341,12 @@
       "browser":       { "label": "지원 브라우저","value": "최신 Chrome / Safari / Firefox / Edge" }
     }
   },
+  "cookie": {
+    "message": "본 사이트는 Google Analytics(GA4)를 통해 방문 통계를 수집합니다. 쿠키 사용에 동의하시겠습니까?",
+    "accept": "동의",
+    "decline": "거부",
+    "learnMore": "개인정보 처리방침"
+  },
   "common": {
     "loading": "불러오는 중..."
   }

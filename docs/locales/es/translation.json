@@ -341,6 +341,12 @@
       "browser":       { "label": "Navegadores compatibles","value": "Última versión de Chrome / Safari / Firefox / Edge" }
     }
   },
+  "cookie": {
+    "message": "Utilizamos cookies a través de Google Analytics (GA4) para analizar el uso de nuestro sitio. Por favor, indica tu preferencia.",
+    "accept": "Aceptar",
+    "decline": "Rechazar",
+    "learnMore": "Política de privacidad"
+  },
   "common": {
     "loading": "Cargando..."
   }

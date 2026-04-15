@@ -1,10 +1,12 @@
 import { Outlet, useParams, useNavigate, useLocation } from "react-router";
 import { useState, useEffect, createContext, useContext } from "react";
+import { AnimatePresence } from "motion/react";
 import i18n from "../i18n";
 import { Language, Currency, CartItem } from "../types";
 import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
 import { CartDrawer } from "../components/CartDrawer";
 import { Footer } from "../components/Footer";
+import { CookieBanner, STORAGE_KEY, ConsentValue } from "../components/CookieBanner";
 
 /** Fallback rates used before live rates arrive from the backend */
 export const RATES: Record<Currency, number> = {
@@ -17,6 +19,12 @@ export const RATES: Record<Currency, number> = {
 };
 
 export const SUPPORTED_LANGS: Language[] = ["en", "ja", "fr", "es", "ko", "zh"];
+
+const EU_COUNTRY_CODES = new Set([
+  "AT","BE","BG","CY","CZ","DE","DK","EE","ES","FI","FR","GB",
+  "GR","HR","HU","IE","IT","LT","LU","LV","MT","NL","PL","PT",
+  "RO","SE","SI","SK",
+]);
 
 interface GlobalContextType {
   language: Language;
@@ -56,6 +64,19 @@ export function Root() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [countryCode, setCountryCode] = useState<string>("JP");
+  const [consent, setConsent] = useState<ConsentValue | null>(
+    () => (localStorage.getItem(STORAGE_KEY) as ConsentValue | null)
+  );
+
+  // Restore previous consent decision into gtag on mount
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY) as ConsentValue | null;
+    if (stored && typeof (window as Window & { gtag?: Function }).gtag === "function") {
+      (window as Window & { gtag: Function }).gtag("consent", "update", {
+        analytics_storage: stored,
+      });
+    }
+  }, []);
 
   // Fetch live exchange rates from backend (updated daily via frankfurter.app)
   useEffect(() => {
@@ -166,6 +187,11 @@ export function Root() {
         <Outlet />
         <Footer />
         <CartDrawer />
+        <AnimatePresence>
+          {EU_COUNTRY_CODES.has(countryCode) && consent === null && (
+            <CookieBanner onConsent={setConsent} />
+          )}
+        </AnimatePresence>
       </div>
     </GlobalContext.Provider>
   );
