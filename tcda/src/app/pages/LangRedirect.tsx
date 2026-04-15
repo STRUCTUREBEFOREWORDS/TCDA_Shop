@@ -9,14 +9,9 @@ export function LangRedirect() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://ipapi.co/json/")
-      .then((r) => r.json())
-      .then((data) => {
-        const lang = data.languages?.split(",")[0]?.split("-")[0] || "en";
-        const resolved = LANG_MAP[lang] ?? "en";
-        navigate(`/${resolved}/`, { replace: true });
-      })
-      .catch(() => navigate("/en/", { replace: true }));
+    const lang = navigator.language?.split("-")[0] || "en";
+    const resolved = LANG_MAP[lang] ?? "en";
+    navigate(`/${resolved}/`, { replace: true });
   }, []);
 
   return null;
