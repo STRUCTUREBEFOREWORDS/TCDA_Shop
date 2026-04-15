@@ -89,6 +89,8 @@ const { t } = useTranslation();
   const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [deliveryDate, setDeliveryDate] = useState<{ min: string; max: string } | null>(null);
+  const [notifyEmail, setNotifyEmail] = useState("");
+  const [notifySubmitted, setNotifySubmitted] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -296,7 +298,11 @@ const { t } = useTranslation();
             </p>
 
             {/* Stock */}
-            {product.stock <= 5 ? (
+            {product.stock === 0 ? (
+              <p className="text-red-500 text-xs font-light tracking-widest">
+                {t("product.outOfStock")}
+              </p>
+            ) : product.stock <= 5 ? (
               <p className="text-red-500 text-xs font-light tracking-widest">
                 {t("product.stockRemaining", { count: product.stock })}
               </p>
@@ -328,14 +334,53 @@ const { t } = useTranslation();
               </div>
             </div>
 
-            {/* ADD TO CART */}
-            <button
-              onClick={handleAddToCart}
-              disabled={!selectedSize}
-              className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.3em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-30"
-            >
-              {added ? t("cart.added") : t("cart.addToCart")}
-            </button>
+            {/* ADD TO CART / RESTOCK NOTIFY */}
+            {product.stock === 0 ? (
+              <div className="space-y-3">
+                {notifySubmitted ? (
+                  <p className="text-black/50 text-xs font-light tracking-widest text-center py-4">
+                    {t("product.notifyRegistered")}
+                  </p>
+                ) : (
+                  <>
+                    <input
+                      type="email"
+                      value={notifyEmail}
+                      onChange={(e) => setNotifyEmail(e.target.value)}
+                      placeholder={t("product.notifyEmailPlaceholder")}
+                      className="w-full border border-black/20 px-4 py-3 text-xs font-light tracking-wide focus:outline-none focus:border-black/60 placeholder:text-black/30"
+                    />
+                    <button
+                      onClick={async () => {
+                        if (!notifyEmail) return;
+                        await fetch("https://api.tcdashop.com/restock-notify", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            email: notifyEmail,
+                            product_id: product.id,
+                            size: selectedSize || null,
+                          }),
+                        });
+                        setNotifySubmitted(true);
+                      }}
+                      disabled={!notifyEmail}
+                      className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.3em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-30"
+                    >
+                      {t("product.notifyMe")}
+                    </button>
+                  </>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={handleAddToCart}
+                disabled={!selectedSize}
+                className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.3em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-30"
+              >
+                {added ? t("cart.added") : t("cart.addToCart")}
+              </button>
+            )}
 
             {/* Trust Block */}
             <div className="pt-4 pb-2">
