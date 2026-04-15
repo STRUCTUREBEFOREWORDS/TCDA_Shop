@@ -5,7 +5,8 @@
     "collection": "Collection",
     "about": "À propos",
     "legal": "Mentions légales",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "contact": "Contact"
   },
   "hero": {
     "philosophical1": "Ce malaise n'est pas une erreur.",
@@ -270,20 +271,29 @@
   },
   "contact": {
     "title": "Contact",
-    "pageIntro": "Une question ou besoin d'aide pour votre commande ? Nous sommes là.",
+    "pageIntro": "Une question sur votre commande ou un problème produit ?",
+    "intro": "Pour toute question sur votre commande, la livraison ou un défaut produit — contactez-nous ici. Réponse sous 2–3 jours ouvrables.",
     "name": "Nom",
     "namePlaceholder": "Votre nom",
     "email": "E-mail",
     "emailPlaceholder": "votre@email.com",
     "orderNumber": "Numéro de commande (facultatif)",
-    "orderNumberPlaceholder": "ex. CS-XXXX",
+    "orderNumberPlaceholder": "ex. XXXXXXXX",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Comment pouvons-nous vous aider ?",
     "message": "Message",
-    "messagePlaceholder": "Comment pouvons-nous vous aider ?",
+    "messagePlaceholder": "Décrivez votre demande",
     "submit": "Envoyer",
     "submitting": "Envoi en cours...",
     "success": "Message reçu. Nous vous répondrons dans les plus brefs délais.",
+    "successTitle": "Message envoyé",
+    "successBody": "Nous vous répondrons sous 2–3 jours ouvrables.",
     "error": "Une erreur s'est produite. Veuillez nous contacter directement à info@tcdashop.com.",
-    "orEmail": "Ou écrivez-nous directement :"
+    "errorTitle": "Une erreur s'est produite",
+    "errorBody": "Veuillez réessayer ou nous contacter directement à l'adresse ci-dessous.",
+    "orEmail": "Ou écrivez-nous directement :",
+    "replyNote": "Réponse habituelle sous 2–3 jours ouvrables.",
+    "directEmail": "info@tcdashop.com"
   },
   "common": {
     "loading": "Chargement..."

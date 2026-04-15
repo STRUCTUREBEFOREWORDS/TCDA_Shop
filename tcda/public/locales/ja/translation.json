@@ -5,7 +5,8 @@
     "collection": "コレクション",
     "about": "について",
     "legal": "特定商取引法",
-    "privacy": "プライバシーポリシー"
+    "privacy": "プライバシーポリシー",
+    "contact": "Contact"
   },
   "hero": {
     "philosophical1": "その違和感は、間違いではない。",
@@ -270,20 +271,29 @@
   },
   "contact": {
     "title": "お問い合わせ",
-    "pageIntro": "ご質問・ご不明点がございましたらこちらからご連絡ください。",
+    "pageIntro": "ご注文・配送・商品不良などのお問い合わせはこちら。",
+    "intro": "ご注文・配送・商品不良などのお問い合わせはこちらからご連絡ください。通常2〜3営業日以内にご返信いたします。",
     "name": "お名前",
     "namePlaceholder": "例：山田 太郎",
     "email": "メールアドレス",
     "emailPlaceholder": "例：your@email.com",
     "orderNumber": "注文番号（任意）",
-    "orderNumberPlaceholder": "例：CS-XXXX",
+    "orderNumberPlaceholder": "例：XXXXXXXX",
+    "subject": "件名",
+    "subjectPlaceholder": "お問い合わせの種類",
     "message": "メッセージ",
     "messagePlaceholder": "お問い合わせ内容をご記入ください",
     "submit": "送信する",
     "submitting": "送信中...",
     "success": "お問い合わせを受け付けました。担当者より順次ご返信いたします。",
+    "successTitle": "送信ありがとうございました",
+    "successBody": "通常2〜3営業日以内にご返信いたします。",
     "error": "送信に失敗しました。お手数ですが info@tcdashop.com へ直接ご連絡ください。",
-    "orEmail": "または直接メールで："
+    "errorTitle": "送信に失敗しました",
+    "errorBody": "お手数ですが、時間をおいて再度お試しいただくか、下記アドレスへ直接ご連絡ください。",
+    "orEmail": "または直接メールで：",
+    "replyNote": "通常2〜3営業日以内にご返信いたします。",
+    "directEmail": "info@tcdashop.com"
   },
   "common": {
     "loading": "読み込み中..."

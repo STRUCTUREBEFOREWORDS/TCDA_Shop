@@ -5,7 +5,8 @@
     "collection": "系列",
     "about": "关于",
     "legal": "特定商业交易法",
-    "privacy": "隐私政策"
+    "privacy": "隐私政策",
+    "contact": "Contact"
   },
   "hero": {
     "philosophical1": "那种违和感，并非错误。",
@@ -270,20 +271,29 @@
   },
   "contact": {
     "title": "联系我们",
-    "pageIntro": "如有任何问题或需要订单帮助，请随时联系我们。",
+    "pageIntro": "有关订单、配送或商品问题，请在此联系我们。",
+    "intro": "有关订单、配送或商品问题，请在此联系我们。我们通常在 2–3 个工作日内回复。",
     "name": "姓名",
     "namePlaceholder": "请输入您的姓名",
     "email": "电子邮件",
     "emailPlaceholder": "your@email.com",
     "orderNumber": "订单编号（选填）",
-    "orderNumberPlaceholder": "例：CS-XXXX",
+    "orderNumberPlaceholder": "例：XXXXXXXX",
+    "subject": "主题",
+    "subjectPlaceholder": "请告知您的问题类型",
     "message": "留言",
     "messagePlaceholder": "请输入您的问题或留言",
     "submit": "发送",
     "submitting": "发送中...",
     "success": "您的留言已收到。我们将尽快与您联系。",
+    "successTitle": "发送成功",
+    "successBody": "我们通常在 2–3 个工作日内回复。",
     "error": "发送失败。请直接发送邮件至 info@tcdashop.com。",
-    "orEmail": "或直接发送邮件至："
+    "errorTitle": "发送失败",
+    "errorBody": "请稍后再试，或直接通过以下地址联系我们。",
+    "orEmail": "或直接发送邮件至：",
+    "replyNote": "我们通常在 2–3 个工作日内回复。",
+    "directEmail": "info@tcdashop.com"
   },
   "common": {
     "loading": "加载中..."

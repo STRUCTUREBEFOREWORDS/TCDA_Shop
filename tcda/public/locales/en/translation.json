@@ -5,7 +5,8 @@
     "collection": "Collection",
     "about": "About",
     "legal": "Legal",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "contact": "Contact"
   },
   "hero": {
     "philosophical1": "That sense of dissonance is not a mistake.",
@@ -270,20 +271,29 @@
   },
   "contact": {
     "title": "Contact",
-    "pageIntro": "Have a question or need help with your order? We're here.",
+    "pageIntro": "Questions about your order, shipping, or a product issue?",
+    "intro": "For order inquiries, shipping, or product issues — reach us here. We typically reply within 2–3 business days.",
     "name": "Name",
     "namePlaceholder": "Your name",
     "email": "Email",
     "emailPlaceholder": "your@email.com",
     "orderNumber": "Order Number (optional)",
-    "orderNumberPlaceholder": "e.g. CS-XXXX",
+    "orderNumberPlaceholder": "e.g. XXXXXXXX",
+    "subject": "Subject",
+    "subjectPlaceholder": "What can we help with?",
     "message": "Message",
     "messagePlaceholder": "How can we help?",
     "submit": "Send Message",
     "submitting": "Sending...",
     "success": "Message received. We'll get back to you as soon as possible.",
+    "successTitle": "Message Sent",
+    "successBody": "We'll reply within 2–3 business days.",
     "error": "Something went wrong. Please email us directly at info@tcdashop.com.",
-    "orEmail": "Or email us directly:"
+    "errorTitle": "Something went wrong",
+    "errorBody": "Please try again, or reach us directly at the address below.",
+    "orEmail": "Or email us directly:",
+    "replyNote": "We typically reply within 2–3 business days.",
+    "directEmail": "info@tcdashop.com"
   },
   "common": {
     "loading": "Loading..."

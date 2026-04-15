@@ -5,7 +5,8 @@
     "collection": "Colección",
     "about": "Acerca de",
     "legal": "Legal",
-    "privacy": "Política de privacidad"
+    "privacy": "Política de privacidad",
+    "contact": "Contact"
   },
   "hero": {
     "philosophical1": "Esa incomodidad no es un error.",
@@ -270,20 +271,29 @@
   },
   "contact": {
     "title": "Contacto",
-    "pageIntro": "¿Tienes alguna pregunta o necesitas ayuda con tu pedido? Estamos aquí.",
+    "pageIntro": "¿Tienes una pregunta sobre tu pedido o un problema con un producto?",
+    "intro": "Para consultas sobre pedidos, envíos o problemas con productos — escríbenos aquí. Solemos responder en 2–3 días hábiles.",
     "name": "Nombre",
     "namePlaceholder": "Tu nombre",
     "email": "Correo electrónico",
     "emailPlaceholder": "tu@email.com",
     "orderNumber": "Número de pedido (opcional)",
-    "orderNumberPlaceholder": "ej. CS-XXXX",
+    "orderNumberPlaceholder": "ej. XXXXXXXX",
+    "subject": "Asunto",
+    "subjectPlaceholder": "¿En qué podemos ayudarte?",
     "message": "Mensaje",
-    "messagePlaceholder": "¿En qué podemos ayudarte?",
+    "messagePlaceholder": "Describe tu consulta",
     "submit": "Enviar mensaje",
     "submitting": "Enviando...",
     "success": "Mensaje recibido. Te responderemos lo antes posible.",
+    "successTitle": "Mensaje enviado",
+    "successBody": "Te responderemos en 2–3 días hábiles.",
     "error": "Algo salió mal. Por favor, escríbenos directamente a info@tcdashop.com.",
-    "orEmail": "O escríbenos directamente:"
+    "errorTitle": "Algo salió mal",
+    "errorBody": "Por favor, inténtalo de nuevo o contáctanos directamente.",
+    "orEmail": "O escríbenos directamente:",
+    "replyNote": "Solemos responder en 2–3 días hábiles.",
+    "directEmail": "info@tcdashop.com"
   },
   "common": {
     "loading": "Cargando..."
