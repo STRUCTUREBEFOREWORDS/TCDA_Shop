@@ -295,6 +295,52 @@
     "replyNote": "통상 2~3영업일 이내에 답변드립니다.",
     "directEmail": "info@tcdashop.com"
   },
+  "privacy": {
+    "title": "개인정보 처리방침",
+    "sections": {
+      "dataCollection": {
+        "title": "1. 수집하는 정보",
+        "body": "주문 처리를 위해 이름, 주소, 이메일, 전화번호, 결제 정보를 수집합니다. 결제 정보는 Stripe, Inc.가 안전하게 처리하며 당사는 보유하지 않습니다."
+      },
+      "dataUsage": {
+        "title": "2. 이용 목적",
+        "body": "수집된 정보는 주문 처리, 배송, 고객 지원 및 서비스 개선에 사용됩니다. 제3자에게 판매하거나 제공하지 않습니다."
+      },
+      "thirdParty": {
+        "title": "3. 제3자 제공",
+        "body": "주문 이행을 위해 Printful(제조·배송 파트너)에 필요한 배송 정보를 제공합니다. 법령에 의한 경우를 제외하고는 그 외 제3자에게 제공하지 않습니다."
+      },
+      "cookies": {
+        "title": "4. 쿠키",
+        "body": "본 사이트는 Google Analytics(GA4)를 통한 방문 분석에 쿠키를 사용합니다. 쿠키를 비활성화해도 사이트 이용은 가능합니다."
+      },
+      "security": {
+        "title": "5. 정보 관리",
+        "body": "개인정보는 적절한 보안 조치 하에 관리되며, 무단 접근·유출·변조 방지에 노력합니다."
+      },
+      "contact": {
+        "title": "6. 문의",
+        "body": "개인정보에 관한 문의는 info@tcdashop.com으로 연락해 주십시오."
+      }
+    },
+    "effectiveDate": "시행일: 2026년 4월 10일"
+  },
+  "legal": {
+    "title": "쇼핑몰 정보",
+    "sections": {
+      "seller":        { "label": "판매자",       "value": "오가와 다이키" },
+      "address":       { "label": "주소",         "value": "일본 도쿄도 세타가야구 타이시도 5-17-1 Maison de Miroir 103" },
+      "phone":         { "label": "전화번호",     "value": "050-5476-8894" },
+      "email":         { "label": "이메일",       "value": "info@tcdashop.com" },
+      "price":         { "label": "판매 가격",    "value": "각 상품 페이지에 표시된 가격(세금 포함)" },
+      "payment":       { "label": "결제 수단",    "value": "신용카드(Visa / Mastercard / JCB / American Express / Diners Club)" },
+      "paymentTiming": { "label": "결제 시기",    "value": "주문 확정 시" },
+      "delivery":      { "label": "배송 기간",    "value": "주문 확정 후 통상 5~10 영업일 이내 발송" },
+      "returns":       { "label": "반품·교환",    "value": "상품 특성상 주문 확정 후 취소·반품·교환은 원칙적으로 불가합니다. 상품 파손·인쇄 불량·오배송의 경우에 한해 수령 후 7일 이내 info@tcdashop.com으로 연락 주십시오. 해당 시 재발송 또는 환불 처리해 드립니다." },
+      "quantity":      { "label": "판매 수량",    "value": "재고 내" },
+      "browser":       { "label": "지원 브라우저","value": "최신 Chrome / Safari / Firefox / Edge" }
+    }
+  },
   "common": {
     "loading": "불러오는 중..."
   }

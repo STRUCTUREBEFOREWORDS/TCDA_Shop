@@ -295,6 +295,52 @@
     "replyNote": "We typically reply within 2–3 business days.",
     "directEmail": "info@tcdashop.com"
   },
+  "privacy": {
+    "title": "Privacy Policy",
+    "sections": {
+      "dataCollection": {
+        "title": "1. Information We Collect",
+        "body": "We collect your name, address, email address, phone number, and payment information for order processing. Payment information is securely handled by Stripe, Inc. and is not retained by us."
+      },
+      "dataUsage": {
+        "title": "2. How We Use Your Information",
+        "body": "Collected information is used for order processing, shipping, customer support, and service improvement. We do not sell or share your data with third parties."
+      },
+      "thirdParty": {
+        "title": "3. Third-Party Sharing",
+        "body": "To fulfill your order, we share necessary shipping information with Printful (our manufacturing and fulfillment partner). No other third-party sharing occurs except as required by law."
+      },
+      "cookies": {
+        "title": "4. Cookies",
+        "body": "This site uses cookies for analytics via Google Analytics (GA4). You may disable cookies without affecting your ability to use the site."
+      },
+      "security": {
+        "title": "5. Data Security",
+        "body": "Personal information is managed with appropriate security measures to prevent unauthorized access, leaks, or tampering."
+      },
+      "contact": {
+        "title": "6. Contact",
+        "body": "For inquiries regarding your personal information, please contact us at info@tcdashop.com."
+      }
+    },
+    "effectiveDate": "Effective: April 10, 2026"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "sections": {
+      "seller":        { "label": "Seller",              "value": "Taiki Ogawa" },
+      "address":       { "label": "Address",             "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japan" },
+      "phone":         { "label": "Phone",               "value": "050-5476-8894" },
+      "email":         { "label": "Email",               "value": "info@tcdashop.com" },
+      "price":         { "label": "Price",               "value": "As listed on each product page (tax included)" },
+      "payment":       { "label": "Payment Methods",     "value": "Credit card (Visa / Mastercard / JCB / American Express / Diners Club)" },
+      "paymentTiming": { "label": "Payment Timing",      "value": "At time of order confirmation" },
+      "delivery":      { "label": "Delivery",            "value": "Typically ships within 5–10 business days after order confirmation" },
+      "returns":       { "label": "Returns & Exchanges", "value": "Due to the nature of our products, cancellations, returns, and exchanges are generally not accepted after order confirmation. Exceptions apply for damaged items, printing defects, or misdelivery — contact info@tcdashop.com within 7 days of receipt. A replacement or refund will be arranged." },
+      "quantity":      { "label": "Available Quantity",  "value": "While supplies last" },
+      "browser":       { "label": "Compatible Browsers", "value": "Latest Chrome / Safari / Firefox / Edge" }
+    }
+  },
   "common": {
     "loading": "Loading..."
   }

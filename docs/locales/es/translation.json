@@ -295,6 +295,52 @@
     "replyNote": "Solemos responder en 2–3 días hábiles.",
     "directEmail": "info@tcdashop.com"
   },
+  "privacy": {
+    "title": "Política de privacidad",
+    "sections": {
+      "dataCollection": {
+        "title": "1. Información que recopilamos",
+        "body": "Recopilamos tu nombre, dirección, correo electrónico, número de teléfono e información de pago para procesar tus pedidos. La información de pago es procesada de forma segura por Stripe, Inc. y no la conservamos."
+      },
+      "dataUsage": {
+        "title": "2. Uso de la información",
+        "body": "La información recopilada se utiliza para procesar pedidos, gestionar envíos, soporte al cliente y mejorar el servicio. No vendemos ni compartimos tus datos con terceros."
+      },
+      "thirdParty": {
+        "title": "3. Compartir con terceros",
+        "body": "Para cumplir con tu pedido, compartimos la información de envío necesaria con Printful (nuestro socio de fabricación y distribución). No se realiza ningún otro intercambio de datos, salvo exigencia legal."
+      },
+      "cookies": {
+        "title": "4. Cookies",
+        "body": "Este sitio utiliza cookies para análisis a través de Google Analytics (GA4). Puedes deshabilitar las cookies sin que ello afecte tu navegación."
+      },
+      "security": {
+        "title": "5. Seguridad de los datos",
+        "body": "La información personal se gestiona con las medidas de seguridad adecuadas para prevenir accesos no autorizados, filtraciones o manipulaciones."
+      },
+      "contact": {
+        "title": "6. Contacto",
+        "body": "Para cualquier consulta sobre tus datos personales, contáctanos en info@tcdashop.com."
+      }
+    },
+    "effectiveDate": "Vigente desde: 10 de abril de 2026"
+  },
+  "legal": {
+    "title": "Aviso legal",
+    "sections": {
+      "seller":        { "label": "Vendedor",              "value": "Taiki Ogawa" },
+      "address":       { "label": "Dirección",             "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya, Tokio, Japón" },
+      "phone":         { "label": "Teléfono",              "value": "050-5476-8894" },
+      "email":         { "label": "Correo electrónico",    "value": "info@tcdashop.com" },
+      "price":         { "label": "Precio",                "value": "Indicado en cada página de producto (impuestos incluidos)" },
+      "payment":       { "label": "Métodos de pago",       "value": "Tarjeta de crédito (Visa / Mastercard / JCB / American Express / Diners Club)" },
+      "paymentTiming": { "label": "Momento del pago",      "value": "Al confirmar el pedido" },
+      "delivery":      { "label": "Entrega",               "value": "Envío en un plazo de 5 a 10 días hábiles tras la confirmación del pedido" },
+      "returns":       { "label": "Devoluciones y cambios","value": "Debido a la naturaleza de nuestros productos, no aceptamos cancelaciones, devoluciones ni cambios una vez confirmado el pedido. Se hacen excepciones por daños, defectos de impresión o envío incorrecto — contáctanos en info@tcdashop.com en los 7 días siguientes a la recepción. Se gestionará un reenvío o reembolso." },
+      "quantity":      { "label": "Cantidad disponible",   "value": "Sujeto a disponibilidad" },
+      "browser":       { "label": "Navegadores compatibles","value": "Última versión de Chrome / Safari / Firefox / Edge" }
+    }
+  },
   "common": {
     "loading": "Cargando..."
   }

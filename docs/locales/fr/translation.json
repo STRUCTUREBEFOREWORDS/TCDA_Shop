@@ -295,6 +295,52 @@
     "replyNote": "Réponse habituelle sous 2–3 jours ouvrables.",
     "directEmail": "info@tcdashop.com"
   },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "sections": {
+      "dataCollection": {
+        "title": "1. Informations collectées",
+        "body": "Nous collectons votre nom, adresse, e-mail, numéro de téléphone et informations de paiement pour traiter vos commandes. Les informations de paiement sont traitées de manière sécurisée par Stripe, Inc. et ne sont pas conservées par nos soins."
+      },
+      "dataUsage": {
+        "title": "2. Utilisation des données",
+        "body": "Les informations collectées sont utilisées pour traiter les commandes, assurer la livraison, le support client et améliorer nos services. Nous ne vendons ni ne partageons vos données avec des tiers."
+      },
+      "thirdParty": {
+        "title": "3. Partage avec des tiers",
+        "body": "Pour traiter votre commande, nous communiquons les informations d'expédition nécessaires à Printful (notre partenaire de fabrication et de livraison). Aucun autre partage n'est effectué, sauf obligation légale."
+      },
+      "cookies": {
+        "title": "4. Cookies",
+        "body": "Ce site utilise des cookies à des fins d'analyse via Google Analytics (GA4). Vous pouvez désactiver les cookies sans que cela affecte votre navigation."
+      },
+      "security": {
+        "title": "5. Sécurité des données",
+        "body": "Les informations personnelles sont gérées avec des mesures de sécurité appropriées afin de prévenir tout accès non autorisé, fuite ou falsification."
+      },
+      "contact": {
+        "title": "6. Contact",
+        "body": "Pour toute question concernant vos données personnelles, contactez-nous à info@tcdashop.com."
+      }
+    },
+    "effectiveDate": "En vigueur depuis : 10 avril 2026"
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "sections": {
+      "seller":        { "label": "Vendeur",              "value": "Taiki Ogawa" },
+      "address":       { "label": "Adresse",              "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya, Tokyo, Japon" },
+      "phone":         { "label": "Téléphone",            "value": "050-5476-8894" },
+      "email":         { "label": "E-mail",               "value": "info@tcdashop.com" },
+      "price":         { "label": "Prix",                 "value": "Indiqué sur chaque page produit (TTC)" },
+      "payment":       { "label": "Modes de paiement",    "value": "Carte bancaire (Visa / Mastercard / JCB / American Express / Diners Club)" },
+      "paymentTiming": { "label": "Moment du paiement",   "value": "À la confirmation de commande" },
+      "delivery":      { "label": "Délai de livraison",   "value": "Expédition généralement sous 5 à 10 jours ouvrables après confirmation" },
+      "returns":       { "label": "Retours & échanges",   "value": "En raison de la nature de nos produits, les annulations, retours et échanges ne sont pas acceptés après confirmation. Des exceptions s'appliquent en cas de dommage, défaut d'impression ou mauvaise livraison — signalez-le à info@tcdashop.com dans les 7 jours suivant la réception. Un remplacement ou un remboursement sera effectué." },
+      "quantity":      { "label": "Quantité disponible",  "value": "Dans la limite des stocks" },
+      "browser":       { "label": "Navigateurs compatibles", "value": "Dernière version de Chrome / Safari / Firefox / Edge" }
+    }
+  },
   "common": {
     "loading": "Chargement..."
   }

@@ -295,6 +295,52 @@
     "replyNote": "我们通常在 2–3 个工作日内回复。",
     "directEmail": "info@tcdashop.com"
   },
+  "privacy": {
+    "title": "隐私政策",
+    "sections": {
+      "dataCollection": {
+        "title": "1. 收集的信息",
+        "body": "我们收集您的姓名、地址、电子邮件、电话号码及支付信息，用于处理订单。支付信息由 Stripe, Inc. 安全处理，我们不予保存。"
+      },
+      "dataUsage": {
+        "title": "2. 使用目的",
+        "body": "收集的信息用于订单处理、配送、客户支持及服务改善，不会出售或提供给第三方。"
+      },
+      "thirdParty": {
+        "title": "3. 向第三方提供",
+        "body": "为履行订单，我们将必要的配送信息提供给 Printful（制造与配送合作伙伴）。除法律规定外，不向其他第三方提供信息。"
+      },
+      "cookies": {
+        "title": "4. Cookie",
+        "body": "本网站通过 Google Analytics（GA4）使用 Cookie 进行访问分析。禁用 Cookie 不影响正常使用。"
+      },
+      "security": {
+        "title": "5. 信息管理",
+        "body": "个人信息在适当的安全措施下进行管理，致力于防止未授权访问、泄露及篡改。"
+      },
+      "contact": {
+        "title": "6. 联系方式",
+        "body": "如有关于个人信息的疑问，请发送邮件至 info@tcdashop.com。"
+      }
+    },
+    "effectiveDate": "生效日期：2026年4月10日"
+  },
+  "legal": {
+    "title": "销售信息",
+    "sections": {
+      "seller":        { "label": "销售方",   "value": "小川大树" },
+      "address":       { "label": "地址",     "value": "日本东京都世田谷区太子堂5-17-1 Maison de Miroir 103" },
+      "phone":         { "label": "电话",     "value": "050-5476-8894" },
+      "email":         { "label": "电子邮件", "value": "info@tcdashop.com" },
+      "price":         { "label": "销售价格", "value": "以各商品页面标注价格为准（含税）" },
+      "payment":       { "label": "支付方式", "value": "信用卡（Visa / Mastercard / JCB / American Express / Diners Club）" },
+      "paymentTiming": { "label": "支付时间", "value": "订单确认时" },
+      "delivery":      { "label": "发货时间", "value": "订单确认后，通常5～10个工作日内发货" },
+      "returns":       { "label": "退换货",   "value": "因商品特性，确认订单后原则上不接受取消、退货或换货。如有商品破损、印刷缺陷或错误配送，请在收货后7日内联系 info@tcdashop.com，届时将安排补发或退款。" },
+      "quantity":      { "label": "销售数量", "value": "库存范围内" },
+      "browser":       { "label": "运行环境", "value": "最新版 Chrome / Safari / Firefox / Edge" }
+    }
+  },
   "common": {
     "loading": "加载中..."
   }
