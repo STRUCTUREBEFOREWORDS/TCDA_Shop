@@ -353,7 +353,17 @@
     "learnMore": "プライバシーポリシー"
   },
   "about": {
-    "viewCollection": "コレクションを見る"
+    "viewCollection": "コレクションを見る",
+    "storyLabel": "STORY",
+    "storyTitle": "デジタルアートを、身に纏う文化へ。",
+    "storyBody": "TCDAは、デジタルの世界で生まれたアートを、現実の衣服として表現するブランドです。スクリーンの中だけに留まっていたビジュアルを、あなたが実際に纏うことができる形へ。それがTCDAの存在理由です。",
+    "valuesLabel": "VALUES",
+    "value1Title": "ART FIRST",
+    "value1Body": "アートが先、商品は後。すべてのデザインは、アーティストの意図から生まれる。",
+    "value2Title": "INDIVIDUALITY",
+    "value2Body": "個性を纏う、個性を示す。あなたが身につけるものは、あなた自身の声明だ。",
+    "value3Title": "GLOBAL",
+    "value3Body": "国境を越えたアートの表現。言語を超え、文化を超えて届く視覚言語。"
   },
   "common": {
     "loading": "読み込み中..."

@@ -353,7 +353,17 @@
     "learnMore": "Privacy Policy"
   },
   "about": {
-    "viewCollection": "VIEW COLLECTION"
+    "viewCollection": "VIEW COLLECTION",
+    "storyLabel": "STORY",
+    "storyTitle": "Turning digital art into wearable culture.",
+    "storyBody": "TCDA is a brand that brings art born in the digital world into reality as wearable garments. Visuals that once existed only on screens — now something you can actually wear. That is why TCDA exists.",
+    "valuesLabel": "VALUES",
+    "value1Title": "ART FIRST",
+    "value1Body": "Art before product. Every design originates from artistic intent, not market demand.",
+    "value2Title": "INDIVIDUALITY",
+    "value2Body": "Wear your individuality. Show your individuality. What you put on is your declaration.",
+    "value3Title": "GLOBAL",
+    "value3Body": "Art without borders. A visual language that transcends geography, culture, and language."
   },
   "common": {
     "loading": "Loading..."

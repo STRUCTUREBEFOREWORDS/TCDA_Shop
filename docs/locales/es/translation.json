@@ -353,7 +353,17 @@
     "learnMore": "Política de privacidad"
   },
   "about": {
-    "viewCollection": "VER COLECCIÓN"
+    "viewCollection": "VER COLECCIÓN",
+    "storyLabel": "STORY",
+    "storyTitle": "Convirtiendo el arte digital en cultura vestible.",
+    "storyBody": "TCDA es una marca que lleva el arte nacido en el mundo digital a la realidad como prendas vestibles. Visuales que solo existían en pantallas — ahora algo que realmente puedes usar. Por eso existe TCDA.",
+    "valuesLabel": "VALUES",
+    "value1Title": "ART FIRST",
+    "value1Body": "El arte antes que el producto. Cada diseño nace de la intención artística, no de la demanda del mercado.",
+    "value2Title": "INDIVIDUALITY",
+    "value2Body": "Viste tu individualidad. Muestra tu individualidad. Lo que llevas puesto es tu declaración.",
+    "value3Title": "GLOBAL",
+    "value3Body": "Arte sin fronteras. Un lenguaje visual que trasciende la geografía, la cultura y las palabras."
   },
   "common": {
     "loading": "Cargando..."

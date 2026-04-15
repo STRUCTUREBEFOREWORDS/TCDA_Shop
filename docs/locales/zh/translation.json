@@ -353,7 +353,17 @@
     "learnMore": "隐私政策"
   },
   "about": {
-    "viewCollection": "查看系列"
+    "viewCollection": "查看系列",
+    "storyLabel": "STORY",
+    "storyTitle": "将数字艺术转化为可穿戴文化。",
+    "storyBody": "TCDA 是一个将数字世界中诞生的艺术，以可穿戴服装的形式带入现实的品牌。曾经只存在于屏幕中的视觉，如今成为你实际可以穿着之物。这就是 TCDA 存在的理由。",
+    "valuesLabel": "VALUES",
+    "value1Title": "ART FIRST",
+    "value1Body": "艺术优先，产品其次。每一个设计都源于艺术家的意图，而非市场需求。",
+    "value2Title": "INDIVIDUALITY",
+    "value2Body": "穿出个性，展示个性。你所穿着之物，即是你自己的宣言。",
+    "value3Title": "GLOBAL",
+    "value3Body": "超越国界的艺术表达。一种超越地域、文化与语言的视觉语言。"
   },
   "common": {
     "loading": "加载中..."

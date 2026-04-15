@@ -293,6 +293,80 @@ export function AboutPage() {
         </motion.div>
       </section>
 
+      {/* 1.5. BRAND VISUAL */}
+      <div className="w-full overflow-hidden">
+        <img
+          src="https://cdn.tcdashop.com/top/1.jpg"
+          alt="TCDA"
+          className="w-full h-[70vh] object-cover"
+        />
+      </div>
+
+      {/* 1.7. STORY */}
+      <section className="px-8 md:px-20 py-32 bg-white">
+        <motion.div {...fadeUp} className="max-w-3xl mx-auto">
+          <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase mb-12">
+            {tl("about.storyLabel")}
+          </p>
+          <h2 className="text-black text-2xl md:text-3xl font-extralight leading-[1.6] tracking-wide mb-10">
+            {tl("about.storyTitle")}
+          </h2>
+          <p className="text-black/70 text-sm font-light leading-loose tracking-wide max-w-xl">
+            {tl("about.storyBody")}
+          </p>
+        </motion.div>
+      </section>
+
+      {/* 1.9. VALUES */}
+      <section className="bg-black overflow-hidden">
+        <motion.div {...fadeUp} className="px-8 md:px-20 py-32 max-w-3xl mx-auto">
+          <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase mb-12">
+            {tl("about.valuesLabel")}
+          </p>
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <span className="text-white/20 text-xs font-light">01</span>
+              <h3 className="text-white text-[11px] tracking-[0.3em] uppercase mt-3 mb-4">
+                {tl("about.value1Title")}
+              </h3>
+              <p className="text-white/60 text-xs font-light leading-loose">
+                {tl("about.value1Body")}
+              </p>
+            </div>
+            <div>
+              <span className="text-white/20 text-xs font-light">02</span>
+              <h3 className="text-white text-[11px] tracking-[0.3em] uppercase mt-3 mb-4">
+                {tl("about.value2Title")}
+              </h3>
+              <p className="text-white/60 text-xs font-light leading-loose">
+                {tl("about.value2Body")}
+              </p>
+            </div>
+            <div>
+              <span className="text-white/20 text-xs font-light">03</span>
+              <h3 className="text-white text-[11px] tracking-[0.3em] uppercase mt-3 mb-4">
+                {tl("about.value3Title")}
+              </h3>
+              <p className="text-white/60 text-xs font-light leading-loose">
+                {tl("about.value3Body")}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+        <div className="grid md:grid-cols-2 gap-px">
+          <img
+            src="https://cdn.tcdashop.com/top/2.jpg"
+            alt=""
+            className="w-full h-64 md:h-80 object-cover"
+          />
+          <img
+            src="https://cdn.tcdashop.com/top/3.jpg"
+            alt=""
+            className="w-full h-64 md:h-80 object-cover"
+          />
+        </div>
+      </section>
+
       {/* 2. PHILOSOPHY */}
       <section className="px-8 md:px-20 py-32 bg-white">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">

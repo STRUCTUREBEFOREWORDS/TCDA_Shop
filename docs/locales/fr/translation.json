@@ -353,7 +353,17 @@
     "learnMore": "Politique de confidentialité"
   },
   "about": {
-    "viewCollection": "VOIR LA COLLECTION"
+    "viewCollection": "VOIR LA COLLECTION",
+    "storyLabel": "STORY",
+    "storyTitle": "Transformer l'art numérique en culture portable.",
+    "storyBody": "TCDA est une marque qui traduit l'art né dans le monde numérique en vêtements portables. Des visuels qui n'existaient que sur les écrans — désormais quelque chose que vous pouvez réellement porter. Voilà pourquoi TCDA existe.",
+    "valuesLabel": "VALUES",
+    "value1Title": "ART FIRST",
+    "value1Body": "L'art avant le produit. Chaque design naît d'une intention artistique, pas d'une demande du marché.",
+    "value2Title": "INDIVIDUALITY",
+    "value2Body": "Porter son individualité. Montrer son individualité. Ce que vous revêtez est votre déclaration.",
+    "value3Title": "GLOBAL",
+    "value3Body": "L'art sans frontières. Un langage visuel qui transcende la géographie, la culture et les mots."
   },
   "common": {
     "loading": "Chargement..."
