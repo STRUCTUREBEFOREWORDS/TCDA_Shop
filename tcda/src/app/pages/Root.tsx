@@ -166,9 +166,12 @@ export function Root() {
   }, [lang]);
 
   useEffect(() => {
-    fetch("https://ipapi.co/json/")
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 3000);
+    fetch("https://ipapi.co/json/", { signal: controller.signal })
       .then((res) => res.json())
       .then((data) => {
+        clearTimeout(timeout);
         if (data.country_code) setCountryCode(data.country_code);
         const currencyMap: Record<string, Currency> = {
           JP: "JPY", US: "USD", GB: "GBP",
@@ -177,7 +180,7 @@ export function Root() {
         };
         if (currencyMap[data.country_code]) setCurrency(currencyMap[data.country_code]);
       })
-      .catch(() => {});
+      .catch(() => { clearTimeout(timeout); });
   }, []);
 
   const setLanguage = (newLang: Language) => {
