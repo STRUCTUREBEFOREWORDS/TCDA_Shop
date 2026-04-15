@@ -1,6 +1,7 @@
 import { Outlet, useParams, useNavigate, useLocation } from "react-router";
 import { useState, useEffect, createContext, useContext } from "react";
 import { AnimatePresence } from "motion/react";
+import { Helmet } from "react-helmet-async";
 import i18n from "../i18n";
 import { Language, Currency, CartItem } from "../types";
 import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
@@ -19,6 +20,41 @@ export const RATES: Record<Currency, number> = {
 };
 
 export const SUPPORTED_LANGS: Language[] = ["en", "ja", "fr", "es", "ko", "zh"];
+
+const BASE_URL = "https://tcdashop.com";
+const HREFLANG_LANGS: { lang: string; hreflang: string }[] = [
+  { lang: "ja", hreflang: "ja" },
+  { lang: "en", hreflang: "en" },
+  { lang: "fr", hreflang: "fr" },
+  { lang: "es", hreflang: "es" },
+  { lang: "ko", hreflang: "ko" },
+  { lang: "zh", hreflang: "zh" },
+];
+
+/** Injects hreflang <link> tags for every page automatically via Root. */
+function HreflangHelmet({ pathname }: { pathname: string }) {
+  // Strip the leading /:lang segment → keep the rest (e.g. /ja/products → /products)
+  const suffix = pathname.replace(/^\/[a-z]{2}(\/|$)/, "/") || "/";
+  const canonical = suffix === "/" ? suffix : suffix.replace(/\/$/, "");
+
+  return (
+    <Helmet>
+      {HREFLANG_LANGS.map(({ lang, hreflang }) => (
+        <link
+          key={hreflang}
+          rel="alternate"
+          hrefLang={hreflang}
+          href={`${BASE_URL}/${lang}${canonical === "/" ? "/" : canonical}`}
+        />
+      ))}
+      <link
+        rel="alternate"
+        hrefLang="x-default"
+        href={`${BASE_URL}/ja${canonical === "/" ? "/" : canonical}`}
+      />
+    </Helmet>
+  );
+}
 
 const EU_COUNTRY_CODES = new Set([
   "AT","BE","BG","CY","CZ","DE","DK","EE","ES","FI","FR","GB",
@@ -182,6 +218,7 @@ export function Root() {
         countryCode,
       }}
     >
+      <HreflangHelmet pathname={location.pathname} />
       <div className="font-[Inter] bg-white antialiased min-h-screen">
         <TCDA_GlobalNav />
         <Outlet />
