@@ -203,7 +203,7 @@ const { t } = useTranslation();
           to={`/${language}/products`}
           className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-40 hover:opacity-100 transition-opacity duration-300"
         >
-          ← BACK
+          {t("product.backToShop")}
         </Link>
       </div>
 
