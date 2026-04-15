@@ -76,7 +76,7 @@ export function LookbookPage() {
   const rows = buildRows(products);
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen overflow-x-hidden">
       {/* Page header */}
       <div className="pt-20 pb-6 px-8 md:px-12">
         <motion.p
