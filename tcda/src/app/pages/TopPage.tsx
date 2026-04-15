@@ -8,9 +8,9 @@ import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 const WORLD_IMAGES = [
-  "https://cdn.tcdashop.com/top/2.jpg",
-  "https://cdn.tcdashop.com/top/3.jpg",
-  "https://cdn.tcdashop.com/top/4.jpg",
+  "https://cdn.tcdashop.com/top/2.webp",
+  "https://cdn.tcdashop.com/top/3.webp",
+  "https://cdn.tcdashop.com/top/4.webp",
 ];
 
 const heroLine: Record<string, string> = {
@@ -73,7 +73,7 @@ export function TopPage() {
       {/* 1. HERO */}
       <section className="relative h-screen w-full overflow-hidden">
         <img
-          src="https://cdn.tcdashop.com/top/1.jpg"
+          src="https://cdn.tcdashop.com/top/1.webp"
           alt="TCDA"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
