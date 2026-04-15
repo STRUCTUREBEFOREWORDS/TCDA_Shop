@@ -166,7 +166,7 @@ export function TopPage() {
         >
           <Link
             to={`/${language}/look`}
-            className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
+            className="text-white/50 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
           >
             {t("viewAll")}
           </Link>
@@ -177,12 +177,12 @@ export function TopPage() {
       <section className="bg-black py-20 px-6 md:px-10 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10 flex items-center justify-between">
-            <p className="text-white/20 text-[10px] font-light tracking-[0.4em] uppercase">
+            <p className="text-white/50 text-[10px] font-light tracking-[0.4em] uppercase">
               {t("collection")}
             </p>
             <Link
               to={`/${language}/products`}
-              className="text-white/30 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
+              className="text-white/50 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
             >
               {t("viewAll")}
             </Link>
