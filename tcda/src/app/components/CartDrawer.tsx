@@ -42,10 +42,10 @@ export function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-0 right-0 h-full w-full max-w-sm bg-black z-[90] flex flex-col"
+            className="fixed top-0 right-0 h-full w-full max-w-xs sm:max-w-sm bg-black z-[90] flex flex-col"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-8 py-6 border-b border-white/10">
+            <div className="flex items-center justify-between px-5 py-5 sm:px-8 sm:py-6 border-b border-white/10">
               <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase">
                 {t("cart.viewCart")}
                 {cartCount > 0 && (
@@ -63,7 +63,7 @@ export function CartDrawer() {
             {/* Items */}
             <div className="flex-1 overflow-y-auto">
               {cartItems.length === 0 ? (
-                <div className="flex flex-col items-center justify-center h-full space-y-6 px-8">
+                <div className="flex flex-col items-center justify-center h-full space-y-6 px-5 sm:px-8">
                   <p className="text-white/30 text-xs font-light tracking-widest uppercase">
                     {t("cart.cartEmpty")}
                   </p>
@@ -79,10 +79,10 @@ export function CartDrawer() {
                   {cartItems.map((item) => (
                     <div
                       key={`${item.artworkId}-${item.size}`}
-                      className="flex gap-4 px-8 py-6"
+                      className="flex gap-4 px-5 py-5 sm:px-8 sm:py-6"
                     >
                       {/* Thumbnail */}
-                      <div className="w-20 aspect-[3/4] flex-shrink-0 bg-white/5">
+                      <div className="w-16 sm:w-20 aspect-[3/4] flex-shrink-0 bg-white/5">
                         <ImageWithFallback
                           src={item.imageUrl}
                           alt={item.artworkName}
@@ -141,7 +141,7 @@ export function CartDrawer() {
 
             {/* Footer */}
             {cartItems.length > 0 && (
-              <div className="border-t border-white/10 px-8 py-6 space-y-4">
+              <div className="border-t border-white/10 px-5 py-5 sm:px-8 sm:py-6 space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-white/40 text-[10px] font-light tracking-[0.25em] uppercase">
                     {t("cart.total")}

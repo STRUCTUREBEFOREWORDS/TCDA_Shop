@@ -14,10 +14,10 @@ export function Footer() {
         <div className="flex flex-col gap-4">
           <span className="text-[10px] font-light tracking-widest uppercase text-white/20">© 2026 TCDA</span>
           <div className="flex flex-col gap-2">
-            <Link to={`/${language}/legal`} className="text-[10px] font-light tracking-widest uppercase text-white/20 hover:text-white/60 transition-colors">
+            <Link to={`/${language}/legal`} className="text-[10px] font-light tracking-widest uppercase text-white/20 hover:text-white/60 transition-colors py-2 inline-block">
               {t("nav.legal")}
             </Link>
-            <Link to={`/${language}/privacy`} className="text-[10px] font-light tracking-widest uppercase text-white/20 hover:text-white/60 transition-colors">
+            <Link to={`/${language}/privacy`} className="text-[10px] font-light tracking-widest uppercase text-white/20 hover:text-white/60 transition-colors py-2 inline-block">
               {t("nav.privacy")}
             </Link>
           </div>
@@ -35,7 +35,7 @@ export function Footer() {
               { to: `/${language}/shipping-returns`, label: t("footer.shippingReturns") },
               { to: `/${language}/contact`, label: t("footer.contact") },
             ].map(({ to, label }) => (
-              <Link key={to + label} to={to} className="text-[10px] font-light tracking-widest uppercase text-white/20 hover:text-white/60 transition-colors">
+              <Link key={to + label} to={to} className="text-[10px] font-light tracking-widest uppercase text-white/20 hover:text-white/60 transition-colors py-2 inline-block">
                 {label}
               </Link>
             ))}

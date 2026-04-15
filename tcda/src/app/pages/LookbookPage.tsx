@@ -115,8 +115,7 @@ export function LookbookPage() {
                 >
                   {/* Image */}
                   <div
-                    className="relative overflow-hidden"
-                    style={{ height: span === "full" ? "60vh" : "45vh" }}
+                    className={`relative overflow-hidden ${span === "full" ? "h-[50vh] sm:h-[60vh]" : "h-[38vh] sm:h-[45vh]"}`}
                   >
                     <ImageWithFallback
                       src={getPrimaryImage(product)}

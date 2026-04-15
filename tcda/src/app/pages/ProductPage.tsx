@@ -198,7 +198,7 @@ const { t } = useTranslation();
         </script>
       </Helmet>
       {/* BACK */}
-      <div className="px-8 md:px-20 py-6 max-w-7xl mx-auto">
+      <div className="px-4 sm:px-6 md:px-10 lg:px-20 py-6 max-w-7xl mx-auto">
         <Link
           to={`/${language}/products`}
           className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-40 hover:opacity-100 transition-opacity duration-300"
@@ -208,8 +208,8 @@ const { t } = useTranslation();
       </div>
 
       {/* MAIN: image + info */}
-      <section className="px-8 md:px-20 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
           {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -253,7 +253,7 @@ const { t } = useTranslation();
                   <button
                     key={i}
                     onClick={() => setCurrentImageIndex(i)}
-                    className={`flex-shrink-0 w-16 aspect-[3/4] overflow-hidden bg-black/5 transition-all duration-200 ${
+                    className={`flex-shrink-0 w-12 sm:w-16 aspect-[3/4] overflow-hidden bg-black/5 transition-all duration-200 ${
                       i === currentImageIndex ? "ring-1 ring-black" : "opacity-50 hover:opacity-80"
                     }`}
                   >
@@ -309,7 +309,7 @@ const { t } = useTranslation();
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`w-14 h-14 flex items-center justify-center text-xs font-light tracking-widest uppercase transition-all duration-300 ${
+                    className={`w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-[11px] md:text-xs font-light tracking-widest uppercase transition-all duration-300 ${
                       selectedSize === size
                         ? "bg-black text-white"
                         : "bg-white text-black border border-black/20 hover:border-black/60"
@@ -386,7 +386,7 @@ const { t } = useTranslation();
       </section>
 
       {/* DETAILS SECTION */}
-      <section className="px-8 md:px-20 max-w-7xl mx-auto mt-24 space-y-16 pb-32">
+      <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto mt-24 space-y-16 pb-32">
         {/* Material */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

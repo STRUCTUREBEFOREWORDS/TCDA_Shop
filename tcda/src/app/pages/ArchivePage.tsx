@@ -67,7 +67,7 @@ const { t } = useTranslation();
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`px-5 py-2 text-[10px] tracking-widest border transition-colors whitespace-nowrap min-h-[44px] ${
+                className={`px-4 sm:px-5 py-2 text-[10px] tracking-widest border transition-colors whitespace-nowrap min-h-[44px] ${
                   active === cat
                     ? 'bg-white text-black border-white'
                     : 'bg-black text-white border-white/30 hover:bg-white hover:text-black hover:border-white'
@@ -83,7 +83,7 @@ const { t } = useTranslation();
         {loading ? (
           <p className="text-white/40 text-xs tracking-widest text-center py-24">{t("common.loading")}</p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-8 md:gap-x-6 md:gap-y-12">
             {filtered.map((product, index) => (
               <motion.div
                 key={product.id}

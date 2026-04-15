@@ -274,7 +274,7 @@ export function AboutPage() {
     <div className="min-h-screen bg-white">
 
       {/* 1. HERO */}
-      <section className="min-h-screen flex flex-col justify-center px-8 md:px-20 pt-24 pb-20 bg-black">
+      <section className="min-h-screen flex flex-col justify-center px-5 sm:px-8 md:px-16 lg:px-20 pt-24 pb-20 bg-black">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -298,12 +298,12 @@ export function AboutPage() {
         <img
           src="https://cdn.tcdashop.com/top/1.jpg"
           alt="TCDA"
-          className="w-full h-[70vh] object-cover"
+          className="w-full h-[50vh] md:h-[70vh] object-cover"
         />
       </div>
 
       {/* 1.7. STORY */}
-      <section className="px-8 md:px-20 py-32 bg-white">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-white">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
           <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {tl("about.storyLabel")}
@@ -319,7 +319,7 @@ export function AboutPage() {
 
       {/* 1.9. VALUES */}
       <section className="bg-black overflow-hidden">
-        <motion.div {...fadeUp} className="px-8 md:px-20 py-32 max-w-3xl mx-auto">
+        <motion.div {...fadeUp} className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 max-w-3xl mx-auto">
           <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {tl("about.valuesLabel")}
           </p>
@@ -368,7 +368,7 @@ export function AboutPage() {
       </section>
 
       {/* 2. PHILOSOPHY */}
-      <section className="px-8 md:px-20 py-32 bg-white">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-white">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
           <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {t.philosophyLabel}
@@ -384,7 +384,7 @@ export function AboutPage() {
       </section>
 
       {/* 3. WHY */}
-      <section className="px-8 md:px-20 py-32 bg-black">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-black">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
           <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {t.whyLabel}
@@ -400,7 +400,7 @@ export function AboutPage() {
       </section>
 
       {/* 4. DEFINITION */}
-      <section className="px-8 md:px-20 py-32 bg-white">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-white">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
           <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {t.definitionLabel}
@@ -416,7 +416,7 @@ export function AboutPage() {
       </section>
 
       {/* 5. DIFFERENCE */}
-      <section className="px-8 md:px-20 py-32 bg-black">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-black">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
           <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {t.differenceLabel}
@@ -435,7 +435,7 @@ export function AboutPage() {
       </section>
 
       {/* 6. MESSAGE */}
-      <section className="px-8 md:px-20 py-32 bg-white">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-white">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
           <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {t.messageLabel}
@@ -451,7 +451,7 @@ export function AboutPage() {
       </section>
 
       {/* 7. CTA */}
-      <section className="px-8 md:px-20 py-32 bg-black flex items-center justify-center">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-black flex items-center justify-center">
         <motion.div {...fadeUp} className="text-center">
           <Link
             to={`/${language}/products`}

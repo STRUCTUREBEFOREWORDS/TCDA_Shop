@@ -121,10 +121,10 @@ export function TopPage() {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl mx-auto"
         >
-          <p className="text-white text-4xl md:text-6xl font-extralight tracking-wide leading-[1.4] mb-4">
+          <p className="text-white text-3xl sm:text-4xl md:text-6xl font-extralight tracking-wide leading-[1.4] mb-4">
             {w.line1}
           </p>
-          <p className="text-white/40 text-4xl md:text-6xl font-extralight tracking-wide leading-[1.4]">
+          <p className="text-white/40 text-3xl sm:text-4xl md:text-6xl font-extralight tracking-wide leading-[1.4]">
             {w.line2}
           </p>
         </motion.div>
@@ -184,7 +184,7 @@ export function TopPage() {
               {t("viewAll")}
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
             {products.slice(0, 6).map((product, index) => (
               <motion.div
                 key={product.id}
