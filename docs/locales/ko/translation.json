@@ -347,6 +347,9 @@
     "decline": "거부",
     "learnMore": "개인정보 처리방침"
   },
+  "about": {
+    "viewCollection": "컬렉션 보기"
+  },
   "common": {
     "loading": "불러오는 중..."
   }

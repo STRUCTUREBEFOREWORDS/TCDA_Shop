@@ -347,6 +347,9 @@
     "decline": "Refuser",
     "learnMore": "Politique de confidentialité"
   },
+  "about": {
+    "viewCollection": "VOIR LA COLLECTION"
+  },
   "common": {
     "loading": "Chargement..."
   }

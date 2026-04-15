@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import { useGlobalContext } from "./Root";
 
 const CONTENT = {
@@ -267,6 +268,7 @@ const fadeUp = {
 export function AboutPage() {
   const { language } = useGlobalContext();
   const t = CONTENT[language] ?? CONTENT.en;
+  const { t: tl } = useTranslation();
 
   return (
     <div className="min-h-screen bg-white">
@@ -381,7 +383,7 @@ export function AboutPage() {
             to={`/${language}/products`}
             className="inline-block px-16 py-5 bg-white text-black text-xs font-light tracking-[0.4em] uppercase hover:bg-white/90 transition-colors duration-300"
           >
-            {t.cta}
+            {tl("about.viewCollection")}
           </Link>
         </motion.div>
       </section>

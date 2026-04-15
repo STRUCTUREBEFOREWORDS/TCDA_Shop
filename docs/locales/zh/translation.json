@@ -347,6 +347,9 @@
     "decline": "拒绝",
     "learnMore": "隐私政策"
   },
+  "about": {
+    "viewCollection": "查看系列"
+  },
   "common": {
     "loading": "加载中..."
   }

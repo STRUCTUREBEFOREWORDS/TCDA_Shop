@@ -347,6 +347,9 @@
     "decline": "Decline",
     "learnMore": "Privacy Policy"
   },
+  "about": {
+    "viewCollection": "VIEW COLLECTION"
+  },
   "common": {
     "loading": "Loading..."
   }

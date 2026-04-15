@@ -96,7 +96,7 @@ export function TopPage() {
           >
             <Link
               to={`/${language}/products`}
-              className="text-white/40 text-[10px] font-light tracking-[0.4em] uppercase hover:text-white transition-colors duration-500 border-b border-white/20 hover:border-white/60 pb-2"
+              className="text-white/70 text-[10px] font-light tracking-[0.4em] uppercase hover:text-white transition-colors duration-500 border-b border-white/20 hover:border-white/60 pb-2"
             >
               {t("shop")}
             </Link>
