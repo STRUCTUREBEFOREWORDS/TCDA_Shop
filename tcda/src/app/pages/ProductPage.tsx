@@ -162,7 +162,7 @@ const { t } = useTranslation();
         <meta property="og:type" content="product" />
         <meta property="og:title" content={`${product.name} | TCDA`} />
         <meta property="og:description" content={product.fabric_composition || "Transcend Color Digital Apparel — アートを着る、感性を解放する。"} />
-        <meta property="og:url" content={`https://tcdashop.com/product/${product.id}`} />
+        <meta property="og:url" content={`https://tcdashop.com/${language}/product/${product.id}`} />
         <meta property="og:image" content={product.images?.[0] || product.thumbnail_url} />
         <meta property="og:site_name" content="TCDA" />
         <meta property="product:price:amount" content={String(product.price)} />
@@ -170,6 +170,32 @@ const { t } = useTranslation();
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${product.name} | TCDA`} />
         <meta name="twitter:image" content={product.images?.[0] || product.thumbnail_url} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": product.name,
+            "image": images.length > 0 ? images : [product.thumbnail_url],
+            "description": product.description || product.fabric_composition || "Transcend Color Digital Apparel",
+            "brand": {
+              "@type": "Brand",
+              "name": "TCDA"
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": `https://tcdashop.com/${language}/product/${product.id}`,
+              "priceCurrency": "JPY",
+              "price": product.price,
+              "availability": product.stock > 0
+                ? "https://schema.org/InStock"
+                : "https://schema.org/OutOfStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "TCDA"
+              }
+            }
+          })}
+        </script>
       </Helmet>
       {/* BACK */}
       <div className="px-8 md:px-20 py-6 max-w-7xl mx-auto">

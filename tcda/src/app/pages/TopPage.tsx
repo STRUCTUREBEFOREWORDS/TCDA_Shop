@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
+import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { getTranslation } from "../data/translations";
 import { useProducts } from "../hooks/useProducts";
@@ -45,8 +46,29 @@ export function TopPage() {
     return formatPrice(converted, currency);
   };
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TCDA",
+    "url": "https://tcdashop.com",
+    "logo": "https://cdn.tcdashop.com/logo/1.png",
+    "sameAs": [],
+    "description": "Transcend Color Digital Apparel — アートを着る、感性を解放する。"
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TCDA",
+    "url": "https://tcdashop.com"
+  };
+
   return (
     <div className="min-h-screen bg-black">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
+      </Helmet>
 
       {/* 1. HERO */}
       <section className="relative h-screen w-full overflow-hidden">
