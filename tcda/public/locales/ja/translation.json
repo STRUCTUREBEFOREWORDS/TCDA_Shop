@@ -269,6 +269,7 @@
     "pageIntro": "配送・返品に関するご案内です。ご不明点はinfo@tcdashop.comまでご連絡ください。",
     "shippingTitle": "発送",
     "shippingBody": "ご注文確定後、2〜5営業日以内にPrintful経由で発送いたします。発送後は追跡番号をお送りします。",
+    "shippingAddressNote": "※ 日本国内へのお届けの場合、配送伝票の住所は英語表記に自動変換されます。これは国際配送システムの仕様によるものです。お届け先の変更はございません。",
     "deliveryTitle": "お届け",
     "deliveryBody": "発送後、通常5〜10営業日でお届けします。地域によって前後する場合があります。",
     "returnsTitle": "返品・交換について",

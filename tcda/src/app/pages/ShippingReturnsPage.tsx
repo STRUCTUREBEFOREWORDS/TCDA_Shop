@@ -63,6 +63,11 @@ export function ShippingReturnsPage() {
             <p className="text-black/60 text-sm font-light leading-relaxed">
               {s.body}
             </p>
+            {i === 0 && (
+              <p className="text-black/35 text-xs font-light leading-relaxed mt-3">
+                {t("shippingReturns.shippingAddressNote")}
+              </p>
+            )}
           </motion.div>
         ))}
 

@@ -269,6 +269,7 @@
     "pageIntro": "Toutes les informations sur la livraison et notre politique de retour. Questions ? Écrivez-nous à info@tcdashop.com.",
     "shippingTitle": "Expédition",
     "shippingBody": "Les commandes sont traitées sous 2 à 5 jours ouvrés via Printful. Un numéro de suivi vous sera envoyé après expédition.",
+    "shippingAddressNote": "※ Pour les livraisons au Japon, l'adresse de livraison sera automatiquement convertie en anglais sur l'étiquette. Cela est dû aux exigences du système d'expédition international. Votre destination de livraison reste inchangée.",
     "deliveryTitle": "Livraison",
     "deliveryBody": "Après expédition, la livraison prend généralement 5 à 10 jours ouvrés. Les délais peuvent varier selon la région.",
     "returnsTitle": "Retours & assistance",

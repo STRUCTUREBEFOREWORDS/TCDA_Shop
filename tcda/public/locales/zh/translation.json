@@ -269,6 +269,7 @@
     "pageIntro": "有关配送及退货政策的说明。如有疑问，请联系 info@tcdashop.com。",
     "shippingTitle": "发货",
     "shippingBody": "订单确认后，将于2–5个工作日内通过Printful发货。发货后将向您发送快递追踪单号。",
+    "shippingAddressNote": "※ 日本国内配送时，配送标签上的地址将自动转换为英文。这是由于国际配送系统的要求。您的收货地址不会改变。",
     "deliveryTitle": "配送",
     "deliveryBody": "发货后通常5–10个工作日内送达。实际时间因地区而异。",
     "returnsTitle": "退货与售后",
