@@ -1,26 +1,84 @@
-import { motion } from "motion/react";
 import { Link } from "react-router";
+import { useGlobalContext } from "./Root";
 
 export function NotFound() {
+  const { language } = useGlobalContext();
+
   return (
-    <div className="min-h-screen flex items-center justify-center px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="text-center"
-      >
-        <p className="text-black text-sm font-light tracking-widest uppercase mb-8 opacity-40">
+    <div className="min-h-screen bg-black text-white flex items-center justify-center overflow-hidden relative">
+      {/* drape */}
+      <div
+        className="fixed pointer-events-none"
+        style={{
+          inset: '-20% -10%',
+          background: 'repeating-linear-gradient(170deg, rgba(255,255,255,.04) 0px, rgba(255,255,255,.04) 1px, transparent 1px, transparent 60px)',
+          animation: 'drape 14s ease-in-out infinite',
+        }}
+      />
+
+      <style>{`
+        @keyframes drape {
+          0%   { transform: skewY(-1.5deg) translateY(0);    opacity: .18; }
+          50%  { transform: skewY(1deg)    translateY(-12px); opacity: .26; }
+          100% { transform: skewY(-1.5deg) translateY(0);    opacity: .18; }
+        }
+        @keyframes lightwash {
+          0%   { opacity: 0;   transform: translateX(-30%) rotate(-8deg); }
+          50%  { opacity: .07; }
+          100% { opacity: 0;   transform: translateX(60%)  rotate(-8deg); }
+        }
+      `}</style>
+
+      {/* light-wash */}
+      <div
+        className="fixed pointer-events-none"
+        style={{
+          inset: 0,
+          width: '200%',
+          background: 'linear-gradient(100deg, transparent 30%, rgba(255,255,255,.6) 50%, transparent 70%)',
+          animation: 'lightwash 9s ease-in-out infinite',
+        }}
+      />
+
+      <div className="relative z-10 flex flex-col items-center text-center px-6">
+        <div className="mb-16">
+          <img src="/icons/tcda_logo.webp" alt="TCDA" style={{ height: 32, opacity: 0.7 }} />
+        </div>
+
+        <p className="text-[0.65rem] font-light tracking-[0.5em] uppercase text-white/35 mb-5">
           404
         </p>
-        <p className="text-black text-xl font-light mb-12">This space does not exist.</p>
+
+        <h1 className="text-3xl md:text-5xl font-extralight tracking-wide leading-tight mb-5">
+          Lost in the collection.
+        </h1>
+
+        <p className="text-[0.8rem] font-light tracking-wider text-white/40 leading-relaxed mb-12">
+          This page no longer exists — but the work does.
+        </p>
+
         <Link
-          to="/en/"
-          className="inline-block text-black text-xs font-light tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity duration-300 border-b border-black/30 pb-1"
+          to={`/${language}/`}
+          className="inline-block px-10 py-3 border border-white/25 text-[0.7rem] font-light tracking-[0.3em] uppercase hover:border-white/70 hover:bg-white/5 transition-all duration-300 mb-10"
         >
-          Return
+          Return to Shop
         </Link>
-      </motion.div>
+
+        <div className="flex gap-8">
+          <Link
+            to={`/${language}/products`}
+            className="text-[0.6rem] font-light tracking-[0.35em] uppercase text-white/25 hover:text-white/70 transition-colors duration-300"
+          >
+            Collection
+          </Link>
+          <Link
+            to={`/${language}/contact`}
+            className="text-[0.6rem] font-light tracking-[0.35em] uppercase text-white/25 hover:text-white/70 transition-colors duration-300"
+          >
+            Contact
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
