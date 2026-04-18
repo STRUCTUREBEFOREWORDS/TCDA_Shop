@@ -9,6 +9,7 @@ import { CartPage } from "./pages/CartPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
 import { PaymentSuccessPage } from "./pages/PaymentSuccessPage";
 import { PaymentCancelledPage } from "./pages/PaymentCancelledPage";
+import { PaymentErrorPage } from "./pages/PaymentErrorPage";
 import { LookbookPage } from "./pages/LookbookPage";
 import { SizeGuidePage } from "./pages/SizeGuidePage";
 import { LegalPage } from "./pages/LegalPage";
@@ -34,6 +35,7 @@ export const router = createBrowserRouter([
       { path: "checkout", Component: CheckoutPage },
       { path: "payment-success", Component: PaymentSuccessPage },
       { path: "payment-cancelled", Component: PaymentCancelledPage },
+      { path: "payment-error", Component: PaymentErrorPage },
       { path: "about", Component: AboutPage },
       { path: "legal", Component: LegalPage },
       { path: "privacy", Component: PrivacyPage },
