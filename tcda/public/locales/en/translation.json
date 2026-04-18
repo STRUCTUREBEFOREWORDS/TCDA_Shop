@@ -410,6 +410,10 @@
   "share": "Share",
   "copy_link": "Copy link",
   "copied": "Copied!",
+  "reviews": {
+    "title": "Reviews",
+    "anonymous": "Anonymous"
+  },
   "review": {
     "title": "Write a Review",
     "subtitle": "Thank you for your purchase. We'd love to hear your thoughts.",

@@ -410,6 +410,10 @@
   "share": "シェア",
   "copy_link": "リンクをコピー",
   "copied": "コピーしました",
+  "reviews": {
+    "title": "レビュー",
+    "anonymous": "匿名"
+  },
   "review": {
     "title": "レビューを書く",
     "subtitle": "ご購入いただきありがとうございます。ご感想をお聞かせください。",

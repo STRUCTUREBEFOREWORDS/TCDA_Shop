@@ -95,6 +95,7 @@ const { t } = useTranslation();
   const [deliveryDate, setDeliveryDate] = useState<{ min: string; max: string } | null>(null);
   const [notifyEmail, setNotifyEmail] = useState("");
   const [notifySubmitted, setNotifySubmitted] = useState(false);
+  const [reviews, setReviews] = useState<{ rating: number; name?: string; body?: string; created_at: string }[]>([]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -132,6 +133,14 @@ const { t } = useTranslation();
       })
       .finally(() => setLoading(false));
   }, [id, countryCode, language]);
+
+  useEffect(() => {
+    if (!id) return;
+    fetch(`https://api.tcdashop.com/reviews/${id}`)
+      .then((r) => r.json())
+      .then((d) => setReviews(d.reviews ?? []))
+      .catch(() => {});
+  }, [id]);
 
   if (loading) {
     return (
@@ -653,6 +662,53 @@ const { t } = useTranslation();
           </h2>
           <FaqAccordion items={purchaseFaqItems} />
         </motion.div>
+
+        {/* Reviews */}
+        {reviews.length > 0 && (() => {
+          const avg = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length;
+          return (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="border-t border-black/10 pt-8"
+            >
+              <div className="flex items-baseline gap-4 mb-6">
+                <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase">
+                  {t("reviews.title")}
+                </h2>
+                <span className="text-black/40 text-[10px] font-light tracking-wider">
+                  {"★".repeat(Math.round(avg))}{"☆".repeat(5 - Math.round(avg))} {avg.toFixed(1)} ({reviews.length})
+                </span>
+              </div>
+              <div className="space-y-6">
+                {reviews.map((r, i) => (
+                  <div key={i} className="border-b border-black/5 pb-6 last:border-0">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-3">
+                        <span className="text-[11px] text-black/60 tracking-wider">
+                          {"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}
+                        </span>
+                        <span className="text-[10px] font-light tracking-wider text-black/50">
+                          {r.name || t("reviews.anonymous")}
+                        </span>
+                      </div>
+                      <span className="text-[9px] text-black/30 tracking-wider">
+                        {new Date(r.created_at).toLocaleDateString()}
+                      </span>
+                    </div>
+                    {r.body && (
+                      <p className="text-[11px] font-light text-black/60 leading-relaxed tracking-wide">
+                        {r.body}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })()}
       </section>
     </div>
   );
