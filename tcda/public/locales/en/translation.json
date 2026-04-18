@@ -409,5 +409,13 @@
   },
   "share": "Share",
   "copy_link": "Copy link",
-  "copied": "Copied!"
+  "copied": "Copied!",
+  "review": {
+    "title": "Write a Review",
+    "subtitle": "Thank you for your purchase. We'd love to hear your thoughts.",
+    "namePlaceholder": "Your name (optional)",
+    "bodyPlaceholder": "Share your experience with this product",
+    "submit": "Submit",
+    "thanks": "Thank you for your review"
+  }
 }

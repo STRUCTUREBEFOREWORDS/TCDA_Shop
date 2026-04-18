@@ -409,5 +409,13 @@
   },
   "share": "シェア",
   "copy_link": "リンクをコピー",
-  "copied": "コピーしました"
+  "copied": "コピーしました",
+  "review": {
+    "title": "レビューを書く",
+    "subtitle": "ご購入いただきありがとうございます。ご感想をお聞かせください。",
+    "namePlaceholder": "お名前（任意）",
+    "bodyPlaceholder": "商品の感想をお書きください",
+    "submit": "送信する",
+    "thanks": "レビューありがとうございました"
+  }
 }
