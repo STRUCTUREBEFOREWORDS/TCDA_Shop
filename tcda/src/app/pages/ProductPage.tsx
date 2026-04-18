@@ -414,15 +414,6 @@ const { t } = useTranslation();
                 </svg>
               </a>
               <a
-                href={`https://www.instagram.com/tcda_official/`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-60 hover:opacity-100 transition-opacity"
-                aria-label="Instagram"
-              >
-                <img src="/icons/ig.svg" className="w-5 h-5" alt="Instagram" />
-              </a>
-              <a
                 href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&media=${encodeURIComponent(product.images?.[0] || product.thumbnail_url || '')}&description=${encodeURIComponent(product.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"

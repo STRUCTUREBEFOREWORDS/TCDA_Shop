@@ -296,7 +296,7 @@ export function AboutPage() {
       {/* 1.5. BRAND VISUAL */}
       <div className="w-full overflow-hidden">
         <img
-          src="https://cdn.tcdashop.com/top/1.jpg"
+          src="https://cdn.tcdashop.com/top/1.webp"
           alt="TCDA"
           className="w-full h-[50vh] md:h-[70vh] object-cover"
         />
@@ -355,12 +355,12 @@ export function AboutPage() {
         </motion.div>
         <div className="grid md:grid-cols-2 gap-px">
           <img
-            src="https://cdn.tcdashop.com/top/2.jpg"
+            src="https://cdn.tcdashop.com/top/2.webp"
             alt=""
             className="w-full h-64 md:h-80 object-cover"
           />
           <img
-            src="https://cdn.tcdashop.com/top/3.jpg"
+            src="https://cdn.tcdashop.com/top/3.webp"
             alt=""
             className="w-full h-64 md:h-80 object-cover"
           />

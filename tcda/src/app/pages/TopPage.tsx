@@ -52,7 +52,12 @@ export function TopPage() {
     "name": "TCDA",
     "url": "https://tcdashop.com",
     "logo": "https://cdn.tcdashop.com/logo/1.png",
-    "sameAs": [],
+    "sameAs": [
+      "https://jp.pinterest.com/tcda_shop/",
+      "https://www.tiktok.com/@tcda.shop",
+      "https://www.instagram.com/tcda.shop/",
+      "https://x.com/tcda_shop"
+    ],
     "description": "Transcend Color Digital Apparel — アートを着る、感性を解放する。"
   };
 
