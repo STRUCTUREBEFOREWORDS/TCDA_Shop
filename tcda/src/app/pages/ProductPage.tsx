@@ -10,6 +10,7 @@ import { SizeGuideModal } from "../components/SizeGuideModal";
 
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { Copy, Check } from "lucide-react";
 
 interface Variant {
   id: number;
@@ -390,22 +391,44 @@ const { t } = useTranslation();
                 href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(product.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-black transition-colors"
-              >X</a>
+                className="opacity-60 hover:opacity-100 transition-opacity"
+                aria-label="Share on X"
+              >
+                <img src="/icons/x.svg" className="w-5 h-5" alt="X" />
+              </a>
               <a
                 href={`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.href)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-green-500 transition-colors"
-              >LINE</a>
+                className="opacity-60 hover:opacity-100 transition-opacity"
+                aria-label="Share on LINE"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" className="w-5 h-5">
+                  <rect width="36" height="36" rx="8" fill="#06C755"/>
+                  <path d="M30 17.2C30 11.55 24.63 7 18 7S6 11.55 6 17.2c0 5.07 4.5 9.32 10.57 10.12.41.09.97.27 1.11.62.13.32.08.82.04 1.14l-.18 1.08c-.05.32-.25 1.24 1.09.68 1.33-.57 7.2-4.24 9.82-7.26C29.19 21.4 30 19.39 30 17.2z" fill="#fff"/>
+                  <path d="M15.05 14.77h-.93a.26.26 0 0 0-.26.26v5.77c0 .14.12.26.26.26h.93c.14 0 .26-.12.26-.26v-5.77a.26.26 0 0 0-.26-.26zM21.87 14.77h-.93a.26.26 0 0 0-.26.26v3.43l-2.64-3.57a.27.27 0 0 0-.21-.12h-.95a.26.26 0 0 0-.26.26v5.77c0 .14.12.26.26.26h.93c.14 0 .26-.12.26-.26v-3.43l2.65 3.57a.26.26 0 0 0 .21.11h.94c.14 0 .26-.12.26-.26v-5.77a.26.26 0 0 0-.26-.26zM13.16 19.61h-2.54v-4.58a.26.26 0 0 0-.26-.26h-.93a.26.26 0 0 0-.26.26v5.77c0 .07.03.13.07.18.05.04.11.07.18.07h3.74c.14 0 .26-.12.26-.26v-.92a.26.26 0 0 0-.26-.26zM26.57 16.22c.14 0 .26-.12.26-.26v-.93a.26.26 0 0 0-.26-.26h-3.74a.25.25 0 0 0-.18.07.25.25 0 0 0-.08.18v5.77c0 .07.03.13.08.18a.25.25 0 0 0 .18.07h3.74c.14 0 .26-.12.26-.26v-.92a.26.26 0 0 0-.26-.26h-2.54v-.98h2.54c.14 0 .26-.12.26-.26v-.93a.26.26 0 0 0-.26-.26h-2.54v-.97z" fill="#06C755"/>
+                </svg>
+              </a>
+              <a
+                href={`https://www.instagram.com/tcda_official/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-60 hover:opacity-100 transition-opacity"
+                aria-label="Instagram"
+              >
+                <img src="/icons/ig.svg" className="w-5 h-5" alt="Instagram" />
+              </a>
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(window.location.href);
                   setCopied(true);
                   setTimeout(() => setCopied(false), 2000);
                 }}
-                className="text-gray-400 hover:text-black transition-colors text-sm"
-              >{copied ? t('copied') : t('copy_link')}</button>
+                className="opacity-60 hover:opacity-100 transition-opacity text-gray-600"
+                aria-label={copied ? t('copied') : t('copy_link')}
+              >
+                {copied ? <Check className="w-5 h-5 text-green-600" /> : <Copy className="w-5 h-5" />}
+              </button>
             </div>
 
             {/* Trust Block */}

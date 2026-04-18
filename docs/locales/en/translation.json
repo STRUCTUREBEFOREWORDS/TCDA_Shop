@@ -269,6 +269,7 @@
     "pageIntro": "Everything you need to know about shipping and our returns policy. Questions? Email info@tcdashop.com.",
     "shippingTitle": "Shipping",
     "shippingBody": "Orders are fulfilled within 2–5 business days via Printful. A tracking number will be sent once dispatched.",
+    "shippingAddressNote": "※ For deliveries within Japan, the shipping address will be automatically converted to English on the shipping label. This is due to international shipping system requirements. Your delivery destination remains unchanged.",
     "deliveryTitle": "Delivery",
     "deliveryBody": "After dispatch, delivery typically takes 5–10 business days. Times may vary by region.",
     "returnsTitle": "Returns & Support",
@@ -338,17 +339,50 @@
   "legal": {
     "title": "Legal Notice",
     "sections": {
-      "seller":        { "label": "Seller",              "value": "Taiki Ogawa" },
-      "address":       { "label": "Address",             "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japan" },
-      "phone":         { "label": "Phone",               "value": "050-5476-8894" },
-      "email":         { "label": "Email",               "value": "info@tcdashop.com" },
-      "price":         { "label": "Price",               "value": "As listed on each product page (tax included)" },
-      "payment":       { "label": "Payment Methods",     "value": "Credit card (Visa / Mastercard / JCB / American Express / Diners Club)" },
-      "paymentTiming": { "label": "Payment Timing",      "value": "At time of order confirmation" },
-      "delivery":      { "label": "Delivery",            "value": "Typically ships within 5–10 business days after order confirmation" },
-      "returns":       { "label": "Returns & Exchanges", "value": "Due to the nature of our products, cancellations, returns, and exchanges are generally not accepted after order confirmation. Exceptions apply for damaged items, printing defects, or misdelivery — contact info@tcdashop.com within 7 days of receipt. A replacement or refund will be arranged." },
-      "quantity":      { "label": "Available Quantity",  "value": "While supplies last" },
-      "browser":       { "label": "Compatible Browsers", "value": "Latest Chrome / Safari / Firefox / Edge" }
+      "seller": {
+        "label": "Seller",
+        "value": "Taiki Ogawa"
+      },
+      "address": {
+        "label": "Address",
+        "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japan"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "Email",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "Price",
+        "value": "As listed on each product page (tax included)"
+      },
+      "payment": {
+        "label": "Payment Methods",
+        "value": "Credit card (Visa / Mastercard / JCB / American Express / Diners Club)"
+      },
+      "paymentTiming": {
+        "label": "Payment Timing",
+        "value": "At time of order confirmation"
+      },
+      "delivery": {
+        "label": "Delivery",
+        "value": "Typically ships within 5–10 business days after order confirmation"
+      },
+      "returns": {
+        "label": "Returns & Exchanges",
+        "value": "Due to the nature of our products, cancellations, returns, and exchanges are generally not accepted after order confirmation. Exceptions apply for damaged items, printing defects, or misdelivery — contact info@tcdashop.com within 7 days of receipt. A replacement or refund will be arranged."
+      },
+      "quantity": {
+        "label": "Available Quantity",
+        "value": "While supplies last"
+      },
+      "browser": {
+        "label": "Compatible Browsers",
+        "value": "Latest Chrome / Safari / Firefox / Edge"
+      }
     }
   },
   "cookie": {
@@ -372,5 +406,8 @@
   },
   "common": {
     "loading": "Loading..."
-  }
+  },
+  "share": "Share",
+  "copy_link": "Copy link",
+  "copied": "Copied!"
 }

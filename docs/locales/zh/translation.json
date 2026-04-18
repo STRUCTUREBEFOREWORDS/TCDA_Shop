@@ -269,6 +269,7 @@
     "pageIntro": "有关配送及退货政策的说明。如有疑问，请联系 info@tcdashop.com。",
     "shippingTitle": "发货",
     "shippingBody": "订单确认后，将于2–5个工作日内通过Printful发货。发货后将向您发送快递追踪单号。",
+    "shippingAddressNote": "※ 日本国内配送时，配送标签上的地址将自动转换为英文。这是由于国际配送系统的要求。您的收货地址不会改变。",
     "deliveryTitle": "配送",
     "deliveryBody": "发货后通常5–10个工作日内送达。实际时间因地区而异。",
     "returnsTitle": "退货与售后",
@@ -338,17 +339,50 @@
   "legal": {
     "title": "销售信息",
     "sections": {
-      "seller":        { "label": "销售方",   "value": "小川大树" },
-      "address":       { "label": "地址",     "value": "日本东京都世田谷区太子堂5-17-1 Maison de Miroir 103" },
-      "phone":         { "label": "电话",     "value": "050-5476-8894" },
-      "email":         { "label": "电子邮件", "value": "info@tcdashop.com" },
-      "price":         { "label": "销售价格", "value": "以各商品页面标注价格为准（含税）" },
-      "payment":       { "label": "支付方式", "value": "信用卡（Visa / Mastercard / JCB / American Express / Diners Club）" },
-      "paymentTiming": { "label": "支付时间", "value": "订单确认时" },
-      "delivery":      { "label": "发货时间", "value": "订单确认后，通常5～10个工作日内发货" },
-      "returns":       { "label": "退换货",   "value": "因商品特性，确认订单后原则上不接受取消、退货或换货。如有商品破损、印刷缺陷或错误配送，请在收货后7日内联系 info@tcdashop.com，届时将安排补发或退款。" },
-      "quantity":      { "label": "销售数量", "value": "库存范围内" },
-      "browser":       { "label": "运行环境", "value": "最新版 Chrome / Safari / Firefox / Edge" }
+      "seller": {
+        "label": "销售方",
+        "value": "小川大树"
+      },
+      "address": {
+        "label": "地址",
+        "value": "日本东京都世田谷区太子堂5-17-1 Maison de Miroir 103"
+      },
+      "phone": {
+        "label": "电话",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "电子邮件",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "销售价格",
+        "value": "以各商品页面标注价格为准（含税）"
+      },
+      "payment": {
+        "label": "支付方式",
+        "value": "信用卡（Visa / Mastercard / JCB / American Express / Diners Club）"
+      },
+      "paymentTiming": {
+        "label": "支付时间",
+        "value": "订单确认时"
+      },
+      "delivery": {
+        "label": "发货时间",
+        "value": "订单确认后，通常5～10个工作日内发货"
+      },
+      "returns": {
+        "label": "退换货",
+        "value": "因商品特性，确认订单后原则上不接受取消、退货或换货。如有商品破损、印刷缺陷或错误配送，请在收货后7日内联系 info@tcdashop.com，届时将安排补发或退款。"
+      },
+      "quantity": {
+        "label": "销售数量",
+        "value": "库存范围内"
+      },
+      "browser": {
+        "label": "运行环境",
+        "value": "最新版 Chrome / Safari / Firefox / Edge"
+      }
     }
   },
   "cookie": {
@@ -372,5 +406,8 @@
   },
   "common": {
     "loading": "加载中..."
-  }
+  },
+  "share": "分享",
+  "copy_link": "复制链接",
+  "copied": "已复制"
 }
