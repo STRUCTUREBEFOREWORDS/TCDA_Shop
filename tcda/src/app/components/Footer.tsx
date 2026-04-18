@@ -1,6 +1,17 @@
 import { Link } from "react-router";
 import { useGlobalContext } from "../pages/Root";
 import { useTranslation } from "react-i18next";
+import pinterestIcon from "../../assets/sns/sns_icons/pinterest.png";
+import xIcon from "../../assets/sns/sns_icons/x.png";
+import instagramIcon from "../../assets/sns/sns_icons/instagram.png";
+import tiktokIcon from "../../assets/sns/sns_icons/tiktok.png";
+
+const SNS_LINKS = [
+  { href: "https://jp.pinterest.com/tcda_shop/", icon: pinterestIcon, label: "Pinterest" },
+  { href: "https://www.tiktok.com/@tcda.shop", icon: tiktokIcon, label: "TikTok" },
+  { href: "https://www.instagram.com/tcda.shop/", icon: instagramIcon, label: "Instagram" },
+  { href: "https://x.com/tcda_shop", icon: xIcon, label: "X" },
+];
 
 export function Footer() {
   const { language } = useGlobalContext();
@@ -42,6 +53,21 @@ export function Footer() {
           </div>
         </div>
 
+      </div>
+
+      {/* SNS Icons */}
+      <div className="max-w-7xl mx-auto mt-10 flex justify-center gap-6">
+        {SNS_LINKS.map(({ href, icon, label }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="opacity-50 hover:opacity-70 transition-opacity"
+          >
+            <img src={icon} alt={label} width={24} height={24} />
+          </a>
+        ))}
       </div>
     </footer>
   );
