@@ -11,6 +11,8 @@ import { SizeGuideModal } from "../components/SizeGuideModal";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { Copy, Check } from "lucide-react";
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 
 interface Variant {
   id: number;
@@ -229,12 +231,14 @@ const { t } = useTranslation();
             className="flex flex-col gap-4"
           >
             {/* Main image */}
-            <div className="relative aspect-[3/4] overflow-hidden bg-black/5">
-              <ImageWithFallback
-                src={images[currentImageIndex] || product.thumbnail_url}
-                alt={product.name}
-                className="w-full h-full object-cover"
-              />
+            <div className="relative aspect-[3/4] bg-black/5">
+              <Zoom>
+                <ImageWithFallback
+                  src={images[currentImageIndex] || product.thumbnail_url}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+              </Zoom>
               {images.length > 1 && (
                 <>
                   <button
