@@ -394,7 +394,7 @@ const { t } = useTranslation();
                 className="opacity-60 hover:opacity-100 transition-opacity"
                 aria-label="Share on X"
               >
-                <img src="/icons/x.svg" className="w-5 h-5" alt="X" style={{ filter: 'invert(1)' }} />
+                <img src="/icons/x.svg" className="w-5 h-5" alt="X" style={{ filter: 'invert(0)' }} />
               </a>
               <a
                 href={`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.href)}`}
