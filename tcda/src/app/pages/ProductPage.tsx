@@ -83,6 +83,7 @@ const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [added, setAdded] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [sizeUnit, setSizeUnit] = useState<"cm" | "inch">("cm");
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const [sizeChart, setSizeChart] = useState<SizeChart | null>(null);
@@ -384,7 +385,7 @@ const { t } = useTranslation();
 
             {/* SNS Share */}
             <div className="flex items-center gap-3 mt-4">
-              <span className="text-sm text-gray-500">Share:</span>
+              <span className="text-sm text-gray-500">{t('share')}:</span>
               <a
                 href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(product.name)}`}
                 target="_blank"
@@ -398,9 +399,13 @@ const { t } = useTranslation();
                 className="text-gray-400 hover:text-green-500 transition-colors"
               >LINE</a>
               <button
-                onClick={() => { navigator.clipboard.writeText(window.location.href); }}
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }}
                 className="text-gray-400 hover:text-black transition-colors text-sm"
-              >Copy link</button>
+              >{copied ? t('copied') : t('copy_link')}</button>
             </div>
 
             {/* Trust Block */}

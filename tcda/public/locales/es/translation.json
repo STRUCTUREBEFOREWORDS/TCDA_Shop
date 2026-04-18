@@ -339,17 +339,50 @@
   "legal": {
     "title": "Aviso legal",
     "sections": {
-      "seller":        { "label": "Vendedor",              "value": "Taiki Ogawa" },
-      "address":       { "label": "Dirección",             "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya, Tokio, Japón" },
-      "phone":         { "label": "Teléfono",              "value": "050-5476-8894" },
-      "email":         { "label": "Correo electrónico",    "value": "info@tcdashop.com" },
-      "price":         { "label": "Precio",                "value": "Indicado en cada página de producto (impuestos incluidos)" },
-      "payment":       { "label": "Métodos de pago",       "value": "Tarjeta de crédito (Visa / Mastercard / JCB / American Express / Diners Club)" },
-      "paymentTiming": { "label": "Momento del pago",      "value": "Al confirmar el pedido" },
-      "delivery":      { "label": "Entrega",               "value": "Envío en un plazo de 5 a 10 días hábiles tras la confirmación del pedido" },
-      "returns":       { "label": "Devoluciones y cambios","value": "Debido a la naturaleza de nuestros productos, no aceptamos cancelaciones, devoluciones ni cambios una vez confirmado el pedido. Se hacen excepciones por daños, defectos de impresión o envío incorrecto — contáctanos en info@tcdashop.com en los 7 días siguientes a la recepción. Se gestionará un reenvío o reembolso." },
-      "quantity":      { "label": "Cantidad disponible",   "value": "Sujeto a disponibilidad" },
-      "browser":       { "label": "Navegadores compatibles","value": "Última versión de Chrome / Safari / Firefox / Edge" }
+      "seller": {
+        "label": "Vendedor",
+        "value": "Taiki Ogawa"
+      },
+      "address": {
+        "label": "Dirección",
+        "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya, Tokio, Japón"
+      },
+      "phone": {
+        "label": "Teléfono",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "Correo electrónico",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "Precio",
+        "value": "Indicado en cada página de producto (impuestos incluidos)"
+      },
+      "payment": {
+        "label": "Métodos de pago",
+        "value": "Tarjeta de crédito (Visa / Mastercard / JCB / American Express / Diners Club)"
+      },
+      "paymentTiming": {
+        "label": "Momento del pago",
+        "value": "Al confirmar el pedido"
+      },
+      "delivery": {
+        "label": "Entrega",
+        "value": "Envío en un plazo de 5 a 10 días hábiles tras la confirmación del pedido"
+      },
+      "returns": {
+        "label": "Devoluciones y cambios",
+        "value": "Debido a la naturaleza de nuestros productos, no aceptamos cancelaciones, devoluciones ni cambios una vez confirmado el pedido. Se hacen excepciones por daños, defectos de impresión o envío incorrecto — contáctanos en info@tcdashop.com en los 7 días siguientes a la recepción. Se gestionará un reenvío o reembolso."
+      },
+      "quantity": {
+        "label": "Cantidad disponible",
+        "value": "Sujeto a disponibilidad"
+      },
+      "browser": {
+        "label": "Navegadores compatibles",
+        "value": "Última versión de Chrome / Safari / Firefox / Edge"
+      }
     }
   },
   "cookie": {
@@ -373,5 +406,8 @@
   },
   "common": {
     "loading": "Cargando..."
-  }
+  },
+  "share": "Compartir",
+  "copy_link": "Copiar enlace",
+  "copied": "¡Copiado!"
 }

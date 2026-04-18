@@ -339,17 +339,50 @@
   "legal": {
     "title": "特定商取引法に基づく表記",
     "sections": {
-      "seller":        { "label": "販売事業者",      "value": "小川大樹" },
-      "address":       { "label": "所在地",          "value": "東京都世田谷区太子堂５-１７-１ メゾン・ド・ミロール103" },
-      "phone":         { "label": "電話番号",        "value": "050-5476-8894" },
-      "email":         { "label": "メールアドレス",  "value": "info@tcdashop.com" },
-      "price":         { "label": "販売価格",        "value": "各商品ページに記載の価格（税込）" },
-      "payment":       { "label": "支払方法",        "value": "クレジットカード（Visa / Mastercard / JCB / American Express / Diners Club）" },
-      "paymentTiming": { "label": "支払時期",        "value": "注文確定時" },
-      "delivery":      { "label": "商品の引渡し時期","value": "注文確定後、通常5〜10営業日以内に発送" },
-      "returns":       { "label": "返品・交換",      "value": "商品の性質上、注文確定後のキャンセル・返品・交換は原則お受けできません。商品の破損・印刷不良・誤配送の場合のみ、到着後7日以内にinfo@tcdashop.comへご連絡ください。該当する場合は再送または返金対応いたします。" },
-      "quantity":      { "label": "販売数量",        "value": "在庫の範囲内" },
-      "browser":       { "label": "動作環境",        "value": "最新のChrome / Safari / Firefox / Edge" }
+      "seller": {
+        "label": "販売事業者",
+        "value": "小川大樹"
+      },
+      "address": {
+        "label": "所在地",
+        "value": "東京都世田谷区太子堂５-１７-１ メゾン・ド・ミロール103"
+      },
+      "phone": {
+        "label": "電話番号",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "メールアドレス",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "販売価格",
+        "value": "各商品ページに記載の価格（税込）"
+      },
+      "payment": {
+        "label": "支払方法",
+        "value": "クレジットカード（Visa / Mastercard / JCB / American Express / Diners Club）"
+      },
+      "paymentTiming": {
+        "label": "支払時期",
+        "value": "注文確定時"
+      },
+      "delivery": {
+        "label": "商品の引渡し時期",
+        "value": "注文確定後、通常5〜10営業日以内に発送"
+      },
+      "returns": {
+        "label": "返品・交換",
+        "value": "商品の性質上、注文確定後のキャンセル・返品・交換は原則お受けできません。商品の破損・印刷不良・誤配送の場合のみ、到着後7日以内にinfo@tcdashop.comへご連絡ください。該当する場合は再送または返金対応いたします。"
+      },
+      "quantity": {
+        "label": "販売数量",
+        "value": "在庫の範囲内"
+      },
+      "browser": {
+        "label": "動作環境",
+        "value": "最新のChrome / Safari / Firefox / Edge"
+      }
     }
   },
   "cookie": {
@@ -373,5 +406,8 @@
   },
   "common": {
     "loading": "読み込み中..."
-  }
+  },
+  "share": "シェア",
+  "copy_link": "リンクをコピー",
+  "copied": "コピーしました"
 }
