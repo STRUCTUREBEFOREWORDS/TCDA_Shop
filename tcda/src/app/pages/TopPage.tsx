@@ -90,7 +90,7 @@ export function TopPage() {
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-white text-base md:text-xl font-extralight tracking-[0.2em] leading-[160%] max-w-2xl"
           >
             {heroLine[language] ?? heroLine.en}
