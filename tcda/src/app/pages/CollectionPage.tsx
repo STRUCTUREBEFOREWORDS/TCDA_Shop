@@ -105,16 +105,16 @@ export function CollectionPage() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.05 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className={`gap-px items-start ${row.length > 1 ? "grid grid-cols-1 md:grid-cols-2" : "flex"}`}
+              className={`grid gap-px items-start ${row.length > 1 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"}`}
             >
-              {row.map(({ product }) => (
+              {row.map(({ product, span }) => (
                 <Link
                   key={product.id}
                   to={`/${language}/product/${product.id}`}
                   className="group block"
                 >
                   {/* Image */}
-                  <div className="relative overflow-hidden aspect-[3/4]">
+                  <div className={`relative overflow-hidden ${span === "full" ? "aspect-[3/4] md:aspect-[2/3]" : "aspect-[3/4]"}`}>
                     <ImageWithFallback
                       src={getPrimaryImage(product)}
                       alt={product.name}
