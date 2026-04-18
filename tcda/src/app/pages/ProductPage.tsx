@@ -382,6 +382,27 @@ const { t } = useTranslation();
               </button>
             )}
 
+            {/* SNS Share */}
+            <div className="flex items-center gap-3 mt-4">
+              <span className="text-sm text-gray-500">Share:</span>
+              <a
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(product.name)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-black transition-colors"
+              >X</a>
+              <a
+                href={`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-green-500 transition-colors"
+              >LINE</a>
+              <button
+                onClick={() => { navigator.clipboard.writeText(window.location.href); }}
+                className="text-gray-400 hover:text-black transition-colors text-sm"
+              >Copy link</button>
+            </div>
+
             {/* Trust Block */}
             <div className="pt-4 pb-2">
               <ul className="space-y-1.5 mb-3">
