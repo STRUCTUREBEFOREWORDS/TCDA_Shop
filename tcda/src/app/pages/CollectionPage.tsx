@@ -105,22 +105,20 @@ export function CollectionPage() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.05 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="flex gap-px items-start"
+              className={`gap-px items-start ${row.length > 1 ? "grid grid-cols-1 md:grid-cols-2" : "flex"}`}
             >
-              {row.map(({ product, span }) => (
+              {row.map(({ product }) => (
                 <Link
                   key={product.id}
                   to={`/${language}/product/${product.id}`}
-                  className="group block flex-1"
+                  className="group block"
                 >
                   {/* Image */}
-                  <div
-                    className={`relative overflow-hidden ${span === "full" ? "h-[50vh] sm:h-[60vh]" : "h-[38vh] sm:h-[45vh]"}`}
-                  >
+                  <div className="relative overflow-hidden aspect-[3/4]">
                     <ImageWithFallback
                       src={getPrimaryImage(product)}
                       alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-500" />
                   </div>

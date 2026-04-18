@@ -409,5 +409,17 @@
   },
   "share": "Compartir",
   "copy_link": "Copiar enlace",
-  "copied": "¡Copiado!"
+  "copied": "¡Copiado!",
+  "reviews": {
+    "title": "Reseñas",
+    "anonymous": "Anónimo"
+  },
+  "review": {
+    "title": "Escribir una reseña",
+    "subtitle": "Comparte tu experiencia con este producto.",
+    "namePlaceholder": "Tu nombre (opcional)",
+    "bodyPlaceholder": "Escribe tu reseña",
+    "submit": "Enviar",
+    "thanks": "Gracias por tu reseña"
+  }
 }

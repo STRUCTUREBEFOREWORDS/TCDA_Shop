@@ -409,5 +409,17 @@
   },
   "share": "공유",
   "copy_link": "링크 복사",
-  "copied": "복사됨"
+  "copied": "복사됨",
+  "reviews": {
+    "title": "리뷰",
+    "anonymous": "익명"
+  },
+  "review": {
+    "title": "리뷰 작성",
+    "subtitle": "제품에 대한 솔직한 의견을 남겨주세요.",
+    "namePlaceholder": "이름 (선택)",
+    "bodyPlaceholder": "리뷰를 입력해주세요",
+    "submit": "제출",
+    "thanks": "리뷰 감사합니다"
+  }
 }

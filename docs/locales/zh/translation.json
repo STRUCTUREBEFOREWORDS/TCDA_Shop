@@ -409,5 +409,17 @@
   },
   "share": "分享",
   "copy_link": "复制链接",
-  "copied": "已复制"
+  "copied": "已复制",
+  "reviews": {
+    "title": "评价",
+    "anonymous": "匿名"
+  },
+  "review": {
+    "title": "撰写评价",
+    "subtitle": "请分享您对本商品的感受。",
+    "namePlaceholder": "您的姓名（选填）",
+    "bodyPlaceholder": "请输入您的评价",
+    "submit": "提交",
+    "thanks": "感谢您的评价"
+  }
 }
