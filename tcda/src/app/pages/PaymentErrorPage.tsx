@@ -42,10 +42,8 @@ export function PaymentErrorPage() {
 
       <div className="relative z-10 flex flex-col items-center text-center px-6">
         {/* logo */}
-        <div className="mb-16 opacity-55">
-          <svg viewBox="0 0 120 20" xmlns="http://www.w3.org/2000/svg" style={{ width: 80, fill: 'currentColor' }}>
-            <text x="0" y="16" fontFamily="Inter,sans-serif" fontWeight="200" fontSize="18" letterSpacing="6">TCDA</text>
-          </svg>
+        <div className="mb-16">
+          <img src="/icons/tcda_logo.webp" alt="TCDA" style={{ height: 32, opacity: 0.7 }} />
         </div>
 
         <p className="text-[0.65rem] font-light tracking-[0.5em] uppercase text-white/35 mb-5">
