@@ -148,7 +148,7 @@ export function TopPage() {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.9, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Link to={`/${language}/look`}>
+              <Link to={`/${language}/collection`}>
                 <div className="aspect-[2/3] overflow-hidden bg-white/5">
                   <img
                     src={src}
@@ -170,7 +170,7 @@ export function TopPage() {
           className="max-w-7xl mx-auto mt-8 flex justify-end"
         >
           <Link
-            to={`/${language}/look`}
+            to={`/${language}/collection`}
             className="text-white/50 text-[10px] font-light tracking-[0.3em] uppercase hover:text-white/70 transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-1"
           >
             {t("viewAll")}

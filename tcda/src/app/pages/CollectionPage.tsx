@@ -52,7 +52,7 @@ function buildRows(products: Product[]): Row[] {
   return rows;
 }
 
-export function LookbookPage() {
+export function CollectionPage() {
   const { language, currency, rates } = useGlobalContext();
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);

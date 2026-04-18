@@ -10,7 +10,7 @@ import { CheckoutPage } from "./pages/CheckoutPage";
 import { PaymentSuccessPage } from "./pages/PaymentSuccessPage";
 import { PaymentCancelledPage } from "./pages/PaymentCancelledPage";
 import { PaymentErrorPage } from "./pages/PaymentErrorPage";
-import { LookbookPage } from "./pages/LookbookPage";
+import { CollectionPage } from "./pages/CollectionPage";
 import { SizeGuidePage } from "./pages/SizeGuidePage";
 import { LegalPage } from "./pages/LegalPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
@@ -28,8 +28,7 @@ export const router = createBrowserRouter([
       { index: true, Component: TopPage },
       { path: "product/:id", Component: ProductPage },
       { path: "products", Component: ArchivePage },
-      { path: "collection", Component: LookbookPage },
-      { path: "look", Component: LookbookPage },
+      { path: "collection", Component: CollectionPage },
       { path: "size-guide", Component: SizeGuidePage },
       { path: "cart", Component: CartPage },
       { path: "checkout", Component: CheckoutPage },
