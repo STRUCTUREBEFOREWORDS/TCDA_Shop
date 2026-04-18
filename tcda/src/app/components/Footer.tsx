@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 import { useGlobalContext } from "../pages/Root";
 import { useTranslation } from "react-i18next";
-import pinterestIcon from "../../assets/sns/sns_icons/pinterest.png";
-import xIcon from "../../assets/sns/sns_icons/x.png";
-import instagramIcon from "../../assets/sns/sns_icons/instagram.png";
-import tiktokIcon from "../../assets/sns/sns_icons/tiktok.png";
+import pinterestIcon from "../../assets/sns/sns_icons/pinterest.webp";
+import xIcon from "../../assets/sns/sns_icons/x.webp";
+import instagramIcon from "../../assets/sns/sns_icons/instagram.webp";
+import tiktokIcon from "../../assets/sns/sns_icons/tiktok.webp";
 
 const SNS_LINKS = [
   { href: "https://jp.pinterest.com/tcda_shop/", icon: pinterestIcon, label: "Pinterest" },
