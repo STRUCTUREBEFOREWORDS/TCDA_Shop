@@ -26,3 +26,10 @@ venv/
 サイト全体用/
 ルックページ/
 サイズガイド図/
+
+# SNS brand assets (local only)
+SNS公式ロゴ/
+
+# Firebase / GCP service account keys
+tcda-a96cc-faa363c41497.json
+*-faa363c41497.json
