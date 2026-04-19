@@ -246,6 +246,8 @@ const { t } = useTranslation();
                   src={images[currentImageIndex] || product.thumbnail_url}
                   alt={product.name}
                   className="w-full h-full object-cover"
+                  loading={currentImageIndex === 0 ? "eager" : "lazy"}
+                  fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
                 />
               </Zoom>
               {images.length > 1 && (
