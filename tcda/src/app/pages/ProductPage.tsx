@@ -242,13 +242,23 @@ const { t } = useTranslation();
             {/* Main image */}
             <div className="relative aspect-[3/4] bg-black/5">
               <Zoom>
-                <ImageWithFallback
-                  src={images[currentImageIndex] || product.thumbnail_url}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                  loading={currentImageIndex === 0 ? "eager" : "lazy"}
-                  fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
-                />
+                {images.length === 0 && product.thumbnail_url ? (
+                  <img
+                    src={product.thumbnail_url}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                ) : (
+                  <ImageWithFallback
+                    src={images[currentImageIndex] || product.thumbnail_url}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                    loading={currentImageIndex === 0 ? "eager" : "lazy"}
+                    fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
+                  />
+                )}
               </Zoom>
               {images.length > 1 && (
                 <>
