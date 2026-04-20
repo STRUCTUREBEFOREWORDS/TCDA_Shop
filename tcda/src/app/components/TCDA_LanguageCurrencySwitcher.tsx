@@ -1,5 +1,10 @@
-import "flag-icons/css/flag-icons.min.css";
 import { Language, Currency } from "../types";
+import gbFlag from "../../assets/flags/gb.svg";
+import jpFlag from "../../assets/flags/jp.svg";
+import frFlag from "../../assets/flags/fr.svg";
+import esFlag from "../../assets/flags/es.svg";
+import krFlag from "../../assets/flags/kr.svg";
+import cnFlag from "../../assets/flags/cn.svg";
 
 export type { Language, Currency };
 
@@ -11,12 +16,12 @@ interface Props {
 }
 
 const LANGUAGES: { code: Language; flag: string }[] = [
-  { code: "en", flag: "gb" },
-  { code: "ja", flag: "jp" },
-  { code: "fr", flag: "fr" },
-  { code: "es", flag: "es" },
-  { code: "ko", flag: "kr" },
-  { code: "zh", flag: "cn" },
+  { code: "en", flag: gbFlag },
+  { code: "ja", flag: jpFlag },
+  { code: "fr", flag: frFlag },
+  { code: "es", flag: esFlag },
+  { code: "ko", flag: krFlag },
+  { code: "zh", flag: cnFlag },
 ];
 
 const CURRENCY_SYMBOLS: Record<Currency, string> = {
@@ -48,7 +53,7 @@ export function TCDA_LanguageCurrencySwitcher({
               language === code ? "opacity-100" : "opacity-30 hover:opacity-60"
             }`}
           >
-            <span className={`fi fi-${flag}`} style={{ fontSize: "14px" }} />
+            <img src={flag} alt={code} className="w-5 h-auto" />
           </button>
         ))}
       </div>
