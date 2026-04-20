@@ -180,6 +180,15 @@ const { t } = useTranslation();
       size: selectedSize,
       imageUrl: product.images?.[0] || product.thumbnail_url,
     });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'AddToCart',
+      content_ids: [product.id],
+      content_name: product.name,
+      content_type: 'product',
+      value: product.price,
+      currency: 'JPY'
+    });
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
