@@ -35,7 +35,7 @@ export function TCDA_GlobalNav() {
             to={`/${language}/`}
             className="text-white text-xs font-light tracking-[0.4em] uppercase opacity-90 hover:opacity-100 transition-opacity duration-300"
           >
-            <img src="https://cdn.tcdashop.com/logo/1.png" alt="TCDA" className="h-6 w-auto" />
+            <img src="https://cdn.tcdashop.com/logo/1.png" srcSet="https://cdn.tcdashop.com/logo/1-small.png 48w, https://cdn.tcdashop.com/logo/1.png 768w" sizes="48px" alt="TCDA" className="h-6 w-auto" />
           </Link>
 
           {/* Center — Nav links (desktop) */}
