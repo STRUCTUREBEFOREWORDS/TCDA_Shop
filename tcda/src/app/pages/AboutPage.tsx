@@ -297,6 +297,8 @@ export function AboutPage() {
       <div className="w-full overflow-hidden">
         <img
           src="https://cdn.tcdashop.com/top/1.webp"
+          srcSet="https://cdn.tcdashop.com/top/1-mobile.webp 550w, https://cdn.tcdashop.com/top/1.webp 902w"
+          sizes="(max-width: 768px) 550px, 902px"
           alt="TCDA"
           className="w-full h-[50vh] md:h-[70vh] object-cover"
         />
