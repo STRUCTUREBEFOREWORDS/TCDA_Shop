@@ -218,12 +218,18 @@ export function TopPage() {
                 transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Link to={`/${language}/product/${product.id}`} className="group block">
-                  <div className="aspect-[3/4] overflow-hidden bg-white/5 mb-4">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-white/5 mb-4">
                     <ImageWithFallback
                       src={product.images?.[0] || product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-700"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
+                    <div className="absolute bottom-4 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
+                      <span className="text-white text-[11px] tracking-[0.3em] uppercase border-b border-[#E8FF00] pb-px">
+                        View
+                      </span>
+                    </div>
                   </div>
                   <div className="space-y-1.5">
                     <p className="text-white/70 text-[10px] tracking-[0.3em] uppercase group-hover:text-white transition-colors duration-300">

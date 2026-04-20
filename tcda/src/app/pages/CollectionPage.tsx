@@ -118,9 +118,14 @@ export function CollectionPage() {
                     <ImageWithFallback
                       src={getPrimaryImage(product)}
                       alt={product.name}
-                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.06]"
                     />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
+                    <div className="absolute bottom-4 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
+                      <span className="text-white text-[11px] tracking-[0.3em] uppercase border-b border-[#E8FF00] pb-px">
+                        View
+                      </span>
+                    </div>
                   </div>
 
                   {/* Product info */}
