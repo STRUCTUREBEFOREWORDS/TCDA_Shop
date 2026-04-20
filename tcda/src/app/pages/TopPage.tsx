@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Helmet } from "react-helmet-async";
@@ -37,6 +38,19 @@ export function TopPage() {
   const { products } = useProducts();
 
   const w = worldText[language] ?? worldText.en;
+
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!imgRef.current) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 12;
+      const y = (e.clientY / window.innerHeight - 0.5) * 8;
+      imgRef.current.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const convertAndFormat = (jpy: number) => {
     const rate = rates[currency] ?? 1;
@@ -78,12 +92,14 @@ export function TopPage() {
       {/* 1. HERO */}
       <section className="relative h-screen w-full overflow-hidden">
         <img
+          ref={imgRef}
           src="https://cdn.tcdashop.com/top/1.webp"
           alt="TCDA"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
           loading="eager"
           fetchPriority="high"
           decoding="async"
+          style={{ willChange: 'transform', transition: 'transform 0.7s cubic-bezier(0.22,1,0.36,1)' }}
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
