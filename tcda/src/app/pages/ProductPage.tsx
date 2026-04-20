@@ -82,6 +82,7 @@ const { t } = useTranslation();
     q: t(`faq.${key}.q`),
     a: t(`faq.${key}.a`),
   }));
+  console.log("[FAQ DEBUG]", purchaseFaqItems);
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string>("");
