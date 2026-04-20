@@ -14,7 +14,7 @@ export function PrivacyPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-white text-black px-6 py-20 max-w-2xl mx-auto">
+    <div className="min-h-screen bg-black text-white px-6 py-20 max-w-2xl mx-auto">
       <Helmet>
         <title>{t("privacy.title")} | TCDA</title>
       </Helmet>
@@ -24,13 +24,13 @@ export function PrivacyPage() {
       <div className="space-y-10 text-xs font-light leading-loose">
         {SECTION_KEYS.map((key) => (
           <section key={key}>
-            <h2 className="tracking-widest uppercase mb-4 text-black/40">
+            <h2 className="tracking-widest uppercase mb-4 text-white/40">
               {t(`privacy.sections.${key}.title`)}
             </h2>
             <p>{t(`privacy.sections.${key}.body`)}</p>
           </section>
         ))}
-        <p className="text-black/30">{t("privacy.effectiveDate")}</p>
+        <p className="text-white/30">{t("privacy.effectiveDate")}</p>
       </div>
     </div>
   );

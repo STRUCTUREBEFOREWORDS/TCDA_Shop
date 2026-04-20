@@ -145,7 +145,7 @@ const { t } = useTranslation();
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-black text-sm font-light tracking-widest opacity-40">{t("common.loading")}</p>
+        <p className="text-white text-sm font-light tracking-widest opacity-40">{t("common.loading")}</p>
       </div>
     );
   }
@@ -153,7 +153,7 @@ const { t } = useTranslation();
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-black text-sm font-light tracking-widest opacity-40">{t("product.notFound")}</p>
+        <p className="text-white text-sm font-light tracking-widest opacity-40">{t("product.notFound")}</p>
       </div>
     );
   }
@@ -176,7 +176,7 @@ const { t } = useTranslation();
   };
 
   return (
-    <div className="min-h-screen bg-white pt-20">
+    <div className="min-h-screen bg-black text-white pt-20">
       <Helmet>
         <title>{product.name} | TCDA</title>
         <meta name="description" content={product.description || product.fabric_composition || "Transcend Color Digital Apparel — アートを着る、感性を解放する。"} />
@@ -223,7 +223,7 @@ const { t } = useTranslation();
       <div className="px-4 sm:px-6 md:px-10 lg:px-20 py-6 max-w-7xl mx-auto">
         <Link
           to={`/${language}/products`}
-          className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-40 hover:opacity-100 transition-opacity duration-300"
+          className="text-white text-xs font-light tracking-[0.3em] uppercase opacity-40 hover:opacity-100 transition-opacity duration-300"
         >
           {t("product.backToShop")}
         </Link>
@@ -312,7 +312,7 @@ const { t } = useTranslation();
             className="flex flex-col gap-8 pt-4"
           >
             {/* Name */}
-            <h1 className="text-black text-2xl font-light tracking-widest uppercase">
+            <h1 className="text-white text-2xl font-light tracking-widest uppercase">
               {product.name}
             </h1>
 
@@ -320,7 +320,7 @@ const { t } = useTranslation();
             <p className="text-[#E8FF00] text-xl font-light">
               {formatPrice(convertedPrice, currency)}
             </p>
-            <p className="text-black/40 text-[10px] font-light tracking-wide -mt-6">
+            <p className="text-white/40 text-[10px] font-light tracking-wide -mt-6">
               {t("cart.taxNote")}
             </p>
 
@@ -334,14 +334,14 @@ const { t } = useTranslation();
                 {t("product.stockRemaining", { count: product.stock })}
               </p>
             ) : (
-              <p className="text-black text-xs font-light opacity-40 tracking-widest">
+              <p className="text-white text-xs font-light opacity-40 tracking-widest">
                 {t("product.stockRemaining", { count: product.stock })}
               </p>
             )}
 
             {/* Size selection */}
             <div>
-              <p className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-40 mb-4">
+              <p className="text-white text-xs font-light tracking-[0.3em] uppercase opacity-40 mb-4">
                 {t("size.label")}
               </p>
               <div className="flex flex-wrap gap-3">
@@ -365,7 +365,7 @@ const { t } = useTranslation();
             {product.stock === 0 ? (
               <div className="space-y-3">
                 {notifySubmitted ? (
-                  <p className="text-black/50 text-xs font-light tracking-widest text-center py-4">
+                  <p className="text-white/50 text-xs font-light tracking-widest text-center py-4">
                     {t("product.notifyRegistered")}
                   </p>
                 ) : (
@@ -375,7 +375,7 @@ const { t } = useTranslation();
                       value={notifyEmail}
                       onChange={(e) => setNotifyEmail(e.target.value)}
                       placeholder={t("product.notifyEmailPlaceholder")}
-                      className="w-full border border-black/20 px-4 py-3 text-xs font-light tracking-wide focus:outline-none focus:border-black/60 placeholder:text-black/30"
+                      className="w-full border border-white/20 px-4 py-3 text-xs font-light tracking-wide focus:outline-none focus:border-white/60 placeholder:text-white/30"
                     />
                     <button
                       onClick={async () => {
@@ -465,31 +465,31 @@ const { t } = useTranslation();
               return (
                 <div className="pt-4 pb-2">
                   <div className="flex items-baseline gap-3 mb-3">
-                    <span className="text-black/60 text-[11px] tracking-wider">
+                    <span className="text-white/60 text-[11px] tracking-wider">
                       {"★".repeat(Math.round(avg))}{"☆".repeat(5 - Math.round(avg))}
                     </span>
-                    <span className="text-black/30 text-[10px] font-light tracking-wider">
+                    <span className="text-white/30 text-[10px] font-light tracking-wider">
                       {avg.toFixed(1)} ({reviews.length})
                     </span>
                   </div>
                   <div className="space-y-4">
                     {reviews.map((r, i) => (
-                      <div key={i} className="border-b border-black/5 pb-4 last:border-0">
+                      <div key={i} className="border-b border-white/5 pb-4 last:border-0">
                         <div className="flex items-center justify-between mb-1">
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px] text-black/50">
+                            <span className="text-[10px] text-white/50">
                               {"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}
                             </span>
-                            <span className="text-[10px] font-light text-black/40">
+                            <span className="text-[10px] font-light text-white/40">
                               {r.name || t("reviews.anonymous")}
                             </span>
                           </div>
-                          <span className="text-[9px] text-black/25">
+                          <span className="text-[9px] text-white/25">
                             {new Date(r.created_at).toLocaleDateString()}
                           </span>
                         </div>
                         {r.body && (
-                          <p className="text-[11px] font-light text-black/50 leading-relaxed">
+                          <p className="text-[11px] font-light text-white/50 leading-relaxed">
                             {r.body}
                           </p>
                         )}
@@ -506,7 +506,7 @@ const { t } = useTranslation();
                 {(["processed", "delivered", "supported"] as const).map((key) => (
                   <li key={key} className="flex items-center gap-2">
                     <span className="w-1 h-1 rounded-full bg-black/25 flex-shrink-0" />
-                    <span className="text-black/45 text-[10px] font-light leading-relaxed">
+                    <span className="text-white/45 text-[10px] font-light leading-relaxed">
                       {t(`trust.${key}`)}
                     </span>
                   </li>
@@ -514,39 +514,39 @@ const { t } = useTranslation();
               </ul>
               <Link
                 to={`/${language}/shipping-returns`}
-                className="text-black/30 text-[10px] font-light tracking-widest uppercase hover:text-black/60 transition-colors duration-200"
+                className="text-white/30 text-[10px] font-light tracking-widest uppercase hover:text-white/60 transition-colors duration-200"
               >
                 {t("trust.shippingReturnsLink")} →
               </Link>
             </div>
 
             {/* Delivery */}
-            <div className="border-t border-black/10 pt-6">
-              <p className="text-black text-xs font-light tracking-widest uppercase opacity-40 mb-2">
+            <div className="border-t border-white/10 pt-6">
+              <p className="text-white text-xs font-light tracking-widest uppercase opacity-40 mb-2">
                 {t("product.deliveryLabel")}
               </p>
-              <p className="text-black text-xs font-light opacity-60 leading-relaxed">
+              <p className="text-white text-xs font-light opacity-60 leading-relaxed">
                 {t("product.deliveryText")}
               </p>
             </div>
 
             {/* Model info */}
-            <div className="border-t border-black/10 pt-6">
-              <p className="text-black text-xs font-light tracking-widest uppercase opacity-40 mb-2">
+            <div className="border-t border-white/10 pt-6">
+              <p className="text-white text-xs font-light tracking-widest uppercase opacity-40 mb-2">
                 {t("product.modelLabel")}
               </p>
               <div className="space-y-1">
                 {product.gender_type !== "womens" && (
-                  <p className="text-black text-xs font-light opacity-60 leading-relaxed">
+                  <p className="text-white text-xs font-light opacity-60 leading-relaxed">
                     {t("product.mensModel")}
                   </p>
                 )}
                 {product.gender_type !== "mens" && (
-                  <p className="text-black text-xs font-light opacity-60 leading-relaxed">
+                  <p className="text-white text-xs font-light opacity-60 leading-relaxed">
                     {t("product.womensModel")}
                   </p>
                 )}
-                <p className="text-black text-xs font-light opacity-30 leading-relaxed mt-2">
+                <p className="text-white text-xs font-light opacity-30 leading-relaxed mt-2">
                   {t("product.aiModelNote")}
                 </p>
               </div>
@@ -563,12 +563,12 @@ const { t } = useTranslation();
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="border-t border-black/10 pt-8"
+          className="border-t border-white/10 pt-8"
         >
-          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+          <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
             {t("product.materialDetailsLabel")}
           </h2>
-          <p className="text-black text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
+          <p className="text-white text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
             {product.fabric_composition || '100% polyester, sublimation print. Machine wash cold. Do not tumble dry. All-over dye sublimation process produces vibrant, fade-resistant graphics that are part of the fabric itself.'}
           </p>
         </motion.div>
@@ -580,12 +580,12 @@ const { t } = useTranslation();
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="border-t border-black/10 pt-8"
+            className="border-t border-white/10 pt-8"
           >
-            <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+            <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
               {t("product.descriptionLabel")}
             </h2>
-            <p className="text-black text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
+            <p className="text-white text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
               {product.description}
             </p>
           </motion.div>
@@ -597,24 +597,24 @@ const { t } = useTranslation();
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="border-t border-black/10 pt-8"
+          className="border-t border-white/10 pt-8"
         >
-          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+          <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
             {t("size.guide")}
           </h2>
 
           {product.fit_metadata && product.fit_metadata.fit_label_normalized !== "unknown" && (
             <div className="mb-5 space-y-1.5">
               <div className="flex items-center gap-2">
-                <span className="text-black text-xs font-light tracking-widest uppercase opacity-40">
+                <span className="text-white text-xs font-light tracking-widest uppercase opacity-40">
                   {t("sizeGuide.fit")}
                 </span>
-                <span className="text-black text-xs font-light tracking-[0.2em] uppercase">
+                <span className="text-white text-xs font-light tracking-[0.2em] uppercase">
                   {t(FIT_LABEL_MAP[product.fit_metadata.fit_label_normalized])}
                 </span>
               </div>
               {product.fit_metadata.model_height_cm && product.fit_metadata.model_wear_size && (
-                <p className="text-black/50 text-xs font-light">
+                <p className="text-white/50 text-xs font-light">
                   {product.fit_metadata.model_height_cm}cm / {product.fit_metadata.model_wear_size}
                   {product.fit_metadata.is_ai_model && (
                     <span className="ml-2 opacity-50">{t("product.aiModelNote")}</span>
@@ -622,7 +622,7 @@ const { t } = useTranslation();
                 </p>
               )}
               {product.fit_metadata.recommendation_note && (
-                <p className="text-black/50 text-xs font-light leading-relaxed">
+                <p className="text-white/50 text-xs font-light leading-relaxed">
                   {product.fit_metadata.recommendation_note}
                 </p>
               )}
@@ -631,7 +631,7 @@ const { t } = useTranslation();
 
           <button
             onClick={() => setSizeGuideOpen(true)}
-            className="text-black text-xs font-light tracking-[0.3em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300 border-b border-black/20 pb-0.5"
+            className="text-white text-xs font-light tracking-[0.3em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300 border-b border-white/20 pb-0.5"
           >
             {t("sizeGuide.seeGuide")} →
           </button>
@@ -657,12 +657,12 @@ const { t } = useTranslation();
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="border-t border-black/10 pt-8"
+            className="border-t border-white/10 pt-8"
           >
-            <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+            <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
               {t("product.deliveryLabel")}
             </h2>
-            <p className="text-black text-sm font-light opacity-60 leading-relaxed">
+            <p className="text-white text-sm font-light opacity-60 leading-relaxed">
               {deliveryDate.min} 〜 {deliveryDate.max}
             </p>
           </motion.div>
@@ -675,12 +675,12 @@ const { t } = useTranslation();
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="border-t border-black/10 pt-8"
+            className="border-t border-white/10 pt-8"
           >
-            <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+            <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
               {t("product.notesTitle")}
             </h2>
-            <ul className="text-black text-sm font-light opacity-60 leading-relaxed space-y-2">
+            <ul className="text-white text-sm font-light opacity-60 leading-relaxed space-y-2">
               <li>{t("product.notesItem1")}</li>
               <li>{t("product.notesItem2")}</li>
             </ul>
@@ -693,12 +693,12 @@ const { t } = useTranslation();
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="border-t border-black/10 pt-8"
+          className="border-t border-white/10 pt-8"
         >
-          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-4">
+          <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
             {t("checkout.shippingInfo")}
           </h2>
-          <p className="text-black text-sm font-light opacity-60 leading-relaxed">
+          <p className="text-white text-sm font-light opacity-60 leading-relaxed">
             {t("checkout.shippingReturnsText")}
           </p>
         </motion.div>
@@ -709,9 +709,9 @@ const { t } = useTranslation();
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="border-t border-black/10 pt-8"
+          className="border-t border-white/10 pt-8"
         >
-          <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-6">
+          <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-6">
             {t("faq.purchaseTitle")}
           </h2>
           <FaqAccordion items={purchaseFaqItems} />

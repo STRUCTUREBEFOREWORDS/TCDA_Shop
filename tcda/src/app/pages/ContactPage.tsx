@@ -52,24 +52,24 @@ export function ContactPage() {
   }
 
   const inputClass =
-    "w-full bg-white border border-black/15 px-4 py-3 text-sm font-light text-black placeholder:text-black/25 focus:outline-none focus:border-black/40 transition-colors duration-200";
+    "w-full bg-black border border-white/15 px-4 py-3 text-sm font-light text-white placeholder:text-white/25 focus:outline-none focus:border-white/40 transition-colors duration-200";
 
   const labelClass =
-    "block text-black/40 text-[10px] font-light tracking-widest uppercase mb-1.5";
+    "block text-white/40 text-[10px] font-light tracking-widest uppercase mb-1.5";
 
   return (
-    <div className="min-h-screen bg-white pt-20">
+    <div className="min-h-screen bg-black pt-20">
       <Helmet>
         <title>{t("contact.title")} | TCDA</title>
       </Helmet>
 
       {/* Page header */}
-      <div className="px-8 md:px-20 max-w-4xl mx-auto py-16 border-b border-black/10">
+      <div className="px-8 md:px-20 max-w-4xl mx-auto py-16 border-b border-white/10">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-black/20 text-[10px] font-light tracking-[0.5em] uppercase mb-4"
+          className="text-white/20 text-[10px] font-light tracking-[0.5em] uppercase mb-4"
         >
           {t("contact.title")}
         </motion.p>
@@ -77,7 +77,7 @@ export function ContactPage() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-black/50 text-sm font-light leading-relaxed max-w-xl"
+          className="text-white/50 text-sm font-light leading-relaxed max-w-xl"
         >
           {t("contact.intro")}
         </motion.p>
@@ -96,18 +96,18 @@ export function ContactPage() {
               transition={{ duration: 0.5 }}
               className="max-w-md space-y-4"
             >
-              <p className="text-black text-sm font-light tracking-widest uppercase">
+              <p className="text-white text-sm font-light tracking-widest uppercase">
                 {t("contact.successTitle")}
               </p>
-              <p className="text-black/50 text-sm font-light leading-relaxed">
+              <p className="text-white/50 text-sm font-light leading-relaxed">
                 {t("contact.successBody")}
               </p>
-              <p className="text-black/30 text-[10px] font-light tracking-widest uppercase mt-4">
+              <p className="text-white/30 text-[10px] font-light tracking-widest uppercase mt-4">
                 {t("contact.replyNote")}
               </p>
               <a
                 href={`mailto:${t("contact.directEmail")}`}
-                className="text-black/40 text-xs font-light hover:text-black transition-colors duration-200"
+                className="text-white/40 text-xs font-light hover:text-white transition-colors duration-200"
               >
                 {t("contact.directEmail")}
               </a>
@@ -204,12 +204,12 @@ export function ContactPage() {
               {/* Error state */}
               {formState === "error" && (
                 <div className="py-3 space-y-2">
-                  <p className="text-black/60 text-xs font-light leading-relaxed">
+                  <p className="text-white/60 text-xs font-light leading-relaxed">
                     {t("contact.errorBody")}
                   </p>
                   <a
                     href={`mailto:${t("contact.directEmail")}`}
-                    className="block text-black/50 text-xs font-light hover:text-black transition-colors duration-200"
+                    className="block text-white/50 text-xs font-light hover:text-white transition-colors duration-200"
                   >
                     {t("contact.directEmail")}
                   </a>
@@ -217,7 +217,7 @@ export function ContactPage() {
               )}
 
               {/* Reply note */}
-              <p className="text-black/25 text-[10px] font-light tracking-wide">
+              <p className="text-white/25 text-[10px] font-light tracking-wide">
                 {t("contact.replyNote")}
               </p>
 
@@ -225,7 +225,7 @@ export function ContactPage() {
               <button
                 type="submit"
                 disabled={formState === "submitting"}
-                className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.3em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-40"
+                className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-40"
               >
                 {formState === "submitting" ? t("contact.submitting") : t("contact.submit")}
               </button>

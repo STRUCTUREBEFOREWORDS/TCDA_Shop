@@ -24,13 +24,13 @@ const { t } = useTranslation();
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-white flex flex-col items-center justify-center gap-8 pt-14">
-        <p className="text-black/30 text-xs font-light tracking-[0.3em] uppercase">
+      <div className="min-h-screen bg-black flex flex-col items-center justify-center gap-8 pt-14">
+        <p className="text-white/30 text-xs font-light tracking-[0.3em] uppercase">
           {t("cart.cartEmpty")}
         </p>
         <Link
           to={`/${language}/products`}
-          className="text-black text-xs font-light tracking-[0.3em] uppercase border-b border-black/20 pb-1 hover:border-black/60 transition-colors duration-300"
+          className="text-white text-xs font-light tracking-[0.3em] uppercase border-b border-white/20 pb-1 hover:border-white/60 transition-colors duration-300"
         >
           {t("cart.continueShopping")}
         </Link>
@@ -39,7 +39,7 @@ const { t } = useTranslation();
   }
 
   return (
-    <div className="min-h-screen bg-white pt-14">
+    <div className="min-h-screen bg-black pt-14">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -47,9 +47,9 @@ const { t } = useTranslation();
         className="max-w-5xl mx-auto px-6 md:px-10 py-16"
       >
         {/* Header */}
-        <h1 className="text-black text-xs font-light tracking-[0.4em] uppercase mb-16">
+        <h1 className="text-white text-xs font-light tracking-[0.4em] uppercase mb-16">
           {t("viewCart")}
-          <span className="ml-2 text-black/30">({cartItems.length})</span>
+          <span className="ml-2 text-white/30">({cartItems.length})</span>
         </h1>
 
         <div className="lg:grid lg:grid-cols-[1fr_280px] lg:gap-16">
@@ -74,11 +74,11 @@ const { t } = useTranslation();
 
                 {/* Info */}
                 <div className="flex-1 min-w-0 space-y-2">
-                  <p className="text-black text-sm font-light">{item.artworkName}</p>
-                  <p className="text-black/40 text-[10px] font-light tracking-widest uppercase">
+                  <p className="text-white text-sm font-light">{item.artworkName}</p>
+                  <p className="text-white/40 text-[10px] font-light tracking-widest uppercase">
                     {t("size")}: {item.size}
                   </p>
-                  <p className="text-black text-sm font-extralight tracking-wider">
+                  <p className="text-white text-sm font-extralight tracking-wider">
                     {formatPrice(item.price * item.quantity, currency)}
                   </p>
 
@@ -88,18 +88,18 @@ const { t } = useTranslation();
                       onClick={() =>
                         updateQuantity(item.artworkId, item.size, item.quantity - 1)
                       }
-                      className="text-black/30 hover:text-black transition-colors"
+                      className="text-white/30 hover:text-white transition-colors"
                     >
                       <Minus size={12} strokeWidth={1.5} />
                     </button>
-                    <span className="text-black text-xs font-light w-4 text-center">
+                    <span className="text-white text-xs font-light w-4 text-center">
                       {item.quantity}
                     </span>
                     <button
                       onClick={() =>
                         updateQuantity(item.artworkId, item.size, item.quantity + 1)
                       }
-                      className="text-black/30 hover:text-black transition-colors"
+                      className="text-white/30 hover:text-white transition-colors"
                     >
                       <Plus size={12} strokeWidth={1.5} />
                     </button>
@@ -109,7 +109,7 @@ const { t } = useTranslation();
                 {/* Remove */}
                 <button
                   onClick={() => removeFromCart(item.artworkId, item.size)}
-                  className="text-black/20 hover:text-black/50 transition-colors self-start mt-1"
+                  className="text-white/20 hover:text-white/50 transition-colors self-start mt-1"
                 >
                   <X size={12} strokeWidth={1.5} />
                 </button>
@@ -119,41 +119,41 @@ const { t } = useTranslation();
 
           {/* Summary */}
           <div className="mt-12 lg:mt-0">
-            <div className="border border-black/10 p-8 space-y-6 sticky top-20">
-              <h2 className="text-black text-[10px] font-light tracking-[0.3em] uppercase">
+            <div className="border border-white/10 p-8 space-y-6 sticky top-20">
+              <h2 className="text-white text-[10px] font-light tracking-[0.3em] uppercase">
                 {t("cart.orderSummary")}
               </h2>
 
               <div className="space-y-3">
-                <div className="flex justify-between text-xs font-light text-black/60">
+                <div className="flex justify-between text-xs font-light text-white/60">
                   <span>{t("cart.subtotal")}</span>
                   <span>{formatPrice(subtotal, currency)}</span>
                 </div>
-                <div className="flex justify-between text-xs font-light text-black/60">
+                <div className="flex justify-between text-xs font-light text-white/60">
                   <span>{t("cart.shipping")}</span>
                   <span>{t("cart.free")}</span>
                 </div>
               </div>
 
-              <div className="border-t border-black/10 pt-4 flex justify-between">
-                <span className="text-black text-xs font-light tracking-[0.2em] uppercase">
+              <div className="border-t border-white/10 pt-4 flex justify-between">
+                <span className="text-white text-xs font-light tracking-[0.2em] uppercase">
                   {t("total")}
                 </span>
-                <span className="text-black text-lg font-extralight tracking-wider">
+                <span className="text-white text-lg font-extralight tracking-wider">
                   {formatPrice(subtotal, currency)}
                 </span>
               </div>
 
               <button
                 onClick={handleCheckout}
-                className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.25em] uppercase hover:bg-black/80 transition-colors duration-300"
+                className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.25em] uppercase hover:bg-white transition-colors duration-300"
               >
                 {t("cart.checkout")}
               </button>
 
               <Link
                 to={`/${language}/products`}
-                className="block text-center text-black/30 text-[10px] font-light tracking-widest uppercase hover:text-black/60 transition-colors duration-300"
+                className="block text-center text-white/30 text-[10px] font-light tracking-widest uppercase hover:text-white/60 transition-colors duration-300"
               >
                 {t("cart.continueShopping")}
               </Link>

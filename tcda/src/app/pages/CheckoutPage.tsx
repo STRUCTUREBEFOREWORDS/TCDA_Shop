@@ -64,14 +64,14 @@ const { t } = useTranslation();
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center pt-14">
+      <div className="min-h-screen bg-black flex items-center justify-center pt-14">
         <div className="text-center space-y-6">
-          <p className="text-black/40 text-xs font-light tracking-widest uppercase">
+          <p className="text-white/40 text-xs font-light tracking-widest uppercase">
             No items
           </p>
           <button
             onClick={() => navigate(`/${language}/products`)}
-            className="text-black text-xs font-light tracking-widest uppercase border-b border-black/20 pb-1 hover:border-black transition-colors"
+            className="text-white text-xs font-light tracking-widest uppercase border-b border-white/20 pb-1 hover:border-white/30 transition-colors"
           >
             {t("cart.continueShopping")}
           </button>
@@ -111,8 +111,8 @@ const { t } = useTranslation();
   ];
 
   const OrderSummary = () => (
-    <div className="border border-black/10 p-6 space-y-6 sticky top-20">
-      <h3 className="text-black/40 text-[10px] font-light tracking-[0.3em] uppercase">
+    <div className="border border-white/10 p-6 space-y-6 sticky top-20">
+      <h3 className="text-white/40 text-[10px] font-light tracking-[0.3em] uppercase">
         {t("cart.orderSummary")}
       </h3>
       <div className="space-y-4">
@@ -126,31 +126,31 @@ const { t } = useTranslation();
               />
             </div>
             <div className="flex-1 min-w-0 space-y-1">
-              <p className="text-black text-xs font-light leading-snug truncate">
+              <p className="text-white text-xs font-light leading-snug truncate">
                 {item.artworkName}
               </p>
-              <p className="text-black/40 text-[10px] font-light">
+              <p className="text-white/40 text-[10px] font-light">
                 {t("size.label")}: {item.size} · {t("cart.quantity")}: {item.quantity}
               </p>
-              <p className="text-black text-xs font-extralight">
+              <p className="text-white text-xs font-extralight">
                 {formatPrice(item.price * item.quantity, currency)}
               </p>
             </div>
           </div>
         ))}
       </div>
-      <div className="border-t border-black/10 pt-4 space-y-2">
-        <div className="flex justify-between text-xs font-light text-black/40">
+      <div className="border-t border-white/10 pt-4 space-y-2">
+        <div className="flex justify-between text-xs font-light text-white/40">
           <span>{t("cart.shipping")}</span>
           <span className="text-right">{t("cart.shippingNote")}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-black text-xs font-light tracking-[0.2em] uppercase">{t("cart.total")}</span>
-          <span className="text-black text-base font-extralight tracking-wider">
+          <span className="text-white text-xs font-light tracking-[0.2em] uppercase">{t("cart.total")}</span>
+          <span className="text-white text-base font-extralight tracking-wider">
             {formatPrice(total, currency)}
           </span>
         </div>
-        <p className="text-black/30 text-[9px] font-light tracking-wide text-right">
+        <p className="text-white/30 text-[9px] font-light tracking-wide text-right">
           {t("cart.taxNote")}
         </p>
       </div>
@@ -158,7 +158,7 @@ const { t } = useTranslation();
   );
 
   return (
-    <div className="min-h-screen bg-white pt-14">
+    <div className="min-h-screen bg-black pt-14">
       <div className="max-w-5xl mx-auto px-6 md:px-10 py-16">
         {/* Step indicator */}
         <div className="flex items-center gap-3 mb-16">
@@ -170,15 +170,15 @@ const { t } = useTranslation();
                     step > num
                       ? "bg-black text-white"
                       : step === num
-                      ? "border border-black text-black"
-                      : "border border-black/15 text-black/25"
+                      ? "border border-white/30 text-white"
+                      : "border border-white/15 text-white/25"
                   }`}
                 >
                   {step > num ? <Check size={10} strokeWidth={2} /> : num}
                 </div>
                 <span
                   className={`text-[10px] font-light tracking-[0.2em] uppercase transition-colors duration-300 ${
-                    step === num ? "text-black" : "text-black/25"
+                    step === num ? "text-white" : "text-white/25"
                   }`}
                 >
                   {label}
@@ -205,7 +205,7 @@ const { t } = useTranslation();
                   onSubmit={(e) => { e.preventDefault(); setStep(2); }}
                   className="space-y-6"
                 >
-                  <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-8">
+                  <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-8">
                     {t("checkout.shippingInfo")}
                   </h2>
 
@@ -218,7 +218,7 @@ const { t } = useTranslation();
                     { key: "country", label: t("checkout.fieldCountry"), type: "text", placeholder: "Japan" },
                   ].map(({ key, label, type, placeholder }) => (
                     <div key={key}>
-                      <label className="block text-black/40 text-[10px] font-light tracking-[0.25em] uppercase mb-2">
+                      <label className="block text-white/40 text-[10px] font-light tracking-[0.25em] uppercase mb-2">
                         {label}
                       </label>
                       <input
@@ -227,14 +227,14 @@ const { t } = useTranslation();
                         value={shipping[key as keyof typeof shipping]}
                         onChange={(e) => setShipping({ ...shipping, [key]: e.target.value })}
                         placeholder={placeholder}
-                        className="w-full px-4 py-3 bg-white border border-black/15 text-black text-sm font-light placeholder:text-black/20 focus:outline-none focus:border-black transition-colors duration-200"
+                        className="w-full px-4 py-3 bg-black border border-white/15 text-white text-sm font-light placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-colors duration-200"
                       />
                     </div>
                   ))}
 
                   <button
                     type="submit"
-                    className="w-full mt-4 py-4 bg-black text-white text-xs font-light tracking-[0.25em] uppercase hover:bg-black/80 transition-colors duration-300"
+                    className="w-full mt-4 py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.25em] uppercase hover:bg-white transition-colors duration-300"
                   >
                     {t("checkout.next")}
                   </button>
@@ -251,21 +251,21 @@ const { t } = useTranslation();
                   transition={{ duration: 0.3 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-black text-xs font-light tracking-[0.3em] uppercase mb-8">
+                  <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-8">
                     {t("checkout.confirmOrder")}
                   </h2>
 
                   {/* Shipping summary */}
-                  <div className="border border-black/10 p-5 space-y-3">
-                    <p className="text-black/40 text-[10px] font-light tracking-[0.25em] uppercase">{t("checkout.shippingInfo")}</p>
+                  <div className="border border-white/10 p-5 space-y-3">
+                    <p className="text-white/40 text-[10px] font-light tracking-[0.25em] uppercase">{t("checkout.shippingInfo")}</p>
                     <div className="space-y-1">
                       {[shipping.name, shipping.email, shipping.address, `${shipping.city} ${shipping.postalCode}`, shipping.country].map((v, i) => (
-                        <p key={i} className="text-black text-xs font-light">{v}</p>
+                        <p key={i} className="text-white text-xs font-light">{v}</p>
                       ))}
                     </div>
                     <button
                       onClick={() => setStep(1)}
-                      className="text-black/40 text-[10px] font-light tracking-[0.2em] uppercase border-b border-black/15 pb-0.5 hover:text-black hover:border-black/40 transition-all duration-200"
+                      className="text-white/40 text-[10px] font-light tracking-[0.2em] uppercase border-b border-white/15 pb-0.5 hover:text-white hover:border-white/40 transition-all duration-200"
                     >
                       {t("checkout.back")}
                     </button>
@@ -274,7 +274,7 @@ const { t } = useTranslation();
                   <button
                     onClick={handlePlaceOrder}
                     disabled={isLoading}
-                    className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.25em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-40"
+                    className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.25em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-40"
                   >
                     {isLoading ? "..." : t("cart.placeOrder")}
                   </button>

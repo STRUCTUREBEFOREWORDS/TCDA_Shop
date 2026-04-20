@@ -271,7 +271,7 @@ export function AboutPage() {
   const { t: tl } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
 
       {/* 1. HERO */}
       <section className="min-h-screen flex flex-col justify-center px-5 sm:px-8 md:px-16 lg:px-20 pt-24 pb-20 bg-black">
@@ -303,15 +303,15 @@ export function AboutPage() {
       </div>
 
       {/* 1.7. STORY */}
-      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-white">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-black">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
-          <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase mb-12">
+          <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {tl("about.storyLabel")}
           </p>
-          <h2 className="text-black text-2xl md:text-3xl font-extralight leading-[1.6] tracking-wide mb-10">
+          <h2 className="text-white text-2xl md:text-3xl font-extralight leading-[1.6] tracking-wide mb-10">
             {tl("about.storyTitle")}
           </h2>
-          <p className="text-black/70 text-sm font-light leading-loose tracking-wide max-w-xl">
+          <p className="text-white/70 text-sm font-light leading-loose tracking-wide max-w-xl">
             {tl("about.storyBody")}
           </p>
         </motion.div>
@@ -368,14 +368,14 @@ export function AboutPage() {
       </section>
 
       {/* 2. PHILOSOPHY */}
-      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-white">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-black">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
-          <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase mb-12">
+          <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {t.philosophyLabel}
           </p>
           <div className="space-y-5">
             {t.philosophy.map((line, i) => (
-              <p key={i} className="text-black text-lg md:text-xl font-light leading-relaxed tracking-wide">
+              <p key={i} className="text-white text-lg md:text-xl font-light leading-relaxed tracking-wide">
                 {line}
               </p>
             ))}
@@ -400,14 +400,14 @@ export function AboutPage() {
       </section>
 
       {/* 4. DEFINITION */}
-      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-white">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-black">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
-          <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase mb-12">
+          <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {t.definitionLabel}
           </p>
           <div className="space-y-5">
             {t.definition.map((line, i) => (
-              <p key={i} className="text-black text-lg md:text-xl font-light leading-relaxed tracking-wide">
+              <p key={i} className="text-white text-lg md:text-xl font-light leading-relaxed tracking-wide">
                 {line}
               </p>
             ))}
@@ -435,14 +435,14 @@ export function AboutPage() {
       </section>
 
       {/* 6. MESSAGE */}
-      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-white">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 py-32 bg-black">
         <motion.div {...fadeUp} className="max-w-3xl mx-auto">
-          <p className="text-black/30 text-[10px] tracking-[0.4em] uppercase mb-12">
+          <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase mb-12">
             {t.messageLabel}
           </p>
           <div className="space-y-5">
             {t.message.map((line, i) => (
-              <p key={i} className="text-black text-xl md:text-2xl font-extralight leading-relaxed tracking-wide">
+              <p key={i} className="text-white text-xl md:text-2xl font-extralight leading-relaxed tracking-wide">
                 {line}
               </p>
             ))}
@@ -455,7 +455,7 @@ export function AboutPage() {
         <motion.div {...fadeUp} className="text-center">
           <Link
             to={`/${language}/products`}
-            className="inline-block px-16 py-5 bg-white text-black text-xs font-light tracking-[0.4em] uppercase hover:bg-white/90 transition-colors duration-300"
+            className="inline-block px-16 py-5 bg-[#E8FF00] text-black text-xs font-light tracking-[0.4em] uppercase hover:bg-white transition-colors duration-300"
           >
             {tl("about.viewCollection")}
           </Link>

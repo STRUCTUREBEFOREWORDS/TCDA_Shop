@@ -28,18 +28,18 @@ export function SizeGuidePage() {
   }));
 
   return (
-    <div className="min-h-screen bg-white pt-20">
+    <div className="min-h-screen bg-black pt-20">
       <Helmet>
         <title>{t("sizeGuide.title")} | TCDA</title>
       </Helmet>
 
       {/* Hero */}
-      <div className="px-8 md:px-20 max-w-4xl mx-auto py-16 border-b border-black/10">
+      <div className="px-8 md:px-20 max-w-4xl mx-auto py-16 border-b border-white/10">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-black/20 text-[10px] font-light tracking-[0.5em] uppercase mb-4"
+          className="text-white/20 text-[10px] font-light tracking-[0.5em] uppercase mb-4"
         >
           {t("sizeGuide.title")}
         </motion.p>
@@ -47,7 +47,7 @@ export function SizeGuidePage() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-black/50 text-sm font-light leading-relaxed max-w-xl"
+          className="text-white/50 text-sm font-light leading-relaxed max-w-xl"
         >
           {t("sizeGuide.pageIntro")}
         </motion.p>
@@ -62,7 +62,7 @@ export function SizeGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6 }}
-            className="text-black text-xs font-light tracking-[0.4em] uppercase mb-8 opacity-40"
+            className="text-white text-xs font-light tracking-[0.4em] uppercase mb-8 opacity-40"
           >
             {t("sizeGuide.fitDefinitions")}
           </motion.h2>
@@ -74,12 +74,12 @@ export function SizeGuidePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6 }}
-                className="border border-black/8 p-6"
+                className="border border-white/8 p-6"
               >
                 <span className={`inline-block px-2 py-0.5 text-[10px] font-light tracking-[0.3em] uppercase border mb-3 ${FIT_BADGE_COLOR[fit]}`}>
                   {t(`fit.${fit}`)}
                 </span>
-                <p className="text-black/60 text-xs font-light leading-relaxed">
+                <p className="text-white/60 text-xs font-light leading-relaxed">
                   {t(`fit.${fit}Note`)}
                 </p>
               </motion.div>
@@ -94,7 +94,7 @@ export function SizeGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6 }}
-            className="text-black text-xs font-light tracking-[0.4em] uppercase mb-8 opacity-40"
+            className="text-white text-xs font-light tracking-[0.4em] uppercase mb-8 opacity-40"
           >
             {t("sizeGuide.howToMeasure")}
           </motion.h2>
@@ -108,7 +108,7 @@ export function SizeGuidePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.5 }}
-                  className="border-t border-black/8 py-5 flex gap-4 items-start"
+                  className="border-t border-white/8 py-5 flex gap-4 items-start"
                 >
                   {/* Marker badge */}
                   <span className="w-6 h-6 flex items-center justify-center bg-black text-white text-[9px] font-light rounded-full flex-shrink-0 mt-0.5">
@@ -116,24 +116,24 @@ export function SizeGuidePage() {
                   </span>
                   {/* Label + help */}
                   <div className="min-w-0">
-                    <p className="text-black/60 text-[10px] font-light tracking-widest uppercase mb-1">
+                    <p className="text-white/60 text-[10px] font-light tracking-widest uppercase mb-1">
                       {t(labelKey)}
                     </p>
-                    <p className="text-black/45 text-xs font-light leading-relaxed">
+                    <p className="text-white/45 text-xs font-light leading-relaxed">
                       {t(helpKey)}
                     </p>
                   </div>
                 </motion.div>
               );
             })}
-            <div className="border-t border-black/8" />
+            <div className="border-t border-white/8" />
           </div>
           {/* Notes */}
           <div className="mt-5 space-y-1.5">
-            <p className="text-black/30 text-[10px] font-light">
+            <p className="text-white/30 text-[10px] font-light">
               {t("sizeGuide.measurementFlatNote")}
             </p>
-            <p className="text-black/25 text-[10px] font-light">
+            <p className="text-white/25 text-[10px] font-light">
               {t("sizeGuide.measurementVariationNote")}
             </p>
           </div>
@@ -146,7 +146,7 @@ export function SizeGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6 }}
-            className="text-black text-xs font-light tracking-[0.4em] uppercase mb-8 opacity-40"
+            className="text-white text-xs font-light tracking-[0.4em] uppercase mb-8 opacity-40"
           >
             {t("faq.fullTitle")}
           </motion.h2>

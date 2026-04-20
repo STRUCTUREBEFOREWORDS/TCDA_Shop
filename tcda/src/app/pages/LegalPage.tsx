@@ -19,7 +19,7 @@ export function LegalPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-white text-black px-6 py-20 max-w-2xl mx-auto">
+    <div className="min-h-screen bg-black text-white px-6 py-20 max-w-2xl mx-auto">
       <Helmet>
         <title>{t("legal.title")} | TCDA</title>
       </Helmet>
@@ -29,8 +29,8 @@ export function LegalPage() {
       <table className="w-full text-xs font-light leading-loose border-collapse">
         <tbody>
           {ROW_KEYS.map((key) => (
-            <tr key={key} className="border-t border-black/10">
-              <td className="py-4 pr-8 text-black/40 whitespace-nowrap align-top w-40">
+            <tr key={key} className="border-t border-white/10">
+              <td className="py-4 pr-8 text-white/40 whitespace-nowrap align-top w-40">
                 {t(`legal.sections.${key}.label`)}
               </td>
               <td className="py-4">{t(`legal.sections.${key}.value`)}</td>
