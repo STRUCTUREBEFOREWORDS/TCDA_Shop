@@ -166,19 +166,32 @@ export function Root() {
   }, [lang]);
 
   useEffect(() => {
+    const cached = sessionStorage.getItem("tcda_country");
+    if (cached) {
+      const currencyMap: Record<string, Currency> = {
+        JP: "JPY", US: "USD", GB: "GBP",
+        KR: "KRW", CN: "CNY",
+        DE: "EUR", FR: "EUR", IT: "EUR", ES: "EUR",
+      };
+      setCountryCode(cached);
+      if (currencyMap[cached]) setCurrency(currencyMap[cached]);
+      return;
+    }
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 3000);
-    fetch("https://ipapi.co/json/", { signal: controller.signal })
+    fetch("https://api.tcdashop.com/country", { signal: controller.signal })
       .then((res) => res.json())
       .then((data) => {
         clearTimeout(timeout);
-        if (data.country_code) setCountryCode(data.country_code);
+        const code = data.country ?? "JP";
         const currencyMap: Record<string, Currency> = {
           JP: "JPY", US: "USD", GB: "GBP",
           KR: "KRW", CN: "CNY",
           DE: "EUR", FR: "EUR", IT: "EUR", ES: "EUR",
         };
-        if (currencyMap[data.country_code]) setCurrency(currencyMap[data.country_code]);
+        setCountryCode(code);
+        if (currencyMap[code]) setCurrency(currencyMap[code]);
+        sessionStorage.setItem("tcda_country", code);
       })
       .catch(() => { clearTimeout(timeout); });
   }, []);
