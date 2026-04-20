@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Check } from "lucide-react";
 import { useGlobalContext } from "./Root";
@@ -7,6 +8,15 @@ export function PaymentSuccessPage() {
   const navigate = useNavigate();
   const { language } = useGlobalContext();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'Purchase',
+      value: 0,
+      currency: 'JPY'
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center pt-14">
