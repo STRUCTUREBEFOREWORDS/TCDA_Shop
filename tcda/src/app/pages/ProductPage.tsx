@@ -105,6 +105,15 @@ const { t } = useTranslation();
       .then((res) => { if (!res.ok) throw new Error(`API ${res.status}`); return res.json(); })
       .then(async (data: Product) => {
         setProduct(data);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'ViewContent',
+          content_ids: [data.id],
+          content_name: data.name,
+          content_type: 'product',
+          value: data.price,
+          currency: 'JPY'
+        });
         addRecentProduct({
           id: data.id,
           name: data.name,
