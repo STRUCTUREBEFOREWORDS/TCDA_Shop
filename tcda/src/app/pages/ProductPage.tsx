@@ -317,7 +317,7 @@ const { t } = useTranslation();
             </h1>
 
             {/* Price */}
-            <p className="text-black text-xl font-light">
+            <p className="text-[#E8FF00] text-xl font-light">
               {formatPrice(convertedPrice, currency)}
             </p>
             <p className="text-black/40 text-[10px] font-light tracking-wide -mt-6">
@@ -351,8 +351,8 @@ const { t } = useTranslation();
                     onClick={() => setSelectedSize(size)}
                     className={`w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-[11px] md:text-xs font-light tracking-widest uppercase transition-all duration-300 ${
                       selectedSize === size
-                        ? "bg-black text-white"
-                        : "bg-white text-black border border-black/20 hover:border-black/60"
+                        ? "border border-[#E8FF00] text-[#E8FF00]"
+                        : "border border-white/20 text-white/50 hover:border-white/50 hover:text-white/80"
                     }`}
                   >
                     {size}
@@ -403,7 +403,8 @@ const { t } = useTranslation();
               <button
                 onClick={handleAddToCart}
                 disabled={!selectedSize}
-                className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.3em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-30"
+                className="w-full py-4 bg-[#E8FF00] text-black text-xs tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-30"
+                style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.3em' }}
               >
                 {added ? t("cart.added") : t("cart.addToCart")}
               </button>

@@ -210,10 +210,10 @@ export function TopPage() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <p className="text-white/50 text-[10px] font-light tracking-[0.3em] uppercase group-hover:text-white/90 transition-colors duration-300">
+                    <p className="text-white/70 text-[10px] tracking-[0.3em] uppercase group-hover:text-white transition-colors duration-300">
                       {product.name}
                     </p>
-                    <p className="text-white text-sm font-extralight tracking-wider">
+                    <p className="text-[#E8FF00] text-sm tracking-wider">
                       {convertAndFormat(product.price)}
                     </p>
                   </div>

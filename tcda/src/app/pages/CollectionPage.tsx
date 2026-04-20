@@ -125,10 +125,10 @@ export function CollectionPage() {
 
                   {/* Product info */}
                   <div className="px-2 pt-3 pb-6 flex items-baseline justify-between gap-3">
-                    <h3 className="text-white/60 text-[10px] font-light tracking-[0.25em] uppercase truncate group-hover:text-white/90 transition-colors duration-300">
+                    <h3 className="text-white/70 text-[10px] font-light tracking-[0.25em] uppercase truncate group-hover:text-white transition-colors duration-300">
                       {product.name}
                     </h3>
-                    <p className="text-white/40 text-[10px] font-light tracking-wider shrink-0 group-hover:text-white/70 transition-colors duration-300">
+                    <p className="text-[#E8FF00] text-[10px] font-light tracking-wider shrink-0 group-hover:text-[#E8FF00]/80 transition-colors duration-300">
                       {convertAndFormat(product.price)}
                     </p>
                   </div>
