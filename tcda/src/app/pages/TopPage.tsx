@@ -9,9 +9,9 @@ import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 const WORLD_IMAGES = [
-  "https://cdn.tcdashop.com/top/2.webp",
-  "https://cdn.tcdashop.com/top/3.webp",
-  "https://cdn.tcdashop.com/top/4.webp",
+  { src: "https://cdn.tcdashop.com/top/2.webp", srcSet: "https://cdn.tcdashop.com/top/2-mobile.webp 400w, https://cdn.tcdashop.com/top/2.webp 800w", sizes: "(max-width: 768px) 400px, 800px" },
+  { src: "https://cdn.tcdashop.com/top/3.webp", srcSet: "https://cdn.tcdashop.com/top/3-mobile.webp 400w, https://cdn.tcdashop.com/top/3.webp 800w", sizes: "(max-width: 768px) 400px, 800px" },
+  { src: "https://cdn.tcdashop.com/top/4.webp", srcSet: "https://cdn.tcdashop.com/top/4-mobile.webp 400w, https://cdn.tcdashop.com/top/4.webp 798w", sizes: "(max-width: 768px) 400px, 798px" },
 ];
 
 const heroLine: Record<string, string> = {
@@ -94,6 +94,8 @@ export function TopPage() {
         <img
           ref={imgRef}
           src="https://cdn.tcdashop.com/top/1.webp"
+          srcSet="https://cdn.tcdashop.com/top/1-mobile.webp 550w, https://cdn.tcdashop.com/top/1.webp 902w"
+          sizes="(max-width: 768px) 550px, 902px"
           alt="TCDA"
           className="absolute inset-0 w-full h-full object-cover scale-105"
           loading="eager"
@@ -156,7 +158,7 @@ export function TopPage() {
       {/* 3. VISUAL — 3枚横並び */}
       <section className="bg-black px-6 md:px-10 pb-32">
         <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3 md:gap-6">
-          {WORLD_IMAGES.map((src, i) => (
+          {WORLD_IMAGES.map(({ src, srcSet, sizes }, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
@@ -168,6 +170,8 @@ export function TopPage() {
                 <div className="aspect-[2/3] overflow-hidden bg-white/5">
                   <img
                     src={src}
+                    srcSet={srcSet}
+                    sizes={sizes}
                     alt={`TCDA ${i + 1}`}
                     className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
                     loading="lazy"
