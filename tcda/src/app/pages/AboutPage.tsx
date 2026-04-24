@@ -19,6 +19,16 @@ const VALUES = [
   { key: "3" },
 ];
 
+const SECTION_NUM_STYLE: React.CSSProperties = {
+  position: "absolute",
+  top: "40px",
+  left: "var(--container-padding-desktop)",
+  fontFamily: "var(--font-body)",
+  fontSize: "var(--text-caption)",
+  letterSpacing: "var(--ls-nav)",
+  color: "var(--color-text-tertiary)",
+};
+
 export function AboutPage() {
   const { language, currency, countryCode } = useGlobalContext();
   const { t } = useTranslation();
@@ -46,25 +56,23 @@ export function AboutPage() {
         <meta property="og:url" content={canonical} />
       </Helmet>
 
-      {/* 1. Hero */}
-      <section className="min-h-screen flex flex-col items-center justify-center text-center px-5 sm:px-8">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[10px] tracking-[0.4em] uppercase mb-10"
-          style={{ color: "var(--color-text-tertiary)" }}
-        >
-          Transcend Creative Dimension Aura
-        </motion.p>
+      {/* 01. Hero */}
+      <section
+        className="relative flex flex-col justify-end items-start"
+        style={{
+          height: "80vh",
+          padding: "0 var(--container-padding-desktop) var(--section-padding-desktop)",
+        }}
+      >
+        <span style={SECTION_NUM_STYLE}>01</span>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="leading-[1.4] max-w-2xl"
+          className="leading-[1.2]"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "var(--text-heading)",
+            fontSize: "var(--text-display)",
             fontWeight: "var(--weight-light)",
             letterSpacing: "var(--ls-display)",
             color: "var(--color-text)",
@@ -74,58 +82,66 @@ export function AboutPage() {
         </motion.h1>
       </section>
 
-      {/* 2. Brand Visual */}
-      <div className="w-full overflow-hidden" style={{ height: "70vh" }}>
-        <img
-          src="https://cdn.tcdashop.com/top/1.webp"
-          srcSet="https://cdn.tcdashop.com/top/1-mobile.webp 550w, https://cdn.tcdashop.com/top/1.webp 902w"
-          sizes="(max-width: 768px) 550px, 902px"
-          alt="TCDA"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: "center center" }}
-        />
-      </div>
-
-      {/* 3. Story */}
+      {/* 02. Story */}
       <section
-        className="px-5 sm:px-8 md:px-16 lg:px-20 py-[120px] max-md:py-[60px]"
-        style={{ borderTop: "1px solid var(--color-border)" }}
+        className="relative"
+        style={{
+          marginTop: "160px",
+          paddingLeft: "var(--container-padding-desktop)",
+          paddingRight: "var(--container-padding-desktop)",
+        }}
       >
-        <motion.div {...fadeUp} className="max-w-2xl">
-          <p className="text-[10px] tracking-[0.4em] uppercase mb-10" style={{ color: "var(--color-text-tertiary)" }}>
-            {t("about.storyLabel")}
-          </p>
-          <h2
-            className="leading-[1.6] mb-8"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "var(--text-subheading)",
-              fontWeight: "var(--weight-light)",
-              letterSpacing: "var(--ls-display)",
-              color: "var(--color-text)",
-            }}
-          >
-            {t("about.storyTitle")}
-          </h2>
-          <p
-            className="text-sm font-light leading-loose"
-            style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", letterSpacing: "var(--ls-body)" }}
-          >
-            {t("about.storyBody")}
-          </p>
+        <span style={SECTION_NUM_STYLE}>02</span>
+        <motion.div
+          {...fadeUp}
+          className="grid grid-cols-1 md:grid-cols-[40%_60%] items-start"
+          style={{ gap: "80px" }}
+        >
+          {/* Left: image */}
+          <div className="w-full overflow-hidden" style={{ aspectRatio: "2/3" }}>
+            <img
+              src="https://cdn.tcdashop.com/top/1.webp"
+              srcSet="https://cdn.tcdashop.com/top/1-mobile.webp 550w, https://cdn.tcdashop.com/top/1.webp 902w"
+              sizes="(max-width: 768px) 550px, 902px"
+              alt="TCDA Story"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "center center" }}
+            />
+          </div>
+
+          {/* Right: text */}
+          <div className="flex flex-col justify-center">
+            <h2
+              className="leading-[1.4] mb-8"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "var(--text-subheading)",
+                fontWeight: "var(--weight-light)",
+                letterSpacing: "var(--ls-display)",
+                color: "var(--color-text)",
+              }}
+            >
+              {t("about.storyTitle")}
+            </h2>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                color: "var(--color-text-secondary)",
+                lineHeight: 1.8,
+                letterSpacing: "var(--ls-body)",
+              }}
+            >
+              {t("about.storyBody")}
+            </p>
+          </div>
         </motion.div>
       </section>
 
-      {/* 4. Values */}
-      <section
-        className="px-5 sm:px-8 md:px-16 lg:px-20 py-[120px] max-md:py-[60px]"
-        style={{ borderTop: "1px solid var(--color-border)" }}
-      >
+      {/* 03. Values */}
+      <section className="relative" style={{ marginTop: "160px" }}>
+        <span style={SECTION_NUM_STYLE}>03</span>
         <motion.div {...fadeUp}>
-          <p className="text-[10px] tracking-[0.4em] uppercase mb-14" style={{ color: "var(--color-text-tertiary)" }}>
-            {t("about.valuesTitle")}
-          </p>
-          <div className="grid md:grid-cols-3 gap-12 max-w-4xl">
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2px" }}>
             {VALUES.map(({ key }, i) => (
               <motion.div
                 key={key}
@@ -133,17 +149,28 @@ export function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                style={{ padding: "40px", border: "1px solid var(--color-border)" }}
               >
                 <span className="text-xs font-light" style={{ color: "var(--color-text-tertiary)" }}>0{i + 1}</span>
                 <h3
-                  className="text-[11px] tracking-[0.3em] uppercase mt-3 mb-4"
-                  style={{ color: "var(--color-text)", fontFamily: "var(--font-body)" }}
+                  className="mt-4 mb-4 leading-[1.4]"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "var(--text-subheading)",
+                    fontWeight: "var(--weight-light)",
+                    letterSpacing: "var(--ls-display)",
+                    color: "var(--color-text)",
+                  }}
                 >
                   {t(`about.value${key}`)}
                 </h3>
                 <p
-                  className="text-xs font-light leading-loose"
-                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", letterSpacing: "var(--ls-body)" }}
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    color: "var(--color-text-secondary)",
+                    lineHeight: 1.8,
+                    letterSpacing: "var(--ls-body)",
+                  }}
                 >
                   {t(`about.value${key}Body`)}
                 </p>
@@ -153,35 +180,47 @@ export function AboutPage() {
         </motion.div>
       </section>
 
-      {/* 5. CTA */}
+      {/* 04. CTA */}
       <section
-        className="py-[120px] max-md:py-[60px] flex items-center justify-center"
-        style={{ borderTop: "1px solid var(--color-border)" }}
+        className="relative flex flex-col items-center justify-center text-center"
+        style={{ height: "60vh", marginTop: "160px" }}
       >
-        <motion.div {...fadeUp} className="text-center">
+        <span style={SECTION_NUM_STYLE}>04</span>
+        <motion.div {...fadeUp} className="flex flex-col items-center gap-10">
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "var(--text-heading)",
+              fontWeight: "var(--weight-light)",
+              letterSpacing: "var(--ls-display)",
+              color: "var(--color-text)",
+            }}
+          >
+            {t("about.ctaLabel")}
+          </h2>
           <Link
             to={`/${language}/collection`}
             className="inline-block px-14 py-4 uppercase"
             style={{
-              border: "1px solid var(--color-accent)",
-              color: "var(--color-accent)",
+              border: "1px solid var(--color-text)",
+              color: "var(--color-text)",
               fontFamily: "var(--font-body)",
               fontSize: "var(--text-caption)",
               letterSpacing: "var(--ls-nav)",
               transition: "var(--transition-base)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "var(--color-accent)";
-              e.currentTarget.style.color = "var(--color-bg)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.borderColor = "var(--color-accent)";
               e.currentTarget.style.color = "var(--color-accent)";
             }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "var(--color-text)";
+              e.currentTarget.style.color = "var(--color-text)";
+            }}
           >
-            {t("about.ctaLabel")}
+            {t("nav.collection")}
           </Link>
-          <div className="flex items-center justify-center gap-2 mt-6" style={{ fontFamily: "var(--font-body)", fontSize: "13px" }}>
+          <div className="flex items-center justify-center gap-2" style={{ fontFamily: "var(--font-body)", fontSize: "13px" }}>
             <Link
               to={`/${language}/faq`}
               className="transition-all duration-300"
