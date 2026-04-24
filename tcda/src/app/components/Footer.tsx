@@ -13,22 +13,43 @@ const SNS_LINKS = [
   { href: "https://x.com/tcda_shop", icon: xIcon, label: "X" },
 ];
 
+const LINK_STYLE: React.CSSProperties = {
+  fontFamily: "var(--font-body)",
+  fontSize: "var(--text-caption)",
+  letterSpacing: "var(--ls-nav)",
+  color: "var(--color-text-secondary)",
+  transition: "var(--transition-base)",
+  textTransform: "uppercase",
+};
+
 export function Footer() {
   const { language } = useGlobalContext();
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-black border-t border-white/10 px-8 md:px-12 py-12">
+    <footer
+      className="px-8 md:px-12 py-12"
+      style={{ background: "var(--color-bg)", borderTop: "1px solid var(--color-border)" }}
+    >
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row gap-10 sm:gap-0 sm:justify-between">
 
         {/* Brand */}
         <div className="flex flex-col gap-4">
-          <span className="text-[10px] font-light tracking-widest uppercase text-white/50">© 2026 Transcend Creative Dimension Aura</span>
+          <span
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "var(--text-caption)",
+              letterSpacing: "var(--ls-nav)",
+              color: "var(--color-text-tertiary)",
+            }}
+          >
+            © 2026 Transcend Creative Dimension Aura
+          </span>
         </div>
 
         {/* Support */}
         <div className="flex flex-col gap-4">
-          <span className="text-[10px] font-light tracking-[0.3em] uppercase text-white/50">
+          <span style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-text-tertiary)", textTransform: "uppercase" }}>
             {t("footer.support")}
           </span>
           <div className="flex flex-col gap-2">
@@ -39,7 +60,14 @@ export function Footer() {
               { to: `/${language}/privacy`, label: t("nav.privacy") },
               { to: `/${language}/legal`, label: t("nav.legal") },
             ].map(({ to, label }) => (
-              <Link key={to + label} to={to} className="text-[10px] font-light tracking-widest uppercase text-white/50 hover:text-white transition-colors py-2 inline-block">
+              <Link
+                key={to + label}
+                to={to}
+                style={LINK_STYLE}
+                className="py-2 inline-block"
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+              >
                 {label}
               </Link>
             ))}

@@ -13,33 +13,15 @@ const fadeUp = {
 };
 
 const WHO = [
-  {
-    label: "The Individual",
-    body: "Someone who refuses to dress like everyone else.",
-  },
-  {
-    label: "The Art Seeker",
-    body: "Someone who finds meaning in visual expression.",
-  },
-  {
-    label: "The Self-Transformer",
-    body: "Someone in the process of becoming.",
-  },
+  { label: "The Individual", body: "Someone who refuses to dress like everyone else." },
+  { label: "The Art Seeker", body: "Someone who finds meaning in visual expression." },
+  { label: "The Self-Transformer", body: "Someone in the process of becoming." },
 ];
 
 const DIFFERENT = [
-  {
-    title: "Art-First Design",
-    body: "Every piece starts as a visual concept, not a product.",
-  },
-  {
-    title: "Limited Feeling",
-    body: "Not mass. Not fast. Designed to feel rare.",
-  },
-  {
-    title: "Wearable Identity",
-    body: "Clothing as a form of self-declaration.",
-  },
+  { title: "Art-First Design", body: "Every piece starts as a visual concept, not a product." },
+  { title: "Limited Feeling", body: "Not mass. Not fast. Designed to feel rare." },
+  { title: "Wearable Identity", body: "Clothing as a form of self-declaration." },
 ];
 
 const sectionPad = "py-[120px] px-12 max-md:py-[60px] max-md:px-5";
@@ -57,7 +39,7 @@ export function BrandFoundationPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen" style={{ background: "var(--color-bg)" }}>
       <Helmet>
         <title>Brand Foundation — TCDA</title>
         <meta name="description" content="What TCDA stands for. Art-first fashion for those who refuse the ordinary." />
@@ -67,7 +49,14 @@ export function BrandFoundationPage() {
       <section className="relative flex flex-col items-center justify-center text-center" style={{ height: "80vh" }}>
         <motion.h1
           {...fadeUp}
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 8vw, 96px)", color: "#ffffff", lineHeight: 1 }}
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "var(--text-heading)",
+            fontWeight: "var(--weight-light)",
+            letterSpacing: "var(--ls-display)",
+            color: "var(--color-text)",
+            lineHeight: 1,
+          }}
         >
           WHAT WE STAND FOR
         </motion.h1>
@@ -77,24 +66,31 @@ export function BrandFoundationPage() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mt-5"
-          style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px", opacity: 0.5, color: "#ffffff" }}
+          style={{ fontFamily: "var(--font-body)", fontSize: "16px", color: "var(--color-text-tertiary)" }}
         >
           Transcend Creative Dimension Aura
         </motion.p>
       </section>
 
       {/* 2. What TCDA Is */}
-      <section className={`${sectionPad} border-t border-white/5`}>
+      <section className={sectionPad} style={{ borderTop: "1px solid var(--color-border)" }}>
         <div className="max-w-3xl mx-auto">
           <motion.h2
             {...fadeUp}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "48px", color: "#E8FF00", marginBottom: "40px" }}
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "var(--text-heading)",
+              fontWeight: "var(--weight-light)",
+              letterSpacing: "var(--ls-display)",
+              color: "var(--color-accent)",
+              marginBottom: "40px",
+            }}
           >
             WHAT TCDA IS
           </motion.h2>
           <motion.p
             {...fadeUp}
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}
+            style={{ fontFamily: "var(--font-body)", fontSize: "18px", color: "var(--color-text-secondary)", lineHeight: 1.8, letterSpacing: "var(--ls-body)" }}
           >
             TCDA — Transcend Creative Dimension Aura — is a brand born at the intersection of digital art and wearable culture.
             Every design begins as a visual concept, created to carry meaning beyond aesthetics.
@@ -104,11 +100,18 @@ export function BrandFoundationPage() {
       </section>
 
       {/* 3. Who It Is For */}
-      <section className={`${sectionPad} border-t border-white/5`}>
+      <section className={sectionPad} style={{ borderTop: "1px solid var(--color-border)" }}>
         <div className="max-w-5xl mx-auto">
           <motion.h2
             {...fadeUp}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "48px", color: "#ffffff", marginBottom: "60px" }}
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "var(--text-heading)",
+              fontWeight: "var(--weight-light)",
+              letterSpacing: "var(--ls-display)",
+              color: "var(--color-text)",
+              marginBottom: "60px",
+            }}
           >
             WHO IT IS FOR
           </motion.h2>
@@ -123,11 +126,11 @@ export function BrandFoundationPage() {
               >
                 <p
                   className="mb-3"
-                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", color: "#E8FF00", letterSpacing: "0.05em" }}
+                  style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-subheading)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-accent)" }}
                 >
                   {label}
                 </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", color: "var(--color-text-secondary)", lineHeight: 1.7, letterSpacing: "var(--ls-body)" }}>
                   {body}
                 </p>
               </motion.div>
@@ -137,11 +140,18 @@ export function BrandFoundationPage() {
       </section>
 
       {/* 4. What Makes TCDA Different */}
-      <section className={`${sectionPad} border-t border-white/5`}>
+      <section className={sectionPad} style={{ borderTop: "1px solid var(--color-border)" }}>
         <div className="max-w-5xl mx-auto">
           <motion.h2
             {...fadeUp}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "48px", color: "#ffffff", marginBottom: "60px" }}
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "var(--text-heading)",
+              fontWeight: "var(--weight-light)",
+              letterSpacing: "var(--ls-display)",
+              color: "var(--color-text)",
+              marginBottom: "60px",
+            }}
           >
             WHAT MAKES TCDA DIFFERENT
           </motion.h2>
@@ -155,14 +165,14 @@ export function BrandFoundationPage() {
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className={`flex flex-col md:flex-row gap-8 ${i % 2 !== 0 ? "md:flex-row-reverse" : ""}`}
               >
-                <div className="md:w-1/2 border-l-2 border-[#E8FF00] pl-6">
+                <div className="md:w-1/2 pl-6" style={{ borderLeft: "2px solid var(--color-accent)" }}>
                   <p
                     className="mb-2"
-                    style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "28px", color: "#ffffff", letterSpacing: "0.05em" }}
+                    style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-subheading)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
                   >
                     {title}
                   </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", color: "var(--color-text-secondary)", lineHeight: 1.7, letterSpacing: "var(--ls-body)" }}>
                     {body}
                   </p>
                 </div>
@@ -174,36 +184,58 @@ export function BrandFoundationPage() {
       </section>
 
       {/* 5. Product Philosophy */}
-      <section className={`${sectionPad} border-t border-white/5`}>
-        <div className="max-w-3xl mx-auto text-center">
+      <section className={`${sectionPad} text-center`} style={{ borderTop: "1px solid var(--color-border)" }}>
+        <div className="max-w-3xl mx-auto">
           <motion.h2
             {...fadeUp}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "48px", color: "#E8FF00", marginBottom: "40px" }}
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "var(--text-heading)",
+              fontWeight: "var(--weight-light)",
+              letterSpacing: "var(--ls-display)",
+              color: "var(--color-accent)",
+              marginBottom: "40px",
+            }}
           >
             PRODUCT PHILOSOPHY
           </motion.h2>
           <motion.p
             {...fadeUp}
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: "20px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontStyle: "italic" }}
+            style={{ fontFamily: "var(--font-body)", fontSize: "20px", color: "var(--color-text-secondary)", lineHeight: 1.8, fontStyle: "italic", letterSpacing: "var(--ls-body)" }}
           >
             "We don't make clothes. We make artifacts of personal transformation."
           </motion.p>
         </div>
       </section>
 
-      {/* 6. Common Questions CTA */}
-      <section className={`${sectionPad} border-t border-white/5 text-center`}>
+      {/* 6. CTA */}
+      <section className={`${sectionPad} text-center`} style={{ borderTop: "1px solid var(--color-border)" }}>
         <motion.div {...fadeUp}>
           <p
             className="mb-8"
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "36px", color: "#ffffff" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-subheading)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
           >
             HAVE QUESTIONS?
           </p>
           <Link
             to={`/${language}/faq`}
-            className="inline-block px-10 py-3 border border-[#E8FF00] text-[#E8FF00] hover:bg-[#E8FF00] hover:text-black transition-colors duration-300"
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "18px", letterSpacing: "0.1em" }}
+            className="inline-block px-10 py-3 uppercase"
+            style={{
+              border: "1px solid var(--color-accent)",
+              color: "var(--color-accent)",
+              fontFamily: "var(--font-body)",
+              fontSize: "var(--text-caption)",
+              letterSpacing: "var(--ls-nav)",
+              transition: "var(--transition-base)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "var(--color-accent)";
+              e.currentTarget.style.color = "var(--color-bg)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "var(--color-accent)";
+            }}
           >
             READ THE FAQ
           </Link>
