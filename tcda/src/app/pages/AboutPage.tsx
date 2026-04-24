@@ -127,11 +127,11 @@ export function AboutPage() {
           <Link
             to={`/${language}/collection`}
             className="inline-block px-14 py-4 border border-[#E8FF00] text-[#E8FF00] hover:bg-[#E8FF00] hover:text-black transition-colors duration-300 text-xs tracking-[0.4em] uppercase"
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "16px" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "16px" }}
           >
             {t("about.ctaLabel")}
           </Link>
-          <div className="flex items-center justify-center gap-2 mt-6" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px" }}>
+          <div className="flex items-center justify-center gap-2 mt-6" style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>
             <Link to={`/${language}/faq`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
               Explore FAQ
             </Link>

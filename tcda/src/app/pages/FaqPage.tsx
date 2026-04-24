@@ -107,7 +107,7 @@ export function FaqPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "'Bebas Neue', sans-serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontSize: "clamp(48px, 8vw, 96px)",
             color: "#ffffff",
             lineHeight: 1,
@@ -124,7 +124,7 @@ export function FaqPage() {
             <motion.h2
               {...fadeUp}
               style={{
-                fontFamily: "'Bebas Neue', sans-serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "32px",
                 color: "#E8FF00",
                 marginBottom: "32px",
@@ -144,18 +144,18 @@ export function FaqPage() {
         <motion.div {...fadeUp}>
           <p
             className="mb-8 text-white/50"
-            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "16px" }}
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px" }}
           >
             {t("faq.ctaLabel")}
           </p>
           <Link
             to={`/${language}/contact`}
             className="inline-block px-10 py-3 border border-[#E8FF00] text-[#E8FF00] hover:bg-[#E8FF00] hover:text-black transition-colors duration-300"
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "18px", letterSpacing: "0.1em" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "18px", letterSpacing: "0.1em" }}
           >
             {t("nav.contact")}
           </Link>
-          <div className="flex items-center justify-center gap-2 mt-6" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px" }}>
+          <div className="flex items-center justify-center gap-2 mt-6" style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>
             <Link to={`/${language}/about`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
               About TCDA
             </Link>

@@ -8,8 +8,8 @@ export const colors = {
 } as const;
 
 export const fonts = {
-  display: "'Bebas Neue', sans-serif",
-  body:    "'DM Sans', sans-serif",
+  display: "'Cormorant Garamond', serif",
+  body:    "'Inter', sans-serif",
 } as const;
 
 export const spacing = {

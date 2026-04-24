@@ -67,7 +67,7 @@ export function BrandFoundationPage() {
       <section className="relative flex flex-col items-center justify-center text-center" style={{ height: "80vh" }}>
         <motion.h1
           {...fadeUp}
-          style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(48px, 8vw, 96px)", color: "#ffffff", lineHeight: 1 }}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 8vw, 96px)", color: "#ffffff", lineHeight: 1 }}
         >
           WHAT WE STAND FOR
         </motion.h1>
@@ -77,7 +77,7 @@ export function BrandFoundationPage() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mt-5"
-          style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "16px", opacity: 0.5, color: "#ffffff" }}
+          style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px", opacity: 0.5, color: "#ffffff" }}
         >
           Transcend Creative Dimension Aura
         </motion.p>
@@ -88,13 +88,13 @@ export function BrandFoundationPage() {
         <div className="max-w-3xl mx-auto">
           <motion.h2
             {...fadeUp}
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: "#E8FF00", marginBottom: "40px" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "48px", color: "#E8FF00", marginBottom: "40px" }}
           >
             WHAT TCDA IS
           </motion.h2>
           <motion.p
             {...fadeUp}
-            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}
           >
             TCDA — Transcend Creative Dimension Aura — is a brand born at the intersection of digital art and wearable culture.
             Every design begins as a visual concept, created to carry meaning beyond aesthetics.
@@ -108,7 +108,7 @@ export function BrandFoundationPage() {
         <div className="max-w-5xl mx-auto">
           <motion.h2
             {...fadeUp}
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: "#ffffff", marginBottom: "60px" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "48px", color: "#ffffff", marginBottom: "60px" }}
           >
             WHO IT IS FOR
           </motion.h2>
@@ -123,11 +123,11 @@ export function BrandFoundationPage() {
               >
                 <p
                   className="mb-3"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "22px", color: "#E8FF00", letterSpacing: "0.05em" }}
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", color: "#E8FF00", letterSpacing: "0.05em" }}
                 >
                   {label}
                 </p>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "15px", color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>
                   {body}
                 </p>
               </motion.div>
@@ -141,7 +141,7 @@ export function BrandFoundationPage() {
         <div className="max-w-5xl mx-auto">
           <motion.h2
             {...fadeUp}
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: "#ffffff", marginBottom: "60px" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "48px", color: "#ffffff", marginBottom: "60px" }}
           >
             WHAT MAKES TCDA DIFFERENT
           </motion.h2>
@@ -158,11 +158,11 @@ export function BrandFoundationPage() {
                 <div className="md:w-1/2 border-l-2 border-[#E8FF00] pl-6">
                   <p
                     className="mb-2"
-                    style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: "#ffffff", letterSpacing: "0.05em" }}
+                    style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "28px", color: "#ffffff", letterSpacing: "0.05em" }}
                   >
                     {title}
                   </p>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
                     {body}
                   </p>
                 </div>
@@ -178,13 +178,13 @@ export function BrandFoundationPage() {
         <div className="max-w-3xl mx-auto text-center">
           <motion.h2
             {...fadeUp}
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: "#E8FF00", marginBottom: "40px" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "48px", color: "#E8FF00", marginBottom: "40px" }}
           >
             PRODUCT PHILOSOPHY
           </motion.h2>
           <motion.p
             {...fadeUp}
-            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "20px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontStyle: "italic" }}
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: "20px", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontStyle: "italic" }}
           >
             "We don't make clothes. We make artifacts of personal transformation."
           </motion.p>
@@ -196,14 +196,14 @@ export function BrandFoundationPage() {
         <motion.div {...fadeUp}>
           <p
             className="mb-8"
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", color: "#ffffff" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "36px", color: "#ffffff" }}
           >
             HAVE QUESTIONS?
           </p>
           <Link
             to={`/${language}/faq`}
             className="inline-block px-10 py-3 border border-[#E8FF00] text-[#E8FF00] hover:bg-[#E8FF00] hover:text-black transition-colors duration-300"
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "18px", letterSpacing: "0.1em" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "18px", letterSpacing: "0.1em" }}
           >
             READ THE FAQ
           </Link>

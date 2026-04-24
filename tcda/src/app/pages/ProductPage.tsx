@@ -352,7 +352,7 @@ const { t } = useTranslation();
               {formatPrice(convertedPrice, currency)}
             </p>
             {isEU ? (
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", opacity: 0.5, color: "white", marginTop: "-24px" }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", opacity: 0.5, color: "white", marginTop: "-24px" }}>
                 Price includes VAT
               </p>
             ) : (
@@ -400,13 +400,13 @@ const { t } = useTranslation();
 
             {/* GEO UI */}
             {geo === "JP" && (
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, opacity: 0.6, marginTop: 12 }}>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, opacity: 0.6, marginTop: 12 }}>
                 {t("geo.jp.shipping")} · {t("geo.jp.returns")} ·{" "}
                 <Link to={`/${language}/faq`} className="underline">{t("geo.jp.faqLink")}</Link>
               </div>
             )}
             {geo === "EU" && (
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, opacity: 0.6, marginTop: 12 }}>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, opacity: 0.6, marginTop: 12 }}>
                 {t("geo.eu.material")} · {t("geo.eu.vat")}
               </div>
             )}
@@ -415,7 +415,7 @@ const { t } = useTranslation();
             <ProductMeaningBlock productId={product.id} />
 
             {/* Internal links */}
-            <div className="flex items-center gap-2" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px" }}>
+            <div className="flex items-center gap-2" style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>
               <Link to={`/${language}/collection`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
                 View Full Collection
               </Link>

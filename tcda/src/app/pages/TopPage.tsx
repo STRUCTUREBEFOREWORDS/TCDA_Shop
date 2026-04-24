@@ -80,7 +80,7 @@ export function TopPage() {
           <motion.h1
             {...fadeUp}
             className="text-white text-center leading-none select-none"
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(80px, 15vw, 200px)" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(80px, 15vw, 200px)" }}
           >
             TRANSCEND
           </motion.h1>
@@ -92,7 +92,7 @@ export function TopPage() {
         <motion.h2
           {...fadeUp}
           className="text-center leading-none select-none"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(80px, 15vw, 200px)", color: "#E8FF00" }}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(80px, 15vw, 200px)", color: "#E8FF00" }}
         >
           CREATIVE
         </motion.h2>
@@ -103,7 +103,7 @@ export function TopPage() {
         <motion.h2
           {...fadeUp}
           className="text-white text-center leading-none select-none"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(80px, 15vw, 200px)" }}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(80px, 15vw, 200px)" }}
         >
           DIMENSION
         </motion.h2>
@@ -113,7 +113,7 @@ export function TopPage() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center"
-          style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.5)" }}
+          style={{ fontFamily: "'Inter', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.5)" }}
         >
           Art-driven fashion for those who refuse the ordinary.
         </motion.p>
@@ -124,7 +124,7 @@ export function TopPage() {
         <motion.h2
           {...fadeUp}
           className="text-white text-center leading-none select-none"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(80px, 15vw, 200px)" }}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(80px, 15vw, 200px)" }}
         >
           AURA
         </motion.h2>

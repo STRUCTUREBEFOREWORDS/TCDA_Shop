@@ -6,7 +6,7 @@ interface Props {
 }
 
 const LABEL_STYLE: React.CSSProperties = {
-  fontFamily: "'DM Sans', sans-serif",
+  fontFamily: "'Inter', sans-serif",
   fontSize: "11px",
   opacity: 0.5,
   letterSpacing: "0.1em",
@@ -15,7 +15,7 @@ const LABEL_STYLE: React.CSSProperties = {
 };
 
 const VALUE_STYLE: React.CSSProperties = {
-  fontFamily: "'DM Sans', sans-serif",
+  fontFamily: "'Inter', sans-serif",
   fontSize: "16px",
   color: "white",
 };
@@ -42,7 +42,7 @@ export function ProductMeaningBlock({ productId }: Props) {
     <div className="mt-2">
       <p
         className="mb-4"
-        style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "18px", color: "white", letterSpacing: "0.08em" }}
+        style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "18px", color: "white", letterSpacing: "0.08em" }}
       >
         {t("product.meaningTitle")}
       </p>

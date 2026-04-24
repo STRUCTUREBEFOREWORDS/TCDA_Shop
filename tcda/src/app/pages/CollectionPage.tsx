@@ -110,7 +110,7 @@ export function CollectionPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(64px, 10vw, 120px)", color: "#ffffff", lineHeight: 1 }}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(64px, 10vw, 120px)", color: "#ffffff", lineHeight: 1 }}
         >
           {t("collection.heroTitle")}
         </motion.h1>
@@ -119,7 +119,7 @@ export function CollectionPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6"
-          style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.6)" }}
+          style={{ fontFamily: "'Inter', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.6)" }}
         >
           {t("collection.heroSub")}
         </motion.p>
@@ -135,16 +135,16 @@ export function CollectionPage() {
           style={{ maxWidth: "560px" }}
         >
           <h2
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "40px", color: "#ffffff", marginBottom: "24px" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "40px", color: "#ffffff", marginBottom: "24px" }}
           >
             {t("collection.conceptTitle")}
           </h2>
           <p
-            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.8)", lineHeight: 1.8 }}
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.8)", lineHeight: 1.8 }}
           >
             {t("collection.conceptBody")}
           </p>
-          <div className="flex items-center gap-2 mt-8" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px" }}>
+          <div className="flex items-center gap-2 mt-8" style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>
             <Link to={`/${language}/about`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
               Our Story
             </Link>
@@ -207,7 +207,7 @@ export function CollectionPage() {
                       </p>
                     </div>
                     {isEU && (
-                      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", opacity: 0.5, color: "white" }}>
+                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", opacity: 0.5, color: "white" }}>
                         Price includes VAT
                       </p>
                     )}
