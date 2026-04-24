@@ -1,12 +1,12 @@
 {
   "nav": {
-    "shop": "Shop",
+    "shop": "SHOP",
     "look": "Look",
-    "collection": "Collection",
-    "about": "About",
+    "collection": "COLLECTION",
+    "about": "ABOUT",
     "legal": "Legal",
     "privacy": "Privacy Policy",
-    "contact": "Contact",
+    "contact": "CONTACT",
     "faq": "FAQ"
   },
   "hero": {

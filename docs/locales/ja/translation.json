@@ -1,12 +1,12 @@
 {
   "nav": {
-    "shop": "ショップ",
+    "shop": "SHOP",
     "look": "ルック",
-    "collection": "コレクション",
-    "about": "について",
+    "collection": "COLLECTION",
+    "about": "ABOUT",
     "legal": "特定商取引法",
     "privacy": "プライバシーポリシー",
-    "contact": "Contact",
+    "contact": "CONTACT",
     "faq": "FAQ"
   },
   "hero": {
