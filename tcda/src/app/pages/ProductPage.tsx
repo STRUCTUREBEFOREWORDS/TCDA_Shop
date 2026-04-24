@@ -14,7 +14,6 @@ import { SizeGuideModal } from "../components/SizeGuideModal";
 
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { FaqAccordion } from "../components/FaqAccordion";
-import { ProductMeaningBlock } from "../components/ProductMeaningBlock";
 import { JsonLd } from "../components/JsonLd";
 import { Copy, Check } from "lucide-react";
 
@@ -579,11 +578,6 @@ export function ProductPage() {
                 </div>
               );
             })()}
-
-            {/* ProductMeaningBlock */}
-            <div className="mt-12">
-              <ProductMeaningBlock productId={product.id} />
-            </div>
 
             {/* Info Accordion */}
             <div className="mt-8">
