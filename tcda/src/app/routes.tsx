@@ -22,7 +22,6 @@ import { PrivacyPage } from "./pages/PrivacyPage";
 import { ShippingReturnsPage } from "./pages/ShippingReturnsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { ReviewPage } from "./pages/ReviewPage";
-import { BrandFoundationPage } from "./pages/BrandFoundationPage";
 import { FaqPage } from "./pages/FaqPage";
 import { NotFound } from "./pages/NotFound";
 
@@ -49,7 +48,6 @@ export const router = createBrowserRouter([
       { path: "shipping-returns", Component: ShippingReturnsPage },
       { path: "contact", Component: ContactPage },
       { path: "review/:token", Component: ReviewPage },
-      { path: "brand-foundation", Component: BrandFoundationPage },
       { path: "faq", Component: FaqPage },
     ],
   },
@@ -58,6 +56,5 @@ export const router = createBrowserRouter([
   { path: "collection", element: <Navigate to="/en/collection" replace /> },
   { path: "faq", element: <Navigate to="/en/faq" replace /> },
   { path: "about", element: <Navigate to="/en/about" replace /> },
-  { path: "brand-foundation", element: <Navigate to="/en/brand-foundation" replace /> },
   { path: "*", Component: NotFound },
 ]);
