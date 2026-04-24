@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { productMeaning } from "../data/productMeaning";
 
 interface Props {
   productId: string;
@@ -25,18 +24,18 @@ const ROW_STYLE: React.CSSProperties = {
   padding: "16px 0",
 };
 
-export function ProductMeaningBlock({ productId }: Props) {
-  const { t } = useTranslation();
-  const meaning = productMeaning[productId];
-  if (!meaning) return null;
+const FIELDS = ["designIntent", "bestFor", "silhouette", "materialFeel", "stylePairing"] as const;
 
-  const rows = [
-    { labelKey: "product.designIntent", value: meaning.designIntent },
-    { labelKey: "product.bestFor",      value: meaning.bestFor },
-    { labelKey: "product.silhouette",   value: meaning.silhouette },
-    { labelKey: "product.materialFeel", value: meaning.materialFeel },
-    { labelKey: "product.stylePairing", value: meaning.stylePairing },
-  ];
+export function ProductMeaningBlock({ productId }: Props) {
+  const { t, i18n } = useTranslation();
+
+  const baseKey = `productMeaning.${productId}.designIntent`;
+  if (!i18n.exists(baseKey)) return null;
+
+  const rows = FIELDS.map((field) => ({
+    labelKey: `product.${field}`,
+    value: t(`productMeaning.${productId}.${field}`),
+  }));
 
   return (
     <div className="mt-2">

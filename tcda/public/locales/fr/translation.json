@@ -459,5 +459,14 @@
       "vat": "Prix TVA incluse",
       "topBanner": "Livraison gratuite à partir de 100€"
     }
+  },
+  "productMeaning": {
+    "624896bf-d906-425b-ae3c-bf64f95142ee": {
+      "designIntent": "Géométrie abstraite audacieuse — conçue pour interpeler.",
+      "bestFor": "Tenue affirmée, événements artistiques, culture urbaine",
+      "silhouette": "Coupe régulière, épaule légèrement tombante",
+      "materialFeel": "Lisse, léger, base DTG premium",
+      "stylePairing": "Cargo noir, sneakers blanches, accessoires minimalistes"
+    }
   }
 }

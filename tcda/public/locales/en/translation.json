@@ -459,5 +459,14 @@
       "vat": "Price includes VAT",
       "topBanner": "Free shipping on orders over €100"
     }
+  },
+  "productMeaning": {
+    "624896bf-d906-425b-ae3c-bf64f95142ee": {
+      "designIntent": "Bold abstract geometry — built to interrupt.",
+      "bestFor": "Statement dressing, art events, street culture",
+      "silhouette": "Regular fit, slightly dropped shoulder",
+      "materialFeel": "Smooth, lightweight, premium DTG base",
+      "stylePairing": "Black cargo pants, white sneakers, minimal accessories"
+    }
   }
 }

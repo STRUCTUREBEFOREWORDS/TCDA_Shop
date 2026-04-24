@@ -459,5 +459,14 @@
       "vat": "Prezzo IVA inclusa",
       "topBanner": "Spedizione gratuita per ordini superiori a €100"
     }
+  },
+  "productMeaning": {
+    "624896bf-d906-425b-ae3c-bf64f95142ee": {
+      "designIntent": "Geometria astratta audace — nata per stupire.",
+      "bestFor": "Look d'impatto, eventi artistici, cultura urbana",
+      "silhouette": "Vestibilità regolare, spalla leggermente abbassata",
+      "materialFeel": "Morbida, leggera, base DTG premium",
+      "stylePairing": "Pantaloni cargo neri, sneaker bianche, accessori minimali"
+    }
   }
 }

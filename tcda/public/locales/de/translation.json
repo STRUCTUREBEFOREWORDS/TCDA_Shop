@@ -459,5 +459,14 @@
       "vat": "Preis inkl. MwSt.",
       "topBanner": "Kostenloser Versand ab €100"
     }
+  },
+  "productMeaning": {
+    "624896bf-d906-425b-ae3c-bf64f95142ee": {
+      "designIntent": "Kühne abstrakte Geometrie — gemacht um aufzufallen.",
+      "bestFor": "Ausdrucksstarkes Styling, Kunstevents, Streetkultur",
+      "silhouette": "Regular Fit, leicht gefallene Schulter",
+      "materialFeel": "Glatt, leicht, premium DTG-Basis",
+      "stylePairing": "Schwarze Cargohose, weiße Sneaker, minimalistische Accessoires"
+    }
   }
 }

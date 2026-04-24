@@ -459,5 +459,14 @@
       "vat": "Preço inclui IVA",
       "topBanner": "Frete grátis em pedidos acima de €100"
     }
+  },
+  "productMeaning": {
+    "624896bf-d906-425b-ae3c-bf64f95142ee": {
+      "designIntent": "Geometria abstrata ousada — feita para interromper.",
+      "bestFor": "Visual marcante, eventos de arte, cultura urbana",
+      "silhouette": "Caimento regular, ombro levemente caído",
+      "materialFeel": "Suave, leve, base DTG premium",
+      "stylePairing": "Calça cargo preta, tênis branco, acessórios minimalistas"
+    }
   }
 }

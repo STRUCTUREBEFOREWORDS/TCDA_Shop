@@ -459,5 +459,14 @@
       "vat": "价格含增值税",
       "topBanner": "订单满€100免运费"
     }
+  },
+  "productMeaning": {
+    "624896bf-d906-425b-ae3c-bf64f95142ee": {
+      "designIntent": "大胆的抽象几何 — 为打破常规而生。",
+      "bestFor": "个性穿搭、艺术活动、街头文化",
+      "silhouette": "常规版型，略微落肩设计",
+      "materialFeel": "顺滑轻盈，优质DTG基底",
+      "stylePairing": "黑色工装裤、白色运动鞋、简约配饰"
+    }
   }
 }
