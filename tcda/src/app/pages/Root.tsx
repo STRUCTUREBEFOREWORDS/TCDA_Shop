@@ -207,9 +207,9 @@ export function Root() {
   }, []);
 
   const setLanguage = (newLang: Language) => {
-    // Replace /:lang segment in current path
     const newPath = location.pathname.replace(`/${language}`, `/${newLang}`);
-    navigate(newPath, { replace: true });
+    i18n.changeLanguage(newLang);
+    navigate(newPath);
   };
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
