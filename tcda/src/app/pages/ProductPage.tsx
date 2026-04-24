@@ -13,6 +13,7 @@ import { SizeGuideModal } from "../components/SizeGuideModal";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { ProductMeaningBlock } from "../components/ProductMeaningBlock";
+import { JsonLd } from "../components/JsonLd";
 import { Copy, Check } from "lucide-react";
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
@@ -215,33 +216,25 @@ const { t } = useTranslation();
         <meta name="twitter:title" content={`${product.name} | TCDA`} />
         <meta name="twitter:description" content={product.description || product.fabric_composition || "Transcend Creative Dimension Aura — アートを着る、感性を解放する。"} />
         <meta name="twitter:image" content={product.images?.[0] || product.thumbnail_url} />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": product.name,
-            "image": images.length > 0 ? images : [product.thumbnail_url],
-            "description": product.description || product.fabric_composition || "Transcend Creative Dimension Aura",
-            "brand": {
-              "@type": "Brand",
-              "name": "TCDA"
-            },
-            "offers": {
-              "@type": "Offer",
-              "url": `https://tcdashop.com/${language}/product/${product.id}`,
-              "priceCurrency": "JPY",
-              "price": product.price,
-              "availability": product.stock > 0
-                ? "https://schema.org/InStock"
-                : "https://schema.org/OutOfStock",
-              "seller": {
-                "@type": "Organization",
-                "name": "TCDA"
-              }
-            }
-          })}
-        </script>
       </Helmet>
+      <JsonLd type="Product" data={{
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": product.name,
+        "image": images.length > 0 ? images : [product.thumbnail_url],
+        "description": product.description || product.fabric_composition || "Transcend Creative Dimension Aura",
+        "brand": { "@type": "Brand", "name": "TCDA" },
+        "offers": {
+          "@type": "Offer",
+          "url": `https://tcdashop.com/${language}/product/${product.id}`,
+          "priceCurrency": "JPY",
+          "price": product.price,
+          "availability": product.stock > 0
+            ? "https://schema.org/InStock"
+            : "https://schema.org/OutOfStock",
+          "seller": { "@type": "Organization", "name": "TCDA" },
+        },
+      }} />
       {/* BACK */}
       <div className="px-4 sm:px-6 md:px-10 lg:px-20 py-6 max-w-7xl mx-auto">
         <Link

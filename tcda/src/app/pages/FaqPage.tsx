@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useGlobalContext } from "./Root";
 import { FaqAccordion, FaqItem } from "../components/FaqAccordion";
+import { JsonLd } from "../components/JsonLd";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -59,12 +60,23 @@ export function FaqPage() {
     },
   ];
 
+  const allQA = categories.flatMap(({ items }) => items);
+
   return (
     <div className="min-h-screen bg-black">
       <Helmet>
         <title>FAQ — TCDA</title>
         <meta name="description" content="Frequently asked questions about TCDA — shipping, sizing, returns, and more." />
       </Helmet>
+      <JsonLd type="FAQPage" data={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": allQA.map(({ q, a }) => ({
+          "@type": "Question",
+          "name": q,
+          "acceptedAnswer": { "@type": "Answer", "text": a },
+        })),
+      }} />
 
       {/* Hero */}
       <section

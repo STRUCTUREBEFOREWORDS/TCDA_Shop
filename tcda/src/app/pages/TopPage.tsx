@@ -1,7 +1,6 @@
 import { useRef, useEffect } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { getTranslation } from "../data/translations";
 import { useProducts } from "../hooks/useProducts";
@@ -9,6 +8,7 @@ import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useVAT } from "../hooks/useVAT";
+import { JsonLd } from "../components/JsonLd";
 
 const HERO_IMAGE = "https://cdn.tcdashop.com/top/1.webp";
 
@@ -46,34 +46,28 @@ export function TopPage() {
     return formatPrice(converted, currency);
   };
 
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "TCDA",
-    "url": "https://tcdashop.com",
-    "logo": "https://cdn.tcdashop.com/logo/1.png",
-    "sameAs": [
-      "https://jp.pinterest.com/tcda_shop/",
-      "https://www.tiktok.com/@tcda.shop",
-      "https://www.instagram.com/tcda.shop/",
-      "https://x.com/tcda_shop"
-    ],
-    "description": "Transcend Creative Dimension Aura — アートを着る、感性を解放する。"
-  };
-
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "TCDA",
-    "url": "https://tcdashop.com"
-  };
-
   return (
     <div className="min-h-screen bg-black">
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
-      </Helmet>
+      <JsonLd type="Organization" data={{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TCDA",
+        "legalName": "Transcend Creative Dimension Aura",
+        "url": "https://tcdashop.com",
+        "logo": "https://cdn.tcdashop.com/logo/1.webp",
+        "sameAs": [
+          "https://www.instagram.com/tcda.shop/",
+          "https://www.tiktok.com/@tcda.shop",
+          "https://jp.pinterest.com/tcda_shop/",
+          "https://x.com/tcda_shop"
+        ]
+      }} />
+      <JsonLd type="WebSite" data={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "TCDA",
+        "url": "https://tcdashop.com"
+      }} />
 
       {/* SECTION 1 — TRANSCEND */}
       <section className="relative h-screen w-full overflow-hidden">
