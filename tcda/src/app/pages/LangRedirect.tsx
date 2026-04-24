@@ -12,7 +12,8 @@ export function LangRedirect() {
     const params = new URLSearchParams(window.location.search);
     const redirectPath = params.get("redirect");
     if (redirectPath) {
-      navigate(redirectPath, { replace: true });
+      const hasLang = /^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/.test(redirectPath);
+      navigate(hasLang ? redirectPath : `/en${redirectPath}`, { replace: true });
       return;
     }
     const lang = navigator.language?.split("-")[0] || "en";
