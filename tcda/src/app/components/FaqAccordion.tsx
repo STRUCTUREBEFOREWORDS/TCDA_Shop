@@ -16,15 +16,18 @@ export function FaqAccordion({ items }: Props) {
   return (
     <div className="space-y-0">
       {items.map((item, i) => (
-        <div key={i} className="border-b border-white/10">
+        <div key={i} className="py-0" style={{ borderBottom: "1px solid var(--color-border)" }}>
           <button
             onClick={() => setOpen(open === i ? null : i)}
             className="w-full text-left py-4 flex justify-between items-start gap-4"
           >
-            <span className="text-white text-sm font-light opacity-70 leading-snug">
+            <span
+              className="text-sm font-light leading-snug"
+              style={{ fontFamily: "var(--font-body)", color: "var(--color-text)", letterSpacing: "var(--ls-body)" }}
+            >
               {item.q}
             </span>
-            <span className="text-white/30 text-xs font-light flex-shrink-0 mt-0.5 select-none">
+            <span className="text-xs font-light flex-shrink-0 mt-0.5 select-none" style={{ color: "var(--color-accent)" }}>
               {open === i ? "−" : "+"}
             </span>
           </button>
@@ -36,7 +39,8 @@ export function FaqAccordion({ items }: Props) {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="text-white/55 text-xs font-light leading-relaxed pb-4 pr-8 overflow-hidden"
+                className="text-xs font-light leading-relaxed pb-4 pr-8 overflow-hidden"
+                style={{ color: "var(--color-text-secondary)", fontFamily: "var(--font-body)" }}
               >
                 {item.a}
               </motion.p>

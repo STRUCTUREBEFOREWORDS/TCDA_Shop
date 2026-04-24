@@ -78,7 +78,7 @@ export function FaqPage() {
   const allQA = categories.flatMap(({ items }) => items);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen" style={{ background: "var(--color-bg)" }}>
       <Helmet>
         <title>FAQ — TCDA</title>
         <meta name="description" content="Answers about TCDA products, sizing, shipping, and returns." />
@@ -99,17 +99,19 @@ export function FaqPage() {
 
       {/* Hero */}
       <section
-        className="flex items-center justify-center border-b border-white/5"
-        style={{ height: "40vh" }}
+        className="flex items-center justify-center"
+        style={{ height: "40vh", borderBottom: "1px solid var(--color-border)" }}
       >
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "clamp(48px, 8vw, 96px)",
-            color: "#ffffff",
+            fontFamily: "var(--font-display)",
+            fontSize: "var(--text-heading)",
+            fontWeight: "var(--weight-light)",
+            letterSpacing: "var(--ls-display)",
+            color: "var(--color-text)",
             lineHeight: 1,
           }}
         >
@@ -119,15 +121,20 @@ export function FaqPage() {
 
       {/* FAQ Categories */}
       {categories.map(({ titleKey, items }) => (
-        <section key={titleKey} className={`${sectionPad} border-b border-white/5`}>
+        <section
+          key={titleKey}
+          className={sectionPad}
+          style={{ borderBottom: "1px solid var(--color-border)" }}
+        >
           <div className="max-w-3xl mx-auto">
             <motion.h2
               {...fadeUp}
+              className="mb-8 uppercase tracking-[0.15em]"
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "32px",
-                color: "#E8FF00",
-                marginBottom: "32px",
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--text-caption)",
+                letterSpacing: "var(--ls-nav)",
+                color: "var(--color-text-secondary)",
               }}
             >
               {t(titleKey)}
@@ -143,24 +150,51 @@ export function FaqPage() {
       <section className={`${sectionPad} text-center`}>
         <motion.div {...fadeUp}>
           <p
-            className="mb-8 text-white/50"
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px" }}
+            className="mb-8"
+            style={{ fontFamily: "var(--font-body)", fontSize: "16px", color: "var(--color-text-secondary)" }}
           >
             {t("faq.ctaLabel")}
           </p>
           <Link
             to={`/${language}/contact`}
-            className="inline-block px-10 py-3 border border-[#E8FF00] text-[#E8FF00] hover:bg-[#E8FF00] hover:text-black transition-colors duration-300"
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "18px", letterSpacing: "0.1em" }}
+            className="inline-block px-10 py-3 uppercase"
+            style={{
+              border: "1px solid var(--color-accent)",
+              color: "var(--color-accent)",
+              fontFamily: "var(--font-body)",
+              fontSize: "var(--text-caption)",
+              letterSpacing: "var(--ls-nav)",
+              transition: "var(--transition-base)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "var(--color-accent)";
+              e.currentTarget.style.color = "var(--color-bg)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "var(--color-accent)";
+            }}
           >
             {t("nav.contact")}
           </Link>
-          <div className="flex items-center justify-center gap-2 mt-6" style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>
-            <Link to={`/${language}/about`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+          <div className="flex items-center justify-center gap-2 mt-6" style={{ fontFamily: "var(--font-body)", fontSize: "13px" }}>
+            <Link
+              to={`/${language}/about`}
+              className="transition-all duration-300"
+              style={{ color: "var(--color-text-secondary)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+            >
               About TCDA
             </Link>
-            <span className="text-white/20">·</span>
-            <Link to={`/${language}/collection`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+            <span style={{ color: "var(--color-border)" }}>·</span>
+            <Link
+              to={`/${language}/collection`}
+              className="transition-all duration-300"
+              style={{ color: "var(--color-text-secondary)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+            >
               View Collection
             </Link>
           </div>
