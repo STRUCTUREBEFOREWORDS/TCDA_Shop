@@ -26,11 +26,34 @@ const formatters: Record<Currency, Intl.NumberFormat> = {
     currency: "KRW",
     minimumFractionDigits: 0,
   }),
-  // CNY uses the same ¥ symbol as JPY in most locales.
-  // We use a plain number formatter and prepend CN¥ explicitly.
   CNY: new Intl.NumberFormat("zh-CN", {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
+  }),
+  AUD: new Intl.NumberFormat("en-AU", {
+    style: "currency",
+    currency: "AUD",
+    minimumFractionDigits: 2,
+  }),
+  AED: new Intl.NumberFormat("ar-AE", {
+    style: "currency",
+    currency: "AED",
+    minimumFractionDigits: 0,
+  }),
+  SGD: new Intl.NumberFormat("en-SG", {
+    style: "currency",
+    currency: "SGD",
+    minimumFractionDigits: 2,
+  }),
+  BRL: new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+  }),
+  CAD: new Intl.NumberFormat("en-CA", {
+    style: "currency",
+    currency: "CAD",
+    minimumFractionDigits: 2,
   }),
 };
 

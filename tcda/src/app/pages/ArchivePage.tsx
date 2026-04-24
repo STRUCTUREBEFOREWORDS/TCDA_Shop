@@ -5,6 +5,7 @@ import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { formatPrice } from "../utils/formatPrice";
+import { applyPsychologicalPrice } from "../../utils/priceRounding";
 interface Product {
   id: string;
   name: string;
@@ -44,9 +45,8 @@ const { t } = useTranslation();
   }, []);
   const convertAndFormat = (jpy: number) => {
     const rate = rates[currency] ?? 1;
-    const converted = currency === "JPY"
-      ? Math.round(jpy)
-      : Math.round(jpy * rate * 100) / 100;
+    const raw = currency === "JPY" ? jpy : jpy * rate;
+    const converted = applyPsychologicalPrice(raw, currency);
     return formatPrice(converted, currency);
   };
   const filtered = active === 'ALL' ? products : products.filter((p) => getCategory(p.name) === active);

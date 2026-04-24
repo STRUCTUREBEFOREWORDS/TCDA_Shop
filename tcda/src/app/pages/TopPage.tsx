@@ -6,6 +6,7 @@ import { useGlobalContext } from "./Root";
 import { getTranslation } from "../data/translations";
 import { useProducts } from "../hooks/useProducts";
 import { formatPrice } from "../utils/formatPrice";
+import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 const HERO_IMAGE = "https://cdn.tcdashop.com/top/1.webp";
@@ -37,9 +38,8 @@ export function TopPage() {
 
   const convertAndFormat = (jpy: number) => {
     const rate = rates[currency] ?? 1;
-    const converted = currency === "JPY"
-      ? Math.round(jpy)
-      : Math.round(jpy * rate * 100) / 100;
+    const raw = currency === "JPY" ? jpy : jpy * rate;
+    const converted = applyPsychologicalPrice(raw, currency);
     return formatPrice(converted, currency);
   };
 

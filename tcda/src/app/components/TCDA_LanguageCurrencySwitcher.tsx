@@ -39,9 +39,14 @@ const CURRENCY_SYMBOLS: Record<Currency, string> = {
   GBP: "£",
   KRW: "₩",
   CNY: "¥",
+  AUD: "A$",
+  AED: "AED",
+  SGD: "S$",
+  BRL: "R$",
+  CAD: "C$",
 };
 
-const CURRENCIES: Currency[] = ["JPY", "USD", "EUR", "GBP", "KRW", "CNY"];
+const CURRENCIES: Currency[] = ["JPY", "USD", "EUR", "GBP", "KRW", "CNY", "AUD", "AED", "SGD", "BRL", "CAD"];
 
 export function TCDA_LanguageCurrencySwitcher({
   language,

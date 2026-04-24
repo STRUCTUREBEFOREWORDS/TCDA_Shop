@@ -17,6 +17,11 @@ export const RATES: Record<Currency, number> = {
   GBP: 0.0053,
   KRW: 8.9,
   CNY: 0.048,
+  AUD: 0.0104,
+  AED: 0.0246,
+  SGD: 0.0090,
+  BRL: 0.035,
+  CAD: 0.0092,
 };
 
 export const SUPPORTED_LANGS: Language[] = ["en", "ja", "fr", "es", "ko", "zh", "ar", "pt", "de", "it"];
@@ -150,6 +155,11 @@ export function Root() {
             GBP: data.rates.GBP ?? RATES.GBP,
             KRW: data.rates.KRW ?? RATES.KRW,
             CNY: data.rates.CNY ?? RATES.CNY,
+            AUD: data.rates.AUD ?? RATES.AUD,
+            AED: data.rates.AED ?? RATES.AED,
+            SGD: data.rates.SGD ?? RATES.SGD,
+            BRL: data.rates.BRL ?? RATES.BRL,
+            CAD: data.rates.CAD ?? RATES.CAD,
           });
         }
       })

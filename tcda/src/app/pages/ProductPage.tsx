@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
+import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { FitLabelNormalized, ProductFitMetadata } from "../types";
 import { SizeGuideModal } from "../components/SizeGuideModal";
 
@@ -167,7 +168,10 @@ const { t } = useTranslation();
     );
   }
 
-  const convertedPrice = Math.round(product.price * rates[currency]);
+  const convertedPrice = applyPsychologicalPrice(
+    currency === "JPY" ? product.price : product.price * (rates[currency] ?? 1),
+    currency
+  );
 
   const handleAddToCart = () => {
     if (!selectedSize) return;
