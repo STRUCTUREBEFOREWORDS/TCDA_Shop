@@ -1,6 +1,8 @@
 import { useRef, useEffect } from "react";
 import { motion } from "motion/react";
+import { Link } from "react-router";
 import { useGlobalContext } from "./Root";
+import { useTranslation } from "react-i18next";
 import { JsonLd } from "../components/JsonLd";
 import { pushDataLayer } from "../hooks/useDataLayer";
 
@@ -13,6 +15,20 @@ const DISPLAY_STYLE: React.CSSProperties = {
   letterSpacing: "var(--ls-display)",
 };
 
+const SECTION_NUM_STYLE: React.CSSProperties = {
+  position: "absolute",
+  top: "40px",
+  left: "var(--container-padding-desktop)",
+  fontFamily: "var(--font-body)",
+  fontSize: "var(--text-caption)",
+  letterSpacing: "var(--ls-nav)",
+  color: "var(--color-text-tertiary)",
+};
+
+const CONTENT_PAD: React.CSSProperties = {
+  padding: "0 var(--container-padding-desktop) var(--section-padding-desktop)",
+};
+
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 } as Record<string, unknown>,
@@ -22,6 +38,7 @@ const fadeUp = {
 
 export function TopPage() {
   const { language, currency, countryCode } = useGlobalContext();
+  const { t } = useTranslation();
 
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -83,10 +100,11 @@ export function TopPage() {
           style={{ willChange: "transform", transition: "transform 0.7s cubic-bezier(0.22,1,0.36,1)" }}
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <span style={SECTION_NUM_STYLE}>01</span>
+        <div className="absolute inset-0 flex flex-col justify-end items-start" style={CONTENT_PAD}>
           <motion.h1
             {...fadeUp}
-            className="text-center leading-none select-none"
+            className="leading-none select-none"
             style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}
           >
             TRANSCEND
@@ -95,10 +113,11 @@ export function TopPage() {
       </section>
 
       {/* SECTION 2 — CREATIVE */}
-      <section className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
+      <section className="relative h-screen w-full overflow-hidden bg-black flex flex-col justify-end items-start" style={CONTENT_PAD}>
+        <span style={SECTION_NUM_STYLE}>02</span>
         <motion.h2
           {...fadeUp}
-          className="text-center leading-none select-none"
+          className="leading-none select-none"
           style={{ ...DISPLAY_STYLE, color: "var(--color-accent)" }}
         >
           CREATIVE
@@ -106,10 +125,11 @@ export function TopPage() {
       </section>
 
       {/* SECTION 3 — DIMENSION */}
-      <section className="relative h-screen w-full overflow-hidden bg-black flex flex-col items-center justify-center gap-8">
+      <section className="relative h-screen w-full overflow-hidden bg-black flex flex-col justify-end items-start" style={CONTENT_PAD}>
+        <span style={SECTION_NUM_STYLE}>03</span>
         <motion.h2
           {...fadeUp}
-          className="text-center leading-none select-none"
+          className="leading-none select-none"
           style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}
         >
           DIMENSION
@@ -119,22 +139,38 @@ export function TopPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-center"
-          style={{ fontFamily: "var(--font-body)", fontSize: "18px", color: "var(--color-text-secondary)" }}
+          style={{ fontFamily: "var(--font-body)", fontSize: "18px", color: "var(--color-text-secondary)", marginTop: "24px" }}
         >
           Art-driven fashion for those who refuse the ordinary.
         </motion.p>
       </section>
 
       {/* SECTION 4 — AURA */}
-      <section className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
+      <section className="relative h-screen w-full overflow-hidden bg-black flex flex-col justify-end items-start" style={CONTENT_PAD}>
+        <span style={SECTION_NUM_STYLE}>04</span>
         <motion.h2
           {...fadeUp}
-          className="text-center leading-none select-none"
+          className="leading-none select-none"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 12vw, 200px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
         >
           AURA
         </motion.h2>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          style={{ marginTop: "24px" }}
+        >
+          <Link
+            to={`/${language}/collection`}
+            style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-accent)", transition: "var(--transition-base)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            {t("nav.collection")} →
+          </Link>
+        </motion.div>
       </section>
     </div>
   );
