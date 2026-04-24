@@ -427,13 +427,9 @@ export function ProductPage() {
             >
               {formatPrice(convertedPrice, currency)}
             </p>
-            {isEU ? (
+            {isEU && (
               <p className="-mt-6 mb-4" style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "var(--color-text-secondary)" }}>
                 Price includes VAT
-              </p>
-            ) : (
-              <p className="text-[10px] font-light tracking-wide -mt-6 mb-4" style={{ color: "var(--color-text-tertiary)" }}>
-                {t("cart.taxNote")}
               </p>
             )}
 
