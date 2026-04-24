@@ -17,8 +17,6 @@ import { FaqAccordion } from "../components/FaqAccordion";
 import { ProductMeaningBlock } from "../components/ProductMeaningBlock";
 import { JsonLd } from "../components/JsonLd";
 import { Copy, Check } from "lucide-react";
-import Zoom from 'react-medium-image-zoom';
-import 'react-medium-image-zoom/dist/styles.css';
 
 interface Variant {
   id: number;
@@ -146,7 +144,6 @@ export function ProductPage() {
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const [sizeChart, setSizeChart] = useState<SizeChart | null>(null);
   const [images, setImages] = useState<string[]>([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [deliveryDate, setDeliveryDate] = useState<{ min: string; max: string } | null>(null);
   const [notifyEmail, setNotifyEmail] = useState("");
   const [notifySubmitted, setNotifySubmitted] = useState(false);
@@ -185,7 +182,6 @@ export function ProductPage() {
         });
         const imageList = data.images?.length ? data.images : [data.thumbnail_url];
         setImages(imageList);
-        setCurrentImageIndex(0);
         if (data.sizes?.length) setSelectedSize(data.sizes[0]);
         if (data.size_category) {
           const chartRes = await fetch(`https://api.tcdashop.com/size-charts/${data.size_category}`);
@@ -359,87 +355,38 @@ export function ProductPage() {
 
       {/* MAIN: image + info */}
       <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[55%_45%] gap-0 md:gap-12 items-start">
 
-          {/* Left: Image */}
+          {/* Left: Vertical Gallery */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-4"
+            className="flex flex-col"
+            style={{ gap: "2px", touchAction: "pan-y" }}
           >
-            <div className="relative aspect-[3/4] bg-black/5">
-              <Zoom>
-                {images.length === 0 && product.thumbnail_url ? (
-                  <img
-                    src={product.thumbnail_url}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    fetchPriority="high"
-                  />
-                ) : (
-                  <ImageWithFallback
-                    src={images[currentImageIndex] || product.thumbnail_url}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                    loading={currentImageIndex === 0 ? "eager" : "lazy"}
-                    fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
-                  />
-                )}
-              </Zoom>
-              {images.length > 1 && (
-                <>
-                  <button
-                    onClick={() => setCurrentImageIndex((i) => Math.max(i - 1, 0))}
-                    disabled={currentImageIndex === 0}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-white/80 text-black disabled:opacity-20 transition-opacity duration-200"
-                    aria-label={t("product.prevImage")}
-                  >
-                    ‹
-                  </button>
-                  <button
-                    onClick={() => setCurrentImageIndex((i) => Math.min(i + 1, images.length - 1))}
-                    disabled={currentImageIndex === images.length - 1}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-white/80 text-black disabled:opacity-20 transition-opacity duration-200"
-                    aria-label={t("product.nextImage")}
-                  >
-                    ›
-                  </button>
-                </>
-              )}
-            </div>
-
-            {images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto pb-1">
-                {images.map((src, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentImageIndex(i)}
-                    className={`flex-shrink-0 w-12 sm:w-16 aspect-[3/4] overflow-hidden bg-black/5 transition-all duration-200 ${
-                      i === currentImageIndex ? "ring-1 ring-black" : "opacity-50 hover:opacity-80"
-                    }`}
-                  >
-                    <ImageWithFallback
-                      src={src}
-                      alt={`${product.name} ${i + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
+            {(images.length > 0 ? images : [product.thumbnail_url]).map((src, i) => (
+              <div key={i} className="w-full" style={{ aspectRatio: "3/4" }}>
+                <ImageWithFallback
+                  src={src}
+                  alt={`${product.name} ${i + 1}`}
+                  className="w-full h-full object-cover"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  fetchPriority={i === 0 ? "high" : "auto"}
+                />
               </div>
-            )}
+            ))}
           </motion.div>
 
-          {/* Right: Info */}
+          {/* Right: Info (sticky) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col pt-4"
+            className="flex flex-col pt-4 md:sticky md:top-20"
           >
             {/* Name */}
-            <h1 className="text-white text-2xl font-light tracking-widest uppercase mt-16">
+            <h1 className="text-white text-2xl font-light tracking-widest uppercase mt-8 md:mt-0">
               {product.name}
             </h1>
 
