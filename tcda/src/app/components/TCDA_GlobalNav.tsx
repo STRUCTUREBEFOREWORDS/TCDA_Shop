@@ -64,6 +64,12 @@ export function TCDA_GlobalNav() {
             >
               {t("nav.contact")}
             </Link>
+            <Link
+              to={`/${language}/faq`}
+              className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
+            >
+              {t("nav.faq")}
+            </Link>
           </nav>
 
           {/* Right — Controls */}
@@ -118,6 +124,7 @@ export function TCDA_GlobalNav() {
                 { to: `/${language}/collection`, label: t("nav.collection") },
                 { to: `/${language}/about`, label: t("nav.about") },
                 { to: `/${language}/contact`, label: t("nav.contact") },
+                { to: `/${language}/faq`, label: t("nav.faq") },
               ].map(({ to, label }) => (
                 <Link
                   key={to}

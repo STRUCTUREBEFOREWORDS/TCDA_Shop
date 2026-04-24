@@ -6,7 +6,8 @@
     "about": "について",
     "legal": "特定商取引法",
     "privacy": "プライバシーポリシー",
-    "contact": "Contact"
+    "contact": "Contact",
+    "faq": "FAQ"
   },
   "hero": {
     "philosophical1": "その違和感は、間違いではない。",
@@ -174,7 +175,13 @@
     "defect": {
       "q": "商品に不備があった場合は？",
       "a": "商品到着後7日以内にinfo@tcdashop.comへご連絡ください。確認後、再送または返金にて対応いたします。"
-    }
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "TCDAについて",
+    "categorySizing": "サイズ & フィット",
+    "categoryShipping": "配送・返品",
+    "categoryProduct": "商品詳細",
+    "ctaLabel": "他にご質問はありますか？お問い合わせ"
   },
   "sizeTable": {
     "size": "サイズ",

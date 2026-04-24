@@ -18,6 +18,7 @@ import { ShippingReturnsPage } from "./pages/ShippingReturnsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { ReviewPage } from "./pages/ReviewPage";
 import { BrandFoundationPage } from "./pages/BrandFoundationPage";
+import { FaqPage } from "./pages/FaqPage";
 import { NotFound } from "./pages/NotFound";
 
 export const router = createBrowserRouter([
@@ -44,6 +45,7 @@ export const router = createBrowserRouter([
       { path: "contact", Component: ContactPage },
       { path: "review/:token", Component: ReviewPage },
       { path: "brand-foundation", Component: BrandFoundationPage },
+      { path: "faq", Component: FaqPage },
     ],
   },
   { path: "*", Component: NotFound },

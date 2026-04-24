@@ -6,7 +6,8 @@
     "about": "关于",
     "legal": "特定商业交易法",
     "privacy": "隐私政策",
-    "contact": "Contact"
+    "contact": "Contact",
+    "faq": "FAQ"
   },
   "hero": {
     "philosophical1": "那种违和感，并非错误。",
@@ -174,7 +175,13 @@
     "defect": {
       "q": "收到有瑕疵的商品怎么办？",
       "a": "请在收货后7天内联系info@tcdashop.com，核实后将为您安排补发或退款。"
-    }
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "关于TCDA",
+    "categorySizing": "尺码 & 合身",
+    "categoryShipping": "配送 & 退货",
+    "categoryProduct": "产品详情",
+    "ctaLabel": "还有其他问题？联系我们"
   },
   "sizeTable": {
     "size": "尺码",

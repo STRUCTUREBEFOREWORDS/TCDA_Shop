@@ -6,7 +6,8 @@
     "about": "소개",
     "legal": "특정상거래법",
     "privacy": "개인정보처리방침",
-    "contact": "Contact"
+    "contact": "Contact",
+    "faq": "FAQ"
   },
   "hero": {
     "philosophical1": "그 위화감은, 잘못된 것이 아니다.",
@@ -174,7 +175,13 @@
     "defect": {
       "q": "상품에 불량이 있을 경우는요?",
       "a": "수령 후 7일 이내에 info@tcdashop.com으로 문의해 주세요. 확인 후 재발송 또는 환불로 처리해 드립니다."
-    }
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "TCDA에 대해",
+    "categorySizing": "핏 & 사이즈",
+    "categoryShipping": "배송 & 반품",
+    "categoryProduct": "제품 상세",
+    "ctaLabel": "더 궁금한 점이 있으신가요? 문의하기"
   },
   "sizeTable": {
     "size": "사이즈",

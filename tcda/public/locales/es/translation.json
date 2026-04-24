@@ -6,7 +6,8 @@
     "about": "Acerca de",
     "legal": "Legal",
     "privacy": "Política de privacidad",
-    "contact": "Contact"
+    "contact": "Contact",
+    "faq": "FAQ"
   },
   "hero": {
     "philosophical1": "Esa incomodidad no es un error.",
@@ -174,7 +175,13 @@
     "defect": {
       "q": "¿Qué hago si mi artículo tiene un defecto?",
       "a": "Contáctanos en info@tcdashop.com en un plazo de 7 días desde la recepción. Gestionaremos un reenvío o reembolso tras la verificación."
-    }
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "Acerca de TCDA",
+    "categorySizing": "Talla & Ajuste",
+    "categoryShipping": "Envío & Devoluciones",
+    "categoryProduct": "Detalles del producto",
+    "ctaLabel": "¿Más preguntas? Contáctanos"
   },
   "sizeTable": {
     "size": "Talla",

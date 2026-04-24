@@ -6,7 +6,8 @@
     "about": "Chi siamo",
     "legal": "Note legali",
     "privacy": "Privacy",
-    "contact": "Contatti"
+    "contact": "Contatti",
+    "faq": "FAQ"
   },
   "hero": {
     "philosophical1": "Quella sensazione di dissonanza non è un errore.",
@@ -174,7 +175,13 @@
     "defect": {
       "q": "Cosa succede se il mio articolo ha un difetto?",
       "a": "Contattaci entro 7 giorni dal ricevimento all'indirizzo info@tcdashop.com."
-    }
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "Su TCDA",
+    "categorySizing": "Vestibilità & Taglie",
+    "categoryShipping": "Spedizione & Resi",
+    "categoryProduct": "Dettagli prodotto",
+    "ctaLabel": "Hai altre domande? Contattaci"
   },
   "sizeTable": {
     "size": "Taglia",

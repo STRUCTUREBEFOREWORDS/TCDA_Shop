@@ -6,7 +6,8 @@
     "about": "عن العلامة",
     "legal": "قانوني",
     "privacy": "الخصوصية",
-    "contact": "تواصل معنا"
+    "contact": "تواصل معنا",
+    "faq": "الأسئلة الشائعة"
   },
   "hero": {
     "philosophical1": "هذا الشعور بالتنافر ليس خللًا.",
@@ -174,7 +175,13 @@
     "defect": {
       "q": "ماذا لو كان المنتج معيبًا؟",
       "a": "يرجى التواصل معنا خلال 7 أيام من الاستلام على info@tcdashop.com."
-    }
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "عن TCDA",
+    "categorySizing": "الملاءمة والمقاسات",
+    "categoryShipping": "الشحن والإرجاع",
+    "categoryProduct": "تفاصيل المنتج",
+    "ctaLabel": "هل لديك أسئلة أخرى؟ تواصل معنا"
   },
   "sizeTable": {
     "size": "المقاس",

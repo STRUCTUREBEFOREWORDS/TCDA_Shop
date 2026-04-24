@@ -6,7 +6,8 @@
     "about": "About",
     "legal": "Legal",
     "privacy": "Privacy Policy",
-    "contact": "Contact"
+    "contact": "Contact",
+    "faq": "FAQ"
   },
   "hero": {
     "philosophical1": "That sense of dissonance is not a mistake.",
@@ -174,7 +175,13 @@
     "defect": {
       "q": "What if my item has a defect?",
       "a": "Please contact us at info@tcdashop.com within 7 days of receiving your order. We will arrange a replacement or refund after verification."
-    }
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "About TCDA",
+    "categorySizing": "Fit & Sizing",
+    "categoryShipping": "Shipping & Returns",
+    "categoryProduct": "Product Details",
+    "ctaLabel": "Still have questions? Contact us"
   },
   "sizeTable": {
     "size": "Size",
