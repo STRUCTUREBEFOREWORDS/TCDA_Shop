@@ -143,6 +143,7 @@ export function ProductPage() {
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const [sizeChart, setSizeChart] = useState<SizeChart | null>(null);
   const [images, setImages] = useState<string[]>([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [deliveryDate, setDeliveryDate] = useState<{ min: string; max: string } | null>(null);
   const [notifyEmail, setNotifyEmail] = useState("");
   const [notifySubmitted, setNotifySubmitted] = useState(false);
@@ -181,6 +182,7 @@ export function ProductPage() {
         });
         const imageList = data.images?.length ? data.images : [data.thumbnail_url];
         setImages(imageList);
+        setCurrentImageIndex(0);
         if (data.sizes?.length) setSelectedSize(data.sizes[0]);
         if (data.size_category) {
           const chartRes = await fetch(`https://api.tcdashop.com/size-charts/${data.size_category}`);
@@ -356,25 +358,47 @@ export function ProductPage() {
       <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[55%_45%] gap-0 md:gap-12 items-start">
 
-          {/* Left: Vertical Gallery */}
+          {/* Left: Main image + thumbnails */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col"
-            style={{ gap: "2px", touchAction: "pan-y" }}
+            className="flex flex-col gap-3"
           >
-            {(images.length > 0 ? images : [product.thumbnail_url]).map((src, i) => (
-              <div key={i} className="w-full" style={{ aspectRatio: "3/4" }}>
-                <ImageWithFallback
-                  src={src}
-                  alt={`${product.name} ${i + 1}`}
-                  className="w-full h-full object-cover"
-                  loading={i === 0 ? "eager" : "lazy"}
-                  fetchPriority={i === 0 ? "high" : "auto"}
-                />
+            {/* Main image */}
+            <div className="w-full" style={{ aspectRatio: "1/1", background: "#111111" }}>
+              <ImageWithFallback
+                src={images[currentImageIndex] || product.thumbnail_url}
+                alt={product.name}
+                className="w-full h-full object-contain"
+                loading="eager"
+                fetchPriority="high"
+              />
+            </div>
+
+            {/* Thumbnails */}
+            {images.length > 1 && (
+              <div className="flex gap-1" style={{ gap: "4px" }}>
+                {images.map((src, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentImageIndex(i)}
+                    style={{ width: "60px", aspectRatio: "1/1", flexShrink: 0 }}
+                    className={`overflow-hidden transition-all duration-200 ${
+                      i === currentImageIndex
+                        ? "ring-1 ring-white"
+                        : "opacity-50 hover:opacity-80"
+                    }`}
+                  >
+                    <ImageWithFallback
+                      src={src}
+                      alt={`${product.name} ${i + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
               </div>
-            ))}
+            )}
           </motion.div>
 
           {/* Right: Info (sticky) */}
