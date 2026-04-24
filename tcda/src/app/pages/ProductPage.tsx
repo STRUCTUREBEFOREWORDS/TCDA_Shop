@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { pushDataLayer } from "../hooks/useDataLayer";
-import { useGeoUI } from "../hooks/useGeoUI";
 import { FitLabelNormalized, ProductFitMetadata } from "../types";
 import { SizeGuideModal } from "../components/SizeGuideModal";
 
@@ -43,6 +42,7 @@ interface Product {
   fit_metadata?: ProductFitMetadata | null;
   printful_description?: string | null;
   printful_product_type?: string | null;
+  category?: string;
 }
 
 interface SizeChartUnit {
@@ -119,7 +119,6 @@ function InfoAccordion({ items }: { items: AccordionItem[] }) {
 export function ProductPage() {
   const { id } = useParams();
   const { language, currency, rates, addToCart, countryCode, addRecentProduct } = useGlobalContext();
-  const geo = useGeoUI();
   const { pathname } = useLocation();
   const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
@@ -349,36 +348,25 @@ export function ProductPage() {
 
       {/* MAIN: image + info */}
       <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-[55%_45%] gap-0 md:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[65%_35%] items-start">
 
           {/* Left: Main image + thumbnails */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-3"
+            className="flex flex-row"
           >
-            {/* Main image */}
-            <div className="w-full overflow-hidden" style={{ aspectRatio: "2/3" }}>
-              <ImageWithFallback
-                src={images[currentImageIndex] || product.thumbnail_url}
-                alt={product.name}
-                className="w-full h-full object-cover"
-                loading="eager"
-                fetchPriority="high"
-              />
-            </div>
-
-            {/* Thumbnails */}
+            {/* Thumbnails (left side, vertical) */}
             {images.length > 1 && (
-              <div className="flex gap-1" style={{ gap: "4px" }}>
+              <div className="flex flex-col" style={{ width: "64px", flexShrink: 0, gap: "4px", paddingRight: "8px" }}>
                 {images.map((src, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentImageIndex(i)}
                     style={{
-                      width: "60px",
-                      aspectRatio: "1/1",
+                      width: "64px",
+                      aspectRatio: "2/3",
                       flexShrink: 0,
                       ...(i === currentImageIndex ? { boxShadow: "0 0 0 1px var(--color-accent)", transition: "var(--transition-base)" } : {}),
                     }}
@@ -393,6 +381,17 @@ export function ProductPage() {
                 ))}
               </div>
             )}
+
+            {/* Main image */}
+            <div className="overflow-hidden" style={{ flex: 1, aspectRatio: "2/3" }}>
+              <ImageWithFallback
+                src={images[currentImageIndex] || product.thumbnail_url}
+                alt={product.name}
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+              />
+            </div>
           </motion.div>
 
           {/* Right: Info (sticky) */}
@@ -400,21 +399,25 @@ export function ProductPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col pt-4 md:sticky md:top-20"
+            className="flex flex-col md:sticky md:top-20"
+            style={{ paddingLeft: "60px", paddingTop: "80px" }}
           >
+            {/* Category */}
+            {product.category && (
+              <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-text-secondary)", marginBottom: "8px", textTransform: "uppercase" }}>
+                {product.category}
+              </p>
+            )}
+
             {/* Name */}
             <h1
-              className="uppercase mt-8 md:mt-0"
-              style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-subheading)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
+              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 3vw, 48px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)", marginBottom: "24px" }}
             >
               {product.name}
             </h1>
 
             {/* Price */}
-            <p
-              className={`font-light mt-6 mb-8 ${geo === "US" ? "text-2xl" : "text-xl"}`}
-              style={{ color: "var(--color-accent)", fontFamily: "var(--font-body)" }}
-            >
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "20px", color: "var(--color-accent)", marginBottom: "40px" }}>
               {formatPrice(convertedPrice, currency)}
             </p>
 
@@ -434,22 +437,24 @@ export function ProductPage() {
             )}
 
             {/* Size selection */}
-            <div className="mt-2">
-              <p className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text-tertiary)" }}>
+            <div>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-text-secondary)", marginBottom: "12px", textTransform: "uppercase" }}>
                 {t("size.label")}
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="grid grid-cols-4" style={{ gap: "4px" }}>
                 {(product.sizes ?? ["XS", "S", "M", "L", "XL", "2XL"]).map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-[11px] md:text-xs font-light tracking-widest uppercase transition-all duration-300"
+                    className="flex items-center justify-center text-[11px] font-light tracking-widest uppercase transition-all duration-300"
                     style={selectedSize === size ? {
                       border: "1px solid var(--color-accent)",
                       color: "var(--color-accent)",
+                      padding: "12px",
                     } : {
                       border: "1px solid var(--color-border)",
                       color: "var(--color-text-secondary)",
+                      padding: "12px",
                     }}
                     onMouseEnter={(e) => {
                       if (selectedSize !== size) {
@@ -514,8 +519,8 @@ export function ProductPage() {
               <button
                 onClick={handleAddToCart}
                 disabled={!selectedSize}
-                className={`w-full mt-12 ${geo === "US" ? "py-6" : "py-4"} text-xs uppercase disabled:opacity-30`}
-                style={{ background: "var(--color-accent)", color: "var(--color-bg)", fontFamily: "var(--font-body)", letterSpacing: "var(--ls-nav)", transition: "var(--transition-base)" }}
+                className="w-full text-xs uppercase disabled:opacity-30"
+                style={{ background: "var(--color-accent)", color: "var(--color-bg)", fontFamily: "var(--font-body)", letterSpacing: "var(--ls-nav)", transition: "var(--transition-base)", marginTop: "32px", padding: "18px" }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = "#ffffff"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "var(--color-accent)"; }}
               >
@@ -615,7 +620,7 @@ export function ProductPage() {
             })()}
 
             {/* Info Accordion */}
-            <div className="mt-8">
+            <div style={{ marginTop: "48px" }}>
               <InfoAccordion items={accordionItems} />
             </div>
           </motion.div>
