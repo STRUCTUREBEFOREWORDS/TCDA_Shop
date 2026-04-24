@@ -421,7 +421,36 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "查看系列"
+    "ctaLabel": "查看系列",
+    "brandFoundation": {
+      "title": "品牌基础",
+      "description": "TCDA — Transcend Creative Dimension Aura — 是一个诞生于数字艺术与可穿戴文化交汇处的品牌。每一个设计都从视觉概念开始，旨在传递超越美学的意义。",
+      "individual": {
+        "title": "个体",
+        "description": "拒绝与他人穿着相同的人。"
+      },
+      "artSeeker": {
+        "title": "艺术寻求者",
+        "description": "在视觉表达中寻找意义的人。"
+      },
+      "selfTransformer": {
+        "title": "自我变革者",
+        "description": "处于蜕变过程中的人。"
+      },
+      "artFirst": {
+        "title": "艺术优先设计",
+        "description": "每件作品都从视觉概念开始，而不是产品。"
+      },
+      "limited": {
+        "title": "稀缺感",
+        "description": "不是大众化。不是快速。设计成感觉稀有。"
+      },
+      "wearable": {
+        "title": "可穿戴身份",
+        "description": "服装作为自我宣言的形式。"
+      },
+      "quote": "\"我们不制造衣服。我们制造个人蜕变的艺术品。\""
+    }
   },
   "common": {
     "loading": "加载中..."

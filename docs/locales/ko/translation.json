@@ -421,7 +421,36 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "컬렉션 보기"
+    "ctaLabel": "컬렉션 보기",
+    "brandFoundation": {
+      "title": "브랜드 기반",
+      "description": "TCDA — Transcend Creative Dimension Aura — 는 디지털 아트와 웨어러블 문화의 교차점에서 탄생한 브랜드입니다. 모든 디자인은 시각적 개념에서 시작되며, 미학을 넘어선 의미를 담기 위해 만들어집니다.",
+      "individual": {
+        "title": "개인",
+        "description": "다른 사람들과 같은 옷을 입기를 거부하는 사람."
+      },
+      "artSeeker": {
+        "title": "아트 시커",
+        "description": "시각적 표현에서 의미를 찾는 사람."
+      },
+      "selfTransformer": {
+        "title": "자기 변혁자",
+        "description": "변화의 과정에 있는 사람."
+      },
+      "artFirst": {
+        "title": "아트 퍼스트 디자인",
+        "description": "모든 작품은 제품이 아닌 시각적 개념에서 시작됩니다."
+      },
+      "limited": {
+        "title": "희소성",
+        "description": "대량 생산이 아닙니다. 빠르지도 않습니다. 희귀함을 느낄 수 있도록 설계되었습니다."
+      },
+      "wearable": {
+        "title": "입을 수 있는 정체성",
+        "description": "옷은 자기 선언의 형태입니다."
+      },
+      "quote": "\"우리는 옷을 만들지 않습니다. 개인 변혁의 아티팩트를 만듭니다.\""
+    }
   },
   "common": {
     "loading": "불러오는 중..."

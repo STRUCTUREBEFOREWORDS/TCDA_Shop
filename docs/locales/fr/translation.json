@@ -421,7 +421,36 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "VOIR LA COLLECTION"
+    "ctaLabel": "VOIR LA COLLECTION",
+    "brandFoundation": {
+      "title": "FONDATION DE LA MARQUE",
+      "description": "TCDA — Transcend Creative Dimension Aura — est une marque née à l'intersection de l'art numérique et de la culture du vêtement. Chaque design commence comme un concept visuel, créé pour porter un sens au-delà de l'esthétique.",
+      "individual": {
+        "title": "L'Individu",
+        "description": "Quelqu'un qui refuse de s'habiller comme tout le monde."
+      },
+      "artSeeker": {
+        "title": "Le Chercheur d'Art",
+        "description": "Quelqu'un qui trouve du sens dans l'expression visuelle."
+      },
+      "selfTransformer": {
+        "title": "Le Transformateur",
+        "description": "Quelqu'un en processus de devenir."
+      },
+      "artFirst": {
+        "title": "Design Art en Premier",
+        "description": "Chaque pièce commence comme un concept visuel, pas comme un produit."
+      },
+      "limited": {
+        "title": "Sentiment de Rareté",
+        "description": "Pas de masse. Pas de rapidité. Conçu pour sembler rare."
+      },
+      "wearable": {
+        "title": "Identité Portable",
+        "description": "Le vêtement comme forme d'autodéclaration."
+      },
+      "quote": "\"Nous ne faisons pas des vêtements. Nous faisons des artefacts de transformation personnelle.\""
+    }
   },
   "common": {
     "loading": "Chargement..."
