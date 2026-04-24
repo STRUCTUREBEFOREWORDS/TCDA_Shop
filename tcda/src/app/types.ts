@@ -1,4 +1,4 @@
-export type Language = "en" | "ja" | "fr" | "es" | "ko" | "zh";
+export type Language = "en" | "ja" | "fr" | "es" | "ko" | "zh" | "ar" | "pt" | "de" | "it";
 export type Currency = "USD" | "JPY" | "EUR" | "GBP" | "KRW" | "CNY";
 
 export type FitLabelNormalized = "slim" | "regular" | "relaxed" | "oversized" | "unknown";

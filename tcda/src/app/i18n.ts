@@ -4,7 +4,7 @@ import HttpBackend from "i18next-http-backend";
 
 declare const __BUILD_VERSION__: string;
 
-const SUPPORTED_LANGS = ["ja", "en", "fr", "es", "ko", "zh"];
+const SUPPORTED_LANGS = ["ja", "en", "fr", "es", "ko", "zh", "ar", "pt", "de", "it"];
 
 /**
  * URL の /:lang セグメントから初期言語を取得する。

@@ -19,7 +19,7 @@ export const RATES: Record<Currency, number> = {
   CNY: 0.048,
 };
 
-export const SUPPORTED_LANGS: Language[] = ["en", "ja", "fr", "es", "ko", "zh"];
+export const SUPPORTED_LANGS: Language[] = ["en", "ja", "fr", "es", "ko", "zh", "ar", "pt", "de", "it"];
 
 const BASE_URL = "https://tcdashop.com";
 const HREFLANG_LANGS: { lang: string; hreflang: string }[] = [

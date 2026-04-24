@@ -528,5 +528,5 @@ export const translations = {
 };
 
 export function getTranslation(language: Language, key: keyof typeof translations.en): string {
-  return translations[language]?.[key] ?? translations.en[key];
+  return (translations as Record<string, typeof translations.en>)[language]?.[key] ?? translations.en[key];
 }

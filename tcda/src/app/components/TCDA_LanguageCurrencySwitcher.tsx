@@ -5,6 +5,10 @@ import frFlag from "../../assets/flags/fr.svg";
 import esFlag from "../../assets/flags/es.svg";
 import krFlag from "../../assets/flags/kr.svg";
 import cnFlag from "../../assets/flags/cn.svg";
+import arFlag from "../../assets/flags/ar.svg";
+import ptFlag from "../../assets/flags/pt.svg";
+import deFlag from "../../assets/flags/de.svg";
+import itFlag from "../../assets/flags/it.svg";
 
 export type { Language, Currency };
 
@@ -22,6 +26,10 @@ const LANGUAGES: { code: Language; flag: string }[] = [
   { code: "es", flag: esFlag },
   { code: "ko", flag: krFlag },
   { code: "zh", flag: cnFlag },
+  { code: "ar", flag: arFlag },
+  { code: "pt", flag: ptFlag },
+  { code: "de", flag: deFlag },
+  { code: "it", flag: itFlag },
 ];
 
 const CURRENCY_SYMBOLS: Record<Currency, string> = {
