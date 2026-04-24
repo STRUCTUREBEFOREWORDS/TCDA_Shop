@@ -202,19 +202,20 @@ const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-black text-white pt-20">
       <Helmet>
-        <title>{product.name} | TCDA</title>
-        <meta name="description" content={product.description || product.fabric_composition || "Transcend Creative Dimension Aura — アートを着る、感性を解放する。"} />
+        <title>{`${product.name} — TCDA`}</title>
+        <meta name="description" content={`Shop ${product.name} by TCDA. Art-driven fashion. Worldwide shipping.`} />
+        <link rel="canonical" href={`https://tcdashop.com/en/product/${product.id}`} />
         <meta property="og:type" content="product" />
-        <meta property="og:title" content={`${product.name} | TCDA`} />
-        <meta property="og:description" content={product.description || product.fabric_composition || "Transcend Creative Dimension Aura — アートを着る、感性を解放する。"} />
-        <meta property="og:url" content={`https://tcdashop.com/${language}/product/${product.id}`} />
+        <meta property="og:title" content={`${product.name} — TCDA`} />
+        <meta property="og:description" content={`Shop ${product.name} by TCDA. Art-driven fashion. Worldwide shipping.`} />
+        <meta property="og:url" content={`https://tcdashop.com/en/product/${product.id}`} />
         <meta property="og:image" content={product.images?.[0] || product.thumbnail_url} />
         <meta property="og:site_name" content="TCDA" />
         <meta property="product:price:amount" content={String(product.price)} />
         <meta property="product:price:currency" content="JPY" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${product.name} | TCDA`} />
-        <meta name="twitter:description" content={product.description || product.fabric_composition || "Transcend Creative Dimension Aura — アートを着る、感性を解放する。"} />
+        <meta name="twitter:title" content={`${product.name} — TCDA`} />
+        <meta name="twitter:description" content={`Shop ${product.name} by TCDA. Art-driven fashion. Worldwide shipping.`} />
         <meta name="twitter:image" content={product.images?.[0] || product.thumbnail_url} />
       </Helmet>
       <JsonLd type="Product" data={{
@@ -385,6 +386,17 @@ const { t } = useTranslation();
 
             {/* Meaning block */}
             <ProductMeaningBlock productId={product.id} />
+
+            {/* Internal links */}
+            <div className="flex items-center gap-2" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px" }}>
+              <Link to={`/${language}/collection`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+                View Full Collection
+              </Link>
+              <span className="text-white/20">·</span>
+              <Link to={`/${language}/faq`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+                FAQ
+              </Link>
+            </div>
 
             {/* ADD TO CART / RESTOCK NOTIFY */}
             {product.stock === 0 ? (

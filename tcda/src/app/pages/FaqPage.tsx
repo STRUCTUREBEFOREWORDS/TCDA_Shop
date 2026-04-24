@@ -66,7 +66,11 @@ export function FaqPage() {
     <div className="min-h-screen bg-black">
       <Helmet>
         <title>FAQ — TCDA</title>
-        <meta name="description" content="Frequently asked questions about TCDA — shipping, sizing, returns, and more." />
+        <meta name="description" content="Answers about TCDA products, sizing, shipping, and returns." />
+        <link rel="canonical" href="https://tcdashop.com/en/faq" />
+        <meta property="og:title" content="FAQ — TCDA" />
+        <meta property="og:description" content="Answers about TCDA products, sizing, shipping, and returns." />
+        <meta property="og:url" content="https://tcdashop.com/en/faq" />
       </Helmet>
       <JsonLd type="FAQPage" data={{
         "@context": "https://schema.org",
@@ -136,6 +140,15 @@ export function FaqPage() {
           >
             {t("nav.contact")}
           </Link>
+          <div className="flex items-center justify-center gap-2 mt-6" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px" }}>
+            <Link to={`/${language}/about`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+              About TCDA
+            </Link>
+            <span className="text-white/20">·</span>
+            <Link to={`/${language}/collection`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+              View Collection
+            </Link>
+          </div>
         </motion.div>
       </section>
     </div>

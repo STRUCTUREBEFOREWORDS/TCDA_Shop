@@ -25,7 +25,11 @@ export function AboutPage() {
     <div className="min-h-screen bg-black">
       <Helmet>
         <title>About — TCDA</title>
-        <meta name="description" content="Transcend Creative Dimension Aura — the story behind the brand." />
+        <meta name="description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
+        <link rel="canonical" href="https://tcdashop.com/en/about" />
+        <meta property="og:title" content="About — TCDA" />
+        <meta property="og:description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
+        <meta property="og:url" content="https://tcdashop.com/en/about" />
       </Helmet>
 
       {/* 1. Hero */}
@@ -113,6 +117,15 @@ export function AboutPage() {
           >
             {t("about.ctaLabel")}
           </Link>
+          <div className="flex items-center justify-center gap-2 mt-6" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px" }}>
+            <Link to={`/${language}/faq`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+              Explore FAQ
+            </Link>
+            <span className="text-white/20">·</span>
+            <Link to={`/${language}/brand-foundation`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+              View Brand Foundation
+            </Link>
+          </div>
         </motion.div>
       </section>
     </div>

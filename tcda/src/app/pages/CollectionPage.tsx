@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
+import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -81,6 +82,14 @@ export function CollectionPage() {
 
   return (
     <div className="bg-black min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>Collection — TCDA</title>
+        <meta name="description" content="Browse the full TCDA collection. Art-driven fashion for those who refuse the ordinary." />
+        <link rel="canonical" href="https://tcdashop.com/en/collection" />
+        <meta property="og:title" content="Collection — TCDA" />
+        <meta property="og:description" content="Browse the full TCDA collection. Art-driven fashion for those who refuse the ordinary." />
+        <meta property="og:url" content="https://tcdashop.com/en/collection" />
+      </Helmet>
       {/* Hero */}
       <section className="flex flex-col items-center justify-center text-center px-6" style={{ height: "60vh" }}>
         <motion.h1
@@ -121,6 +130,15 @@ export function CollectionPage() {
           >
             {t("collection.conceptBody")}
           </p>
+          <div className="flex items-center gap-2 mt-8" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px" }}>
+            <Link to={`/${language}/about`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+              Our Story
+            </Link>
+            <span className="text-white/20">·</span>
+            <Link to={`/${language}/brand-foundation`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+              Brand Foundation
+            </Link>
+          </div>
         </motion.div>
       </section>
 
