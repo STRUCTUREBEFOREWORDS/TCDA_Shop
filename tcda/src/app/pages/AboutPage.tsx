@@ -68,13 +68,14 @@ export function AboutPage() {
       </section>
 
       {/* 2. Brand Visual */}
-      <div className="w-full overflow-hidden" style={{ aspectRatio: "16/7" }}>
+      <div className="w-full overflow-hidden" style={{ height: "70vh" }}>
         <img
           src="https://cdn.tcdashop.com/top/1.webp"
           srcSet="https://cdn.tcdashop.com/top/1-mobile.webp 550w, https://cdn.tcdashop.com/top/1.webp 902w"
           sizes="(max-width: 768px) 550px, 902px"
           alt="TCDA"
           className="w-full h-full object-cover"
+          style={{ objectPosition: "center center" }}
         />
       </div>
 
