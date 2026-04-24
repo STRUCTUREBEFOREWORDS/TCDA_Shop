@@ -434,5 +434,11 @@
     "bodyPlaceholder": "Teile deine Erfahrung mit diesem Produkt",
     "submit": "Absenden",
     "thanks": "Danke für deine Bewertung"
+  },
+  "collection": {
+    "heroTitle": "THE COLLECTION",
+    "heroSub": "Kunstgetriebene Mode. Jedes Stück ist ein Statement.",
+    "conceptTitle": "TRAGE DIE KUNST",
+    "conceptBody": "Jedes TCDA-Stück beginnt als digitales Kunstwerk — abstrakt, ausdrucksstark und bewusst. Wir verwandeln visuelle Energie in Kleidungsstücke, die eine Bedeutung jenseits der Mode tragen. Das ist keine Kleidung. Das ist eine Haltung."
   }
 }

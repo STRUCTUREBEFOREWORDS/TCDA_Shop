@@ -81,17 +81,49 @@ export function CollectionPage() {
 
   return (
     <div className="bg-black min-h-screen overflow-x-hidden">
-      {/* Page header */}
-      <div className="pt-20 pb-6 px-8 md:px-12">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="text-white/20 text-[10px] font-light tracking-[0.3em] md:tracking-[0.5em] uppercase"
+      {/* Hero */}
+      <section className="flex flex-col items-center justify-center text-center px-6" style={{ height: "60vh" }}>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(64px, 10vw, 120px)", color: "#ffffff", lineHeight: 1 }}
         >
-          {t("nav.collection")}
+          {t("collection.heroTitle")}
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6"
+          style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.6)" }}
+        >
+          {t("collection.heroSub")}
         </motion.p>
-      </div>
+      </section>
+
+      {/* Concept block */}
+      <section className="px-8 md:px-16 py-[120px] max-md:py-[60px] border-t border-white/5 border-b border-white/5">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          style={{ maxWidth: "560px" }}
+        >
+          <h2
+            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "40px", color: "#ffffff", marginBottom: "24px" }}
+          >
+            {t("collection.conceptTitle")}
+          </h2>
+          <p
+            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.8)", lineHeight: 1.8 }}
+          >
+            {t("collection.conceptBody")}
+          </p>
+        </motion.div>
+      </section>
+
 
       {/* Grid */}
       {loading ? (

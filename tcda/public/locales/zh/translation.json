@@ -434,5 +434,11 @@
     "bodyPlaceholder": "请输入您的评价",
     "submit": "提交",
     "thanks": "感谢您的评价"
+  },
+  "collection": {
+    "heroTitle": "THE COLLECTION",
+    "heroSub": "艺术驱动的时尚。每一件都是一种宣言。",
+    "conceptTitle": "穿戴艺术",
+    "conceptBody": "每件TCDA单品都始于数字艺术作品——抽象、富有表现力且有意为之。我们将视觉能量转化为超越时尚意义的服装。这不是衣服。这是一种立场。"
   }
 }

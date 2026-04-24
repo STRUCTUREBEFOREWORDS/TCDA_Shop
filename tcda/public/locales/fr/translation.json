@@ -434,5 +434,11 @@
     "bodyPlaceholder": "Rédigez votre avis",
     "submit": "Envoyer",
     "thanks": "Merci pour votre avis"
+  },
+  "collection": {
+    "heroTitle": "THE COLLECTION",
+    "heroSub": "Mode guidée par l'art. Chaque pièce est une déclaration.",
+    "conceptTitle": "PORTER L'ART",
+    "conceptBody": "Chaque pièce TCDA commence comme une œuvre numérique — abstraite, expressive et intentionnelle. Nous transformons l'énergie visuelle en vêtements qui portent un sens au-delà de la mode. Ce n'est pas un vêtement. C'est une position."
   }
 }

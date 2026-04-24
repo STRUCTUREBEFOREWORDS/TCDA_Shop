@@ -434,5 +434,11 @@
     "bodyPlaceholder": "Share your experience with this product",
     "submit": "Submit",
     "thanks": "Thank you for your review"
+  },
+  "collection": {
+    "heroTitle": "THE COLLECTION",
+    "heroSub": "Art-driven fashion. Every piece is a statement.",
+    "conceptTitle": "WEAR THE ART",
+    "conceptBody": "Each TCDA piece begins as a digital artwork — abstract, expressive, and intentional. We transform visual energy into garments that carry meaning beyond fashion. This is not clothing. This is a position."
   }
 }
