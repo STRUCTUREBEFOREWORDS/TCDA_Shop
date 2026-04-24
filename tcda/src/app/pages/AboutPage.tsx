@@ -19,17 +19,8 @@ const VALUES = [
   { key: "3" },
 ];
 
-const WHO = [
-  { label: "The Individual", body: "Someone who refuses to dress like everyone else." },
-  { label: "The Art Seeker", body: "Someone who finds meaning in visual expression." },
-  { label: "The Self-Transformer", body: "Someone in the process of becoming." },
-];
-
-const DIFFERENT = [
-  { title: "Art-First Design", body: "Every piece starts as a visual concept, not a product." },
-  { title: "Limited Feeling", body: "Not mass. Not fast. Designed to feel rare." },
-  { title: "Wearable Identity", body: "Clothing as a form of self-declaration." },
-];
+const WHO_KEYS = ["individual", "artSeeker", "selfTransformer"] as const;
+const DIFFERENT_KEYS = ["artFirst", "limited", "wearable"] as const;
 
 const SECTION_NUM_STYLE: React.CSSProperties = {
   position: "absolute",
@@ -195,7 +186,9 @@ export function AboutPage() {
       <section
         className="relative"
         style={{
-          marginTop: "160px",
+          borderTop: "1px solid var(--color-border)",
+          paddingTop: "80px",
+          marginTop: "80px",
           paddingLeft: "var(--container-padding-desktop)",
           paddingRight: "var(--container-padding-desktop)",
         }}
@@ -212,7 +205,7 @@ export function AboutPage() {
               color: "var(--color-text)",
             }}
           >
-            BRAND FOUNDATION
+            {t("about.brandFoundation.title")}
           </h2>
 
           {/* What TCDA Is */}
@@ -221,15 +214,14 @@ export function AboutPage() {
             className="mb-16"
             style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", lineHeight: 1.8, letterSpacing: "var(--ls-body)", maxWidth: "640px" }}
           >
-            TCDA — Transcend Creative Dimension Aura — is a brand born at the intersection of digital art and wearable culture.
-            Every design begins as a visual concept, created to carry meaning beyond aesthetics.
+            {t("about.brandFoundation.description")}
           </motion.p>
 
           {/* Who It Is For */}
           <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{ gap: "2px" }}>
-            {WHO.map(({ label, body }, i) => (
+            {WHO_KEYS.map((key, i) => (
               <motion.div
-                key={label}
+                key={key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
@@ -240,10 +232,10 @@ export function AboutPage() {
                   className="mb-2"
                   style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-caption)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-accent)" }}
                 >
-                  {label}
+                  {t(`about.brandFoundation.${key}.title`)}
                 </p>
                 <p style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", lineHeight: 1.8, letterSpacing: "var(--ls-body)" }}>
-                  {body}
+                  {t(`about.brandFoundation.${key}.description`)}
                 </p>
               </motion.div>
             ))}
@@ -251,9 +243,9 @@ export function AboutPage() {
 
           {/* What Makes TCDA Different */}
           <div className="flex flex-col mb-16" style={{ gap: "40px" }}>
-            {DIFFERENT.map(({ title, body }) => (
+            {DIFFERENT_KEYS.map((key) => (
               <motion.div
-                key={title}
+                key={key}
                 {...fadeUp}
                 className="pl-6"
                 style={{ borderLeft: "2px solid var(--color-accent)" }}
@@ -262,10 +254,10 @@ export function AboutPage() {
                   className="mb-1"
                   style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-caption)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
                 >
-                  {title}
+                  {t(`about.brandFoundation.${key}.title`)}
                 </p>
                 <p style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", lineHeight: 1.8, letterSpacing: "var(--ls-body)" }}>
-                  {body}
+                  {t(`about.brandFoundation.${key}.description`)}
                 </p>
               </motion.div>
             ))}
@@ -276,7 +268,7 @@ export function AboutPage() {
             {...fadeUp}
             style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", lineHeight: 1.8, fontStyle: "italic", letterSpacing: "var(--ls-body)" }}
           >
-            "We don't make clothes. We make artifacts of personal transformation."
+            {t("about.brandFoundation.quote")}
           </motion.p>
         </motion.div>
       </section>

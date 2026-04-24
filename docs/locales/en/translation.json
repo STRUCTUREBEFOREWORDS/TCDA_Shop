@@ -421,7 +421,36 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "VIEW COLLECTION"
+    "ctaLabel": "VIEW COLLECTION",
+    "brandFoundation": {
+      "title": "BRAND FOUNDATION",
+      "description": "TCDA — Transcend Creative Dimension Aura — is a brand born at the intersection of digital art and wearable culture. Every design begins as a visual concept, created to carry meaning beyond aesthetics.",
+      "individual": {
+        "title": "The Individual",
+        "description": "Someone who refuses to dress like everyone else."
+      },
+      "artSeeker": {
+        "title": "The Art Seeker",
+        "description": "Someone who finds meaning in visual expression."
+      },
+      "selfTransformer": {
+        "title": "The Self-Transformer",
+        "description": "Someone in the process of becoming."
+      },
+      "artFirst": {
+        "title": "Art-First Design",
+        "description": "Every piece starts as a visual concept, not a product."
+      },
+      "limited": {
+        "title": "Limited Feeling",
+        "description": "Not mass. Not fast. Designed to feel rare."
+      },
+      "wearable": {
+        "title": "Wearable Identity",
+        "description": "Clothing as a form of self-declaration."
+      },
+      "quote": "\"We don't make clothes. We make artifacts of personal transformation.\""
+    }
   },
   "common": {
     "loading": "Loading..."

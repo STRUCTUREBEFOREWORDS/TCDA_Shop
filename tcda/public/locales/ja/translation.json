@@ -421,7 +421,36 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "コレクションを見る"
+    "ctaLabel": "コレクションを見る",
+    "brandFoundation": {
+      "title": "ブランドの基盤",
+      "description": "TCDAは、デジタルアートとウェアラブルカルチャーの交点に生まれたブランドです。すべてのデザインは視覚的なコンセプトから始まり、美学を超えた意味を持つために作られています。",
+      "individual": {
+        "title": "個人",
+        "description": "他の誰とも同じ服を着ることを拒む人。"
+      },
+      "artSeeker": {
+        "title": "アートシーカー",
+        "description": "視覚的表現に意味を見出す人。"
+      },
+      "selfTransformer": {
+        "title": "自己変革者",
+        "description": "変容の過程にある人。"
+      },
+      "artFirst": {
+        "title": "アート優先のデザイン",
+        "description": "すべての作品は製品ではなく、視覚的なコンセプトから始まります。"
+      },
+      "limited": {
+        "title": "限定感",
+        "description": "大量生産ではない。速くもない。希少性を感じるデザイン。"
+      },
+      "wearable": {
+        "title": "着るアイデンティティ",
+        "description": "服は自己表明の形。"
+      },
+      "quote": "「私たちは服を作るのではない。個人変容のアーティファクトを作る。」"
+    }
   },
   "common": {
     "loading": "読み込み中..."
