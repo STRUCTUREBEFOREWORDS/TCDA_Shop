@@ -151,9 +151,8 @@ export function AboutPage() {
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 style={{ padding: "40px", border: "1px solid var(--color-border)" }}
               >
-                <span className="text-xs font-light" style={{ color: "var(--color-text-tertiary)" }}>0{i + 1}</span>
                 <h3
-                  className="mt-4 mb-4 leading-[1.4]"
+                  className="mb-4 leading-[1.4]"
                   style={{
                     fontFamily: "var(--font-display)",
                     fontSize: "var(--text-subheading)",
