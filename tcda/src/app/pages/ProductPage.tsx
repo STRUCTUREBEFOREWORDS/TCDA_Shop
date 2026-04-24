@@ -366,11 +366,11 @@ export function ProductPage() {
             className="flex flex-col gap-3"
           >
             {/* Main image */}
-            <div className="w-full" style={{ aspectRatio: "1/1", background: "#111111" }}>
+            <div className="w-full" style={{ aspectRatio: "2/3" }}>
               <ImageWithFallback
                 src={images[currentImageIndex] || product.thumbnail_url}
                 alt={product.name}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
                 loading="eager"
                 fetchPriority="high"
               />
