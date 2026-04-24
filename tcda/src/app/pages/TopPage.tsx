@@ -80,7 +80,7 @@ export function TopPage() {
           <motion.h1
             {...fadeUp}
             className="text-white text-center leading-none select-none"
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 18vw, 200px)" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 12vw, 200px)" }}
           >
             TRANSCEND
           </motion.h1>
@@ -92,7 +92,7 @@ export function TopPage() {
         <motion.h2
           {...fadeUp}
           className="text-center leading-none select-none"
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 18vw, 200px)", color: "#E8FF00" }}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 12vw, 200px)", color: "#E8FF00" }}
         >
           CREATIVE
         </motion.h2>
@@ -103,7 +103,7 @@ export function TopPage() {
         <motion.h2
           {...fadeUp}
           className="text-white text-center leading-none select-none"
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 18vw, 200px)" }}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 12vw, 200px)" }}
         >
           DIMENSION
         </motion.h2>
@@ -124,7 +124,7 @@ export function TopPage() {
         <motion.h2
           {...fadeUp}
           className="text-white text-center leading-none select-none"
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 18vw, 200px)" }}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 12vw, 200px)" }}
         >
           AURA
         </motion.h2>
