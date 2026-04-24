@@ -5,7 +5,7 @@ import { useGlobalContext } from "./Root";
 
 const CONTENT = {
   en: {
-    heroCaption: "Transcend Color Digital Apparel",
+    heroCaption: "Transcend Creative Dimension Aura",
     heroCatch: "Individuality is not something to hide.\nIt is something to wear.",
     heroSub: "TCDA is a brand that makes the expression inside you visible as fashion.",
     philosophyLabel: "Philosophy",
@@ -47,7 +47,7 @@ const CONTENT = {
     cta: "View Collection",
   },
   ja: {
-    heroCaption: "Transcend Color Digital Apparel",
+    heroCaption: "Transcend Creative Dimension Aura",
     heroCatch: "個性は、隠すものではなく\n\"纏うもの\"だ。",
     heroSub: "TCDAは、あなたの内側にある表現をファッションとして可視化するブランド。",
     philosophyLabel: "Philosophy",
@@ -89,7 +89,7 @@ const CONTENT = {
     cta: "View Collection",
   },
   fr: {
-    heroCaption: "Transcend Color Digital Apparel",
+    heroCaption: "Transcend Creative Dimension Aura",
     heroCatch: "L'individualité n'est pas quelque chose à cacher.\nC'est quelque chose à porter.",
     heroSub: "TCDA est une marque qui rend visible l'expression intérieure à travers la mode.",
     philosophyLabel: "Philosophy",
@@ -131,7 +131,7 @@ const CONTENT = {
     cta: "View Collection",
   },
   es: {
-    heroCaption: "Transcend Color Digital Apparel",
+    heroCaption: "Transcend Creative Dimension Aura",
     heroCatch: "La individualidad no es algo que ocultar.\nEs algo que vestir.",
     heroSub: "TCDA es una marca que hace visible la expresión interior a través de la moda.",
     philosophyLabel: "Philosophy",
@@ -173,7 +173,7 @@ const CONTENT = {
     cta: "View Collection",
   },
   ko: {
-    heroCaption: "Transcend Color Digital Apparel",
+    heroCaption: "Transcend Creative Dimension Aura",
     heroCatch: "개성은 숨기는 것이 아니라\n'걸치는 것'이다.",
     heroSub: "TCDA는 당신 내면의 표현을 패션으로 가시화하는 브랜드입니다.",
     philosophyLabel: "Philosophy",
@@ -215,7 +215,7 @@ const CONTENT = {
     cta: "View Collection",
   },
   zh: {
-    heroCaption: "Transcend Color Digital Apparel",
+    heroCaption: "Transcend Creative Dimension Aura",
     heroCatch: "个性不是需要隐藏的东西。\n而是需要穿戴的东西。",
     heroSub: "TCDA是一个将你内心的表达通过时尚可视化的品牌。",
     philosophyLabel: "Philosophy",

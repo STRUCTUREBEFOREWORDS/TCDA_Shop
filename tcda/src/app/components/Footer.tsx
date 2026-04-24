@@ -23,7 +23,7 @@ export function Footer() {
 
         {/* Brand + legal */}
         <div className="flex flex-col gap-4">
-          <span className="text-[10px] font-light tracking-widest uppercase text-white/50">© 2026 Transcend Color Digital Apparel</span>
+          <span className="text-[10px] font-light tracking-widest uppercase text-white/50">© 2026 Transcend Creative Dimension Aura</span>
           <div className="flex flex-col gap-2">
             <Link to={`/${language}/legal`} className="text-[10px] font-light tracking-widest uppercase text-white/50 hover:text-white transition-colors py-2 inline-block">
               {t("nav.legal")}

@@ -73,11 +73,11 @@ export function Navigation({ onNavigate }: NavigationProps) {
         <button
           onClick={() => handleNav('hero')}
           className="flex items-center gap-2 transition-opacity hover:opacity-70"
-          aria-label="Transcend Color Digital Apparel – Home"
+          aria-label="Transcend Creative Dimension Aura – Home"
         >
           <img
             src="/logo.svg"
-            alt="Transcend Color Digital Apparel"
+            alt="Transcend Creative Dimension Aura"
             className="h-9 w-auto md:h-11"
           />
         </button>

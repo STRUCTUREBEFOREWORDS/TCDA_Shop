@@ -72,7 +72,7 @@ export function TopPage() {
       "https://www.instagram.com/tcda.shop/",
       "https://x.com/tcda_shop"
     ],
-    "description": "Transcend Color Digital Apparel — アートを着る、感性を解放する。"
+    "description": "Transcend Creative Dimension Aura — アートを着る、感性を解放する。"
   };
 
   const websiteSchema = {
