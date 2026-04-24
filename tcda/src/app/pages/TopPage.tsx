@@ -10,6 +10,8 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useVAT } from "../hooks/useVAT";
 import { JsonLd } from "../components/JsonLd";
 import { pushDataLayer } from "../hooks/useDataLayer";
+import { useGeoUI } from "../hooks/useGeoUI";
+import { useTranslation } from "react-i18next";
 
 const HERO_IMAGE = "https://cdn.tcdashop.com/top/1.webp";
 
@@ -23,6 +25,8 @@ const fadeUp = {
 export function TopPage() {
   const { language, currency, rates, countryCode } = useGlobalContext();
   const { isEU } = useVAT();
+  const geo = useGeoUI();
+  const { t: ti18n } = useTranslation();
   const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
   const { products } = useProducts();
 
@@ -151,7 +155,27 @@ export function TopPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="flex flex-col items-center gap-4"
         >
+          {geo === "JP" && (
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, opacity: 0.5, color: "#ffffff" }}>
+              {ti18n("geo.jp.topBanner")}
+            </p>
+          )}
+          {geo === "EU" && (
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, opacity: 0.5, color: "#ffffff" }}>
+              {ti18n("geo.eu.topBanner")}
+            </p>
+          )}
+          {geo === "US" && (
+            <Link
+              to={`/${language}/collection`}
+              className="inline-block px-8 py-3 bg-[#E8FF00] text-black hover:bg-white transition-colors duration-300"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "20px" }}
+            >
+              Shop Now
+            </Link>
+          )}
           <Link
             to={`/${language}/collection`}
             className="inline-block px-8 py-3 border border-[#E8FF00] text-[#E8FF00] hover:bg-[#E8FF00] hover:text-black transition-colors duration-300"

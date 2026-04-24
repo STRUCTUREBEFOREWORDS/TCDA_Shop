@@ -446,5 +446,18 @@
     "heroSub": "Moda guidata dall'arte. Ogni pezzo è una dichiarazione.",
     "conceptTitle": "INDOSSA L'ARTE",
     "conceptBody": "Ogni pezzo TCDA nasce come un'opera d'arte digitale — astratta, espressiva e intenzionale. Trasformiamo l'energia visiva in capi che portano un significato oltre la moda. Questo non è abbigliamento. Questa è una posizione."
+  },
+  "geo": {
+    "jp": {
+      "shipping": "Consegna in 7–14 giorni lavorativi",
+      "returns": "Resi entro 30 giorni",
+      "faqLink": "FAQ",
+      "topBanner": "Spedizione mondiale disponibile"
+    },
+    "eu": {
+      "material": "Stampa DTG premium 100%",
+      "vat": "Prezzo IVA inclusa",
+      "topBanner": "Spedizione gratuita per ordini superiori a €100"
+    }
   }
 }

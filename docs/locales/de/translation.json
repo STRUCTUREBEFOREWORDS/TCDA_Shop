@@ -446,5 +446,18 @@
     "heroSub": "Kunstgetriebene Mode. Jedes Stück ist ein Statement.",
     "conceptTitle": "TRAGE DIE KUNST",
     "conceptBody": "Jedes TCDA-Stück beginnt als digitales Kunstwerk — abstrakt, ausdrucksstark und bewusst. Wir verwandeln visuelle Energie in Kleidungsstücke, die eine Bedeutung jenseits der Mode tragen. Das ist keine Kleidung. Das ist eine Haltung."
+  },
+  "geo": {
+    "jp": {
+      "shipping": "Lieferung in 7–14 Werktagen",
+      "returns": "30 Tage Rückgaberecht",
+      "faqLink": "FAQ",
+      "topBanner": "Weltweiter Versand verfügbar"
+    },
+    "eu": {
+      "material": "100% Premium-DTG-Druck",
+      "vat": "Preis inkl. MwSt.",
+      "topBanner": "Kostenloser Versand ab €100"
+    }
   }
 }

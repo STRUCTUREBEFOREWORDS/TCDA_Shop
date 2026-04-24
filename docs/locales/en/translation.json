@@ -446,5 +446,18 @@
     "heroSub": "Art-driven fashion. Every piece is a statement.",
     "conceptTitle": "WEAR THE ART",
     "conceptBody": "Each TCDA piece begins as a digital artwork — abstract, expressive, and intentional. We transform visual energy into garments that carry meaning beyond fashion. This is not clothing. This is a position."
+  },
+  "geo": {
+    "jp": {
+      "shipping": "Delivered in 7–14 business days",
+      "returns": "30-day returns",
+      "faqLink": "FAQ",
+      "topBanner": "Worldwide shipping available"
+    },
+    "eu": {
+      "material": "100% premium DTG print",
+      "vat": "Price includes VAT",
+      "topBanner": "Free shipping on orders over €100"
+    }
   }
 }

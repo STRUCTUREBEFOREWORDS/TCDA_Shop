@@ -8,6 +8,7 @@ import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { useVAT } from "../hooks/useVAT";
 import { pushDataLayer } from "../hooks/useDataLayer";
+import { useGeoUI } from "../hooks/useGeoUI";
 import { FitLabelNormalized, ProductFitMetadata } from "../types";
 import { SizeGuideModal } from "../components/SizeGuideModal";
 
@@ -78,6 +79,7 @@ const FIT_LABEL_MAP: Record<FitLabelNormalized, string> = {
 export function ProductPage() {
   const { id } = useParams();
   const { language, currency, rates, addToCart, countryCode, addRecentProduct } = useGlobalContext();
+  const geo = useGeoUI();
   const { pathname } = useLocation();
   const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
@@ -346,7 +348,7 @@ const { t } = useTranslation();
             </h1>
 
             {/* Price */}
-            <p className="text-[#E8FF00] text-xl font-light">
+            <p className={`text-[#E8FF00] font-light ${geo === "US" ? "text-2xl" : "text-xl"}`}>
               {formatPrice(convertedPrice, currency)}
             </p>
             {isEU ? (
@@ -395,6 +397,19 @@ const { t } = useTranslation();
                 ))}
               </div>
             </div>
+
+            {/* GEO UI */}
+            {geo === "JP" && (
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, opacity: 0.6, marginTop: 12 }}>
+                {t("geo.jp.shipping")} · {t("geo.jp.returns")} ·{" "}
+                <Link to={`/${language}/faq`} className="underline">{t("geo.jp.faqLink")}</Link>
+              </div>
+            )}
+            {geo === "EU" && (
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, opacity: 0.6, marginTop: 12 }}>
+                {t("geo.eu.material")} · {t("geo.eu.vat")}
+              </div>
+            )}
 
             {/* Meaning block */}
             <ProductMeaningBlock productId={product.id} />
@@ -452,7 +467,7 @@ const { t } = useTranslation();
               <button
                 onClick={handleAddToCart}
                 disabled={!selectedSize}
-                className="w-full py-4 bg-[#E8FF00] text-black text-xs tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-30"
+                className={`w-full ${geo === "US" ? "py-6" : "py-4"} bg-[#E8FF00] text-black text-xs tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-30`}
                 style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.3em' }}
               >
                 {added ? t("cart.added") : t("cart.addToCart")}

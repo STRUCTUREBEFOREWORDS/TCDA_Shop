@@ -446,5 +446,18 @@
     "heroSub": "Moda impulsada por el arte. Cada pieza es una declaración.",
     "conceptTitle": "VISTE EL ARTE",
     "conceptBody": "Cada pieza de TCDA comienza como una obra de arte digital — abstracta, expresiva e intencional. Transformamos la energía visual en prendas que llevan un significado más allá de la moda. Esto no es ropa. Esto es una posición."
+  },
+  "geo": {
+    "jp": {
+      "shipping": "Entrega en 7–14 días hábiles",
+      "returns": "Devoluciones en 30 días",
+      "faqLink": "FAQ",
+      "topBanner": "Envío mundial disponible"
+    },
+    "eu": {
+      "material": "100% impresión DTG premium",
+      "vat": "Precio con IVA incluido",
+      "topBanner": "Envío gratis en pedidos superiores a 100€"
+    }
   }
 }
