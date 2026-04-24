@@ -80,18 +80,18 @@ function InfoAccordion({ items }: { items: AccordionItem[] }) {
   return (
     <div>
       {items.map((item, i) => (
-        <div key={i} className="border-t border-white/10">
+        <div key={i} style={{ borderTop: "1px solid var(--color-border)" }}>
           <button
             className="w-full flex items-center justify-between py-4 text-left"
             onClick={() => setOpen(open === i ? null : i)}
           >
             <span
-              className="text-white/70 uppercase"
-              style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", letterSpacing: "0.1em" }}
+              className="uppercase"
+              style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-body)", color: "var(--color-text)" }}
             >
               {item.title}
             </span>
-            <span className="text-white/40 text-lg leading-none">{open === i ? "−" : "+"}</span>
+            <span className="text-lg leading-none" style={{ color: "var(--color-text-tertiary)" }}>{open === i ? "−" : "+"}</span>
           </button>
           <AnimatePresence initial={false}>
             {open === i && (
@@ -103,8 +103,8 @@ function InfoAccordion({ items }: { items: AccordionItem[] }) {
                 style={{ overflow: "hidden" }}
               >
                 <div
-                  className="pb-5 text-white/60 text-xs font-light leading-loose"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  className="pb-5 text-xs font-light leading-loose"
+                  style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)" }}
                 >
                   {item.content}
                 </div>
@@ -214,7 +214,7 @@ export function ProductPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-white text-sm font-light tracking-widest opacity-40">{t("common.loading")}</p>
+        <p className="text-sm font-light tracking-widest" style={{ color: "var(--color-text-tertiary)" }}>{t("common.loading")}</p>
       </div>
     );
   }
@@ -222,7 +222,7 @@ export function ProductPage() {
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-white text-sm font-light tracking-widest opacity-40">{t("product.notFound")}</p>
+        <p className="text-sm font-light tracking-widest" style={{ color: "var(--color-text-tertiary)" }}>{t("product.notFound")}</p>
       </div>
     );
   }
@@ -307,7 +307,7 @@ export function ProductPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
+    <div className="min-h-screen pt-20" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
       <Helmet>
         <title>{`${product.name} — TCDA`}</title>
         <meta name="description" content={`Shop ${product.name} by TCDA. Art-driven fashion. Worldwide shipping.`} />
@@ -348,7 +348,10 @@ export function ProductPage() {
       <div className="px-4 sm:px-6 md:px-10 lg:px-20 py-6 max-w-7xl mx-auto">
         <Link
           to={`/${language}/products`}
-          className="text-white text-xs font-light tracking-[0.3em] uppercase opacity-40 hover:opacity-100 transition-opacity duration-300"
+          className="text-xs font-light tracking-[0.3em] uppercase transition-all duration-300"
+          style={{ color: "var(--color-text-tertiary)" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-tertiary)")}
         >
           {t("product.backToShop")}
         </Link>
@@ -383,12 +386,13 @@ export function ProductPage() {
                   <button
                     key={i}
                     onClick={() => setCurrentImageIndex(i)}
-                    style={{ width: "60px", aspectRatio: "1/1", flexShrink: 0 }}
-                    className={`overflow-hidden transition-all duration-200 ${
-                      i === currentImageIndex
-                        ? "ring-1 ring-white"
-                        : "opacity-50 hover:opacity-80"
-                    }`}
+                    style={{
+                      width: "60px",
+                      aspectRatio: "1/1",
+                      flexShrink: 0,
+                      ...(i === currentImageIndex ? { boxShadow: "0 0 0 1px var(--color-accent)", transition: "var(--transition-base)" } : {}),
+                    }}
+                    className={`overflow-hidden transition-all duration-200 ${i === currentImageIndex ? "" : "opacity-50 hover:opacity-80"}`}
                   >
                     <ImageWithFallback
                       src={src}
@@ -409,42 +413,48 @@ export function ProductPage() {
             className="flex flex-col pt-4 md:sticky md:top-20"
           >
             {/* Name */}
-            <h1 className="text-white text-2xl font-light tracking-widest uppercase mt-8 md:mt-0">
+            <h1
+              className="uppercase mt-8 md:mt-0"
+              style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-subheading)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
+            >
               {product.name}
             </h1>
 
             {/* Price */}
-            <p className={`text-[#E8FF00] font-light mt-6 mb-8 ${geo === "US" ? "text-2xl" : "text-xl"}`}>
+            <p
+              className={`font-light mt-6 mb-8 ${geo === "US" ? "text-2xl" : "text-xl"}`}
+              style={{ color: "var(--color-accent)", fontFamily: "var(--font-body)" }}
+            >
               {formatPrice(convertedPrice, currency)}
             </p>
             {isEU ? (
-              <p className="text-white/50 -mt-6 mb-4" style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px" }}>
+              <p className="-mt-6 mb-4" style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "var(--color-text-secondary)" }}>
                 Price includes VAT
               </p>
             ) : (
-              <p className="text-white/40 text-[10px] font-light tracking-wide -mt-6 mb-4">
+              <p className="text-[10px] font-light tracking-wide -mt-6 mb-4" style={{ color: "var(--color-text-tertiary)" }}>
                 {t("cart.taxNote")}
               </p>
             )}
 
             {/* Stock */}
             {product.stock === 0 ? (
-              <p className="text-red-500 text-xs font-light tracking-widest mb-4">
+              <p className="text-xs font-light tracking-widest mb-4" style={{ color: "var(--color-danger)" }}>
                 {t("product.outOfStock")}
               </p>
             ) : product.stock <= 5 ? (
-              <p className="text-red-500 text-xs font-light tracking-widest mb-4">
+              <p className="text-xs font-light tracking-widest mb-4" style={{ color: "var(--color-danger)" }}>
                 {t("product.stockRemaining", { count: product.stock })}
               </p>
             ) : (
-              <p className="text-white text-xs font-light opacity-40 tracking-widest mb-4">
+              <p className="text-xs font-light tracking-widest mb-4" style={{ color: "var(--color-text-tertiary)" }}>
                 {t("product.stockRemaining", { count: product.stock })}
               </p>
             )}
 
             {/* Size selection */}
             <div className="mt-2">
-              <p className="text-white text-xs font-light tracking-[0.3em] uppercase opacity-40 mb-4">
+              <p className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text-tertiary)" }}>
                 {t("size.label")}
               </p>
               <div className="flex flex-wrap gap-3">
@@ -452,11 +462,26 @@ export function ProductPage() {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-[11px] md:text-xs font-light tracking-widest uppercase transition-all duration-300 ${
-                      selectedSize === size
-                        ? "border border-[#E8FF00] text-[#E8FF00]"
-                        : "border border-white/20 text-white/50 hover:border-white/50 hover:text-white/80"
-                    }`}
+                    className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-[11px] md:text-xs font-light tracking-widest uppercase transition-all duration-300"
+                    style={selectedSize === size ? {
+                      border: "1px solid var(--color-accent)",
+                      color: "var(--color-accent)",
+                    } : {
+                      border: "1px solid var(--color-border)",
+                      color: "var(--color-text-secondary)",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (selectedSize !== size) {
+                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)";
+                        e.currentTarget.style.color = "rgba(255,255,255,0.8)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (selectedSize !== size) {
+                        e.currentTarget.style.borderColor = "var(--color-border)";
+                        e.currentTarget.style.color = "var(--color-text-secondary)";
+                      }
+                    }}
                   >
                     {size}
                   </button>
@@ -468,7 +493,7 @@ export function ProductPage() {
             {product.stock === 0 ? (
               <div className="space-y-3 mt-12">
                 {notifySubmitted ? (
-                  <p className="text-white/50 text-xs font-light tracking-widest text-center py-4">
+                  <p className="text-xs font-light tracking-widest text-center py-4" style={{ color: "var(--color-text-secondary)" }}>
                     {t("product.notifyRegistered")}
                   </p>
                 ) : (
@@ -478,7 +503,8 @@ export function ProductPage() {
                       value={notifyEmail}
                       onChange={(e) => setNotifyEmail(e.target.value)}
                       placeholder={t("product.notifyEmailPlaceholder")}
-                      className="w-full border border-white/20 bg-transparent px-4 py-3 text-xs font-light tracking-wide focus:outline-none focus:border-white/60 placeholder:text-white/30"
+                      className="w-full bg-transparent px-4 py-3 text-xs font-light tracking-wide focus:outline-none"
+                      style={{ border: "1px solid var(--color-border)", color: "var(--color-text)" }}
                     />
                     <button
                       onClick={async () => {
@@ -495,7 +521,8 @@ export function ProductPage() {
                         setNotifySubmitted(true);
                       }}
                       disabled={!notifyEmail}
-                      className="w-full py-4 bg-black text-white text-xs font-light tracking-[0.3em] uppercase hover:bg-black/80 transition-colors duration-300 disabled:opacity-30"
+                      className="w-full py-4 text-xs font-light tracking-[0.3em] uppercase disabled:opacity-30"
+                      style={{ background: "var(--color-bg)", color: "var(--color-text)", fontFamily: "var(--font-body)", transition: "var(--transition-base)" }}
                     >
                       {t("product.notifyMe")}
                     </button>
@@ -506,8 +533,10 @@ export function ProductPage() {
               <button
                 onClick={handleAddToCart}
                 disabled={!selectedSize}
-                className={`w-full mt-12 ${geo === "US" ? "py-6" : "py-4"} bg-[#E8FF00] text-black text-xs tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-30`}
-                style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.3em' }}
+                className={`w-full mt-12 ${geo === "US" ? "py-6" : "py-4"} text-xs uppercase disabled:opacity-30`}
+                style={{ background: "var(--color-accent)", color: "var(--color-bg)", fontFamily: "var(--font-body)", letterSpacing: "var(--ls-nav)", transition: "var(--transition-base)" }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#ffffff"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "var(--color-accent)"; }}
               >
                 {added ? t("cart.added") : t("cart.addToCart")}
               </button>
@@ -515,7 +544,7 @@ export function ProductPage() {
 
             {/* SNS Share */}
             <div className="flex items-center gap-3 mt-6">
-              <span className="text-sm text-gray-500">{t('share')}:</span>
+              <span className="text-sm" style={{ color: "var(--color-text-tertiary)" }}>{t('share')}:</span>
               <a
                 href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(product.name)}`}
                 target="_blank"
@@ -555,7 +584,8 @@ export function ProductPage() {
                   setCopied(true);
                   setTimeout(() => setCopied(false), 2000);
                 }}
-                className="opacity-60 hover:opacity-100 transition-opacity text-gray-600"
+                className="opacity-60 hover:opacity-100 transition-opacity"
+                style={{ color: "var(--color-text-secondary)" }}
                 aria-label={copied ? t('copied') : t('copy_link')}
               >
                 {copied ? <Check className="w-5 h-5 text-green-600" /> : <Copy className="w-5 h-5" />}
@@ -568,31 +598,31 @@ export function ProductPage() {
               return (
                 <div className="mt-6 pt-4 pb-2">
                   <div className="flex items-baseline gap-3 mb-3">
-                    <span className="text-white/60 text-[11px] tracking-wider">
+                    <span className="text-[11px] tracking-wider" style={{ color: "var(--color-text-secondary)" }}>
                       {"★".repeat(Math.round(avg))}{"☆".repeat(5 - Math.round(avg))}
                     </span>
-                    <span className="text-white/30 text-[10px] font-light tracking-wider">
+                    <span className="text-[10px] font-light tracking-wider" style={{ color: "var(--color-text-tertiary)" }}>
                       {avg.toFixed(1)} ({reviews.length})
                     </span>
                   </div>
                   <div className="space-y-4">
                     {reviews.map((r, i) => (
-                      <div key={i} className="border-b border-white/5 pb-4 last:border-0">
+                      <div key={i} className="pb-4 last:border-0" style={{ borderBottom: "1px solid var(--color-border)" }}>
                         <div className="flex items-center justify-between mb-1">
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px] text-white/50">
+                            <span className="text-[10px]" style={{ color: "var(--color-text-secondary)" }}>
                               {"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}
                             </span>
-                            <span className="text-[10px] font-light text-white/40">
+                            <span className="text-[10px] font-light" style={{ color: "var(--color-text-tertiary)" }}>
                               {r.name || t("reviews.anonymous")}
                             </span>
                           </div>
-                          <span className="text-[9px] text-white/25">
+                          <span className="text-[9px]" style={{ color: "var(--color-text-tertiary)", opacity: 0.6 }}>
                             {new Date(r.created_at).toLocaleDateString()}
                           </span>
                         </div>
                         {r.body && (
-                          <p className="text-[11px] font-light text-white/50 leading-relaxed">
+                          <p className="text-[11px] font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
                             {r.body}
                           </p>
                         )}
@@ -619,12 +649,13 @@ export function ProductPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="border-t border-white/10 pt-8"
+          className="pt-8"
+          style={{ borderTop: "1px solid var(--color-border)" }}
         >
-          <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
+          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text)" }}>
             {t("product.materialDetailsLabel")}
           </h2>
-          <p className="text-white text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
+          <p className="text-sm font-light leading-relaxed whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
             {product.fabric_composition || '100% polyester, sublimation print. Machine wash cold. Do not tumble dry. All-over dye sublimation process produces vibrant, fade-resistant graphics that are part of the fabric itself.'}
           </p>
         </motion.div>
@@ -635,24 +666,25 @@ export function ProductPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="border-t border-white/10 pt-8"
+          className="pt-8"
+          style={{ borderTop: "1px solid var(--color-border)" }}
         >
-          <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
+          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text)" }}>
             {t("size.guide")}
           </h2>
 
           {product.fit_metadata && product.fit_metadata.fit_label_normalized !== "unknown" && (
             <div className="mb-5 space-y-1.5">
               <div className="flex items-center gap-2">
-                <span className="text-white text-xs font-light tracking-widest uppercase opacity-40">
+                <span className="text-xs font-light tracking-widest uppercase" style={{ color: "var(--color-text-tertiary)" }}>
                   {t("sizeGuide.fit")}
                 </span>
-                <span className="text-white text-xs font-light tracking-[0.2em] uppercase">
+                <span className="text-xs font-light tracking-[0.2em] uppercase" style={{ color: "var(--color-text)" }}>
                   {t(FIT_LABEL_MAP[product.fit_metadata.fit_label_normalized])}
                 </span>
               </div>
               {product.fit_metadata.model_height_cm && product.fit_metadata.model_wear_size && (
-                <p className="text-white/50 text-xs font-light">
+                <p className="text-xs font-light" style={{ color: "var(--color-text-secondary)" }}>
                   {product.fit_metadata.model_height_cm}cm / {product.fit_metadata.model_wear_size}
                   {product.fit_metadata.is_ai_model && (
                     <span className="ml-2 opacity-50">{t("product.aiModelNote")}</span>
@@ -660,7 +692,7 @@ export function ProductPage() {
                 </p>
               )}
               {product.fit_metadata.recommendation_note && (
-                <p className="text-white/50 text-xs font-light leading-relaxed">
+                <p className="text-xs font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
                   {product.fit_metadata.recommendation_note}
                 </p>
               )}
@@ -669,7 +701,8 @@ export function ProductPage() {
 
           <button
             onClick={() => setSizeGuideOpen(true)}
-            className="text-white text-xs font-light tracking-[0.3em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300 border-b border-white/20 pb-0.5"
+            className="text-xs font-light tracking-[0.3em] uppercase transition-opacity duration-300 pb-0.5"
+            style={{ color: "var(--color-text-secondary)", borderBottom: "1px solid var(--color-border)" }}
           >
             {t("sizeGuide.seeGuide")} →
           </button>
@@ -695,12 +728,13 @@ export function ProductPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="border-t border-white/10 pt-8"
+            className="pt-8"
+            style={{ borderTop: "1px solid var(--color-border)" }}
           >
-            <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
+            <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text)" }}>
               {t("product.deliveryLabel")}
             </h2>
-            <p className="text-white text-sm font-light opacity-60 leading-relaxed">
+            <p className="text-sm font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
               {deliveryDate.min} 〜 {deliveryDate.max}
             </p>
           </motion.div>
@@ -712,12 +746,13 @@ export function ProductPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="border-t border-white/10 pt-8"
+          className="pt-8"
+          style={{ borderTop: "1px solid var(--color-border)" }}
         >
-          <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
+          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text)" }}>
             {t("checkout.shippingInfo")}
           </h2>
-          <p className="text-white text-sm font-light opacity-60 leading-relaxed">
+          <p className="text-sm font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
             {t("checkout.shippingReturnsText")}
           </p>
         </motion.div>
@@ -728,9 +763,10 @@ export function ProductPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="border-t border-white/10 pt-8"
+          className="pt-8"
+          style={{ borderTop: "1px solid var(--color-border)" }}
         >
-          <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-6">
+          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-6" style={{ color: "var(--color-text)" }}>
             {t("faq.purchaseTitle")}
           </h2>
           <FaqAccordion items={purchaseFaqItems} />
