@@ -6,6 +6,13 @@ import { pushDataLayer } from "../hooks/useDataLayer";
 
 const HERO_IMAGE = "https://cdn.tcdashop.com/top/hero-transcend.webp";
 
+const DISPLAY_STYLE: React.CSSProperties = {
+  fontFamily: "var(--font-display)",
+  fontSize: "var(--text-display)",
+  fontWeight: "var(--weight-light)",
+  letterSpacing: "var(--ls-display)",
+};
+
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 } as Record<string, unknown>,
@@ -79,8 +86,8 @@ export function TopPage() {
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.h1
             {...fadeUp}
-            className="text-white text-center leading-none select-none"
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(24px, 8vw, 200px)" }}
+            className="text-center leading-none select-none"
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}
           >
             TRANSCEND
           </motion.h1>
@@ -92,7 +99,7 @@ export function TopPage() {
         <motion.h2
           {...fadeUp}
           className="text-center leading-none select-none"
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(24px, 8vw, 200px)", color: "#E8FF00" }}
+          style={{ ...DISPLAY_STYLE, color: "var(--color-accent)" }}
         >
           CREATIVE
         </motion.h2>
@@ -102,8 +109,8 @@ export function TopPage() {
       <section className="relative h-screen w-full overflow-hidden bg-black flex flex-col items-center justify-center gap-8">
         <motion.h2
           {...fadeUp}
-          className="text-white text-center leading-none select-none"
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(24px, 8vw, 200px)" }}
+          className="text-center leading-none select-none"
+          style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}
         >
           DIMENSION
         </motion.h2>
@@ -113,7 +120,7 @@ export function TopPage() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center"
-          style={{ fontFamily: "'Inter', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.5)" }}
+          style={{ fontFamily: "var(--font-body)", fontSize: "18px", color: "var(--color-text-secondary)" }}
         >
           Art-driven fashion for those who refuse the ordinary.
         </motion.p>
@@ -123,8 +130,8 @@ export function TopPage() {
       <section className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
         <motion.h2
           {...fadeUp}
-          className="text-white text-center leading-none select-none"
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 12vw, 200px)" }}
+          className="text-center leading-none select-none"
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 12vw, 200px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
         >
           AURA
         </motion.h2>
