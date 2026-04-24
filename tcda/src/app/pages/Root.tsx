@@ -55,11 +55,11 @@ function HreflangHelmet({ pathname }: { pathname: string }) {
       <link
         rel="alternate"
         hrefLang="x-default"
-        href={`${BASE_URL}/ja${canonical === "/" ? "/" : canonical}`}
+        href={`${BASE_URL}/en${canonical === "/" ? "/" : canonical}`}
       />
       <link
         rel="canonical"
-        href={`${BASE_URL}/ja${canonical === "/" ? "/" : canonical}`}
+        href={`${BASE_URL}/en${canonical === "/" ? "/" : canonical}`}
       />
     </Helmet>
   );

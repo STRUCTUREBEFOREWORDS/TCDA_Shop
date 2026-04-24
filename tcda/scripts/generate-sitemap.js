@@ -13,7 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const BASE_URL = "https://tcdashop.com";
 const LANGS = ["ja", "en", "fr", "es", "ko", "zh", "de", "it", "pt", "ar"];
-const X_DEFAULT_LANG = "ja";
+const X_DEFAULT_LANG = "en";
 const TODAY = new Date().toISOString().split("T")[0];
 
 // Static pages: [path, priority, changefreq]

@@ -1,4 +1,9 @@
-import { createBrowserRouter, Navigate } from "react-router";
+import { createBrowserRouter, Navigate, useParams } from "react-router";
+
+function ProductRedirect() {
+  const { id } = useParams();
+  return <Navigate to={`/en/product/${id}`} replace />;
+}
 import { Root } from "./pages/Root";
 import { LangRedirect } from "./pages/LangRedirect";
 import { TopPage } from "./pages/TopPage";
@@ -48,6 +53,7 @@ export const router = createBrowserRouter([
       { path: "faq", Component: FaqPage },
     ],
   },
+  { path: "product/:id", element: <ProductRedirect /> },
   { path: "products", element: <Navigate to="/en/products" replace /> },
   { path: "collection", element: <Navigate to="/en/collection" replace /> },
   { path: "faq", element: <Navigate to="/en/faq" replace /> },
