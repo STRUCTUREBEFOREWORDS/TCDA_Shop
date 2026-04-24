@@ -13,7 +13,7 @@ import { pushDataLayer } from "../hooks/useDataLayer";
 import { useGeoUI } from "../hooks/useGeoUI";
 import { useTranslation } from "react-i18next";
 
-const HERO_IMAGE = "https://cdn.tcdashop.com/top/1.webp";
+const HERO_IMAGE = "https://cdn.tcdashop.com/top/hero-transcend.webp";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -88,7 +88,7 @@ export function TopPage() {
         <img
           ref={imgRef}
           src={HERO_IMAGE}
-          srcSet="https://cdn.tcdashop.com/top/1-mobile.webp 550w, https://cdn.tcdashop.com/top/1.webp 902w"
+          srcSet="https://cdn.tcdashop.com/top/hero-transcend.webp 902w"
           sizes="(max-width: 768px) 550px, 902px"
           alt="TCDA"
           className="absolute inset-0 w-full h-full object-cover object-center scale-105"
