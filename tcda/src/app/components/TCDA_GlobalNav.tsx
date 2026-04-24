@@ -41,12 +41,6 @@ export function TCDA_GlobalNav() {
           {/* Center — Nav links (desktop) */}
           <nav className="hidden md:flex items-center gap-8">
             <Link
-              to={`/${language}/products`}
-              className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
-            >
-              {t("nav.shop")}
-            </Link>
-            <Link
               to={`/${language}/collection`}
               className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
@@ -57,18 +51,6 @@ export function TCDA_GlobalNav() {
               className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
               {t("nav.about")}
-            </Link>
-            <Link
-              to={`/${language}/contact`}
-              className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
-            >
-              {t("nav.contact")}
-            </Link>
-            <Link
-              to={`/${language}/faq`}
-              className="text-white text-[10px] font-light tracking-[0.25em] uppercase opacity-50 hover:opacity-100 transition-opacity duration-300"
-            >
-              {t("nav.faq")}
             </Link>
           </nav>
 
@@ -120,11 +102,8 @@ export function TCDA_GlobalNav() {
               className="md:hidden bg-black/95 backdrop-blur-sm border-t border-white/10 px-6 py-6 space-y-5"
             >
               {[
-                { to: `/${language}/products`, label: t("nav.shop") },
                 { to: `/${language}/collection`, label: t("nav.collection") },
                 { to: `/${language}/about`, label: t("nav.about") },
-                { to: `/${language}/contact`, label: t("nav.contact") },
-                { to: `/${language}/faq`, label: t("nav.faq") },
               ].map(({ to, label }) => (
                 <Link
                   key={to}
