@@ -629,24 +629,6 @@ export function ProductPage() {
           </p>
         </motion.div>
 
-        {/* Description */}
-        {product.description && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="border-t border-white/10 pt-8"
-          >
-            <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
-              {t("product.descriptionLabel")}
-            </h2>
-            <p className="text-white text-sm font-light opacity-60 leading-relaxed whitespace-pre-line">
-              {product.description}
-            </p>
-          </motion.div>
-        )}
-
         {/* Fit summary + size guide */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -721,25 +703,6 @@ export function ProductPage() {
             <p className="text-white text-sm font-light opacity-60 leading-relaxed">
               {deliveryDate.min} 〜 {deliveryDate.max}
             </p>
-          </motion.div>
-        )}
-
-        {/* Notes */}
-        {product.description && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="border-t border-white/10 pt-8"
-          >
-            <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase mb-4">
-              {t("product.notesTitle")}
-            </h2>
-            <ul className="text-white text-sm font-light opacity-60 leading-relaxed space-y-2">
-              <li>{t("product.notesItem1")}</li>
-              <li>{t("product.notesItem2")}</li>
-            </ul>
           </motion.div>
         )}
 
