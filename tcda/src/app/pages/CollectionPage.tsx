@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
-import { useVAT } from "../hooks/useVAT";
 import { pushDataLayer } from "../hooks/useDataLayer";
 
 interface Product {
@@ -57,7 +56,6 @@ export function CollectionPage() {
   const { pathname } = useLocation();
   const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
-  const { isEU } = useVAT();
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -83,8 +81,7 @@ export function CollectionPage() {
   const convertAndFormat = (jpy: number) => {
     const rate = rates[currency] ?? 1;
     const raw = currency === "JPY" ? jpy : jpy * rate;
-    const withVAT = isEU ? raw * 1.20 : raw;
-    const converted = applyPsychologicalPrice(withVAT, currency);
+    const converted = applyPsychologicalPrice(raw, currency);
     return formatPrice(converted, currency);
   };
 
@@ -261,11 +258,6 @@ export function CollectionPage() {
                         {convertAndFormat(product.price)}
                       </p>
                     </div>
-                    {isEU && (
-                      <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", opacity: 0.5, color: "var(--color-text)" }}>
-                        Price includes VAT
-                      </p>
-                    )}
                   </div>
                 </Link>
               ))}

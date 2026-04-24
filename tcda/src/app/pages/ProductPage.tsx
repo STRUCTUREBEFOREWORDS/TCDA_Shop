@@ -6,7 +6,6 @@ import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
-import { useVAT } from "../hooks/useVAT";
 import { pushDataLayer } from "../hooks/useDataLayer";
 import { useGeoUI } from "../hooks/useGeoUI";
 import { FitLabelNormalized, ProductFitMetadata } from "../types";
@@ -124,7 +123,6 @@ export function ProductPage() {
   const { pathname } = useLocation();
   const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
-  const { isEU } = useVAT();
   const { t } = useTranslation();
 
   const PURCHASE_FAQ_KEYS = [
@@ -228,7 +226,7 @@ export function ProductPage() {
   }
 
   const rawPrice = currency === "JPY" ? product.price : product.price * (rates[currency] ?? 1);
-  const convertedPrice = applyPsychologicalPrice(isEU ? rawPrice * 1.20 : rawPrice, currency);
+  const convertedPrice = applyPsychologicalPrice(rawPrice, currency);
 
   const handleAddToCart = () => {
     if (!selectedSize) return;
@@ -296,14 +294,6 @@ export function ProductPage() {
       title: t("trust.shippingReturnsLink"),
       content: <p className="leading-relaxed">{t("checkout.shippingReturnsText")}</p>,
     },
-    ...(isEU ? [{
-      title: "VAT",
-      content: (
-        <p className="leading-relaxed">
-          {t("geo.eu.vat")} All EU prices include 20% VAT in compliance with EU regulations.
-        </p>
-      ),
-    }] : []),
   ];
 
   return (
@@ -427,11 +417,6 @@ export function ProductPage() {
             >
               {formatPrice(convertedPrice, currency)}
             </p>
-            {isEU && (
-              <p className="-mt-6 mb-4" style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "var(--color-text-secondary)" }}>
-                Price includes VAT
-              </p>
-            )}
 
             {/* Stock */}
             {product.stock === 0 ? (
