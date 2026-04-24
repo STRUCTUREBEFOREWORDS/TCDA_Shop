@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
+import { useVAT } from "../hooks/useVAT";
 
 interface Product {
   id: string;
@@ -55,6 +56,7 @@ function buildRows(products: Product[]): Row[] {
 
 export function CollectionPage() {
   const { language, currency, rates } = useGlobalContext();
+  const { isEU } = useVAT();
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -70,7 +72,8 @@ export function CollectionPage() {
   const convertAndFormat = (jpy: number) => {
     const rate = rates[currency] ?? 1;
     const raw = currency === "JPY" ? jpy : jpy * rate;
-    const converted = applyPsychologicalPrice(raw, currency);
+    const withVAT = isEU ? raw * 1.20 : raw;
+    const converted = applyPsychologicalPrice(withVAT, currency);
     return formatPrice(converted, currency);
   };
 
@@ -130,13 +133,20 @@ export function CollectionPage() {
                   </div>
 
                   {/* Product info */}
-                  <div className="px-2 pt-3 pb-6 flex items-baseline justify-between gap-3">
-                    <h3 className="text-white/70 text-[10px] font-light tracking-[0.25em] uppercase truncate group-hover:text-white transition-colors duration-300">
-                      {product.name}
-                    </h3>
-                    <p className="text-[#E8FF00] text-[10px] font-light tracking-wider shrink-0 group-hover:text-[#E8FF00]/80 transition-colors duration-300">
-                      {convertAndFormat(product.price)}
-                    </p>
+                  <div className="px-2 pt-3 pb-6">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <h3 className="text-white/70 text-[10px] font-light tracking-[0.25em] uppercase truncate group-hover:text-white transition-colors duration-300">
+                        {product.name}
+                      </h3>
+                      <p className="text-[#E8FF00] text-[10px] font-light tracking-wider shrink-0 group-hover:text-[#E8FF00]/80 transition-colors duration-300">
+                        {convertAndFormat(product.price)}
+                      </p>
+                    </div>
+                    {isEU && (
+                      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", opacity: 0.5, color: "white" }}>
+                        Price includes VAT
+                      </p>
+                    )}
                   </div>
                 </Link>
               ))}

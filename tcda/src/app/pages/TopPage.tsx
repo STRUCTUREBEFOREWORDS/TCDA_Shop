@@ -8,6 +8,7 @@ import { useProducts } from "../hooks/useProducts";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { useVAT } from "../hooks/useVAT";
 
 const HERO_IMAGE = "https://cdn.tcdashop.com/top/1.webp";
 
@@ -20,6 +21,7 @@ const fadeUp = {
 
 export function TopPage() {
   const { language, currency, rates } = useGlobalContext();
+  const { isEU } = useVAT();
   const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
   const { products } = useProducts();
 
@@ -39,7 +41,8 @@ export function TopPage() {
   const convertAndFormat = (jpy: number) => {
     const rate = rates[currency] ?? 1;
     const raw = currency === "JPY" ? jpy : jpy * rate;
-    const converted = applyPsychologicalPrice(raw, currency);
+    const withVAT = isEU ? raw * 1.20 : raw;
+    const converted = applyPsychologicalPrice(withVAT, currency);
     return formatPrice(converted, currency);
   };
 
@@ -199,6 +202,11 @@ export function TopPage() {
                     <p className="text-[#E8FF00] text-sm tracking-wider">
                       {convertAndFormat(product.price)}
                     </p>
+                    {isEU && (
+                      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", opacity: 0.5, color: "white" }}>
+                        Price includes VAT
+                      </p>
+                    )}
                   </div>
                 </Link>
               </motion.div>

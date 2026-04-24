@@ -6,6 +6,7 @@ import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
+import { useVAT } from "../hooks/useVAT";
 import { FitLabelNormalized, ProductFitMetadata } from "../types";
 import { SizeGuideModal } from "../components/SizeGuideModal";
 
@@ -74,6 +75,7 @@ const FIT_LABEL_MAP: Record<FitLabelNormalized, string> = {
 export function ProductPage() {
   const { id } = useParams();
   const { language, currency, rates, addToCart, countryCode, addRecentProduct } = useGlobalContext();
+  const { isEU } = useVAT();
 const { t } = useTranslation();
   
   const PURCHASE_FAQ_KEYS = [
@@ -168,10 +170,8 @@ const { t } = useTranslation();
     );
   }
 
-  const convertedPrice = applyPsychologicalPrice(
-    currency === "JPY" ? product.price : product.price * (rates[currency] ?? 1),
-    currency
-  );
+  const rawPrice = currency === "JPY" ? product.price : product.price * (rates[currency] ?? 1);
+  const convertedPrice = applyPsychologicalPrice(isEU ? rawPrice * 1.20 : rawPrice, currency);
 
   const handleAddToCart = () => {
     if (!selectedSize) return;
@@ -342,9 +342,15 @@ const { t } = useTranslation();
             <p className="text-[#E8FF00] text-xl font-light">
               {formatPrice(convertedPrice, currency)}
             </p>
-            <p className="text-white/40 text-[10px] font-light tracking-wide -mt-6">
-              {t("cart.taxNote")}
-            </p>
+            {isEU ? (
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", opacity: 0.5, color: "white", marginTop: "-24px" }}>
+                Price includes VAT
+              </p>
+            ) : (
+              <p className="text-white/40 text-[10px] font-light tracking-wide -mt-6">
+                {t("cart.taxNote")}
+              </p>
+            )}
 
             {/* Stock */}
             {product.stock === 0 ? (
