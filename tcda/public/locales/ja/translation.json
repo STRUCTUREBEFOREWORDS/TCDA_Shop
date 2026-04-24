@@ -53,7 +53,13 @@
     "backToShop": "← ショップに戻る",
     "notesTitle": "ご注意",
     "notesItem1": "モニター環境や照明条件により、実物と色味が異なる場合があります。",
-    "notesItem2": "海外生産品のため、梱包に軽微な擦れや凹みが生じる場合があります。"
+    "notesItem2": "海外生産品のため、梱包に軽微な擦れや凹みが生じる場合があります。",
+    "meaningTitle": "この一枚について",
+    "designIntent": "デザインの意図",
+    "bestFor": "こんな人に",
+    "silhouette": "シルエット",
+    "materialFeel": "素材感",
+    "stylePairing": "スタイリング"
   },
   "cart": {
     "addToCart": "カートに追加",

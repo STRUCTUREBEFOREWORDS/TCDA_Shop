@@ -53,7 +53,13 @@
     "nextImage": "Image suivante",
     "mensModel": "Modèle homme : 175 cm / taille M",
     "womensModel": "Modèle femme : 160 cm / taille S",
-    "aiModelNote": "※ Visuels générés par IA"
+    "aiModelNote": "※ Visuels générés par IA",
+    "meaningTitle": "À PROPOS DE CETTE PIÈCE",
+    "designIntent": "Intention du design",
+    "bestFor": "Idéal pour",
+    "silhouette": "Silhouette",
+    "materialFeel": "Sensation du matériau",
+    "stylePairing": "Association de styles"
   },
   "cart": {
     "addToCart": "Ajouter au panier",

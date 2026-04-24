@@ -53,7 +53,13 @@
     "nextImage": "Nächste",
     "mensModel": "Herrenmodell: 175 cm / trägt M",
     "womensModel": "Damenmodell: 160 cm / trägt S",
-    "aiModelNote": "※ KI-generierte Modellbilder"
+    "aiModelNote": "※ KI-generierte Modellbilder",
+    "meaningTitle": "ÜBER DIESES STÜCK",
+    "designIntent": "Designabsicht",
+    "bestFor": "Am besten für",
+    "silhouette": "Silhouette",
+    "materialFeel": "Materialempfinden",
+    "stylePairing": "Styling-Kombination"
   },
   "cart": {
     "addToCart": "In den Warenkorb",

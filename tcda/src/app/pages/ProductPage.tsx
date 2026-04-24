@@ -12,6 +12,7 @@ import { SizeGuideModal } from "../components/SizeGuideModal";
 
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { ProductMeaningBlock } from "../components/ProductMeaningBlock";
 import { Copy, Check } from "lucide-react";
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
@@ -388,6 +389,9 @@ const { t } = useTranslation();
                 ))}
               </div>
             </div>
+
+            {/* Meaning block */}
+            <ProductMeaningBlock productId={product.id} />
 
             {/* ADD TO CART / RESTOCK NOTIFY */}
             {product.stock === 0 ? (

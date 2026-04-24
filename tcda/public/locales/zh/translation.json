@@ -53,7 +53,13 @@
     "nextImage": "下一张",
     "mensModel": "男装模特：175cm / M码",
     "womensModel": "女装模特：160cm / S码",
-    "aiModelNote": "※本图使用AI模特"
+    "aiModelNote": "※本图使用AI模特",
+    "meaningTitle": "关于这件单品",
+    "designIntent": "设计意图",
+    "bestFor": "适合人群",
+    "silhouette": "廓形",
+    "materialFeel": "面料质感",
+    "stylePairing": "搭配建议"
   },
   "cart": {
     "addToCart": "加入购物车",

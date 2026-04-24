@@ -53,7 +53,13 @@
     "nextImage": "다음 이미지",
     "mensModel": "남성 모델：175cm / M 착용",
     "womensModel": "여성 모델：160cm / S 착용",
-    "aiModelNote": "※AI 모델을 사용하고 있습니다"
+    "aiModelNote": "※AI 모델을 사용하고 있습니다",
+    "meaningTitle": "이 작품에 대해",
+    "designIntent": "디자인 의도",
+    "bestFor": "이런 분께",
+    "silhouette": "실루엣",
+    "materialFeel": "소재감",
+    "stylePairing": "스타일링"
   },
   "cart": {
     "addToCart": "카트에 추가",

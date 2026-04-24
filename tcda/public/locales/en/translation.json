@@ -53,7 +53,13 @@
     "nextImage": "Next",
     "mensModel": "Men's model: 175cm / wearing M",
     "womensModel": "Women's model: 160cm / wearing S",
-    "aiModelNote": "※ AI-generated model imagery"
+    "aiModelNote": "※ AI-generated model imagery",
+    "meaningTitle": "ABOUT THIS PIECE",
+    "designIntent": "Design Intent",
+    "bestFor": "Best For",
+    "silhouette": "Silhouette",
+    "materialFeel": "Material Feel",
+    "stylePairing": "Style Pairing"
   },
   "cart": {
     "addToCart": "Add to Cart",

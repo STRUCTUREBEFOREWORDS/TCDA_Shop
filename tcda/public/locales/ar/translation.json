@@ -53,7 +53,13 @@
     "nextImage": "التالي",
     "mensModel": "مودل رجالي: 175 سم / يرتدي M",
     "womensModel": "مودل نسائي: 160 سم / يرتدي S",
-    "aiModelNote": "※ صور المودل مولّدة بالذكاء الاصطناعي"
+    "aiModelNote": "※ صور المودل مولّدة بالذكاء الاصطناعي",
+    "meaningTitle": "عن هذه القطعة",
+    "designIntent": "النية التصميمية",
+    "bestFor": "الأنسب لـ",
+    "silhouette": "الخط الخارجي",
+    "materialFeel": "ملمس المادة",
+    "stylePairing": "تنسيق الأزياء"
   },
   "cart": {
     "addToCart": "أضف إلى السلة",
