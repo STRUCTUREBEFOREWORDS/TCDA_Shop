@@ -17,6 +17,7 @@ interface Props {
   currency: Currency;
   onLanguageChange: (lang: Language) => void;
   onCurrencyChange: (curr: Currency) => void;
+  mobile?: boolean;
 }
 
 const LANGUAGES: { code: Language; flag: string }[] = [
@@ -53,7 +54,43 @@ export function TCDA_LanguageCurrencySwitcher({
   currency,
   onLanguageChange,
   onCurrencyChange,
+  mobile = false,
 }: Props) {
+  if (mobile) {
+    return (
+      <div className="space-y-4">
+        <div className="flex flex-wrap gap-3">
+          {LANGUAGES.map(({ code, flag }) => (
+            <button
+              key={code}
+              onClick={() => onLanguageChange(code)}
+              title={code.toUpperCase()}
+              className={`transition-opacity duration-300 ${
+                language === code ? "opacity-100 underline decoration-[#E8FF00] underline-offset-4" : "opacity-30 hover:opacity-60"
+              }`}
+            >
+              <img src={flag} alt={code} className="w-6 h-auto" />
+            </button>
+          ))}
+        </div>
+        <div className="border-t border-white/10 pt-4 flex flex-wrap gap-3">
+          {CURRENCIES.map((curr) => (
+            <button
+              key={curr}
+              onClick={() => onCurrencyChange(curr)}
+              title={curr}
+              className={`text-[13px] font-light transition-opacity duration-300 ${
+                currency === curr ? "opacity-100 text-[#E8FF00]" : "opacity-30 hover:opacity-60"
+              }`}
+            >
+              {CURRENCY_SYMBOLS[curr]}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex items-center gap-4">
       <div className="flex items-center gap-2">

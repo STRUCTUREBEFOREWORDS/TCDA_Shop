@@ -141,6 +141,7 @@ export function TCDA_GlobalNav() {
                   currency={currency}
                   onLanguageChange={setLanguage}
                   onCurrencyChange={setCurrency}
+                  mobile
                 />
               </div>
             </motion.div>
