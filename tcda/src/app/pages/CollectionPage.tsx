@@ -8,6 +8,7 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { useVAT } from "../hooks/useVAT";
+import { pushDataLayer } from "../hooks/useDataLayer";
 
 interface Product {
   id: string;
@@ -56,11 +57,21 @@ function buildRows(products: Product[]): Row[] {
 }
 
 export function CollectionPage() {
-  const { language, currency, rates } = useGlobalContext();
+  const { language, currency, rates, countryCode } = useGlobalContext();
   const { isEU } = useVAT();
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    pushDataLayer('page_view', {
+      page_type: 'collection',
+      collection_name: 'main',
+      language,
+      currency,
+      country: countryCode,
+    });
+  }, []);
 
   useEffect(() => {
     fetch("https://api.tcdashop.com/products")

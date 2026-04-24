@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
+import { pushDataLayer } from "../hooks/useDataLayer";
 
 const fadeUp = {
   initial: { opacity: 0, y: 32 },
@@ -43,7 +45,16 @@ const DIFFERENT = [
 const sectionPad = "py-[120px] px-12 max-md:py-[60px] max-md:px-5";
 
 export function BrandFoundationPage() {
-  const { language } = useGlobalContext();
+  const { language, currency, countryCode } = useGlobalContext();
+
+  useEffect(() => {
+    pushDataLayer('page_view', {
+      page_type: 'brand_foundation',
+      language,
+      currency,
+      country: countryCode,
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-black">

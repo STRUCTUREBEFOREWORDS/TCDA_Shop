@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { useVAT } from "../hooks/useVAT";
+import { pushDataLayer } from "../hooks/useDataLayer";
 import { FitLabelNormalized, ProductFitMetadata } from "../types";
 import { SizeGuideModal } from "../components/SizeGuideModal";
 
@@ -118,6 +119,14 @@ const { t } = useTranslation();
           content_type: 'product',
           value: data.price,
           currency: 'JPY'
+        });
+        pushDataLayer('page_view', {
+          page_type: 'product',
+          product_name: data.name,
+          product_category: (data as unknown as Record<string, unknown>).category,
+          language,
+          currency,
+          country: countryCode,
         });
         addRecentProduct({
           id: data.id,

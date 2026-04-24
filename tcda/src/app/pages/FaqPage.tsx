@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Helmet } from "react-helmet-async";
@@ -5,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useGlobalContext } from "./Root";
 import { FaqAccordion, FaqItem } from "../components/FaqAccordion";
 import { JsonLd } from "../components/JsonLd";
+import { pushDataLayer } from "../hooks/useDataLayer";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -21,8 +23,18 @@ interface Category {
 }
 
 export function FaqPage() {
-  const { language } = useGlobalContext();
+  const { language, currency, countryCode } = useGlobalContext();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    pushDataLayer('page_view', {
+      page_type: 'faq',
+      faq_category: 'all',
+      language,
+      currency,
+      country: countryCode,
+    });
+  }, []);
 
   const categories: Category[] = [
     {

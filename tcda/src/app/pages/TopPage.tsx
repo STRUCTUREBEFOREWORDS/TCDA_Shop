@@ -9,6 +9,7 @@ import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useVAT } from "../hooks/useVAT";
 import { JsonLd } from "../components/JsonLd";
+import { pushDataLayer } from "../hooks/useDataLayer";
 
 const HERO_IMAGE = "https://cdn.tcdashop.com/top/1.webp";
 
@@ -20,12 +21,21 @@ const fadeUp = {
 };
 
 export function TopPage() {
-  const { language, currency, rates } = useGlobalContext();
+  const { language, currency, rates, countryCode } = useGlobalContext();
   const { isEU } = useVAT();
   const t = (key: Parameters<typeof getTranslation>[1]) => getTranslation(language, key);
   const { products } = useProducts();
 
   const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    pushDataLayer('page_view', {
+      page_type: 'top',
+      language,
+      currency,
+      country: countryCode,
+    });
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

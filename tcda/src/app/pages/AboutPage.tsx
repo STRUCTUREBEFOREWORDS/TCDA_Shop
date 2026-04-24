@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useGlobalContext } from "./Root";
+import { pushDataLayer } from "../hooks/useDataLayer";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -18,8 +20,17 @@ const VALUES = [
 ];
 
 export function AboutPage() {
-  const { language } = useGlobalContext();
+  const { language, currency, countryCode } = useGlobalContext();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    pushDataLayer('page_view', {
+      page_type: 'about',
+      language,
+      currency,
+      country: countryCode,
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-black">
