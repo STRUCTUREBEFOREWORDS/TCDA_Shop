@@ -1,7 +1,7 @@
 import { useParams, Link, useLocation } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
@@ -65,7 +65,6 @@ interface SizeChart {
   };
 }
 
-
 const FIT_LABEL_MAP: Record<FitLabelNormalized, string> = {
   slim:     "fit.slim",
   regular:  "fit.regular",
@@ -74,7 +73,52 @@ const FIT_LABEL_MAP: Record<FitLabelNormalized, string> = {
   unknown:  "fit.unknown",
 };
 
+interface AccordionItem {
+  title: string;
+  content: React.ReactNode;
+}
 
+function InfoAccordion({ items }: { items: AccordionItem[] }) {
+  const [open, setOpen] = useState<number | null>(null);
+  return (
+    <div>
+      {items.map((item, i) => (
+        <div key={i} className="border-t border-white/10">
+          <button
+            className="w-full flex items-center justify-between py-4 text-left"
+            onClick={() => setOpen(open === i ? null : i)}
+          >
+            <span
+              className="text-white/70 uppercase"
+              style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", letterSpacing: "0.1em" }}
+            >
+              {item.title}
+            </span>
+            <span className="text-white/40 text-lg leading-none">{open === i ? "−" : "+"}</span>
+          </button>
+          <AnimatePresence initial={false}>
+            {open === i && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                style={{ overflow: "hidden" }}
+              >
+                <div
+                  className="pb-5 text-white/60 text-xs font-light leading-loose"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  {item.content}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export function ProductPage() {
   const { id } = useParams();
@@ -84,8 +128,8 @@ export function ProductPage() {
   const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
   const { isEU } = useVAT();
-const { t } = useTranslation();
-  
+  const { t } = useTranslation();
+
   const PURCHASE_FAQ_KEYS = [
     "sizeHelp", "oversized", "deliveryTime", "returns", "colorDifference", "orderChange",
   ] as const;
@@ -213,6 +257,58 @@ const { t } = useTranslation();
     setTimeout(() => setAdded(false), 2000);
   };
 
+  const accordionItems: AccordionItem[] = [
+    {
+      title: t("size.guide"),
+      content: (
+        <div>
+          {product.fit_metadata && product.fit_metadata.fit_label_normalized !== "unknown" && (
+            <p className="mb-3">
+              {t("sizeGuide.fit")}: {t(FIT_LABEL_MAP[product.fit_metadata.fit_label_normalized])}
+              {product.fit_metadata.model_height_cm && product.fit_metadata.model_wear_size && (
+                <span className="ml-2 opacity-70">
+                  ({product.fit_metadata.model_height_cm}cm / {product.fit_metadata.model_wear_size})
+                </span>
+              )}
+            </p>
+          )}
+          {product.fit_metadata?.recommendation_note && (
+            <p className="mb-3 leading-relaxed">{product.fit_metadata.recommendation_note}</p>
+          )}
+          <button
+            onClick={() => setSizeGuideOpen(true)}
+            className="underline opacity-70 hover:opacity-100 transition-opacity duration-200"
+          >
+            {t("sizeGuide.seeGuide")} →
+          </button>
+        </div>
+      ),
+    },
+    {
+      title: t("checkout.shippingInfo"),
+      content: (
+        <div>
+          <p className="leading-relaxed">{t("product.deliveryText")}</p>
+          {deliveryDate && (
+            <p className="mt-2 opacity-70">{deliveryDate.min} 〜 {deliveryDate.max}</p>
+          )}
+        </div>
+      ),
+    },
+    {
+      title: t("trust.shippingReturnsLink"),
+      content: <p className="leading-relaxed">{t("checkout.shippingReturnsText")}</p>,
+    },
+    ...(isEU ? [{
+      title: "VAT",
+      content: (
+        <p className="leading-relaxed">
+          {t("geo.eu.vat")} All EU prices include 20% VAT in compliance with EU regulations.
+        </p>
+      ),
+    }] : []),
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white pt-20">
       <Helmet>
@@ -250,6 +346,7 @@ const { t } = useTranslation();
           "seller": { "@type": "Organization", "name": "TCDA" },
         },
       }} />
+
       {/* BACK */}
       <div className="px-4 sm:px-6 md:px-10 lg:px-20 py-6 max-w-7xl mx-auto">
         <Link
@@ -263,6 +360,7 @@ const { t } = useTranslation();
       {/* MAIN: image + info */}
       <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+
           {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -270,7 +368,6 @@ const { t } = useTranslation();
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col gap-4"
           >
-            {/* Main image */}
             <div className="relative aspect-[3/4] bg-black/5">
               <Zoom>
                 {images.length === 0 && product.thumbnail_url ? (
@@ -313,7 +410,6 @@ const { t } = useTranslation();
               )}
             </div>
 
-            {/* Thumbnails */}
             {images.length > 1 && (
               <div className="flex gap-2 overflow-x-auto pb-1">
                 {images.map((src, i) => (
@@ -340,44 +436,44 @@ const { t } = useTranslation();
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-8 pt-4"
+            className="flex flex-col pt-4"
           >
             {/* Name */}
-            <h1 className="text-white text-2xl font-light tracking-widest uppercase">
+            <h1 className="text-white text-2xl font-light tracking-widest uppercase mt-16">
               {product.name}
             </h1>
 
             {/* Price */}
-            <p className={`text-[#E8FF00] font-light ${geo === "US" ? "text-2xl" : "text-xl"}`}>
+            <p className={`text-[#E8FF00] font-light mt-6 mb-8 ${geo === "US" ? "text-2xl" : "text-xl"}`}>
               {formatPrice(convertedPrice, currency)}
             </p>
             {isEU ? (
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", opacity: 0.5, color: "white", marginTop: "-24px" }}>
+              <p className="text-white/50 -mt-6 mb-4" style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px" }}>
                 Price includes VAT
               </p>
             ) : (
-              <p className="text-white/40 text-[10px] font-light tracking-wide -mt-6">
+              <p className="text-white/40 text-[10px] font-light tracking-wide -mt-6 mb-4">
                 {t("cart.taxNote")}
               </p>
             )}
 
             {/* Stock */}
             {product.stock === 0 ? (
-              <p className="text-red-500 text-xs font-light tracking-widest">
+              <p className="text-red-500 text-xs font-light tracking-widest mb-4">
                 {t("product.outOfStock")}
               </p>
             ) : product.stock <= 5 ? (
-              <p className="text-red-500 text-xs font-light tracking-widest">
+              <p className="text-red-500 text-xs font-light tracking-widest mb-4">
                 {t("product.stockRemaining", { count: product.stock })}
               </p>
             ) : (
-              <p className="text-white text-xs font-light opacity-40 tracking-widest">
+              <p className="text-white text-xs font-light opacity-40 tracking-widest mb-4">
                 {t("product.stockRemaining", { count: product.stock })}
               </p>
             )}
 
             {/* Size selection */}
-            <div>
+            <div className="mt-2">
               <p className="text-white text-xs font-light tracking-[0.3em] uppercase opacity-40 mb-4">
                 {t("size.label")}
               </p>
@@ -398,36 +494,9 @@ const { t } = useTranslation();
               </div>
             </div>
 
-            {/* GEO UI */}
-            {geo === "JP" && (
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, opacity: 0.6, marginTop: 12 }}>
-                {t("geo.jp.shipping")} · {t("geo.jp.returns")} ·{" "}
-                <Link to={`/${language}/faq`} className="underline">{t("geo.jp.faqLink")}</Link>
-              </div>
-            )}
-            {geo === "EU" && (
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, opacity: 0.6, marginTop: 12 }}>
-                {t("geo.eu.material")} · {t("geo.eu.vat")}
-              </div>
-            )}
-
-            {/* Meaning block */}
-            <ProductMeaningBlock productId={product.id} />
-
-            {/* Internal links */}
-            <div className="flex items-center gap-2" style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>
-              <Link to={`/${language}/collection`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
-                View Full Collection
-              </Link>
-              <span className="text-white/20">·</span>
-              <Link to={`/${language}/faq`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
-                FAQ
-              </Link>
-            </div>
-
-            {/* ADD TO CART / RESTOCK NOTIFY */}
+            {/* Add to Cart */}
             {product.stock === 0 ? (
-              <div className="space-y-3">
+              <div className="space-y-3 mt-12">
                 {notifySubmitted ? (
                   <p className="text-white/50 text-xs font-light tracking-widest text-center py-4">
                     {t("product.notifyRegistered")}
@@ -439,7 +508,7 @@ const { t } = useTranslation();
                       value={notifyEmail}
                       onChange={(e) => setNotifyEmail(e.target.value)}
                       placeholder={t("product.notifyEmailPlaceholder")}
-                      className="w-full border border-white/20 px-4 py-3 text-xs font-light tracking-wide focus:outline-none focus:border-white/60 placeholder:text-white/30"
+                      className="w-full border border-white/20 bg-transparent px-4 py-3 text-xs font-light tracking-wide focus:outline-none focus:border-white/60 placeholder:text-white/30"
                     />
                     <button
                       onClick={async () => {
@@ -467,7 +536,7 @@ const { t } = useTranslation();
               <button
                 onClick={handleAddToCart}
                 disabled={!selectedSize}
-                className={`w-full ${geo === "US" ? "py-6" : "py-4"} bg-[#E8FF00] text-black text-xs tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-30`}
+                className={`w-full mt-12 ${geo === "US" ? "py-6" : "py-4"} bg-[#E8FF00] text-black text-xs tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-30`}
                 style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.3em' }}
               >
                 {added ? t("cart.added") : t("cart.addToCart")}
@@ -475,7 +544,7 @@ const { t } = useTranslation();
             )}
 
             {/* SNS Share */}
-            <div className="flex items-center gap-3 mt-4">
+            <div className="flex items-center gap-3 mt-6">
               <span className="text-sm text-gray-500">{t('share')}:</span>
               <a
                 href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(product.name)}`}
@@ -527,7 +596,7 @@ const { t } = useTranslation();
             {reviews.length > 0 && (() => {
               const avg = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length;
               return (
-                <div className="pt-4 pb-2">
+                <div className="mt-6 pt-4 pb-2">
                   <div className="flex items-baseline gap-3 mb-3">
                     <span className="text-white/60 text-[11px] tracking-wider">
                       {"★".repeat(Math.round(avg))}{"☆".repeat(5 - Math.round(avg))}
@@ -564,56 +633,14 @@ const { t } = useTranslation();
               );
             })()}
 
-            {/* Trust Block */}
-            <div className="pt-4 pb-2">
-              <ul className="space-y-1.5 mb-3">
-                {(["processed", "delivered", "supported"] as const).map((key) => (
-                  <li key={key} className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-black/25 flex-shrink-0" />
-                    <span className="text-white/45 text-[10px] font-light leading-relaxed">
-                      {t(`trust.${key}`)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to={`/${language}/shipping-returns`}
-                className="text-white/30 text-[10px] font-light tracking-widest uppercase hover:text-white/60 transition-colors duration-200"
-              >
-                {t("trust.shippingReturnsLink")} →
-              </Link>
+            {/* ProductMeaningBlock */}
+            <div className="mt-12">
+              <ProductMeaningBlock productId={product.id} />
             </div>
 
-            {/* Delivery */}
-            <div className="border-t border-white/10 pt-6">
-              <p className="text-white text-xs font-light tracking-widest uppercase opacity-40 mb-2">
-                {t("product.deliveryLabel")}
-              </p>
-              <p className="text-white text-xs font-light opacity-60 leading-relaxed">
-                {t("product.deliveryText")}
-              </p>
-            </div>
-
-            {/* Model info */}
-            <div className="border-t border-white/10 pt-6">
-              <p className="text-white text-xs font-light tracking-widest uppercase opacity-40 mb-2">
-                {t("product.modelLabel")}
-              </p>
-              <div className="space-y-1">
-                {product.gender_type !== "womens" && (
-                  <p className="text-white text-xs font-light opacity-60 leading-relaxed">
-                    {t("product.mensModel")}
-                  </p>
-                )}
-                {product.gender_type !== "mens" && (
-                  <p className="text-white text-xs font-light opacity-60 leading-relaxed">
-                    {t("product.womensModel")}
-                  </p>
-                )}
-                <p className="text-white text-xs font-light opacity-30 leading-relaxed mt-2">
-                  {t("product.aiModelNote")}
-                </p>
-              </div>
+            {/* Info Accordion */}
+            <div className="mt-8">
+              <InfoAccordion items={accordionItems} />
             </div>
           </motion.div>
         </div>
@@ -780,7 +807,6 @@ const { t } = useTranslation();
           </h2>
           <FaqAccordion items={purchaseFaqItems} />
         </motion.div>
-
       </section>
     </div>
   );
