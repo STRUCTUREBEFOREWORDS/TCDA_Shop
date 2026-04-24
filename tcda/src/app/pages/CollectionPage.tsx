@@ -23,34 +23,6 @@ function getPrimaryImage(product: Product): string {
   return product.images?.[0] || product.thumbnail_url || FALLBACK_IMAGE;
 }
 
-function getSpan(index: number): "full" | "half" {
-  return index % 3 === 0 ? "full" : "half";
-}
-
-type Row = { product: Product; span: "full" | "half" }[];
-
-function buildRows(products: Product[]): Row[] {
-  const rows: Row[] = [];
-  let i = 0;
-  while (i < products.length) {
-    const span = getSpan(i);
-    if (span === "full") {
-      rows.push([{ product: products[i], span: "full" }]);
-      i++;
-    } else {
-      const pair: Row = [{ product: products[i], span: "half" }];
-      if (i + 1 < products.length && getSpan(i + 1) === "half") {
-        pair.push({ product: products[i + 1], span: "half" });
-        i += 2;
-      } else {
-        i++;
-      }
-      rows.push(pair);
-    }
-  }
-  return rows;
-}
-
 export function CollectionPage() {
   const { language, currency, rates, countryCode } = useGlobalContext();
   const { pathname } = useLocation();
@@ -85,8 +57,6 @@ export function CollectionPage() {
     return formatPrice(converted, currency);
   };
 
-  const rows = buildRows(products);
-
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--color-bg)" }}>
       <Helmet>
@@ -100,8 +70,8 @@ export function CollectionPage() {
 
       {/* Hero */}
       <section
-        className="flex flex-col items-center justify-center text-center px-6"
-        style={{ height: "60vh" }}
+        className="flex flex-col justify-end items-start px-8 md:px-16"
+        style={{ height: "80vh", paddingBottom: "var(--section-padding-desktop)" }}
       >
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -109,7 +79,7 @@ export function CollectionPage() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "var(--text-heading)",
+            fontSize: "var(--text-display)",
             fontWeight: "var(--weight-light)",
             letterSpacing: "var(--ls-display)",
             color: "var(--color-text)",
@@ -118,85 +88,6 @@ export function CollectionPage() {
         >
           {t("collection.heroTitle")}
         </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6"
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "18px",
-            color: "var(--color-text-secondary)",
-            letterSpacing: "var(--ls-body)",
-          }}
-        >
-          {t("collection.heroSub")}
-        </motion.p>
-      </section>
-
-      {/* Concept block */}
-      <section
-        className="px-8 md:px-16 border-t border-b"
-        style={{
-          padding: `var(--section-padding-desktop) 32px`,
-          borderColor: "var(--color-border)",
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ maxWidth: "560px" }}
-        >
-          <h2
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "40px",
-              fontWeight: "var(--weight-light)",
-              letterSpacing: "var(--ls-display)",
-              color: "var(--color-text)",
-              marginBottom: "24px",
-            }}
-          >
-            {t("collection.conceptTitle")}
-          </h2>
-          <p
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "16px",
-              color: "var(--color-text-secondary)",
-              lineHeight: 1.8,
-              letterSpacing: "var(--ls-body)",
-            }}
-          >
-            {t("collection.conceptBody")}
-          </p>
-          <div
-            className="flex items-center gap-2 mt-8"
-            style={{ fontFamily: "var(--font-body)", fontSize: "13px" }}
-          >
-            <Link
-              to={`/${language}/about`}
-              className="transition-all duration-300"
-              style={{ color: "var(--color-text-secondary)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
-            >
-              Our Story
-            </Link>
-            <span style={{ color: "var(--color-border)" }}>·</span>
-            <Link
-              to={`/${language}/brand-foundation`}
-              className="transition-all duration-300"
-              style={{ color: "var(--color-text-secondary)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
-            >
-              Brand Foundation
-            </Link>
-          </div>
-        </motion.div>
       </section>
 
       {/* Grid */}
@@ -207,71 +98,69 @@ export function CollectionPage() {
           </p>
         </div>
       ) : (
-        <div className="flex flex-col gap-px px-px">
-          {rows.map((row, rowIndex) => (
+        <div className="grid grid-cols-2" style={{ gap: "2px", marginTop: "160px" }}>
+          {products.map((product) => (
             <motion.div
-              key={rowIndex}
+              key={product.id}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.05 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className={`grid gap-px items-start ${row.length > 1 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"}`}
             >
-              {row.map(({ product, span }) => (
-                <Link
-                  key={product.id}
-                  to={`/${language}/product/${product.id}`}
-                  className="group block"
-                >
-                  {/* Image */}
-                  <div className={`relative overflow-hidden ${span === "full" ? "aspect-[3/4] md:aspect-[2/3]" : "aspect-[3/4]"}`}>
-                    <ImageWithFallback
-                      src={getPrimaryImage(product)}
-                      alt={product.name}
-                      className="w-full h-full object-cover object-center"
-                      style={{ transition: "transform var(--transition-slow)" }}
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
-                    <div className="absolute bottom-4 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
-                      <span
-                        className="text-[11px] tracking-[0.3em] uppercase pb-px"
-                        style={{ color: "var(--color-text)", borderBottom: `1px solid var(--color-accent)` }}
-                      >
-                        View
-                      </span>
-                    </div>
-                  </div>
+              <Link to={`/${language}/product/${product.id}`} className="group block">
+                {/* Image */}
+                <div className="relative overflow-hidden w-full" style={{ aspectRatio: "2/3" }}>
+                  <ImageWithFallback
+                    src={getPrimaryImage(product)}
+                    alt={product.name}
+                    className="w-full h-full object-cover object-center"
+                    style={{ transition: "transform var(--transition-slow)" }}
+                  />
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{ border: "1px solid var(--color-accent)" }}
+                  />
+                </div>
 
-                  {/* Product info */}
-                  <div className="px-2 pt-3 pb-6">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <h3
-                        className="text-[10px] font-light tracking-[0.25em] uppercase truncate transition-colors duration-300"
-                        style={{ color: "var(--color-text-secondary)" }}
-                      >
-                        {product.name}
-                      </h3>
-                      <p
-                        className="text-[10px] font-light tracking-wider shrink-0"
-                        style={{ color: "var(--color-accent)", fontFamily: "var(--font-body)" }}
-                      >
-                        {convertAndFormat(product.price)}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+                {/* Product info */}
+                <div className="px-1 pb-6" style={{ marginTop: "12px" }}>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "var(--text-caption)",
+                      fontWeight: "var(--weight-light)",
+                      letterSpacing: "var(--ls-nav)",
+                      color: "var(--color-text)",
+                    }}
+                  >
+                    {product.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "var(--text-caption)",
+                      color: "var(--color-accent)",
+                      marginTop: "4px",
+                    }}
+                  >
+                    {convertAndFormat(product.price)}
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
       )}
 
       {/* CTA */}
-      <div className="px-8 md:px-12 pt-12 pb-16" style={{ borderTop: `1px solid var(--color-border)` }}>
+      <div
+        className="px-8 md:px-12 pt-12 pb-16"
+        style={{ borderTop: "1px solid var(--color-border)", marginTop: "160px" }}
+      >
         <Link
           to={`/${language}/products`}
           className="inline-block px-10 py-4 text-[10px] font-light tracking-[0.4em] uppercase transition-colors duration-300"
-          style={{ border: `1px solid var(--color-border)`, color: "var(--color-text-secondary)" }}
+          style={{ border: "1px solid var(--color-border)", color: "var(--color-text-secondary)" }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = "var(--color-text-secondary)";
             e.currentTarget.style.color = "var(--color-text)";
