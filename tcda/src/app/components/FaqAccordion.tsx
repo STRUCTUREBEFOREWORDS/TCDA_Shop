@@ -16,13 +16,12 @@ export function FaqAccordion({ items }: Props) {
   return (
     <div className="space-y-0">
       {items.map((item, i) => (
-        <div key={i} className="py-0" style={{ borderBottom: "1px solid var(--color-border)" }}>
+        <div key={i} style={{ borderTop: "1px solid var(--color-border)", padding: "24px 0" }}>
           <button
             onClick={() => setOpen(open === i ? null : i)}
-            className="w-full text-left py-4 flex justify-between items-start gap-4"
+            className="w-full text-left flex justify-between items-start gap-4"
           >
             <span
-              className="text-sm font-light leading-snug"
               style={{ fontFamily: "var(--font-body)", color: "var(--color-text)", letterSpacing: "var(--ls-body)" }}
             >
               {item.q}
@@ -39,8 +38,8 @@ export function FaqAccordion({ items }: Props) {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="text-xs font-light leading-relaxed pb-4 pr-8 overflow-hidden"
-                style={{ color: "var(--color-text-secondary)", fontFamily: "var(--font-body)" }}
+                className="pr-8 overflow-hidden"
+                style={{ color: "var(--color-text-secondary)", fontFamily: "var(--font-body)", lineHeight: 1.8, paddingBottom: "24px" }}
               >
                 {item.a}
               </motion.p>

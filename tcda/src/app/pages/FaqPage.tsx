@@ -15,7 +15,15 @@ const fadeUp = {
   transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
 };
 
-const sectionPad = "py-[120px] px-6 md:px-16 max-md:py-[60px]";
+const SECTION_NUM_STYLE: React.CSSProperties = {
+  position: "absolute",
+  top: "40px",
+  left: "var(--container-padding-desktop)",
+  fontFamily: "var(--font-body)",
+  fontSize: "var(--text-caption)",
+  letterSpacing: "var(--ls-nav)",
+  color: "var(--color-text-tertiary)",
+};
 
 interface Category {
   titleKey: string;
@@ -99,20 +107,24 @@ export function FaqPage() {
 
       {/* Hero */}
       <section
-        className="flex items-center justify-center"
-        style={{ height: "40vh", borderBottom: "1px solid var(--color-border)" }}
+        className="relative flex flex-col justify-end items-start"
+        style={{
+          height: "60vh",
+          padding: "0 var(--container-padding-desktop) var(--section-padding-desktop)",
+        }}
       >
+        <span style={SECTION_NUM_STYLE}>01</span>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="leading-[1.2]"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "var(--text-heading)",
+            fontSize: "var(--text-display)",
             fontWeight: "var(--weight-light)",
             letterSpacing: "var(--ls-display)",
             color: "var(--color-text)",
-            lineHeight: 1,
           }}
         >
           {t("faq.pageTitle")}
@@ -120,34 +132,64 @@ export function FaqPage() {
       </section>
 
       {/* FAQ Categories */}
-      {categories.map(({ titleKey, items }) => (
-        <section
-          key={titleKey}
-          className={sectionPad}
-          style={{ borderBottom: "1px solid var(--color-border)" }}
-        >
-          <div className="max-w-3xl mx-auto">
-            <motion.h2
-              {...fadeUp}
-              className="mb-8 uppercase tracking-[0.15em]"
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-caption)",
-                letterSpacing: "var(--ls-nav)",
-                color: "var(--color-text-secondary)",
-              }}
-            >
-              {t(titleKey)}
-            </motion.h2>
-            <motion.div {...fadeUp}>
-              <FaqAccordion items={items} />
+      <div
+        style={{
+          maxWidth: "var(--max-width-content)",
+          margin: "0 auto",
+          padding: "0 var(--container-padding-desktop)",
+          marginBottom: "160px",
+        }}
+      >
+        {categories.map(({ titleKey, items }, idx) => (
+          <section
+            key={titleKey}
+            style={{
+              borderTop: "1px solid var(--color-border)",
+              paddingTop: "80px",
+              marginTop: idx === 0 ? "80px" : "80px",
+            }}
+          >
+            <motion.div {...fadeUp} className="flex gap-16 items-start">
+              <span
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "var(--text-caption)",
+                  letterSpacing: "var(--ls-nav)",
+                  color: "var(--color-text-tertiary)",
+                  flexShrink: 0,
+                  minWidth: "32px",
+                }}
+              >
+                0{idx + 1}
+              </span>
+              <div className="flex-1">
+                <motion.h2
+                  {...fadeUp}
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "var(--text-subheading)",
+                    fontWeight: "var(--weight-light)",
+                    letterSpacing: "var(--ls-display)",
+                    color: "var(--color-text)",
+                    marginBottom: "40px",
+                  }}
+                >
+                  {t(titleKey)}
+                </motion.h2>
+                <motion.div {...fadeUp}>
+                  <FaqAccordion items={items} />
+                </motion.div>
+              </div>
             </motion.div>
-          </div>
-        </section>
-      ))}
+          </section>
+        ))}
+      </div>
 
       {/* CTA */}
-      <section className={`${sectionPad} text-center`}>
+      <section
+        className="text-center"
+        style={{ padding: "0 var(--container-padding-desktop) var(--section-padding-desktop)" }}
+      >
         <motion.div {...fadeUp}>
           <p
             className="mb-8"
