@@ -24,10 +24,6 @@ function getPrimaryImage(product: Product): string {
   return product.images?.[0] || product.thumbnail_url || FALLBACK_IMAGE;
 }
 
-/**
- * Pattern (repeating every 3): full, half, half
- * → rows: [1 full], [2 half], [1 full], [2 half], …
- */
 function getSpan(index: number): "full" | "half" {
   return index % 3 === 0 ? "full" : "half";
 }
@@ -95,7 +91,7 @@ export function CollectionPage() {
   const rows = buildRows(products);
 
   return (
-    <div className="bg-black min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--color-bg)" }}>
       <Helmet>
         <title>Collection — TCDA</title>
         <meta name="description" content="Browse the full TCDA collection. Art-driven fashion for those who refuse the ordinary." />
@@ -104,13 +100,24 @@ export function CollectionPage() {
         <meta property="og:description" content="Browse the full TCDA collection. Art-driven fashion for those who refuse the ordinary." />
         <meta property="og:url" content={canonical} />
       </Helmet>
+
       {/* Hero */}
-      <section className="flex flex-col items-center justify-center text-center px-6" style={{ height: "60vh" }}>
+      <section
+        className="flex flex-col items-center justify-center text-center px-6"
+        style={{ height: "60vh" }}
+      >
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(64px, 10vw, 120px)", color: "#ffffff", lineHeight: 1 }}
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "var(--text-heading)",
+            fontWeight: "var(--weight-light)",
+            letterSpacing: "var(--ls-display)",
+            color: "var(--color-text)",
+            lineHeight: 1,
+          }}
         >
           {t("collection.heroTitle")}
         </motion.h1>
@@ -119,14 +126,25 @@ export function CollectionPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6"
-          style={{ fontFamily: "'Inter', sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.6)" }}
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "18px",
+            color: "var(--color-text-secondary)",
+            letterSpacing: "var(--ls-body)",
+          }}
         >
           {t("collection.heroSub")}
         </motion.p>
       </section>
 
       {/* Concept block */}
-      <section className="px-8 md:px-16 py-[120px] max-md:py-[60px] border-t border-white/5 border-b border-white/5">
+      <section
+        className="px-8 md:px-16 border-t border-b"
+        style={{
+          padding: `var(--section-padding-desktop) 32px`,
+          borderColor: "var(--color-border)",
+        }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -135,32 +153,59 @@ export function CollectionPage() {
           style={{ maxWidth: "560px" }}
         >
           <h2
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "40px", color: "#ffffff", marginBottom: "24px" }}
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "40px",
+              fontWeight: "var(--weight-light)",
+              letterSpacing: "var(--ls-display)",
+              color: "var(--color-text)",
+              marginBottom: "24px",
+            }}
           >
             {t("collection.conceptTitle")}
           </h2>
           <p
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px", color: "rgba(255,255,255,0.8)", lineHeight: 1.8 }}
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "16px",
+              color: "var(--color-text-secondary)",
+              lineHeight: 1.8,
+              letterSpacing: "var(--ls-body)",
+            }}
           >
             {t("collection.conceptBody")}
           </p>
-          <div className="flex items-center gap-2 mt-8" style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>
-            <Link to={`/${language}/about`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+          <div
+            className="flex items-center gap-2 mt-8"
+            style={{ fontFamily: "var(--font-body)", fontSize: "13px" }}
+          >
+            <Link
+              to={`/${language}/about`}
+              className="transition-all duration-300"
+              style={{ color: "var(--color-text-secondary)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+            >
               Our Story
             </Link>
-            <span className="text-white/20">·</span>
-            <Link to={`/${language}/brand-foundation`} className="text-white/50 hover:text-[#E8FF00] hover:opacity-100 transition-all duration-300">
+            <span style={{ color: "var(--color-border)" }}>·</span>
+            <Link
+              to={`/${language}/brand-foundation`}
+              className="transition-all duration-300"
+              style={{ color: "var(--color-text-secondary)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+            >
               Brand Foundation
             </Link>
           </div>
         </motion.div>
       </section>
 
-
       {/* Grid */}
       {loading ? (
         <div className="flex items-center justify-center h-64">
-          <p className="text-white/20 text-[10px] font-light tracking-widest">
+          <p className="text-[10px] font-light tracking-widest" style={{ color: "var(--color-text-tertiary)" }}>
             {t("common.loading")}
           </p>
         </div>
@@ -186,11 +231,15 @@ export function CollectionPage() {
                     <ImageWithFallback
                       src={getPrimaryImage(product)}
                       alt={product.name}
-                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.06]"
+                      className="w-full h-full object-cover object-center"
+                      style={{ transition: "transform var(--transition-slow)" }}
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
                     <div className="absolute bottom-4 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
-                      <span className="text-white text-[11px] tracking-[0.3em] uppercase border-b border-[#E8FF00] pb-px">
+                      <span
+                        className="text-[11px] tracking-[0.3em] uppercase pb-px"
+                        style={{ color: "var(--color-text)", borderBottom: `1px solid var(--color-accent)` }}
+                      >
                         View
                       </span>
                     </div>
@@ -199,15 +248,21 @@ export function CollectionPage() {
                   {/* Product info */}
                   <div className="px-2 pt-3 pb-6">
                     <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="text-white/70 text-[10px] font-light tracking-[0.25em] uppercase truncate group-hover:text-white transition-colors duration-300">
+                      <h3
+                        className="text-[10px] font-light tracking-[0.25em] uppercase truncate transition-colors duration-300"
+                        style={{ color: "var(--color-text-secondary)" }}
+                      >
                         {product.name}
                       </h3>
-                      <p className="text-[#E8FF00] text-[10px] font-light tracking-wider shrink-0 group-hover:text-[#E8FF00]/80 transition-colors duration-300">
+                      <p
+                        className="text-[10px] font-light tracking-wider shrink-0"
+                        style={{ color: "var(--color-accent)", fontFamily: "var(--font-body)" }}
+                      >
                         {convertAndFormat(product.price)}
                       </p>
                     </div>
                     {isEU && (
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", opacity: 0.5, color: "white" }}>
+                      <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", opacity: 0.5, color: "var(--color-text)" }}>
                         Price includes VAT
                       </p>
                     )}
@@ -220,10 +275,19 @@ export function CollectionPage() {
       )}
 
       {/* CTA */}
-      <div className="px-8 md:px-12 pt-12 pb-16 border-t border-white/5">
+      <div className="px-8 md:px-12 pt-12 pb-16" style={{ borderTop: `1px solid var(--color-border)` }}>
         <Link
           to={`/${language}/products`}
-          className="inline-block px-10 py-4 border border-white/20 text-white/50 text-[10px] font-light tracking-[0.4em] uppercase hover:border-white/50 hover:text-white/80 transition-colors duration-300"
+          className="inline-block px-10 py-4 text-[10px] font-light tracking-[0.4em] uppercase transition-colors duration-300"
+          style={{ border: `1px solid var(--color-border)`, color: "var(--color-text-secondary)" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = "var(--color-text-secondary)";
+            e.currentTarget.style.color = "var(--color-text)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = "var(--color-border)";
+            e.currentTarget.style.color = "var(--color-text-secondary)";
+          }}
         >
           {t("nav.shop")}
         </Link>
