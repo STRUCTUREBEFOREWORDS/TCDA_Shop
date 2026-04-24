@@ -402,7 +402,13 @@
     "value2Title": "INDIVIDUALITY",
     "value2Body": "Viste tu individualidad. Muestra tu individualidad. Lo que llevas puesto es tu declaración.",
     "value3Title": "GLOBAL",
-    "value3Body": "Arte sin fronteras. Un lenguaje visual que trasciende la geografía, la cultura y las palabras."
+    "value3Body": "Arte sin fronteras. Un lenguaje visual que trasciende la geografía, la cultura y las palabras.",
+    "heroTitle": "La individualidad no es algo que ocultar. Es algo que vestir.",
+    "valuesTitle": "VALUES",
+    "value1": "ART FIRST",
+    "value2": "INDIVIDUALITY",
+    "value3": "GLOBAL",
+    "ctaLabel": "VER COLECCIÓN"
   },
   "common": {
     "loading": "Cargando..."

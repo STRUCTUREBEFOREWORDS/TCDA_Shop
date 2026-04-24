@@ -402,7 +402,13 @@
     "value2Title": "INDIVIDUALITY",
     "value2Body": "穿出个性，展示个性。你所穿着之物，即是你自己的宣言。",
     "value3Title": "GLOBAL",
-    "value3Body": "超越国界的艺术表达。一种超越地域、文化与语言的视觉语言。"
+    "value3Body": "超越国界的艺术表达。一种超越地域、文化与语言的视觉语言。",
+    "heroTitle": "个性不是需要隐藏的东西。而是需要穿戴的东西。",
+    "valuesTitle": "VALUES",
+    "value1": "ART FIRST",
+    "value2": "INDIVIDUALITY",
+    "value3": "GLOBAL",
+    "ctaLabel": "查看系列"
   },
   "common": {
     "loading": "加载中..."

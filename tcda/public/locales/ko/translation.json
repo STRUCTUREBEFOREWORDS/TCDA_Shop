@@ -402,7 +402,13 @@
     "value2Title": "INDIVIDUALITY",
     "value2Body": "개성을 걸치고, 개성을 드러낸다. 당신이 입는 것이 곧 당신의 선언입니다.",
     "value3Title": "GLOBAL",
-    "value3Body": "국경을 초월한 아트의 표현. 언어와 문화를 초월해 전달되는 시각 언어."
+    "value3Body": "국경을 초월한 아트의 표현. 언어와 문화를 초월해 전달되는 시각 언어.",
+    "heroTitle": "개성은 숨기는 것이 아니라 '걸치는 것'이다.",
+    "valuesTitle": "VALUES",
+    "value1": "ART FIRST",
+    "value2": "INDIVIDUALITY",
+    "value3": "GLOBAL",
+    "ctaLabel": "컬렉션 보기"
   },
   "common": {
     "loading": "불러오는 중..."

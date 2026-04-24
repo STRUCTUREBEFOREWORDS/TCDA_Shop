@@ -309,29 +309,80 @@
   "privacy": {
     "title": "Informativa sulla privacy",
     "sections": {
-      "dataCollection": { "title": "1. Informazioni raccolte", "body": "Raccogliamo nome, indirizzo, email, numero di telefono e informazioni di pagamento per l'elaborazione degli ordini. Le informazioni di pagamento sono gestite in modo sicuro da Stripe, Inc." },
-      "dataUsage": { "title": "2. Utilizzo delle informazioni", "body": "Le informazioni raccolte vengono utilizzate per l'elaborazione degli ordini, la spedizione, il supporto clienti e il miglioramento del servizio." },
-      "thirdParty": { "title": "3. Condivisione con terzi", "body": "Per evadere il tuo ordine, condividiamo le informazioni di spedizione necessarie con Printful. Nessuna altra condivisione con terzi." },
-      "cookies": { "title": "4. Cookie", "body": "Questo sito utilizza cookie per l'analisi tramite Google Analytics (GA4). Puoi disabilitare i cookie." },
-      "security": { "title": "5. Sicurezza dei dati", "body": "Le informazioni personali sono gestite con adeguate misure di sicurezza." },
-      "contact": { "title": "6. Contatto", "body": "Per richieste relative ai tuoi dati personali, contattaci a info@tcdashop.com." }
+      "dataCollection": {
+        "title": "1. Informazioni raccolte",
+        "body": "Raccogliamo nome, indirizzo, email, numero di telefono e informazioni di pagamento per l'elaborazione degli ordini. Le informazioni di pagamento sono gestite in modo sicuro da Stripe, Inc."
+      },
+      "dataUsage": {
+        "title": "2. Utilizzo delle informazioni",
+        "body": "Le informazioni raccolte vengono utilizzate per l'elaborazione degli ordini, la spedizione, il supporto clienti e il miglioramento del servizio."
+      },
+      "thirdParty": {
+        "title": "3. Condivisione con terzi",
+        "body": "Per evadere il tuo ordine, condividiamo le informazioni di spedizione necessarie con Printful. Nessuna altra condivisione con terzi."
+      },
+      "cookies": {
+        "title": "4. Cookie",
+        "body": "Questo sito utilizza cookie per l'analisi tramite Google Analytics (GA4). Puoi disabilitare i cookie."
+      },
+      "security": {
+        "title": "5. Sicurezza dei dati",
+        "body": "Le informazioni personali sono gestite con adeguate misure di sicurezza."
+      },
+      "contact": {
+        "title": "6. Contatto",
+        "body": "Per richieste relative ai tuoi dati personali, contattaci a info@tcdashop.com."
+      }
     },
     "effectiveDate": "Efficace dal: 10 aprile 2026"
   },
   "legal": {
     "title": "Note legali",
     "sections": {
-      "seller": { "label": "Venditore", "value": "Taiki Ogawa" },
-      "address": { "label": "Indirizzo", "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Giappone" },
-      "phone": { "label": "Telefono", "value": "050-5476-8894" },
-      "email": { "label": "Email", "value": "info@tcdashop.com" },
-      "price": { "label": "Prezzo", "value": "Come indicato su ogni pagina prodotto (IVA inclusa)" },
-      "payment": { "label": "Metodi di pagamento", "value": "Carta di credito (Visa / Mastercard / JCB / American Express / Diners Club)" },
-      "paymentTiming": { "label": "Tempistica di pagamento", "value": "Al momento della conferma dell'ordine" },
-      "delivery": { "label": "Consegna", "value": "Di solito spedito entro 5–10 giorni lavorativi dalla conferma dell'ordine" },
-      "returns": { "label": "Resi e cambi", "value": "Cancellazioni, resi e cambi non sono generalmente accettati dopo la conferma dell'ordine. Eccezioni per articoli danneggiati — contatta info@tcdashop.com entro 7 giorni." },
-      "quantity": { "label": "Quantità disponibile", "value": "Fino ad esaurimento scorte" },
-      "browser": { "label": "Browser compatibili", "value": "Ultimi Chrome / Safari / Firefox / Edge" }
+      "seller": {
+        "label": "Venditore",
+        "value": "Taiki Ogawa"
+      },
+      "address": {
+        "label": "Indirizzo",
+        "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Giappone"
+      },
+      "phone": {
+        "label": "Telefono",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "Email",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "Prezzo",
+        "value": "Come indicato su ogni pagina prodotto (IVA inclusa)"
+      },
+      "payment": {
+        "label": "Metodi di pagamento",
+        "value": "Carta di credito (Visa / Mastercard / JCB / American Express / Diners Club)"
+      },
+      "paymentTiming": {
+        "label": "Tempistica di pagamento",
+        "value": "Al momento della conferma dell'ordine"
+      },
+      "delivery": {
+        "label": "Consegna",
+        "value": "Di solito spedito entro 5–10 giorni lavorativi dalla conferma dell'ordine"
+      },
+      "returns": {
+        "label": "Resi e cambi",
+        "value": "Cancellazioni, resi e cambi non sono generalmente accettati dopo la conferma dell'ordine. Eccezioni per articoli danneggiati — contatta info@tcdashop.com entro 7 giorni."
+      },
+      "quantity": {
+        "label": "Quantità disponibile",
+        "value": "Fino ad esaurimento scorte"
+      },
+      "browser": {
+        "label": "Browser compatibili",
+        "value": "Ultimi Chrome / Safari / Firefox / Edge"
+      }
     }
   },
   "cookie": {
@@ -351,13 +402,24 @@
     "value2Title": "INDIVIDUALITÀ",
     "value2Body": "Indossa la tua individualità. Mostra la tua individualità. Ciò che indossi è la tua dichiarazione.",
     "value3Title": "GLOBALE",
-    "value3Body": "Arte senza confini. Un linguaggio visivo che trascende geografia, cultura e lingua."
+    "value3Body": "Arte senza confini. Un linguaggio visivo che trascende geografia, cultura e lingua.",
+    "heroTitle": "L'individualità non è qualcosa da nascondere. È qualcosa da indossare.",
+    "valuesTitle": "VALORI",
+    "value1": "ARTE PRIMA DI TUTTO",
+    "value2": "INDIVIDUALITÀ",
+    "value3": "GLOBALE",
+    "ctaLabel": "VEDI COLLEZIONE"
   },
-  "common": { "loading": "Caricamento..." },
+  "common": {
+    "loading": "Caricamento..."
+  },
   "share": "Condividi",
   "copy_link": "Copia link",
   "copied": "Copiato!",
-  "reviews": { "title": "Recensioni", "anonymous": "Anonimo" },
+  "reviews": {
+    "title": "Recensioni",
+    "anonymous": "Anonimo"
+  },
   "review": {
     "title": "Scrivi una recensione",
     "subtitle": "Grazie per il tuo acquisto. Ci piacerebbe sentire la tua opinione.",

@@ -309,29 +309,80 @@
   "privacy": {
     "title": "Política de Privacidade",
     "sections": {
-      "dataCollection": { "title": "1. Informações que Coletamos", "body": "Coletamos nome, endereço, email, telefone e informações de pagamento para o processamento de pedidos. As informações de pagamento são tratadas com segurança pela Stripe, Inc." },
-      "dataUsage": { "title": "2. Como Usamos suas Informações", "body": "As informações coletadas são usadas para processamento de pedidos, envio, suporte ao cliente e melhoria do serviço." },
-      "thirdParty": { "title": "3. Compartilhamento com Terceiros", "body": "Para cumprir seu pedido, compartilhamos informações de envio necessárias com a Printful. Nenhum outro compartilhamento com terceiros." },
-      "cookies": { "title": "4. Cookies", "body": "Este site usa cookies para análise via Google Analytics (GA4). Você pode desabilitar cookies." },
-      "security": { "title": "5. Segurança dos Dados", "body": "As informações pessoais são gerenciadas com medidas de segurança adequadas." },
-      "contact": { "title": "6. Contato", "body": "Para consultas sobre seus dados pessoais, entre em contato em info@tcdashop.com." }
+      "dataCollection": {
+        "title": "1. Informações que Coletamos",
+        "body": "Coletamos nome, endereço, email, telefone e informações de pagamento para o processamento de pedidos. As informações de pagamento são tratadas com segurança pela Stripe, Inc."
+      },
+      "dataUsage": {
+        "title": "2. Como Usamos suas Informações",
+        "body": "As informações coletadas são usadas para processamento de pedidos, envio, suporte ao cliente e melhoria do serviço."
+      },
+      "thirdParty": {
+        "title": "3. Compartilhamento com Terceiros",
+        "body": "Para cumprir seu pedido, compartilhamos informações de envio necessárias com a Printful. Nenhum outro compartilhamento com terceiros."
+      },
+      "cookies": {
+        "title": "4. Cookies",
+        "body": "Este site usa cookies para análise via Google Analytics (GA4). Você pode desabilitar cookies."
+      },
+      "security": {
+        "title": "5. Segurança dos Dados",
+        "body": "As informações pessoais são gerenciadas com medidas de segurança adequadas."
+      },
+      "contact": {
+        "title": "6. Contato",
+        "body": "Para consultas sobre seus dados pessoais, entre em contato em info@tcdashop.com."
+      }
     },
     "effectiveDate": "Efetivo a partir de: 10 de abril de 2026"
   },
   "legal": {
     "title": "Aviso Legal",
     "sections": {
-      "seller": { "label": "Vendedor", "value": "Taiki Ogawa" },
-      "address": { "label": "Endereço", "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japão" },
-      "phone": { "label": "Telefone", "value": "050-5476-8894" },
-      "email": { "label": "Email", "value": "info@tcdashop.com" },
-      "price": { "label": "Preço", "value": "Conforme listado em cada página de produto (impostos incluídos)" },
-      "payment": { "label": "Métodos de Pagamento", "value": "Cartão de crédito (Visa / Mastercard / JCB / American Express / Diners Club)" },
-      "paymentTiming": { "label": "Momento do Pagamento", "value": "No momento da confirmação do pedido" },
-      "delivery": { "label": "Entrega", "value": "Geralmente enviado em 5–10 dias úteis após a confirmação do pedido" },
-      "returns": { "label": "Devoluções e Trocas", "value": "Cancelamentos, devoluções e trocas geralmente não são aceitos após a confirmação do pedido. Exceções para itens danificados — contate info@tcdashop.com em 7 dias." },
-      "quantity": { "label": "Quantidade Disponível", "value": "Enquanto durar o estoque" },
-      "browser": { "label": "Navegadores Compatíveis", "value": "Chrome / Safari / Firefox / Edge mais recentes" }
+      "seller": {
+        "label": "Vendedor",
+        "value": "Taiki Ogawa"
+      },
+      "address": {
+        "label": "Endereço",
+        "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japão"
+      },
+      "phone": {
+        "label": "Telefone",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "Email",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "Preço",
+        "value": "Conforme listado em cada página de produto (impostos incluídos)"
+      },
+      "payment": {
+        "label": "Métodos de Pagamento",
+        "value": "Cartão de crédito (Visa / Mastercard / JCB / American Express / Diners Club)"
+      },
+      "paymentTiming": {
+        "label": "Momento do Pagamento",
+        "value": "No momento da confirmação do pedido"
+      },
+      "delivery": {
+        "label": "Entrega",
+        "value": "Geralmente enviado em 5–10 dias úteis após a confirmação do pedido"
+      },
+      "returns": {
+        "label": "Devoluções e Trocas",
+        "value": "Cancelamentos, devoluções e trocas geralmente não são aceitos após a confirmação do pedido. Exceções para itens danificados — contate info@tcdashop.com em 7 dias."
+      },
+      "quantity": {
+        "label": "Quantidade Disponível",
+        "value": "Enquanto durar o estoque"
+      },
+      "browser": {
+        "label": "Navegadores Compatíveis",
+        "value": "Chrome / Safari / Firefox / Edge mais recentes"
+      }
     }
   },
   "cookie": {
@@ -351,13 +402,24 @@
     "value2Title": "INDIVIDUALIDADE",
     "value2Body": "Vista sua individualidade. Mostre sua individualidade. O que você veste é sua declaração.",
     "value3Title": "GLOBAL",
-    "value3Body": "Arte sem fronteiras. Uma linguagem visual que transcende geografia, cultura e idioma."
+    "value3Body": "Arte sem fronteiras. Uma linguagem visual que transcende geografia, cultura e idioma.",
+    "heroTitle": "A individualidade não é algo a esconder. É algo a vestir.",
+    "valuesTitle": "VALORES",
+    "value1": "ARTE PRIMEIRO",
+    "value2": "INDIVIDUALIDADE",
+    "value3": "GLOBAL",
+    "ctaLabel": "VER COLEÇÃO"
   },
-  "common": { "loading": "Carregando..." },
+  "common": {
+    "loading": "Carregando..."
+  },
   "share": "Compartilhar",
   "copy_link": "Copiar link",
   "copied": "Copiado!",
-  "reviews": { "title": "Avaliações", "anonymous": "Anônimo" },
+  "reviews": {
+    "title": "Avaliações",
+    "anonymous": "Anônimo"
+  },
   "review": {
     "title": "Escrever uma Avaliação",
     "subtitle": "Obrigado pela sua compra. Adoraríamos ouvir sua opinião.",

@@ -339,17 +339,50 @@
   "legal": {
     "title": "المعلومات القانونية",
     "sections": {
-      "seller": { "label": "البائع", "value": "Taiki Ogawa" },
-      "address": { "label": "العنوان", "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japan" },
-      "phone": { "label": "الهاتف", "value": "050-5476-8894" },
-      "email": { "label": "البريد الإلكتروني", "value": "info@tcdashop.com" },
-      "price": { "label": "السعر", "value": "كما هو مذكور في كل صفحة منتج (شامل الضرائب)" },
-      "payment": { "label": "طرق الدفع", "value": "بطاقة ائتمان (Visa / Mastercard / JCB / American Express / Diners Club)" },
-      "paymentTiming": { "label": "توقيت الدفع", "value": "عند تأكيد الطلب" },
-      "delivery": { "label": "التسليم", "value": "يستغرق التسليم عادةً 5–10 أيام عمل من تأكيد الطلب" },
-      "returns": { "label": "الإرجاع والاستبدال", "value": "لا نقبل الإلغاء أو الإرجاع أو الاستبدال بعد تأكيد الطلب. استثناءات للمنتجات التالفة — تواصل على info@tcdashop.com خلال 7 أيام." },
-      "quantity": { "label": "الكمية المتاحة", "value": "حتى نفاد المخزون" },
-      "browser": { "label": "المتصفحات المدعومة", "value": "أحدث إصدارات Chrome / Safari / Firefox / Edge" }
+      "seller": {
+        "label": "البائع",
+        "value": "Taiki Ogawa"
+      },
+      "address": {
+        "label": "العنوان",
+        "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japan"
+      },
+      "phone": {
+        "label": "الهاتف",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "البريد الإلكتروني",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "السعر",
+        "value": "كما هو مذكور في كل صفحة منتج (شامل الضرائب)"
+      },
+      "payment": {
+        "label": "طرق الدفع",
+        "value": "بطاقة ائتمان (Visa / Mastercard / JCB / American Express / Diners Club)"
+      },
+      "paymentTiming": {
+        "label": "توقيت الدفع",
+        "value": "عند تأكيد الطلب"
+      },
+      "delivery": {
+        "label": "التسليم",
+        "value": "يستغرق التسليم عادةً 5–10 أيام عمل من تأكيد الطلب"
+      },
+      "returns": {
+        "label": "الإرجاع والاستبدال",
+        "value": "لا نقبل الإلغاء أو الإرجاع أو الاستبدال بعد تأكيد الطلب. استثناءات للمنتجات التالفة — تواصل على info@tcdashop.com خلال 7 أيام."
+      },
+      "quantity": {
+        "label": "الكمية المتاحة",
+        "value": "حتى نفاد المخزون"
+      },
+      "browser": {
+        "label": "المتصفحات المدعومة",
+        "value": "أحدث إصدارات Chrome / Safari / Firefox / Edge"
+      }
     }
   },
   "cookie": {
@@ -369,13 +402,24 @@
     "value2Title": "الفردية",
     "value2Body": "ارتدِ هويتك. أظهر فرديتك. ما تلبسه هو بيانك.",
     "value3Title": "عالمي",
-    "value3Body": "فن بلا حدود. لغة بصرية تتجاوز الجغرافيا والثقافة واللغة."
+    "value3Body": "فن بلا حدود. لغة بصرية تتجاوز الجغرافيا والثقافة واللغة.",
+    "heroTitle": "الفردية ليست شيئًا تخفيه. إنها شيء ترتديه.",
+    "valuesTitle": "القيم",
+    "value1": "الفن أولًا",
+    "value2": "الفردية",
+    "value3": "عالمي",
+    "ctaLabel": "عرض المجموعة"
   },
-  "common": { "loading": "جارٍ التحميل..." },
+  "common": {
+    "loading": "جارٍ التحميل..."
+  },
   "share": "مشاركة",
   "copy_link": "نسخ الرابط",
   "copied": "تم النسخ!",
-  "reviews": { "title": "التقييمات", "anonymous": "مجهول" },
+  "reviews": {
+    "title": "التقييمات",
+    "anonymous": "مجهول"
+  },
   "review": {
     "title": "اكتب تقييمًا",
     "subtitle": "شكرًا لشرائك. نودّ سماع رأيك.",

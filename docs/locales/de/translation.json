@@ -339,17 +339,50 @@
   "legal": {
     "title": "Impressum",
     "sections": {
-      "seller": { "label": "Verkäufer", "value": "Taiki Ogawa" },
-      "address": { "label": "Adresse", "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japan" },
-      "phone": { "label": "Telefon", "value": "050-5476-8894" },
-      "email": { "label": "E-Mail", "value": "info@tcdashop.com" },
-      "price": { "label": "Preis", "value": "Wie auf jeder Produktseite angegeben (inkl. Steuern)" },
-      "payment": { "label": "Zahlungsmethoden", "value": "Kreditkarte (Visa / Mastercard / JCB / American Express / Diners Club)" },
-      "paymentTiming": { "label": "Zahlungszeitpunkt", "value": "Bei Bestellbestätigung" },
-      "delivery": { "label": "Lieferung", "value": "Lieferung in der Regel innerhalb von 5–10 Werktagen nach Bestellbestätigung" },
-      "returns": { "label": "Rückgabe & Umtausch", "value": "Stornierungen, Rückgaben und Umtausch werden nach Bestellbestätigung grundsätzlich nicht akzeptiert. Ausnahmen gelten für beschädigte Artikel — kontaktiere info@tcdashop.com innerhalb von 7 Tagen." },
-      "quantity": { "label": "Verfügbare Menge", "value": "Solange der Vorrat reicht" },
-      "browser": { "label": "Kompatible Browser", "value": "Neueste Chrome / Safari / Firefox / Edge" }
+      "seller": {
+        "label": "Verkäufer",
+        "value": "Taiki Ogawa"
+      },
+      "address": {
+        "label": "Adresse",
+        "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japan"
+      },
+      "phone": {
+        "label": "Telefon",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "E-Mail",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "Preis",
+        "value": "Wie auf jeder Produktseite angegeben (inkl. Steuern)"
+      },
+      "payment": {
+        "label": "Zahlungsmethoden",
+        "value": "Kreditkarte (Visa / Mastercard / JCB / American Express / Diners Club)"
+      },
+      "paymentTiming": {
+        "label": "Zahlungszeitpunkt",
+        "value": "Bei Bestellbestätigung"
+      },
+      "delivery": {
+        "label": "Lieferung",
+        "value": "Lieferung in der Regel innerhalb von 5–10 Werktagen nach Bestellbestätigung"
+      },
+      "returns": {
+        "label": "Rückgabe & Umtausch",
+        "value": "Stornierungen, Rückgaben und Umtausch werden nach Bestellbestätigung grundsätzlich nicht akzeptiert. Ausnahmen gelten für beschädigte Artikel — kontaktiere info@tcdashop.com innerhalb von 7 Tagen."
+      },
+      "quantity": {
+        "label": "Verfügbare Menge",
+        "value": "Solange der Vorrat reicht"
+      },
+      "browser": {
+        "label": "Kompatible Browser",
+        "value": "Neueste Chrome / Safari / Firefox / Edge"
+      }
     }
   },
   "cookie": {
@@ -369,13 +402,24 @@
     "value2Title": "INDIVIDUALITÄT",
     "value2Body": "Trage deine Individualität. Zeige deine Individualität. Was du anziehst, ist deine Erklärung.",
     "value3Title": "GLOBAL",
-    "value3Body": "Kunst ohne Grenzen. Eine visuelle Sprache, die Geographie, Kultur und Sprache überwindet."
+    "value3Body": "Kunst ohne Grenzen. Eine visuelle Sprache, die Geographie, Kultur und Sprache überwindet.",
+    "heroTitle": "Individualität ist nichts, was man verbirgt. Es ist etwas, das man trägt.",
+    "valuesTitle": "WERTE",
+    "value1": "KUNST ZUERST",
+    "value2": "INDIVIDUALITÄT",
+    "value3": "GLOBAL",
+    "ctaLabel": "KOLLEKTION ANSEHEN"
   },
-  "common": { "loading": "Wird geladen..." },
+  "common": {
+    "loading": "Wird geladen..."
+  },
   "share": "Teilen",
   "copy_link": "Link kopieren",
   "copied": "Kopiert!",
-  "reviews": { "title": "Bewertungen", "anonymous": "Anonym" },
+  "reviews": {
+    "title": "Bewertungen",
+    "anonymous": "Anonym"
+  },
   "review": {
     "title": "Bewertung schreiben",
     "subtitle": "Danke für deinen Kauf. Wir würden gerne deine Meinung hören.",
