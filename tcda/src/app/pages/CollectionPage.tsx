@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
@@ -58,6 +58,9 @@ function buildRows(products: Product[]): Row[] {
 
 export function CollectionPage() {
   const { language, currency, rates, countryCode } = useGlobalContext();
+  const { pathname } = useLocation();
+  const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
+  const canonical = `https://tcdashop.com/en${canonicalPath}`;
   const { isEU } = useVAT();
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
@@ -96,10 +99,10 @@ export function CollectionPage() {
       <Helmet>
         <title>Collection — TCDA</title>
         <meta name="description" content="Browse the full TCDA collection. Art-driven fashion for those who refuse the ordinary." />
-        <link rel="canonical" href="https://tcdashop.com/en/collection" />
+        <link rel="canonical" href={canonical} />
         <meta property="og:title" content="Collection — TCDA" />
         <meta property="og:description" content="Browse the full TCDA collection. Art-driven fashion for those who refuse the ordinary." />
-        <meta property="og:url" content="https://tcdashop.com/en/collection" />
+        <meta property="og:url" content={canonical} />
       </Helmet>
       {/* Hero */}
       <section className="flex flex-col items-center justify-center text-center px-6" style={{ height: "60vh" }}>

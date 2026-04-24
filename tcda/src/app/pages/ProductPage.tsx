@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router";
+import { useParams, Link, useLocation } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
@@ -78,6 +78,9 @@ const FIT_LABEL_MAP: Record<FitLabelNormalized, string> = {
 export function ProductPage() {
   const { id } = useParams();
   const { language, currency, rates, addToCart, countryCode, addRecentProduct } = useGlobalContext();
+  const { pathname } = useLocation();
+  const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
+  const canonical = `https://tcdashop.com/en${canonicalPath}`;
   const { isEU } = useVAT();
 const { t } = useTranslation();
   
@@ -213,11 +216,11 @@ const { t } = useTranslation();
       <Helmet>
         <title>{`${product.name} — TCDA`}</title>
         <meta name="description" content={`Shop ${product.name} by TCDA. Art-driven fashion. Worldwide shipping.`} />
-        <link rel="canonical" href={`https://tcdashop.com/en/product/${product.id}`} />
+        <link rel="canonical" href={canonical} />
         <meta property="og:type" content="product" />
         <meta property="og:title" content={`${product.name} — TCDA`} />
         <meta property="og:description" content={`Shop ${product.name} by TCDA. Art-driven fashion. Worldwide shipping.`} />
-        <meta property="og:url" content={`https://tcdashop.com/en/product/${product.id}`} />
+        <meta property="og:url" content={canonical} />
         <meta property="og:image" content={product.images?.[0] || product.thumbnail_url} />
         <meta property="og:site_name" content="TCDA" />
         <meta property="product:price:amount" content={String(product.price)} />

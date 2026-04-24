@@ -12,20 +12,22 @@ import { join, dirname } from "path";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const BASE_URL = "https://tcdashop.com";
-const LANGS = ["ja", "en", "fr", "es", "ko", "zh"];
+const LANGS = ["ja", "en", "fr", "es", "ko", "zh", "de", "it", "pt", "ar"];
 const X_DEFAULT_LANG = "ja";
 const TODAY = new Date().toISOString().split("T")[0];
 
 // Static pages: [path, priority, changefreq]
 const STATIC_PAGES = [
-  ["",                 "1.0", "weekly"],
-  ["products",         "0.9", "weekly"],
-  ["collection",       "0.8", "monthly"],
-  ["about",            "0.7", "monthly"],
-  ["contact",          "0.6", "monthly"],
-  ["legal",            "0.5", "yearly"],
-  ["privacy",          "0.5", "yearly"],
-  ["shipping-returns", "0.5", "yearly"],
+  ["",                  "1.0", "weekly"],
+  ["products",          "0.9", "weekly"],
+  ["collection",        "0.8", "monthly"],
+  ["about",             "0.7", "monthly"],
+  ["faq",               "0.7", "monthly"],
+  ["brand-foundation",  "0.6", "monthly"],
+  ["contact",           "0.6", "monthly"],
+  ["legal",             "0.5", "yearly"],
+  ["privacy",           "0.5", "yearly"],
+  ["shipping-returns",  "0.5", "yearly"],
 ];
 
 /**

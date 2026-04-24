@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import { Root } from "./pages/Root";
 import { LangRedirect } from "./pages/LangRedirect";
 import { TopPage } from "./pages/TopPage";
@@ -48,5 +48,10 @@ export const router = createBrowserRouter([
       { path: "faq", Component: FaqPage },
     ],
   },
+  { path: "products", element: <Navigate to="/en/products" replace /> },
+  { path: "collection", element: <Navigate to="/en/collection" replace /> },
+  { path: "faq", element: <Navigate to="/en/faq" replace /> },
+  { path: "about", element: <Navigate to="/en/about" replace /> },
+  { path: "brand-foundation", element: <Navigate to="/en/brand-foundation" replace /> },
   { path: "*", Component: NotFound },
 ]);

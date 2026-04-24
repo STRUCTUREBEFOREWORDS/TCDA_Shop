@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useGlobalContext } from "./Root";
@@ -22,6 +22,9 @@ const VALUES = [
 export function AboutPage() {
   const { language, currency, countryCode } = useGlobalContext();
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
+  const canonical = `https://tcdashop.com/en${canonicalPath}`;
 
   useEffect(() => {
     pushDataLayer('page_view', {
@@ -37,10 +40,10 @@ export function AboutPage() {
       <Helmet>
         <title>About — TCDA</title>
         <meta name="description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
-        <link rel="canonical" href="https://tcdashop.com/en/about" />
+        <link rel="canonical" href={canonical} />
         <meta property="og:title" content="About — TCDA" />
         <meta property="og:description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
-        <meta property="og:url" content="https://tcdashop.com/en/about" />
+        <meta property="og:url" content={canonical} />
       </Helmet>
 
       {/* 1. Hero */}

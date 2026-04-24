@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useGlobalContext } from "./Root";
@@ -25,6 +25,9 @@ interface Category {
 export function FaqPage() {
   const { language, currency, countryCode } = useGlobalContext();
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
+  const canonical = `https://tcdashop.com/en${canonicalPath}`;
 
   useEffect(() => {
     pushDataLayer('page_view', {
@@ -79,10 +82,10 @@ export function FaqPage() {
       <Helmet>
         <title>FAQ — TCDA</title>
         <meta name="description" content="Answers about TCDA products, sizing, shipping, and returns." />
-        <link rel="canonical" href="https://tcdashop.com/en/faq" />
+        <link rel="canonical" href={canonical} />
         <meta property="og:title" content="FAQ — TCDA" />
         <meta property="og:description" content="Answers about TCDA products, sizing, shipping, and returns." />
-        <meta property="og:url" content="https://tcdashop.com/en/faq" />
+        <meta property="og:url" content={canonical} />
       </Helmet>
       <JsonLd type="FAQPage" data={{
         "@context": "https://schema.org",
