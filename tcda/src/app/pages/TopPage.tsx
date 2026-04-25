@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useGlobalContext } from "./Root";
@@ -41,6 +41,19 @@ export function TopPage() {
   const { t } = useTranslation();
 
   const imgRef = useRef<HTMLImageElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    let rafId: number;
+    const handler = () => {
+      rafId = requestAnimationFrame(() => setScrollY(window.scrollY));
+    };
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handler);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   useEffect(() => {
     pushDataLayer('page_view', {
@@ -105,7 +118,7 @@ export function TopPage() {
           <motion.h1
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * 0.3}px)`, transition: "none" }}
           >
             TRANSCEND
           </motion.h1>
@@ -124,7 +137,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-accent)" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-accent)", transform: `translateX(${scrollY * -0.2}px)`, transition: "none" }}
           >
             CREATIVE
           </motion.h2>
@@ -143,7 +156,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * 0.25}px)`, transition: "none" }}
           >
             DIMENSION
           </motion.h2>
@@ -171,7 +184,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 12vw, 200px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 12vw, 200px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)", transform: `translateX(${scrollY * -0.3}px)`, transition: "none" }}
           >
             AURA
           </motion.h2>
