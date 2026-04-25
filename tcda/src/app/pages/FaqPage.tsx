@@ -15,15 +15,6 @@ const fadeUp = {
   transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
 };
 
-const SECTION_NUM_STYLE: React.CSSProperties = {
-  position: "absolute",
-  top: "40px",
-  left: "var(--container-padding-desktop)",
-  fontFamily: "var(--font-body)",
-  fontSize: "var(--text-caption)",
-  letterSpacing: "var(--ls-nav)",
-  color: "var(--color-text-tertiary)",
-};
 
 interface Category {
   titleKey: string;
@@ -113,7 +104,7 @@ export function FaqPage() {
           padding: "0 var(--container-padding-desktop) var(--section-padding-desktop)",
         }}
       >
-        <span style={SECTION_NUM_STYLE}>01</span>
+
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

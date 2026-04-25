@@ -14,15 +14,6 @@ const DISPLAY_STYLE: React.CSSProperties = {
   lineHeight: 0.9,
 };
 
-const SECTION_NUM_STYLE: React.CSSProperties = {
-  position: "absolute",
-  top: "40px",
-  left: "var(--container-padding-desktop)",
-  fontFamily: "var(--font-body)",
-  fontSize: "var(--text-caption)",
-  letterSpacing: "var(--ls-nav)",
-  color: "var(--color-text-tertiary)",
-};
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -91,7 +82,7 @@ export function TopPage() {
           style={{ width: "100%", display: "block" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
-        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>01</span>
+
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <h1 className="leading-none select-none" style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}>
             {t("home.transcend")}
@@ -103,7 +94,7 @@ export function TopPage() {
       <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
         <img src="https://cdn.tcdashop.com/top/006.webp" alt="" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
-        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>02</span>
+
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
@@ -119,7 +110,7 @@ export function TopPage() {
       <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
         <img src="https://cdn.tcdashop.com/top/010.webp" alt="" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
-        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>03</span>
+
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
@@ -144,7 +135,7 @@ export function TopPage() {
       <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
         <img src="https://cdn.tcdashop.com/top/011.webp" alt="" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
-        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>04</span>
+
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
