@@ -119,7 +119,7 @@ export function TopPage() {
           <motion.h1
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * 0.1}px)`, transition: "none" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transition: "none" }}
           >
             TRANSCEND
           </motion.h1>
