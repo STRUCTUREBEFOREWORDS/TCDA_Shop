@@ -22,15 +22,6 @@ const VALUES = [
 const WHO_KEYS = ["individual", "artSeeker", "selfTransformer"] as const;
 const DIFFERENT_KEYS = ["artFirst", "limited", "wearable"] as const;
 
-const SECTION_NUM_STYLE: React.CSSProperties = {
-  position: "absolute",
-  top: "40px",
-  left: "var(--container-padding-desktop)",
-  fontFamily: "var(--font-body)",
-  fontSize: "var(--text-caption)",
-  letterSpacing: "var(--ls-nav)",
-  color: "var(--color-text-tertiary)",
-};
 
 export function AboutPage() {
   const { language, currency, countryCode } = useGlobalContext();
@@ -67,9 +58,9 @@ export function AboutPage() {
           alt=""
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
-        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>01</span>
+
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 5vw, 80px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 0.9, color: "var(--color-text)", marginBottom: "24px", maxWidth: "800px" }}>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 5vw, 80px)", fontWeight: 500, letterSpacing: "0.04em", lineHeight: 1.5, color: "var(--color-text)", marginBottom: "24px", maxWidth: "800px", wordBreak: "keep-all" }}>
             {t("about.hero.title")}
           </h1>
           <p style={{ fontFamily: "var(--font-body)", fontSize: "clamp(14px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)", maxWidth: "480px", lineHeight: 1.6 }}>
@@ -87,7 +78,7 @@ export function AboutPage() {
           paddingRight: "var(--container-padding-desktop)",
         }}
       >
-        <span style={SECTION_NUM_STYLE}>02</span>
+
         <motion.div
           {...fadeUp}
           className="grid grid-cols-1 md:grid-cols-[40%_60%] items-start"
@@ -133,7 +124,7 @@ export function AboutPage() {
 
       {/* 03. Values */}
       <section className="relative" style={{ marginTop: "160px" }}>
-        <span style={SECTION_NUM_STYLE}>03</span>
+
         <motion.div {...fadeUp}>
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2px" }}>
             {VALUES.map(({ key }, i) => (
@@ -184,7 +175,7 @@ export function AboutPage() {
           paddingRight: "var(--container-padding-desktop)",
         }}
       >
-        <span style={SECTION_NUM_STYLE}>04</span>
+
         <motion.div {...fadeUp}>
           <h2
             className="leading-[1.4] mb-10"
@@ -269,7 +260,7 @@ export function AboutPage() {
         className="relative flex flex-col items-center justify-center text-center"
         style={{ height: "60vh", marginTop: "160px" }}
       >
-        <span style={SECTION_NUM_STYLE}>05</span>
+
         <motion.div {...fadeUp} className="flex flex-col items-center gap-10">
           <h2
             style={{
