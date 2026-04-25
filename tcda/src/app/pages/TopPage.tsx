@@ -75,10 +75,13 @@ export function TopPage() {
       {/* SECTION 1 — TRANSCEND */}
       <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
         <img
-          src="https://cdn.tcdashop.com/top/hero-transcend.webp"
+          src="https://cdn.tcdashop.com/top/hero-transcend-desktop.webp"
+          srcSet="https://cdn.tcdashop.com/top/hero-transcend-mobile.webp 828w, https://cdn.tcdashop.com/top/hero-transcend-desktop.webp 1440w"
+          sizes="(max-width: 768px) 828px, 1440px"
           alt=""
           loading="eager"
           fetchPriority="high"
+          decoding="async"
           style={{ width: "100%", display: "block" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
