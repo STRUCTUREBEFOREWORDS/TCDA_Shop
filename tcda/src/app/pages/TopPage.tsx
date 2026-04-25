@@ -113,24 +113,32 @@ export function TopPage() {
       </section>
 
       {/* SECTION 2 — CREATIVE */}
-      <section className="relative h-screen w-full overflow-hidden bg-black flex flex-col justify-end items-start" style={CONTENT_PAD}>
-        <span style={SECTION_NUM_STYLE}>02</span>
+      <section
+        className="relative h-screen w-full overflow-hidden flex flex-col justify-end items-start"
+        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)", zIndex: 0 }} />
+        <span style={{ ...SECTION_NUM_STYLE, zIndex: 1 }}>02</span>
         <motion.h2
           {...fadeUp}
           className="leading-none select-none"
-          style={{ ...DISPLAY_STYLE, color: "var(--color-accent)" }}
+          style={{ ...DISPLAY_STYLE, color: "var(--color-accent)", position: "relative", zIndex: 1 }}
         >
           CREATIVE
         </motion.h2>
       </section>
 
       {/* SECTION 3 — DIMENSION */}
-      <section className="relative h-screen w-full overflow-hidden bg-black flex flex-col justify-end items-start" style={CONTENT_PAD}>
-        <span style={SECTION_NUM_STYLE}>03</span>
+      <section
+        className="relative h-screen w-full overflow-hidden flex flex-col justify-end items-start"
+        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)", zIndex: 0 }} />
+        <span style={{ ...SECTION_NUM_STYLE, zIndex: 1 }}>03</span>
         <motion.h2
           {...fadeUp}
           className="leading-none select-none"
-          style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}
+          style={{ ...DISPLAY_STYLE, color: "var(--color-text)", position: "relative", zIndex: 1 }}
         >
           DIMENSION
         </motion.h2>
@@ -139,19 +147,23 @@ export function TopPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ fontFamily: "var(--font-body)", fontSize: "18px", color: "var(--color-text-secondary)", marginTop: "24px" }}
+          style={{ fontFamily: "var(--font-body)", fontSize: "18px", color: "var(--color-text-secondary)", marginTop: "24px", position: "relative", zIndex: 1 }}
         >
           Art-driven fashion for those who refuse the ordinary.
         </motion.p>
       </section>
 
       {/* SECTION 4 — AURA */}
-      <section className="relative h-screen w-full overflow-hidden bg-black flex flex-col justify-end items-start" style={CONTENT_PAD}>
-        <span style={SECTION_NUM_STYLE}>04</span>
+      <section
+        className="relative h-screen w-full overflow-hidden flex flex-col justify-end items-start"
+        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)", zIndex: 0 }} />
+        <span style={{ ...SECTION_NUM_STYLE, zIndex: 1 }}>04</span>
         <motion.h2
           {...fadeUp}
           className="leading-none select-none"
-          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 12vw, 200px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 12vw, 200px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)", position: "relative", zIndex: 1 }}
         >
           AURA
         </motion.h2>
@@ -160,7 +172,7 @@ export function TopPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ marginTop: "24px" }}
+          style={{ marginTop: "24px", position: "relative", zIndex: 1 }}
         >
           <Link
             to={`/${language}/collection`}
