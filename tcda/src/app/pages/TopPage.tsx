@@ -114,75 +114,84 @@ export function TopPage() {
 
       {/* SECTION 2 — CREATIVE */}
       <section
-        className="relative h-screen w-full overflow-hidden flex flex-col justify-end items-start"
-        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", width: "100%", height: "100%", overflow: "hidden" }}
+        className="w-full flex flex-col justify-end items-start"
+        style={{ minHeight: "100vh", height: "100vh", position: "relative", overflow: "hidden", ...CONTENT_PAD }}
       >
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)", zIndex: 0 }} />
-        <span style={{ ...SECTION_NUM_STYLE, zIndex: 1 }}>02</span>
-        <motion.h2
-          {...fadeUp}
-          className="leading-none select-none"
-          style={{ ...DISPLAY_STYLE, color: "var(--color-accent)", position: "relative", zIndex: 1 }}
-        >
-          CREATIVE
-        </motion.h2>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <div style={{ position: "relative", zIndex: 2 }}>
+          <span style={SECTION_NUM_STYLE}>02</span>
+          <motion.h2
+            {...fadeUp}
+            className="leading-none select-none"
+            style={{ ...DISPLAY_STYLE, color: "var(--color-accent)" }}
+          >
+            CREATIVE
+          </motion.h2>
+        </div>
       </section>
 
       {/* SECTION 3 — DIMENSION */}
       <section
-        className="relative h-screen w-full overflow-hidden flex flex-col justify-end items-start"
-        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", width: "100%", height: "100%", overflow: "hidden" }}
+        className="w-full flex flex-col justify-end items-start"
+        style={{ minHeight: "100vh", height: "100vh", position: "relative", overflow: "hidden", ...CONTENT_PAD }}
       >
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)", zIndex: 0 }} />
-        <span style={{ ...SECTION_NUM_STYLE, zIndex: 1 }}>03</span>
-        <motion.h2
-          {...fadeUp}
-          className="leading-none select-none"
-          style={{ ...DISPLAY_STYLE, color: "var(--color-text)", position: "relative", zIndex: 1 }}
-        >
-          DIMENSION
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ fontFamily: "var(--font-body)", fontSize: "18px", color: "var(--color-text-secondary)", marginTop: "24px", position: "relative", zIndex: 1 }}
-        >
-          Art-driven fashion for those who refuse the ordinary.
-        </motion.p>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <div style={{ position: "relative", zIndex: 2 }}>
+          <span style={SECTION_NUM_STYLE}>03</span>
+          <motion.h2
+            {...fadeUp}
+            className="leading-none select-none"
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}
+          >
+            DIMENSION
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ fontFamily: "var(--font-body)", fontSize: "18px", color: "var(--color-text-secondary)", marginTop: "24px" }}
+          >
+            Art-driven fashion for those who refuse the ordinary.
+          </motion.p>
+        </div>
       </section>
 
       {/* SECTION 4 — AURA */}
       <section
-        className="relative h-screen w-full overflow-hidden flex flex-col justify-end items-start"
-        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", width: "100%", height: "100%", overflow: "hidden" }}
+        className="w-full flex flex-col justify-end items-start"
+        style={{ minHeight: "100vh", height: "100vh", position: "relative", overflow: "hidden", ...CONTENT_PAD }}
       >
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)", zIndex: 0 }} />
-        <span style={{ ...SECTION_NUM_STYLE, zIndex: 1 }}>04</span>
-        <motion.h2
-          {...fadeUp}
-          className="leading-none select-none"
-          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 12vw, 200px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)", position: "relative", zIndex: 1 }}
-        >
-          AURA
-        </motion.h2>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ marginTop: "24px", position: "relative", zIndex: 1 }}
-        >
-          <Link
-            to={`/${language}/collection`}
-            style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-accent)", transition: "var(--transition-base)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <div style={{ position: "relative", zIndex: 2 }}>
+          <span style={SECTION_NUM_STYLE}>04</span>
+          <motion.h2
+            {...fadeUp}
+            className="leading-none select-none"
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 12vw, 200px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
           >
-            {t("nav.collection")} →
-          </Link>
-        </motion.div>
+            AURA
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ marginTop: "24px" }}
+          >
+            <Link
+              to={`/${language}/collection`}
+              style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-accent)", transition: "var(--transition-base)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            >
+              {t("nav.collection")} →
+            </Link>
+          </motion.div>
+        </div>
       </section>
     </div>
   );
