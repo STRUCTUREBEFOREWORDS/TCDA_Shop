@@ -126,18 +126,15 @@ export function TopPage() {
       </section>
 
       {/* SECTION 2 — CREATIVE */}
-      <section
-        className="w-full flex flex-col justify-end items-start"
-        style={{ minHeight: "auto", height: "auto", aspectRatio: "9/16", position: "relative", overflow: "hidden", ...CONTENT_PAD }}
-      >
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "contain", backgroundPosition: "center center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+      <section style={{ position: "relative", width: "100%" }}>
+        <div style={{ width: "100%", aspectRatio: "9/16", backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "contain", backgroundPosition: "center top", backgroundRepeat: "no-repeat", backgroundColor: "#000" }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>02</span>
-        <div style={{ position: "relative", zIndex: 2 }}>
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-accent)", transform: `translateX(${scrollY * -0.2}px)`, transition: "none" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-accent)", transform: `translateX(${scrollY * -0.2}px)`, transition: "none" }}
           >
             CREATIVE
           </motion.h2>
@@ -145,18 +142,15 @@ export function TopPage() {
       </section>
 
       {/* SECTION 3 — DIMENSION */}
-      <section
-        className="w-full flex flex-col justify-end items-start"
-        style={{ minHeight: "auto", height: "auto", aspectRatio: "9/16", position: "relative", overflow: "hidden", ...CONTENT_PAD }}
-      >
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "contain", backgroundPosition: "center center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+      <section style={{ position: "relative", width: "100%" }}>
+        <div style={{ width: "100%", aspectRatio: "9/16", backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "contain", backgroundPosition: "center top", backgroundRepeat: "no-repeat", backgroundColor: "#000" }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>03</span>
-        <div style={{ position: "relative", zIndex: 2 }}>
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * 0.25}px)`, transition: "none" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-text)", transform: `translateX(${scrollY * 0.25}px)`, transition: "none" }}
           >
             DIMENSION
           </motion.h2>
@@ -173,18 +167,15 @@ export function TopPage() {
       </section>
 
       {/* SECTION 4 — AURA */}
-      <section
-        className="w-full flex flex-col justify-end items-start"
-        style={{ minHeight: "auto", height: "auto", aspectRatio: "9/16", position: "relative", overflow: "hidden", ...CONTENT_PAD }}
-      >
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "contain", backgroundPosition: "center center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+      <section style={{ position: "relative", width: "100%" }}>
+        <div style={{ width: "100%", aspectRatio: "9/16", backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "contain", backgroundPosition: "center top", backgroundRepeat: "no-repeat", backgroundColor: "#000" }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>04</span>
-        <div style={{ position: "relative", zIndex: 2 }}>
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 12vw, 200px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)", transform: `translateX(${scrollY * -0.3}px)`, transition: "none" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-text)", transform: `translateX(${scrollY * -0.3}px)`, transition: "none" }}
           >
             AURA
           </motion.h2>
