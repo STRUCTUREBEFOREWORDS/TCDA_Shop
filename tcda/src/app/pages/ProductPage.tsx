@@ -648,7 +648,7 @@ export function ProductPage() {
             {t("product.materialDetailsLabel")}
           </h2>
           <p className="text-sm font-light leading-relaxed whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
-            {t("product.fabricComposition")}
+            {product.fabric_composition}
           </p>
         </motion.div>
 
