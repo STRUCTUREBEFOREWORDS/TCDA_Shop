@@ -26,7 +26,7 @@ export function FaqAccordion({ items }: Props) {
             >
               {item.q}
             </span>
-            <span className="text-xs font-light flex-shrink-0 mt-0.5 select-none" style={{ color: "var(--color-accent)" }}>
+            <span className="text-xs font-light flex-shrink-0 mt-0.5 select-none" style={{ color: "var(--color-text)" }}>
               {open === i ? "−" : "+"}
             </span>
           </button>

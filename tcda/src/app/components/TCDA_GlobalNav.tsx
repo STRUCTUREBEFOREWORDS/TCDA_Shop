@@ -58,7 +58,7 @@ export function TCDA_GlobalNav() {
                 key={to}
                 to={to}
                 style={NAV_LINK_STYLE}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
               >
                 {label}

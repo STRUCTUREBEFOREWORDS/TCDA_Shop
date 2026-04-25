@@ -118,7 +118,7 @@ export function CollectionPage() {
                   />
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{ border: "1px solid var(--color-accent)" }}
+                    style={{ border: "1px solid var(--color-text)" }}
                   />
                 </div>
 

@@ -233,7 +233,7 @@ export function AboutPage() {
               >
                 <p
                   className="mb-2"
-                  style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-caption)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-accent)" }}
+                  style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-caption)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)" }}
                 >
                   {t(`about.brandFoundation.${key}.title`)}
                 </p>
@@ -251,7 +251,7 @@ export function AboutPage() {
                 key={key}
                 {...fadeUp}
                 className="pl-6"
-                style={{ borderLeft: "2px solid var(--color-accent)" }}
+                style={{ borderLeft: "2px solid rgba(255,255,255,0.3)" }}
               >
                 <p
                   className="mb-1"
@@ -269,7 +269,7 @@ export function AboutPage() {
           {/* Product Philosophy */}
           <motion.p
             {...fadeUp}
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(16px, 2vw, 24px)", fontStyle: "italic", fontWeight: 300, letterSpacing: "0.05em", color: "var(--color-text-secondary)", borderLeft: "2px solid var(--color-accent)", paddingLeft: "24px", marginTop: "40px" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(16px, 2vw, 24px)", fontStyle: "italic", fontWeight: 300, letterSpacing: "0.05em", color: "var(--color-text-secondary)", borderLeft: "2px solid rgba(255,255,255,0.3)", paddingLeft: "24px", marginTop: "40px" }}
           >
             {t("about.brandFoundation.quote")}
           </motion.p>
@@ -306,8 +306,8 @@ export function AboutPage() {
               transition: "var(--transition-base)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-accent)";
-              e.currentTarget.style.color = "var(--color-accent)";
+              e.currentTarget.style.borderColor = "var(--color-text)";
+              e.currentTarget.style.color = "var(--color-text)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.borderColor = "var(--color-text)";
@@ -321,7 +321,7 @@ export function AboutPage() {
               to={`/${language}/faq`}
               className="transition-all duration-300"
               style={{ color: "var(--color-text-secondary)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
             >
               Explore FAQ

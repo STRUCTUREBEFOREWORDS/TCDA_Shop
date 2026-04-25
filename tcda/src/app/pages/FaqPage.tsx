@@ -201,20 +201,20 @@ export function FaqPage() {
             to={`/${language}/contact`}
             className="inline-block px-10 py-3 uppercase"
             style={{
-              border: "1px solid var(--color-accent)",
-              color: "var(--color-accent)",
+              border: "1px solid var(--color-text)",
+              color: "var(--color-text)",
               fontFamily: "var(--font-body)",
               fontSize: "var(--text-caption)",
               letterSpacing: "var(--ls-nav)",
               transition: "var(--transition-base)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "var(--color-accent)";
+              e.currentTarget.style.background = "var(--color-text)";
               e.currentTarget.style.color = "var(--color-bg)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.color = "var(--color-accent)";
+              e.currentTarget.style.color = "var(--color-text)";
             }}
           >
             {t("nav.contact")}
@@ -224,7 +224,7 @@ export function FaqPage() {
               to={`/${language}/about`}
               className="transition-all duration-300"
               style={{ color: "var(--color-text-secondary)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
             >
               About TCDA
@@ -234,7 +234,7 @@ export function FaqPage() {
               to={`/${language}/collection`}
               className="transition-all duration-300"
               style={{ color: "var(--color-text-secondary)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
             >
               View Collection

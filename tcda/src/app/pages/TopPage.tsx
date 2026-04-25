@@ -108,7 +108,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-accent)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
           >
             CREATIVE
           </motion.h2>
@@ -162,7 +162,7 @@ export function TopPage() {
           >
             <Link
               to={`/${language}/collection`}
-              style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-accent)", transition: "var(--transition-base)" }}
+              style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-text)", transition: "var(--transition-base)" }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
