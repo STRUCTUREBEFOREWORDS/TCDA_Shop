@@ -1,12 +1,10 @@
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { JsonLd } from "../components/JsonLd";
 import { pushDataLayer } from "../hooks/useDataLayer";
-
-const HERO_IMAGE = "https://cdn.tcdashop.com/top/hero-transcend.webp";
 
 const DISPLAY_STYLE: React.CSSProperties = {
   fontFamily: "var(--font-display)",
@@ -26,10 +24,6 @@ const SECTION_NUM_STYLE: React.CSSProperties = {
   color: "var(--color-text-tertiary)",
 };
 
-const CONTENT_PAD: React.CSSProperties = {
-  padding: "0 var(--container-padding-desktop) var(--section-padding-desktop)",
-};
-
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 } as Record<string, unknown>,
@@ -41,7 +35,6 @@ export function TopPage() {
   const { language, currency, countryCode } = useGlobalContext();
   const { t } = useTranslation();
 
-  const imgRef = useRef<HTMLImageElement>(null);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -63,17 +56,6 @@ export function TopPage() {
       currency,
       country: countryCode,
     });
-  }, []);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!imgRef.current) return;
-      const x = (e.clientX / window.innerWidth - 0.5) * 12;
-      const y = (e.clientY / window.innerHeight - 0.5) * 8;
-      imgRef.current.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
@@ -100,29 +82,20 @@ export function TopPage() {
       }} />
 
       {/* SECTION 1 — TRANSCEND */}
-      <section className="relative h-screen w-full overflow-hidden" style={{ overflowX: "hidden" }}>
+      <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
         <img
-          ref={imgRef}
-          src={HERO_IMAGE}
-          srcSet="https://cdn.tcdashop.com/top/hero-transcend.webp 902w"
-          sizes="(max-width: 768px) 550px, 902px"
-          alt="TCDA"
-          className="absolute inset-0 w-full h-full object-cover object-center scale-105"
+          src="https://cdn.tcdashop.com/top/hero-transcend.webp"
+          alt=""
           loading="eager"
           fetchPriority="high"
-          decoding="async"
-          style={{ willChange: "transform", transition: "transform 0.7s cubic-bezier(0.22,1,0.36,1)" }}
+          style={{ width: "100%", display: "block" }}
         />
-        <div className="absolute inset-0 bg-black/30" />
-        <span style={SECTION_NUM_STYLE}>01</span>
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
+        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>01</span>
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
-          <motion.h1
-            {...fadeUp}
-            className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transition: "none" }}
-          >
-            TRANSCEND
-          </motion.h1>
+          <h1 className="leading-none select-none" style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}>
+            {t("home.transcend")}
+          </h1>
         </div>
       </section>
 
