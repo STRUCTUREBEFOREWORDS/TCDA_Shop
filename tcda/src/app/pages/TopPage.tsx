@@ -99,7 +99,7 @@ export function TopPage() {
       }} />
 
       {/* SECTION 1 — TRANSCEND */}
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative h-screen w-full overflow-hidden" style={{ overflowX: "hidden" }}>
         <img
           ref={imgRef}
           src={HERO_IMAGE}
@@ -118,7 +118,7 @@ export function TopPage() {
           <motion.h1
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * 0.3}px)`, transition: "none" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * 0.1}px)`, transition: "none" }}
           >
             TRANSCEND
           </motion.h1>
@@ -126,7 +126,7 @@ export function TopPage() {
       </section>
 
       {/* SECTION 2 — CREATIVE */}
-      <section style={{ position: "relative", width: "100%" }}>
+      <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
         <img src="https://cdn.tcdashop.com/top/006.webp" alt="" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>02</span>
@@ -134,7 +134,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-accent)", transform: `translateX(${scrollY * -0.2}px)`, transition: "none" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-accent)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
           >
             CREATIVE
           </motion.h2>
@@ -142,7 +142,7 @@ export function TopPage() {
       </section>
 
       {/* SECTION 3 — DIMENSION */}
-      <section style={{ position: "relative", width: "100%" }}>
+      <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
         <img src="https://cdn.tcdashop.com/top/010.webp" alt="" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>03</span>
@@ -150,7 +150,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-text)", transform: `translateX(${scrollY * 0.25}px)`, transition: "none" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-text)", transform: `translateX(${scrollY * 0.1}px)`, transition: "none" }}
           >
             DIMENSION
           </motion.h2>
@@ -167,7 +167,7 @@ export function TopPage() {
       </section>
 
       {/* SECTION 4 — AURA */}
-      <section style={{ position: "relative", width: "100%" }}>
+      <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
         <img src="https://cdn.tcdashop.com/top/011.webp" alt="" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>04</span>
@@ -175,7 +175,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-text)", transform: `translateX(${scrollY * -0.3}px)`, transition: "none" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-text)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
           >
             AURA
           </motion.h2>
