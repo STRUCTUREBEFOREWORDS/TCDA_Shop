@@ -78,10 +78,9 @@ export function TopPage() {
           src="https://cdn.tcdashop.com/top/hero-transcend-desktop.webp"
           srcSet="https://cdn.tcdashop.com/top/hero-transcend-mobile.webp 828w, https://cdn.tcdashop.com/top/hero-transcend-desktop.webp 1440w"
           sizes="(max-width: 768px) 828px, 1440px"
-          alt=""
-          loading="eager"
+          alt="TRANSCEND"
           fetchPriority="high"
-          decoding="async"
+          loading="eager"
           style={{ width: "100%", display: "block" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
