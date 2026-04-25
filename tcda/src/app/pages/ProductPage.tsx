@@ -383,11 +383,11 @@ export function ProductPage() {
             )}
 
             {/* Main image */}
-            <div style={{ flex: 1, aspectRatio: "2/3", overflow: "hidden", position: "relative" }}>
+            <div style={{ flex: 1, overflow: "hidden", position: "relative", background: "var(--color-surface)" }}>
               <ImageWithFallback
                 src={images[currentImageIndex] || product.thumbnail_url}
                 alt={product.name}
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
                 loading="eager"
                 fetchPriority="high"
               />
