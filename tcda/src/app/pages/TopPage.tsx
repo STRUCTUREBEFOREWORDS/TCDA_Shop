@@ -9,8 +9,8 @@ import { pushDataLayer } from "../hooks/useDataLayer";
 const DISPLAY_STYLE: React.CSSProperties = {
   fontFamily: "var(--font-display)",
   fontSize: "clamp(40px, 10vw, 160px)",
-  fontWeight: 300,
-  letterSpacing: "0.02em",
+  fontWeight: 500,
+  letterSpacing: "-0.02em",
   lineHeight: 0.9,
 };
 
