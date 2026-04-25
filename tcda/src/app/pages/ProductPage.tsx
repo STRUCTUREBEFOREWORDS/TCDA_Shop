@@ -648,7 +648,7 @@ export function ProductPage() {
             {t("product.materialDetailsLabel")}
           </h2>
           <p className="text-sm font-light leading-relaxed whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
-            {product.fabric_composition || '100% polyester, sublimation print. Machine wash cold. Do not tumble dry. All-over dye sublimation process produces vibrant, fade-resistant graphics that are part of the fabric itself.'}
+            {t("product.fabricComposition")}
           </p>
         </motion.div>
 
