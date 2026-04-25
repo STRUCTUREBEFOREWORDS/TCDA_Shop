@@ -60,32 +60,22 @@ export function AboutPage() {
       </Helmet>
 
       {/* 01. Hero */}
-      <section
-        className="relative flex flex-col justify-end items-start"
-        style={{
-          height: "80vh",
-          padding: "0 var(--container-padding-desktop) var(--section-padding-desktop)",
-        }}
-      >
-        <span style={SECTION_NUM_STYLE}>01</span>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="leading-[1.2]"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(24px, 3.5vw, 48px)",
-            fontWeight: 300,
-            letterSpacing: "0.08em",
-            lineHeight: 1.6,
-            color: "var(--color-text)",
-            maxWidth: "600px",
-            wordBreak: "keep-all",
-          }}
-        >
-          {t("about.heroTitle")}
-        </motion.h1>
+      <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
+        <img
+          src="https://cdn.tcdashop.com/top/hero-transcend.webp"
+          style={{ width: "100%", display: "block" }}
+          alt=""
+        />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>01</span>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(40px, 8vw, 120px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 0.9, color: "var(--color-text)", marginBottom: "24px" }}>
+            {t("about.hero.title")}
+          </h1>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "clamp(14px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)", maxWidth: "480px", lineHeight: 1.6 }}>
+            {t("about.hero.subtitle")}
+          </p>
+        </div>
       </section>
 
       {/* 02. Story */}

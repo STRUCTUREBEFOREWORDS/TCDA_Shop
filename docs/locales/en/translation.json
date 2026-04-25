@@ -420,6 +420,10 @@
     "value3Title": "GLOBAL",
     "value3Body": "Art without borders. A visual language that transcends geography, culture, and language.",
     "heroTitle": "Individuality is not something to hide. It is something to wear.",
+    "hero": {
+      "title": "Individuality is not something to hide. It is something to wear.",
+      "subtitle": "Art-driven fashion for those who refuse the ordinary."
+    },
     "valuesTitle": "VALUES",
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
