@@ -89,6 +89,7 @@ const { t } = useTranslation();
             price_jpy: c.price_jpy,
             quantity: c.quantity,
             size: c.size,
+            product_id: c.artworkId,
           }))
         : [
             {
@@ -96,6 +97,7 @@ const { t } = useTranslation();
               price_jpy: state?.price_jpy ?? state?.price ?? 0,
               quantity: 1,
               size: state?.size ?? "M",
+              product_id: state?.artworkId ?? "",
             },
           ];
       await redirectToCheckout(checkoutItems, currency, language);

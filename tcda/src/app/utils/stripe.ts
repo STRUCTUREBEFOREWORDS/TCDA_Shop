@@ -3,6 +3,7 @@ export interface CheckoutItem {
   price_jpy: number;
   quantity: number;
   size: string;
+  product_id?: string;
 }
 
 /** Site language → Stripe Checkout locale (all 6 supported natively) */
