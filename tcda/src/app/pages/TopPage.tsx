@@ -92,7 +92,7 @@ export function TopPage() {
 
       {/* SECTION 2 — CREATIVE */}
       <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
-        <img src="https://cdn.tcdashop.com/top/006.webp" alt="" style={{ width: "100%", display: "block" }} />
+        <img src="https://cdn.tcdashop.com/top/006.webp" alt="" loading="lazy" decoding="async" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
 
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
@@ -108,7 +108,7 @@ export function TopPage() {
 
       {/* SECTION 3 — DIMENSION */}
       <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
-        <img src="https://cdn.tcdashop.com/top/010.webp" alt="" style={{ width: "100%", display: "block" }} />
+        <img src="https://cdn.tcdashop.com/top/010.webp" alt="" loading="lazy" decoding="async" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
 
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
@@ -133,7 +133,7 @@ export function TopPage() {
 
       {/* SECTION 4 — AURA */}
       <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
-        <img src="https://cdn.tcdashop.com/top/011.webp" alt="" style={{ width: "100%", display: "block" }} />
+        <img src="https://cdn.tcdashop.com/top/011.webp" alt="" loading="lazy" decoding="async" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
 
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
