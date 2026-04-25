@@ -10,9 +10,10 @@ const HERO_IMAGE = "https://cdn.tcdashop.com/top/hero-transcend.webp";
 
 const DISPLAY_STYLE: React.CSSProperties = {
   fontFamily: "var(--font-display)",
-  fontSize: "clamp(32px, 8vw, 120px)",
-  fontWeight: "var(--weight-light)",
-  letterSpacing: "var(--ls-display)",
+  fontSize: "clamp(40px, 10vw, 160px)",
+  fontWeight: 300,
+  letterSpacing: "0.02em",
+  lineHeight: 0.9,
 };
 
 const SECTION_NUM_STYLE: React.CSSProperties = {
@@ -114,7 +115,7 @@ export function TopPage() {
         />
         <div className="absolute inset-0 bg-black/30" />
         <span style={SECTION_NUM_STYLE}>01</span>
-        <div className="absolute inset-0 flex flex-col justify-end items-start" style={CONTENT_PAD}>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h1
             {...fadeUp}
             className="leading-none select-none"
@@ -134,7 +135,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-accent)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-accent)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
           >
             CREATIVE
           </motion.h2>
@@ -150,7 +151,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-text)", transform: `translateX(${scrollY * 0.1}px)`, transition: "none" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * 0.1}px)`, transition: "none" }}
           >
             DIMENSION
           </motion.h2>
@@ -175,7 +176,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(60px, 15vw, 220px)", fontWeight: 300, letterSpacing: "0.02em", lineHeight: 0.9, color: "var(--color-text)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
+            style={{ ...DISPLAY_STYLE, fontSize: "clamp(40px, 12vw, 180px)", color: "var(--color-text)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
           >
             AURA
           </motion.h2>
