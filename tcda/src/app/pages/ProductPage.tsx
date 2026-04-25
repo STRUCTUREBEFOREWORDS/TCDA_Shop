@@ -61,6 +61,8 @@ interface SizeChart {
   };
 }
 
+const SIZE_ORDER = ['2XS', 'XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL', '6XL'];
+
 const FIT_LABEL_MAP: Record<FitLabelNormalized, string> = {
   slim:     "fit.slim",
   regular:  "fit.regular",
@@ -442,7 +444,11 @@ export function ProductPage() {
                 {t("size.label")}
               </p>
               <div className="grid grid-cols-4" style={{ gap: "4px" }}>
-                {(product.sizes ?? ["XS", "S", "M", "L", "XL", "2XL"]).map((size) => (
+                {[...(product.sizes ?? ["XS", "S", "M", "L", "XL", "2XL"])].sort((a, b) => {
+                  const ai = SIZE_ORDER.indexOf(a);
+                  const bi = SIZE_ORDER.indexOf(b);
+                  return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+                }).map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
