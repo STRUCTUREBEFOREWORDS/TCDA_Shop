@@ -117,7 +117,7 @@ export function TopPage() {
         className="w-full flex flex-col justify-end items-start"
         style={{ minHeight: "100vh", height: "100vh", position: "relative", overflow: "hidden", ...CONTENT_PAD }}
       >
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "100% auto", backgroundPosition: "center top", backgroundRepeat: "no-repeat", zIndex: 0 }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>02</span>
         <div style={{ position: "relative", zIndex: 2 }}>
@@ -136,7 +136,7 @@ export function TopPage() {
         className="w-full flex flex-col justify-end items-start"
         style={{ minHeight: "100vh", height: "100vh", position: "relative", overflow: "hidden", ...CONTENT_PAD }}
       >
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "100% auto", backgroundPosition: "center top", backgroundRepeat: "no-repeat", zIndex: 0 }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>03</span>
         <div style={{ position: "relative", zIndex: 2 }}>
@@ -164,7 +164,7 @@ export function TopPage() {
         className="w-full flex flex-col justify-end items-start"
         style={{ minHeight: "100vh", height: "100vh", position: "relative", overflow: "hidden", ...CONTENT_PAD }}
       >
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "100% auto", backgroundPosition: "center top", backgroundRepeat: "no-repeat", zIndex: 0 }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>04</span>
         <div style={{ position: "relative", zIndex: 2 }}>
