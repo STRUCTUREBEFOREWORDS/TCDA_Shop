@@ -75,12 +75,13 @@ export function AboutPage() {
           className="leading-[1.2]"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(28px, 4vw, 56px)",
+            fontSize: "clamp(24px, 3.5vw, 48px)",
             fontWeight: 300,
-            letterSpacing: "0.05em",
-            lineHeight: 1.4,
+            letterSpacing: "0.08em",
+            lineHeight: 1.6,
             color: "var(--color-text)",
-            maxWidth: "800px",
+            maxWidth: "600px",
+            wordBreak: "keep-all",
           }}
         >
           {t("about.heroTitle")}
