@@ -115,7 +115,7 @@ export function TopPage() {
       {/* SECTION 2 — CREATIVE */}
       <section
         className="relative h-screen w-full overflow-hidden flex flex-col justify-end items-start"
-        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", width: "100%", height: "100%", overflow: "hidden" }}
       >
         <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)", zIndex: 0 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 1 }}>02</span>
@@ -131,7 +131,7 @@ export function TopPage() {
       {/* SECTION 3 — DIMENSION */}
       <section
         className="relative h-screen w-full overflow-hidden flex flex-col justify-end items-start"
-        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", width: "100%", height: "100%", overflow: "hidden" }}
       >
         <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)", zIndex: 0 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 1 }}>03</span>
@@ -156,7 +156,7 @@ export function TopPage() {
       {/* SECTION 4 — AURA */}
       <section
         className="relative h-screen w-full overflow-hidden flex flex-col justify-end items-start"
-        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{ ...CONTENT_PAD, backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "scroll", width: "100%", height: "100%", overflow: "hidden" }}
       >
         <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.4)", zIndex: 0 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 1 }}>04</span>
