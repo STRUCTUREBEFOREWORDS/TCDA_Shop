@@ -69,7 +69,7 @@ export function AboutPage() {
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>01</span>
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(40px, 8vw, 120px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 0.9, color: "var(--color-text)", marginBottom: "24px" }}>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 5vw, 80px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 0.9, color: "var(--color-text)", marginBottom: "24px", maxWidth: "800px" }}>
             {t("about.hero.title")}
           </h1>
           <p style={{ fontFamily: "var(--font-body)", fontSize: "clamp(14px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)", maxWidth: "480px", lineHeight: 1.6 }}>
@@ -96,9 +96,7 @@ export function AboutPage() {
           {/* Left: image */}
           <div className="w-full overflow-hidden" style={{ aspectRatio: "2/3" }}>
             <img
-              src="https://cdn.tcdashop.com/top/1.webp"
-              srcSet="https://cdn.tcdashop.com/top/1-mobile.webp 550w, https://cdn.tcdashop.com/top/1.webp 902w"
-              sizes="(max-width: 768px) 550px, 902px"
+              src="https://cdn.tcdashop.com/top/011.webp"
               alt="TCDA Story"
               className="w-full h-full object-cover"
               style={{ objectPosition: "center center" }}
