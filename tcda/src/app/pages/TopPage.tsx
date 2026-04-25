@@ -127,10 +127,10 @@ export function TopPage() {
 
       {/* SECTION 2 — CREATIVE */}
       <section style={{ position: "relative", width: "100%" }}>
-        <div style={{ width: "100%", aspectRatio: "9/16", backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "contain", backgroundPosition: "center top", backgroundRepeat: "no-repeat", backgroundColor: "#000" }} />
+        <img src="https://cdn.tcdashop.com/top/006.webp" alt="" style={{ width: "100%", display: "block" }} />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>02</span>
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
-        <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
@@ -143,10 +143,10 @@ export function TopPage() {
 
       {/* SECTION 3 — DIMENSION */}
       <section style={{ position: "relative", width: "100%" }}>
-        <div style={{ width: "100%", aspectRatio: "9/16", backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "contain", backgroundPosition: "center top", backgroundRepeat: "no-repeat", backgroundColor: "#000" }} />
+        <img src="https://cdn.tcdashop.com/top/010.webp" alt="" style={{ width: "100%", display: "block" }} />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>03</span>
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
-        <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
@@ -168,10 +168,10 @@ export function TopPage() {
 
       {/* SECTION 4 — AURA */}
       <section style={{ position: "relative", width: "100%" }}>
-        <div style={{ width: "100%", aspectRatio: "9/16", backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "contain", backgroundPosition: "center top", backgroundRepeat: "no-repeat", backgroundColor: "#000" }} />
+        <img src="https://cdn.tcdashop.com/top/011.webp" alt="" style={{ width: "100%", display: "block" }} />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
         <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>04</span>
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
-        <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
