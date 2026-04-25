@@ -75,10 +75,12 @@ export function AboutPage() {
           className="leading-[1.2]"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "var(--text-display)",
-            fontWeight: "var(--weight-light)",
-            letterSpacing: "var(--ls-display)",
+            fontSize: "clamp(28px, 4vw, 56px)",
+            fontWeight: 300,
+            letterSpacing: "0.05em",
+            lineHeight: 1.4,
             color: "var(--color-text)",
+            maxWidth: "800px",
           }}
         >
           {t("about.heroTitle")}
@@ -266,7 +268,7 @@ export function AboutPage() {
           {/* Product Philosophy */}
           <motion.p
             {...fadeUp}
-            style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", lineHeight: 1.8, fontStyle: "italic", letterSpacing: "var(--ls-body)" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(16px, 2vw, 24px)", fontStyle: "italic", fontWeight: 300, letterSpacing: "0.05em", color: "var(--color-text-secondary)", borderLeft: "2px solid var(--color-accent)", paddingLeft: "24px", marginTop: "40px" }}
           >
             {t("about.brandFoundation.quote")}
           </motion.p>
