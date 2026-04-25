@@ -10,7 +10,7 @@ const HERO_IMAGE = "https://cdn.tcdashop.com/top/hero-transcend.webp";
 
 const DISPLAY_STYLE: React.CSSProperties = {
   fontFamily: "var(--font-display)",
-  fontSize: "var(--text-display)",
+  fontSize: "clamp(32px, 8vw, 120px)",
   fontWeight: "var(--weight-light)",
   letterSpacing: "var(--ls-display)",
 };
@@ -119,8 +119,8 @@ export function TopPage() {
       >
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/006.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>02</span>
         <div style={{ position: "relative", zIndex: 2 }}>
-          <span style={SECTION_NUM_STYLE}>02</span>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
@@ -138,8 +138,8 @@ export function TopPage() {
       >
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/010.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>03</span>
         <div style={{ position: "relative", zIndex: 2 }}>
-          <span style={SECTION_NUM_STYLE}>03</span>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
@@ -166,8 +166,8 @@ export function TopPage() {
       >
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://cdn.tcdashop.com/top/011.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: 0 }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
+        <span style={{ ...SECTION_NUM_STYLE, zIndex: 2 }}>04</span>
         <div style={{ position: "relative", zIndex: 2 }}>
-          <span style={SECTION_NUM_STYLE}>04</span>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
