@@ -85,7 +85,7 @@ export function TopPage() {
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
 
-        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 clamp(16px, 5vw, var(--container-padding-desktop))", zIndex: 2 }}>
           <h1 className="leading-none select-none" style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}>
             {t("home.transcend")}
           </h1>
@@ -97,7 +97,7 @@ export function TopPage() {
         <img src="https://cdn.tcdashop.com/top/006-desktop.webp" srcSet="https://cdn.tcdashop.com/top/006-mobile.webp 828w, https://cdn.tcdashop.com/top/006-desktop.webp 1440w" sizes="(max-width: 768px) 828px, 1440px" alt="" loading="lazy" decoding="async" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
 
-        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 clamp(16px, 5vw, var(--container-padding-desktop))", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
@@ -113,7 +113,7 @@ export function TopPage() {
         <img src="https://cdn.tcdashop.com/top/010-desktop.webp" srcSet="https://cdn.tcdashop.com/top/010-mobile.webp 828w, https://cdn.tcdashop.com/top/010-desktop.webp 1440w" sizes="(max-width: 768px) 828px, 1440px" alt="" loading="lazy" decoding="async" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
 
-        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 clamp(16px, 5vw, var(--container-padding-desktop))", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
@@ -129,7 +129,7 @@ export function TopPage() {
         <img src="https://cdn.tcdashop.com/top/011-desktop.webp" srcSet="https://cdn.tcdashop.com/top/011-mobile.webp 828w, https://cdn.tcdashop.com/top/011-desktop.webp 1440w" sizes="(max-width: 768px) 828px, 1440px" alt="" loading="lazy" decoding="async" style={{ width: "100%", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
 
-        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 clamp(16px, 5vw, var(--container-padding-desktop))", zIndex: 2 }}>
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
