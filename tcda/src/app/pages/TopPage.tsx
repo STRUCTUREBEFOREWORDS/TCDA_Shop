@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
+import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { JsonLd } from "../components/JsonLd";
@@ -51,6 +52,14 @@ export function TopPage() {
 
   return (
     <div className="min-h-screen bg-black">
+      <Helmet>
+        <title>TCDA — Transcend Creative Dimension Aura</title>
+        <meta name="description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
+        <meta property="og:title" content="TCDA — Transcend Creative Dimension Aura" />
+        <meta property="og:description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
+        <meta property="og:url" content="https://tcdashop.com/en/" />
+        <meta property="og:image" content="https://cdn.tcdashop.com/top/hero-transcend-desktop.webp" />
+      </Helmet>
       <JsonLd type="Organization" data={{
         "@context": "https://schema.org",
         "@type": "Organization",

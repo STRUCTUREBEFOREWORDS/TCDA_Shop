@@ -48,6 +48,7 @@ export function AboutPage() {
         <meta property="og:title" content="About — TCDA" />
         <meta property="og:description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
         <meta property="og:url" content={canonical} />
+        <meta property="og:image" content="https://cdn.tcdashop.com/top/about-hero-desktop.webp" />
       </Helmet>
 
       {/* 01. Hero */}
