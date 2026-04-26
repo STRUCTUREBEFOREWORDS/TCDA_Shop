@@ -53,8 +53,8 @@ export function AboutPage() {
       {/* 01. Hero */}
       <section style={{ position: "relative", width: "100%", overflowX: "hidden" }}>
         <img
-          src="https://cdn.tcdashop.com/top/hero-transcend-desktop.webp"
-          srcSet="https://cdn.tcdashop.com/top/hero-transcend-mobile.webp 828w, https://cdn.tcdashop.com/top/hero-transcend-desktop.webp 1440w"
+          src="https://cdn.tcdashop.com/top/about-hero-desktop.webp"
+          srcSet="https://cdn.tcdashop.com/top/about-hero-mobile.webp 828w, https://cdn.tcdashop.com/top/about-hero-desktop.webp 1440w"
           sizes="(max-width: 768px) 828px, 1440px"
           alt=""
           loading="eager"
@@ -92,7 +92,9 @@ export function AboutPage() {
           {/* Left: image */}
           <div className="w-full overflow-hidden" style={{ aspectRatio: "2/3" }}>
             <img
-              src="https://cdn.tcdashop.com/top/011.webp"
+              src="https://cdn.tcdashop.com/top/about-section-01-desktop.webp"
+              srcSet="https://cdn.tcdashop.com/top/about-section-01-mobile.webp 828w, https://cdn.tcdashop.com/top/about-section-01-desktop.webp 1440w"
+              sizes="(max-width: 768px) 828px, 1440px"
               alt="TCDA Story"
               className="w-full h-full object-cover"
               style={{ objectPosition: "center center" }}
