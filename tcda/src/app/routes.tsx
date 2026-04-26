@@ -1,32 +1,34 @@
+import { lazy } from "react";
 import { createBrowserRouter, Navigate, useParams } from "react-router";
 
 function ProductRedirect() {
   const { id } = useParams();
   return <Navigate to={`/en/product/${id}`} replace />;
 }
+
 import { Root } from "./pages/Root";
 import { LangRedirect } from "./pages/LangRedirect";
-import { TopPage } from "./pages/TopPage";
-import { ProductPage } from "./pages/ProductPage";
-import { AboutPage } from "./pages/AboutPage";
-import { ArchivePage } from "./pages/ArchivePage";
-import { CartPage } from "./pages/CartPage";
-import { CheckoutPage } from "./pages/CheckoutPage";
-import { PaymentSuccessPage } from "./pages/PaymentSuccessPage";
-import { PaymentCancelledPage } from "./pages/PaymentCancelledPage";
-import { PaymentErrorPage } from "./pages/PaymentErrorPage";
-import { CollectionPage } from "./pages/CollectionPage";
-import { SizeGuidePage } from "./pages/SizeGuidePage";
-import { LegalPage } from "./pages/LegalPage";
-import { PrivacyPage } from "./pages/PrivacyPage";
-import { ShippingReturnsPage } from "./pages/ShippingReturnsPage";
-import { ContactPage } from "./pages/ContactPage";
-import { ReviewPage } from "./pages/ReviewPage";
-import { FaqPage } from "./pages/FaqPage";
-import { NotFound } from "./pages/NotFound";
+
+const TopPage             = lazy(() => import("./pages/TopPage").then(m => ({ default: m.TopPage })));
+const ProductPage         = lazy(() => import("./pages/ProductPage").then(m => ({ default: m.ProductPage })));
+const AboutPage           = lazy(() => import("./pages/AboutPage").then(m => ({ default: m.AboutPage })));
+const ArchivePage         = lazy(() => import("./pages/ArchivePage").then(m => ({ default: m.ArchivePage })));
+const CartPage            = lazy(() => import("./pages/CartPage").then(m => ({ default: m.CartPage })));
+const CheckoutPage        = lazy(() => import("./pages/CheckoutPage").then(m => ({ default: m.CheckoutPage })));
+const PaymentSuccessPage  = lazy(() => import("./pages/PaymentSuccessPage").then(m => ({ default: m.PaymentSuccessPage })));
+const PaymentCancelledPage= lazy(() => import("./pages/PaymentCancelledPage").then(m => ({ default: m.PaymentCancelledPage })));
+const PaymentErrorPage    = lazy(() => import("./pages/PaymentErrorPage").then(m => ({ default: m.PaymentErrorPage })));
+const CollectionPage      = lazy(() => import("./pages/CollectionPage").then(m => ({ default: m.CollectionPage })));
+const SizeGuidePage       = lazy(() => import("./pages/SizeGuidePage").then(m => ({ default: m.SizeGuidePage })));
+const LegalPage           = lazy(() => import("./pages/LegalPage").then(m => ({ default: m.LegalPage })));
+const PrivacyPage         = lazy(() => import("./pages/PrivacyPage").then(m => ({ default: m.PrivacyPage })));
+const ShippingReturnsPage = lazy(() => import("./pages/ShippingReturnsPage").then(m => ({ default: m.ShippingReturnsPage })));
+const ContactPage         = lazy(() => import("./pages/ContactPage").then(m => ({ default: m.ContactPage })));
+const ReviewPage          = lazy(() => import("./pages/ReviewPage").then(m => ({ default: m.ReviewPage })));
+const FaqPage             = lazy(() => import("./pages/FaqPage").then(m => ({ default: m.FaqPage })));
+const NotFound            = lazy(() => import("./pages/NotFound").then(m => ({ default: m.NotFound })));
 
 export const router = createBrowserRouter([
-  // Root "/" → detect language → redirect to /:lang/
   { index: true, Component: LangRedirect },
   {
     path: "/:lang",

@@ -1,0 +1,1 @@
+function a(e,r){switch(r){case"JPY":return Math.floor(e/1e3)*1e3+800;case"KRW":return Math.floor(e/1e3)*1e3;case"CNY":return Math.floor(e)+.9;case"AED":return Math.round(e);case"USD":case"EUR":case"GBP":case"AUD":case"CAD":case"SGD":case"BRL":return Math.floor(e)+.99;default:return Math.round(e*100)/100}}export{a};

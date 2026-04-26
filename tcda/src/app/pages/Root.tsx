@@ -1,5 +1,5 @@
 import { Outlet, useParams, useNavigate, useLocation } from "react-router";
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, useEffect, createContext, useContext, Suspense } from "react";
 import { AnimatePresence } from "motion/react";
 import { Helmet } from "react-helmet-async";
 import i18n from "../i18n";
@@ -272,7 +272,9 @@ export function Root() {
       <HreflangHelmet pathname={location.pathname} />
       <div className="font-[Inter] bg-white antialiased min-h-screen">
         <TCDA_GlobalNav />
-        <Outlet />
+        <Suspense fallback={<div style={{ background: "#000", minHeight: "100vh" }} />}>
+          <Outlet />
+        </Suspense>
         <Footer />
         <CartDrawer />
         <AnimatePresence>
