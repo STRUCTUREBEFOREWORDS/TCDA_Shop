@@ -61,10 +61,10 @@ export function CollectionPage() {
     <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--color-bg)" }}>
       <Helmet>
         <title>Collection — TCDA</title>
-        <meta name="description" content="Browse the full TCDA collection. Art-driven fashion for those who refuse the ordinary." />
+        <meta name="description" content="Browse the full TCDA collection." />
         <link rel="canonical" href={canonical} />
         <meta property="og:title" content="Collection — TCDA" />
-        <meta property="og:description" content="Browse the full TCDA collection. Art-driven fashion for those who refuse the ordinary." />
+        <meta property="og:description" content="Browse the full TCDA collection." />
         <meta property="og:url" content={canonical} />
       </Helmet>
 

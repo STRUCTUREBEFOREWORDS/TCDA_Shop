@@ -301,11 +301,11 @@ export function ProductPage() {
     <div className="min-h-screen pt-20" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
       <Helmet>
         <title>{`${product.name} — TCDA`}</title>
-        <meta name="description" content={`Shop ${product.name} by TCDA. Art-driven fashion. Worldwide shipping.`} />
+        <meta name="description" content={`Shop ${product.name} by TCDA. Worldwide shipping.`} />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="product" />
         <meta property="og:title" content={`${product.name} — TCDA`} />
-        <meta property="og:description" content={`Shop ${product.name} by TCDA. Art-driven fashion. Worldwide shipping.`} />
+        <meta property="og:description" content={`Shop ${product.name} by TCDA. Worldwide shipping.`} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={product.images?.[0] || product.thumbnail_url} />
         <meta property="og:site_name" content="TCDA" />
@@ -313,7 +313,7 @@ export function ProductPage() {
         <meta property="product:price:currency" content="JPY" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${product.name} — TCDA`} />
-        <meta name="twitter:description" content={`Shop ${product.name} by TCDA. Art-driven fashion. Worldwide shipping.`} />
+        <meta name="twitter:description" content={`Shop ${product.name} by TCDA. Worldwide shipping.`} />
         <meta name="twitter:image" content={product.images?.[0] || product.thumbnail_url} />
       </Helmet>
       <JsonLd type="Product" data={{
