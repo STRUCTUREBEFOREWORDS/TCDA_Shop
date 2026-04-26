@@ -71,7 +71,7 @@ export function CollectionPage() {
       {/* Hero */}
       <section
         className="flex flex-col justify-end items-start px-8 md:px-16"
-        style={{ height: "80vh", paddingBottom: "var(--section-padding-desktop)" }}
+        style={{ height: "80vh", paddingBottom: "clamp(40px, 8vw, var(--section-padding-desktop))" }}
       >
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -98,7 +98,7 @@ export function CollectionPage() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2" style={{ gap: "2px", marginTop: "160px" }}>
+        <div className="grid grid-cols-2" style={{ gap: "2px", marginTop: "clamp(60px, 10vw, 160px)" }}>
           {products.map((product) => (
             <motion.div
               key={product.id}
@@ -155,7 +155,7 @@ export function CollectionPage() {
       {/* CTA */}
       <div
         className="px-8 md:px-12 pt-12 pb-16"
-        style={{ borderTop: "1px solid var(--color-border)", marginTop: "160px" }}
+        style={{ borderTop: "1px solid var(--color-border)", marginTop: "clamp(60px, 10vw, 160px)" }}
       >
         <Link
           to={`/${language}/products`}
