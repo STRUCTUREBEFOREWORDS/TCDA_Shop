@@ -111,6 +111,7 @@ export function AboutPage() {
                 fontWeight: "var(--weight-light)",
                 letterSpacing: "var(--ls-display)",
                 color: "var(--color-text)",
+                wordBreak: "keep-all",
               }}
             >
               {t("about.storyTitle")}
@@ -192,6 +193,7 @@ export function AboutPage() {
               fontWeight: "var(--weight-light)",
               letterSpacing: "var(--ls-display)",
               color: "var(--color-text)",
+              wordBreak: "keep-all",
             }}
           >
             {t("about.brandFoundation.title")}
@@ -276,6 +278,7 @@ export function AboutPage() {
               fontWeight: "var(--weight-light)",
               letterSpacing: "var(--ls-display)",
               color: "var(--color-text)",
+              wordBreak: "keep-all",
             }}
           >
             {t("about.ctaLabel")}
