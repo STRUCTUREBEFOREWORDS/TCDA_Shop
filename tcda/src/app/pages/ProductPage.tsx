@@ -402,7 +402,7 @@ export function ProductPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col md:sticky md:top-20"
-            style={{ paddingLeft: "60px", paddingTop: "80px" }}
+            style={{ paddingLeft: "clamp(0px, 5vw, 60px)", paddingTop: "clamp(24px, 5vw, 80px)" }}
           >
             {/* Category */}
             {product.category && (
