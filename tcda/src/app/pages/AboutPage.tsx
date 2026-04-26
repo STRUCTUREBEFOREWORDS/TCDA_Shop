@@ -60,15 +60,15 @@ export function AboutPage() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          style={{ width: "100%", display: "block" }}
+          style={{ width: "100%", display: "block", minHeight: "60vh", objectFit: "cover" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
 
-        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 var(--container-padding-desktop)", zIndex: 2 }}>
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 5vw, 80px)", fontWeight: 500, letterSpacing: "0.04em", lineHeight: 1.5, color: "var(--color-text)", marginBottom: "24px", maxWidth: "800px", wordBreak: "keep-all" }}>
+        <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 clamp(16px, 5vw, var(--container-padding-desktop))", zIndex: 2 }}>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 7vw, 80px)", fontWeight: 500, letterSpacing: "0.04em", lineHeight: 1.5, color: "var(--color-text)", marginBottom: "24px", maxWidth: "800px", wordBreak: "keep-all" }}>
             {t("about.hero.title")}
           </h1>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "clamp(14px, 1.5vw, 18px)", color: "rgba(255,255,255,0.7)", maxWidth: "480px", lineHeight: 1.6 }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "clamp(13px, 3vw, 18px)", color: "rgba(255,255,255,0.7)", maxWidth: "480px", lineHeight: 1.6 }}>
             {t("about.hero.subtitle")}
           </p>
         </div>
