@@ -78,9 +78,9 @@ export function AboutPage() {
       <section
         className="relative"
         style={{
-          marginTop: "160px",
-          paddingLeft: "var(--container-padding-desktop)",
-          paddingRight: "var(--container-padding-desktop)",
+          marginTop: "clamp(60px, 10vw, 160px)",
+          paddingLeft: "clamp(16px, 5vw, var(--container-padding-desktop))",
+          paddingRight: "clamp(16px, 5vw, var(--container-padding-desktop))",
         }}
       >
 
@@ -131,7 +131,7 @@ export function AboutPage() {
       </section>
 
       {/* 03. Values */}
-      <section className="relative" style={{ marginTop: "160px" }}>
+      <section className="relative" style={{ marginTop: "clamp(60px, 10vw, 160px)" }}>
 
         <motion.div {...fadeUp}>
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2px" }}>
@@ -142,7 +142,7 @@ export function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                style={{ padding: "40px", border: "1px solid var(--color-border)" }}
+                style={{ padding: "clamp(20px, 4vw, 40px)", border: "1px solid var(--color-border)" }}
               >
                 <h3
                   className="mb-4 leading-[1.4]"
@@ -177,10 +177,10 @@ export function AboutPage() {
         className="relative"
         style={{
           borderTop: "1px solid var(--color-border)",
-          paddingTop: "80px",
-          marginTop: "80px",
-          paddingLeft: "var(--container-padding-desktop)",
-          paddingRight: "var(--container-padding-desktop)",
+          paddingTop: "clamp(32px, 6vw, 80px)",
+          marginTop: "clamp(32px, 6vw, 80px)",
+          paddingLeft: "clamp(16px, 5vw, var(--container-padding-desktop))",
+          paddingRight: "clamp(16px, 5vw, var(--container-padding-desktop))",
         }}
       >
 
@@ -217,7 +217,7 @@ export function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                style={{ padding: "32px", border: "1px solid var(--color-border)" }}
+                style={{ padding: "clamp(16px, 3vw, 32px)", border: "1px solid var(--color-border)" }}
               >
                 <p
                   className="mb-2"
@@ -267,7 +267,7 @@ export function AboutPage() {
       {/* 05. CTA */}
       <section
         className="relative flex flex-col items-center justify-center text-center"
-        style={{ height: "60vh", marginTop: "160px" }}
+        style={{ height: "60vh", marginTop: "clamp(60px, 10vw, 160px)" }}
       >
 
         <motion.div {...fadeUp} className="flex flex-col items-center gap-10">

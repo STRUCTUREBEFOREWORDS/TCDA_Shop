@@ -127,8 +127,8 @@ export function FaqPage() {
         style={{
           maxWidth: "var(--max-width-content)",
           margin: "0 auto",
-          padding: "0 var(--container-padding-desktop)",
-          marginBottom: "160px",
+          padding: "0 clamp(16px, 5vw, var(--container-padding-desktop))",
+          marginBottom: "clamp(60px, 10vw, 160px)",
         }}
       >
         {categories.map(({ titleKey, items }, idx) => (
@@ -136,8 +136,8 @@ export function FaqPage() {
             key={titleKey}
             style={{
               borderTop: "1px solid var(--color-border)",
-              paddingTop: "80px",
-              marginTop: idx === 0 ? "80px" : "80px",
+              paddingTop: "clamp(32px, 6vw, 80px)",
+              marginTop: idx === 0 ? "clamp(32px, 6vw, 80px)" : "clamp(32px, 6vw, 80px)",
             }}
           >
             <motion.div {...fadeUp} className="flex gap-16 items-start">
@@ -162,7 +162,7 @@ export function FaqPage() {
                     fontWeight: "var(--weight-light)",
                     letterSpacing: "var(--ls-display)",
                     color: "var(--color-text)",
-                    marginBottom: "40px",
+                    marginBottom: "clamp(20px, 4vw, 40px)",
                   }}
                 >
                   {t(titleKey)}
