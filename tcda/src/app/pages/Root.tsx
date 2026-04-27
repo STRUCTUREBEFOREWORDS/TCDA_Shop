@@ -8,6 +8,7 @@ import { TCDA_GlobalNav } from "../components/TCDA_GlobalNav";
 import { CartDrawer } from "../components/CartDrawer";
 import { Footer } from "../components/Footer";
 import { CookieBanner, STORAGE_KEY, ConsentValue } from "../components/CookieBanner";
+import { trackPageView } from "../utils/analytics";
 
 /** Fallback rates used before live rates arrive from the backend */
 export const RATES: Record<Currency, number> = {
@@ -174,6 +175,10 @@ export function Root() {
       i18n.changeLanguage(lang);
     }
   }, [lang]);
+
+  useEffect(() => {
+    trackPageView(language);
+  }, [location.pathname]);
 
   useEffect(() => {
     const cached = sessionStorage.getItem("tcda_country");

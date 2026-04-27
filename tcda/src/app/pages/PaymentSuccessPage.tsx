@@ -1,11 +1,13 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import { Check } from "lucide-react";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
+import { trackPurchase } from "../utils/analytics";
 
 export function PaymentSuccessPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { language } = useGlobalContext();
   const { t } = useTranslation();
 
@@ -16,6 +18,8 @@ export function PaymentSuccessPage() {
       value: 0,
       currency: 'JPY'
     });
+    const orderId = searchParams.get("session_id") ?? "unknown";
+    trackPurchase(orderId, 0, "JPY");
   }, []);
 
   return (

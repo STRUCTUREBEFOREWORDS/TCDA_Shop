@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { pushDataLayer } from "../hooks/useDataLayer";
+import { trackProductView, trackAddToCart } from "../utils/analytics";
 import { FitLabelNormalized, ProductFitMetadata } from "../types";
 import { SizeGuideModal } from "../components/SizeGuideModal";
 
@@ -173,6 +174,7 @@ export function ProductPage() {
           currency,
           country: countryCode,
         });
+        trackProductView(data.id, language);
         addRecentProduct({
           id: data.id,
           name: data.name,
@@ -249,6 +251,7 @@ export function ProductPage() {
       value: product.price,
       currency: 'JPY'
     });
+    trackAddToCart(product.id, currency, product.price);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
