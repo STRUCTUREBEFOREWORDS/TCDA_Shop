@@ -89,29 +89,46 @@ export function TCDA_GlobalNav() {
 
             {/* Mobile menu toggle */}
             <button
-              onClick={() => setMobileOpen(!mobileOpen)}
+              onClick={() => setMobileOpen(true)}
               className="md:hidden transition-opacity duration-300"
               style={{ color: "var(--color-text)", opacity: 0.7 }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
               aria-label="Menu"
             >
-              {mobileOpen ? <X size={16} strokeWidth={1.5} /> : <Menu size={16} strokeWidth={1.5} />}
+              <Menu size={16} strokeWidth={1.5} />
             </button>
           </div>
         </div>
 
-        {/* Mobile menu */}
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="md:hidden backdrop-blur-sm px-6 py-6 space-y-5"
-              style={{ background: "rgba(0,0,0,0.95)", borderTop: "1px solid var(--color-border)" }}
-            >
+      </motion.header>
+
+      {/* Mobile fullscreen overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden fixed inset-0 z-[60] flex flex-col px-8"
+            style={{ background: "#000000" }}
+          >
+            {/* Close button */}
+            <div className="flex justify-end pt-5 h-14 items-center">
+              <button
+                onClick={() => setMobileOpen(false)}
+                style={{ color: "var(--color-text)", opacity: 0.7 }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
+                aria-label="Close"
+              >
+                <X size={16} strokeWidth={1.5} />
+              </button>
+            </div>
+
+            {/* Nav links */}
+            <nav className="flex flex-col gap-6 pt-20">
               {[
                 { to: `/${language}/collection`, label: t("nav.collection") },
                 { to: `/${language}/about`, label: t("nav.about") },
@@ -120,19 +137,17 @@ export function TCDA_GlobalNav() {
                   key={to}
                   to={to}
                   onClick={() => setMobileOpen(false)}
-                  style={NAV_LINK_STYLE}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+                  style={{ ...NAV_LINK_STYLE, fontSize: "var(--text-body)", letterSpacing: "var(--ls-nav)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
-                  className="block"
                 >
                   {label}
                 </Link>
               ))}
-
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.header>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
