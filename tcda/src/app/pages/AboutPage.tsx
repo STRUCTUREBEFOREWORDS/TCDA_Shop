@@ -87,8 +87,8 @@ export function AboutPage() {
 
         <motion.div
           {...fadeUp}
-          className="grid grid-cols-1 md:grid-cols-[40%_60%] items-start"
-          style={{ gap: "80px" }}
+          className="grid grid-cols-1 md:grid-cols-[40%_1fr] items-start"
+          style={{ gap: "clamp(24px, 6vw, 80px)" }}
         >
           {/* Left: image */}
           <div className="w-full overflow-hidden" style={{ aspectRatio: "2/3" }}>
