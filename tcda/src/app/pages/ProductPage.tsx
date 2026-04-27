@@ -358,16 +358,17 @@ export function ProductPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-row"
+            style={{ gap: "8px" }}
           >
             {/* Thumbnails (left side, vertical) */}
             {images.length > 1 && (
-              <div className="flex flex-col" style={{ width: "64px", flexShrink: 0, gap: "4px", paddingRight: "8px" }}>
+              <div className="flex flex-col" style={{ width: "56px", flexShrink: 0, gap: "4px" }}>
                 {images.map((src, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentImageIndex(i)}
                     style={{
-                      width: "64px",
+                      width: "56px",
                       aspectRatio: "2/3",
                       flexShrink: 0,
                       ...(i === currentImageIndex ? { boxShadow: "0 0 0 1px var(--color-accent)", transition: "var(--transition-base)" } : {}),
@@ -386,7 +387,7 @@ export function ProductPage() {
             )}
 
             {/* Main image */}
-            <div style={{ flex: 1, overflow: "hidden", position: "relative", background: "var(--color-surface)" }}>
+            <div style={{ flex: 1, minWidth: 0, overflow: "hidden", position: "relative", background: "var(--color-surface)" }}>
               <ImageWithFallback
                 src={images[currentImageIndex] || product.thumbnail_url}
                 alt={product.name}
