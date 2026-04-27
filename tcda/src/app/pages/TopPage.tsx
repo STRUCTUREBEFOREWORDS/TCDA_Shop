@@ -95,9 +95,15 @@ export function TopPage() {
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", zIndex: 1 }} />
 
         <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, padding: "0 clamp(16px, 5vw, var(--container-padding-desktop))", zIndex: 2 }}>
-          <h1 className="leading-none select-none" style={{ ...DISPLAY_STYLE, color: "var(--color-text)" }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="leading-none select-none"
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}
+          >
             {t("home.transcend")}
-          </h1>
+          </motion.h1>
         </div>
       </section>
 
@@ -110,7 +116,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", textShadow: "0 2px 20px rgba(0,0,0,0.5)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
           >
             CREATIVE
           </motion.h2>
@@ -126,7 +132,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", transform: `translateX(${scrollY * 0.1}px)`, transition: "none" }}
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", textShadow: "0 2px 20px rgba(0,0,0,0.5)", transform: `translateX(${scrollY * 0.1}px)`, transition: "none" }}
           >
             DIMENSION
           </motion.h2>
@@ -142,7 +148,7 @@ export function TopPage() {
           <motion.h2
             {...fadeUp}
             className="leading-none select-none"
-            style={{ ...DISPLAY_STYLE, fontSize: "clamp(40px, 12vw, 180px)", color: "var(--color-text)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
+            style={{ ...DISPLAY_STYLE, fontSize: "clamp(40px, 12vw, 180px)", color: "var(--color-text)", textShadow: "0 2px 20px rgba(0,0,0,0.5)", transform: `translateX(${scrollY * -0.1}px)`, transition: "none" }}
           >
             AURA
           </motion.h2>
