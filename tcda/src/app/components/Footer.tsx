@@ -43,7 +43,7 @@ export function Footer() {
               color: "var(--color-text-tertiary)",
             }}
           >
-            <span style={{ whiteSpace: "nowrap" }}>© 2026 Transcend Creative Dimension Aura</span>
+            <span style={{ whiteSpace: "nowrap" }}>© 2026 TCDA</span>
           </span>
         </div>
 
