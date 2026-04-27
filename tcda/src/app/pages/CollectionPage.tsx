@@ -114,7 +114,7 @@ export function CollectionPage() {
                   <ImageWithFallback
                     src={getPrimaryImage(product)}
                     alt={product.name}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-top"
                     style={{ transition: "transform var(--transition-slow)" }}
                   />
                   <div
