@@ -40,7 +40,7 @@ export function AboutPage() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--color-bg)" }}>
+    <div className="min-h-screen" style={{ background: "var(--color-bg)", overflowX: "hidden" }}>
       <Helmet>
         <title>About — TCDA</title>
         <meta name="description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />

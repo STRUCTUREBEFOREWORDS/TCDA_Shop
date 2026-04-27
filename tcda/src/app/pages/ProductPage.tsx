@@ -378,6 +378,7 @@ export function ProductPage() {
                       src={src}
                       alt={`${product.name} ${i + 1}`}
                       className="w-full h-full object-cover"
+                      loading="eager"
                     />
                   </button>
                 ))}
@@ -544,7 +545,7 @@ export function ProductPage() {
                 className="opacity-60 hover:opacity-100 transition-opacity"
                 aria-label="Share on X"
               >
-                <img src="/icons/x.svg" className="w-5 h-5" alt="X" style={{ filter: 'invert(1)' }} />
+                <img src="/icons/x.svg" className="w-5 h-5" alt="X" />
               </a>
               <a
                 href={`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.href)}`}
