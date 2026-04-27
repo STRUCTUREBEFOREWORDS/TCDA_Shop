@@ -374,6 +374,7 @@ export function ProductPage() {
                       width: "56px",
                       aspectRatio: "2/3",
                       flexShrink: 0,
+                      background: "#000000",
                       ...(i === currentImageIndex ? { boxShadow: "0 0 0 1px var(--color-accent)", transition: "var(--transition-base)" } : {}),
                     }}
                     className={`overflow-hidden transition-all duration-200 ${i === currentImageIndex ? "" : "opacity-50 hover:opacity-80"}`}
@@ -390,7 +391,7 @@ export function ProductPage() {
             )}
 
             {/* Main image */}
-            <div style={{ flex: 1, minWidth: 0, overflow: "hidden", position: "relative", background: "var(--color-surface)" }}>
+            <div style={{ flex: 1, minWidth: 0, overflow: "hidden", position: "relative", background: "#000000" }}>
               <ImageWithFallback
                 src={images[currentImageIndex] || product.thumbnail_url}
                 alt={product.name}

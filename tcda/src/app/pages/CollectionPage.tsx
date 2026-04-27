@@ -72,7 +72,7 @@ export function CollectionPage() {
       {/* Hero */}
       <section
         className="flex flex-col justify-end items-start px-8 md:px-16"
-        style={{ height: "80vh", paddingBottom: "clamp(40px, 8vw, var(--section-padding-desktop))" }}
+        style={{ paddingTop: "80px", paddingBottom: "32px" }}
       >
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
