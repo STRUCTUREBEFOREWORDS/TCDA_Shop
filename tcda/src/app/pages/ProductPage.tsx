@@ -25,10 +25,10 @@ interface Variant {
 }
 
 interface FabricDetail {
-  materials_eu?: string[];
-  materials_us?: string[];
-  weight_eu?: string;
-  weight_us?: string;
+  materials_eu?: string | string[] | Record<string, string>;
+  materials_us?: string | string[] | Record<string, string>;
+  weight_eu?: string | Record<string, string>;
+  weight_us?: string | Record<string, string>;
   features?: string[] | Record<string, string[]>;
   certifications?: string[];
   origin?: string[] | Record<string, string[]>;
@@ -670,32 +670,42 @@ export function ProductPage() {
               if (Array.isArray(field)) return field;
               return field[language] ?? field["en"] ?? [];
             };
+            const getLocalizedString = (field: string | string[] | Record<string, string> | undefined): string => {
+              if (!field) return "";
+              if (typeof field === "string") return field;
+              if (Array.isArray(field)) return field.join(", ");
+              return field[language] ?? field["en"] ?? "";
+            };
             const features = getLocalizedList(product.fabric_detail.features);
             const origin = getLocalizedList(product.fabric_detail.origin);
+            const matEu = getLocalizedString(product.fabric_detail.materials_eu);
+            const matUs = getLocalizedString(product.fabric_detail.materials_us);
+            const wtEu = getLocalizedString(product.fabric_detail.weight_eu);
+            const wtUs = getLocalizedString(product.fabric_detail.weight_us);
             return (
             <div className="space-y-3" style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", color: "var(--color-text-secondary)" }}>
-              {(product.fabric_detail.materials_eu?.length ?? 0) > 0 && (
+              {matEu && (
                 <div className="flex gap-4">
                   <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricMaterialEu")}</span>
-                  <span>{product.fabric_detail.materials_eu!.join(", ")}</span>
+                  <span>{matEu}</span>
                 </div>
               )}
-              {(product.fabric_detail.materials_us?.length ?? 0) > 0 && (
+              {matUs && (
                 <div className="flex gap-4">
                   <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricMaterialUs")}</span>
-                  <span>{product.fabric_detail.materials_us!.join(", ")}</span>
+                  <span>{matUs}</span>
                 </div>
               )}
-              {product.fabric_detail.weight_eu && (
+              {wtEu && (
                 <div className="flex gap-4">
                   <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricWeightEu")}</span>
-                  <span>{product.fabric_detail.weight_eu}</span>
+                  <span>{wtEu}</span>
                 </div>
               )}
-              {product.fabric_detail.weight_us && (
+              {wtUs && (
                 <div className="flex gap-4">
                   <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricWeightUs")}</span>
-                  <span>{product.fabric_detail.weight_us}</span>
+                  <span>{wtUs}</span>
                 </div>
               )}
               {features.length > 0 && (
