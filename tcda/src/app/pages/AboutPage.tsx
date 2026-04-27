@@ -268,7 +268,7 @@ export function AboutPage() {
       {/* 05. CTA */}
       <section
         className="relative flex flex-col items-center justify-center text-center"
-        style={{ height: "60vh", marginTop: "clamp(60px, 10vw, 160px)" }}
+        style={{ paddingTop: "64px", paddingBottom: "64px", marginTop: "clamp(32px, 5vw, 80px)" }}
       >
 
         <motion.div {...fadeUp} className="flex flex-col items-center gap-10">

@@ -89,7 +89,7 @@ function InfoAccordion({ items }: { items: AccordionItem[] }) {
           >
             <span
               className="uppercase"
-              style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-body)", color: "var(--color-text)" }}
+              style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "normal", color: "var(--color-text)" }}
             >
               {item.title}
             </span>

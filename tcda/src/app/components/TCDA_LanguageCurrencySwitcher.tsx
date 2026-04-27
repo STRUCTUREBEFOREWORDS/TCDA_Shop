@@ -92,8 +92,8 @@ export function TCDA_LanguageCurrencySwitcher({
   }
 
   return (
-    <div className="flex items-center gap-4">
-      <div className="flex items-center gap-2">
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap items-center gap-2">
         {LANGUAGES.map(({ code, flag }) => (
           <button
             key={code}
@@ -107,8 +107,7 @@ export function TCDA_LanguageCurrencySwitcher({
           </button>
         ))}
       </div>
-      <div className="w-px h-3 bg-current opacity-20" />
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {CURRENCIES.map((curr) => (
           <button
             key={curr}
