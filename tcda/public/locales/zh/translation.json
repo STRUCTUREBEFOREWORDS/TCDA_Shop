@@ -63,7 +63,14 @@
     "silhouette": "廓形",
     "materialFeel": "面料质感",
     "stylePairing": "搭配建议",
-    "fabricComposition": "100% 聚酯纤维，升华印花。冷水洗涤。不可烘干。"
+    "fabricComposition": "100% 聚酯纤维，升华印花。冷水洗涤。不可烘干。",
+    "fabricMaterialEu": "材质 (欧盟)",
+    "fabricMaterialUs": "材质 (美国)",
+    "fabricWeightEu": "重量 (欧盟)",
+    "fabricWeightUs": "重量 (美国)",
+    "fabricFeatures": "特点",
+    "fabricCertifications": "认证",
+    "fabricOrigin": "产地"
   },
   "cart": {
     "addToCart": "加入购物车",

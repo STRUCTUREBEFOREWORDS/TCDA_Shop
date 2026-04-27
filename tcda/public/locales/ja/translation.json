@@ -63,7 +63,14 @@
     "silhouette": "シルエット",
     "materialFeel": "素材感",
     "stylePairing": "スタイリング",
-    "fabricComposition": "100% ポリエステル、昇華プリント。冷水で手洗い。乾燥機使用不可。"
+    "fabricComposition": "100% ポリエステル、昇華プリント。冷水で手洗い。乾燥機使用不可。",
+    "fabricMaterialEu": "素材 (EU)",
+    "fabricMaterialUs": "素材 (US)",
+    "fabricWeightEu": "重量 (EU)",
+    "fabricWeightUs": "重量 (US)",
+    "fabricFeatures": "特徴",
+    "fabricCertifications": "認証",
+    "fabricOrigin": "原産国"
   },
   "cart": {
     "addToCart": "カートに追加",

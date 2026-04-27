@@ -63,7 +63,14 @@
     "silhouette": "Silhueta",
     "materialFeel": "Sensação do material",
     "stylePairing": "Combinação de estilos",
-    "fabricComposition": "100% poliéster, impressão por sublimação. Lavar a frio. Não secar na máquina."
+    "fabricComposition": "100% poliéster, impressão por sublimação. Lavar a frio. Não secar na máquina.",
+    "fabricMaterialEu": "Material (UE)",
+    "fabricMaterialUs": "Material (EUA)",
+    "fabricWeightEu": "Peso (UE)",
+    "fabricWeightUs": "Peso (EUA)",
+    "fabricFeatures": "Características",
+    "fabricCertifications": "Certificações",
+    "fabricOrigin": "Origem"
   },
   "cart": {
     "addToCart": "Adicionar ao Carrinho",

@@ -63,7 +63,14 @@
     "silhouette": "Silhouette",
     "materialFeel": "Sensazione del materiale",
     "stylePairing": "Abbinamento di stili",
-    "fabricComposition": "100% poliestere, stampa a sublimazione. Lavare a freddo. Non asciugare in asciugatrice."
+    "fabricComposition": "100% poliestere, stampa a sublimazione. Lavare a freddo. Non asciugare in asciugatrice.",
+    "fabricMaterialEu": "Materiale (UE)",
+    "fabricMaterialUs": "Materiale (US)",
+    "fabricWeightEu": "Peso (UE)",
+    "fabricWeightUs": "Peso (US)",
+    "fabricFeatures": "Caratteristiche",
+    "fabricCertifications": "Certificazioni",
+    "fabricOrigin": "Origine"
   },
   "cart": {
     "addToCart": "Aggiungi al carrello",

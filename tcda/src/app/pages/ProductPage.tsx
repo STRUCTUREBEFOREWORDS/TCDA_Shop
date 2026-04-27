@@ -24,6 +24,16 @@ interface Variant {
   availability_status: string;
 }
 
+interface FabricDetail {
+  materials_eu?: string[];
+  materials_us?: string[];
+  weight_eu?: string;
+  weight_us?: string;
+  features?: string[] | Record<string, string[]>;
+  certifications?: string[];
+  origin?: string[] | Record<string, string[]>;
+}
+
 interface Product {
   id: string;
   name: string;
@@ -36,6 +46,7 @@ interface Product {
   size_category?: string;
   gender_type?: "mens" | "womens" | "unisex";
   fabric_composition?: string;
+  fabric_detail?: FabricDetail | null;
   description?: string;
   printful_variant_id?: number;
   product_type?: string | null;
@@ -650,12 +661,72 @@ export function ProductPage() {
           className="pt-8"
           style={{ borderTop: "1px solid var(--color-border)" }}
         >
-          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text)" }}>
+          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-6" style={{ color: "var(--color-text)" }}>
             {t("product.materialDetailsLabel")}
           </h2>
-          <p className="text-sm font-light leading-relaxed whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
-            {product.fabric_composition}
-          </p>
+          {product.fabric_detail ? (() => {
+            const getLocalizedList = (field: string[] | Record<string, string[]> | undefined): string[] => {
+              if (!field) return [];
+              if (Array.isArray(field)) return field;
+              return field[language] ?? field["en"] ?? [];
+            };
+            const features = getLocalizedList(product.fabric_detail.features);
+            const origin = getLocalizedList(product.fabric_detail.origin);
+            return (
+            <div className="space-y-3" style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", color: "var(--color-text-secondary)" }}>
+              {(product.fabric_detail.materials_eu?.length ?? 0) > 0 && (
+                <div className="flex gap-4">
+                  <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricMaterialEu")}</span>
+                  <span>{product.fabric_detail.materials_eu!.join(", ")}</span>
+                </div>
+              )}
+              {(product.fabric_detail.materials_us?.length ?? 0) > 0 && (
+                <div className="flex gap-4">
+                  <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricMaterialUs")}</span>
+                  <span>{product.fabric_detail.materials_us!.join(", ")}</span>
+                </div>
+              )}
+              {product.fabric_detail.weight_eu && (
+                <div className="flex gap-4">
+                  <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricWeightEu")}</span>
+                  <span>{product.fabric_detail.weight_eu}</span>
+                </div>
+              )}
+              {product.fabric_detail.weight_us && (
+                <div className="flex gap-4">
+                  <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricWeightUs")}</span>
+                  <span>{product.fabric_detail.weight_us}</span>
+                </div>
+              )}
+              {features.length > 0 && (
+                <div className="flex gap-4">
+                  <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricFeatures")}</span>
+                  <ul className="space-y-1">
+                    {features.map((f, i) => <li key={i}>{f}</li>)}
+                  </ul>
+                </div>
+              )}
+              {(product.fabric_detail.certifications?.length ?? 0) > 0 && (
+                <div className="flex gap-4">
+                  <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricCertifications")}</span>
+                  <span>{product.fabric_detail.certifications!.join(", ")}</span>
+                </div>
+              )}
+              {origin.length > 0 && (
+                <div className="flex gap-4">
+                  <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricOrigin")}</span>
+                  <ul className="space-y-1">
+                    {origin.map((o, i) => <li key={i}>{o}</li>)}
+                  </ul>
+                </div>
+              )}
+            </div>
+            );
+          })() : (
+            <p className="text-sm font-light leading-relaxed whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
+              {product.fabric_composition}
+            </p>
+          )}
         </motion.div>
 
         {/* Fit summary + size guide */}

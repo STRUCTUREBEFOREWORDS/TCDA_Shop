@@ -63,7 +63,14 @@
     "silhouette": "실루엣",
     "materialFeel": "소재감",
     "stylePairing": "스타일링",
-    "fabricComposition": "100% 폴리에스터, 승화 프린트. 찬물 세탁. 건조기 사용 금지."
+    "fabricComposition": "100% 폴리에스터, 승화 프린트. 찬물 세탁. 건조기 사용 금지.",
+    "fabricMaterialEu": "소재 (EU)",
+    "fabricMaterialUs": "소재 (US)",
+    "fabricWeightEu": "중량 (EU)",
+    "fabricWeightUs": "중량 (US)",
+    "fabricFeatures": "특징",
+    "fabricCertifications": "인증",
+    "fabricOrigin": "원산지"
   },
   "cart": {
     "addToCart": "카트에 추가",

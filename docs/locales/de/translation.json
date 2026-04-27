@@ -63,7 +63,14 @@
     "silhouette": "Silhouette",
     "materialFeel": "Materialempfinden",
     "stylePairing": "Styling-Kombination",
-    "fabricComposition": "100% Polyester, Sublimationsdruck. Kalt waschen. Nicht im Trockner trocknen."
+    "fabricComposition": "100% Polyester, Sublimationsdruck. Kalt waschen. Nicht im Trockner trocknen.",
+    "fabricMaterialEu": "Material (EU)",
+    "fabricMaterialUs": "Material (US)",
+    "fabricWeightEu": "Gewicht (EU)",
+    "fabricWeightUs": "Gewicht (US)",
+    "fabricFeatures": "Merkmale",
+    "fabricCertifications": "Zertifizierungen",
+    "fabricOrigin": "Herkunft"
   },
   "cart": {
     "addToCart": "In den Warenkorb",
