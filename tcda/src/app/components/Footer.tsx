@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { useGlobalContext } from "../pages/Root";
 import { useTranslation } from "react-i18next";
+import { TCDA_LanguageCurrencySwitcher } from "./TCDA_LanguageCurrencySwitcher";
 import pinterestIcon from "../../assets/sns/sns_icons/pinterest.webp";
 import xIcon from "../../assets/sns/sns_icons/x.webp";
 import instagramIcon from "../../assets/sns/sns_icons/instagram.webp";
@@ -23,7 +24,7 @@ const LINK_STYLE: React.CSSProperties = {
 };
 
 export function Footer() {
-  const { language } = useGlobalContext();
+  const { language, currency, setLanguage, setCurrency } = useGlobalContext();
   const { t } = useTranslation();
 
   return (
@@ -45,6 +46,14 @@ export function Footer() {
           >
             <span style={{ whiteSpace: "nowrap" }}>© 2026 TCDA</span>
           </span>
+          <div className="mt-4" style={{ color: "var(--color-text)" }}>
+            <TCDA_LanguageCurrencySwitcher
+              language={language}
+              currency={currency}
+              onLanguageChange={setLanguage}
+              onCurrencyChange={setCurrency}
+            />
+          </div>
         </div>
 
         {/* Support */}

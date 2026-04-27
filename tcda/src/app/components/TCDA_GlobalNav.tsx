@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { ShoppingBag, X, Menu } from "lucide-react";
 import { useGlobalContext } from "../pages/Root";
-import { TCDA_LanguageCurrencySwitcher } from "./TCDA_LanguageCurrencySwitcher";
 import { useTranslation } from "react-i18next";
 
 const NAV_LINK_STYLE: React.CSSProperties = {
@@ -17,7 +16,7 @@ const NAV_LINK_STYLE: React.CSSProperties = {
 };
 
 export function TCDA_GlobalNav() {
-  const { language, currency, setLanguage, setCurrency, cartCount, setIsCartOpen } =
+  const { language, cartCount, setIsCartOpen } =
     useGlobalContext();
   const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
@@ -68,16 +67,6 @@ export function TCDA_GlobalNav() {
 
           {/* Right — Controls */}
           <div className="flex items-center gap-5">
-            {/* Lang/Currency (desktop) */}
-            <div className="hidden md:flex" style={{ color: "var(--color-text)" }}>
-              <TCDA_LanguageCurrencySwitcher
-                language={language}
-                currency={currency}
-                onLanguageChange={setLanguage}
-                onCurrencyChange={setCurrency}
-              />
-            </div>
-
             {/* Cart */}
             <button
               onClick={() => setIsCartOpen(true)}
@@ -139,15 +128,7 @@ export function TCDA_GlobalNav() {
                   {label}
                 </Link>
               ))}
-              <div className="pt-4" style={{ borderTop: "1px solid var(--color-border)", color: "var(--color-text)" }}>
-                <TCDA_LanguageCurrencySwitcher
-                  language={language}
-                  currency={currency}
-                  onLanguageChange={setLanguage}
-                  onCurrencyChange={setCurrency}
-                  mobile
-                />
-              </div>
+
             </motion.div>
           )}
         </AnimatePresence>
