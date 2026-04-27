@@ -292,7 +292,7 @@
     "title": "Envíos y devoluciones",
     "pageIntro": "Todo sobre el envío y nuestra política de devoluciones. ¿Preguntas? Escríbenos a info@tcdashop.com.",
     "shippingTitle": "Envío",
-    "shippingBody": "Los pedidos se procesan en 2–5 días hábiles a través de Printful. Recibirás un número de seguimiento una vez enviado.",
+    "shippingBody": "Los pedidos se envían en un plazo de 2 a 7 días hábiles a través de Printful. Se proporcionará un número de seguimiento tras el envío.",
     "shippingAddressNote": "※ Para entregas en Japón, la dirección de envío se convertirá automáticamente al inglés en la etiqueta. Esto se debe a los requisitos del sistema de envío internacional. Su destino de entrega no cambia.",
     "deliveryTitle": "Entrega",
     "deliveryBody": "Tras el envío, la entrega suele tardar 5–10 días hábiles. Los plazos pueden variar según la región.",
@@ -302,7 +302,9 @@
     "returnsMethod": "Resolución: reenvío o reembolso tras verificación",
     "returnsNote": "No se aceptan devoluciones por talla o cambio de opinión.",
     "contactTitle": "Contacto",
-    "contactBody": "Para cualquier otra consulta, escríbenos a la dirección indicada a continuación."
+    "contactBody": "Para cualquier otra consulta, escríbenos a la dirección indicada a continuación.",
+    "customsTitle": "Aranceles e impuestos de importación",
+    "customsBody": "Los productos se envían desde EE. UU. o Europa. Dependiendo de su país, pueden aplicarse aranceles, impuestos de importación o gastos de gestión aduanera. Estos gastos son responsabilidad del cliente. Consulte la normativa aduanera local para más detalles."
   },
   "contact": {
     "title": "Contacto",
@@ -381,11 +383,11 @@
       },
       "price": {
         "label": "Precio",
-        "value": "Indicado en cada página de producto (impuestos incluidos)"
+        "value": "Precio indicado en cada página de producto (impuestos incluidos según corresponda). * Los aranceles e impuestos de importación pueden aplicarse y son responsabilidad del cliente."
       },
       "payment": {
         "label": "Métodos de pago",
-        "value": "Tarjeta de crédito (Visa / Mastercard / JCB / American Express / Diners Club)"
+        "value": "Tarjeta de crédito (Visa / Mastercard / JCB / American Express / Diners Club), Apple Pay, Google Pay, Alipay, WeChat Pay, iDEAL, Débito SEPA, Tarjetas coreanas, Link"
       },
       "paymentTiming": {
         "label": "Momento del pago",

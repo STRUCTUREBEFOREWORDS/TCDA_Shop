@@ -17,6 +17,10 @@ export function ShippingReturnsPage() {
       title: t("shippingReturns.deliveryTitle"),
       body: t("shippingReturns.deliveryBody"),
     },
+    {
+      title: t("shippingReturns.customsTitle"),
+      body: t("shippingReturns.customsBody"),
+    },
   ];
 
   return (

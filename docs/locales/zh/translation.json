@@ -292,7 +292,7 @@
     "title": "配送与退货",
     "pageIntro": "有关配送及退货政策的说明。如有疑问，请联系 info@tcdashop.com。",
     "shippingTitle": "发货",
-    "shippingBody": "订单确认后，将于2–5个工作日内通过Printful发货。发货后将向您发送快递追踪单号。",
+    "shippingBody": "订单确认后，将通过 Printful 在 2〜7 个工作日内发货。发货后将提供追踪号码。",
     "shippingAddressNote": "※ 日本国内配送时，配送标签上的地址将自动转换为英文。这是由于国际配送系统的要求。您的收货地址不会改变。",
     "deliveryTitle": "配送",
     "deliveryBody": "发货后通常5–10个工作日内送达。实际时间因地区而异。",
@@ -302,7 +302,9 @@
     "returnsMethod": "处理方式：核实后安排补发或退款",
     "returnsNote": "因尺码或个人偏好原因申请的退货将不予受理。",
     "contactTitle": "联系我们",
-    "contactBody": "如有其他疑问，请通过以下邮件地址与我们联系。"
+    "contactBody": "如有其他疑问，请通过以下邮件地址与我们联系。",
+    "customsTitle": "关税及进口税",
+    "customsBody": "商品从美国或欧洲发货。根据您所在国家/地区，可能需要缴纳关税、进口税或清关费用。上述费用由客户承担。详情请参阅当地海关法规。"
   },
   "contact": {
     "title": "联系我们",
@@ -381,11 +383,11 @@
       },
       "price": {
         "label": "销售价格",
-        "value": "以各商品页面标注价格为准（含税）"
+        "value": "以各商品页面显示的价格为准（含适用税费）。※ 关税及进口税可能另行收取，由客户自行承担。"
       },
       "payment": {
         "label": "支付方式",
-        "value": "信用卡（Visa / Mastercard / JCB / American Express / Diners Club）"
+        "value": "信用卡（Visa / Mastercard / JCB / American Express / Diners Club）、Apple Pay、Google Pay、支付宝、微信支付、iDEAL、SEPA 直接借记、韩国信用卡、Link"
       },
       "paymentTiming": {
         "label": "支付时间",

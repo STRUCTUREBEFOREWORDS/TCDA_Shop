@@ -292,7 +292,7 @@
     "title": "Versand & Rückgabe",
     "pageIntro": "Alles über Versand und Rückgabe. Fragen? E-Mail: info@tcdashop.com.",
     "shippingTitle": "Versand",
-    "shippingBody": "Bestellungen werden innerhalb von 2–5 Werktagen über Printful bearbeitet. Nach dem Versand wird eine Sendungsnummer zugesendet.",
+    "shippingBody": "Bestellungen werden innerhalb von 2–7 Werktagen über Printful versendet. Nach dem Versand erhalten Sie eine Sendungsverfolgungsnummer.",
     "shippingAddressNote": "※ Bei Lieferungen innerhalb Japans wird die Lieferadresse auf dem Versandetikett automatisch ins Englische umgewandelt. Das Lieferziel bleibt unverändert.",
     "deliveryTitle": "Lieferung",
     "deliveryBody": "Nach dem Versand dauert die Lieferung in der Regel 5–10 Werktage. Zeiten können je nach Region variieren.",
@@ -302,7 +302,9 @@
     "returnsMethod": "Lösung: Ersatz oder Rückerstattung nach Überprüfung",
     "returnsNote": "Rückgaben aufgrund von Größenpräferenz oder Sinneswandel werden nicht akzeptiert.",
     "contactTitle": "Kontakt",
-    "contactBody": "Für andere Fragen erreichst du uns unter der folgenden Adresse."
+    "contactBody": "Für andere Fragen erreichst du uns unter der folgenden Adresse.",
+    "customsTitle": "Zölle und Einfuhrsteuern",
+    "customsBody": "Die Produkte werden aus den USA oder Europa versendet. Je nach Zielland können Zölle, Einfuhrsteuern oder Zollgebühren anfallen. Diese Kosten trägt der Kunde. Bitte informieren Sie sich über die Zollvorschriften Ihres Landes."
   },
   "contact": {
     "title": "Kontakt",
@@ -381,11 +383,11 @@
       },
       "price": {
         "label": "Preis",
-        "value": "Wie auf jeder Produktseite angegeben (inkl. Steuern)"
+        "value": "Wie auf der jeweiligen Produktseite angegeben (ggf. inkl. MwSt.). * Zölle und Einfuhrsteuern können anfallen und sind vom Kunden zu tragen."
       },
       "payment": {
         "label": "Zahlungsmethoden",
-        "value": "Kreditkarte (Visa / Mastercard / JCB / American Express / Diners Club)"
+        "value": "Kreditkarte (Visa / Mastercard / JCB / American Express / Diners Club), Apple Pay, Google Pay, Alipay, WeChat Pay, iDEAL, SEPA-Lastschrift, Koreanische Karten, Link"
       },
       "paymentTiming": {
         "label": "Zahlungszeitpunkt",

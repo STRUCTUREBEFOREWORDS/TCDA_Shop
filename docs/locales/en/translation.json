@@ -292,7 +292,7 @@
     "title": "Shipping & Returns",
     "pageIntro": "Everything you need to know about shipping and our returns policy. Questions? Email info@tcdashop.com.",
     "shippingTitle": "Shipping",
-    "shippingBody": "Orders are fulfilled within 2–5 business days via Printful. A tracking number will be sent once dispatched.",
+    "shippingBody": "Orders are dispatched within 2–7 business days via Printful. A tracking number will be provided after shipment.",
     "shippingAddressNote": "※ For deliveries within Japan, the shipping address will be automatically converted to English on the shipping label. This is due to international shipping system requirements. Your delivery destination remains unchanged.",
     "deliveryTitle": "Delivery",
     "deliveryBody": "After dispatch, delivery typically takes 5–10 business days. Times may vary by region.",
@@ -302,7 +302,9 @@
     "returnsMethod": "Resolution: replacement or refund after verification",
     "returnsNote": "Returns due to size preference or change of mind are not accepted.",
     "contactTitle": "Contact Us",
-    "contactBody": "For any other questions, please reach out at the address below."
+    "contactBody": "For any other questions, please reach out at the address below.",
+    "customsTitle": "Customs & Import Duties",
+    "customsBody": "Products are shipped from the US or Europe. Depending on your country, customs duties, import taxes, or handling fees may apply. These charges are the customer's responsibility. Please check your local customs regulations for details."
   },
   "contact": {
     "title": "Contact",
@@ -381,11 +383,11 @@
       },
       "price": {
         "label": "Price",
-        "value": "As listed on each product page (tax included)"
+        "value": "As listed on each product page (tax included where applicable). * Customs duties and import taxes may apply and are the customer's responsibility."
       },
       "payment": {
         "label": "Payment Methods",
-        "value": "Credit card (Visa / Mastercard / JCB / American Express / Diners Club)"
+        "value": "Credit card (Visa / Mastercard / JCB / American Express / Diners Club), Apple Pay, Google Pay, Alipay, WeChat Pay, iDEAL, SEPA Direct Debit, Korean cards, Link"
       },
       "paymentTiming": {
         "label": "Payment Timing",

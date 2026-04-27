@@ -292,7 +292,7 @@
     "title": "配送・返品",
     "pageIntro": "配送・返品に関するご案内です。ご不明点はinfo@tcdashop.comまでご連絡ください。",
     "shippingTitle": "発送",
-    "shippingBody": "ご注文確定後、2〜5営業日以内にPrintful経由で発送いたします。発送後は追跡番号をお送りします。",
+    "shippingBody": "ご注文確定後、2〜7営業日以内にPrintful経由で発送いたします。発送後は追跡番号をお送りします。",
     "shippingAddressNote": "※ 日本国内へのお届けの場合、配送伝票の住所は英語表記に自動変換されます。これは国際配送システムの仕様によるものです。お届け先の変更はございません。",
     "deliveryTitle": "お届け",
     "deliveryBody": "発送後、通常5〜10営業日でお届けします。地域によって前後する場合があります。",
@@ -302,7 +302,9 @@
     "returnsMethod": "対応方法：確認後、再送または返金にて対応いたします",
     "returnsNote": "サイズ違い・イメージ違いによる返品・交換はお受けできません。",
     "contactTitle": "お問い合わせ",
-    "contactBody": "上記以外のご不明点は、下記メールアドレスまでお気軽にご連絡ください。"
+    "contactBody": "上記以外のご不明点は、下記メールアドレスまでお気軽にご連絡ください。",
+    "customsTitle": "関税・輸入税について",
+    "customsBody": "商品は海外（米国・欧州）から発送されます。お届け先の国によっては、関税・輸入税・通関手数料が発生する場合があります。これらの費用はお客様のご負担となります。詳細は各国の税関規定をご確認ください。"
   },
   "contact": {
     "title": "お問い合わせ",
@@ -381,11 +383,11 @@
       },
       "price": {
         "label": "販売価格",
-        "value": "各商品ページに記載の価格（税込）"
+        "value": "各商品ページに記載の価格（税込）※ 関税・輸入税は別途お客様負担となる場合があります"
       },
       "payment": {
         "label": "支払方法",
-        "value": "クレジットカード（Visa / Mastercard / JCB / American Express / Diners Club）"
+        "value": "クレジットカード（Visa / Mastercard / JCB / American Express / Diners Club）、Apple Pay、Google Pay、Alipay、WeChat Pay、iDEAL、SEPA Direct Debit、韓国カード、Link"
       },
       "paymentTiming": {
         "label": "支払時期",
