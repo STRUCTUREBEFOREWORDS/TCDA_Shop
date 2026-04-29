@@ -123,6 +123,8 @@ export function AboutPage() {
                 color: "var(--color-text-secondary)",
                 lineHeight: 1.8,
                 letterSpacing: "var(--ls-body)",
+                wordBreak: "break-word",
+                overflowWrap: "anywhere",
               }}
             >
               {t("about.storyBody")}
