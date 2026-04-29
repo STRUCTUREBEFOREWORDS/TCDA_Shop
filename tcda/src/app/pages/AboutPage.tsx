@@ -79,7 +79,7 @@ export function AboutPage() {
       <section
         className="relative"
         style={{
-          marginTop: "clamp(60px, 10vw, 160px)",
+          marginTop: "clamp(40px, 6vw, 80px)",
           paddingLeft: "clamp(16px, 5vw, var(--container-padding-desktop))",
           paddingRight: "clamp(16px, 5vw, var(--container-padding-desktop))",
         }}
@@ -132,7 +132,14 @@ export function AboutPage() {
       </section>
 
       {/* 03. Values */}
-      <section className="relative" style={{ marginTop: "clamp(60px, 10vw, 160px)" }}>
+      <section
+        className="relative"
+        style={{
+          marginTop: "clamp(40px, 6vw, 80px)",
+          paddingLeft: "clamp(16px, 5vw, var(--container-padding-desktop))",
+          paddingRight: "clamp(16px, 5vw, var(--container-padding-desktop))",
+        }}
+      >
 
         <motion.div {...fadeUp}>
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2px" }}>
