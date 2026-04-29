@@ -211,7 +211,7 @@ export function AboutPage() {
           <motion.p
             {...fadeUp}
             className="mb-16"
-            style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", lineHeight: 1.8, letterSpacing: "var(--ls-body)", maxWidth: "640px" }}
+            style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", lineHeight: 1.8, letterSpacing: "var(--ls-body)", maxWidth: "640px", wordBreak: "break-word", overflowWrap: "anywhere" }}
           >
             {t("about.brandFoundation.description")}
           </motion.p>
