@@ -26,18 +26,14 @@ export function LegalPage() {
       <h1 className="text-sm font-light tracking-[0.3em] uppercase mb-12">
         {t("legal.title")}
       </h1>
-      <table className="w-full text-xs font-light leading-loose border-collapse">
-        <tbody>
-          {ROW_KEYS.map((key) => (
-            <tr key={key} className="border-t border-white/10">
-              <td className="py-4 pr-8 text-white/40 whitespace-nowrap align-top w-40">
-                {t(`legal.sections.${key}.label`)}
-              </td>
-              <td className="py-4">{t(`legal.sections.${key}.value`)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="w-full text-xs font-light leading-loose divide-y divide-white/10">
+        {ROW_KEYS.map((key) => (
+          <div key={key} className="flex flex-col sm:flex-row py-3 gap-1 sm:gap-0">
+            <span className="sm:w-40 shrink-0 text-white/40">{t(`legal.sections.${key}.label`)}</span>
+            <span className="flex-1">{t(`legal.sections.${key}.value`)}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
