@@ -446,17 +446,9 @@ export function ProductPage() {
             </p>
 
             {/* Stock */}
-            {product.stock === 0 ? (
+            {product.stock === 0 && (
               <p className="text-xs font-light tracking-widest mb-4" style={{ color: "var(--color-danger)" }}>
                 {t("product.outOfStock")}
-              </p>
-            ) : product.stock <= 5 ? (
-              <p className="text-xs font-light tracking-widest mb-4" style={{ color: "var(--color-danger)" }}>
-                {t("product.stockRemaining", { count: product.stock })}
-              </p>
-            ) : (
-              <p className="text-xs font-light tracking-widest mb-4" style={{ color: "var(--color-text-tertiary)" }}>
-                {t("product.stockRemaining", { count: product.stock })}
               </p>
             )}
 
