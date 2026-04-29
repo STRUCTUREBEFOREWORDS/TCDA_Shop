@@ -155,8 +155,8 @@ export function CollectionPage() {
 
       {/* CTA */}
       <div
-        className="px-8 md:px-12 pt-12 pb-16"
-        style={{ borderTop: "1px solid var(--color-border)", marginTop: "clamp(60px, 10vw, 160px)" }}
+        className="px-8 md:px-12 pt-10 pb-8"
+        style={{ borderTop: "1px solid var(--color-border)", marginTop: "clamp(32px, 5vw, 64px)" }}
       >
         <Link
           to={`/${language}/products`}

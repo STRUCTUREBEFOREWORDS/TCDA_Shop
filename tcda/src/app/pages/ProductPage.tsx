@@ -651,7 +651,7 @@ export function ProductPage() {
       </section>
 
       {/* DETAILS SECTION */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto mt-24 space-y-16 pb-32">
+      <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto mt-24 space-y-16 pb-16">
         {/* Material */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
