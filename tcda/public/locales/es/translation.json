@@ -491,7 +491,11 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Moda impulsada por el arte. Cada pieza es una declaración.",
     "conceptTitle": "VISTE EL ARTE",
-    "conceptBody": "Cada pieza de TCDA comienza como una obra de arte digital — abstracta, expresiva e intencional. Transformamos la energía visual en prendas que llevan un significado más allá de la moda. Esto no es ropa. Esto es una posición."
+    "conceptBody": "Cada pieza de TCDA comienza como una obra de arte digital — abstracta, expresiva e intencional. Transformamos la energía visual en prendas que llevan un significado más allá de la moda. Esto no es ropa. Esto es una posición.",
+    "filterAll": "Todo",
+    "filterHoodie": "Sudadera",
+    "filterZip": "Zip",
+    "filterTshirt": "Camiseta"
   },
   "geo": {
     "jp": {

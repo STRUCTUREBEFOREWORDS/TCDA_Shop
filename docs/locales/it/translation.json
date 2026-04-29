@@ -491,7 +491,11 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Moda guidata dall'arte. Ogni pezzo è una dichiarazione.",
     "conceptTitle": "INDOSSA L'ARTE",
-    "conceptBody": "Ogni pezzo TCDA nasce come un'opera d'arte digitale — astratta, espressiva e intenzionale. Trasformiamo l'energia visiva in capi che portano un significato oltre la moda. Questo non è abbigliamento. Questa è una posizione."
+    "conceptBody": "Ogni pezzo TCDA nasce come un'opera d'arte digitale — astratta, espressiva e intenzionale. Trasformiamo l'energia visiva in capi che portano un significato oltre la moda. Questo non è abbigliamento. Questa è una posizione.",
+    "filterAll": "Tutti",
+    "filterHoodie": "Felpa",
+    "filterZip": "Zip",
+    "filterTshirt": "T-Shirt"
   },
   "geo": {
     "jp": {

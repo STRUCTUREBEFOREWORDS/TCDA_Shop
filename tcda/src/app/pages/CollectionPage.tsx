@@ -31,6 +31,22 @@ export function CollectionPage() {
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState<string>("all");
+
+  const FILTERS = [
+    { key: "all", label: t("collection.filterAll") },
+    { key: "hoodie", label: t("collection.filterHoodie") },
+    { key: "zip", label: t("collection.filterZip") },
+    { key: "tshirt", label: t("collection.filterTshirt") },
+  ];
+
+  const filteredProducts = products.filter((p) => {
+    if (activeFilter === "all") return true;
+    if (activeFilter === "hoodie") return p.name.toLowerCase().includes("hoodie") && !p.name.toLowerCase().includes("zip");
+    if (activeFilter === "zip") return p.name.toLowerCase().includes("zip");
+    if (activeFilter === "tshirt") return p.name.toLowerCase().includes("t-shirt");
+    return true;
+  });
 
   useEffect(() => {
     pushDataLayer('page_view', {
@@ -91,6 +107,24 @@ export function CollectionPage() {
         </motion.h1>
       </section>
 
+      {/* Filter */}
+      <div className="flex gap-2 px-8 md:px-16 flex-wrap" style={{ marginTop: "clamp(24px, 4vw, 48px)" }}>
+        {FILTERS.map((f) => (
+          <button
+            key={f.key}
+            onClick={() => setActiveFilter(f.key)}
+            className="px-4 py-2 text-[10px] font-light tracking-[0.3em] uppercase transition-all duration-300"
+            style={{
+              border: `1px solid ${activeFilter === f.key ? "var(--color-text)" : "var(--color-border)"}`,
+              color: activeFilter === f.key ? "var(--color-text)" : "var(--color-text-tertiary)",
+              background: "transparent",
+            }}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
       {/* Grid */}
       {loading ? (
         <div className="flex items-center justify-center h-64">
@@ -99,8 +133,8 @@ export function CollectionPage() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: "2px", marginTop: "clamp(60px, 10vw, 160px)" }}>
-          {products.map((product) => (
+        <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
+          {filteredProducts.map((product) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0 }}

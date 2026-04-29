@@ -491,7 +491,11 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Kunstgetriebene Mode. Jedes Stück ist ein Statement.",
     "conceptTitle": "TRAGE DIE KUNST",
-    "conceptBody": "Jedes TCDA-Stück beginnt als digitales Kunstwerk — abstrakt, ausdrucksstark und bewusst. Wir verwandeln visuelle Energie in Kleidungsstücke, die eine Bedeutung jenseits der Mode tragen. Das ist keine Kleidung. Das ist eine Haltung."
+    "conceptBody": "Jedes TCDA-Stück beginnt als digitales Kunstwerk — abstrakt, ausdrucksstark und bewusst. Wir verwandeln visuelle Energie in Kleidungsstücke, die eine Bedeutung jenseits der Mode tragen. Das ist keine Kleidung. Das ist eine Haltung.",
+    "filterAll": "Alle",
+    "filterHoodie": "Hoodie",
+    "filterZip": "Zip-Hoodie",
+    "filterTshirt": "T-Shirt"
   },
   "geo": {
     "jp": {
