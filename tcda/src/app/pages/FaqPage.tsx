@@ -154,8 +154,7 @@ export function FaqPage() {
                 0{idx + 1}
               </span>
               <div className="flex-1">
-                <motion.h2
-                  {...fadeUp}
+                <h2
                   style={{
                     fontFamily: "var(--font-display)",
                     fontSize: "var(--text-subheading)",
@@ -166,10 +165,10 @@ export function FaqPage() {
                   }}
                 >
                   {t(titleKey)}
-                </motion.h2>
-                <motion.div {...fadeUp}>
+                </h2>
+                <div>
                   <FaqAccordion items={items} />
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           </section>
