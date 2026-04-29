@@ -128,7 +128,7 @@ export function FaqPage() {
           maxWidth: "var(--max-width-content)",
           margin: "0 auto",
           padding: "0 clamp(16px, 5vw, var(--container-padding-desktop))",
-          marginBottom: "clamp(60px, 10vw, 160px)",
+          marginBottom: "clamp(24px, 4vw, 48px)",
         }}
       >
         {categories.map(({ titleKey, items }, idx) => (
