@@ -99,7 +99,7 @@ export function CollectionPage() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2" style={{ gap: "2px", marginTop: "clamp(60px, 10vw, 160px)" }}>
+        <div className="grid grid-cols-3" style={{ gap: "2px", marginTop: "clamp(60px, 10vw, 160px)" }}>
           {products.map((product) => (
             <motion.div
               key={product.id}

@@ -83,7 +83,7 @@ const { t } = useTranslation();
         {loading ? (
           <p className="text-white/40 text-xs tracking-widest text-center py-24">{t("common.loading")}</p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-8 md:gap-x-6 md:gap-y-12">
+          <div className="grid grid-cols-3 gap-x-3 gap-y-8 md:gap-x-6 md:gap-y-12">
             {filtered.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -124,7 +124,7 @@ const { t } = useTranslation();
             <p className="text-white/20 text-[10px] font-light tracking-[0.4em] uppercase mb-8">
               {t("shop.recentlyViewed")}
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-8 md:gap-x-6 md:gap-y-10">
+            <div className="grid grid-cols-3 gap-x-3 gap-y-8 md:gap-x-6 md:gap-y-10">
               {recentProducts.slice(0, 4).map((product) => (
                 <Link
                   key={product.id}
