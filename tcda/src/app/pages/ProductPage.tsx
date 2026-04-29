@@ -312,7 +312,7 @@ export function ProductPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-20" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
+    <div className="pt-20" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
       <Helmet>
         <title>{`${product.name} — TCDA`}</title>
         <meta name="description" content={`Shop ${product.name} by TCDA. Worldwide shipping.`} />
