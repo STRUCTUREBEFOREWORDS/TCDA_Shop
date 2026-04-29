@@ -371,24 +371,40 @@ export function ProductPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-row"
+            className="flex flex-col md:flex-row"
             style={{ gap: "8px" }}
           >
-            {/* Thumbnails (left side, vertical) */}
+            {/* Main image — top on mobile, right on desktop (order-2) */}
+            <div
+              className="md:order-2 md:flex-1"
+              style={{ minWidth: 0, overflow: "hidden", position: "relative", background: "#000000", aspectRatio: "2/3" }}
+            >
+              <ImageWithFallback
+                src={images[currentImageIndex] || product.thumbnail_url}
+                alt={product.name}
+                style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+                loading="eager"
+                fetchPriority="high"
+              />
+            </div>
+
+            {/* Thumbnails — horizontal scroll on mobile, vertical left on desktop (order-1) */}
             {images.length > 1 && (
-              <div className="flex flex-col" style={{ width: "56px", flexShrink: 0, gap: "4px" }}>
+              <div
+                className="flex flex-row overflow-x-auto md:flex-col md:overflow-x-visible md:order-1"
+                style={{ gap: "4px", flexShrink: 0 }}
+              >
                 {images.map((src, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentImageIndex(i)}
+                    className={`overflow-hidden transition-all duration-200 flex-shrink-0 ${i === currentImageIndex ? "" : "opacity-50 hover:opacity-80"}`}
                     style={{
                       width: "56px",
                       aspectRatio: "2/3",
-                      flexShrink: 0,
                       background: "#000000",
                       ...(i === currentImageIndex ? { boxShadow: "0 0 0 1px var(--color-accent)", transition: "var(--transition-base)" } : {}),
                     }}
-                    className={`overflow-hidden transition-all duration-200 ${i === currentImageIndex ? "" : "opacity-50 hover:opacity-80"}`}
                   >
                     <ImageWithFallback
                       src={src}
@@ -400,17 +416,6 @@ export function ProductPage() {
                 ))}
               </div>
             )}
-
-            {/* Main image */}
-            <div style={{ flex: 1, minWidth: 0, overflow: "hidden", position: "relative", background: "#000000" }}>
-              <ImageWithFallback
-                src={images[currentImageIndex] || product.thumbnail_url}
-                alt={product.name}
-                style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
-                loading="eager"
-                fetchPriority="high"
-              />
-            </div>
           </motion.div>
 
           {/* Right: Info (sticky) */}
