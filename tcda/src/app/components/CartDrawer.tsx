@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
 import { X, Minus, Plus } from "lucide-react";
-import { Link } from "react-router";
 import { useGlobalContext } from "../pages/Root";
 import { redirectToCheckout } from "../utils/stripe";
 import { useTranslation } from "react-i18next";
@@ -17,7 +16,6 @@ export function CartDrawer() {
     updateQuantity,
     isCartOpen,
     setIsCartOpen,
-    recentProducts,
   } = useGlobalContext();
 
   const { t } = useTranslation();
@@ -94,8 +92,10 @@ export function CartDrawer() {
 
                       {/* Info */}
                       <div className="flex-1 min-w-0 space-y-2">
-                        <p className="text-white text-xs font-light tracking-wide leading-snug">
-                          {item.artworkName}
+                        <p>
+                          <span style={{ fontSize: "9px", letterSpacing: "0.2em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
+                            {item.artworkName}
+                          </span>
                         </p>
                         <p className="text-white/40 text-[10px] font-light tracking-widest uppercase">
                           {t("size.label")}: {item.size}
@@ -141,35 +141,6 @@ export function CartDrawer() {
               )}
             </div>
 
-            {/* Recently Viewed */}
-            {recentProducts.length > 0 && (
-              <div className="border-t border-white/5 px-5 sm:px-8 py-6">
-                <p className="text-white/20 text-[10px] font-light tracking-[0.4em] uppercase mb-4">
-                  {t("shop.recentlyViewed")}
-                </p>
-                <div className="flex gap-3 overflow-x-auto pb-1">
-                  {recentProducts.map((product) => (
-                    <Link
-                      key={product.id}
-                      to={`/${language}/product/${product.id}`}
-                      onClick={() => setIsCartOpen(false)}
-                      className="group flex-shrink-0 w-16"
-                    >
-                      <div className="aspect-[3/4] overflow-hidden bg-white/5 mb-1.5">
-                        <ImageWithFallback
-                          src={product.imageUrl}
-                          alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                        />
-                      </div>
-                      <p className="text-white/40 text-[9px] font-light tracking-wide truncate group-hover:text-white/70 transition-colors duration-200">
-                        {product.name}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {/* Footer */}
             {cartItems.length > 0 && (
