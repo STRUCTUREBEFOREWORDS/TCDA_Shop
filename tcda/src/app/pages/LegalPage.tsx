@@ -23,7 +23,7 @@ export function LegalPage() {
       <Helmet>
         <title>{t("legal.title")} | TCDA</title>
       </Helmet>
-      <h1 className="text-sm font-light tracking-[0.3em] uppercase mb-12">
+      <h1 className="text-sm font-light tracking-normal uppercase mb-12">
         {t("legal.title")}
       </h1>
       <div className="w-full text-xs font-light leading-loose divide-y divide-white/10">

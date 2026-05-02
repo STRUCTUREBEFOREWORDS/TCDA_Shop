@@ -64,7 +64,7 @@ export function ShippingReturnsPage() {
             <p className="text-white/30 text-[10px] font-light tracking-[0.4em] uppercase mb-3">
               {s.title}
             </p>
-            <p className="text-white/60 text-sm font-light leading-relaxed">
+            <p className="text-white/60 text-sm font-light leading-relaxed break-words">
               {s.body}
             </p>
             {i === 0 && (
