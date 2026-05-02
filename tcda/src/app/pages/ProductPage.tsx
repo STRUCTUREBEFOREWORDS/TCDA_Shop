@@ -731,7 +731,14 @@ export function ProductPage() {
             );
           })() : (
             <p className="text-sm font-light leading-relaxed whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
-              {product.fabric_composition}
+              {(() => {
+                try {
+                  const parsed = JSON.parse(product.fabric_composition ?? "");
+                  return parsed?.materials_eu?.en ?? parsed?.materials_us?.en ?? product.fabric_composition;
+                } catch {
+                  return product.fabric_composition;
+                }
+              })()}
             </p>
           )}
         </motion.div>
