@@ -495,7 +495,10 @@
     "filterAll": "すべて",
     "filterHoodie": "フーディー",
     "filterZip": "ジップフーディー",
-    "filterTshirt": "Tシャツ"
+    "filterTshirt": "Tシャツ",
+    "filterMens": "メンズ",
+    "filterWomens": "ウィメンズ",
+    "filterUnisex": "ユニセックス"
   },
   "geo": {
     "jp": {

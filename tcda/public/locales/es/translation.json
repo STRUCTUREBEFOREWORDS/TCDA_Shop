@@ -495,7 +495,10 @@
     "filterAll": "Todo",
     "filterHoodie": "Sudadera",
     "filterZip": "Zip",
-    "filterTshirt": "Camiseta"
+    "filterTshirt": "Camiseta",
+    "filterMens": "HOMBRE",
+    "filterWomens": "MUJER",
+    "filterUnisex": "UNISEX"
   },
   "geo": {
     "jp": {

@@ -495,7 +495,10 @@
     "filterAll": "전체",
     "filterHoodie": "후디",
     "filterZip": "집업",
-    "filterTshirt": "티셔츠"
+    "filterTshirt": "티셔츠",
+    "filterMens": "남성",
+    "filterWomens": "여성",
+    "filterUnisex": "유니섹스"
   },
   "geo": {
     "jp": {

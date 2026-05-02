@@ -15,6 +15,8 @@ interface Product {
   price: number;
   thumbnail_url: string;
   images?: string[];
+  gender_type?: string;
+  product_type?: string;
 }
 
 const FALLBACK_IMAGE = "https://cdn.tcdashop.com/logo/1.png";
@@ -26,7 +28,7 @@ function getPrimaryImage(product: Product): string {
 export function CollectionPage() {
   const { language, currency, rates, countryCode } = useGlobalContext();
   const { pathname } = useLocation();
-  const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
+  const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar|hi)/, "");
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
@@ -35,17 +37,14 @@ export function CollectionPage() {
 
   const FILTERS = [
     { key: "all", label: t("collection.filterAll") },
-    { key: "hoodie", label: t("collection.filterHoodie") },
-    { key: "zip", label: t("collection.filterZip") },
-    { key: "tshirt", label: t("collection.filterTshirt") },
+    { key: "male", label: t("collection.filterMens") },
+    { key: "female", label: t("collection.filterWomens") },
+    { key: "unisex", label: t("collection.filterUnisex") },
   ];
 
   const filteredProducts = products.filter((p) => {
     if (activeFilter === "all") return true;
-    if (activeFilter === "hoodie") return p.name.toLowerCase().includes("hoodie") && !p.name.toLowerCase().includes("zip");
-    if (activeFilter === "zip") return p.name.toLowerCase().includes("zip");
-    if (activeFilter === "tshirt") return p.name.toLowerCase().includes("t-shirt");
-    return true;
+    return p.gender_type === activeFilter;
   });
 
   useEffect(() => {
@@ -134,56 +133,68 @@ export function CollectionPage() {
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
-          {filteredProducts.map((product) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Link to={`/${language}/product/${product.id}`} className="group block">
-                {/* Image */}
-                <div className="relative overflow-hidden w-full" style={{ aspectRatio: "2/3" }}>
-                  <ImageWithFallback
-                    src={getPrimaryImage(product)}
-                    alt={product.name}
-                    className="w-full h-full object-cover object-top"
-                    style={{ transition: "transform var(--transition-slow)" }}
-                  />
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{ border: "1px solid var(--color-text)" }}
-                  />
-                </div>
+          {filteredProducts.map((product, index) => {
+            const isLarge = index % 7 === 0;
+            const genderLabel = product.gender_type === "male"
+              ? "MEN'S"
+              : product.gender_type === "female"
+              ? "WOMEN'S"
+              : "UNISEX";
+            return (
+              <motion.div
+                key={product.id}
+                className={isLarge ? "col-span-2" : ""}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Link to={`/${language}/product/${product.id}`} className="group block">
+                  {/* Image */}
+                  <div className="relative overflow-hidden w-full" style={{ aspectRatio: "2/3" }}>
+                    <ImageWithFallback
+                      src={getPrimaryImage(product)}
+                      alt={product.name}
+                      className="w-full h-full object-cover object-top"
+                      style={{ transition: "transform var(--transition-slow)" }}
+                    />
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                      style={{ border: "1px solid var(--color-text)" }}
+                    />
+                  </div>
 
-                {/* Product info */}
-                <div className="px-1 pb-6" style={{ marginTop: "12px" }}>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "var(--text-caption)",
-                      fontWeight: "var(--weight-light)",
-                      letterSpacing: "var(--ls-nav)",
-                      color: "var(--color-text)",
-                    }}
+                  {/* Product info */}
+                  <div
+                    className="px-1 pb-6 flex justify-between items-center"
+                    style={{ marginTop: "12px" }}
                   >
-                    {product.name}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "var(--text-caption)",
-                      color: "var(--color-accent)",
-                      marginTop: "4px",
-                    }}
-                  >
-                    {convertAndFormat(product.price)}
-                  </p>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                    <span
+                      style={{
+                        fontSize: "9px",
+                        letterSpacing: "0.15em",
+                        color: "var(--color-text-tertiary)",
+                        textTransform: "uppercase",
+                        fontFamily: "var(--font-body)",
+                        fontWeight: "var(--weight-light)",
+                      }}
+                    >
+                      {genderLabel}
+                    </span>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "var(--text-caption)",
+                        color: "var(--color-accent)",
+                      }}
+                    >
+                      {convertAndFormat(product.price)}
+                    </p>
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       )}
 

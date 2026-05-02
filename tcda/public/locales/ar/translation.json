@@ -495,7 +495,10 @@
     "filterAll": "الكل",
     "filterHoodie": "هودي",
     "filterZip": "زيب",
-    "filterTshirt": "تيشيرت"
+    "filterTshirt": "تيشيرت",
+    "filterMens": "رجال",
+    "filterWomens": "نساء",
+    "filterUnisex": "للجنسين"
   },
   "geo": {
     "jp": {

@@ -495,7 +495,10 @@
     "filterAll": "Todos",
     "filterHoodie": "Moletom",
     "filterZip": "Zip",
-    "filterTshirt": "Camiseta"
+    "filterTshirt": "Camiseta",
+    "filterMens": "MASCULINO",
+    "filterWomens": "FEMININO",
+    "filterUnisex": "UNISSEX"
   },
   "geo": {
     "jp": {
