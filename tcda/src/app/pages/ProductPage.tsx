@@ -12,7 +12,6 @@ import { FitLabelNormalized, ProductFitMetadata } from "../types";
 import { SizeGuideModal } from "../components/SizeGuideModal";
 
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { FaqAccordion } from "../components/FaqAccordion";
 import { JsonLd } from "../components/JsonLd";
 import { Copy, Check } from "lucide-react";
 
@@ -138,13 +137,6 @@ export function ProductPage() {
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
   const { t } = useTranslation();
 
-  const PURCHASE_FAQ_KEYS = [
-    "sizeHelp", "oversized", "deliveryTime", "returns", "colorDifference", "orderChange",
-  ] as const;
-  const purchaseFaqItems = PURCHASE_FAQ_KEYS.map((key) => ({
-    q: t(`faq.${key}.q`),
-    a: t(`faq.${key}.a`),
-  }));
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string>("");
@@ -836,21 +828,6 @@ export function ProductPage() {
           <p className="text-sm font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
             {t("checkout.shippingReturnsText")}
           </p>
-        </motion.div>
-
-        {/* Purchase FAQ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="pt-8"
-          style={{ borderTop: "1px solid var(--color-border)" }}
-        >
-          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-6" style={{ color: "var(--color-text)" }}>
-            {t("faq.purchaseTitle")}
-          </h2>
-          <FaqAccordion items={purchaseFaqItems} />
         </motion.div>
       </section>
     </div>
