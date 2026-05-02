@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useState } from "react";
+import { useGlobalContext } from "../pages/Root";
 
 interface StickyFooterCTAProps {
   ctaText: string;
@@ -7,6 +8,7 @@ interface StickyFooterCTAProps {
 }
 
 export function StickyFooterCTA({ ctaText, onCtaClick }: StickyFooterCTAProps) {
+  const { isCartOpen } = useGlobalContext();
   const [isVisible, setIsVisible] = useState(false);
   const { scrollY } = useScroll();
 
@@ -22,7 +24,7 @@ export function StickyFooterCTA({ ctaText, onCtaClick }: StickyFooterCTAProps) {
 
   const opacity = useTransform(scrollY, [window.innerHeight * 0.8, window.innerHeight], [0, 1]);
 
-  if (!isVisible) return null;
+  if (!isVisible || isCartOpen) return null;
 
   return (
     <motion.div
