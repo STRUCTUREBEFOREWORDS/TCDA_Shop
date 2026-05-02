@@ -193,6 +193,7 @@ export function CartDrawer() {
                       price_jpy: item.price_jpy,
                       quantity: item.quantity,
                       size: item.size,
+                      product_id: item.artworkId,
                     }));
                     await redirectToCheckout(items, currency, language);
                   }}
