@@ -363,14 +363,11 @@ export function ProductPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col md:flex-row"
-            style={{ gap: "8px" }}
+            className="flex flex-col"
+            style={{ gap: "4px" }}
           >
-            {/* Main image — top on mobile, right on desktop (order-2) */}
-            <div
-              className="md:order-2 md:flex-1"
-              style={{ minWidth: 0, overflow: "hidden", position: "relative", background: "#000000", aspectRatio: "2/3" }}
-            >
+            {/* Main image — full width */}
+            <div style={{ width: "100%", background: "#000000", aspectRatio: "2/3", overflow: "hidden", position: "relative" }}>
               <ImageWithFallback
                 src={images[currentImageIndex] || product.thumbnail_url}
                 alt={product.name}
@@ -380,22 +377,24 @@ export function ProductPage() {
               />
             </div>
 
-            {/* Thumbnails — horizontal scroll on mobile, vertical left on desktop (order-1) */}
+            {/* Thumbnails — horizontal scroll below main image */}
             {images.length > 1 && (
               <div
-                className="flex flex-row overflow-x-auto md:flex-col md:overflow-x-visible md:order-1"
-                style={{ gap: "4px", flexShrink: 0 }}
+                className="flex flex-row overflow-x-auto"
+                style={{ gap: "2px", scrollbarWidth: "none" } as React.CSSProperties}
               >
                 {images.map((src, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentImageIndex(i)}
-                    className={`overflow-hidden transition-all duration-200 flex-shrink-0 ${i === currentImageIndex ? "" : "opacity-50 hover:opacity-80"}`}
                     style={{
-                      width: "56px",
+                      width: "72px",
                       aspectRatio: "2/3",
+                      flexShrink: 0,
                       background: "#000000",
-                      ...(i === currentImageIndex ? { boxShadow: "0 0 0 1px var(--color-accent)", transition: "var(--transition-base)" } : {}),
+                      border: i === currentImageIndex ? "1px solid rgba(255,255,255,0.6)" : "1px solid transparent",
+                      opacity: i === currentImageIndex ? 1 : 0.5,
+                      overflow: "hidden",
                     }}
                   >
                     <ImageWithFallback
