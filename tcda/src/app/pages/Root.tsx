@@ -285,7 +285,7 @@ export function Root() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            style={{ background: "var(--color-bg)", minHeight: "100vh" }}
+            style={{ background: "#000", minHeight: "100vh" }}
           >
             <Suspense fallback={<div style={{ background: "#000", minHeight: "100vh" }} />}>
               <Outlet />

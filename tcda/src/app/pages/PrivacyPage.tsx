@@ -14,7 +14,8 @@ export function PrivacyPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-20 max-w-2xl mx-auto">
+    <div className="min-h-screen bg-black">
+      <div className="text-white px-6 py-20 max-w-2xl mx-auto">
       <Helmet>
         <title>{t("privacy.title")} | TCDA</title>
       </Helmet>
@@ -31,6 +32,7 @@ export function PrivacyPage() {
           </section>
         ))}
         <p className="text-white/30">{t("privacy.effectiveDate")}</p>
+      </div>
       </div>
     </div>
   );

@@ -19,7 +19,8 @@ export function LegalPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-20 max-w-2xl mx-auto">
+    <div className="min-h-screen bg-black">
+      <div className="text-white px-6 py-20 max-w-2xl mx-auto">
       <Helmet>
         <title>{t("legal.title")} | TCDA</title>
       </Helmet>
@@ -33,6 +34,7 @@ export function LegalPage() {
             <span className="flex-1">{t(`legal.sections.${key}.value`)}</span>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );
