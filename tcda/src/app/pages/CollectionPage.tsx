@@ -134,7 +134,7 @@ export function CollectionPage() {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
           {filteredProducts.map((product, index) => {
-            const isLarge = index % 7 === 0;
+            const isLarge = index % 7 === 0 && index !== 0;
             const genderLabel = product.gender_type === "male"
               ? "MEN'S"
               : product.gender_type === "female"

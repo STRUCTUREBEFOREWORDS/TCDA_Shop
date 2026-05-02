@@ -495,7 +495,10 @@
     "filterAll": "Tutti",
     "filterHoodie": "Felpa",
     "filterZip": "Zip",
-    "filterTshirt": "T-Shirt"
+    "filterTshirt": "T-Shirt",
+    "filterMens": "UOMO",
+    "filterWomens": "DONNA",
+    "filterUnisex": "UNISEX"
   },
   "geo": {
     "jp": {

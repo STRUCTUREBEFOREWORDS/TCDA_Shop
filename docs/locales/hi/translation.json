@@ -495,7 +495,10 @@
     "filterAll": "सभी",
     "filterHoodie": "Hoodie",
     "filterZip": "Zip Hoodie",
-    "filterTshirt": "T-Shirt"
+    "filterTshirt": "T-Shirt",
+    "filterMens": "पुरुष",
+    "filterWomens": "महिला",
+    "filterUnisex": "यूनिसेक्स"
   },
   "geo": {
     "jp": {
