@@ -44,7 +44,7 @@ interface Product {
   stock: number;
   variants: Variant[];
   size_category?: string;
-  gender_type?: "mens" | "womens" | "unisex";
+  gender_type?: "male" | "female" | "unisex";
   fabric_composition?: string;
   fabric_detail?: FabricDetail | null;
   description?: string;
@@ -358,7 +358,7 @@ export function ProductPage() {
           onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
           onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-tertiary)")}
         >
-          {t("product.backToShop")}
+          ←
         </Link>
       </div>
 
@@ -426,19 +426,13 @@ export function ProductPage() {
             className="flex flex-col md:sticky md:top-20"
             style={{ paddingLeft: "clamp(0px, 5vw, 60px)", paddingTop: "clamp(24px, 5vw, 80px)" }}
           >
-            {/* Category */}
-            {product.category && (
-              <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-text-secondary)", marginBottom: "8px", textTransform: "uppercase" }}>
-                {product.category}
-              </p>
-            )}
-
-            {/* Name */}
-            <h1
-              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 3vw, 48px)", fontWeight: "var(--weight-light)", letterSpacing: "var(--ls-display)", color: "var(--color-text)", marginBottom: "24px" }}
-            >
-              {product.name}
-            </h1>
+            {/* Gender + product type tag */}
+            <p style={{ fontSize: "9px", letterSpacing: "0.25em", color: "var(--color-text-tertiary)", textTransform: "uppercase", marginBottom: "16px", fontFamily: "var(--font-body)", fontWeight: "var(--weight-light)" }}>
+              {product.gender_type === "male" ? "MEN'S"
+                : product.gender_type === "female" ? "WOMEN'S"
+                : "UNISEX"}
+              {product.product_type ? ` · ${product.product_type.replace(/_/g, " ").toUpperCase()}` : ""}
+            </p>
 
             {/* Price */}
             <p style={{ fontFamily: "var(--font-body)", fontSize: "20px", color: "var(--color-accent)", marginBottom: "40px" }}>
