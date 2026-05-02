@@ -35,7 +35,7 @@ export function ShippingReturnsPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-white/20 text-[10px] font-light tracking-[0.5em] uppercase mb-4"
+          className="text-white/20 text-[10px] font-light tracking-normal uppercase mb-4"
         >
           {t("shippingReturns.title")}
         </motion.p>
@@ -61,7 +61,7 @@ export function ShippingReturnsPage() {
             transition={{ duration: 0.6, delay: i * 0.05 }}
             className="border-t border-white/8 py-8"
           >
-            <p className="text-white/30 text-[10px] font-light tracking-[0.4em] uppercase mb-3">
+            <p className="text-white/30 text-[10px] font-light tracking-normal uppercase mb-3">
               {s.title}
             </p>
             <p className="text-white/60 text-sm font-light leading-relaxed break-words">
@@ -83,7 +83,7 @@ export function ShippingReturnsPage() {
           transition={{ duration: 0.6 }}
           className="border-t border-white/8 py-8"
         >
-          <p className="text-white/30 text-[10px] font-light tracking-[0.4em] uppercase mb-5">
+          <p className="text-white/30 text-[10px] font-light tracking-normal uppercase mb-5">
             {t("shippingReturns.returnsTitle")}
           </p>
           <div className="space-y-3 mb-5">
@@ -109,7 +109,7 @@ export function ShippingReturnsPage() {
           transition={{ duration: 0.6 }}
           className="border-t border-b border-white/8 py-8"
         >
-          <p className="text-white/30 text-[10px] font-light tracking-[0.4em] uppercase mb-3">
+          <p className="text-white/30 text-[10px] font-light tracking-normal uppercase mb-3">
             {t("shippingReturns.contactTitle")}
           </p>
           <p className="text-white/50 text-sm font-light leading-relaxed mb-4">

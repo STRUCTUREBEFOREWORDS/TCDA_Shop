@@ -21,7 +21,7 @@ export function PrivacyPage() {
       <h1 className="text-sm font-light tracking-normal uppercase mb-12">
         {t("privacy.title")}
       </h1>
-      <div className="space-y-10 text-xs font-light leading-loose">
+      <div className="space-y-10 text-xs font-light leading-loose break-words" style={{ overflowWrap: "break-word" }}>
         {SECTION_KEYS.map((key) => (
           <section key={key}>
             <h2 className="tracking-normal uppercase mb-4 text-white/40">
