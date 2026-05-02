@@ -107,7 +107,7 @@ export function CollectionPage() {
       </section>
 
       {/* Filter */}
-      <div className="flex gap-2 px-8 md:px-16 flex-wrap" style={{ marginTop: "clamp(24px, 4vw, 48px)" }}>
+      <div className="flex gap-2 px-4 md:px-16 overflow-x-auto" style={{ marginTop: "clamp(24px, 4vw, 48px)", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}>
         {FILTERS.map((f) => (
           <button
             key={f.key}
