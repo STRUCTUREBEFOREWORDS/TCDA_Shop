@@ -82,6 +82,8 @@ export function CollectionPage() {
         <meta property="og:description" content="Browse the full TCDA collection." />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content="https://cdn.tcdashop.com/top/006-desktop.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://cdn.tcdashop.com/top/006-desktop.webp" />
       </Helmet>
 
       {/* Hero */}
