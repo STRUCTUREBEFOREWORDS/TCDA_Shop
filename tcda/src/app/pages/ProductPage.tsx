@@ -525,9 +525,26 @@ export function ProductPage() {
                 onClick={handleAddToCart}
                 disabled={!selectedSize}
                 className="w-full text-xs uppercase disabled:opacity-30"
-                style={{ background: "var(--color-accent)", color: "var(--color-bg)", fontFamily: "var(--font-body)", letterSpacing: "var(--ls-nav)", transition: "var(--transition-base)", marginTop: "32px", padding: "18px" }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "#ffffff"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "var(--color-accent)"; }}
+                style={{
+                  background: "transparent",
+                  color: "var(--color-text)",
+                  border: "1px solid rgba(255,255,255,0.5)",
+                  fontFamily: "var(--font-body)",
+                  letterSpacing: "var(--ls-nav)",
+                  transition: "var(--transition-base)",
+                  marginTop: "32px",
+                  padding: "18px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#ffffff";
+                  e.currentTarget.style.color = "#000000";
+                  e.currentTarget.style.borderColor = "#ffffff";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = "var(--color-text)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)";
+                }}
               >
                 {added ? t("cart.added") : t("cart.addToCart")}
               </button>
