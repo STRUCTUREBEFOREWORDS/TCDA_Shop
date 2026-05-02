@@ -4,6 +4,8 @@ export function applyPsychologicalPrice(amount: number, currency: string): numbe
       return Math.floor(amount / 1000) * 1000 + 800;
     case "KRW":
       return Math.floor(amount / 1000) * 1000;
+    case "INR":
+      return Math.floor(amount / 100) * 100 + 99;
     case "CNY":
       return Math.floor(amount) + 0.9;
     case "AED":

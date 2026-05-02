@@ -1,5 +1,5 @@
-export type Language = "en" | "ja" | "fr" | "es" | "ko" | "zh" | "ar" | "pt" | "de" | "it";
-export type Currency = "USD" | "JPY" | "EUR" | "GBP" | "KRW" | "CNY" | "AUD" | "AED" | "SGD" | "BRL" | "CAD";
+export type Language = "en" | "ja" | "fr" | "es" | "ko" | "zh" | "ar" | "pt" | "de" | "it" | "hi";
+export type Currency = "USD" | "JPY" | "EUR" | "GBP" | "KRW" | "CNY" | "AUD" | "AED" | "SGD" | "BRL" | "CAD" | "INR";
 
 export type FitLabelNormalized = "slim" | "regular" | "relaxed" | "oversized" | "unknown";
 

@@ -23,9 +23,10 @@ export const RATES: Record<Currency, number> = {
   SGD: 0.0090,
   BRL: 0.035,
   CAD: 0.0092,
+  INR: 0.55,
 };
 
-export const SUPPORTED_LANGS: Language[] = ["en", "ja", "fr", "es", "ko", "zh", "ar", "pt", "de", "it"];
+export const SUPPORTED_LANGS: Language[] = ["en", "ja", "fr", "es", "ko", "zh", "ar", "pt", "de", "it", "hi"];
 
 const BASE_URL = "https://tcdashop.com";
 const HREFLANG_LANGS: { lang: string; hreflang: string }[] = [

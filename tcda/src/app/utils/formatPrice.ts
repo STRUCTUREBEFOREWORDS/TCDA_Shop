@@ -55,6 +55,11 @@ const formatters: Record<Currency, Intl.NumberFormat> = {
     currency: "CAD",
     minimumFractionDigits: 2,
   }),
+  INR: new Intl.NumberFormat("hi-IN", {
+    style: "currency",
+    currency: "INR",
+    minimumFractionDigits: 0,
+  }),
 };
 
 export function formatPrice(amount: number, currency: Currency): string {

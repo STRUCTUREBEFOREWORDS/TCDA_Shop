@@ -1,0 +1,513 @@
+{
+  "home": {
+    "transcend": "TRANSCEND"
+  },
+  "nav": {
+    "shop": "SHOP",
+    "look": "Look",
+    "collection": "COLLECTION",
+    "about": "ABOUT",
+    "legal": "Legal",
+    "privacy": "गोपनीयता नीति",
+    "contact": "CONTACT",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "philosophical1": "वह असंगति का एहसास कोई गलती नहीं है।",
+    "philosophical2": "शून्य खालीपन नहीं है। यह बनने की जगह है।",
+    "philosophical3": "आप कभी सामान्य से नहीं थे — शुरू से ही नहीं।",
+    "cta": "यह आपका हिस्सा बन जाएगा।",
+    "emotion1": "लंबे समय से, आप कुछ ऐसा लिए चल रहे हैं जिसे शब्द नहीं समेट सकते। यह काम उसे जगह देता है जो कहा नहीं जा सकता।",
+    "emotion2": "खामोशी और शोर के बीच, एक आवृत्ति है जिसे केवल आप सुन सकते हैं। यह उसका रूप है।",
+    "emotion3": "दुनिया ने आपसे अनुकूलन की मांग की। यह उस पल के लिए है जब आपने घुलने का चुनाव किया।",
+    "identity1": "उनके लिए जिन्हें इस दुनिया में कोई जगह नहीं मिलती।",
+    "identity2": "उनके लिए जो शब्दों के बीच अस्तित्व में हैं।",
+    "identity3": "उनके लिए जो सुविधा से इनकार करते हैं और सत्य चुनते हैं।",
+    "philosophyBlock": "बिक्री नहीं — एक निर्णय। हर piece numbered है और इसे reproduce नहीं किया जाएगा। TCDA पहनने योग्य वस्तुओं और भावना के रिकॉर्ड के चौराहे पर है।"
+  },
+  "product": {
+    "material": "100% Organic Cotton, Digital Print",
+    "sizeInfo": "XS / S / M / L / XL",
+    "details": "हर piece को एक individual serial number दिया जाता है। यह artwork restock नहीं होगा। जो आप पहनते हैं वह archive का हिस्सा बन जाता है।",
+    "limited": "दुनिया में केवल 50 pieces",
+    "ctaText": "अभी प्राप्त करें",
+    "stockAvailable": "स्टॉक में है",
+    "stockLow": "लगभग खत्म",
+    "stockOut": "बिक गया",
+    "materialLabel": "सामग्री",
+    "deliveryLabel": "डिलीवरी",
+    "modelLabel": "मॉडल",
+    "materialDetailsLabel": "सामग्री और विवरण",
+    "relatedProducts": "आपको यह भी पसंद आ सकता है",
+    "collection": "वर्तमान collection",
+    "backToShop": "← Shop पर वापस",
+    "notesTitle": "कृपया ध्यान दें",
+    "notesItem1": "रंग आपके monitor settings और lighting conditions के आधार पर original से थोड़ा भिन्न हो सकते हैं।",
+    "notesItem2": "यह item विदेश में निर्मित होने के कारण, packaging पर कभी-कभी मामूली खरोंच या दंत आ सकती है।",
+    "deliveryText": "5–10 business days के भीतर deliver होगा",
+    "notFound": "यह piece उपलब्ध नहीं है",
+    "stockRemaining": "केवल {{count}} बचा है",
+    "outOfStock": "स्टॉक में नहीं है",
+    "notifyMe": "वापस stock में आने पर सूचित करें",
+    "notifyEmailPlaceholder": "अपना email दर्ज करें",
+    "notifyRegistered": "पंजीकृत। वापस आने पर हम आपको सूचित करेंगे।",
+    "descriptionLabel": "विवरण",
+    "prevImage": "पिछला",
+    "nextImage": "अगला",
+    "mensModel": "पुरुष मॉडल: 175cm / M पहने हुए",
+    "womensModel": "महिला मॉडल: 160cm / S पहने हुए",
+    "aiModelNote": "※ AI-generated model imagery",
+    "meaningTitle": "इस PIECE के बारे में",
+    "designIntent": "Design Intent",
+    "bestFor": "किसके लिए सबसे अच्छा",
+    "silhouette": "Silhouette",
+    "materialFeel": "सामग्री का एहसास",
+    "stylePairing": "Style Pairing",
+    "fabricComposition": "100% polyester, sublimation print। Machine wash cold। Tumble dry न करें।",
+    "fabricMaterialEu": "सामग्री (EU)",
+    "fabricMaterialUs": "सामग्री (US)",
+    "fabricWeightEu": "वजन (EU)",
+    "fabricWeightUs": "वजन (US)",
+    "fabricFeatures": "विशेषताएं",
+    "fabricCertifications": "प्रमाणपत्र",
+    "fabricOrigin": "उत्पत्ति"
+  },
+  "cart": {
+    "addToCart": "Cart में जोड़ें",
+    "viewCart": "Cart देखें",
+    "cartEmpty": "आपका cart खाली है।",
+    "checkout": "Checkout",
+    "continueShopping": "Shopping जारी रखें",
+    "total": "कुल",
+    "quantity": "मात्रा",
+    "remove": "हटाएं",
+    "orderSummary": "Order सारांश",
+    "subtotal": "उप-कुल",
+    "shipping": "शिपिंग",
+    "free": "निःशुल्क",
+    "placeOrder": "Order दें",
+    "quickView": "Quick View",
+    "added": "जोड़ा गया",
+    "taxNote": "Checkout पर tax की गणना होगी",
+    "shippingNote": "Checkout पर shipping की गणना होगी"
+  },
+  "shop": {
+    "all": "ALL",
+    "hoodie": "HOODIE",
+    "zipHoodie": "ZIP HOODIE",
+    "tshirt": "T-SHIRT",
+    "recentlyViewed": "हाल ही में देखा गया",
+    "filterAll": "सभी",
+    "sortNewest": "नवीनतम",
+    "sortPriceAsc": "कीमत: कम से ज़्यादा",
+    "sortPriceDesc": "कीमत: ज़्यादा से कम",
+    "viewAll": "सभी देखें"
+  },
+  "size": {
+    "guide": "Size Guide",
+    "guideTitle": "Size Guide",
+    "guideNote": "माप cm में। यदि आप sizes के बीच हैं, तो बड़ा size लेने की सिफारिश है।",
+    "label": "Size",
+    "chest": "छाती",
+    "length": "लंबाई",
+    "shoulder": "कंधा",
+    "noChartAvailable": "Size guide जल्द आएगा"
+  },
+  "checkout": {
+    "fieldName": "नाम",
+    "fieldAddress": "पता",
+    "fieldCity": "शहर",
+    "fieldPostalCode": "Postal Code",
+    "fieldCountry": "देश",
+    "next": "अगला",
+    "back": "वापस",
+    "fieldCardName": "Card पर नाम",
+    "fieldCardNumber": "Card नंबर",
+    "fieldExpiry": "समाप्ति तिथि",
+    "shippingInfo": "Shipping",
+    "paymentInfo": "भुगतान",
+    "confirmOrder": "पुष्टि करें",
+    "shippingReturnsText": "Orders Printful के माध्यम से 2–5 business days में fulfill किए जाते हैं। आपके क्षेत्र के आधार पर delivery में सामान्यतः 5–10 business days लगते हैं। क्षतिग्रस्त, गलत print, या गलत shipping के मामले में, receipt के 7 दिनों के भीतर info@tcdashop.com पर संपर्क करें। सत्यापन के बाद replacement या refund की व्यवस्था की जाएगी।"
+  },
+  "order": {
+    "confirmed": "Order की पुष्टि हो गई",
+    "confirmedMessage": "आपके email पर confirmation भेज दिया गया है। यह piece अब archive का हिस्सा है।",
+    "returnHome": "Home पर वापस जाएं",
+    "cancelled": "Order रद्द हो गया",
+    "cancelledMessage": "आपका payment रद्द हो गया।"
+  },
+  "faq": {
+    "q1": "Shipping में कितना समय लगता है?",
+    "a1": "Orders 2–5 business days में dispatch होते हैं और सामान्यतः 5–10 business days में पहुंचते हैं।",
+    "q2": "क्या आप returns या exchanges स्वीकार करते हैं?",
+    "a2": "Defective items के लिए 14 दिनों के भीतर returns स्वीकार किए जाते हैं। प्रति order एक size exchange उपलब्ध है।",
+    "q3": "यदि मैं sizes के बीच हूं तो क्या करूं?",
+    "a3": "Relaxed fit के लिए, बड़ा size लेने की सिफारिश है। हमारा model 180 cm लंबा है और size M पहनता है।",
+    "purchaseTitle": "FAQ",
+    "fullTitle": "FAQ",
+    "sizeHelp": {
+      "q": "कौन सा size चुनें, यह तय नहीं?",
+      "a": "Garment measurements के लिए Size Guide देखें। Sizes के बीच होने पर, बड़ा size लेने की सिफारिश है।"
+    },
+    "oversized": {
+      "q": "Oversized fit कैसे पाएं?",
+      "a": "अपने सामान्य size से एक size बड़ा चुनें। Silhouettes product के अनुसार भिन्न होते हैं — प्रत्येक product page पर fit info देखें।"
+    },
+    "modelSize": {
+      "q": "Model कौन सा size पहनता है?",
+      "a": "Height और पहना गया size प्रत्येक product page पर listed है। नोट: AI-generated model imagery उपयोग की जाती है।"
+    },
+    "deliveryTime": {
+      "q": "Delivery में कितना समय लगता है?",
+      "a": "Orders 2–5 business days में fulfill होते हैं, फिर dispatch के बाद सामान्यतः 5–10 business days में पहुंचते हैं। Shipment के बाद tracking number भेजा जाता है।"
+    },
+    "internationalShipping": {
+      "q": "क्या यह internationally ship होता है?",
+      "a": "Items एक overseas production partner से dispatch होते हैं। Delivery को provided tracking number से track किया जा सकता है।"
+    },
+    "returns": {
+      "q": "क्या returns या exchanges उपलब्ध हैं?",
+      "a": "हम केवल क्षतिग्रस्त, गलत print, या गलत shipping वाले items के लिए returns स्वीकार करते हैं। Size preference या personal choice के कारण returns स्वीकार नहीं किए जाते।"
+    },
+    "colorDifference": {
+      "q": "क्या रंग screen पर दिखने वाले से match करेगा?",
+      "a": "आपके monitor settings और lighting conditions के आधार पर रंग थोड़ा भिन्न हो सकते हैं।"
+    },
+    "washing": {
+      "q": "क्या इसे wash करना safe है?",
+      "a": "Machine wash उपलब्ध है। लंबे समय तक टिकाने के लिए, हम inside out wash करने की सिफारिश करते हैं।"
+    },
+    "paymentMethods": {
+      "q": "कौन से payment methods स्वीकार किए जाते हैं?",
+      "a": "हम केवल credit cards स्वीकार करते हैं (Visa, Mastercard, JCB, American Express, Diners Club)।"
+    },
+    "orderChange": {
+      "q": "क्या order देने के बाद उसे बदला या रद्द किया जा सकता है?",
+      "a": "Confirm होने के बाद orders को modify या cancel नहीं किया जा सकता। खरीदने से पहले कृपया ध्यान से review करें।"
+    },
+    "restock": {
+      "q": "क्या sold-out items restock होंगे?",
+      "a": "Restocking dates confirm नहीं हैं। उपलब्ध होने पर updates हमारे official social channels के माध्यम से share किए जाएंगे।"
+    },
+    "defect": {
+      "q": "यदि मेरे item में कोई defect हो तो?",
+      "a": "Order receive करने के 7 दिनों के भीतर info@tcdashop.com पर संपर्क करें। सत्यापन के बाद replacement या refund की व्यवस्था की जाएगी।"
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "TCDA के बारे में",
+    "categorySizing": "Fit और Sizing",
+    "categoryShipping": "Shipping और Returns",
+    "categoryProduct": "Product विवरण",
+    "ctaLabel": "अभी भी प्रश्न हैं? हमसे संपर्क करें"
+  },
+  "sizeTable": {
+    "size": "Size",
+    "width": "चौड़ाई",
+    "length": "लंबाई",
+    "sleeveLength": "Sleeve की लंबाई"
+  },
+  "sizeGuide": {
+    "title": "Size Guide",
+    "close": "बंद करें",
+    "seeGuide": "Size Guide देखें",
+    "fit": "Fit",
+    "recommendation": "सिफारिश",
+    "howToMeasure": "माप कैसे लें",
+    "productType": "Product प्रकार",
+    "fitDefinitions": "Fit परिभाषाएं",
+    "unitCm": "cm",
+    "unitInch": "inch",
+    "pageIntro": "सभी माप cm में (toggle उपलब्ध)। नीचे दिए guide का उपयोग करके अपना fit खोजें।",
+    "measureChest": "Tape को horizontal रखते हुए अपनी छाती के सबसे चौड़े हिस्से के चारों ओर measure करें।",
+    "measureLength": "कंधे के सबसे ऊंचे बिंदु से hem तक measure करें।",
+    "measureShoulder": "पीठ पर shoulder seam से shoulder seam तक measure करें।",
+    "measureSleeve": "Shoulder seam से cuff तक measure करें।",
+    "faq1q": "मैं अपना size कैसे खोजूं?",
+    "faq1a": "अपने body measurements की तुलना हमारे size chart से करें। यदि sizes के बीच हैं, तो relaxed fit के लिए size up करें या fitted look के लिए size down करें।",
+    "faq2q": "Body measurements और garment measurements में क्या अंतर है?",
+    "faq2a": "Body measurements आपके हैं। Garment measurements piece के actual dimensions हैं। अंतर ease है।",
+    "faq3q": "मैं sizes के बीच हूं। क्या करूं?",
+    "faq3a": "Oversized या relaxed fits के लिए, size down करें। Slim fits के लिए, size up करें। संदेह होने पर, product page पर model info देखें।",
+    "faq4q": "क्या sizes बड़े या छोटे चलते हैं?",
+    "faq4a": "Sizing product type के अनुसार भिन्न होती है। मार्गदर्शन के लिए प्रत्येक product page पर fit label देखें।",
+    "faq5q": "क्या मैं अपना size exchange कर सकता हूं?",
+    "faq5a": "प्रति order एक size exchange उपलब्ध है। Receipt के 14 दिनों के भीतर हमसे संपर्क करें।",
+    "faq6q": "Measurements कितनी accurate हैं?",
+    "faq6a": "Measurements flat लिए जाते हैं और production tolerances के कारण ±1–2 cm भिन्न हो सकते हैं।",
+    "faq7q": "'Slim fit' का क्या मतलब है?",
+    "faq7a": "Slim fit body के करीब होता है। यदि आप अधिक ease पसंद करते हैं तो size up करने की सिफारिश है।",
+    "faq8q": "'Oversized' का क्या मतलब है?",
+    "faq8a": "Oversized pieces जानबूझकर बड़े होते हैं। Silhouette body से दूर fall करने के लिए designed है।",
+    "faq9q": "क्या आप unisex pieces के लिए sizing guidance प्रदान करते हैं?",
+    "faq9a": "Unisex pieces सभी bodies के लिए sized हैं। Reference के लिए product page पर model info देखें।",
+    "faq10q": "क्या measurements cm में हैं या inches में?",
+    "faq10a": "दोनों उपलब्ध हैं। cm और inches के बीच switch करने के लिए size guide पर toggle का उपयोग करें।",
+    "faq11q": "यदि किसी product के लिए size guide अभी उपलब्ध नहीं है तो?",
+    "faq11a": "हम सभी products के लिए size guides जोड़ रहे हैं। जल्द वापस check करें, या मार्गदर्शन के लिए हमसे संपर्क करें।",
+    "faq12q": "मुझे अपने piece की देखभाल कैसे करनी चाहिए?",
+    "faq12a": "Machine wash cold, gentle cycle। Tumble dry न करें। Low heat पर inside out iron करें।",
+    "measurements": {
+      "width": "चौड़ाई",
+      "length": "लंबाई",
+      "sleeve": "Sleeve",
+      "shoulder": "कंधा",
+      "waist": "कमर"
+    },
+    "measurementFlatNote": "Measurements flat लिए गए हैं",
+    "measurementVariationNote": "Production tolerances के कारण थोड़ा variation (±1–2 cm) हो सकता है।",
+    "measurementHelp": {
+      "width": "underarm पर छाती के पार flat",
+      "length": "कंधे के ऊपर से hem तक",
+      "sleeve": "shoulder seam से cuff तक",
+      "shoulder": "पीठ पर, seam से seam तक",
+      "waist": "कमर के पार flat"
+    },
+    "figureAlt": "{{product}} size guide illustration"
+  },
+  "fit": {
+    "slim": "Slim",
+    "regular": "Regular",
+    "relaxed": "Relaxed",
+    "oversized": "Oversized",
+    "unknown": "—",
+    "slimNote": "Body के करीब बैठता है। यदि आप movement के लिए जगह पसंद करते हैं तो size up करें।",
+    "regularNote": "True to size। छाती और body में relaxed।",
+    "relaxedNote": "Loose silhouette। Body से दूर fall करता है। Fitted look के लिए size down करें।",
+    "oversizedNote": "जानबूझकर oversized। Drape करने के लिए designed। Regular silhouette के लिए size down करें।"
+  },
+  "trust": {
+    "processed": "2–5 business days में process होगा",
+    "delivered": "5–10 business days में deliver होगा",
+    "supported": "Defect या shipping error? Receipt के 7 दिनों के भीतर हमसे संपर्क करें",
+    "shippingReturnsLink": "Shipping और Returns"
+  },
+  "footer": {
+    "support": "Support",
+    "faq": "FAQ",
+    "sizeGuide": "Size Guide",
+    "shippingReturns": "Shipping और Returns",
+    "contact": "Contact"
+  },
+  "shippingReturns": {
+    "title": "Shipping और Returns",
+    "pageIntro": "Shipping और हमारी returns policy के बारे में सब कुछ। प्रश्न? info@tcdashop.com पर email करें।",
+    "shippingTitle": "Shipping",
+    "shippingBody": "Orders Printful के माध्यम से 2–7 business days में dispatch होते हैं। Shipment के बाद tracking number प्रदान किया जाएगा।",
+    "shippingAddressNote": "※ Japan के भीतर deliveries के लिए, shipping address shipping label पर automatically English में convert हो जाएगा। यह international shipping system requirements के कारण है। आपका delivery destination अपरिवर्तित रहता है।",
+    "deliveryTitle": "Delivery",
+    "deliveryBody": "Dispatch के बाद, delivery में सामान्यतः 5–10 business days लगते हैं। समय क्षेत्र के अनुसार भिन्न हो सकता है।",
+    "returnsTitle": "Returns और Support",
+    "returnsCondition": "Eligible cases: केवल क्षतिग्रस्त, गलत print, या गलत shipped items",
+    "returnsPeriod": "Timeframe: order receive करने के 7 दिनों के भीतर संपर्क करें",
+    "returnsMethod": "Resolution: सत्यापन के बाद replacement या refund",
+    "returnsNote": "Size preference या मन बदलने के कारण returns स्वीकार नहीं किए जाते।",
+    "contactTitle": "हमसे संपर्क करें",
+    "contactBody": "किसी भी अन्य प्रश्न के लिए, नीचे दिए पते पर संपर्क करें।",
+    "customsTitle": "Customs और Import Duties",
+    "customsBody": "Products US या Europe से ship होते हैं। आपके देश के आधार पर, customs duties, import taxes, या handling fees लागू हो सकते हैं। ये charges ग्राहक की जिम्मेदारी हैं। कृपया विवरण के लिए अपने स्थानीय customs regulations देखें।"
+  },
+  "contact": {
+    "title": "Contact",
+    "pageIntro": "अपने order, shipping, या product issue के बारे में प्रश्न?",
+    "intro": "Order inquiries, shipping, या product issues के लिए — यहां हमसे संपर्क करें। हम सामान्यतः 2–3 business days के भीतर reply करते हैं।",
+    "name": "नाम",
+    "namePlaceholder": "आपका नाम",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "orderNumber": "Order नंबर (optional)",
+    "orderNumberPlaceholder": "उदा. XXXXXXXX",
+    "subject": "विषय",
+    "subjectPlaceholder": "हम किसमें मदद कर सकते हैं?",
+    "message": "संदेश",
+    "messagePlaceholder": "हम कैसे मदद कर सकते हैं?",
+    "submit": "संदेश भेजें",
+    "submitting": "भेजा जा रहा है...",
+    "success": "संदेश प्राप्त हुआ। हम जल्द से जल्द आपसे संपर्क करेंगे।",
+    "successTitle": "संदेश भेजा गया",
+    "successBody": "हम 2–3 business days के भीतर reply करेंगे।",
+    "error": "कुछ गलत हो गया। कृपया सीधे info@tcdashop.com पर email करें।",
+    "errorTitle": "कुछ गलत हो गया",
+    "errorBody": "कृपया फिर से try करें, या नीचे दिए पते पर सीधे संपर्क करें।",
+    "orEmail": "या सीधे email करें:",
+    "replyNote": "हम सामान्यतः 2–3 business days के भीतर reply करते हैं।",
+    "directEmail": "info@tcdashop.com"
+  },
+  "privacy": {
+    "title": "गोपनीयता नीति",
+    "sections": {
+      "dataCollection": {
+        "title": "1. हम कौन सी जानकारी एकत्र करते हैं",
+        "body": "Order processing के लिए हम आपका नाम, पता, email address, phone number, और payment information एकत्र करते हैं। Payment information Stripe, Inc. द्वारा सुरक्षित रूप से handle की जाती है और हमारे पास retain नहीं होती।"
+      },
+      "dataUsage": {
+        "title": "2. हम आपकी जानकारी का उपयोग कैसे करते हैं",
+        "body": "एकत्र की गई जानकारी का उपयोग order processing, shipping, customer support, और service improvement के लिए किया जाता है। हम आपका data third parties को नहीं बेचते या share नहीं करते।"
+      },
+      "thirdParty": {
+        "title": "3. Third-Party Sharing",
+        "body": "आपका order fulfill करने के लिए, हम Printful (हमारे manufacturing और fulfillment partner) के साथ आवश्यक shipping information share करते हैं। कानून द्वारा required के अलावा कोई अन्य third-party sharing नहीं होती।"
+      },
+      "cookies": {
+        "title": "4. Cookies",
+        "body": "यह site Google Analytics (GA4) के माध्यम से analytics के लिए cookies का उपयोग करती है। आप site का उपयोग करने की क्षमता को प्रभावित किए बिना cookies को disable कर सकते हैं।"
+      },
+      "security": {
+        "title": "5. Data Security",
+        "body": "Personal information को unauthorized access, leaks, या tampering से बचाने के लिए उचित security measures के साथ manage किया जाता है।"
+      },
+      "contact": {
+        "title": "6. Contact",
+        "body": "आपकी personal information के बारे में inquiries के लिए, कृपया info@tcdashop.com पर संपर्क करें।"
+      }
+    },
+    "effectiveDate": "प्रभावी: 10 अप्रैल, 2026"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "sections": {
+      "seller": {
+        "label": "विक्रेता",
+        "value": "Taiki Ogawa"
+      },
+      "address": {
+        "label": "पता",
+        "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya-ku, Tokyo, Japan"
+      },
+      "phone": {
+        "label": "फोन",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "Email",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "कीमत",
+        "value": "प्रत्येक product page पर listed (जहां applicable वहां tax included)। * Customs duties और import taxes लागू हो सकते हैं और ग्राहक की जिम्मेदारी हैं।"
+      },
+      "payment": {
+        "label": "Payment Methods",
+        "value": "Credit card (Visa / Mastercard / JCB / American Express / Diners Club), Apple Pay, Google Pay, Alipay, WeChat Pay, iDEAL, SEPA Direct Debit, Korean cards, Link"
+      },
+      "paymentTiming": {
+        "label": "Payment Timing",
+        "value": "Order confirmation के समय"
+      },
+      "delivery": {
+        "label": "Delivery",
+        "value": "Order confirmation के बाद सामान्यतः 5–10 business days के भीतर ship होता है"
+      },
+      "returns": {
+        "label": "Returns और Exchanges",
+        "value": "हमारे products की प्रकृति के कारण, order confirmation के बाद cancellations, returns, और exchanges सामान्यतः स्वीकार नहीं किए जाते। Exceptions क्षतिग्रस्त items, printing defects, या misdelivery के लिए लागू होते हैं — receipt के 7 दिनों के भीतर info@tcdashop.com पर संपर्क करें। Replacement या refund की व्यवस्था की जाएगी।"
+      },
+      "quantity": {
+        "label": "उपलब्ध मात्रा",
+        "value": "जब तक supplies हैं"
+      },
+      "browser": {
+        "label": "Compatible Browsers",
+        "value": "Latest Chrome / Safari / Firefox / Edge"
+      }
+    }
+  },
+  "cookie": {
+    "message": "हम यह समझने के लिए Google Analytics (GA4) के माध्यम से cookies का उपयोग करते हैं कि visitors हमारी site का उपयोग कैसे करते हैं। कृपया नीचे अपनी preference चुनें।",
+    "accept": "स्वीकार करें",
+    "decline": "अस्वीकार करें",
+    "learnMore": "गोपनीयता नीति"
+  },
+  "about": {
+    "viewCollection": "VIEW COLLECTION",
+    "storyLabel": "STORY",
+    "storyTitle": "Digital art को wearable culture में बदलना।",
+    "storyBody": "TCDA एक ऐसा brand है जो digital दुनिया में जन्मी art को wearable garments के रूप में reality में लाता है। Visuals जो कभी केवल screens पर exist करते थे — अब कुछ ऐसा जो आप actually पहन सकते हैं। इसीलिए TCDA exist करता है।",
+    "valuesLabel": "VALUES",
+    "value1Title": "ART FIRST",
+    "value1Body": "Product से पहले art। हर design artistic intent से originate होती है, market demand से नहीं।",
+    "value2Title": "INDIVIDUALITY",
+    "value2Body": "अपनी individuality पहनें। अपनी individuality दिखाएं। आप जो पहनते हैं वह आपका declaration है।",
+    "value3Title": "GLOBAL",
+    "value3Body": "सीमाओं के बिना art। एक visual language जो geography, culture, और भाषा से परे है।",
+    "heroTitle": "Individuality कोई छुपाने की चीज़ नहीं है। यह पहनने की चीज़ है।",
+    "hero": {
+      "title": "Individuality कोई छुपाने की चीज़ नहीं है। यह पहनने की चीज़ है।",
+      "subtitle": "उन लोगों के लिए art-driven fashion जो ordinary से इनकार करते हैं।"
+    },
+    "valuesTitle": "VALUES",
+    "value1": "ART FIRST",
+    "value2": "INDIVIDUALITY",
+    "value3": "GLOBAL",
+    "ctaLabel": "VIEW COLLECTION",
+    "brandFoundation": {
+      "title": "BRAND FOUNDATION",
+      "description": "TCDA — Transcend Creative Dimension Aura — एक ऐसा brand है जो digital art और wearable culture के चौराहे पर जन्मा है। हर design एक visual concept के रूप में शुरू होती है, जो aesthetics से परे meaning carry करने के लिए बनाई गई है।",
+      "individual": {
+        "title": "The Individual",
+        "description": "कोई जो बाकी सबकी तरह dress करने से इनकार करता है।"
+      },
+      "artSeeker": {
+        "title": "The Art Seeker",
+        "description": "कोई जो visual expression में meaning खोजता है।"
+      },
+      "selfTransformer": {
+        "title": "The Self-Transformer",
+        "description": "कोई जो बनने की प्रक्रिया में है।"
+      },
+      "artFirst": {
+        "title": "Art-First Design",
+        "description": "हर piece एक visual concept के रूप में शुरू होती है, product नहीं।"
+      },
+      "limited": {
+        "title": "Limited Feeling",
+        "description": "Mass नहीं। Fast नहीं। Rare feel करने के लिए designed।"
+      },
+      "wearable": {
+        "title": "Wearable Identity",
+        "description": "Self-declaration के एक रूप के रूप में clothing।"
+      },
+      "quote": "\"हम कपड़े नहीं बनाते। हम personal transformation के artifacts बनाते हैं।\""
+    }
+  },
+  "common": {
+    "loading": "लोड हो रहा है..."
+  },
+  "share": "Share करें",
+  "copy_link": "Link copy करें",
+  "copied": "Copy हो गया!",
+  "reviews": {
+    "title": "Reviews",
+    "anonymous": "Anonymous"
+  },
+  "review": {
+    "title": "Review लिखें",
+    "subtitle": "आपकी खरीद के लिए धन्यवाद। हम आपके विचार सुनना चाहते हैं।",
+    "namePlaceholder": "आपका नाम (optional)",
+    "bodyPlaceholder": "इस product के साथ अपना अनुभव share करें",
+    "submit": "Submit करें",
+    "thanks": "आपके review के लिए धन्यवाद"
+  },
+  "collection": {
+    "heroTitle": "THE COLLECTION",
+    "heroSub": "Art-driven fashion। हर piece एक statement है।",
+    "conceptTitle": "WEAR THE ART",
+    "conceptBody": "हर TCDA piece एक digital artwork के रूप में शुरू होती है — abstract, expressive, और intentional। हम visual energy को ऐसे garments में transform करते हैं जो fashion से परे meaning carry करते हैं। यह clothing नहीं है। यह एक position है।",
+    "filterAll": "सभी",
+    "filterHoodie": "Hoodie",
+    "filterZip": "Zip Hoodie",
+    "filterTshirt": "T-Shirt"
+  },
+  "geo": {
+    "jp": {
+      "shipping": "7–14 business days में deliver होगा",
+      "returns": "30-day returns",
+      "faqLink": "FAQ",
+      "topBanner": "Worldwide shipping उपलब्ध है"
+    },
+    "eu": {
+      "material": "100% premium DTG print",
+      "vat": "कीमत में VAT शामिल है",
+      "topBanner": "€100 से ऊपर के orders पर free shipping"
+    }
+  }
+}

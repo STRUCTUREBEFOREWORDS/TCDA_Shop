@@ -9,6 +9,7 @@ import arFlag from "../../assets/flags/ar.svg";
 import ptFlag from "../../assets/flags/pt.svg";
 import deFlag from "../../assets/flags/de.svg";
 import itFlag from "../../assets/flags/it.svg";
+import inFlag from "../../assets/flags/in.svg";
 
 export type { Language, Currency };
 
@@ -31,6 +32,7 @@ const LANGUAGES: { code: Language; flag: string }[] = [
   { code: "pt", flag: ptFlag },
   { code: "de", flag: deFlag },
   { code: "it", flag: itFlag },
+  { code: "hi", flag: inFlag },
 ];
 
 const CURRENCY_SYMBOLS: Record<Currency, string> = {
@@ -45,9 +47,10 @@ const CURRENCY_SYMBOLS: Record<Currency, string> = {
   SGD: "S$",
   BRL: "R$",
   CAD: "C$",
+  INR: "₹",
 };
 
-const CURRENCIES: Currency[] = ["JPY", "USD", "EUR", "GBP", "KRW", "CNY", "AUD", "AED", "SGD", "BRL", "CAD"];
+const CURRENCIES: Currency[] = ["JPY", "USD", "EUR", "GBP", "KRW", "CNY", "AUD", "AED", "SGD", "BRL", "CAD", "INR"];
 
 export function TCDA_LanguageCurrencySwitcher({
   language,
