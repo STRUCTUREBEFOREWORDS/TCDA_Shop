@@ -734,7 +734,11 @@ export function ProductPage() {
               {(() => {
                 try {
                   const parsed = JSON.parse(product.fabric_composition ?? "");
-                  return parsed?.materials_eu?.en ?? parsed?.materials_us?.en ?? product.fabric_composition;
+                  return parsed?.materials_eu?.[language]
+                    ?? parsed?.materials_eu?.en
+                    ?? parsed?.materials_us?.[language]
+                    ?? parsed?.materials_us?.en
+                    ?? product.fabric_composition;
                 } catch {
                   return product.fabric_composition;
                 }
