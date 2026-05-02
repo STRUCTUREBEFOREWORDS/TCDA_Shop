@@ -1,6 +1,6 @@
 import { Outlet, useParams, useNavigate, useLocation } from "react-router";
 import { useState, useEffect, createContext, useContext, Suspense } from "react";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { Helmet } from "react-helmet-async";
 import i18n from "../i18n";
 import { Language, Currency, CartItem, RecentProduct } from "../types";
@@ -278,9 +278,19 @@ export function Root() {
       <HreflangHelmet pathname={location.pathname} />
       <div className="font-[Inter] bg-white antialiased min-h-screen">
         <TCDA_GlobalNav />
-        <Suspense fallback={<div style={{ background: "#000", minHeight: "100vh" }} />}>
-          <Outlet />
-        </Suspense>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Suspense fallback={<div style={{ background: "#000", minHeight: "100vh" }} />}>
+              <Outlet />
+            </Suspense>
+          </motion.div>
+        </AnimatePresence>
         <Footer />
         <CartDrawer />
         <AnimatePresence>
