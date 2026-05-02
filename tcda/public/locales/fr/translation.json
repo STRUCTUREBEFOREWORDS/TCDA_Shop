@@ -492,13 +492,13 @@
     "heroSub": "Mode guidée par l'art. Chaque pièce est une déclaration.",
     "conceptTitle": "PORTER L'ART",
     "conceptBody": "Chaque pièce TCDA commence comme une œuvre numérique — abstraite, expressive et intentionnelle. Nous transformons l'énergie visuelle en vêtements qui portent un sens au-delà de la mode. Ce n'est pas un vêtement. C'est une position.",
-    "filterAll": "Tout",
+    "filterAll": "ALL",
     "filterHoodie": "Sweat",
     "filterZip": "Zippé",
     "filterTshirt": "T-Shirt",
-    "filterMens": "HOMME",
-    "filterWomens": "FEMME",
-    "filterUnisex": "UNISEXE"
+    "filterMens": "MEN'S",
+    "filterWomens": "WOMEN'S",
+    "filterUnisex": "UNISEX"
   },
   "geo": {
     "jp": {

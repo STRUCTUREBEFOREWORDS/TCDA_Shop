@@ -492,13 +492,13 @@
     "heroSub": "Art-driven fashion। हर piece एक statement है।",
     "conceptTitle": "WEAR THE ART",
     "conceptBody": "हर TCDA piece एक digital artwork के रूप में शुरू होती है — abstract, expressive, और intentional। हम visual energy को ऐसे garments में transform करते हैं जो fashion से परे meaning carry करते हैं। यह clothing नहीं है। यह एक position है।",
-    "filterAll": "सभी",
+    "filterAll": "ALL",
     "filterHoodie": "Hoodie",
     "filterZip": "Zip Hoodie",
     "filterTshirt": "T-Shirt",
-    "filterMens": "पुरुष",
-    "filterWomens": "महिला",
-    "filterUnisex": "यूनिसेक्स"
+    "filterMens": "MEN'S",
+    "filterWomens": "WOMEN'S",
+    "filterUnisex": "UNISEX"
   },
   "geo": {
     "jp": {

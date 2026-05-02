@@ -492,13 +492,13 @@
     "heroSub": "موضة مدفوعة بالفن. كل قطعة هي إعلان.",
     "conceptTitle": "ارتدِ الفن",
     "conceptBody": "كل قطعة من TCDA تبدأ كعمل فني رقمي — مجردة، تعبيرية، ومقصودة. نحن نحول الطاقة البصرية إلى ملابس تحمل معنى يتجاوز الموضة. هذه ليست ملابس. هذا موقف.",
-    "filterAll": "الكل",
+    "filterAll": "ALL",
     "filterHoodie": "هودي",
     "filterZip": "زيب",
     "filterTshirt": "تيشيرت",
-    "filterMens": "رجال",
-    "filterWomens": "نساء",
-    "filterUnisex": "للجنسين"
+    "filterMens": "MEN'S",
+    "filterWomens": "WOMEN'S",
+    "filterUnisex": "UNISEX"
   },
   "geo": {
     "jp": {
