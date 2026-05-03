@@ -512,5 +512,8 @@
       "vat": "Price includes VAT",
       "topBanner": "Free shipping on orders over €100"
     }
+  },
+  "size_guide": {
+    "japan_note": "Japanese sizing typically runs 1–2 sizes smaller. When in doubt, size up."
   }
 }

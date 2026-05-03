@@ -512,5 +512,8 @@
       "vat": "Preis inkl. MwSt.",
       "topBanner": "Kostenloser Versand ab €100"
     }
+  },
+  "size_guide": {
+    "japan_note": "Japanische Größen sind in der Regel 1-2 Nummern kleiner. Im Zweifel eine Größe größer wählen."
   }
 }
