@@ -70,10 +70,18 @@ interface Props {
 // The Printful measure_yourself_image_url shows body measurements, not garment diagrams,
 // so we use our own images for known categories and fall back to Printful for others.
 const SIZE_GUIDE_IMAGE_MAP: Record<string, string> = {
-  mens_crew_neck:     "/size-guide/mens-tee-guide.png",
-  womens_crew_neck:   "/size-guide/womens-tee-guide.png",
-  unisex_hoodie:      "/size-guide/unisex-hoodie-guide.png",
-  unisex_zip_hoodie:  "/size-guide/unisex-zip-hoodie-guide.png",
+  mens_crew_neck:       "/size-guide/mens-tee-guide.png",
+  womens_crew_neck:     "/size-guide/womens-tee-guide.png",
+  unisex_hoodie:        "/size-guide/unisex-hoodie-guide.png",
+  unisex_zip_hoodie:    "/size-guide/unisex-zip-hoodie-guide.png",
+  shorts:               "/size-guide/shorts.png",
+  athletic_long_shorts: "/size-guide/athletic_long_shorts.png",
+  crop_tee:             "/size-guide/crop_tee.png",
+  crop_top_ls:          "/size-guide/crop_top_ls.png",
+  recycled_sweatshirt:  "/size-guide/recycled_sweatshirt.png",
+  track_jacket:         "/size-guide/track_jacket.png",
+  windbreaker_mens:     "/size-guide/windbreaker_mens.png",
+  windbreaker_womens:   "/size-guide/windbreaker_womens.png",
 };
 
 /**
@@ -87,6 +95,11 @@ function normalizeSizeCategory(value?: string | null): string | null {
   if (["womens_crew", "womens_crew_neck"].includes(v)) return "womens_crew_neck";
   if (["unisex_hoodie", "hoodie"].includes(v)) return "unisex_hoodie";
   if (["unisex_zip_hoodie", "zip_hoodie"].includes(v)) return "unisex_zip_hoodie";
+  const passthrough = [
+    "shorts", "athletic_long_shorts", "windbreaker_mens", "windbreaker_womens",
+    "track_jacket", "recycled_sweatshirt", "crop_top_ls", "crop_tee",
+  ];
+  if (passthrough.includes(v)) return v;
   return v;
 }
 
