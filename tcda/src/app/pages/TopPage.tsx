@@ -161,15 +161,36 @@ export function TopPage() {
           >
             <Link
               to={`/${language}/collection`}
-              style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-text)", transition: "var(--transition-base)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.3em",
+                color: "#ffffff",
+                opacity: 1,
+                borderBottom: "1px solid rgba(255,255,255,0.4)",
+                paddingBottom: "2px",
+              }}
             >
-              {t("nav.collection")} →
+              COLLECTION →
             </Link>
           </motion.div>
         </div>
       </section>
+
+      {/* Brand message */}
+      <div style={{
+        padding: "80px 32px",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        textAlign: "center",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          letterSpacing: "0.4em",
+          color: "rgba(255,255,255,0.2)",
+          textTransform: "uppercase",
+        }}>
+          TRANSCEND CREATIVE DIMENSION AURA
+        </p>
+      </div>
     </div>
   );
 }
