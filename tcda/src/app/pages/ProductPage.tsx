@@ -355,7 +355,7 @@ export function ProductPage() {
       </div>
 
       {/* MAIN: image + info */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
+      <section className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-[65%_35%] items-start">
 
           {/* Left: Main image + thumbnails */}
@@ -650,7 +650,7 @@ export function ProductPage() {
       </section>
 
       {/* DETAILS SECTION */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-20 max-w-7xl mx-auto mt-24 space-y-16 pb-16">
+      <section className="px-4 sm:px-6 md:px-10 lg:px-16 max-w-7xl mx-auto mt-24 space-y-16 pb-16">
         {/* Material */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
