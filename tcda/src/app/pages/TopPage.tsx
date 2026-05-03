@@ -20,7 +20,7 @@ const fadeUp = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 } as Record<string, unknown>,
   viewport: { once: true, amount: 0.3 },
-  transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+  transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
 };
 
 export function TopPage() {
@@ -183,10 +183,11 @@ export function TopPage() {
         textAlign: "center",
       }}>
         <p style={{
-          fontSize: "10px",
-          letterSpacing: "0.4em",
+          fontSize: "clamp(0.5rem, 1.5vw, 0.75rem)",
+          letterSpacing: "0.2em",
           color: "rgba(255,255,255,0.2)",
           textTransform: "uppercase",
+          whiteSpace: "nowrap",
         }}>
           TRANSCEND CREATIVE DIMENSION AURA
         </p>
