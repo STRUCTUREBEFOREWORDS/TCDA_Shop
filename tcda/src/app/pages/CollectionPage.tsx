@@ -33,18 +33,20 @@ export function CollectionPage() {
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [activeFilter, setActiveFilter] = useState<string>("");
 
   const FILTERS = [
-    { key: "all", label: t("collection.filterAll") },
-    { key: "male", label: t("collection.filterMens") },
-    { key: "female", label: t("collection.filterWomens") },
-    { key: "unisex", label: t("collection.filterUnisex") },
+    { key: "", label: "ALL" },
+    { key: "tshirt", label: "TOPS" },
+    { key: "jacket", label: "OUTERWEAR" },
+    { key: "sweatshirt", label: "SWEATSHIRTS" },
+    { key: "bottoms", label: "BOTTOMS" },
+    { key: "accessories", label: "ACCESSORIES" },
   ];
 
   const filteredProducts = products.filter((p) => {
-    if (activeFilter === "all") return true;
-    return p.gender_type === activeFilter;
+    if (activeFilter === "") return true;
+    return p.category === activeFilter;
   });
 
   useEffect(() => {
@@ -112,7 +114,7 @@ export function CollectionPage() {
       <div className="flex gap-2 px-4 md:px-16 overflow-x-auto" style={{ marginTop: "clamp(24px, 4vw, 48px)", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}>
         {FILTERS.map((f) => (
           <button
-            key={f.key}
+            key={f.key || "all"}
             onClick={() => setActiveFilter(f.key)}
             className="px-4 py-2 text-[10px] font-light tracking-[0.3em] uppercase transition-all duration-300"
             style={{
