@@ -512,5 +512,8 @@
       "vat": "Precio con IVA incluido",
       "topBanner": "Envío gratis en pedidos superiores a 100€"
     }
+  },
+  "size_guide": {
+    "japan_note": "Las tallas japonesas suelen ser 1 o 2 tallas más pequeñas. En caso de duda, elija una talla mayor."
   }
 }

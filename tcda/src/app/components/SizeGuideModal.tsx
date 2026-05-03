@@ -329,6 +329,9 @@ export function SizeGuideModal({
                 <p className="text-white/25 text-[10px] font-light mt-3">
                   {t("sizeGuide.measurementVariationNote")}
                 </p>
+                <p style={{ fontSize: "0.75rem", color: "#888", marginTop: "8px" }}>
+                  {t("size_guide.japan_note")}
+                </p>
               </div>
 
               {/* ④ Fit section (moved below table) */}

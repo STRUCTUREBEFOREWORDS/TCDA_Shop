@@ -512,5 +512,8 @@
       "vat": "Prix TVA incluse",
       "topBanner": "Livraison gratuite à partir de 100€"
     }
+  },
+  "size_guide": {
+    "japan_note": "Les tailles japonaises sont généralement 1 à 2 tailles plus petites. En cas de doute, prenez une taille au-dessus."
   }
 }
