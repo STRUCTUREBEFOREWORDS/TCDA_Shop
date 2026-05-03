@@ -138,7 +138,7 @@ export function Root() {
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as ConsentValue | null;
     if (stored && typeof (window as Window & { gtag?: Function }).gtag === "function") {
-      (window as Window & { gtag: Function }).gtag("consent", "update", {
+      (window as unknown as { gtag: Function }).gtag("consent", "update", {
         analytics_storage: stored,
       });
     }
@@ -162,6 +162,7 @@ export function Root() {
             SGD: data.rates.SGD ?? RATES.SGD,
             BRL: data.rates.BRL ?? RATES.BRL,
             CAD: data.rates.CAD ?? RATES.CAD,
+            INR: data.rates.INR ?? RATES.INR,
           });
         }
       })
@@ -276,7 +277,7 @@ export function Root() {
       }}
     >
       <HreflangHelmet pathname={location.pathname} />
-      <div className="font-[Inter] bg-white antialiased min-h-screen">
+      <div className="font-[Inter] bg-black antialiased min-h-screen">
         <TCDA_GlobalNav />
         <AnimatePresence mode="wait">
           <motion.div
