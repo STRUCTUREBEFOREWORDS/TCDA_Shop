@@ -512,5 +512,8 @@
       "vat": "Prezzo IVA inclusa",
       "topBanner": "Spedizione gratuita per ordini superiori a €100"
     }
+  },
+  "size_guide": {
+    "japan_note": "Le taglie giapponesi sono generalmente 1-2 taglie più piccole. In caso di dubbio, scegli la taglia più grande."
   }
 }

@@ -512,5 +512,8 @@
       "vat": "Preço inclui IVA",
       "topBanner": "Frete grátis em pedidos acima de €100"
     }
+  },
+  "size_guide": {
+    "japan_note": "Os tamanhos japoneses são geralmente 1 a 2 tamanhos menores. Em caso de dúvida, escolha um tamanho maior."
   }
 }
