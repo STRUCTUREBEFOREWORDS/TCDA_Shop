@@ -660,7 +660,7 @@ export function ProductPage() {
           className="pt-8"
           style={{ borderTop: "1px solid var(--color-border)" }}
         >
-          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-6" style={{ color: "var(--color-text)" }}>
+          <h2 className="text-xs font-light tracking-normal uppercase mb-6" style={{ color: "var(--color-text)" }}>
             {t("product.materialDetailsLabel")}
           </h2>
           {product.fabric_detail ? (() => {
@@ -758,7 +758,7 @@ export function ProductPage() {
           className="pt-8"
           style={{ borderTop: "1px solid var(--color-border)" }}
         >
-          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text)" }}>
+          <h2 className="text-xs font-light tracking-normal uppercase mb-4" style={{ color: "var(--color-text)" }}>
             {t("size.guide")}
           </h2>
 
@@ -820,7 +820,7 @@ export function ProductPage() {
             className="pt-8"
             style={{ borderTop: "1px solid var(--color-border)" }}
           >
-            <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text)" }}>
+            <h2 className="text-xs font-light tracking-normal uppercase mb-4" style={{ color: "var(--color-text)" }}>
               {t("product.deliveryLabel")}
             </h2>
             <p className="text-sm font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
@@ -838,10 +838,10 @@ export function ProductPage() {
           className="pt-8"
           style={{ borderTop: "1px solid var(--color-border)" }}
         >
-          <h2 className="text-xs font-light tracking-[0.3em] uppercase mb-4" style={{ color: "var(--color-text)" }}>
+          <h2 className="text-xs font-light tracking-normal uppercase mb-4" style={{ color: "var(--color-text)" }}>
             {t("checkout.shippingInfo")}
           </h2>
-          <p className="text-sm font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+          <p className="text-sm font-light leading-relaxed break-words" style={{ color: "var(--color-text-secondary)", overflowWrap: "break-word" }}>
             {t("checkout.shippingReturnsText")}
           </p>
         </motion.div>
