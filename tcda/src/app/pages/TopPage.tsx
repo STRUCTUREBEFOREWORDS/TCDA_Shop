@@ -57,7 +57,7 @@ export function TopPage() {
         <meta name="description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
         <meta property="og:title" content="TCDA — Transcend Creative Dimension Aura" />
         <meta property="og:description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
-        <meta property="og:url" content="https://tcdashop.com/en/" />
+        <meta property="og:url" content={`https://tcdashop.com/${language}/`} />
         <meta property="og:image" content="https://cdn.tcdashop.com/top/hero-transcend-desktop.webp" />
       </Helmet>
       <JsonLd type="Organization" data={{
