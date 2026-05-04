@@ -339,6 +339,15 @@ export function ProductPage() {
             : "https://schema.org/OutOfStock",
           "seller": { "@type": "Organization", "name": "TCDA" },
         },
+        ...(reviews.length > 0 && {
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1),
+            "reviewCount": reviews.length,
+            "bestRating": "5",
+            "worstRating": "1",
+          }
+        }),
       }} />
 
       {/* BACK */}
