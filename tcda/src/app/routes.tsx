@@ -27,6 +27,7 @@ const ContactPage         = lazy(() => import("./pages/ContactPage").then(m => (
 const ReviewPage          = lazy(() => import("./pages/ReviewPage").then(m => ({ default: m.ReviewPage })));
 const FaqPage             = lazy(() => import("./pages/FaqPage").then(m => ({ default: m.FaqPage })));
 const NotFound            = lazy(() => import("./pages/NotFound").then(m => ({ default: m.NotFound })));
+const LookbookPage        = lazy(() => import("./pages/LookbookPage").then(m => ({ default: m.LookbookPage })));
 
 export const router = createBrowserRouter([
   { index: true, Component: LangRedirect },
@@ -51,6 +52,7 @@ export const router = createBrowserRouter([
       { path: "contact", Component: ContactPage },
       { path: "review/:token", Component: ReviewPage },
       { path: "faq", Component: FaqPage },
+      { path: "lookbook", Component: LookbookPage },
     ],
   },
   { path: "product/:id", element: <ProductRedirect /> },
