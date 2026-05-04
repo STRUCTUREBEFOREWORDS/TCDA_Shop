@@ -8,6 +8,7 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { pushDataLayer } from "../hooks/useDataLayer";
+import { JsonLd } from "../components/JsonLd";
 
 interface Product {
   id: string;
@@ -87,6 +88,18 @@ export function CollectionPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://cdn.tcdashop.com/top/006-desktop.webp" />
       </Helmet>
+      <JsonLd type="ItemList" data={{
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "TCDA Collection",
+        "url": "https://tcdashop.com/en/collection",
+        "itemListElement": filteredProducts.map((p, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "url": `https://tcdashop.com/en/product/${p.id}`,
+          "name": p.name,
+        }))
+      }} />
 
       {/* Hero */}
       <section
