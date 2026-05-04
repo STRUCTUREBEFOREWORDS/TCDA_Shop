@@ -3,9 +3,9 @@ import { useGlobalContext } from "./Root";
 import { motion } from "motion/react";
 import { JsonLd } from "../components/JsonLd";
 
-const IMAGES = Array.from({ length: 11 }, (_, i) =>
-  `https://cdn.tcdashop.com/look/${String(i + 1).padStart(3, "0")}.webp`
-);
+const IMAGES = [
+  "001", "004", "005", "006", "007", "008", "009", "010", "011"
+].map(n => `https://cdn.tcdashop.com/look/${n}.webp`);
 
 export function LookbookPage() {
   const { language } = useGlobalContext();
