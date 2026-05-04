@@ -36,6 +36,11 @@ const HREFLANG_LANGS: { lang: string; hreflang: string }[] = [
   { lang: "es", hreflang: "es" },
   { lang: "ko", hreflang: "ko" },
   { lang: "zh", hreflang: "zh" },
+  { lang: "ar", hreflang: "ar" },
+  { lang: "pt", hreflang: "pt" },
+  { lang: "de", hreflang: "de" },
+  { lang: "it", hreflang: "it" },
+  { lang: "hi", hreflang: "hi" },
 ];
 
 /** Injects hreflang <link> tags for every page automatically via Root. */
