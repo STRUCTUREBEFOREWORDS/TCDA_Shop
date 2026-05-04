@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Generate sitemap
+        run: curl -s https://api.tcdashop.com/sitemap.xml > tcda/public/sitemap.xml
       - run: cd tcda && npm install && npm run build
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
