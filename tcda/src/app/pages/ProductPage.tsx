@@ -130,7 +130,8 @@ function InfoAccordion({ items }: { items: AccordionItem[] }) {
 }
 
 export function ProductPage() {
-  const { id } = useParams();
+  const { id: rawId } = useParams();
+  const id = rawId?.replace(/_[^_]+$/, "");
   const { language, currency, rates, addToCart, countryCode, addRecentProduct } = useGlobalContext();
   const { pathname } = useLocation();
   const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
