@@ -68,10 +68,10 @@ export function TopPage() {
         "url": "https://tcdashop.com",
         "logo": "https://cdn.tcdashop.com/logo/1.webp",
         "sameAs": [
-          "https://www.instagram.com/tcda.shop/",
-          "https://www.tiktok.com/@tcda.shop",
-          "https://jp.pinterest.com/tcda_shop/",
-          "https://x.com/tcda_shop"
+          "https://www.instagram.com/tcda.apparel/",
+          "https://www.tiktok.com/@tcda.apparel",
+          "https://www.pinterest.com/tcda_apparel/",
+          "https://x.com/tcda_apparel"
         ]
       }} />
       <JsonLd type="WebSite" data={{

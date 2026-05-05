@@ -8,10 +8,10 @@ import instagramIcon from "../../assets/sns/sns_icons/instagram.webp";
 import tiktokIcon from "../../assets/sns/sns_icons/tiktok.webp";
 
 const SNS_LINKS = [
-  { href: "https://jp.pinterest.com/tcda_shop/", icon: pinterestIcon, label: "Pinterest" },
-  { href: "https://www.tiktok.com/@tcda.shop", icon: tiktokIcon, label: "TikTok" },
-  { href: "https://www.instagram.com/tcda.shop/", icon: instagramIcon, label: "Instagram" },
-  { href: "https://x.com/tcda_shop", icon: xIcon, label: "X" },
+  { href: "https://www.pinterest.com/tcda_apparel/", icon: pinterestIcon, label: "Pinterest" },
+  { href: "https://www.tiktok.com/@tcda.apparel", icon: tiktokIcon, label: "TikTok" },
+  { href: "https://www.instagram.com/tcda.apparel/", icon: instagramIcon, label: "Instagram" },
+  { href: "https://x.com/tcda_apparel", icon: xIcon, label: "X" },
 ];
 
 const LINK_STYLE: React.CSSProperties = {
