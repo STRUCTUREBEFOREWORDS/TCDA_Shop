@@ -132,6 +132,7 @@ export function TCDA_GlobalNav() {
             <nav className="flex flex-col gap-6 pt-20">
               {[
                 { to: `/${language}/collection`, label: t("nav.collection") },
+                { to: `/${language}/lookbook`, label: "LOOKBOOK" },
                 { to: `/${language}/about`, label: t("nav.about") },
               ].map(({ to, label }) => (
                 <Link
