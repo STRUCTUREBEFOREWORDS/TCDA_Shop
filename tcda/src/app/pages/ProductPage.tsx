@@ -377,11 +377,11 @@ export function ProductPage() {
             style={{ gap: "4px" }}
           >
             {/* Main image — full width */}
-            <div style={{ width: "100%", background: "#000000", aspectRatio: "2/3", overflow: "hidden", position: "relative" }}>
+            <div style={{ width: "100%", background: "var(--color-bg)", aspectRatio: "2/3", overflow: "hidden", position: "relative" }}>
               <ImageWithFallback
                 src={images[currentImageIndex] || product.thumbnail_url}
                 alt={product.name}
-                style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+                style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", mixBlendMode: "multiply" }}
                 loading="eager"
                 fetchPriority="high"
               />
@@ -401,7 +401,7 @@ export function ProductPage() {
                       width: "72px",
                       aspectRatio: "2/3",
                       flexShrink: 0,
-                      background: "#000000",
+                      background: "var(--color-bg)",
                       border: i === currentImageIndex ? "1px solid rgba(255,255,255,0.6)" : "1px solid transparent",
                       opacity: i === currentImageIndex ? 1 : 0.5,
                       overflow: "hidden",
@@ -411,6 +411,7 @@ export function ProductPage() {
                       src={src}
                       alt={`${product.name} ${i + 1}`}
                       className="w-full h-full object-cover"
+                      style={{ mixBlendMode: "multiply" }}
                       loading="eager"
                     />
                   </button>
