@@ -249,27 +249,6 @@ export function CollectionPage() {
         </div>
       )}
 
-      {/* CTA */}
-      <div
-        className="px-8 md:px-12 pt-10 pb-8"
-        style={{ borderTop: "1px solid var(--color-border)", marginTop: "clamp(32px, 5vw, 64px)" }}
-      >
-        <Link
-          to={`/${language}/products`}
-          className="inline-block px-10 py-4 text-[10px] font-light tracking-[0.4em] uppercase transition-colors duration-300"
-          style={{ border: "1px solid var(--color-border)", color: "var(--color-text-secondary)" }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "var(--color-text-secondary)";
-            e.currentTarget.style.color = "var(--color-text)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "var(--color-border)";
-            e.currentTarget.style.color = "var(--color-text-secondary)";
-          }}
-        >
-          {t("nav.shop")}
-        </Link>
-      </div>
     </div>
   );
 }
