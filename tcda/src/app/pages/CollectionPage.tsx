@@ -183,7 +183,7 @@ export function CollectionPage() {
 
                   {/* Product info */}
                   <div
-                    style={{ marginTop: "12px", padding: "8px 4px", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+                    style={{ marginTop: "12px", padding: "8px 4px", display: "flex", flexDirection: "column", gap: "4px" }}
                   >
                     <span
                       style={{
