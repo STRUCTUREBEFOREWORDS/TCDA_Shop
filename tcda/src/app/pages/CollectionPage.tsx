@@ -183,17 +183,16 @@ export function CollectionPage() {
 
                   {/* Product info */}
                   <div
-                    className="px-1 pb-6 flex justify-between items-center"
-                    style={{ marginTop: "12px" }}
+                    style={{ marginTop: "12px", padding: "8px 4px", display: "flex", justifyContent: "space-between", alignItems: "center" }}
                   >
                     <span
                       style={{
-                        fontSize: "9px",
+                        fontSize: "11px",
                         letterSpacing: "0.15em",
-                        color: "var(--color-text-tertiary)",
+                        color: "var(--color-text)",
                         textTransform: "uppercase",
                         fontFamily: "var(--font-body)",
-                        fontWeight: "var(--weight-light)",
+                        fontWeight: "var(--weight-regular)",
                       }}
                     >
                       {genderLabel}
@@ -201,7 +200,8 @@ export function CollectionPage() {
                     <p
                       style={{
                         fontFamily: "var(--font-body)",
-                        fontSize: "var(--text-caption)",
+                        fontSize: "13px",
+                        fontWeight: 500,
                         color: "var(--color-accent)",
                       }}
                     >
