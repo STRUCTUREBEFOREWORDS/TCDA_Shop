@@ -87,6 +87,8 @@ export function CollectionPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState<string>("");
+  const [visibleCount, setVisibleCount] = useState(24);
+  const PAGE_SIZE = 24;
 
   const FILTERS = [
     { key: "", label: "ALL" },
@@ -101,6 +103,8 @@ export function CollectionPage() {
     if (activeFilter === "") return true;
     return p.category === activeFilter;
   });
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredProducts.length;
 
   useEffect(() => {
     pushDataLayer('page_view', {
@@ -180,7 +184,7 @@ export function CollectionPage() {
         {FILTERS.map((f) => (
           <button
             key={f.key || "all"}
-            onClick={() => setActiveFilter(f.key)}
+            onClick={() => { setActiveFilter(f.key); setVisibleCount(PAGE_SIZE); }}
             className="px-4 py-2 text-[10px] font-light tracking-[0.3em] uppercase transition-all duration-300"
             style={{
               border: `1px solid ${activeFilter === f.key ? "var(--color-text)" : "var(--color-border)"}`,
@@ -201,9 +205,9 @@ export function CollectionPage() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
-          {filteredProducts.map((product, index) => {
-            const isLarge = index % 7 === 0 && index !== 0;
+        <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
+          {visibleProducts.map((product, index) => {
+            const isLarge = false;
             return (
               <motion.div
                 key={product.id}
@@ -221,6 +225,27 @@ export function CollectionPage() {
               </motion.div>
             );
           })}
+        </div>
+      )}
+
+      {/* Load more */}
+      {hasMore && (
+        <div className="flex justify-center" style={{ marginTop: "clamp(32px, 5vw, 64px)" }}>
+          <button
+            onClick={() => setVisibleCount((n) => n + PAGE_SIZE)}
+            className="px-10 py-4 text-[10px] font-light tracking-[0.4em] uppercase transition-colors duration-300"
+            style={{ border: "1px solid var(--color-border)", color: "var(--color-text-secondary)" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "var(--color-text)";
+              e.currentTarget.style.color = "var(--color-text)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "var(--color-border)";
+              e.currentTarget.style.color = "var(--color-text-secondary)";
+            }}
+          >
+            {t("common.loadMore")} ({filteredProducts.length - visibleCount})
+          </button>
         </div>
       )}
 

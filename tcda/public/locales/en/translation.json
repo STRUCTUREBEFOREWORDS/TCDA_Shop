@@ -470,7 +470,8 @@
     }
   },
   "common": {
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "loadMore": "Load more"
   },
   "share": "Share",
   "copy_link": "Copy link",
