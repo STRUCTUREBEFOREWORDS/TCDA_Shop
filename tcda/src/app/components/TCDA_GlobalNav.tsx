@@ -177,7 +177,7 @@ export function TCDA_GlobalNav() {
                       key={key}
                       to={`/${language}/collection?category=${key}`}
                       onClick={() => setMobileOpen(false)}
-                      style={{ fontFamily: "var(--font-body)", fontSize: "14px", letterSpacing: "0.1em", color: "var(--color-text-tertiary)", textTransform: "uppercase" }}
+                      style={{ fontFamily: "var(--font-body)", fontSize: "14px", letterSpacing: "0.1em", color: "var(--color-text-secondary)", textTransform: "uppercase" }}
                     >
                       {label}
                     </Link>
