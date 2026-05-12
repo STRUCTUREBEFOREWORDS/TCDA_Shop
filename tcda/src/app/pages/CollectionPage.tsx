@@ -22,8 +22,60 @@ interface Product {
 
 const FALLBACK_IMAGE = "https://cdn.tcdashop.com/logo/1.png";
 
-function getPrimaryImage(product: Product): string {
-  return product.images?.[0] || product.thumbnail_url || FALLBACK_IMAGE;
+function ProductCard({
+  product,
+  language,
+  convertAndFormat,
+}: {
+  product: Product;
+  language: string;
+  convertAndFormat: (jpy: number) => string;
+}) {
+  const image0 = product.images?.[0] || product.thumbnail_url || FALLBACK_IMAGE;
+  const image1 = product.images?.[1];
+  const genderLabel =
+    product.gender_type === "male" ? "MEN'S"
+    : product.gender_type === "female" ? "WOMEN'S"
+    : "UNISEX";
+
+  return (
+    <Link
+      to={`/${language}/product/${product.id}`}
+      className="group block"
+    >
+      <div className="relative overflow-hidden w-full" style={{ aspectRatio: "2/3" }}>
+        <div className={`absolute inset-0 transition-opacity duration-[400ms] ease-in-out${image1 ? " group-hover:opacity-0" : ""}`}>
+          <ImageWithFallback
+            src={image0}
+            alt={product.name}
+            className="w-full h-full object-cover object-top"
+          />
+        </div>
+        {image1 && (
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] ease-in-out">
+            <ImageWithFallback
+              src={image1}
+              alt={product.name}
+              className="w-full h-full object-cover object-top"
+              loading="eager"
+            />
+          </div>
+        )}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+          style={{ border: "1px solid var(--color-text)" }}
+        />
+      </div>
+      <div style={{ marginTop: "12px", padding: "8px 4px", display: "flex", flexDirection: "column", gap: "4px" }}>
+        <span style={{ fontSize: "11px", letterSpacing: "0.15em", color: "var(--color-text)", textTransform: "uppercase", fontFamily: "var(--font-body)", fontWeight: "var(--weight-regular)" }}>
+          {genderLabel}
+        </span>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "var(--color-accent)" }}>
+          {convertAndFormat(product.price)}
+        </p>
+      </div>
+    </Link>
+  );
 }
 
 export function CollectionPage() {
@@ -152,11 +204,6 @@ export function CollectionPage() {
         <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
           {filteredProducts.map((product, index) => {
             const isLarge = index % 7 === 0 && index !== 0;
-            const genderLabel = product.gender_type === "male"
-              ? "MEN'S"
-              : product.gender_type === "female"
-              ? "WOMEN'S"
-              : "UNISEX";
             return (
               <motion.div
                 key={product.id}
@@ -166,49 +213,11 @@ export function CollectionPage() {
                 viewport={{ once: true, amount: 0.05 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
-                <Link to={`/${language}/product/${product.id}`} className="group block">
-                  {/* Image */}
-                  <div className="relative overflow-hidden w-full" style={{ aspectRatio: "2/3" }}>
-                    <ImageWithFallback
-                      src={getPrimaryImage(product)}
-                      alt={product.name}
-                      className="w-full h-full object-cover object-top"
-                      style={{ transition: "transform var(--transition-slow)" }}
-                    />
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                      style={{ border: "1px solid var(--color-text)" }}
-                    />
-                  </div>
-
-                  {/* Product info */}
-                  <div
-                    style={{ marginTop: "12px", padding: "8px 4px", display: "flex", flexDirection: "column", gap: "4px" }}
-                  >
-                    <span
-                      style={{
-                        fontSize: "11px",
-                        letterSpacing: "0.15em",
-                        color: "var(--color-text)",
-                        textTransform: "uppercase",
-                        fontFamily: "var(--font-body)",
-                        fontWeight: "var(--weight-regular)",
-                      }}
-                    >
-                      {genderLabel}
-                    </span>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: "13px",
-                        fontWeight: 500,
-                        color: "var(--color-accent)",
-                      }}
-                    >
-                      {convertAndFormat(product.price)}
-                    </p>
-                  </div>
-                </Link>
+                <ProductCard
+                  product={product}
+                  language={language}
+                  convertAndFormat={convertAndFormat}
+                />
               </motion.div>
             );
           })}

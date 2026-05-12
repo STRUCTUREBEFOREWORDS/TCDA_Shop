@@ -1,6 +1,7 @@
 import { useParams, Link, useLocation } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
@@ -305,7 +306,7 @@ export function ProductPage() {
   ];
 
   return (
-    <div className="pt-4 md:pt-20" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
+    <div className="pt-4 md:pt-20 pb-24 md:pb-0" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
       <Helmet>
         <title>{`${product.name} — TCDA`}</title>
         <meta name="description" content={`${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. ${product.fabric_composition ? product.fabric_composition.slice(0, 60) + '. ' : ''}Worldwide shipping from Japan.`} />
@@ -531,33 +532,35 @@ export function ProductPage() {
                 )}
               </div>
             ) : (
-              <button
-                onClick={handleAddToCart}
-                disabled={!selectedSize}
-                className="w-full text-xs uppercase disabled:opacity-30"
-                style={{
-                  background: "transparent",
-                  color: "var(--color-text)",
-                  border: "1px solid rgba(255,255,255,0.5)",
-                  fontFamily: "var(--font-body)",
-                  letterSpacing: "var(--ls-nav)",
-                  transition: "var(--transition-base)",
-                  marginTop: "32px",
-                  padding: "18px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#ffffff";
-                  e.currentTarget.style.color = "#000000";
-                  e.currentTarget.style.borderColor = "#ffffff";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "var(--color-text)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)";
-                }}
-              >
-                {added ? t("cart.added") : t("cart.addToCart")}
-              </button>
+              <div className="hidden md:block">
+                <button
+                  onClick={handleAddToCart}
+                  disabled={!selectedSize}
+                  className="w-full text-xs uppercase disabled:opacity-30"
+                  style={{
+                    background: "transparent",
+                    color: "var(--color-text)",
+                    border: "1px solid rgba(255,255,255,0.5)",
+                    fontFamily: "var(--font-body)",
+                    letterSpacing: "var(--ls-nav)",
+                    transition: "var(--transition-base)",
+                    marginTop: "32px",
+                    padding: "18px",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#ffffff";
+                    e.currentTarget.style.color = "#000000";
+                    e.currentTarget.style.borderColor = "#ffffff";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = "var(--color-text)";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)";
+                  }}
+                >
+                  {added ? t("cart.added") : t("cart.addToCart")}
+                </button>
+              </div>
             )}
 
             {/* SNS Share */}
@@ -658,6 +661,32 @@ export function ProductPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Mobile: fixed bottom CTA — portal to body to escape motion.div transform */}
+      {product.stock > 0 && createPortal(
+        <div
+          className="fixed bottom-0 left-0 right-0 md:hidden z-50"
+          style={{ background: "var(--color-bg)", padding: "16px", borderTop: "1px solid var(--color-border)" }}
+        >
+          <button
+            onClick={handleAddToCart}
+            disabled={!selectedSize}
+            className="w-full text-xs uppercase disabled:opacity-30"
+            style={{
+              background: "transparent",
+              color: "var(--color-text)",
+              border: "1px solid rgba(255,255,255,0.5)",
+              fontFamily: "var(--font-body)",
+              letterSpacing: "var(--ls-nav)",
+              transition: "var(--transition-base)",
+              padding: "18px",
+            }}
+          >
+            {added ? t("cart.added") : t("cart.addToCart")}
+          </button>
+        </div>,
+        document.body
+      )}
 
       {/* DETAILS SECTION */}
       <section className="px-4 sm:px-6 md:px-10 lg:px-16 max-w-7xl mx-auto mt-24 space-y-16 pb-16">
