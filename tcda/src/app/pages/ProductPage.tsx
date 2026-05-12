@@ -429,7 +429,7 @@ export function ProductPage() {
             style={{ paddingLeft: "clamp(0px, 5vw, 60px)", paddingTop: "clamp(24px, 5vw, 80px)" }}
           >
             {/* Gender + product type tag */}
-            <p style={{ fontSize: "9px", letterSpacing: "0.25em", color: "var(--color-text-tertiary)", textTransform: "uppercase", marginBottom: "16px", fontFamily: "var(--font-body)", fontWeight: "var(--weight-light)" }}>
+            <p style={{ fontSize: "15px", letterSpacing: "0.25em", color: "var(--color-text)", textTransform: "uppercase", marginBottom: "16px", fontFamily: "var(--font-body)", fontWeight: "var(--weight-light)" }}>
               {product.gender_type === "male" ? "MEN'S"
                 : product.gender_type === "female" ? "WOMEN'S"
                 : "UNISEX"}
