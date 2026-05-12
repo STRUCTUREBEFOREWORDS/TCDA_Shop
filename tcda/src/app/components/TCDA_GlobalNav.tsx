@@ -171,7 +171,7 @@ export function TCDA_GlobalNav() {
                 >
                   {t("nav.collection")}
                 </Link>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "12px 28px" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                   {CATEGORY_FILTERS.map(({ key, label }) => (
                     <Link
                       key={key}
