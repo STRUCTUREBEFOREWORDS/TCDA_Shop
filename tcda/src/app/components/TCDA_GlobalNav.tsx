@@ -15,6 +15,15 @@ const NAV_LINK_STYLE: React.CSSProperties = {
   textTransform: "uppercase",
 };
 
+const CATEGORY_FILTERS = [
+  { key: "new", label: "NEW" },
+  { key: "tshirt", label: "TOPS" },
+  { key: "jacket", label: "OUTERWEAR" },
+  { key: "sweatshirt", label: "SWEATSHIRTS" },
+  { key: "bottoms", label: "BOTTOMS" },
+  { key: "accessories", label: "ACCESSORIES" },
+];
+
 export function TCDA_GlobalNav() {
   const { language, cartCount, setIsCartOpen } =
     useGlobalContext();
@@ -27,6 +36,15 @@ export function TCDA_GlobalNav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   return (
     <>
@@ -108,44 +126,80 @@ export function TCDA_GlobalNav() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden fixed inset-0 z-[60] flex flex-col px-8"
-            style={{ background: "#000000" }}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden fixed inset-0 z-[60] flex flex-col overflow-y-auto"
+            style={{ background: "var(--color-bg)" }}
           >
-            {/* Close button */}
-            <div className="flex justify-end pt-5 h-14 items-center">
+            {/* Header row */}
+            <div className="flex items-center justify-between px-6 h-14 flex-shrink-0">
+              <Link
+                to={`/${language}/`}
+                onClick={() => setMobileOpen(false)}
+              >
+                <img src="https://cdn.tcdashop.com/logo/1.png" alt="TCDA" className="h-6 w-auto opacity-90" />
+              </Link>
               <button
                 onClick={() => setMobileOpen(false)}
                 style={{ color: "var(--color-text)", opacity: 0.7 }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
                 aria-label="Close"
               >
                 <X size={16} strokeWidth={1.5} />
               </button>
             </div>
 
-            {/* Nav links */}
-            <nav className="flex flex-col gap-6 pt-20">
-              {[
-                { to: `/${language}/collection`, label: t("nav.collection") },
-                { to: `/${language}/lookbook`, label: "LOOKBOOK" },
-                { to: `/${language}/about`, label: t("nav.about") },
-              ].map(({ to, label }) => (
+            {/* Brand visual */}
+            <div style={{ padding: "0 24px 28px", flexShrink: 0 }}>
+              <img
+                src="https://cdn.tcdashop.com/look/001.webp"
+                alt="TCDA"
+                style={{ width: "100%", height: "200px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+              />
+            </div>
+
+            {/* Nav items */}
+            <nav style={{ padding: "0 24px 40px", display: "flex", flexDirection: "column" }}>
+
+              {/* COLLECTION + sub-categories */}
+              <div style={{ borderTop: "1px solid var(--color-border)", paddingTop: "20px", paddingBottom: "16px" }}>
                 <Link
-                  key={to}
-                  to={to}
+                  to={`/${language}/collection`}
                   onClick={() => setMobileOpen(false)}
-                  style={{ ...NAV_LINK_STYLE, fontSize: "var(--text-body)", letterSpacing: "var(--ls-nav)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px, 7vw, 36px)", fontWeight: 400, letterSpacing: "0.04em", color: "var(--color-text)", display: "block", marginBottom: "14px" }}
                 >
-                  {label}
+                  {t("nav.collection")}
                 </Link>
-              ))}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 20px" }}>
+                  {CATEGORY_FILTERS.map(({ key, label }) => (
+                    <Link
+                      key={key}
+                      to={`/${language}/collection?category=${key}`}
+                      onClick={() => setMobileOpen(false)}
+                      style={{ fontFamily: "var(--font-body)", fontSize: "10px", letterSpacing: "0.22em", color: "var(--color-text-tertiary)", textTransform: "uppercase" }}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <Link
+                to={`/${language}/lookbook`}
+                onClick={() => setMobileOpen(false)}
+                style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px, 7vw, 36px)", fontWeight: 400, letterSpacing: "0.04em", color: "var(--color-text)", borderTop: "1px solid var(--color-border)", padding: "20px 0" }}
+              >
+                LOOKBOOK
+              </Link>
+
+              <Link
+                to={`/${language}/about`}
+                onClick={() => setMobileOpen(false)}
+                style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px, 7vw, 36px)", fontWeight: 400, letterSpacing: "0.04em", color: "var(--color-text)", borderTop: "1px solid var(--color-border)", padding: "20px 0" }}
+              >
+                {t("nav.about")}
+              </Link>
             </nav>
           </motion.div>
         )}

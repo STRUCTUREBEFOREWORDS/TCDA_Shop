@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useSearchParams } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
@@ -78,33 +78,31 @@ function ProductCard({
   );
 }
 
+const FILTERS = [
+  { key: "new", label: "NEW" },
+  { key: "", label: "ALL" },
+  { key: "tshirt", label: "TOPS" },
+  { key: "jacket", label: "OUTERWEAR" },
+  { key: "sweatshirt", label: "SWEATSHIRTS" },
+  { key: "bottoms", label: "BOTTOMS" },
+  { key: "accessories", label: "ACCESSORIES" },
+];
+
 export function CollectionPage() {
   const { language, currency, rates, countryCode } = useGlobalContext();
   const { pathname } = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
   const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar|hi)/, "");
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeFilter, setActiveFilter] = useState<string>("");
+  const [activeFilter, setActiveFilter] = useState<string>(searchParams.get("category") ?? "");
   const [visibleCount, setVisibleCount] = useState(24);
   const PAGE_SIZE = 24;
 
-  const FILTERS = [
-    { key: "", label: "ALL" },
-    { key: "tshirt", label: "TOPS" },
-    { key: "jacket", label: "OUTERWEAR" },
-    { key: "sweatshirt", label: "SWEATSHIRTS" },
-    { key: "bottoms", label: "BOTTOMS" },
-    { key: "accessories", label: "ACCESSORIES" },
-  ];
-
-  const filteredProducts = products.filter((p) => {
-    if (activeFilter === "") return true;
-    return p.category === activeFilter;
-  });
-  const visibleProducts = filteredProducts.slice(0, visibleCount);
-  const hasMore = visibleCount < filteredProducts.length;
+  const visibleProducts = products.slice(0, visibleCount);
+  const hasMore = visibleCount < products.length;
 
   useEffect(() => {
     pushDataLayer('page_view', {
@@ -117,12 +115,26 @@ export function CollectionPage() {
   }, []);
 
   useEffect(() => {
-    fetch("https://api.tcdashop.com/products")
+    setLoading(true);
+    const url = activeFilter
+      ? `https://api.tcdashop.com/products?category=${encodeURIComponent(activeFilter)}`
+      : "https://api.tcdashop.com/products";
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data.products ?? []))
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, []);
+  }, [activeFilter]);
+
+  const handleFilterChange = (key: string) => {
+    setActiveFilter(key);
+    setVisibleCount(PAGE_SIZE);
+    if (key) {
+      setSearchParams({ category: key }, { replace: true });
+    } else {
+      setSearchParams({}, { replace: true });
+    }
+  };
 
   const convertAndFormat = (jpy: number) => {
     const rate = rates[currency] ?? 1;
@@ -149,7 +161,7 @@ export function CollectionPage() {
         "@type": "ItemList",
         "name": "TCDA Collection",
         "url": "https://tcdashop.com/en/collection",
-        "itemListElement": filteredProducts.map((p, i) => ({
+        "itemListElement": products.map((p, i) => ({
           "@type": "ListItem",
           "position": i + 1,
           "url": `https://tcdashop.com/en/product/${p.id}`,
@@ -180,22 +192,51 @@ export function CollectionPage() {
       </section>
 
       {/* Filter */}
-      <div className="flex gap-2 px-4 md:px-16 overflow-x-auto" style={{ marginTop: "clamp(24px, 4vw, 48px)", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}>
+      <div
+        className="flex gap-6 px-4 md:px-16 overflow-x-auto"
+        style={{ marginTop: "clamp(24px, 4vw, 48px)", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
+      >
         {FILTERS.map((f) => (
           <button
             key={f.key || "all"}
-            onClick={() => { setActiveFilter(f.key); setVisibleCount(PAGE_SIZE); }}
-            className="px-4 py-2 text-[10px] font-light tracking-[0.3em] uppercase transition-all duration-300"
+            onClick={() => handleFilterChange(f.key)}
             style={{
-              border: `1px solid ${activeFilter === f.key ? "var(--color-text)" : "var(--color-border)"}`,
-              color: activeFilter === f.key ? "var(--color-text)" : "var(--color-text-tertiary)",
+              fontFamily: "var(--font-body)",
+              fontSize: "11px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
               background: "transparent",
-            }}
+              border: "none",
+              cursor: "pointer",
+              padding: "0 0 2px",
+              whiteSpace: "nowrap",
+              color: activeFilter === f.key ? "var(--color-text)" : "var(--color-text-tertiary)",
+              textDecoration: activeFilter === f.key ? "underline" : "none",
+              textDecorationColor: "var(--color-accent)",
+              textUnderlineOffset: "5px",
+              transition: "color 0.3s ease",
+            } as React.CSSProperties}
           >
             {f.label}
           </button>
         ))}
       </div>
+
+      {/* NEW editorial image */}
+      {activeFilter === "new" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          style={{ marginTop: "clamp(24px, 4vw, 48px)", padding: "0 clamp(16px, 4vw, 64px)" }}
+        >
+          <img
+            src="https://cdn.tcdashop.com/look/001.webp"
+            alt="New Arrivals"
+            style={{ width: "100%", maxHeight: "56vh", objectFit: "cover", objectPosition: "center top", display: "block" }}
+          />
+        </motion.div>
+      )}
 
       {/* Grid */}
       {loading ? (
@@ -206,25 +247,21 @@ export function CollectionPage() {
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
-          {visibleProducts.map((product, index) => {
-            const isLarge = false;
-            return (
-              <motion.div
-                key={product.id}
-                className={isLarge ? "col-span-2" : ""}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, amount: 0.05 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <ProductCard
-                  product={product}
-                  language={language}
-                  convertAndFormat={convertAndFormat}
-                />
-              </motion.div>
-            );
-          })}
+          {visibleProducts.map((product) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <ProductCard
+                product={product}
+                language={language}
+                convertAndFormat={convertAndFormat}
+              />
+            </motion.div>
+          ))}
         </div>
       )}
 
@@ -244,7 +281,7 @@ export function CollectionPage() {
               e.currentTarget.style.color = "var(--color-text-secondary)";
             }}
           >
-            {t("common.loadMore")} ({filteredProducts.length - visibleCount})
+            {t("common.loadMore")} ({products.length - visibleCount})
           </button>
         </div>
       )}
