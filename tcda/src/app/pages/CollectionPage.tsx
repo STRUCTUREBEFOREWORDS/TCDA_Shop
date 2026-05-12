@@ -80,7 +80,6 @@ function ProductCard({
 
 const FILTERS = [
   { key: "new", label: "NEW" },
-  { key: "", label: "ALL" },
   { key: "tshirt", label: "TOPS" },
   { key: "jacket", label: "OUTERWEAR" },
   { key: "sweatshirt", label: "SWEATSHIRTS" },
@@ -221,22 +220,6 @@ export function CollectionPage() {
           </button>
         ))}
       </div>
-
-      {/* NEW editorial image */}
-      {activeFilter === "new" && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          style={{ marginTop: "clamp(24px, 4vw, 48px)", padding: "0 clamp(16px, 4vw, 64px)" }}
-        >
-          <img
-            src="https://cdn.tcdashop.com/look/001.webp"
-            alt="New Arrivals"
-            style={{ width: "100%", maxHeight: "56vh", objectFit: "cover", objectPosition: "center top", display: "block" }}
-          />
-        </motion.div>
-      )}
 
       {/* Grid */}
       {loading ? (
