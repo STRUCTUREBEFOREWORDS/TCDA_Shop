@@ -381,7 +381,7 @@ export function ProductPage() {
               <ImageWithFallback
                 src={images[currentImageIndex] || product.thumbnail_url}
                 alt={product.name}
-                style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", mixBlendMode: "multiply" }}
+                style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
                 loading="eager"
                 fetchPriority="high"
               />
@@ -411,7 +411,6 @@ export function ProductPage() {
                       src={src}
                       alt={`${product.name} ${i + 1}`}
                       className="w-full h-full object-cover"
-                      style={{ mixBlendMode: "multiply" }}
                       loading="eager"
                     />
                   </button>
