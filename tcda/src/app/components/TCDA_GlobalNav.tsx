@@ -150,15 +150,6 @@ export function TCDA_GlobalNav() {
               </button>
             </div>
 
-            {/* Brand visual */}
-            <div style={{ padding: "0 24px 28px", flexShrink: 0 }}>
-              <img
-                src="https://cdn.tcdashop.com/look/001.webp"
-                alt="TCDA"
-                style={{ width: "100%", height: "200px", objectFit: "cover", objectPosition: "center top", display: "block" }}
-              />
-            </div>
-
             {/* Nav items */}
             <nav style={{ padding: "0 24px 40px", display: "flex", flexDirection: "column" }}>
 
