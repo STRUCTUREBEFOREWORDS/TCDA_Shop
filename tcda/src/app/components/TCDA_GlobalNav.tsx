@@ -171,13 +171,13 @@ export function TCDA_GlobalNav() {
                 >
                   {t("nav.collection")}
                 </Link>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px", paddingLeft: "16px" }}>
                   {CATEGORY_FILTERS.map(({ key, label }) => (
                     <Link
                       key={key}
                       to={`/${language}/collection?category=${key}`}
                       onClick={() => setMobileOpen(false)}
-                      style={{ fontFamily: "var(--font-body)", fontSize: "10px", letterSpacing: "0.22em", color: "var(--color-text-tertiary)", textTransform: "uppercase" }}
+                      style={{ fontFamily: "var(--font-body)", fontSize: "14px", letterSpacing: "0.1em", color: "var(--color-text-tertiary)", textTransform: "uppercase" }}
                     >
                       {label}
                     </Link>
