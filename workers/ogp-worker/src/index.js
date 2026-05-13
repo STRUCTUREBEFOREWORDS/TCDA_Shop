@@ -18,7 +18,7 @@ async function getProductOGP(productId) {
 
 function buildOGPHtml(product) {
   const title = `${product.name} | TCDA`;
-  const description = product.fabric_composition || 'Transcend Color Digital Apparel — アートを着る、感性を解放する。';
+  const description = product.fabric_composition || 'Transcend Creative Dimension Aura — アートを着る、感性を解放する。';
   const image = product.images?.[0] || product.thumbnail_url;
   const url = `https://tcdashop.com/product/${product.id}`;
   const price = product.price;
@@ -58,10 +58,10 @@ function buildDefaultOGPHtml() {
 <head>
   <meta charset="UTF-8" />
   <title>TCDA | アートを着る、感性を解放する</title>
-  <meta name="description" content="Transcend Color Digital Apparel — あなたの内側にある表現をファッションとして可視化するブランド。" />
+  <meta name="description" content="TCDA — Color immersion as fashion. Wearable art that expresses what's within you. Worldwide shipping." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="TCDA | アートを着る、感性を解放する" />
-  <meta property="og:description" content="Transcend Color Digital Apparel — あなたの内側にある表現をファッションとして可視化するブランド。" />
+  <meta property="og:description" content="TCDA — Color immersion as fashion. Wearable art that expresses what's within you. Worldwide shipping." />
   <meta property="og:url" content="https://tcdashop.com/" />
   <meta property="og:image" content="https://cdn.tcdashop.com/top/1.jpg" />
   <meta property="og:site_name" content="TCDA" />
@@ -80,6 +80,11 @@ export default {
   async fetch(request) {
     const userAgent = request.headers.get('User-Agent') || '';
     const url = new URL(request.url);
+
+    // 静的ファイルはWorkerをスキップ
+    if (url.pathname === '/sitemap.xml' || url.pathname.startsWith('/size-guide/') || url.pathname.startsWith('/assets/')) {
+      return fetch(request);
+    }
 
     // クローラー以外はそのままGitHub Pagesへ
     if (!isCrawler(userAgent)) {
