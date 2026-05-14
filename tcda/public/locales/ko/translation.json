@@ -251,7 +251,9 @@
       "length": "총장",
       "sleeve": "소매길이",
       "shoulder": "어깨너비",
-      "waist": "허리단면"
+      "waist": "허리단면",
+      "inseam": "인심",
+      "rise": "라이즈"
     },
     "measurementFlatNote": "평치수 기준",
     "measurementVariationNote": "생산 공차로 ±1~2cm 오차가 발생할 수 있습니다.",
@@ -260,7 +262,9 @@
       "length": "어깨 최상단에서 밑단까지",
       "sleeve": "어깨 솔기에서 소맷부리까지",
       "shoulder": "등 어깨 솔기에서 반대쪽 솔기까지",
-      "waist": "허리 위치의 너비 (평치수)"
+      "waist": "허리 위치의 너비 (평치수)",
+      "inseam": "밑위 솔기부터 밑단까지",
+      "rise": "허리밴드부터 밑위 솔기까지"
     },
     "figureAlt": "{{product}} 사이즈 가이드 일러스트"
   },

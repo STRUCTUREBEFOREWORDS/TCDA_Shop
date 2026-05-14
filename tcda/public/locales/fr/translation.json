@@ -251,7 +251,9 @@
       "length": "Longueur",
       "sleeve": "Manche",
       "shoulder": "Épaule",
-      "waist": "Tour de taille"
+      "waist": "Tour de taille",
+      "inseam": "Entrejambe",
+      "rise": "Hauteur de montant"
     },
     "measurementFlatNote": "Mesures prises à plat",
     "measurementVariationNote": "Une légère variation (±1–2 cm) est possible selon les tolérances de fabrication.",
@@ -260,7 +262,9 @@
       "length": "du sommet de l'épaule jusqu'à l'ourlet",
       "sleeve": "de la couture d'épaule jusqu'au poignet",
       "shoulder": "d'une couture d'épaule à l'autre dans le dos",
-      "waist": "à plat, largeur à la taille"
+      "waist": "à plat, largeur à la taille",
+      "inseam": "de la couture à l'entrejambe jusqu'à l'ourlet",
+      "rise": "de la ceinture à l'entrejambe"
     },
     "figureAlt": "Illustration du guide des tailles {{product}}"
   },

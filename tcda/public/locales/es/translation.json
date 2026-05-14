@@ -251,7 +251,9 @@
       "length": "Largo",
       "sleeve": "Manga",
       "shoulder": "Hombro",
-      "waist": "Cintura"
+      "waist": "Cintura",
+      "inseam": "Entrepierna",
+      "rise": "Tiro"
     },
     "measurementFlatNote": "Medidas tomadas en plano",
     "measurementVariationNote": "Puede haber una ligera variación (±1–2 cm) por tolerancias de producción.",
@@ -260,7 +262,9 @@
       "length": "desde el hombro hasta el bajo",
       "sleeve": "desde la costura del hombro hasta el puño",
       "shoulder": "de costura a costura por la espalda",
-      "waist": "plano, a la altura de la cintura"
+      "waist": "plano, a la altura de la cintura",
+      "inseam": "desde la costura de la entrepierna hasta el dobladillo",
+      "rise": "desde la cintura hasta la costura de la entrepierna"
     },
     "figureAlt": "Ilustración de la guía de tallas {{product}}"
   },

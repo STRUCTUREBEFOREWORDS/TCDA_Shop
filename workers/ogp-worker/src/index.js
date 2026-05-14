@@ -4,27 +4,34 @@ const CRAWLERS = [
   'whatsapp', 'telegrambot', 'discordbot', 'slackbot',
 ];
 
+function getLangFromUrl(pathname) {
+  const match = pathname.match(/^\/([a-z]{2})\//);
+  const lang = match ? match[1] : 'en';
+  const supported = ['ja','en','fr','es','ko','zh','de','it','pt','ar','hi'];
+  return supported.includes(lang) ? lang : 'en';
+}
+
 function isCrawler(userAgent) {
   if (!userAgent) return false;
   const ua = userAgent.toLowerCase();
   return CRAWLERS.some(bot => ua.includes(bot));
 }
 
-async function getProductOGP(productId) {
-  const res = await fetch(`https://api.tcdashop.com/products/${productId}`);
+async function getProductOGP(productId, lang = 'en') {
+  const res = await fetch(`https://api.tcdashop.com/products/${productId}?lang=${lang}`);
   if (!res.ok) return null;
   return await res.json();
 }
 
-function buildOGPHtml(product) {
+function buildOGPHtml(product, lang = 'en') {
   const title = `${product.name} | TCDA`;
-  const description = product.fabric_composition || 'Transcend Creative Dimension Aura — アートを着る、感性を解放する。';
+  const description = product.description || 'TCDA — Color immersion as fashion. Wearable art that expresses what\'s within you. Worldwide shipping.';
   const image = product.images?.[0] || product.thumbnail_url;
-  const url = `https://tcdashop.com/product/${product.id}`;
+  const url = `https://tcdashop.com/${lang}/product/${product.id}`;
   const price = product.price;
 
   return `<!DOCTYPE html>
-<html lang="ja">
+<html lang="${lang}">
 <head>
   <meta charset="UTF-8" />
   <title>${title}</title>
@@ -63,11 +70,11 @@ function buildDefaultOGPHtml() {
   <meta property="og:title" content="TCDA | アートを着る、感性を解放する" />
   <meta property="og:description" content="TCDA — Color immersion as fashion. Wearable art that expresses what's within you. Worldwide shipping." />
   <meta property="og:url" content="https://tcdashop.com/" />
-  <meta property="og:image" content="https://cdn.tcdashop.com/top/1.jpg" />
+  <meta property="og:image" content="https://cdn.tcdashop.com/top/ogp-home.webp" />
   <meta property="og:site_name" content="TCDA" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TCDA | アートを着る、感性を解放する" />
-  <meta name="twitter:image" content="https://cdn.tcdashop.com/top/1.jpg" />
+  <meta name="twitter:image" content="https://cdn.tcdashop.com/top/ogp-home.webp" />
 </head>
 <body>
   <p>Redirecting...</p>
@@ -92,12 +99,13 @@ export default {
     }
 
     // 商品ページの場合
-    const productMatch = url.pathname.match(/^\/product\/([a-f0-9-]+)$/);
+    const productMatch = url.pathname.match(/^\/(?:[a-z]{2}\/)?product\/([a-f0-9-]+)$/);
     if (productMatch) {
       const productId = productMatch[1];
-      const product = await getProductOGP(productId);
+      const lang = getLangFromUrl(url.pathname);
+      const product = await getProductOGP(productId, lang);
       if (product) {
-        return new Response(buildOGPHtml(product), {
+        return new Response(buildOGPHtml(product, lang), {
           headers: { 'Content-Type': 'text/html;charset=UTF-8' },
         });
       }

@@ -3,7 +3,7 @@
  * Single source of truth for the A/B/C/D/E marker system.
  */
 
-export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist";
+export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist" | "inseam" | "rise";
 
 export interface MeasurementMeta {
   marker: string;
@@ -17,6 +17,8 @@ export const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, MeasurementMeta> = {
   sleeve:   { marker: "C", labelKey: "sizeGuide.measurements.sleeve",   helpKey: "sizeGuide.measurementHelp.sleeve" },
   shoulder: { marker: "D", labelKey: "sizeGuide.measurements.shoulder", helpKey: "sizeGuide.measurementHelp.shoulder" },
   waist:    { marker: "E", labelKey: "sizeGuide.measurements.waist",    helpKey: "sizeGuide.measurementHelp.waist" },
+  inseam:   { marker: "B", labelKey: "sizeGuide.measurements.inseam",   helpKey: "sizeGuide.measurementHelp.inseam" },
+  rise:     { marker: "C", labelKey: "sizeGuide.measurements.rise",     helpKey: "sizeGuide.measurementHelp.rise" },
 };
 
 /** Canonical display order for the standalone size guide page */
@@ -46,4 +48,8 @@ export const MEASUREMENT_TO_KEY: Record<string, MeasurementKey> = {
   "shoulder": "shoulder",
   "shoulder width": "shoulder",
   "waist": "waist",
+  "inseam": "inseam",
+  "inseam length": "inseam",
+  "rise": "rise",
+  "front rise": "rise",
 };
