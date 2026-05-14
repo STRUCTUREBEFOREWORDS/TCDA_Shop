@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \":*)",
+      "Bash(node --check server/server.js)",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s -X POST http://localhost:3000/create-checkout-session -H \"Content-Type: application/json\" -d '{\"\"\"\"items\"\"\"\":[{\"\"\"\"productId\"\"\"\":\"\"\"\"tcda-pts-001\"\"\"\",\"\"\"\"name\"\"\"\":\"\"\"\"Prism Noise T-shirt\"\"\"\",\"\"\"\"priceJpy\"\"\"\":4900,\"\"\"\"quantity\"\"\"\":1,\"\"\"\"size\"\"\"\":\"\"\"\"M\"\"\"\"}]}')"
+    ]
+  }
+}

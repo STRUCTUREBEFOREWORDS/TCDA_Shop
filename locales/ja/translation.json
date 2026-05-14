@@ -1,0 +1,524 @@
+{
+  "home": {
+    "transcend": "TRANSCEND"
+  },
+  "nav": {
+    "shop": "SHOP",
+    "look": "ルック",
+    "collection": "COLLECTION",
+    "about": "ABOUT",
+    "legal": "特定商取引法",
+    "privacy": "プライバシーポリシー",
+    "contact": "CONTACT",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "philosophical1": "その違和感は、間違いではない。",
+    "philosophical2": "虚無は空虚ではない。それは生成のための余白だ。",
+    "philosophical3": "あなたは、最初から「普通」に属していなかった",
+    "cta": "これはあなたの一部になる",
+    "emotion1": "あなたは長い間、言葉にできないものを抱えてきた。この作品は、言えないものに場所を与える。",
+    "emotion2": "沈黙と喧騒の間に、あなたにしか聞こえない周波数が存在する。これがその形だ。",
+    "emotion3": "世界はあなたに馴染むことを強いた。これは、溶解を選んだ瞬間のためにある。",
+    "identity1": "これは、世界に居場所を感じない者たちのために。",
+    "identity2": "言葉と言葉の間に存在する者たちのために。",
+    "identity3": "快適さを拒み、真実を選ぶ者たちのために。",
+    "philosophyBlock": "販売ではなく、決断。各ピースはナンバリングされ、再現されない。TCDAは着用可能なオブジェクトと感情の記録の交点に存在する。"
+  },
+  "product": {
+    "material": "100% オーガニックコットン、デジタル印刷",
+    "sizeInfo": "XS / S / M / L / XL",
+    "details": "各ピースには個別のシリアルナンバーが付与されます。このアートワークは再販されません。あなたが身につけるものは、アーカイブの一部となります。",
+    "limited": "世界に50着のみ",
+    "ctaText": "今すぐ手に入れる",
+    "stockAvailable": "在庫あり",
+    "stockLow": "残りわずか",
+    "stockOut": "売り切れ",
+    "materialLabel": "素材",
+    "deliveryLabel": "お届け",
+    "deliveryText": "通常5〜10営業日でお届け",
+    "modelLabel": "モデル",
+    "mensModel": "メンズモデル：175cm / M着用",
+    "womensModel": "レディースモデル：160cm / S着用",
+    "aiModelNote": "※AIモデルを使用しています",
+    "materialDetailsLabel": "素材・詳細",
+    "relatedProducts": "あわせて見る",
+    "collection": "現在のコレクション",
+    "notFound": "商品が見つかりません",
+    "stockRemaining": "残り{{count}}点",
+    "outOfStock": "在庫切れ",
+    "notifyMe": "入荷通知を受け取る",
+    "notifyEmailPlaceholder": "メールアドレスを入力",
+    "notifyRegistered": "登録しました。入荷次第お知らせします。",
+    "descriptionLabel": "説明",
+    "prevImage": "前の画像",
+    "nextImage": "次の画像",
+    "backToShop": "← ショップに戻る",
+    "notesTitle": "ご注意",
+    "notesItem1": "モニター環境や照明条件により、実物と色味が異なる場合があります。",
+    "notesItem2": "海外生産品のため、梱包に軽微な擦れや凹みが生じる場合があります。",
+    "meaningTitle": "この一枚について",
+    "designIntent": "デザインの意図",
+    "bestFor": "こんな人に",
+    "silhouette": "シルエット",
+    "materialFeel": "素材感",
+    "stylePairing": "スタイリング",
+    "fabricComposition": "100% ポリエステル、昇華プリント。冷水で手洗い。乾燥機使用不可。",
+    "fabricMaterialEu": "素材 (EU)",
+    "fabricMaterialUs": "素材 (US)",
+    "fabricWeightEu": "重量 (EU)",
+    "fabricWeightUs": "重量 (US)",
+    "fabricFeatures": "特徴",
+    "fabricCertifications": "認証",
+    "fabricOrigin": "原産国"
+  },
+  "cart": {
+    "addToCart": "カートに追加",
+    "viewCart": "カートを見る",
+    "cartEmpty": "カートは空です",
+    "checkout": "チェックアウト",
+    "continueShopping": "ショッピングを続ける",
+    "total": "合計",
+    "quantity": "数量",
+    "remove": "削除",
+    "orderSummary": "注文内容",
+    "subtotal": "小計",
+    "shipping": "配送料",
+    "free": "無料",
+    "placeOrder": "注文を確定する",
+    "added": "追加済み",
+    "quickView": "クイックビュー",
+    "taxNote": "税はチェックアウト時に計算されます",
+    "shippingNote": "配送料はチェックアウト時に計算されます"
+  },
+  "shop": {
+    "filterAll": "すべて",
+    "sortNewest": "新着順",
+    "sortPriceAsc": "価格: 安い順",
+    "sortPriceDesc": "価格: 高い順",
+    "viewAll": "すべて見る",
+    "all": "すべて",
+    "hoodie": "フーディー",
+    "zipHoodie": "ジップフーディー",
+    "tshirt": "Tシャツ",
+    "recentlyViewed": "最近見た商品"
+  },
+  "size": {
+    "guide": "サイズガイド",
+    "guideTitle": "サイズガイド",
+    "guideNote": "単位はcm。サイズ間の場合は上のサイズをお選びください。",
+    "label": "サイズ",
+    "noChartAvailable": "サイズ情報を準備中です",
+    "chest": "胸囲",
+    "length": "着丈",
+    "shoulder": "肩幅"
+  },
+  "checkout": {
+    "fieldName": "お名前",
+    "fieldAddress": "住所",
+    "fieldCity": "市区町村",
+    "fieldPostalCode": "郵便番号",
+    "fieldCountry": "国",
+    "next": "次へ",
+    "back": "戻る",
+    "fieldCardName": "カード名義",
+    "fieldCardNumber": "カード番号",
+    "fieldExpiry": "有効期限",
+    "shippingInfo": "配送",
+    "paymentInfo": "お支払い",
+    "confirmOrder": "確認",
+    "shippingReturnsText": "ご注文はPrintful経由で2〜5営業日以内に処理されます。配送は地域により通常5〜10営業日かかります。商品の破損・印刷不良・誤配送の場合のみ、到着後7日以内にinfo@tcdashop.comへご連絡ください。確認後、再送または返金にて対応いたします。"
+  },
+  "order": {
+    "confirmed": "注文が完了しました",
+    "confirmedMessage": "確認メールをお送りします。これはアーカイブの一部となります。",
+    "returnHome": "ホームへ",
+    "cancelled": "注文キャンセル",
+    "cancelledMessage": "お支払いがキャンセルされました。"
+  },
+  "faq": {
+    "q1": "配送にどのくらいかかりますか？",
+    "a1": "ご注文後2〜5営業日以内に発送し、通常5〜10営業日でお届けします。",
+    "q2": "返品・交換はできますか？",
+    "a2": "不良品の場合は14日以内に返品を受け付けます。サイズ交換は1注文につき1回対応します。",
+    "q3": "サイズの間にいる場合はどうすればいいですか？",
+    "a3": "ゆったり着たい場合は上のサイズをおすすめします。モデルは身長180cmでMサイズを着用しています。",
+    "purchaseTitle": "よくあるご質問",
+    "fullTitle": "よくあるご質問",
+    "sizeHelp": {
+      "q": "サイズ選びで迷った場合は？",
+      "a": "サイズガイドに商品の寸法を掲載しています。2つのサイズで迷った場合は上のサイズをお選びください。"
+    },
+    "oversized": {
+      "q": "オーバーサイズで着たい場合は？",
+      "a": "通常より1サイズ上をお選びください。シルエットは商品によって異なるため、商品ページのフィット情報をご確認ください。"
+    },
+    "modelSize": {
+      "q": "モデルの着用サイズは？",
+      "a": "各商品ページに「身長 / 着用サイズ」を記載しています。※AIモデルを使用しています。"
+    },
+    "deliveryTime": {
+      "q": "注文してからどのくらいで届きますか？",
+      "a": "ご注文後2〜5営業日で発送し、その後通常5〜10営業日でお届けします。発送後は追跡番号をお送りします。"
+    },
+    "internationalShipping": {
+      "q": "海外発送ですか？",
+      "a": "海外提携工場から発送されます。配送状況は追跡番号から確認可能です。"
+    },
+    "returns": {
+      "q": "返品・交換は可能ですか？",
+      "a": "商品の破損・印刷不良・誤配送の場合のみ対応しています。サイズ違い・イメージ違いによる返品・交換は受け付けていません。"
+    },
+    "colorDifference": {
+      "q": "商品の色味は実物と同じですか？",
+      "a": "モニター環境や照明により、実物と多少異なる場合があります。"
+    },
+    "washing": {
+      "q": "洗濯は可能ですか？",
+      "a": "通常洗濯可能です。長くご着用いただくために、裏返して洗濯することを推奨しています。"
+    },
+    "paymentMethods": {
+      "q": "支払い方法は何がありますか？",
+      "a": "クレジットカード（Visa / Mastercard / JCB / American Express / Diners Club）のみご利用いただけます。"
+    },
+    "orderChange": {
+      "q": "注文後の変更・キャンセルはできますか？",
+      "a": "ご注文確定後の変更・キャンセルはできません。内容を確認の上ご購入ください。"
+    },
+    "restock": {
+      "q": "在庫切れ商品の再入荷はありますか？",
+      "a": "再入荷は未定です。再販情報は公式SNSにてお知らせする予定です。"
+    },
+    "defect": {
+      "q": "商品に不備があった場合は？",
+      "a": "商品到着後7日以内にinfo@tcdashop.comへご連絡ください。確認後、再送または返金にて対応いたします。"
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "TCDAについて",
+    "categorySizing": "サイズ & フィット",
+    "categoryShipping": "配送・返品",
+    "categoryProduct": "商品詳細",
+    "ctaLabel": "他にご質問はありますか？お問い合わせ"
+  },
+  "sizeTable": {
+    "size": "サイズ",
+    "width": "身幅",
+    "length": "着丈",
+    "sleeveLength": "袖丈"
+  },
+  "sizeGuide": {
+    "title": "サイズガイド",
+    "close": "閉じる",
+    "seeGuide": "サイズガイドを見る",
+    "fit": "フィット感",
+    "recommendation": "おすすめ",
+    "howToMeasure": "採寸方法",
+    "productType": "製品タイプ",
+    "fitDefinitions": "フィット感の種類",
+    "unitCm": "cm",
+    "unitInch": "inch",
+    "pageIntro": "すべての寸法はcm表記（切替可能）。ご自身の体型に合ったサイズをお選びください。",
+    "measureChest": "バストのもっとも広い部分をまっすぐ水平に計測します。",
+    "measureLength": "肩の最高点からすそまでの長さを計測します。",
+    "measureShoulder": "背面の左肩縫い目から右肩縫い目まで計測します。",
+    "measureSleeve": "肩の縫い目から袖口まで計測します。",
+    "faq1q": "自分に合ったサイズはどうやって選びますか？",
+    "faq1a": "サイズ表でご自身の体の寸法と比較してください。2つのサイズの間に当てはまる場合は、ゆったり着たい方は上のサイズを、すっきり着たい方は下のサイズをお選びください。",
+    "faq2q": "ボディ寸法とガーメント寸法の違いは何ですか？",
+    "faq2a": "ボディ寸法はご自身の体の寸法で、ガーメント寸法は実際の衣服の寸法です。その差がゆとりになります。",
+    "faq3q": "サイズの間に当てはまる場合はどうすればいいですか？",
+    "faq3a": "オーバーサイズやリラックスフィットの場合は下のサイズをお選びください。スリムフィットの場合は上のサイズをおすすめします。",
+    "faq4q": "サイズは大きめですか、小さめですか？",
+    "faq4a": "サイズ感は製品タイプによって異なります。各商品ページのフィットラベルをご確認ください。",
+    "faq5q": "サイズ交換はできますか？",
+    "faq5a": "1注文につき1回のサイズ交換に対応します。受取後14日以内にご連絡ください。",
+    "faq6q": "採寸の精度はどの程度ですか？",
+    "faq6a": "採寸は平置きで行っており、生産誤差として±1〜2cmの範囲で誤差が生じる場合があります。",
+    "faq7q": "スリムフィットとはどういう意味ですか？",
+    "faq7a": "スリムフィットは体にフィットする仕様です。ゆとりが欲しい方は上のサイズをおすすめします。",
+    "faq8q": "オーバーサイズとはどういう意味ですか？",
+    "faq8a": "オーバーサイズは意図的に大きく設計されており、体から離れて落ちるシルエットです。",
+    "faq9q": "ユニセックスアイテムのサイズ選びはどうすればいいですか？",
+    "faq9a": "ユニセックスアイテムはすべての体型に対応しています。モデル情報を参考にしてください。",
+    "faq10q": "寸法はcmとインチ、どちらで確認できますか？",
+    "faq10a": "両方に対応しています。サイズガイドのトグルでcmとインチを切り替えることができます。",
+    "faq11q": "製品のサイズガイドがまだない場合は？",
+    "faq11a": "全製品のサイズガイドを順次追加中です。しばらくお待ちいただくか、お問い合わせください。",
+    "faq12q": "お手入れ方法を教えてください。",
+    "faq12a": "洗濯機使用可（冷水・弱水流）。乾燥機は使用しないでください。裏返して低温アイロンがけしてください。",
+    "measurements": {
+      "width": "身幅",
+      "length": "着丈",
+      "sleeve": "袖丈",
+      "shoulder": "肩幅",
+      "waist": "ウエスト",
+      "inseam": "股下丈",
+      "rise": "前胴上"
+    },
+    "measurementFlatNote": "平置き採寸",
+    "measurementVariationNote": "生産誤差として±1〜2cmの範囲で誤差が生じる場合があります。",
+    "measurementHelp": {
+      "width": "脇下の横幅（平置き）",
+      "length": "肩の最上部から裾まで",
+      "sleeve": "肩先から袖口まで",
+      "shoulder": "背面の肩から肩まで（縫い目間）",
+      "waist": "ウエスト位置の横幅（平置き）",
+      "inseam": "股の付け根から裾まで",
+      "rise": "ウエストから股の付け根まで"
+    },
+    "figureAlt": "{{product}}のサイズガイド図"
+  },
+  "fit": {
+    "slim": "スリム",
+    "regular": "レギュラー",
+    "relaxed": "リラックス",
+    "oversized": "オーバーサイズ",
+    "unknown": "—",
+    "slimNote": "体にフィットするシルエット。ゆとりが欲しい場合は上のサイズをお選びください。",
+    "regularNote": "平均的なゆとり。胸まわりと全体にゆとりがあります。",
+    "relaxedNote": "ゆとりのあるシルエット。体から離れて落ちます。すっきり着たい場合は下のサイズをお選びください。",
+    "oversizedNote": "意図的にオーバーサイズに設計されています。通常のシルエットに近づけたい場合は下のサイズをお選びください。"
+  },
+  "trust": {
+    "processed": "2〜5営業日で発送",
+    "delivered": "5〜10営業日でお届け",
+    "supported": "不備・誤配送は到着後7日以内にご連絡ください",
+    "shippingReturnsLink": "配送・返品について"
+  },
+  "footer": {
+    "support": "サポート",
+    "faq": "よくある質問",
+    "sizeGuide": "サイズガイド",
+    "shippingReturns": "配送・返品",
+    "contact": "お問い合わせ"
+  },
+  "shippingReturns": {
+    "title": "配送・返品",
+    "pageIntro": "配送・返品に関するご案内です。ご不明点はinfo@tcdashop.comまでご連絡ください。",
+    "shippingTitle": "発送",
+    "shippingBody": "ご注文確定後、2〜7営業日以内にPrintful経由で発送いたします。発送後は追跡番号をお送りします。",
+    "shippingAddressNote": "※ 日本国内へのお届けの場合、配送伝票の住所は英語表記に自動変換されます。これは国際配送システムの仕様によるものです。お届け先の変更はございません。",
+    "deliveryTitle": "お届け",
+    "deliveryBody": "発送後、通常5〜10営業日でお届けします。地域によって前後する場合があります。",
+    "returnsTitle": "返品・交換について",
+    "returnsCondition": "対応条件：商品の破損・印刷不良・誤配送の場合のみ",
+    "returnsPeriod": "対応期間：商品到着後7日以内にご連絡ください",
+    "returnsMethod": "対応方法：確認後、再送または返金にて対応いたします",
+    "returnsNote": "サイズ違い・イメージ違いによる返品・交換はお受けできません。",
+    "contactTitle": "お問い合わせ",
+    "contactBody": "上記以外のご不明点は、下記メールアドレスまでお気軽にご連絡ください。",
+    "customsTitle": "関税・輸入税について",
+    "customsBody": "商品は海外（米国・欧州）から発送されます。お届け先の国によっては、関税・輸入税・通関手数料が発生する場合があります。これらの費用はお客様のご負担となります。詳細は各国の税関規定をご確認ください。"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "pageIntro": "ご注文・配送・商品不良などのお問い合わせはこちら。",
+    "intro": "ご注文・配送・商品不良などのお問い合わせはこちらからご連絡ください。通常2〜3営業日以内にご返信いたします。",
+    "name": "お名前",
+    "namePlaceholder": "例：山田 太郎",
+    "email": "メールアドレス",
+    "emailPlaceholder": "例：your@email.com",
+    "orderNumber": "注文番号（任意）",
+    "orderNumberPlaceholder": "例：XXXXXXXX",
+    "subject": "件名",
+    "subjectPlaceholder": "お問い合わせの種類",
+    "message": "メッセージ",
+    "messagePlaceholder": "お問い合わせ内容をご記入ください",
+    "submit": "送信する",
+    "submitting": "送信中...",
+    "success": "お問い合わせを受け付けました。担当者より順次ご返信いたします。",
+    "successTitle": "送信ありがとうございました",
+    "successBody": "通常2〜3営業日以内にご返信いたします。",
+    "error": "送信に失敗しました。お手数ですが info@tcdashop.com へ直接ご連絡ください。",
+    "errorTitle": "送信に失敗しました",
+    "errorBody": "お手数ですが、時間をおいて再度お試しいただくか、下記アドレスへ直接ご連絡ください。",
+    "orEmail": "または直接メールで：",
+    "replyNote": "通常2〜3営業日以内にご返信いたします。",
+    "directEmail": "info@tcdashop.com"
+  },
+  "privacy": {
+    "title": "プライバシーポリシー",
+    "sections": {
+      "dataCollection": {
+        "title": "1. 収集する情報",
+        "body": "当ショップでは、注文処理のためにお名前・住所・メールアドレス・電話番号・決済情報を収集します。決済情報はStripe, Inc.が安全に処理し、当ショップは保持しません。"
+      },
+      "dataUsage": {
+        "title": "2. 利用目的",
+        "body": "収集した情報は、注文処理・配送・カスタマーサポート・サービス改善のために使用します。第三者への販売・提供は行いません。"
+      },
+      "thirdParty": {
+        "title": "3. 第三者への提供",
+        "body": "注文の履行のため、Printful（製造・配送パートナー）に必要な配送情報を提供します。それ以外の第三者への提供は法令に基づく場合を除き行いません。"
+      },
+      "cookies": {
+        "title": "4. Cookie",
+        "body": "当サイトはGoogle Analytics（GA4）によるアクセス解析にCookieを使用しています。Cookieを無効にしてもサイトの利用は可能です。"
+      },
+      "security": {
+        "title": "5. 情報の管理",
+        "body": "個人情報は適切なセキュリティ対策のもと管理し、不正アクセス・漏洩・改ざんの防止に努めます。"
+      },
+      "contact": {
+        "title": "6. お問い合わせ",
+        "body": "個人情報に関するお問い合わせはinfo@tcdashop.comまでご連絡ください。"
+      }
+    },
+    "effectiveDate": "制定日：2026年4月10日"
+  },
+  "legal": {
+    "title": "特定商取引法に基づく表記",
+    "sections": {
+      "seller": {
+        "label": "販売事業者",
+        "value": "小川大樹"
+      },
+      "address": {
+        "label": "所在地",
+        "value": "東京都世田谷区太子堂５-１７-１ メゾン・ド・ミロール103"
+      },
+      "phone": {
+        "label": "電話番号",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "メールアドレス",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "販売価格",
+        "value": "各商品ページに記載の価格（税込）※ 関税・輸入税は別途お客様負担となる場合があります"
+      },
+      "payment": {
+        "label": "支払方法",
+        "value": "クレジットカード（Visa / Mastercard / JCB / American Express / Diners Club）、Apple Pay、Google Pay、Alipay、WeChat Pay、iDEAL、SEPA Direct Debit、韓国カード、Link"
+      },
+      "paymentTiming": {
+        "label": "支払時期",
+        "value": "注文確定時"
+      },
+      "delivery": {
+        "label": "商品の引渡し時期",
+        "value": "注文確定後、通常5〜10営業日以内に発送"
+      },
+      "returns": {
+        "label": "返品・交換",
+        "value": "商品の性質上、注文確定後のキャンセル・返品・交換は原則お受けできません。商品の破損・印刷不良・誤配送の場合のみ、到着後7日以内にinfo@tcdashop.comへご連絡ください。該当する場合は再送または返金対応いたします。"
+      },
+      "quantity": {
+        "label": "販売数量",
+        "value": "在庫の範囲内"
+      },
+      "browser": {
+        "label": "動作環境",
+        "value": "最新のChrome / Safari / Firefox / Edge"
+      }
+    }
+  },
+  "cookie": {
+    "message": "当サイトはGoogle Analytics（GA4）によるアクセス解析にCookieを使用しています。同意いただける場合は「同意する」を選択してください。",
+    "accept": "同意する",
+    "decline": "拒否する",
+    "learnMore": "プライバシーポリシー"
+  },
+  "about": {
+    "viewCollection": "コレクションを見る",
+    "storyLabel": "STORY",
+    "storyTitle": "デジタルアートを、身に纏う文化へ。",
+    "storyBody": "TCDAは、デジタルの世界で生まれたアートを、現実の衣服として表現するブランドです。スクリーンの中だけに留まっていたビジュアルを、あなたが実際に纏うことができる形へ。それがTCDAの存在理由です。",
+    "valuesLabel": "VALUES",
+    "value1Title": "ART FIRST",
+    "value1Body": "アートが先、商品は後。すべてのデザインは、アーティストの意図から生まれる。",
+    "value2Title": "INDIVIDUALITY",
+    "value2Body": "個性を纏う、個性を示す。あなたが身につけるものは、あなた自身の声明だ。",
+    "value3Title": "GLOBAL",
+    "value3Body": "国境を越えたアートの表現。言語を超え、文化を超えて届く視覚言語。",
+    "heroTitle": "個性は、隠すものではなく「纏うもの」だ。",
+    "valuesTitle": "VALUES",
+    "value1": "ART FIRST",
+    "value2": "INDIVIDUALITY",
+    "value3": "GLOBAL",
+    "ctaLabel": "コレクションを見る",
+    "brandFoundation": {
+      "title": "ブランドの基盤",
+      "description": "TCDAは、デジタルアートとウェアラブルカルチャーの交点に生まれたブランドです。すべてのデザインは視覚的なコンセプトから始まり、美学を超えた意味を持つために作られています。",
+      "individual": {
+        "title": "個人",
+        "description": "他の誰とも同じ服を着ることを拒む人。"
+      },
+      "artSeeker": {
+        "title": "アートシーカー",
+        "description": "視覚的表現に意味を見出す人。"
+      },
+      "selfTransformer": {
+        "title": "自己変革者",
+        "description": "変容の過程にある人。"
+      },
+      "artFirst": {
+        "title": "アート優先のデザイン",
+        "description": "すべての作品は製品ではなく、視覚的なコンセプトから始まります。"
+      },
+      "limited": {
+        "title": "限定感",
+        "description": "大量生産ではない。速くもない。希少性を感じるデザイン。"
+      },
+      "wearable": {
+        "title": "着るアイデンティティ",
+        "description": "服は自己表明の形。"
+      },
+      "quote": "「私たちは服を作るのではない。個人変容のアーティファクトを作る。」"
+    },
+    "hero": {
+      "title": "個性は、隠すものではなく「纏うもの」だ。",
+      "subtitle": "日常を拒む者たちのための、アート主導のファッション。"
+    }
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "loadMore": "もっと見る"
+  },
+  "share": "シェア",
+  "copy_link": "リンクをコピー",
+  "copied": "コピーしました",
+  "reviews": {
+    "title": "レビュー",
+    "anonymous": "匿名"
+  },
+  "review": {
+    "title": "レビューを書く",
+    "subtitle": "ご購入いただきありがとうございます。ご感想をお聞かせください。",
+    "namePlaceholder": "お名前（任意）",
+    "bodyPlaceholder": "商品の感想をお書きください",
+    "submit": "送信する",
+    "thanks": "レビューありがとうございました"
+  },
+  "collection": {
+    "heroTitle": "THE COLLECTION",
+    "heroSub": "アートが起点のファッション。すべての一枚が、主張だ。",
+    "conceptTitle": "アートを纏う",
+    "conceptBody": "TCDAの一枚は、デジタルアートワークとして生まれる――抽象的で、表現豊かで、意図的に。私たちは視覚的エネルギーを、ファッションを超えた意味を持つ衣服へと変換する。これは服ではない。これはひとつの立場表明だ。",
+    "filterAll": "ALL",
+    "filterHoodie": "フーディー",
+    "filterZip": "ジップフーディー",
+    "filterTshirt": "Tシャツ",
+    "filterMens": "MEN'S",
+    "filterWomens": "WOMEN'S",
+    "filterUnisex": "UNISEX"
+  },
+  "geo": {
+    "jp": {
+      "shipping": "7〜14営業日でお届け",
+      "returns": "30日間返品保証",
+      "faqLink": "よくある質問",
+      "topBanner": "世界中に発送対応"
+    },
+    "eu": {
+      "material": "100%プレミアムDTGプリント",
+      "vat": "価格には消費税が含まれます",
+      "topBanner": "€100以上のご注文で送料無料"
+    }
+  },
+  "size_guide": {
+    "japan_note": "日本サイズは通常より1〜2サイズ小さめです。迷った場合は大きいサイズを推奨します。"
+  }
+}

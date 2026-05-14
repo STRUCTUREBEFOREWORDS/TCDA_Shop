@@ -1,0 +1,523 @@
+{
+  "home": {
+    "transcend": "TRANSCEND"
+  },
+  "nav": {
+    "shop": "商店",
+    "look": "造型",
+    "collection": "系列",
+    "about": "关于",
+    "legal": "特定商业交易法",
+    "privacy": "隐私政策",
+    "contact": "联系",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "philosophical1": "那种违和感，并非错误。",
+    "philosophical2": "虚无并非空洞。它是生成的留白。",
+    "philosophical3": "你从一开始，就不属于「普通」",
+    "cta": "这将成为你的一部分",
+    "emotion1": "你长久以来，怀抱着无法言说之物。这件作品，为那些说不出口的，给予了位置。",
+    "emotion2": "在沉默与喧嚣之间，存在着只有你能听见的频率。这，是它的形状。",
+    "emotion3": "世界曾强迫你去融入。这一件，为那个选择消融的瞬间而存在。",
+    "identity1": "为那些在世界中找不到归处的人。",
+    "identity2": "为那些存在于言语与言语之间的人。",
+    "identity3": "为那些拒绝舒适、选择真实的人。",
+    "philosophyBlock": "不是销售，而是抉择。每一件均有编号，不再复刻。TCDA 存在于可穿着之物与情感记录的交汇之处。"
+  },
+  "product": {
+    "material": "100% 有机棉，数码印刷",
+    "sizeInfo": "XS / S / M / L / XL",
+    "details": "每件作品均赋予独立序列编号。此艺术品不再复售。你所穿着之物，将成为档案的一部分。",
+    "limited": "全球限量50件",
+    "ctaText": "立即获取",
+    "stockAvailable": "有货",
+    "stockLow": "所剩无几",
+    "stockOut": "已售罄",
+    "materialLabel": "材质",
+    "deliveryLabel": "配送",
+    "modelLabel": "模特",
+    "materialDetailsLabel": "材质・详情",
+    "relatedProducts": "同系列作品",
+    "collection": "当前系列",
+    "backToShop": "← 返回商店",
+    "notesTitle": "注意事项",
+    "notesItem1": "因显示器环境及光线条件不同，实物颜色可能与图片略有差异。",
+    "notesItem2": "本品为海外生产，包装可能存在轻微摩擦或凹痕。",
+    "deliveryText": "通常5至10个工作日内送达",
+    "notFound": "商品不存在",
+    "stockRemaining": "仅剩 {{count}} 件",
+    "outOfStock": "缺货",
+    "notifyMe": "到货通知",
+    "notifyEmailPlaceholder": "请输入邮箱",
+    "notifyRegistered": "已登记，到货后将通知您。",
+    "descriptionLabel": "详情",
+    "prevImage": "上一张",
+    "nextImage": "下一张",
+    "mensModel": "男装模特：175cm / M码",
+    "womensModel": "女装模特：160cm / S码",
+    "aiModelNote": "※本图使用AI模特",
+    "meaningTitle": "关于这件单品",
+    "designIntent": "设计意图",
+    "bestFor": "适合人群",
+    "silhouette": "廓形",
+    "materialFeel": "面料质感",
+    "stylePairing": "搭配建议",
+    "fabricComposition": "100% 聚酯纤维，升华印花。冷水洗涤。不可烘干。",
+    "fabricMaterialEu": "材质 (欧盟)",
+    "fabricMaterialUs": "材质 (美国)",
+    "fabricWeightEu": "重量 (欧盟)",
+    "fabricWeightUs": "重量 (美国)",
+    "fabricFeatures": "特点",
+    "fabricCertifications": "认证",
+    "fabricOrigin": "产地"
+  },
+  "cart": {
+    "addToCart": "加入购物车",
+    "viewCart": "查看购物车",
+    "cartEmpty": "购物车为空",
+    "checkout": "结算",
+    "continueShopping": "继续选购",
+    "total": "合计",
+    "quantity": "数量",
+    "remove": "移除",
+    "orderSummary": "订单明细",
+    "subtotal": "小计",
+    "shipping": "运费",
+    "free": "免费",
+    "placeOrder": "确认下单",
+    "quickView": "快速预览",
+    "added": "已加入",
+    "taxNote": "税款将在结账时计算",
+    "shippingNote": "运费将在结账时计算"
+  },
+  "shop": {
+    "all": "全部",
+    "hoodie": "连帽衫",
+    "zipHoodie": "拉链连帽衫",
+    "tshirt": "T恤",
+    "recentlyViewed": "最近浏览",
+    "filterAll": "全部",
+    "sortNewest": "最新上架",
+    "sortPriceAsc": "价格：由低至高",
+    "sortPriceDesc": "价格：由高至低",
+    "viewAll": "查看全部"
+  },
+  "size": {
+    "guide": "尺码指南",
+    "guideTitle": "尺码指南",
+    "guideNote": "单位为cm。若介于两个尺码之间，建议选择较大尺码。",
+    "label": "尺码",
+    "chest": "胸围",
+    "length": "衣长",
+    "shoulder": "肩宽",
+    "noChartAvailable": "尺码信息即将呈现"
+  },
+  "checkout": {
+    "fieldName": "姓名",
+    "fieldAddress": "地址",
+    "fieldCity": "城市",
+    "fieldPostalCode": "邮政编码",
+    "fieldCountry": "国家",
+    "next": "下一步",
+    "back": "返回",
+    "fieldCardName": "持卡人姓名",
+    "fieldCardNumber": "卡号",
+    "fieldExpiry": "有效期",
+    "shippingInfo": "配送信息",
+    "paymentInfo": "支付方式",
+    "confirmOrder": "确认订单",
+    "shippingReturnsText": "订单将通过 Printful 在2至5个工作日内处理完毕。配送时效因地区而异，通常需5至10个工作日。如收到破损、印刷不良或错发商品，请于收货后7日内联系info@tcdashop.com。核实后将为您安排补发或退款。"
+  },
+  "order": {
+    "confirmed": "订单已完成",
+    "confirmedMessage": "确认邮件即将发送至您的邮箱。此订单将成为您档案的一部分。",
+    "returnHome": "返回首页",
+    "cancelled": "订单已取消",
+    "cancelledMessage": "支付已取消。"
+  },
+  "faq": {
+    "q1": "配送需要多长时间？",
+    "a1": "下单后2至5个工作日内发货，通常于5至10个工作日内送达。",
+    "q2": "可以退货或换货吗？",
+    "a2": "商品存在质量问题时，我们接受14天内的退货申请。尺码更换每笔订单限一次。",
+    "q3": "如果我的尺码介于两者之间，该怎么选？",
+    "a3": "若偏好宽松的穿着感，建议选择较大尺码。模特身高180cm，穿着M码。",
+    "purchaseTitle": "常见问题",
+    "fullTitle": "常见问题",
+    "sizeHelp": {
+      "q": "不确定如何选择尺码？",
+      "a": "请参考尺码指南中的商品实际尺寸。若介于两个尺码之间，建议选大一码。"
+    },
+    "oversized": {
+      "q": "如何穿出宽松感？",
+      "a": "请比平时大一码选购。不同商品的廓形有所不同，详情请参考商品页面上的版型信息。"
+    },
+    "modelSize": {
+      "q": "模特穿什么尺码？",
+      "a": "每件商品页面均注明了模特的身高及着装尺码。注：本品使用AI生成模特图像。"
+    },
+    "deliveryTime": {
+      "q": "下单后多久能收到？",
+      "a": "订单将在下单后2–5个工作日内处理，发货后通常5–10个工作日内送达。发货后将向您发送快递追踪单号。"
+    },
+    "internationalShipping": {
+      "q": "是海外发货吗？",
+      "a": "商品由海外合作工厂发出。您可使用提供的追踪单号查询配送状态。"
+    },
+    "returns": {
+      "q": "是否支持退换货？",
+      "a": "仅受理商品破损、印刷不良或错发商品的退货申请。因尺码或个人偏好原因不予退换。"
+    },
+    "colorDifference": {
+      "q": "实物颜色与屏幕显示一致吗？",
+      "a": "受显示器设置及光线条件影响，实物颜色可能与屏幕显示略有偏差。"
+    },
+    "washing": {
+      "q": "可以水洗吗？",
+      "a": "可机洗。为延长使用寿命，建议翻面洗涤。"
+    },
+    "paymentMethods": {
+      "q": "支持哪些支付方式？",
+      "a": "仅支持信用卡付款（Visa / Mastercard / JCB / American Express / Diners Club）。"
+    },
+    "orderChange": {
+      "q": "下单后能修改或取消吗？",
+      "a": "订单确认后无法修改或取消，请在下单前仔细核对信息。"
+    },
+    "restock": {
+      "q": "缺货商品会补货吗？",
+      "a": "补货日期暂未确定。补货信息将通过官方社交媒体发布。"
+    },
+    "defect": {
+      "q": "收到有瑕疵的商品怎么办？",
+      "a": "请在收货后7天内联系info@tcdashop.com，核实后将为您安排补发或退款。"
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "关于TCDA",
+    "categorySizing": "尺码 & 合身",
+    "categoryShipping": "配送 & 退货",
+    "categoryProduct": "产品详情",
+    "ctaLabel": "还有其他问题？联系我们"
+  },
+  "sizeTable": {
+    "size": "尺码",
+    "width": "衣宽",
+    "length": "衣长",
+    "sleeveLength": "袖长"
+  },
+  "sizeGuide": {
+    "title": "尺码指南",
+    "close": "关闭",
+    "seeGuide": "查看尺码指南",
+    "fit": "版型",
+    "recommendation": "推荐",
+    "howToMeasure": "如何量体",
+    "productType": "产品类型",
+    "fitDefinitions": "版型说明",
+    "unitCm": "厘米",
+    "unitInch": "英寸",
+    "pageIntro": "所有尺寸以厘米为单位（可切换）。请参考以下指南找到适合您的尺码。",
+    "measureChest": "在胸部最丰满处水平围量一圈。",
+    "measureLength": "从肩部最高点量至下摆。",
+    "measureShoulder": "从背部左肩缝量至右肩缝。",
+    "measureSleeve": "从肩缝量至袖口。",
+    "faq1q": "如何找到适合自己的尺码？",
+    "faq1a": "将您的身体尺寸与尺码表进行对比。若介于两个尺码之间，宽松穿搭建议选大一码，合身穿搭建议选小一码。",
+    "faq2q": "身体尺寸与服装尺寸有何区别？",
+    "faq2a": "身体尺寸是您自己的体型数据，服装尺寸是成品的实际尺寸，两者之差即为宽松量。",
+    "faq3q": "尺码介于两者之间怎么选？",
+    "faq3a": "oversized或relaxed版型建议选小一码；slim版型建议选大一码。",
+    "faq4q": "尺码偏大还是偏小？",
+    "faq4a": "尺码感因产品类型而异。请参考各商品页面上的版型标签。",
+    "faq5q": "可以换码吗？",
+    "faq5a": "每笔订单可换码一次，请在收货后14日内联系我们。",
+    "faq6q": "尺寸数据的准确度如何？",
+    "faq6a": "尺寸为平铺测量，因生产公差可能存在±1–2厘米的误差。",
+    "faq7q": "\"slim fit\"是什么意思？",
+    "faq7a": "slim fit即修身版型，贴合身体轮廓。如需宽松感，建议选大一码。",
+    "faq8q": "\"oversized\"是什么意思？",
+    "faq8a": "oversized为有意设计的宽大版型，廓形自然垂坠、远离身体。",
+    "faq9q": "无性别款式有尺码建议吗？",
+    "faq9a": "无性别款式适合多种体型，请参考商品页面的模特信息作为参考。",
+    "faq10q": "尺寸是厘米还是英寸？",
+    "faq10a": "两种单位均可查看。使用尺码指南中的切换按钮即可在厘米与英寸之间切换。",
+    "faq11q": "如果某商品尚无尺码指南怎么办？",
+    "faq11a": "我们正在陆续为所有商品添加尺码指南，请稍后再查看，或直接联系我们咨询。",
+    "faq12q": "如何保养衣物？",
+    "faq12a": "可机洗，冷水轻柔模式。请勿烘干。请翻面低温熨烫。",
+    "measurements": {
+      "width": "衣宽",
+      "length": "衣长",
+      "sleeve": "袖长",
+      "shoulder": "肩宽",
+      "waist": "腰围",
+      "inseam": "内缝长",
+      "rise": "裆深"
+    },
+    "measurementFlatNote": "平铺测量",
+    "measurementVariationNote": "因生产公差，尺寸可能存在±1–2 cm的误差。",
+    "measurementHelp": {
+      "width": "腋下平铺，量胸部最宽处",
+      "length": "从肩部最高点量至下摆",
+      "sleeve": "从肩缝量至袖口",
+      "shoulder": "背面从一侧肩缝量至另一侧",
+      "waist": "腰部平铺宽度",
+      "inseam": "从裆缝到裤脚",
+      "rise": "从腰带到裆缝"
+    },
+    "figureAlt": "{{product}}尺码指南插图"
+  },
+  "fit": {
+    "slim": "修身",
+    "regular": "常规",
+    "relaxed": "宽松",
+    "oversized": "超大",
+    "unknown": "—",
+    "slimNote": "贴合身体的轮廓。若需更多宽松感，建议选大一码。",
+    "regularNote": "标准尺码。胸部及整体有适度余量。",
+    "relaxedNote": "宽松廓形，自然垂坠。如需更合身的效果，建议选小一码。",
+    "oversizedNote": "有意设计的宽大版型，呈现垂坠感。如需常规廓形，建议选小一码。"
+  },
+  "trust": {
+    "processed": "2–5个工作日内发货",
+    "delivered": "发货后5–10个工作日内送达",
+    "supported": "破损或错发？请在收货后7日内联系我们",
+    "shippingReturnsLink": "配送与退货"
+  },
+  "footer": {
+    "support": "客户支持",
+    "faq": "常见问题",
+    "sizeGuide": "尺码指南",
+    "shippingReturns": "配送与退货",
+    "contact": "联系我们"
+  },
+  "shippingReturns": {
+    "title": "配送与退货",
+    "pageIntro": "有关配送及退货政策的说明。如有疑问，请联系 info@tcdashop.com。",
+    "shippingTitle": "发货",
+    "shippingBody": "订单确认后，将通过 Printful 在 2〜7 个工作日内发货。发货后将提供追踪号码。",
+    "shippingAddressNote": "※ 日本国内配送时，配送标签上的地址将自动转换为英文。这是由于国际配送系统的要求。您的收货地址不会改变。",
+    "deliveryTitle": "配送",
+    "deliveryBody": "发货后通常5–10个工作日内送达。实际时间因地区而异。",
+    "returnsTitle": "退货与售后",
+    "returnsCondition": "受理条件：仅限商品破损、印刷不良或错发商品",
+    "returnsPeriod": "受理期限：请于收货后7日内联系我们",
+    "returnsMethod": "处理方式：核实后安排补发或退款",
+    "returnsNote": "因尺码或个人偏好原因申请的退货将不予受理。",
+    "contactTitle": "联系我们",
+    "contactBody": "如有其他疑问，请通过以下邮件地址与我们联系。",
+    "customsTitle": "关税及进口税",
+    "customsBody": "商品从美国或欧洲发货。根据您所在国家/地区，可能需要缴纳关税、进口税或清关费用。上述费用由客户承担。详情请参阅当地海关法规。"
+  },
+  "contact": {
+    "title": "联系我们",
+    "pageIntro": "有关订单、配送或商品问题，请在此联系我们。",
+    "intro": "有关订单、配送或商品问题，请在此联系我们。我们通常在 2–3 个工作日内回复。",
+    "name": "姓名",
+    "namePlaceholder": "请输入您的姓名",
+    "email": "电子邮件",
+    "emailPlaceholder": "your@email.com",
+    "orderNumber": "订单编号（选填）",
+    "orderNumberPlaceholder": "例：XXXXXXXX",
+    "subject": "主题",
+    "subjectPlaceholder": "请告知您的问题类型",
+    "message": "留言",
+    "messagePlaceholder": "请输入您的问题或留言",
+    "submit": "发送",
+    "submitting": "发送中...",
+    "success": "您的留言已收到。我们将尽快与您联系。",
+    "successTitle": "发送成功",
+    "successBody": "我们通常在 2–3 个工作日内回复。",
+    "error": "发送失败。请直接发送邮件至 info@tcdashop.com。",
+    "errorTitle": "发送失败",
+    "errorBody": "请稍后再试，或直接通过以下地址联系我们。",
+    "orEmail": "或直接发送邮件至：",
+    "replyNote": "我们通常在 2–3 个工作日内回复。",
+    "directEmail": "info@tcdashop.com"
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "sections": {
+      "dataCollection": {
+        "title": "1. 收集的信息",
+        "body": "我们收集您的姓名、地址、电子邮件、电话号码及支付信息，用于处理订单。支付信息由 Stripe, Inc. 安全处理，我们不予保存。"
+      },
+      "dataUsage": {
+        "title": "2. 使用目的",
+        "body": "收集的信息用于订单处理、配送、客户支持及服务改善，不会出售或提供给第三方。"
+      },
+      "thirdParty": {
+        "title": "3. 向第三方提供",
+        "body": "为履行订单，我们将必要的配送信息提供给 Printful（制造与配送合作伙伴）。除法律规定外，不向其他第三方提供信息。"
+      },
+      "cookies": {
+        "title": "4. Cookie",
+        "body": "本网站通过 Google Analytics（GA4）使用 Cookie 进行访问分析。禁用 Cookie 不影响正常使用。"
+      },
+      "security": {
+        "title": "5. 信息管理",
+        "body": "个人信息在适当的安全措施下进行管理，致力于防止未授权访问、泄露及篡改。"
+      },
+      "contact": {
+        "title": "6. 联系方式",
+        "body": "如有关于个人信息的疑问，请发送邮件至 info@tcdashop.com。"
+      }
+    },
+    "effectiveDate": "生效日期：2026年4月10日"
+  },
+  "legal": {
+    "title": "销售信息",
+    "sections": {
+      "seller": {
+        "label": "销售方",
+        "value": "小川大树"
+      },
+      "address": {
+        "label": "地址",
+        "value": "日本东京都世田谷区太子堂5-17-1 Maison de Miroir 103"
+      },
+      "phone": {
+        "label": "电话",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "电子邮件",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "销售价格",
+        "value": "以各商品页面显示的价格为准（含适用税费）。※ 关税及进口税可能另行收取，由客户自行承担。"
+      },
+      "payment": {
+        "label": "支付方式",
+        "value": "信用卡（Visa / Mastercard / JCB / American Express / Diners Club）、Apple Pay、Google Pay、支付宝、微信支付、iDEAL、SEPA 直接借记、韩国信用卡、Link"
+      },
+      "paymentTiming": {
+        "label": "支付时间",
+        "value": "订单确认时"
+      },
+      "delivery": {
+        "label": "发货时间",
+        "value": "订单确认后，通常5～10个工作日内发货"
+      },
+      "returns": {
+        "label": "退换货",
+        "value": "因商品特性，确认订单后原则上不接受取消、退货或换货。如有商品破损、印刷缺陷或错误配送，请在收货后7日内联系 info@tcdashop.com，届时将安排补发或退款。"
+      },
+      "quantity": {
+        "label": "销售数量",
+        "value": "库存范围内"
+      },
+      "browser": {
+        "label": "运行环境",
+        "value": "最新版 Chrome / Safari / Firefox / Edge"
+      }
+    }
+  },
+  "cookie": {
+    "message": "本网站通过 Google Analytics（GA4）使用 Cookie 分析访问情况。请选择您的偏好设置。",
+    "accept": "同意",
+    "decline": "拒绝",
+    "learnMore": "隐私政策"
+  },
+  "about": {
+    "viewCollection": "查看系列",
+    "storyLabel": "STORY",
+    "storyTitle": "将数字艺术转化为可穿戴文化。",
+    "storyBody": "TCDA 是一个将数字世界中诞生的艺术，以可穿戴服装的形式带入现实的品牌。曾经只存在于屏幕中的视觉，如今成为你实际可以穿着之物。这就是 TCDA 存在的理由。",
+    "valuesLabel": "VALUES",
+    "value1Title": "ART FIRST",
+    "value1Body": "艺术优先，产品其次。每一个设计都源于艺术家的意图，而非市场需求。",
+    "value2Title": "INDIVIDUALITY",
+    "value2Body": "穿出个性，展示个性。你所穿着之物，即是你自己的宣言。",
+    "value3Title": "GLOBAL",
+    "value3Body": "超越国界的艺术表达。一种超越地域、文化与语言的视觉语言。",
+    "heroTitle": "个性不是需要隐藏的东西。而是需要穿戴的东西。",
+    "valuesTitle": "VALUES",
+    "value1": "ART FIRST",
+    "value2": "INDIVIDUALITY",
+    "value3": "GLOBAL",
+    "ctaLabel": "查看系列",
+    "brandFoundation": {
+      "title": "品牌基础",
+      "description": "TCDA — Transcend Creative Dimension Aura — 是一个诞生于数字艺术与可穿戴文化交汇处的品牌。每一个设计都从视觉概念开始，旨在传递超越美学的意义。",
+      "individual": {
+        "title": "个体",
+        "description": "拒绝与他人穿着相同的人。"
+      },
+      "artSeeker": {
+        "title": "艺术寻求者",
+        "description": "在视觉表达中寻找意义的人。"
+      },
+      "selfTransformer": {
+        "title": "自我变革者",
+        "description": "处于蜕变过程中的人。"
+      },
+      "artFirst": {
+        "title": "艺术优先设计",
+        "description": "每件作品都从视觉概念开始，而不是产品。"
+      },
+      "limited": {
+        "title": "稀缺感",
+        "description": "不是大众化。不是快速。设计成感觉稀有。"
+      },
+      "wearable": {
+        "title": "可穿戴身份",
+        "description": "服装作为自我宣言的形式。"
+      },
+      "quote": "\"我们不制造衣服。我们制造个人蜕变的艺术品。\""
+    },
+    "hero": {
+      "title": "个性不是需要隐藏的东西。而是需要穿戴的东西。",
+      "subtitle": "为拒绝平庸者而生的艺术驱动时装。"
+    }
+  },
+  "common": {
+    "loading": "加载中..."
+  },
+  "share": "分享",
+  "copy_link": "复制链接",
+  "copied": "已复制",
+  "reviews": {
+    "title": "评价",
+    "anonymous": "匿名"
+  },
+  "review": {
+    "title": "撰写评价",
+    "subtitle": "请分享您对本商品的感受。",
+    "namePlaceholder": "您的姓名（选填）",
+    "bodyPlaceholder": "请输入您的评价",
+    "submit": "提交",
+    "thanks": "感谢您的评价"
+  },
+  "collection": {
+    "heroTitle": "THE COLLECTION",
+    "heroSub": "艺术驱动的时尚。每一件都是一种宣言。",
+    "conceptTitle": "穿戴艺术",
+    "conceptBody": "每件TCDA单品都始于数字艺术作品——抽象、富有表现力且有意为之。我们将视觉能量转化为超越时尚意义的服装。这不是衣服。这是一种立场。",
+    "filterAll": "ALL",
+    "filterHoodie": "卫衣",
+    "filterZip": "拉链卫衣",
+    "filterTshirt": "T恤",
+    "filterMens": "MEN'S",
+    "filterWomens": "WOMEN'S",
+    "filterUnisex": "UNISEX"
+  },
+  "geo": {
+    "jp": {
+      "shipping": "7–14个工作日送达",
+      "returns": "30天退货保障",
+      "faqLink": "常见问题",
+      "topBanner": "支持全球配送"
+    },
+    "eu": {
+      "material": "100%优质DTG印刷",
+      "vat": "价格含增值税",
+      "topBanner": "订单满€100免运费"
+    }
+  },
+  "size_guide": {
+    "japan_note": "日本尺码通常比标准尺码小1-2码，如有疑问建议选大一码。"
+  }
+}

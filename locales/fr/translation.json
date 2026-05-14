@@ -1,0 +1,523 @@
+{
+  "home": {
+    "transcend": "TRANSCEND"
+  },
+  "nav": {
+    "shop": "BOUTIQUE",
+    "look": "Look",
+    "collection": "COLLECTION",
+    "about": "À PROPOS",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "contact": "CONTACT",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "philosophical1": "Ce malaise n'est pas une erreur.",
+    "philosophical2": "Le vide n'est pas l'absence. Il est l'espace où naît la forme.",
+    "philosophical3": "Tu n'as jamais appartenu à l'ordinaire.",
+    "cta": "Cela deviendra une part de toi",
+    "emotion1": "Tu portes depuis longtemps ce qui résiste aux mots. Cette pièce offre un lieu à ce qui ne peut être dit.",
+    "emotion2": "Entre le silence et le bruit, il existe une fréquence que toi seul entends. Voici sa forme.",
+    "emotion3": "Le monde t'a contraint à t'adapter. Ceci existe pour l'instant où tu as choisi de te dissoudre.",
+    "identity1": "Pour ceux qui ne trouvent pas leur place dans le monde.",
+    "identity2": "Pour ceux qui existent entre les mots.",
+    "identity3": "Pour ceux qui refusent le confort et choisissent la vérité.",
+    "philosophyBlock": "Non une vente, mais une décision. Chaque pièce est numérotée, jamais reproduite. TCDA existe à l'intersection de l'objet porté et de la mémoire sensible."
+  },
+  "product": {
+    "material": "100% coton biologique, impression numérique",
+    "sizeInfo": "XS / S / M / L / XL",
+    "details": "Chaque pièce reçoit un numéro de série unique. Cette œuvre ne sera pas rééditée. Ce que tu portes devient une part de l'archive.",
+    "limited": "50 exemplaires dans le monde",
+    "ctaText": "Acquérir maintenant",
+    "stockAvailable": "En stock",
+    "stockLow": "Presque épuisé",
+    "stockOut": "Épuisé",
+    "materialLabel": "Matière",
+    "deliveryLabel": "Livraison",
+    "modelLabel": "Modèle",
+    "materialDetailsLabel": "Matière & détails",
+    "relatedProducts": "Voir aussi",
+    "collection": "Collection actuelle",
+    "backToShop": "← Retour à la boutique",
+    "notesTitle": "Notes",
+    "notesItem1": "Selon votre écran et les conditions d'éclairage, les couleurs peuvent légèrement différer du produit réel.",
+    "notesItem2": "En raison de la fabrication à l'étranger, l'emballage peut présenter de légères marques ou déformations mineures.",
+    "deliveryText": "Livraison estimée sous 5 à 10 jours ouvrés",
+    "notFound": "Article introuvable",
+    "stockRemaining": "Plus que {{count}} en stock",
+    "outOfStock": "Rupture de stock",
+    "notifyMe": "Me notifier lors du réapprovisionnement",
+    "notifyEmailPlaceholder": "Entrez votre email",
+    "notifyRegistered": "Enregistré. Vous serez notifié dès la remise en stock.",
+    "descriptionLabel": "Description",
+    "prevImage": "Image précédente",
+    "nextImage": "Image suivante",
+    "mensModel": "Modèle homme : 175 cm / taille M",
+    "womensModel": "Modèle femme : 160 cm / taille S",
+    "aiModelNote": "※ Visuels générés par IA",
+    "meaningTitle": "À PROPOS DE CETTE PIÈCE",
+    "designIntent": "Intention du design",
+    "bestFor": "Idéal pour",
+    "silhouette": "Silhouette",
+    "materialFeel": "Sensation du matériau",
+    "stylePairing": "Association de styles",
+    "fabricComposition": "100% polyester, impression par sublimation. Laver à froid. Ne pas mettre au sèche-linge.",
+    "fabricMaterialEu": "Matière (UE)",
+    "fabricMaterialUs": "Matière (US)",
+    "fabricWeightEu": "Poids (UE)",
+    "fabricWeightUs": "Poids (US)",
+    "fabricFeatures": "Caractéristiques",
+    "fabricCertifications": "Certifications",
+    "fabricOrigin": "Origine"
+  },
+  "cart": {
+    "addToCart": "Ajouter au panier",
+    "viewCart": "Voir le panier",
+    "cartEmpty": "Votre panier est vide",
+    "checkout": "Commander",
+    "continueShopping": "Continuer les achats",
+    "total": "Total",
+    "quantity": "Quantité",
+    "remove": "Retirer",
+    "orderSummary": "Récapitulatif",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "free": "Offerte",
+    "placeOrder": "Confirmer la commande",
+    "quickView": "Aperçu rapide",
+    "added": "Ajouté",
+    "taxNote": "Taxes calculées lors du paiement",
+    "shippingNote": "Livraison calculée lors du paiement"
+  },
+  "shop": {
+    "all": "Tout",
+    "hoodie": "Sweat",
+    "zipHoodie": "Sweat Zippé",
+    "tshirt": "T-Shirt",
+    "recentlyViewed": "Récemment consultés",
+    "filterAll": "Tout",
+    "sortNewest": "Nouveautés",
+    "sortPriceAsc": "Prix croissant",
+    "sortPriceDesc": "Prix décroissant",
+    "viewAll": "Tout voir"
+  },
+  "size": {
+    "guide": "Guide des tailles",
+    "guideTitle": "Guide des tailles",
+    "guideNote": "Mesures en cm. En cas de doute entre deux tailles, optez pour la taille supérieure.",
+    "label": "Taille",
+    "chest": "Tour de poitrine",
+    "length": "Longueur",
+    "shoulder": "Largeur d'épaules",
+    "noChartAvailable": "Guide des tailles bientôt disponible"
+  },
+  "checkout": {
+    "fieldName": "Nom",
+    "fieldAddress": "Adresse",
+    "fieldCity": "Ville",
+    "fieldPostalCode": "Code postal",
+    "fieldCountry": "Pays",
+    "next": "Suivant",
+    "back": "Retour",
+    "fieldCardName": "Nom sur la carte",
+    "fieldCardNumber": "Numéro de carte",
+    "fieldExpiry": "Date d'expiration",
+    "shippingInfo": "Livraison",
+    "paymentInfo": "Paiement",
+    "confirmOrder": "Confirmer",
+    "shippingReturnsText": "Votre commande est traitée via Printful sous 2 à 5 jours ouvrés. La livraison prend généralement 5 à 10 jours ouvrés selon votre région. En cas de produit endommagé, d'impression défectueuse ou d'envoi incorrect, contactez-nous à info@tcdashop.com dans les 7 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification."
+  },
+  "order": {
+    "confirmed": "Commande confirmée",
+    "confirmedMessage": "Un e-mail de confirmation vous sera envoyé. Cette pièce rejoint vos archives.",
+    "returnHome": "Retour à l'accueil",
+    "cancelled": "Commande annulée",
+    "cancelledMessage": "Le paiement a été annulé."
+  },
+  "faq": {
+    "q1": "Quel est le délai de livraison ?",
+    "a1": "Vos commandes sont expédiées sous 2 à 5 jours ouvrés, puis livrées sous 5 à 10 jours ouvrés en règle générale.",
+    "q2": "Les retours et échanges sont-ils possibles ?",
+    "a2": "Les articles défectueux peuvent être retournés dans les 14 jours suivant la réception. Un échange de taille est possible une fois par commande.",
+    "q3": "Que faire si je me situe entre deux tailles ?",
+    "a3": "Pour un port décontracté, nous recommandons la taille supérieure. Le modèle mesure 180 cm et porte une taille M.",
+    "purchaseTitle": "FAQ",
+    "fullTitle": "FAQ",
+    "sizeHelp": {
+      "q": "Je ne sais pas quelle taille choisir.",
+      "a": "Consultez le guide des tailles pour les dimensions du vêtement. En cas de doute entre deux tailles, prenez la plus grande."
+    },
+    "oversized": {
+      "q": "Comment obtenir un look oversize ?",
+      "a": "Choisissez une taille au-dessus de votre taille habituelle. La silhouette varie selon les produits — consultez les informations de coupe sur la page produit."
+    },
+    "modelSize": {
+      "q": "Quelle taille porte le modèle ?",
+      "a": "La taille et la pointure du modèle sont indiquées sur chaque page produit. Note : des visuels de modèles générés par IA sont utilisés."
+    },
+    "deliveryTime": {
+      "q": "Quel est le délai de livraison ?",
+      "a": "Les commandes sont traitées sous 2 à 5 jours ouvrés, puis livrées sous 5 à 10 jours ouvrés après expédition. Un numéro de suivi est envoyé après l'expédition."
+    },
+    "internationalShipping": {
+      "q": "La livraison est-elle internationale ?",
+      "a": "Les articles sont expédiés depuis un partenaire de production à l'étranger. Le statut peut être suivi avec le numéro fourni."
+    },
+    "returns": {
+      "q": "Les retours ou échanges sont-ils possibles ?",
+      "a": "Nous acceptons les retours uniquement en cas de produit endommagé, d'impression défectueuse ou d'envoi incorrect. Les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés."
+    },
+    "colorDifference": {
+      "q": "La couleur sera-t-elle identique à l'écran ?",
+      "a": "Les couleurs peuvent légèrement varier selon les paramètres de votre écran et les conditions d'éclairage."
+    },
+    "washing": {
+      "q": "Le lavage est-il possible ?",
+      "a": "Le lavage en machine est possible. Pour une meilleure durabilité, nous recommandons de laver à l'envers."
+    },
+    "paymentMethods": {
+      "q": "Quels modes de paiement sont acceptés ?",
+      "a": "Seules les cartes bancaires sont acceptées (Visa, Mastercard, JCB, American Express, Diners Club)."
+    },
+    "orderChange": {
+      "q": "Puis-je modifier ou annuler ma commande après l'avoir passée ?",
+      "a": "Les commandes ne peuvent pas être modifiées ni annulées une fois confirmées. Veuillez vérifier les détails avant d'acheter."
+    },
+    "restock": {
+      "q": "Les articles épuisés seront-ils réapprovisionnés ?",
+      "a": "Les dates de réapprovisionnement ne sont pas confirmées. Les mises à jour seront partagées via nos réseaux sociaux officiels lorsque disponibles."
+    },
+    "defect": {
+      "q": "Que faire si mon article est défectueux ?",
+      "a": "Contactez-nous à info@tcdashop.com dans les 7 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification."
+    },
+    "pageTitle": "FAQ",
+    "categoryAbout": "À propos de TCDA",
+    "categorySizing": "Taille & Ajustement",
+    "categoryShipping": "Livraison & Retours",
+    "categoryProduct": "Détails du produit",
+    "ctaLabel": "D'autres questions ? Contactez-nous"
+  },
+  "sizeTable": {
+    "size": "Taille",
+    "width": "Largeur",
+    "length": "Longueur",
+    "sleeveLength": "Longueur de manche"
+  },
+  "sizeGuide": {
+    "title": "Guide des tailles",
+    "close": "Fermer",
+    "seeGuide": "Voir le guide des tailles",
+    "fit": "Coupe",
+    "recommendation": "Recommandation",
+    "howToMeasure": "Comment se mesurer",
+    "productType": "Type de produit",
+    "fitDefinitions": "Définitions des coupes",
+    "unitCm": "cm",
+    "unitInch": "pouce",
+    "pageIntro": "Toutes les mesures sont en cm (bascule disponible). Trouvez votre taille grâce au guide ci-dessous.",
+    "measureChest": "Mesurez autour de la partie la plus large de votre poitrine, en gardant le mètre horizontal.",
+    "measureLength": "Mesurez depuis le point le plus haut de l'épaule jusqu'à l'ourlet.",
+    "measureShoulder": "Mesurez de couture d'épaule à couture d'épaule dans le dos.",
+    "measureSleeve": "Mesurez depuis la couture d'épaule jusqu'au poignet.",
+    "faq1q": "Comment trouver ma taille ?",
+    "faq1a": "Comparez vos mensurations avec notre guide des tailles. Si vous êtes entre deux tailles, prenez la taille supérieure pour une coupe ample ou la taille inférieure pour une coupe ajustée.",
+    "faq2q": "Quelle est la différence entre les mesures du corps et celles du vêtement ?",
+    "faq2a": "Les mesures du corps sont les vôtres. Les mesures du vêtement sont les dimensions réelles de la pièce. La différence constitue l'aisance.",
+    "faq3q": "Je suis entre deux tailles. Que faire ?",
+    "faq3a": "Pour les coupes oversized ou décontractées, prenez la taille inférieure. Pour les coupes slim, prenez la taille supérieure.",
+    "faq4q": "Les tailles sont-elles grandes ou petites ?",
+    "faq4a": "Le rendu varie selon le type de produit. Consultez l'étiquette de coupe sur chaque page produit.",
+    "faq5q": "Puis-je échanger ma taille ?",
+    "faq5a": "Un échange de taille par commande est possible. Contactez-nous dans les 14 jours suivant la réception.",
+    "faq6q": "Quelle est la précision des mesures ?",
+    "faq6a": "Les mesures sont prises à plat et peuvent varier de ±1 à 2 cm en raison des tolérances de fabrication.",
+    "faq7q": "Que signifie « coupe slim » ?",
+    "faq7a": "Une coupe slim suit le corps de près. Nous recommandons de prendre une taille au-dessus si vous préférez plus d'aisance.",
+    "faq8q": "Que signifie « oversized » ?",
+    "faq8a": "Les pièces oversized sont intentionnellement grandes. La silhouette est conçue pour tomber loin du corps.",
+    "faq9q": "Proposez-vous des conseils de taille pour les pièces unisexes ?",
+    "faq9a": "Les pièces unisexes sont taillées pour convenir à tous. Consultez les informations modèle sur la page produit.",
+    "faq10q": "Les mesures sont-elles en cm ou en pouces ?",
+    "faq10a": "Les deux sont disponibles. Utilisez la bascule sur le guide des tailles pour switcher entre cm et pouces.",
+    "faq11q": "Que faire si le guide des tailles n'est pas encore disponible pour un produit ?",
+    "faq11a": "Nous ajoutons progressivement des guides pour tous les produits. Revenez bientôt ou contactez-nous.",
+    "faq12q": "Comment entretenir ma pièce ?",
+    "faq12a": "Lavage en machine à froid, cycle délicat. Ne pas mettre au sèche-linge. Repasser à l'envers à basse température.",
+    "measurements": {
+      "width": "Largeur",
+      "length": "Longueur",
+      "sleeve": "Manche",
+      "shoulder": "Épaule",
+      "waist": "Tour de taille",
+      "inseam": "Entrejambe",
+      "rise": "Hauteur de montant"
+    },
+    "measurementFlatNote": "Mesures prises à plat",
+    "measurementVariationNote": "Une légère variation (±1–2 cm) est possible selon les tolérances de fabrication.",
+    "measurementHelp": {
+      "width": "à plat, largeur sous les bras",
+      "length": "du sommet de l'épaule jusqu'à l'ourlet",
+      "sleeve": "de la couture d'épaule jusqu'au poignet",
+      "shoulder": "d'une couture d'épaule à l'autre dans le dos",
+      "waist": "à plat, largeur à la taille",
+      "inseam": "de la couture à l'entrejambe jusqu'à l'ourlet",
+      "rise": "de la ceinture à l'entrejambe"
+    },
+    "figureAlt": "Illustration du guide des tailles {{product}}"
+  },
+  "fit": {
+    "slim": "Slim",
+    "regular": "Regular",
+    "relaxed": "Décontracté",
+    "oversized": "Oversized",
+    "unknown": "—",
+    "slimNote": "Coupe près du corps. Prenez une taille au-dessus si vous souhaitez plus d'aisance.",
+    "regularNote": "Taille standard. Confort au niveau du buste et du corps.",
+    "relaxedNote": "Silhouette ample. Tombe loin du corps. Prenez une taille en dessous pour une coupe plus ajustée.",
+    "oversizedNote": "Intentionnellement oversize. Conçu pour flotter. Prenez une taille en dessous pour une silhouette standard."
+  },
+  "trust": {
+    "processed": "Traitement sous 2 à 5 jours ouvrés",
+    "delivered": "Livraison sous 5 à 10 jours ouvrés",
+    "supported": "Produit défectueux ou envoi incorrect ? Contactez-nous dans les 7 jours",
+    "shippingReturnsLink": "Livraison & retours"
+  },
+  "footer": {
+    "support": "Assistance",
+    "faq": "FAQ",
+    "sizeGuide": "Guide des tailles",
+    "shippingReturns": "Livraison & retours",
+    "contact": "Contact"
+  },
+  "shippingReturns": {
+    "title": "Livraison & retours",
+    "pageIntro": "Toutes les informations sur la livraison et notre politique de retour. Questions ? Écrivez-nous à info@tcdashop.com.",
+    "shippingTitle": "Expédition",
+    "shippingBody": "Les commandes sont expédiées sous 2 à 7 jours ouvrés via Printful. Un numéro de suivi vous sera envoyé après l'expédition.",
+    "shippingAddressNote": "※ Pour les livraisons au Japon, l'adresse de livraison sera automatiquement convertie en anglais sur l'étiquette. Cela est dû aux exigences du système d'expédition international. Votre destination de livraison reste inchangée.",
+    "deliveryTitle": "Livraison",
+    "deliveryBody": "Après expédition, la livraison prend généralement 5 à 10 jours ouvrés. Les délais peuvent varier selon la région.",
+    "returnsTitle": "Retours & assistance",
+    "returnsCondition": "Cas éligibles : produit endommagé, impression défectueuse ou envoi incorrect uniquement",
+    "returnsPeriod": "Délai : contactez-nous dans les 7 jours suivant la réception",
+    "returnsMethod": "Résolution : renvoi ou remboursement après vérification",
+    "returnsNote": "Les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés.",
+    "contactTitle": "Nous contacter",
+    "contactBody": "Pour toute autre question, contactez-nous à l'adresse ci-dessous.",
+    "customsTitle": "Droits de douane et taxes d'importation",
+    "customsBody": "Les produits sont expédiés depuis les États-Unis ou l'Europe. Selon votre pays, des droits de douane, taxes d'importation ou frais de traitement peuvent s'appliquer. Ces frais sont à la charge du client. Veuillez consulter la réglementation douanière de votre pays."
+  },
+  "contact": {
+    "title": "Contact",
+    "pageIntro": "Une question sur votre commande ou un problème produit ?",
+    "intro": "Pour toute question sur votre commande, la livraison ou un défaut produit — contactez-nous ici. Réponse sous 2–3 jours ouvrables.",
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "email": "E-mail",
+    "emailPlaceholder": "votre@email.com",
+    "orderNumber": "Numéro de commande (facultatif)",
+    "orderNumberPlaceholder": "ex. XXXXXXXX",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Comment pouvons-nous vous aider ?",
+    "message": "Message",
+    "messagePlaceholder": "Décrivez votre demande",
+    "submit": "Envoyer",
+    "submitting": "Envoi en cours...",
+    "success": "Message reçu. Nous vous répondrons dans les plus brefs délais.",
+    "successTitle": "Message envoyé",
+    "successBody": "Nous vous répondrons sous 2–3 jours ouvrables.",
+    "error": "Une erreur s'est produite. Veuillez nous contacter directement à info@tcdashop.com.",
+    "errorTitle": "Une erreur s'est produite",
+    "errorBody": "Veuillez réessayer ou nous contacter directement à l'adresse ci-dessous.",
+    "orEmail": "Ou écrivez-nous directement :",
+    "replyNote": "Réponse habituelle sous 2–3 jours ouvrables.",
+    "directEmail": "info@tcdashop.com"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "sections": {
+      "dataCollection": {
+        "title": "1. Informations collectées",
+        "body": "Nous collectons votre nom, adresse, e-mail, numéro de téléphone et informations de paiement pour traiter vos commandes. Les informations de paiement sont traitées de manière sécurisée par Stripe, Inc. et ne sont pas conservées par nos soins."
+      },
+      "dataUsage": {
+        "title": "2. Utilisation des données",
+        "body": "Les informations collectées sont utilisées pour traiter les commandes, assurer la livraison, le support client et améliorer nos services. Nous ne vendons ni ne partageons vos données avec des tiers."
+      },
+      "thirdParty": {
+        "title": "3. Partage avec des tiers",
+        "body": "Pour traiter votre commande, nous communiquons les informations d'expédition nécessaires à Printful (notre partenaire de fabrication et de livraison). Aucun autre partage n'est effectué, sauf obligation légale."
+      },
+      "cookies": {
+        "title": "4. Cookies",
+        "body": "Ce site utilise des cookies à des fins d'analyse via Google Analytics (GA4). Vous pouvez désactiver les cookies sans que cela affecte votre navigation."
+      },
+      "security": {
+        "title": "5. Sécurité des données",
+        "body": "Les informations personnelles sont gérées avec des mesures de sécurité appropriées afin de prévenir tout accès non autorisé, fuite ou falsification."
+      },
+      "contact": {
+        "title": "6. Contact",
+        "body": "Pour toute question concernant vos données personnelles, contactez-nous à info@tcdashop.com."
+      }
+    },
+    "effectiveDate": "En vigueur depuis : 10 avril 2026"
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "sections": {
+      "seller": {
+        "label": "Vendeur",
+        "value": "Taiki Ogawa"
+      },
+      "address": {
+        "label": "Adresse",
+        "value": "Taishido 5-17-1 Maison de Miroir 103, Setagaya, Tokyo, Japon"
+      },
+      "phone": {
+        "label": "Téléphone",
+        "value": "050-5476-8894"
+      },
+      "email": {
+        "label": "E-mail",
+        "value": "info@tcdashop.com"
+      },
+      "price": {
+        "label": "Prix",
+        "value": "Prix indiqué sur chaque page produit (TVA incluse le cas échéant). * Des droits de douane et taxes d'importation peuvent s'appliquer et sont à la charge du client."
+      },
+      "payment": {
+        "label": "Modes de paiement",
+        "value": "Carte bancaire (Visa / Mastercard / JCB / American Express / Diners Club), Apple Pay, Google Pay, Alipay, WeChat Pay, iDEAL, Prélèvement SEPA, Cartes coréennes, Link"
+      },
+      "paymentTiming": {
+        "label": "Moment du paiement",
+        "value": "À la confirmation de commande"
+      },
+      "delivery": {
+        "label": "Délai de livraison",
+        "value": "Expédition généralement sous 5 à 10 jours ouvrables après confirmation"
+      },
+      "returns": {
+        "label": "Retours & échanges",
+        "value": "En raison de la nature de nos produits, les annulations, retours et échanges ne sont pas acceptés après confirmation. Des exceptions s'appliquent en cas de dommage, défaut d'impression ou mauvaise livraison — signalez-le à info@tcdashop.com dans les 7 jours suivant la réception. Un remplacement ou un remboursement sera effectué."
+      },
+      "quantity": {
+        "label": "Quantité disponible",
+        "value": "Dans la limite des stocks"
+      },
+      "browser": {
+        "label": "Navigateurs compatibles",
+        "value": "Dernière version de Chrome / Safari / Firefox / Edge"
+      }
+    }
+  },
+  "cookie": {
+    "message": "Nous utilisons des cookies via Google Analytics (GA4) pour analyser la fréquentation de notre site. Veuillez indiquer votre préférence.",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "learnMore": "Politique de confidentialité"
+  },
+  "about": {
+    "viewCollection": "VOIR LA COLLECTION",
+    "storyLabel": "STORY",
+    "storyTitle": "Transformer l'art numérique en culture portable.",
+    "storyBody": "TCDA est une marque qui traduit l'art né dans le monde numérique en vêtements portables. Des visuels qui n'existaient que sur les écrans — désormais quelque chose que vous pouvez réellement porter. Voilà pourquoi TCDA existe.",
+    "valuesLabel": "VALUES",
+    "value1Title": "ART FIRST",
+    "value1Body": "L'art avant le produit. Chaque design naît d'une intention artistique, pas d'une demande du marché.",
+    "value2Title": "INDIVIDUALITY",
+    "value2Body": "Porter son individualité. Montrer son individualité. Ce que vous revêtez est votre déclaration.",
+    "value3Title": "GLOBAL",
+    "value3Body": "L'art sans frontières. Un langage visuel qui transcende la géographie, la culture et les mots.",
+    "heroTitle": "L'individualité n'est pas quelque chose à cacher. C'est quelque chose à porter.",
+    "valuesTitle": "VALUES",
+    "value1": "ART FIRST",
+    "value2": "INDIVIDUALITY",
+    "value3": "GLOBAL",
+    "ctaLabel": "VOIR LA COLLECTION",
+    "brandFoundation": {
+      "title": "FONDATION DE LA MARQUE",
+      "description": "TCDA — Transcend Creative Dimension Aura — est une marque née à l'intersection de l'art numérique et de la culture du vêtement. Chaque design commence comme un concept visuel, créé pour porter un sens au-delà de l'esthétique.",
+      "individual": {
+        "title": "L'Individu",
+        "description": "Quelqu'un qui refuse de s'habiller comme tout le monde."
+      },
+      "artSeeker": {
+        "title": "Le Chercheur d'Art",
+        "description": "Quelqu'un qui trouve du sens dans l'expression visuelle."
+      },
+      "selfTransformer": {
+        "title": "Le Transformateur",
+        "description": "Quelqu'un en processus de devenir."
+      },
+      "artFirst": {
+        "title": "Design Art en Premier",
+        "description": "Chaque pièce commence comme un concept visuel, pas comme un produit."
+      },
+      "limited": {
+        "title": "Sentiment de Rareté",
+        "description": "Pas de masse. Pas de rapidité. Conçu pour sembler rare."
+      },
+      "wearable": {
+        "title": "Identité Portable",
+        "description": "Le vêtement comme forme d'autodéclaration."
+      },
+      "quote": "\"Nous ne faisons pas des vêtements. Nous faisons des artefacts de transformation personnelle.\""
+    },
+    "hero": {
+      "title": "L'individualité n'est pas quelque chose à cacher. C'est quelque chose à porter.",
+      "subtitle": "La mode guidée par l'art, pour ceux qui refusent l'ordinaire."
+    }
+  },
+  "common": {
+    "loading": "Chargement..."
+  },
+  "share": "Partager",
+  "copy_link": "Copier le lien",
+  "copied": "Copié !",
+  "reviews": {
+    "title": "Avis",
+    "anonymous": "Anonyme"
+  },
+  "review": {
+    "title": "Écrire un avis",
+    "subtitle": "Partagez votre expérience avec ce produit.",
+    "namePlaceholder": "Votre nom (facultatif)",
+    "bodyPlaceholder": "Rédigez votre avis",
+    "submit": "Envoyer",
+    "thanks": "Merci pour votre avis"
+  },
+  "collection": {
+    "heroTitle": "THE COLLECTION",
+    "heroSub": "Mode guidée par l'art. Chaque pièce est une déclaration.",
+    "conceptTitle": "PORTER L'ART",
+    "conceptBody": "Chaque pièce TCDA commence comme une œuvre numérique — abstraite, expressive et intentionnelle. Nous transformons l'énergie visuelle en vêtements qui portent un sens au-delà de la mode. Ce n'est pas un vêtement. C'est une position.",
+    "filterAll": "ALL",
+    "filterHoodie": "Sweat",
+    "filterZip": "Zippé",
+    "filterTshirt": "T-Shirt",
+    "filterMens": "MEN'S",
+    "filterWomens": "WOMEN'S",
+    "filterUnisex": "UNISEX"
+  },
+  "geo": {
+    "jp": {
+      "shipping": "Livraison en 7 à 14 jours ouvrés",
+      "returns": "Retours sous 30 jours",
+      "faqLink": "FAQ",
+      "topBanner": "Livraison mondiale disponible"
+    },
+    "eu": {
+      "material": "Impression DTG premium 100%",
+      "vat": "Prix TVA incluse",
+      "topBanner": "Livraison gratuite à partir de 100€"
+    }
+  },
+  "size_guide": {
+    "japan_note": "Les tailles japonaises sont généralement 1 à 2 tailles plus petites. En cas de doute, prenez une taille au-dessus."
+  }
+}
