@@ -251,7 +251,9 @@
       "length": "衣长",
       "sleeve": "袖长",
       "shoulder": "肩宽",
-      "waist": "腰围"
+      "waist": "腰围",
+      "inseam": "内缝长",
+      "rise": "裆深"
     },
     "measurementFlatNote": "平铺测量",
     "measurementVariationNote": "因生产公差，尺寸可能存在±1–2 cm的误差。",
@@ -260,7 +262,9 @@
       "length": "从肩部最高点量至下摆",
       "sleeve": "从肩缝量至袖口",
       "shoulder": "背面从一侧肩缝量至另一侧",
-      "waist": "腰部平铺宽度"
+      "waist": "腰部平铺宽度",
+      "inseam": "从裆缝到裤脚",
+      "rise": "从腰带到裆缝"
     },
     "figureAlt": "{{product}}尺码指南插图"
   },

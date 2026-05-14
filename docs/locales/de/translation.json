@@ -251,7 +251,9 @@
       "length": "Länge",
       "sleeve": "Ärmel",
       "shoulder": "Schulter",
-      "waist": "Taille"
+      "waist": "Taille",
+      "inseam": "Innenbeinlänge",
+      "rise": "Steighöhe"
     },
     "measurementFlatNote": "Maße flach genommen",
     "measurementVariationNote": "Geringe Abweichung (±1–2 cm) aufgrund von Produktionstoleranzen möglich.",
@@ -260,7 +262,9 @@
       "length": "von der Schulteroberkante bis zum Saum",
       "sleeve": "von der Schulternaht bis zur Manschette",
       "shoulder": "quer über den Rücken, Naht zu Naht",
-      "waist": "flach über der Taille"
+      "waist": "flach über der Taille",
+      "inseam": "von der Schrittnaht bis zum Saum",
+      "rise": "vom Bund bis zur Schrittnaht"
     },
     "figureAlt": "{{product}} Größentabellen-Illustration"
   },
