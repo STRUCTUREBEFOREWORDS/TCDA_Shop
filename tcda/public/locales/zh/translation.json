@@ -59,7 +59,14 @@
     "bestFor": "适合人群",
     "silhouette": "廓形",
     "materialFeel": "面料质感",
-    "stylePairing": "搭配建议"
+    "stylePairing": "搭配建议",
+    "fabricMaterialEu": "面料 (欧洲)",
+    "fabricMaterialUs": "面料 (美国)",
+    "fabricWeightEu": "克重 (欧洲)",
+    "fabricWeightUs": "克重 (美国)",
+    "fabricFeatures": "特点",
+    "fabricCertifications": "认证",
+    "fabricOrigin": "产地"
   },
   "cart": {
     "addToCart": "加入购物车",

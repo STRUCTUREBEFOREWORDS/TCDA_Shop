@@ -59,7 +59,14 @@
     "bestFor": "こんな人に",
     "silhouette": "シルエット",
     "materialFeel": "素材感",
-    "stylePairing": "スタイリング"
+    "stylePairing": "スタイリング",
+    "fabricMaterialEu": "素材（EU）",
+    "fabricMaterialUs": "素材（US）",
+    "fabricWeightEu": "重量（EU）",
+    "fabricWeightUs": "重量（US）",
+    "fabricFeatures": "特徴",
+    "fabricCertifications": "認証",
+    "fabricOrigin": "原産地"
   },
   "cart": {
     "addToCart": "カートに追加",

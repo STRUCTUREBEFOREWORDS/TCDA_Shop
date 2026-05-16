@@ -59,7 +59,14 @@
     "bestFor": "Best For",
     "silhouette": "Silhouette",
     "materialFeel": "Material Feel",
-    "stylePairing": "Style Pairing"
+    "stylePairing": "Style Pairing",
+    "fabricMaterialEu": "Material (EU)",
+    "fabricMaterialUs": "Material (US)",
+    "fabricWeightEu": "Weight (EU)",
+    "fabricWeightUs": "Weight (US)",
+    "fabricFeatures": "Features",
+    "fabricCertifications": "Certifications",
+    "fabricOrigin": "Origin"
   },
   "cart": {
     "addToCart": "Add to Cart",

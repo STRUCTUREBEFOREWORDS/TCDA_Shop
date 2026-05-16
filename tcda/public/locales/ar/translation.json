@@ -59,7 +59,14 @@
     "bestFor": "الأنسب لـ",
     "silhouette": "الخط الخارجي",
     "materialFeel": "ملمس المادة",
-    "stylePairing": "تنسيق الأزياء"
+    "stylePairing": "تنسيق الأزياء",
+    "fabricMaterialEu": "المادة (EU)",
+    "fabricMaterialUs": "المادة (US)",
+    "fabricWeightEu": "الوزن (EU)",
+    "fabricWeightUs": "الوزن (US)",
+    "fabricFeatures": "المميزات",
+    "fabricCertifications": "الشهادات",
+    "fabricOrigin": "المنشأ"
   },
   "cart": {
     "addToCart": "أضف إلى السلة",

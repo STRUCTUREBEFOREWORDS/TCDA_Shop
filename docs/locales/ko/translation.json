@@ -59,7 +59,14 @@
     "bestFor": "이런 분께",
     "silhouette": "실루엣",
     "materialFeel": "소재감",
-    "stylePairing": "스타일링"
+    "stylePairing": "스타일링",
+    "fabricMaterialEu": "소재 (EU)",
+    "fabricMaterialUs": "소재 (US)",
+    "fabricWeightEu": "중량 (EU)",
+    "fabricWeightUs": "중량 (US)",
+    "fabricFeatures": "특징",
+    "fabricCertifications": "인증",
+    "fabricOrigin": "원산지"
   },
   "cart": {
     "addToCart": "카트에 추가",
