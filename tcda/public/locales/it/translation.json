@@ -67,7 +67,14 @@
     "fabricFeatures": "Caratteristiche",
     "fabricCertifications": "Certificazioni",
     "fabricOrigin": "Origine",
-    "fabricComposition": "100% poliestere, stampa a sublimazione. Lavaggio in lavatrice a freddo. Non asciugare in asciugatrice."
+    "fabricComposition": "100% poliestere, stampa a sublimazione. Lavaggio in lavatrice a freddo. Non asciugare in asciugatrice.",
+    "origin": {
+      "mexicoPolandMexico": "Prodotto in Messico (materiali da Polonia e Messico)",
+      "euChinaPoland": "Prodotto nell'UE (materiali da Cina e Polonia)",
+      "euLithuania": "Prodotto nell'UE (Lituania)",
+      "usUs": "Prodotto negli USA",
+      "chinaUsa": "Materiali da Cina e USA"
+    }
   },
   "cart": {
     "addToCart": "Aggiungi al carrello",

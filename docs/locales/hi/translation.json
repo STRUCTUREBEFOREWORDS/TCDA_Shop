@@ -70,7 +70,14 @@
     "fabricWeightUs": "वजन (US)",
     "fabricFeatures": "विशेषताएं",
     "fabricCertifications": "प्रमाणपत्र",
-    "fabricOrigin": "उत्पत्ति"
+    "fabricOrigin": "उत्पत्ति",
+    "origin": {
+      "mexicoPolandMexico": "मेक्सिको में निर्मित (पोलैंड और मेक्सिको की सामग्री)",
+      "euChinaPoland": "EU में निर्मित (चीन और पोलैंड की सामग्री)",
+      "euLithuania": "EU में निर्मित (लिथुआनिया)",
+      "usUs": "USA में निर्मित",
+      "chinaUsa": "चीन और USA की सामग्री"
+    }
   },
   "cart": {
     "addToCart": "Cart में जोड़ें",

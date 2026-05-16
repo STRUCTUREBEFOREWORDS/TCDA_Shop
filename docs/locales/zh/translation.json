@@ -67,7 +67,14 @@
     "fabricFeatures": "特点",
     "fabricCertifications": "认证",
     "fabricOrigin": "产地",
-    "fabricComposition": "100%聚酯纤维，升华印刷。冷水机洗。不可烘干。"
+    "fabricComposition": "100%聚酯纤维，升华印刷。冷水机洗。不可烘干。",
+    "origin": {
+      "mexicoPolandMexico": "墨西哥制造（波兰·墨西哥原材料）",
+      "euChinaPoland": "欧盟制造（中国·波兰原材料）",
+      "euLithuania": "欧盟制造（立陶宛产）",
+      "usUs": "美国制造",
+      "chinaUsa": "中国·美国原材料"
+    }
   },
   "cart": {
     "addToCart": "加入购物车",

@@ -67,7 +67,14 @@
     "fabricFeatures": "Eigenschaften",
     "fabricCertifications": "Zertifizierungen",
     "fabricOrigin": "Herkunft",
-    "fabricComposition": "100% Polyester, Sublimationsdruck. Maschinenwäsche kalt. Nicht im Trockner trocknen."
+    "fabricComposition": "100% Polyester, Sublimationsdruck. Maschinenwäsche kalt. Nicht im Trockner trocknen.",
+    "origin": {
+      "mexicoPolandMexico": "Hergestellt in Mexiko (Materialien aus Polen und Mexiko)",
+      "euChinaPoland": "Hergestellt in der EU (Materialien aus China und Polen)",
+      "euLithuania": "Hergestellt in der EU (Litauen)",
+      "usUs": "Hergestellt in den USA",
+      "chinaUsa": "Materialien aus China und den USA"
+    }
   },
   "cart": {
     "addToCart": "In den Warenkorb",

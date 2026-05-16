@@ -711,6 +711,13 @@ export function ProductPage() {
             {t("product.materialDetailsLabel")}
           </h2>
           {product.fabric_detail ? (() => {
+            const ORIGIN_MAP: Record<string, string> = {
+              "Blank product components in Mexico sourced from Poland and Mexico": "product.origin.mexicoPolandMexico",
+              "Blank product components in the EU sourced from China and Poland": "product.origin.euChinaPoland",
+              "Blank product components in the EU sourced from Lithuania": "product.origin.euLithuania",
+              "Blank product components in the US sourced from the US": "product.origin.usUs",
+              "Blank product components sourced from China and the USA": "product.origin.chinaUsa",
+            };
             const getLocalizedList = (field: string[] | Record<string, string[]> | undefined): string[] => {
               if (!field) return [];
               if (Array.isArray(field)) return field;
@@ -772,7 +779,10 @@ export function ProductPage() {
                 <div className="flex gap-4">
                   <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricOrigin")}</span>
                   <ul className="space-y-1">
-                    {origin.map((o, i) => <li key={i}>{o}</li>)}
+                    {origin.map((o, i) => {
+                      const key = ORIGIN_MAP[o];
+                      return <li key={i}>{key ? t(key) : o}</li>;
+                    })}
                   </ul>
                 </div>
               )}

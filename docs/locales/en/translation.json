@@ -67,7 +67,14 @@
     "fabricFeatures": "Features",
     "fabricCertifications": "Certifications",
     "fabricOrigin": "Origin",
-    "fabricComposition": "100% polyester, sublimation print. Machine wash cold. Do not tumble dry."
+    "fabricComposition": "100% polyester, sublimation print. Machine wash cold. Do not tumble dry.",
+    "origin": {
+      "mexicoPolandMexico": "Made in Mexico (materials from Poland & Mexico)",
+      "euChinaPoland": "Made in EU (materials from China & Poland)",
+      "euLithuania": "Made in EU (Lithuania)",
+      "usUs": "Made in USA",
+      "chinaUsa": "Materials from China & USA"
+    }
   },
   "cart": {
     "addToCart": "Add to Cart",

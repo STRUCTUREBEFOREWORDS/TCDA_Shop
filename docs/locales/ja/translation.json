@@ -67,7 +67,14 @@
     "fabricFeatures": "特徴",
     "fabricCertifications": "認証",
     "fabricOrigin": "原産地",
-    "fabricComposition": "100%ポリエステル、昇華プリント。冷水で洗濯機可。乾燥機不可。"
+    "fabricComposition": "100%ポリエステル、昇華プリント。冷水で洗濯機可。乾燥機不可。",
+    "origin": {
+      "mexicoPolandMexico": "メキシコ製（ポーランド・メキシコ産素材）",
+      "euChinaPoland": "EU製（中国・ポーランド産素材）",
+      "euLithuania": "EU製（リトアニア産）",
+      "usUs": "アメリカ製",
+      "chinaUsa": "中国・アメリカ産素材使用"
+    }
   },
   "cart": {
     "addToCart": "カートに追加",

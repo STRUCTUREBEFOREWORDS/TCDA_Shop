@@ -67,7 +67,14 @@
     "fabricFeatures": "Características",
     "fabricCertifications": "Certificaciones",
     "fabricOrigin": "Origen",
-    "fabricComposition": "100% poliéster, impresión por sublimación. Lavar a máquina en frío. No secar en secadora."
+    "fabricComposition": "100% poliéster, impresión por sublimación. Lavar a máquina en frío. No secar en secadora.",
+    "origin": {
+      "mexicoPolandMexico": "Fabricado en México (materiales de Polonia y México)",
+      "euChinaPoland": "Fabricado en la UE (materiales de China y Polonia)",
+      "euLithuania": "Fabricado en la UE (Lituania)",
+      "usUs": "Fabricado en EE.UU.",
+      "chinaUsa": "Materiales de China y EE.UU."
+    }
   },
   "cart": {
     "addToCart": "Añadir al carrito",
