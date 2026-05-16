@@ -53,9 +53,9 @@ export function TopPage() {
   return (
     <div className="min-h-screen bg-black">
       <Helmet>
-        <title>TCDA — Transcend Creative Dimension Aura</title>
+        <title>TCDA | アートを着る、感性を解放する</title>
         <meta name="description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
-        <meta property="og:title" content="TCDA — Transcend Creative Dimension Aura" />
+        <meta property="og:title" content="TCDA | アートを着る、感性を解放する" />
         <meta property="og:description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
         <meta property="og:url" content={`https://tcdashop.com/${language}/`} />
         <meta property="og:image" content="https://cdn.tcdashop.com/top/hero-transcend-desktop.webp" />

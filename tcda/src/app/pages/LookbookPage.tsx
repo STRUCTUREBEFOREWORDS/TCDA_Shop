@@ -15,7 +15,7 @@ export function LookbookPage() {
     <div style={{ background: "var(--color-bg)" }}>
       <Helmet>
         <title>Lookbook — TCDA</title>
-        <meta name="description" content="TCDA Lookbook — Abstract art transformed into wearable culture. Explore the visual world of Transcend Creative Dimension Aura." />
+        <meta name="description" content="TCDA Lookbook — Color immersion as fashion. Explore the visual world of TCDA." />
         <link rel="canonical" href={canonical} />
         <meta property="og:title" content="Lookbook — TCDA" />
         <meta property="og:description" content="Abstract art transformed into wearable culture." />
