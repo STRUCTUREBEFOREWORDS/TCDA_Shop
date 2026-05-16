@@ -471,5 +471,10 @@
       "vat": "가격에 부가세 포함",
       "topBanner": "€100 이상 주문 시 무료 배송"
     }
+  },
+  "payment": {
+    "errorMessage": "결제가 완료되지 않았습니다. 장바구니는 유지되었습니다.",
+    "backToCart": "장바구니로 돌아가기",
+    "contactSupport": "지원 문의"
   }
 }

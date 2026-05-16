@@ -471,5 +471,10 @@
       "vat": "Price includes VAT",
       "topBanner": "Free shipping on orders over €100"
     }
+  },
+  "payment": {
+    "errorMessage": "Payment was not completed. Your cart has been saved.",
+    "backToCart": "Back to Cart",
+    "contactSupport": "Contact Support"
   }
 }

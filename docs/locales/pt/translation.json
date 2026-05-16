@@ -471,5 +471,10 @@
       "vat": "Preço inclui IVA",
       "topBanner": "Frete grátis em pedidos acima de €100"
     }
+  },
+  "payment": {
+    "errorMessage": "O pagamento não foi concluído. Seu carrinho foi salvo.",
+    "backToCart": "Voltar ao carrinho",
+    "contactSupport": "Contatar suporte"
   }
 }

@@ -471,5 +471,10 @@
       "vat": "Preis inkl. MwSt.",
       "topBanner": "Kostenloser Versand ab €100"
     }
+  },
+  "payment": {
+    "errorMessage": "Die Zahlung wurde nicht abgeschlossen. Ihr Warenkorb wurde gespeichert.",
+    "backToCart": "Zurück zum Warenkorb",
+    "contactSupport": "Support kontaktieren"
   }
 }

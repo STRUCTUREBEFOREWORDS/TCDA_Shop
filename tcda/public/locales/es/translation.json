@@ -471,5 +471,10 @@
       "vat": "Precio con IVA incluido",
       "topBanner": "Envío gratis en pedidos superiores a 100€"
     }
+  },
+  "payment": {
+    "errorMessage": "El pago no se completó. Tu carrito ha sido guardado.",
+    "backToCart": "Volver al carrito",
+    "contactSupport": "Contactar soporte"
   }
 }

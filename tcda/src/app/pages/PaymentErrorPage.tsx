@@ -1,8 +1,10 @@
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import { useGlobalContext } from "./Root";
 
 export function PaymentErrorPage() {
   const { language } = useGlobalContext();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center overflow-hidden relative">
@@ -55,15 +57,14 @@ export function PaymentErrorPage() {
         </h1>
 
         <p className="text-[0.8rem] font-light tracking-wider text-white/40 leading-relaxed mb-12">
-          決済が完了していませんでした。<br />
-          カートの内容は保持されています。
+          {t("payment.errorMessage")}
         </p>
 
         <Link
           to={`/${language}/cart`}
           className="inline-block px-10 py-3 border border-white/25 text-[0.7rem] font-light tracking-[0.3em] uppercase hover:border-white/70 hover:bg-white/5 transition-all duration-300 mb-10"
         >
-          カートへ戻る
+          {t("payment.backToCart")}
         </Link>
 
         <div className="flex gap-8">
@@ -71,7 +72,7 @@ export function PaymentErrorPage() {
             to={`/${language}/contact`}
             className="text-[0.6rem] font-light tracking-[0.35em] uppercase text-white/25 hover:text-white/70 transition-colors duration-300"
           >
-            サポートへ
+            {t("payment.contactSupport")}
           </Link>
         </div>
       </div>
