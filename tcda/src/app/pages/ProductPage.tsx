@@ -139,6 +139,14 @@ export function ProductPage() {
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
   const { t } = useTranslation();
 
+  const formatDate = (dateStr: string) => {
+    try {
+      return new Intl.DateTimeFormat(language, { month: "short", day: "numeric" }).format(new Date(dateStr));
+    } catch {
+      return dateStr;
+    }
+  };
+
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string>("");
@@ -294,7 +302,7 @@ export function ProductPage() {
         <div>
           <p className="leading-relaxed">{t("product.deliveryText")}</p>
           {deliveryDate && (
-            <p className="mt-2 opacity-70">{deliveryDate.min} 〜 {deliveryDate.max}</p>
+            <p className="mt-2 opacity-70">{formatDate(deliveryDate.min)} 〜 {formatDate(deliveryDate.max)}</p>
           )}
         </div>
       ),
@@ -863,7 +871,7 @@ export function ProductPage() {
               {t("product.deliveryLabel")}
             </h2>
             <p className="text-sm font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
-              {deliveryDate.min} 〜 {deliveryDate.max}
+              {formatDate(deliveryDate.min)} 〜 {formatDate(deliveryDate.max)}
             </p>
           </motion.div>
         )}
