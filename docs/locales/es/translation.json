@@ -1,7 +1,4 @@
 {
-  "home": {
-    "transcend": "TRANSCEND"
-  },
   "nav": {
     "shop": "TIENDA",
     "look": "Look",
@@ -62,15 +59,7 @@
     "bestFor": "Ideal para",
     "silhouette": "Silueta",
     "materialFeel": "Sensación del material",
-    "stylePairing": "Combinación de estilos",
-    "fabricComposition": "100% poliéster, impresión por sublimación. Lavar en frío. No usar secadora.",
-    "fabricMaterialEu": "Material (UE)",
-    "fabricMaterialUs": "Material (EE.UU.)",
-    "fabricWeightEu": "Peso (UE)",
-    "fabricWeightUs": "Peso (EE.UU.)",
-    "fabricFeatures": "Características",
-    "fabricCertifications": "Certificaciones",
-    "fabricOrigin": "Origen"
+    "stylePairing": "Combinación de estilos"
   },
   "cart": {
     "addToCart": "Añadir al carrito",
@@ -89,7 +78,8 @@
     "quickView": "Vista rápida",
     "added": "Agregado",
     "taxNote": "Impuestos calculados al pagar",
-    "shippingNote": "Envío calculado al pagar"
+    "shippingNote": "Envío calculado al pagar",
+    "checkoutError": "El pago falló. Por favor, inténtelo de nuevo."
   },
   "shop": {
     "all": "Todo",
@@ -263,7 +253,7 @@
       "sleeve": "desde la costura del hombro hasta el puño",
       "shoulder": "de costura a costura por la espalda",
       "waist": "plano, a la altura de la cintura",
-      "inseam": "desde la costura de la entrepierna hasta el dobladillo",
+      "inseam": "desde la costura de la entrepierna hasta el bajo",
       "rise": "desde la cintura hasta la costura de la entrepierna"
     },
     "figureAlt": "Ilustración de la guía de tallas {{product}}"
@@ -296,7 +286,7 @@
     "title": "Envíos y devoluciones",
     "pageIntro": "Todo sobre el envío y nuestra política de devoluciones. ¿Preguntas? Escríbenos a info@tcdashop.com.",
     "shippingTitle": "Envío",
-    "shippingBody": "Los pedidos se envían en un plazo de 2 a 7 días hábiles a través de Printful. Se proporcionará un número de seguimiento tras el envío.",
+    "shippingBody": "Los pedidos se procesan en 2–5 días hábiles a través de Printful. Recibirás un número de seguimiento una vez enviado.",
     "shippingAddressNote": "※ Para entregas en Japón, la dirección de envío se convertirá automáticamente al inglés en la etiqueta. Esto se debe a los requisitos del sistema de envío internacional. Su destino de entrega no cambia.",
     "deliveryTitle": "Entrega",
     "deliveryBody": "Tras el envío, la entrega suele tardar 5–10 días hábiles. Los plazos pueden variar según la región.",
@@ -306,9 +296,7 @@
     "returnsMethod": "Resolución: reenvío o reembolso tras verificación",
     "returnsNote": "No se aceptan devoluciones por talla o cambio de opinión.",
     "contactTitle": "Contacto",
-    "contactBody": "Para cualquier otra consulta, escríbenos a la dirección indicada a continuación.",
-    "customsTitle": "Aranceles e impuestos de importación",
-    "customsBody": "Los productos se envían desde EE. UU. o Europa. Dependiendo de su país, pueden aplicarse aranceles, impuestos de importación o gastos de gestión aduanera. Estos gastos son responsabilidad del cliente. Consulte la normativa aduanera local para más detalles."
+    "contactBody": "Para cualquier otra consulta, escríbenos a la dirección indicada a continuación."
   },
   "contact": {
     "title": "Contacto",
@@ -387,11 +375,11 @@
       },
       "price": {
         "label": "Precio",
-        "value": "Precio indicado en cada página de producto (impuestos incluidos según corresponda). * Los aranceles e impuestos de importación pueden aplicarse y son responsabilidad del cliente."
+        "value": "Indicado en cada página de producto (impuestos incluidos)"
       },
       "payment": {
         "label": "Métodos de pago",
-        "value": "Tarjeta de crédito (Visa / Mastercard / JCB / American Express / Diners Club), Apple Pay, Google Pay, Alipay, WeChat Pay, iDEAL, Débito SEPA, Tarjetas coreanas, Link"
+        "value": "Tarjeta de crédito (Visa / Mastercard / JCB / American Express / Diners Club)"
       },
       "paymentTiming": {
         "label": "Momento del pago",
@@ -438,40 +426,7 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "VER COLECCIÓN",
-    "brandFoundation": {
-      "title": "FUNDACIÓN DE MARCA",
-      "description": "TCDA — Transcend Creative Dimension Aura — es una marca nacida en la intersección del arte digital y la cultura del vestir. Cada diseño comienza como un concepto visual, creado para llevar un significado más allá de la estética.",
-      "individual": {
-        "title": "El Individuo",
-        "description": "Alguien que se niega a vestirse como todos los demás."
-      },
-      "artSeeker": {
-        "title": "El Buscador de Arte",
-        "description": "Alguien que encuentra significado en la expresión visual."
-      },
-      "selfTransformer": {
-        "title": "El Autotransformador",
-        "description": "Alguien en proceso de convertirse."
-      },
-      "artFirst": {
-        "title": "Diseño Arte Primero",
-        "description": "Cada pieza comienza como un concepto visual, no como un producto."
-      },
-      "limited": {
-        "title": "Sensación de Rareza",
-        "description": "No masivo. No rápido. Diseñado para sentirse raro."
-      },
-      "wearable": {
-        "title": "Identidad Vestible",
-        "description": "La ropa como forma de autodeclaración."
-      },
-      "quote": "\"No hacemos ropa. Hacemos artefactos de transformación personal.\""
-    },
-    "hero": {
-      "title": "La individualidad no es algo que ocultar. Es algo que vestir.",
-      "subtitle": "Moda impulsada por el arte para quienes rechazan lo ordinario."
-    }
+    "ctaLabel": "VER COLECCIÓN"
   },
   "common": {
     "loading": "Cargando..."
@@ -495,14 +450,7 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Moda impulsada por el arte. Cada pieza es una declaración.",
     "conceptTitle": "VISTE EL ARTE",
-    "conceptBody": "Cada pieza de TCDA comienza como una obra de arte digital — abstracta, expresiva e intencional. Transformamos la energía visual en prendas que llevan un significado más allá de la moda. Esto no es ropa. Esto es una posición.",
-    "filterAll": "ALL",
-    "filterHoodie": "Sudadera",
-    "filterZip": "Zip",
-    "filterTshirt": "Camiseta",
-    "filterMens": "MEN'S",
-    "filterWomens": "WOMEN'S",
-    "filterUnisex": "UNISEX"
+    "conceptBody": "Cada pieza de TCDA comienza como una obra de arte digital — abstracta, expresiva e intencional. Transformamos la energía visual en prendas que llevan un significado más allá de la moda. Esto no es ropa. Esto es una posición."
   },
   "geo": {
     "jp": {
@@ -516,8 +464,5 @@
       "vat": "Precio con IVA incluido",
       "topBanner": "Envío gratis en pedidos superiores a 100€"
     }
-  },
-  "size_guide": {
-    "japan_note": "Las tallas japonesas suelen ser 1 o 2 tallas más pequeñas. En caso de duda, elija una talla mayor."
   }
 }

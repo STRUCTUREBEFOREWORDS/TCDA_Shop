@@ -1,7 +1,4 @@
 {
-  "home": {
-    "transcend": "TRANSCEND"
-  },
   "nav": {
     "shop": "SHOP",
     "look": "Look",
@@ -62,15 +59,7 @@
     "bestFor": "Am besten für",
     "silhouette": "Silhouette",
     "materialFeel": "Materialempfinden",
-    "stylePairing": "Styling-Kombination",
-    "fabricComposition": "100% Polyester, Sublimationsdruck. Kalt waschen. Nicht im Trockner trocknen.",
-    "fabricMaterialEu": "Material (EU)",
-    "fabricMaterialUs": "Material (US)",
-    "fabricWeightEu": "Gewicht (EU)",
-    "fabricWeightUs": "Gewicht (US)",
-    "fabricFeatures": "Merkmale",
-    "fabricCertifications": "Zertifizierungen",
-    "fabricOrigin": "Herkunft"
+    "stylePairing": "Styling-Kombination"
   },
   "cart": {
     "addToCart": "In den Warenkorb",
@@ -89,7 +78,8 @@
     "quickView": "Schnellansicht",
     "added": "Hinzugefügt",
     "taxNote": "Steuern werden an der Kasse berechnet",
-    "shippingNote": "Versandkosten werden an der Kasse berechnet"
+    "shippingNote": "Versandkosten werden an der Kasse berechnet",
+    "checkoutError": "Bezahlung fehlgeschlagen. Bitte versuchen Sie es erneut."
   },
   "shop": {
     "all": "ALLE",
@@ -252,8 +242,8 @@
       "sleeve": "Ärmel",
       "shoulder": "Schulter",
       "waist": "Taille",
-      "inseam": "Innenbeinlänge",
-      "rise": "Steighöhe"
+      "inseam": "Innennähte",
+      "rise": "Schrittlänge"
     },
     "measurementFlatNote": "Maße flach genommen",
     "measurementVariationNote": "Geringe Abweichung (±1–2 cm) aufgrund von Produktionstoleranzen möglich.",
@@ -263,7 +253,7 @@
       "sleeve": "von der Schulternaht bis zur Manschette",
       "shoulder": "quer über den Rücken, Naht zu Naht",
       "waist": "flach über der Taille",
-      "inseam": "von der Schrittnaht bis zum Saum",
+      "inseam": "von der Schritt naht bis zum Saum",
       "rise": "vom Bund bis zur Schrittnaht"
     },
     "figureAlt": "{{product}} Größentabellen-Illustration"
@@ -296,7 +286,7 @@
     "title": "Versand & Rückgabe",
     "pageIntro": "Alles über Versand und Rückgabe. Fragen? E-Mail: info@tcdashop.com.",
     "shippingTitle": "Versand",
-    "shippingBody": "Bestellungen werden innerhalb von 2–7 Werktagen über Printful versendet. Nach dem Versand erhalten Sie eine Sendungsverfolgungsnummer.",
+    "shippingBody": "Bestellungen werden innerhalb von 2–5 Werktagen über Printful bearbeitet. Nach dem Versand wird eine Sendungsnummer zugesendet.",
     "shippingAddressNote": "※ Bei Lieferungen innerhalb Japans wird die Lieferadresse auf dem Versandetikett automatisch ins Englische umgewandelt. Das Lieferziel bleibt unverändert.",
     "deliveryTitle": "Lieferung",
     "deliveryBody": "Nach dem Versand dauert die Lieferung in der Regel 5–10 Werktage. Zeiten können je nach Region variieren.",
@@ -306,9 +296,7 @@
     "returnsMethod": "Lösung: Ersatz oder Rückerstattung nach Überprüfung",
     "returnsNote": "Rückgaben aufgrund von Größenpräferenz oder Sinneswandel werden nicht akzeptiert.",
     "contactTitle": "Kontakt",
-    "contactBody": "Für andere Fragen erreichst du uns unter der folgenden Adresse.",
-    "customsTitle": "Zölle und Einfuhrsteuern",
-    "customsBody": "Die Produkte werden aus den USA oder Europa versendet. Je nach Zielland können Zölle, Einfuhrsteuern oder Zollgebühren anfallen. Diese Kosten trägt der Kunde. Bitte informieren Sie sich über die Zollvorschriften Ihres Landes."
+    "contactBody": "Für andere Fragen erreichst du uns unter der folgenden Adresse."
   },
   "contact": {
     "title": "Kontakt",
@@ -387,11 +375,11 @@
       },
       "price": {
         "label": "Preis",
-        "value": "Wie auf der jeweiligen Produktseite angegeben (ggf. inkl. MwSt.). * Zölle und Einfuhrsteuern können anfallen und sind vom Kunden zu tragen."
+        "value": "Wie auf jeder Produktseite angegeben (inkl. Steuern)"
       },
       "payment": {
         "label": "Zahlungsmethoden",
-        "value": "Kreditkarte (Visa / Mastercard / JCB / American Express / Diners Club), Apple Pay, Google Pay, Alipay, WeChat Pay, iDEAL, SEPA-Lastschrift, Koreanische Karten, Link"
+        "value": "Kreditkarte (Visa / Mastercard / JCB / American Express / Diners Club)"
       },
       "paymentTiming": {
         "label": "Zahlungszeitpunkt",
@@ -438,40 +426,7 @@
     "value1": "KUNST ZUERST",
     "value2": "INDIVIDUALITÄT",
     "value3": "GLOBAL",
-    "ctaLabel": "KOLLEKTION ANSEHEN",
-    "brandFoundation": {
-      "title": "MARKENFUNDAMENT",
-      "description": "TCDA — Transcend Creative Dimension Aura — ist eine Marke, die an der Schnittstelle von digitaler Kunst und Wearable-Kultur entstanden ist. Jedes Design beginnt als visuelles Konzept, das Bedeutung jenseits der Ästhetik trägt.",
-      "individual": {
-        "title": "Das Individuum",
-        "description": "Jemand, der sich weigert, sich wie alle anderen zu kleiden."
-      },
-      "artSeeker": {
-        "title": "Der Kunstsucher",
-        "description": "Jemand, der Bedeutung im visuellen Ausdruck findet."
-      },
-      "selfTransformer": {
-        "title": "Der Selbsttransformierer",
-        "description": "Jemand im Prozess des Werdens."
-      },
-      "artFirst": {
-        "title": "Kunst-zuerst-Design",
-        "description": "Jedes Stück beginnt als visuelles Konzept, nicht als Produkt."
-      },
-      "limited": {
-        "title": "Seltenheitsgefühl",
-        "description": "Nicht Massenware. Nicht schnell. Designed, um selten zu wirken."
-      },
-      "wearable": {
-        "title": "Tragbare Identität",
-        "description": "Kleidung als Form der Selbstdeklaration."
-      },
-      "quote": "\"Wir machen keine Kleidung. Wir machen Artefakte persönlicher Transformation.\""
-    },
-    "hero": {
-      "title": "Individualität ist nichts, was man verbirgt. Es ist etwas, das man trägt.",
-      "subtitle": "Kunstgetriebene Mode für diejenigen, die das Gewöhnliche ablehnen."
-    }
+    "ctaLabel": "KOLLEKTION ANSEHEN"
   },
   "common": {
     "loading": "Wird geladen..."
@@ -495,14 +450,7 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Kunstgetriebene Mode. Jedes Stück ist ein Statement.",
     "conceptTitle": "TRAGE DIE KUNST",
-    "conceptBody": "Jedes TCDA-Stück beginnt als digitales Kunstwerk — abstrakt, ausdrucksstark und bewusst. Wir verwandeln visuelle Energie in Kleidungsstücke, die eine Bedeutung jenseits der Mode tragen. Das ist keine Kleidung. Das ist eine Haltung.",
-    "filterAll": "ALL",
-    "filterHoodie": "Hoodie",
-    "filterZip": "Zip-Hoodie",
-    "filterTshirt": "T-Shirt",
-    "filterMens": "MEN'S",
-    "filterWomens": "WOMEN'S",
-    "filterUnisex": "UNISEX"
+    "conceptBody": "Jedes TCDA-Stück beginnt als digitales Kunstwerk — abstrakt, ausdrucksstark und bewusst. Wir verwandeln visuelle Energie in Kleidungsstücke, die eine Bedeutung jenseits der Mode tragen. Das ist keine Kleidung. Das ist eine Haltung."
   },
   "geo": {
     "jp": {
@@ -516,8 +464,5 @@
       "vat": "Preis inkl. MwSt.",
       "topBanner": "Kostenloser Versand ab €100"
     }
-  },
-  "size_guide": {
-    "japan_note": "Japanische Größen sind in der Regel 1-2 Nummern kleiner. Im Zweifel eine Größe größer wählen."
   }
 }

@@ -1,7 +1,4 @@
 {
-  "home": {
-    "transcend": "TRANSCEND"
-  },
   "nav": {
     "shop": "SHOP",
     "look": "Look",
@@ -62,15 +59,7 @@
     "bestFor": "Best For",
     "silhouette": "Silhouette",
     "materialFeel": "Material Feel",
-    "stylePairing": "Style Pairing",
-    "fabricComposition": "100% polyester, sublimation print. Machine wash cold. Do not tumble dry.",
-    "fabricMaterialEu": "Material (EU)",
-    "fabricMaterialUs": "Material (US)",
-    "fabricWeightEu": "Weight (EU)",
-    "fabricWeightUs": "Weight (US)",
-    "fabricFeatures": "Features",
-    "fabricCertifications": "Certifications",
-    "fabricOrigin": "Origin"
+    "stylePairing": "Style Pairing"
   },
   "cart": {
     "addToCart": "Add to Cart",
@@ -89,7 +78,8 @@
     "quickView": "Quick View",
     "added": "Added",
     "taxNote": "Taxes calculated at checkout",
-    "shippingNote": "Shipping calculated at checkout"
+    "shippingNote": "Shipping calculated at checkout",
+    "checkoutError": "Checkout failed. Please try again."
   },
   "shop": {
     "all": "ALL",
@@ -296,7 +286,7 @@
     "title": "Shipping & Returns",
     "pageIntro": "Everything you need to know about shipping and our returns policy. Questions? Email info@tcdashop.com.",
     "shippingTitle": "Shipping",
-    "shippingBody": "Orders are dispatched within 2–7 business days via Printful. A tracking number will be provided after shipment.",
+    "shippingBody": "Orders are fulfilled within 2–5 business days via Printful. A tracking number will be sent once dispatched.",
     "shippingAddressNote": "※ For deliveries within Japan, the shipping address will be automatically converted to English on the shipping label. This is due to international shipping system requirements. Your delivery destination remains unchanged.",
     "deliveryTitle": "Delivery",
     "deliveryBody": "After dispatch, delivery typically takes 5–10 business days. Times may vary by region.",
@@ -306,9 +296,7 @@
     "returnsMethod": "Resolution: replacement or refund after verification",
     "returnsNote": "Returns due to size preference or change of mind are not accepted.",
     "contactTitle": "Contact Us",
-    "contactBody": "For any other questions, please reach out at the address below.",
-    "customsTitle": "Customs & Import Duties",
-    "customsBody": "Products are shipped from the US or Europe. Depending on your country, customs duties, import taxes, or handling fees may apply. These charges are the customer's responsibility. Please check your local customs regulations for details."
+    "contactBody": "For any other questions, please reach out at the address below."
   },
   "contact": {
     "title": "Contact",
@@ -387,11 +375,11 @@
       },
       "price": {
         "label": "Price",
-        "value": "As listed on each product page (tax included where applicable). * Customs duties and import taxes may apply and are the customer's responsibility."
+        "value": "As listed on each product page (tax included)"
       },
       "payment": {
         "label": "Payment Methods",
-        "value": "Credit card (Visa / Mastercard / JCB / American Express / Diners Club), Apple Pay, Google Pay, Alipay, WeChat Pay, iDEAL, SEPA Direct Debit, Korean cards, Link"
+        "value": "Credit card (Visa / Mastercard / JCB / American Express / Diners Club)"
       },
       "paymentTiming": {
         "label": "Payment Timing",
@@ -434,48 +422,14 @@
     "value3Title": "GLOBAL",
     "value3Body": "Art without borders. A visual language that transcends geography, culture, and language.",
     "heroTitle": "Individuality is not something to hide. It is something to wear.",
-    "hero": {
-      "title": "Individuality is not something to hide. It is something to wear.",
-      "subtitle": "Art-driven fashion for those who refuse the ordinary."
-    },
     "valuesTitle": "VALUES",
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "VIEW COLLECTION",
-    "brandFoundation": {
-      "title": "BRAND FOUNDATION",
-      "description": "TCDA — Transcend Creative Dimension Aura — is a brand born at the intersection of digital art and wearable culture. Every design begins as a visual concept, created to carry meaning beyond aesthetics.",
-      "individual": {
-        "title": "The Individual",
-        "description": "Someone who refuses to dress like everyone else."
-      },
-      "artSeeker": {
-        "title": "The Art Seeker",
-        "description": "Someone who finds meaning in visual expression."
-      },
-      "selfTransformer": {
-        "title": "The Self-Transformer",
-        "description": "Someone in the process of becoming."
-      },
-      "artFirst": {
-        "title": "Art-First Design",
-        "description": "Every piece starts as a visual concept, not a product."
-      },
-      "limited": {
-        "title": "Limited Feeling",
-        "description": "Not mass. Not fast. Designed to feel rare."
-      },
-      "wearable": {
-        "title": "Wearable Identity",
-        "description": "Clothing as a form of self-declaration."
-      },
-      "quote": "\"We don't make clothes. We make artifacts of personal transformation.\""
-    }
+    "ctaLabel": "VIEW COLLECTION"
   },
   "common": {
-    "loading": "Loading...",
-    "loadMore": "Load more"
+    "loading": "Loading..."
   },
   "share": "Share",
   "copy_link": "Copy link",
@@ -496,14 +450,7 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Art-driven fashion. Every piece is a statement.",
     "conceptTitle": "WEAR THE ART",
-    "conceptBody": "Each TCDA piece begins as a digital artwork — abstract, expressive, and intentional. We transform visual energy into garments that carry meaning beyond fashion. This is not clothing. This is a position.",
-    "filterAll": "ALL",
-    "filterHoodie": "Hoodie",
-    "filterZip": "Zip Hoodie",
-    "filterTshirt": "T-Shirt",
-    "filterMens": "MEN'S",
-    "filterWomens": "WOMEN'S",
-    "filterUnisex": "UNISEX"
+    "conceptBody": "Each TCDA piece begins as a digital artwork — abstract, expressive, and intentional. We transform visual energy into garments that carry meaning beyond fashion. This is not clothing. This is a position."
   },
   "geo": {
     "jp": {
@@ -517,8 +464,5 @@
       "vat": "Price includes VAT",
       "topBanner": "Free shipping on orders over €100"
     }
-  },
-  "size_guide": {
-    "japan_note": "Japanese sizing typically runs 1–2 sizes smaller. When in doubt, size up."
   }
 }

@@ -1,7 +1,4 @@
 {
-  "home": {
-    "transcend": "TRANSCEND"
-  },
   "nav": {
     "shop": "商店",
     "look": "造型",
@@ -62,15 +59,7 @@
     "bestFor": "适合人群",
     "silhouette": "廓形",
     "materialFeel": "面料质感",
-    "stylePairing": "搭配建议",
-    "fabricComposition": "100% 聚酯纤维，升华印花。冷水洗涤。不可烘干。",
-    "fabricMaterialEu": "材质 (欧盟)",
-    "fabricMaterialUs": "材质 (美国)",
-    "fabricWeightEu": "重量 (欧盟)",
-    "fabricWeightUs": "重量 (美国)",
-    "fabricFeatures": "特点",
-    "fabricCertifications": "认证",
-    "fabricOrigin": "产地"
+    "stylePairing": "搭配建议"
   },
   "cart": {
     "addToCart": "加入购物车",
@@ -89,7 +78,8 @@
     "quickView": "快速预览",
     "added": "已加入",
     "taxNote": "税款将在结账时计算",
-    "shippingNote": "运费将在结账时计算"
+    "shippingNote": "运费将在结账时计算",
+    "checkoutError": "结账失败，请重试。"
   },
   "shop": {
     "all": "全部",
@@ -253,7 +243,7 @@
       "shoulder": "肩宽",
       "waist": "腰围",
       "inseam": "内缝长",
-      "rise": "裆深"
+      "rise": "裆高"
     },
     "measurementFlatNote": "平铺测量",
     "measurementVariationNote": "因生产公差，尺寸可能存在±1–2 cm的误差。",
@@ -263,8 +253,8 @@
       "sleeve": "从肩缝量至袖口",
       "shoulder": "背面从一侧肩缝量至另一侧",
       "waist": "腰部平铺宽度",
-      "inseam": "从裆缝到裤脚",
-      "rise": "从腰带到裆缝"
+      "inseam": "从裆缝量至裤脚",
+      "rise": "从腰带量至裆缝"
     },
     "figureAlt": "{{product}}尺码指南插图"
   },
@@ -296,7 +286,7 @@
     "title": "配送与退货",
     "pageIntro": "有关配送及退货政策的说明。如有疑问，请联系 info@tcdashop.com。",
     "shippingTitle": "发货",
-    "shippingBody": "订单确认后，将通过 Printful 在 2〜7 个工作日内发货。发货后将提供追踪号码。",
+    "shippingBody": "订单确认后，将于2–5个工作日内通过Printful发货。发货后将向您发送快递追踪单号。",
     "shippingAddressNote": "※ 日本国内配送时，配送标签上的地址将自动转换为英文。这是由于国际配送系统的要求。您的收货地址不会改变。",
     "deliveryTitle": "配送",
     "deliveryBody": "发货后通常5–10个工作日内送达。实际时间因地区而异。",
@@ -306,9 +296,7 @@
     "returnsMethod": "处理方式：核实后安排补发或退款",
     "returnsNote": "因尺码或个人偏好原因申请的退货将不予受理。",
     "contactTitle": "联系我们",
-    "contactBody": "如有其他疑问，请通过以下邮件地址与我们联系。",
-    "customsTitle": "关税及进口税",
-    "customsBody": "商品从美国或欧洲发货。根据您所在国家/地区，可能需要缴纳关税、进口税或清关费用。上述费用由客户承担。详情请参阅当地海关法规。"
+    "contactBody": "如有其他疑问，请通过以下邮件地址与我们联系。"
   },
   "contact": {
     "title": "联系我们",
@@ -387,11 +375,11 @@
       },
       "price": {
         "label": "销售价格",
-        "value": "以各商品页面显示的价格为准（含适用税费）。※ 关税及进口税可能另行收取，由客户自行承担。"
+        "value": "以各商品页面标注价格为准（含税）"
       },
       "payment": {
         "label": "支付方式",
-        "value": "信用卡（Visa / Mastercard / JCB / American Express / Diners Club）、Apple Pay、Google Pay、支付宝、微信支付、iDEAL、SEPA 直接借记、韩国信用卡、Link"
+        "value": "信用卡（Visa / Mastercard / JCB / American Express / Diners Club）"
       },
       "paymentTiming": {
         "label": "支付时间",
@@ -438,40 +426,7 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "查看系列",
-    "brandFoundation": {
-      "title": "品牌基础",
-      "description": "TCDA — Transcend Creative Dimension Aura — 是一个诞生于数字艺术与可穿戴文化交汇处的品牌。每一个设计都从视觉概念开始，旨在传递超越美学的意义。",
-      "individual": {
-        "title": "个体",
-        "description": "拒绝与他人穿着相同的人。"
-      },
-      "artSeeker": {
-        "title": "艺术寻求者",
-        "description": "在视觉表达中寻找意义的人。"
-      },
-      "selfTransformer": {
-        "title": "自我变革者",
-        "description": "处于蜕变过程中的人。"
-      },
-      "artFirst": {
-        "title": "艺术优先设计",
-        "description": "每件作品都从视觉概念开始，而不是产品。"
-      },
-      "limited": {
-        "title": "稀缺感",
-        "description": "不是大众化。不是快速。设计成感觉稀有。"
-      },
-      "wearable": {
-        "title": "可穿戴身份",
-        "description": "服装作为自我宣言的形式。"
-      },
-      "quote": "\"我们不制造衣服。我们制造个人蜕变的艺术品。\""
-    },
-    "hero": {
-      "title": "个性不是需要隐藏的东西。而是需要穿戴的东西。",
-      "subtitle": "为拒绝平庸者而生的艺术驱动时装。"
-    }
+    "ctaLabel": "查看系列"
   },
   "common": {
     "loading": "加载中..."
@@ -495,14 +450,7 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "艺术驱动的时尚。每一件都是一种宣言。",
     "conceptTitle": "穿戴艺术",
-    "conceptBody": "每件TCDA单品都始于数字艺术作品——抽象、富有表现力且有意为之。我们将视觉能量转化为超越时尚意义的服装。这不是衣服。这是一种立场。",
-    "filterAll": "ALL",
-    "filterHoodie": "卫衣",
-    "filterZip": "拉链卫衣",
-    "filterTshirt": "T恤",
-    "filterMens": "MEN'S",
-    "filterWomens": "WOMEN'S",
-    "filterUnisex": "UNISEX"
+    "conceptBody": "每件TCDA单品都始于数字艺术作品——抽象、富有表现力且有意为之。我们将视觉能量转化为超越时尚意义的服装。这不是衣服。这是一种立场。"
   },
   "geo": {
     "jp": {
@@ -516,8 +464,5 @@
       "vat": "价格含增值税",
       "topBanner": "订单满€100免运费"
     }
-  },
-  "size_guide": {
-    "japan_note": "日本尺码通常比标准尺码小1-2码，如有疑问建议选大一码。"
   }
 }

@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { X, Minus, Plus } from "lucide-react";
+import { Link } from "react-router";
 import { useGlobalContext } from "../pages/Root";
 import { redirectToCheckout } from "../utils/stripe";
 import { useTranslation } from "react-i18next";
@@ -16,6 +17,7 @@ export function CartDrawer() {
     updateQuantity,
     isCartOpen,
     setIsCartOpen,
+    recentProducts,
   } = useGlobalContext();
 
   const { t } = useTranslation();
@@ -33,7 +35,7 @@ export function CartDrawer() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => setIsCartOpen(false)}
-            className="fixed inset-0 bg-black/60 z-[9998]"
+            className="fixed inset-0 bg-black/60 z-[80]"
           />
 
           {/* Drawer */}
@@ -42,7 +44,7 @@ export function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-0 right-0 h-full w-full max-w-xs sm:max-w-sm bg-black z-[9999] flex flex-col"
+            className="fixed top-0 right-0 h-full w-full max-w-xs sm:max-w-sm bg-black z-[90] flex flex-col"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-5 sm:px-8 sm:py-6 border-b border-white/10">
@@ -92,10 +94,8 @@ export function CartDrawer() {
 
                       {/* Info */}
                       <div className="flex-1 min-w-0 space-y-2">
-                        <p>
-                          <span style={{ fontSize: "9px", letterSpacing: "0.2em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
-                            {item.artworkName}
-                          </span>
+                        <p className="text-white text-xs font-light tracking-wide leading-snug">
+                          {item.artworkName}
                         </p>
                         <p className="text-white/40 text-[10px] font-light tracking-widest uppercase">
                           {t("size.label")}: {item.size}
@@ -141,6 +141,35 @@ export function CartDrawer() {
               )}
             </div>
 
+            {/* Recently Viewed */}
+            {recentProducts.length > 0 && (
+              <div className="border-t border-white/5 px-5 sm:px-8 py-6">
+                <p className="text-white/20 text-[10px] font-light tracking-[0.4em] uppercase mb-4">
+                  {t("shop.recentlyViewed")}
+                </p>
+                <div className="flex gap-3 overflow-x-auto pb-1">
+                  {recentProducts.map((product) => (
+                    <Link
+                      key={product.id}
+                      to={`/${language}/product/${product.id}`}
+                      onClick={() => setIsCartOpen(false)}
+                      className="group flex-shrink-0 w-16"
+                    >
+                      <div className="aspect-[3/4] overflow-hidden bg-white/5 mb-1.5">
+                        <ImageWithFallback
+                          src={product.imageUrl}
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                        />
+                      </div>
+                      <p className="text-white/40 text-[9px] font-light tracking-wide truncate group-hover:text-white/70 transition-colors duration-200">
+                        {product.name}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Footer */}
             {cartItems.length > 0 && (
@@ -164,9 +193,12 @@ export function CartDrawer() {
                       price_jpy: item.price_jpy,
                       quantity: item.quantity,
                       size: item.size,
-                      product_id: item.artworkId,
                     }));
-                    await redirectToCheckout(items, currency, language);
+                    try {
+                      await redirectToCheckout(items, currency, language);
+                    } catch {
+                      alert(t("cart.checkoutError"));
+                    }
                   }}
                   className="block w-full py-4 bg-white text-black text-xs font-light tracking-[0.25em] uppercase text-center hover:bg-white/90 transition-colors duration-200"
                 >

@@ -1,7 +1,4 @@
 {
-  "home": {
-    "transcend": "TRANSCEND"
-  },
   "nav": {
     "shop": "BOUTIQUE",
     "look": "Look",
@@ -62,15 +59,7 @@
     "bestFor": "Idéal pour",
     "silhouette": "Silhouette",
     "materialFeel": "Sensation du matériau",
-    "stylePairing": "Association de styles",
-    "fabricComposition": "100% polyester, impression par sublimation. Laver à froid. Ne pas mettre au sèche-linge.",
-    "fabricMaterialEu": "Matière (UE)",
-    "fabricMaterialUs": "Matière (US)",
-    "fabricWeightEu": "Poids (UE)",
-    "fabricWeightUs": "Poids (US)",
-    "fabricFeatures": "Caractéristiques",
-    "fabricCertifications": "Certifications",
-    "fabricOrigin": "Origine"
+    "stylePairing": "Association de styles"
   },
   "cart": {
     "addToCart": "Ajouter au panier",
@@ -89,7 +78,8 @@
     "quickView": "Aperçu rapide",
     "added": "Ajouté",
     "taxNote": "Taxes calculées lors du paiement",
-    "shippingNote": "Livraison calculée lors du paiement"
+    "shippingNote": "Livraison calculée lors du paiement",
+    "checkoutError": "Le paiement a échoué. Veuillez réessayer."
   },
   "shop": {
     "all": "Tout",
@@ -253,7 +243,7 @@
       "shoulder": "Épaule",
       "waist": "Tour de taille",
       "inseam": "Entrejambe",
-      "rise": "Hauteur de montant"
+      "rise": "Fourche"
     },
     "measurementFlatNote": "Mesures prises à plat",
     "measurementVariationNote": "Une légère variation (±1–2 cm) est possible selon les tolérances de fabrication.",
@@ -263,8 +253,8 @@
       "sleeve": "de la couture d'épaule jusqu'au poignet",
       "shoulder": "d'une couture d'épaule à l'autre dans le dos",
       "waist": "à plat, largeur à la taille",
-      "inseam": "de la couture à l'entrejambe jusqu'à l'ourlet",
-      "rise": "de la ceinture à l'entrejambe"
+      "inseam": "de la couture de l'entrejambe jusqu'à l'ourlet",
+      "rise": "de la ceinture jusqu'à la couture de l'entrejambe"
     },
     "figureAlt": "Illustration du guide des tailles {{product}}"
   },
@@ -296,7 +286,7 @@
     "title": "Livraison & retours",
     "pageIntro": "Toutes les informations sur la livraison et notre politique de retour. Questions ? Écrivez-nous à info@tcdashop.com.",
     "shippingTitle": "Expédition",
-    "shippingBody": "Les commandes sont expédiées sous 2 à 7 jours ouvrés via Printful. Un numéro de suivi vous sera envoyé après l'expédition.",
+    "shippingBody": "Les commandes sont traitées sous 2 à 5 jours ouvrés via Printful. Un numéro de suivi vous sera envoyé après expédition.",
     "shippingAddressNote": "※ Pour les livraisons au Japon, l'adresse de livraison sera automatiquement convertie en anglais sur l'étiquette. Cela est dû aux exigences du système d'expédition international. Votre destination de livraison reste inchangée.",
     "deliveryTitle": "Livraison",
     "deliveryBody": "Après expédition, la livraison prend généralement 5 à 10 jours ouvrés. Les délais peuvent varier selon la région.",
@@ -306,9 +296,7 @@
     "returnsMethod": "Résolution : renvoi ou remboursement après vérification",
     "returnsNote": "Les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés.",
     "contactTitle": "Nous contacter",
-    "contactBody": "Pour toute autre question, contactez-nous à l'adresse ci-dessous.",
-    "customsTitle": "Droits de douane et taxes d'importation",
-    "customsBody": "Les produits sont expédiés depuis les États-Unis ou l'Europe. Selon votre pays, des droits de douane, taxes d'importation ou frais de traitement peuvent s'appliquer. Ces frais sont à la charge du client. Veuillez consulter la réglementation douanière de votre pays."
+    "contactBody": "Pour toute autre question, contactez-nous à l'adresse ci-dessous."
   },
   "contact": {
     "title": "Contact",
@@ -387,11 +375,11 @@
       },
       "price": {
         "label": "Prix",
-        "value": "Prix indiqué sur chaque page produit (TVA incluse le cas échéant). * Des droits de douane et taxes d'importation peuvent s'appliquer et sont à la charge du client."
+        "value": "Indiqué sur chaque page produit (TTC)"
       },
       "payment": {
         "label": "Modes de paiement",
-        "value": "Carte bancaire (Visa / Mastercard / JCB / American Express / Diners Club), Apple Pay, Google Pay, Alipay, WeChat Pay, iDEAL, Prélèvement SEPA, Cartes coréennes, Link"
+        "value": "Carte bancaire (Visa / Mastercard / JCB / American Express / Diners Club)"
       },
       "paymentTiming": {
         "label": "Moment du paiement",
@@ -438,40 +426,7 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "VOIR LA COLLECTION",
-    "brandFoundation": {
-      "title": "FONDATION DE LA MARQUE",
-      "description": "TCDA — Transcend Creative Dimension Aura — est une marque née à l'intersection de l'art numérique et de la culture du vêtement. Chaque design commence comme un concept visuel, créé pour porter un sens au-delà de l'esthétique.",
-      "individual": {
-        "title": "L'Individu",
-        "description": "Quelqu'un qui refuse de s'habiller comme tout le monde."
-      },
-      "artSeeker": {
-        "title": "Le Chercheur d'Art",
-        "description": "Quelqu'un qui trouve du sens dans l'expression visuelle."
-      },
-      "selfTransformer": {
-        "title": "Le Transformateur",
-        "description": "Quelqu'un en processus de devenir."
-      },
-      "artFirst": {
-        "title": "Design Art en Premier",
-        "description": "Chaque pièce commence comme un concept visuel, pas comme un produit."
-      },
-      "limited": {
-        "title": "Sentiment de Rareté",
-        "description": "Pas de masse. Pas de rapidité. Conçu pour sembler rare."
-      },
-      "wearable": {
-        "title": "Identité Portable",
-        "description": "Le vêtement comme forme d'autodéclaration."
-      },
-      "quote": "\"Nous ne faisons pas des vêtements. Nous faisons des artefacts de transformation personnelle.\""
-    },
-    "hero": {
-      "title": "L'individualité n'est pas quelque chose à cacher. C'est quelque chose à porter.",
-      "subtitle": "La mode guidée par l'art, pour ceux qui refusent l'ordinaire."
-    }
+    "ctaLabel": "VOIR LA COLLECTION"
   },
   "common": {
     "loading": "Chargement..."
@@ -495,14 +450,7 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Mode guidée par l'art. Chaque pièce est une déclaration.",
     "conceptTitle": "PORTER L'ART",
-    "conceptBody": "Chaque pièce TCDA commence comme une œuvre numérique — abstraite, expressive et intentionnelle. Nous transformons l'énergie visuelle en vêtements qui portent un sens au-delà de la mode. Ce n'est pas un vêtement. C'est une position.",
-    "filterAll": "ALL",
-    "filterHoodie": "Sweat",
-    "filterZip": "Zippé",
-    "filterTshirt": "T-Shirt",
-    "filterMens": "MEN'S",
-    "filterWomens": "WOMEN'S",
-    "filterUnisex": "UNISEX"
+    "conceptBody": "Chaque pièce TCDA commence comme une œuvre numérique — abstraite, expressive et intentionnelle. Nous transformons l'énergie visuelle en vêtements qui portent un sens au-delà de la mode. Ce n'est pas un vêtement. C'est une position."
   },
   "geo": {
     "jp": {
@@ -516,8 +464,5 @@
       "vat": "Prix TVA incluse",
       "topBanner": "Livraison gratuite à partir de 100€"
     }
-  },
-  "size_guide": {
-    "japan_note": "Les tailles japonaises sont généralement 1 à 2 tailles plus petites. En cas de doute, prenez une taille au-dessus."
   }
 }
