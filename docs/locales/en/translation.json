@@ -66,7 +66,8 @@
     "fabricWeightUs": "Weight (US)",
     "fabricFeatures": "Features",
     "fabricCertifications": "Certifications",
-    "fabricOrigin": "Origin"
+    "fabricOrigin": "Origin",
+    "fabricComposition": "100% polyester, sublimation print. Machine wash cold. Do not tumble dry."
   },
   "cart": {
     "addToCart": "Add to Cart",
@@ -303,7 +304,9 @@
     "returnsMethod": "Resolution: replacement or refund after verification",
     "returnsNote": "Returns due to size preference or change of mind are not accepted.",
     "contactTitle": "Contact Us",
-    "contactBody": "For any other questions, please reach out at the address below."
+    "contactBody": "For any other questions, please reach out at the address below.",
+    "customsTitle": "Customs and Import Duties",
+    "customsBody": "Products ship from the US or Europe. Depending on your country, customs duties, import taxes, or handling fees may apply. These charges are the customer's responsibility. Please consult your local customs regulations for details."
   },
   "contact": {
     "title": "Contact",
@@ -433,7 +436,40 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "VIEW COLLECTION"
+    "ctaLabel": "VIEW COLLECTION",
+    "hero": {
+      "title": "Individuality is not something to hide. It is something to wear.",
+      "subtitle": "Art-driven fashion for those who refuse the ordinary."
+    },
+    "brandFoundation": {
+      "title": "BRAND FOUNDATION",
+      "description": "TCDA — Transcend Creative Dimension Aura — is a brand born at the intersection of digital art and wearable culture. Every design begins as a visual concept, created to carry meaning beyond aesthetics.",
+      "artFirst": {
+        "title": "Art-First Design",
+        "description": "Every piece begins as a visual concept, not a product."
+      },
+      "artSeeker": {
+        "title": "The Art Seeker",
+        "description": "Someone who finds meaning in visual expression."
+      },
+      "individual": {
+        "title": "The Individual",
+        "description": "Someone who refuses to dress like everyone else."
+      },
+      "limited": {
+        "title": "Limited Feeling",
+        "description": "Not mass. Not fast. Designed to feel rare."
+      },
+      "quote": "\"We don't make clothes. We make artifacts of personal transformation.\"",
+      "selfTransformer": {
+        "title": "The Self-Transformer",
+        "description": "Someone who is in the process of becoming."
+      },
+      "wearable": {
+        "title": "Wearable Identity",
+        "description": "Clothing as a form of self-declaration."
+      }
+    }
   },
   "common": {
     "loading": "Loading..."
@@ -457,7 +493,14 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Art-driven fashion. Every piece is a statement.",
     "conceptTitle": "WEAR THE ART",
-    "conceptBody": "Each TCDA piece begins as a digital artwork — abstract, expressive, and intentional. We transform visual energy into garments that carry meaning beyond fashion. This is not clothing. This is a position."
+    "conceptBody": "Each TCDA piece begins as a digital artwork — abstract, expressive, and intentional. We transform visual energy into garments that carry meaning beyond fashion. This is not clothing. This is a position.",
+    "filterAll": "ALL",
+    "filterHoodie": "Hoodie",
+    "filterMens": "MEN'S",
+    "filterTshirt": "T-Shirt",
+    "filterUnisex": "UNISEX",
+    "filterWomens": "WOMEN'S",
+    "filterZip": "Zip Hoodie"
   },
   "geo": {
     "jp": {
@@ -476,5 +519,11 @@
     "errorMessage": "Payment was not completed. Your cart has been saved.",
     "backToCart": "Back to Cart",
     "contactSupport": "Contact Support"
+  },
+  "home": {
+    "transcend": "TRANSCEND"
+  },
+  "size_guide": {
+    "japan_note": "Japanese sizes typically run 1–2 sizes smaller. When in doubt, size up."
   }
 }

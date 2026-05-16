@@ -66,7 +66,8 @@
     "fabricWeightUs": "重量（US）",
     "fabricFeatures": "特徴",
     "fabricCertifications": "認証",
-    "fabricOrigin": "原産地"
+    "fabricOrigin": "原産地",
+    "fabricComposition": "100%ポリエステル、昇華プリント。冷水で洗濯機可。乾燥機不可。"
   },
   "cart": {
     "addToCart": "カートに追加",
@@ -303,7 +304,9 @@
     "returnsMethod": "対応方法：確認後、再送または返金にて対応いたします",
     "returnsNote": "サイズ違い・イメージ違いによる返品・交換はお受けできません。",
     "contactTitle": "お問い合わせ",
-    "contactBody": "上記以外のご不明点は、下記メールアドレスまでお気軽にご連絡ください。"
+    "contactBody": "上記以外のご不明点は、下記メールアドレスまでお気軽にご連絡ください。",
+    "customsTitle": "関税および輸入関税",
+    "customsBody": "商品は米国またはヨーロッパから発送されます。お住まいの国によっては、関税、輸入税、または手数料が発生する場合があります。これらの費用はお客様のご負担となります。詳しくはお住まいの地域の税関規制をご確認ください。"
   },
   "contact": {
     "title": "お問い合わせ",
@@ -433,7 +436,40 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "コレクションを見る"
+    "ctaLabel": "コレクションを見る",
+    "hero": {
+      "title": "個性は隠すものではない。纏うものだ。",
+      "subtitle": "普通を拒む人のためのアート主導のファッション。"
+    },
+    "brandFoundation": {
+      "title": "ブランドの基盤",
+      "description": "TCDA — Transcend Creative Dimension Aura — はデジタルアートとウェアラブルカルチャーの交差点に生まれたブランドです。すべてのデザインはビジュアルコンセプトとして始まり、美学を超えた意味を担うために作られています。",
+      "artFirst": {
+        "title": "アート・ファースト・デザイン",
+        "description": "すべてのピースは商品ではなく、ビジュアルコンセプトとして始まります。"
+      },
+      "artSeeker": {
+        "title": "アートを求める人",
+        "description": "視覚的表現に意味を見出す人。"
+      },
+      "individual": {
+        "title": "個人",
+        "description": "他の誰とも同じ服装を拒む人。"
+      },
+      "limited": {
+        "title": "限定感",
+        "description": "大量生産ではない。速くない。レアな感覚を得るために設計されています。"
+      },
+      "quote": "「私たちは服を作るのではありません。個人的な変容のアーティファクトを作ります。」",
+      "selfTransformer": {
+        "title": "自己変革者",
+        "description": "変容の過程にいる人。"
+      },
+      "wearable": {
+        "title": "ウェアラブルアイデンティティ",
+        "description": "自己宣言の形としての衣服。"
+      }
+    }
   },
   "common": {
     "loading": "読み込み中..."
@@ -457,7 +493,14 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "アートが起点のファッション。すべての一枚が、主張だ。",
     "conceptTitle": "アートを纏う",
-    "conceptBody": "TCDAの一枚は、デジタルアートワークとして生まれる――抽象的で、表現豊かで、意図的に。私たちは視覚的エネルギーを、ファッションを超えた意味を持つ衣服へと変換する。これは服ではない。これはひとつの立場表明だ。"
+    "conceptBody": "TCDAの一枚は、デジタルアートワークとして生まれる――抽象的で、表現豊かで、意図的に。私たちは視覚的エネルギーを、ファッションを超えた意味を持つ衣服へと変換する。これは服ではない。これはひとつの立場表明だ。",
+    "filterAll": "すべて",
+    "filterHoodie": "フーディー",
+    "filterMens": "メンズ",
+    "filterTshirt": "Tシャツ",
+    "filterUnisex": "ユニセックス",
+    "filterWomens": "ウィメンズ",
+    "filterZip": "ジップパーカー"
   },
   "geo": {
     "jp": {
@@ -476,5 +519,11 @@
     "errorMessage": "決済が完了していませんでした。カートの内容は保持されています。",
     "backToCart": "カートへ戻る",
     "contactSupport": "サポートへ"
+  },
+  "home": {
+    "transcend": "TRANSCEND"
+  },
+  "size_guide": {
+    "japan_note": "日本サイズは通常1〜2サイズ小さめです。迷った場合は大きいサイズをお選びください。"
   }
 }

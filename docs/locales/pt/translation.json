@@ -66,7 +66,8 @@
     "fabricWeightUs": "Peso (EUA)",
     "fabricFeatures": "Características",
     "fabricCertifications": "Certificações",
-    "fabricOrigin": "Origem"
+    "fabricOrigin": "Origem",
+    "fabricComposition": "100% poliéster, impressão por sublimação. Lavar à máquina a frio. Não secar na secadora."
   },
   "cart": {
     "addToCart": "Adicionar ao Carrinho",
@@ -303,7 +304,9 @@
     "returnsMethod": "Resolução: substituição ou reembolso após verificação",
     "returnsNote": "Devoluções por preferência de tamanho ou mudança de ideia não são aceitas.",
     "contactTitle": "Entre em Contato",
-    "contactBody": "Para outras dúvidas, entre em contato pelo endereço abaixo."
+    "contactBody": "Para outras dúvidas, entre em contato pelo endereço abaixo.",
+    "customsTitle": "Alfândega e Impostos de Importação",
+    "customsBody": "Os produtos são enviados dos EUA ou da Europa. Dependendo do seu país, podem ser aplicados direitos alfandegários, impostos de importação ou taxas de manuseio. Esses encargos são de responsabilidade do cliente. Por favor, consulte os regulamentos alfandegários locais para obter detalhes."
   },
   "contact": {
     "title": "Contato",
@@ -433,7 +436,40 @@
     "value1": "ARTE PRIMEIRO",
     "value2": "INDIVIDUALIDADE",
     "value3": "GLOBAL",
-    "ctaLabel": "VER COLEÇÃO"
+    "ctaLabel": "VER COLEÇÃO",
+    "hero": {
+      "title": "A individualidade não é algo para esconder. É algo para vestir.",
+      "subtitle": "Moda orientada pela arte para quem recusa o ordinário."
+    },
+    "brandFoundation": {
+      "title": "FUNDAÇÃO DA MARCA",
+      "description": "TCDA — Transcend Creative Dimension Aura — é uma marca nascida na interseção da arte digital e da cultura wearable. Cada design começa como um conceito visual, criado para carregar significado além da estética.",
+      "artFirst": {
+        "title": "Design Arte Primeiro",
+        "description": "Cada peça começa como um conceito visual, não um produto."
+      },
+      "artSeeker": {
+        "title": "O Buscador de Arte",
+        "description": "Alguém que encontra significado na expressão visual."
+      },
+      "individual": {
+        "title": "O Indivíduo",
+        "description": "Alguém que se recusa a se vestir como todos os outros."
+      },
+      "limited": {
+        "title": "Sensação Limitada",
+        "description": "Não em massa. Não rápido. Projetado para se sentir raro."
+      },
+      "quote": "\"Não fazemos roupas. Fazemos artefatos de transformação pessoal.\"",
+      "selfTransformer": {
+        "title": "O Autotransformador",
+        "description": "Alguém que está no processo de se tornar."
+      },
+      "wearable": {
+        "title": "Identidade Vestível",
+        "description": "Roupas como forma de autodeclaração."
+      }
+    }
   },
   "common": {
     "loading": "Carregando..."
@@ -457,7 +493,14 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Moda orientada pela arte. Cada peça é uma declaração.",
     "conceptTitle": "VISTA A ARTE",
-    "conceptBody": "Cada peça TCDA começa como uma obra de arte digital — abstrata, expressiva e intencional. Transformamos energia visual em peças de roupa que carregam significado além da moda. Isso não é roupa. Isso é uma posição."
+    "conceptBody": "Cada peça TCDA começa como uma obra de arte digital — abstrata, expressiva e intencional. Transformamos energia visual em peças de roupa que carregam significado além da moda. Isso não é roupa. Isso é uma posição.",
+    "filterAll": "TUDO",
+    "filterHoodie": "Moletom",
+    "filterMens": "MASCULINO",
+    "filterTshirt": "Camiseta",
+    "filterUnisex": "UNISSEX",
+    "filterWomens": "FEMININO",
+    "filterZip": "Moletom com Zíper"
   },
   "geo": {
     "jp": {
@@ -476,5 +519,11 @@
     "errorMessage": "O pagamento não foi concluído. Seu carrinho foi salvo.",
     "backToCart": "Voltar ao carrinho",
     "contactSupport": "Contatar suporte"
+  },
+  "home": {
+    "transcend": "TRANSCEND"
+  },
+  "size_guide": {
+    "japan_note": "Os tamanhos japoneses geralmente são 1-2 tamanhos menores. Em caso de dúvida, escolha um tamanho maior."
   }
 }

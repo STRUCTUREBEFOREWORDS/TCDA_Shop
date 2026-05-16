@@ -66,7 +66,8 @@
     "fabricWeightUs": "克重 (美国)",
     "fabricFeatures": "特点",
     "fabricCertifications": "认证",
-    "fabricOrigin": "产地"
+    "fabricOrigin": "产地",
+    "fabricComposition": "100%聚酯纤维，升华印刷。冷水机洗。不可烘干。"
   },
   "cart": {
     "addToCart": "加入购物车",
@@ -303,7 +304,9 @@
     "returnsMethod": "处理方式：核实后安排补发或退款",
     "returnsNote": "因尺码或个人偏好原因申请的退货将不予受理。",
     "contactTitle": "联系我们",
-    "contactBody": "如有其他疑问，请通过以下邮件地址与我们联系。"
+    "contactBody": "如有其他疑问，请通过以下邮件地址与我们联系。",
+    "customsTitle": "海关和进口关税",
+    "customsBody": "产品从美国或欧洲发货。根据您所在的国家/地区，可能会收取关税、进口税或手续费。这些费用由客户承担。请参阅您当地的海关法规以了解详情。"
   },
   "contact": {
     "title": "联系我们",
@@ -433,7 +436,40 @@
     "value1": "ART FIRST",
     "value2": "INDIVIDUALITY",
     "value3": "GLOBAL",
-    "ctaLabel": "查看系列"
+    "ctaLabel": "查看系列",
+    "hero": {
+      "title": "个性不是隐藏的东西。它是用来穿的。",
+      "subtitle": "为拒绝平凡者而生的艺术驱动时尚。"
+    },
+    "brandFoundation": {
+      "title": "品牌基础",
+      "description": "TCDA — Transcend Creative Dimension Aura — 是一个诞生于数字艺术与可穿戴文化交汇处的品牌。每个设计都始于视觉概念，旨在承载超越美学的意义。",
+      "artFirst": {
+        "title": "艺术优先设计",
+        "description": "每件作品都从视觉概念开始，而不是产品。"
+      },
+      "artSeeker": {
+        "title": "艺术追求者",
+        "description": "在视觉表达中寻找意义的人。"
+      },
+      "individual": {
+        "title": "个人",
+        "description": "拒绝和其他人一样穿着的人。"
+      },
+      "limited": {
+        "title": "限量感",
+        "description": "不是大规模。不是快速。设计得让人感觉稀有。"
+      },
+      "quote": "\"我们不制作服装。我们制作个人转变的文物。\"",
+      "selfTransformer": {
+        "title": "自我转变者",
+        "description": "正在转变过程中的人。"
+      },
+      "wearable": {
+        "title": "可穿戴身份",
+        "description": "服装作为自我宣言的一种形式。"
+      }
+    }
   },
   "common": {
     "loading": "加载中..."
@@ -457,7 +493,14 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "艺术驱动的时尚。每一件都是一种宣言。",
     "conceptTitle": "穿戴艺术",
-    "conceptBody": "每件TCDA单品都始于数字艺术作品——抽象、富有表现力且有意为之。我们将视觉能量转化为超越时尚意义的服装。这不是衣服。这是一种立场。"
+    "conceptBody": "每件TCDA单品都始于数字艺术作品——抽象、富有表现力且有意为之。我们将视觉能量转化为超越时尚意义的服装。这不是衣服。这是一种立场。",
+    "filterAll": "全部",
+    "filterHoodie": "卫衣",
+    "filterMens": "男士",
+    "filterTshirt": "T恤",
+    "filterUnisex": "中性",
+    "filterWomens": "女士",
+    "filterZip": "拉链卫衣"
   },
   "geo": {
     "jp": {
@@ -476,5 +519,11 @@
     "errorMessage": "付款未完成，您的购物车已保留。",
     "backToCart": "返回购物车",
     "contactSupport": "联系支持"
+  },
+  "home": {
+    "transcend": "TRANSCEND"
+  },
+  "size_guide": {
+    "japan_note": "日本尺码通常偏小1-2个码。如有疑问，请选择较大的尺码。"
   }
 }

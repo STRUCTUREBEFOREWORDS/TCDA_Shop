@@ -66,7 +66,8 @@
     "fabricWeightUs": "Peso (US)",
     "fabricFeatures": "Caratteristiche",
     "fabricCertifications": "Certificazioni",
-    "fabricOrigin": "Origine"
+    "fabricOrigin": "Origine",
+    "fabricComposition": "100% poliestere, stampa a sublimazione. Lavaggio in lavatrice a freddo. Non asciugare in asciugatrice."
   },
   "cart": {
     "addToCart": "Aggiungi al carrello",
@@ -303,7 +304,9 @@
     "returnsMethod": "Soluzione: sostituzione o rimborso dopo verifica",
     "returnsNote": "I resi per preferenze di taglia o ripensamento non sono accettati.",
     "contactTitle": "Contattaci",
-    "contactBody": "Per qualsiasi altra domanda, contattaci all'indirizzo sottostante."
+    "contactBody": "Per qualsiasi altra domanda, contattaci all'indirizzo sottostante.",
+    "customsTitle": "Dogana e Dazi di Importazione",
+    "customsBody": "I prodotti vengono spediti dagli Stati Uniti o dall'Europa. A seconda del tuo paese, potrebbero essere applicati dazi doganali, tasse all'importazione o spese di gestione. Questi costi sono a carico del cliente. Si prega di consultare le normative doganali locali per i dettagli."
   },
   "contact": {
     "title": "Contatti",
@@ -433,7 +436,40 @@
     "value1": "ARTE PRIMA DI TUTTO",
     "value2": "INDIVIDUALITÀ",
     "value3": "GLOBALE",
-    "ctaLabel": "VEDI COLLEZIONE"
+    "ctaLabel": "VEDI COLLEZIONE",
+    "hero": {
+      "title": "L'individualità non è qualcosa da nascondere. È qualcosa da indossare.",
+      "subtitle": "Moda guidata dall'arte per chi rifiuta l'ordinario."
+    },
+    "brandFoundation": {
+      "title": "FONDAZIONE DEL BRAND",
+      "description": "TCDA — Transcend Creative Dimension Aura — è un brand nato all'intersezione dell'arte digitale e della cultura wearable. Ogni design inizia come concetto visivo, creato per portare significato oltre l'estetica.",
+      "artFirst": {
+        "title": "Design Arte Prima",
+        "description": "Ogni pezzo inizia come concetto visivo, non un prodotto."
+      },
+      "artSeeker": {
+        "title": "Il Cercatore d'Arte",
+        "description": "Qualcuno che trova significato nell'espressione visiva."
+      },
+      "individual": {
+        "title": "L'Individuo",
+        "description": "Qualcuno che si rifiuta di vestirsi come tutti gli altri."
+      },
+      "limited": {
+        "title": "Sensazione Limitata",
+        "description": "Non di massa. Non veloce. Progettato per sentirsi raro."
+      },
+      "quote": "\"Non facciamo vestiti. Facciamo artefatti di trasformazione personale.\"",
+      "selfTransformer": {
+        "title": "Il Trasformatore di Sé",
+        "description": "Qualcuno che è nel processo di diventare."
+      },
+      "wearable": {
+        "title": "Identità Indossabile",
+        "description": "L'abbigliamento come forma di auto-dichiarazione."
+      }
+    }
   },
   "common": {
     "loading": "Caricamento..."
@@ -457,7 +493,14 @@
     "heroTitle": "THE COLLECTION",
     "heroSub": "Moda guidata dall'arte. Ogni pezzo è una dichiarazione.",
     "conceptTitle": "INDOSSA L'ARTE",
-    "conceptBody": "Ogni pezzo TCDA nasce come un'opera d'arte digitale — astratta, espressiva e intenzionale. Trasformiamo l'energia visiva in capi che portano un significato oltre la moda. Questo non è abbigliamento. Questa è una posizione."
+    "conceptBody": "Ogni pezzo TCDA nasce come un'opera d'arte digitale — astratta, espressiva e intenzionale. Trasformiamo l'energia visiva in capi che portano un significato oltre la moda. Questo non è abbigliamento. Questa è una posizione.",
+    "filterAll": "TUTTI",
+    "filterHoodie": "Felpa",
+    "filterMens": "UOMO",
+    "filterTshirt": "T-Shirt",
+    "filterUnisex": "UNISEX",
+    "filterWomens": "DONNA",
+    "filterZip": "Felpa con Zip"
   },
   "geo": {
     "jp": {
@@ -476,5 +519,11 @@
     "errorMessage": "Il pagamento non è stato completato. Il carrello è stato conservato.",
     "backToCart": "Torna al carrello",
     "contactSupport": "Contatta il supporto"
+  },
+  "home": {
+    "transcend": "TRANSCEND"
+  },
+  "size_guide": {
+    "japan_note": "Le taglie giapponesi sono generalmente 1-2 taglie più piccole. In caso di dubbio, scegli la taglia superiore."
   }
 }
