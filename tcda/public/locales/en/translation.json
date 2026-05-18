@@ -258,7 +258,9 @@
       "shoulder": "Shoulder",
       "waist": "Waist",
       "inseam": "Inseam",
-      "rise": "Rise"
+      "rise": "Rise",
+      "half_chest": "Half Chest",
+      "sleeve_length": "Sleeve Length"
     },
     "measurementFlatNote": "Measurements taken flat",
     "measurementVariationNote": "Slight variation (±1–2 cm) may occur due to production tolerances.",
@@ -269,7 +271,9 @@
       "shoulder": "across the back, seam to seam",
       "waist": "flat across the waist",
       "inseam": "from crotch seam to hem",
-      "rise": "from waistband to crotch seam"
+      "rise": "from waistband to crotch seam",
+      "half_chest": "Half the chest width measured flat",
+      "sleeve_length": "From shoulder seam to cuff"
     },
     "figureAlt": "{{product}} size guide illustration"
   },

@@ -3,7 +3,7 @@
  * Single source of truth for the A/B/C/D/E marker system.
  */
 
-export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist" | "inseam" | "rise";
+export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist" | "inseam" | "rise" | "half_chest" | "sleeve_length";
 
 export interface MeasurementMeta {
   marker: string;
@@ -17,8 +17,16 @@ export const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, MeasurementMeta> = {
   sleeve:   { marker: "C", labelKey: "sizeGuide.measurements.sleeve",   helpKey: "sizeGuide.measurementHelp.sleeve" },
   shoulder: { marker: "D", labelKey: "sizeGuide.measurements.shoulder", helpKey: "sizeGuide.measurementHelp.shoulder" },
   waist:    { marker: "E", labelKey: "sizeGuide.measurements.waist",    helpKey: "sizeGuide.measurementHelp.waist" },
-  inseam:   { marker: "B", labelKey: "sizeGuide.measurements.inseam",   helpKey: "sizeGuide.measurementHelp.inseam" },
-  rise:     { marker: "C", labelKey: "sizeGuide.measurements.rise",     helpKey: "sizeGuide.measurementHelp.rise" },
+  inseam:       { marker: "B", labelKey: "sizeGuide.measurements.inseam",       helpKey: "sizeGuide.measurementHelp.inseam" },
+  rise:         { marker: "C", labelKey: "sizeGuide.measurements.rise",         helpKey: "sizeGuide.measurementHelp.rise" },
+  half_chest:   { marker: "A", labelKey: "sizeGuide.measurements.half_chest",   helpKey: "sizeGuide.measurementHelp.half_chest" },
+  sleeve_length:{ marker: "C", labelKey: "sizeGuide.measurements.sleeve_length",helpKey: "sizeGuide.measurementHelp.sleeve_length" },
+};
+
+/** Per-category override: maps raw measurement markers → MeasurementKey.
+ *  Used when the DB stores letter markers ("A","B","C") instead of named columns. */
+export const CATEGORY_MEASUREMENT_MAP: Partial<Record<string, Record<string, MeasurementKey>>> = {
+  track_jacket: { A: "half_chest", B: "length", C: "sleeve_length" },
 };
 
 /** Canonical display order for the standalone size guide page */

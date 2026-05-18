@@ -7,6 +7,7 @@ import {
   MeasurementKey,
   MEASUREMENT_LABEL_MAP,
   MEASUREMENT_TO_KEY,
+  CATEGORY_MEASUREMENT_MAP,
 } from "../utils/measurementMeta";
 
 // ─── Fraction display (inch mode) ──────────────────────────────────────────
@@ -145,15 +146,16 @@ export function SizeGuideModal({
    * Resolve measurement metadata for each column in the chart.
    * Preserves the DB column order so values[i] ↔ activeMeasurements[i].
    */
+  const normalizedCategory = normalizeSizeCategory(sizeCategory);
+  const categoryMeasurementMap = CATEGORY_MEASUREMENT_MAP[normalizedCategory ?? ""];
   const activeMeasurements = (chartUnit?.measurements ?? []).map((raw) => {
-    const key = MEASUREMENT_TO_KEY[raw] ?? MEASUREMENT_TO_KEY[raw.toLowerCase()];
+    const key = categoryMeasurementMap?.[raw] ?? MEASUREMENT_TO_KEY[raw] ?? MEASUREMENT_TO_KEY[raw.toLowerCase()];
     if (!key) return null;
     const { marker, labelKey, helpKey } = MEASUREMENT_LABEL_MAP[key];
     return { key, marker, labelKey, helpKey, raw };
   }).filter((x): x is { key: MeasurementKey; marker: string; labelKey: string; helpKey: string; raw: string } => x !== null);
 
   // Resolve the guide image: custom map wins, then product-level URL, then Printful fallback.
-  const normalizedCategory = normalizeSizeCategory(sizeCategory);
   const guideImageSrc =
     (normalizedCategory && SIZE_GUIDE_IMAGE_MAP[normalizedCategory]) ||
     measuringGuideImageUrl ||
