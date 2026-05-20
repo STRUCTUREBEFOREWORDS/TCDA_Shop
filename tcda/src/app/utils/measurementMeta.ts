@@ -26,7 +26,8 @@ export const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, MeasurementMeta> = {
 /** Per-category override: maps raw measurement markers → MeasurementKey.
  *  Used when the DB stores letter markers ("A","B","C") instead of named columns. */
 export const CATEGORY_MEASUREMENT_MAP: Partial<Record<string, Record<string, MeasurementKey>>> = {
-  track_jacket: { A: "half_chest", B: "length", C: "sleeve_length" },
+  track_jacket:        { A: "half_chest", B: "length", C: "sleeve_length" },
+  recycled_sweatshirt: { A: "half_chest", B: "length", C: "sleeve_length" },
 };
 
 /** Canonical display order for the standalone size guide page */
