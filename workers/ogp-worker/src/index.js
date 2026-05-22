@@ -25,7 +25,7 @@ async function getProductOGP(productId, lang = 'en') {
 
 function buildOGPHtml(product, lang = 'en') {
   const title = `${product.name} | TCDA`;
-  const description = product.description || 'TCDA — Color immersion as fashion. Wearable art that expresses what\'s within you. Worldwide shipping.';
+  const description = product.meta_description || product.description || 'TCDA — Color immersion as fashion. Wearable art that expresses what\'s within you. Worldwide shipping.';
   const image = product.images?.[0] || product.thumbnail_url;
   const url = `https://tcdashop.com/${lang}/product/${product.id}`;
   const price = product.price;

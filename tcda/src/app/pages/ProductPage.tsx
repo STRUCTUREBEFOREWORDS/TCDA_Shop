@@ -48,6 +48,7 @@ interface Product {
   fabric_composition?: string;
   fabric_detail?: FabricDetail | null;
   description?: string;
+  meta_description?: string | null;
   printful_variant_id?: number;
   product_type?: string | null;
   measuring_guide_image_url?: string | null;
@@ -317,11 +318,11 @@ export function ProductPage() {
     <div className="pt-4 md:pt-20 pb-24 md:pb-0" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
       <Helmet>
         <title>{`${product.name} — TCDA`}</title>
-        <meta name="description" content={`${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. ${product.fabric_composition ? product.fabric_composition.slice(0, 60) + '. ' : ''}Worldwide shipping from Japan.`} />
+        <meta name="description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Worldwide shipping from Japan.`} />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="product" />
         <meta property="og:title" content={`${product.name} — TCDA`} />
-        <meta property="og:description" content={`${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. ${product.fabric_composition ? product.fabric_composition.slice(0, 60) + '. ' : ''}Worldwide shipping from Japan.`} />
+        <meta property="og:description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Worldwide shipping from Japan.`} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={product.images?.[0] || product.thumbnail_url} />
         <meta property="og:site_name" content="TCDA" />
@@ -329,7 +330,7 @@ export function ProductPage() {
         <meta property="product:price:currency" content="JPY" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${product.name} — TCDA`} />
-        <meta name="twitter:description" content={`${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. ${product.fabric_composition ? product.fabric_composition.slice(0, 60) + '. ' : ''}Worldwide shipping from Japan.`} />
+        <meta name="twitter:description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Worldwide shipping from Japan.`} />
         <meta name="twitter:image" content={product.images?.[0] || product.thumbnail_url} />
       </Helmet>
       <JsonLd type="Product" data={{
