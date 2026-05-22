@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "motion/react";
 import { Link, useLocation, useSearchParams } from "react-router";
 import { Helmet } from "react-helmet-async";
@@ -99,9 +99,23 @@ export function CollectionPage() {
   const [activeFilter, setActiveFilter] = useState<string>(searchParams.get("category") ?? "");
   const [visibleCount, setVisibleCount] = useState(24);
   const PAGE_SIZE = 24;
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   const visibleProducts = products.slice(0, visibleCount);
   const hasMore = visibleCount < products.length;
+
+  const loadMore = useCallback(() => {
+    setVisibleCount((n) => n + PAGE_SIZE);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting && hasMore) loadMore(); },
+      { threshold: 0.1 }
+    );
+    if (sentinelRef.current) observer.observe(sentinelRef.current);
+    return () => observer.disconnect();
+  }, [hasMore, loadMore]);
 
   useEffect(() => {
     pushDataLayer('page_view', {
@@ -248,24 +262,13 @@ export function CollectionPage() {
         </div>
       )}
 
-      {/* Load more */}
+      {/* Infinite scroll sentinel */}
+      <div ref={sentinelRef} style={{ height: 1 }} />
       {hasMore && (
-        <div className="flex justify-center" style={{ marginTop: "clamp(32px, 5vw, 64px)" }}>
-          <button
-            onClick={() => setVisibleCount((n) => n + PAGE_SIZE)}
-            className="px-10 py-4 text-[10px] font-light tracking-[0.4em] uppercase transition-colors duration-300"
-            style={{ border: "1px solid var(--color-border)", color: "var(--color-text-secondary)" }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-text)";
-              e.currentTarget.style.color = "var(--color-text)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-border)";
-              e.currentTarget.style.color = "var(--color-text-secondary)";
-            }}
-          >
-            {t("common.loadMore")} ({products.length - visibleCount})
-          </button>
+        <div className="flex justify-center" style={{ marginTop: "clamp(16px, 3vw, 32px)", paddingBottom: "32px" }}>
+          <p className="text-[10px] font-light tracking-widest" style={{ color: "var(--color-text-tertiary)" }}>
+            {t("common.loading")}
+          </p>
         </div>
       )}
 
