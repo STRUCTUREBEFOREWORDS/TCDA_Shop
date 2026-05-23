@@ -1,9 +1,14 @@
 /// <reference lib="webworker" />
 import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
+import { clientsClaim } from 'workbox-core'
 
 declare const self: ServiceWorkerGlobalScope
 
-// Respond to skipWaiting message from vite-plugin-pwa autoUpdate
+// Take control immediately on install — evicts any stale/old SW
+self.addEventListener('install', () => self.skipWaiting())
+clientsClaim()
+
+// Also handle explicit SKIP_WAITING messages from vite-plugin-pwa
 self.addEventListener('message', (event) => {
   if (event.data?.type === 'SKIP_WAITING') self.skipWaiting()
 })
