@@ -1,6 +1,8 @@
 /// <reference lib="webworker" />
 import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
 import { clientsClaim } from 'workbox-core'
+import { registerRoute, NavigationRoute } from 'workbox-routing'
+import { NetworkFirst } from 'workbox-strategies'
 
 declare const self: ServiceWorkerGlobalScope
 
@@ -15,6 +17,9 @@ self.addEventListener('message', (event) => {
 
 cleanupOutdatedCaches()
 precacheAndRoute(self.__WB_MANIFEST)
+
+// Always fetch HTML from network so index.html is never served stale from cache
+registerRoute(new NavigationRoute(new NetworkFirst({ cacheName: 'pages' })))
 
 self.addEventListener('push', (event) => {
   const data = event.data?.json() ?? {}

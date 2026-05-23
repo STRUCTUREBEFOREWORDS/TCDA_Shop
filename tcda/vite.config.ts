@@ -39,8 +39,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: null,
       injectManifest: {
-        globPatterns: ['**/*.{js,css,html,ico,png,webp,woff2}'],
-        globIgnores: ['**/icons/*.svg', '**/googlee*.html', '**/404.html', '**/500.html'],
+        globPatterns: ['**/*.{js,css,ico,png,webp,woff2}'],
+        globIgnores: ['**/icons/*.svg'],
       },
       manifest: {
         name: 'TCDA',
