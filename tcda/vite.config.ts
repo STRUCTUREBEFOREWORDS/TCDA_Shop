@@ -37,6 +37,7 @@ export default defineConfig({
       srcDir: 'src',
       filename: 'sw.ts',
       registerType: 'autoUpdate',
+      injectRegister: null,
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,ico,png,webp,woff2}'],
         globIgnores: ['**/icons/*.svg', 'googlee*.html', '404.html', '500.html'],
