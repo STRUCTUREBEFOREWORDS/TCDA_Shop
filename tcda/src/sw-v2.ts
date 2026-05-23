@@ -12,11 +12,9 @@ self.addEventListener('install', () => self.skipWaiting())
 // On activate: claim all clients, then navigate each window to force a fresh load
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    (async () => {
-      await self.clients.claim()
-      const clients = await self.clients.matchAll({ type: 'window' })
-      await Promise.all(clients.map((c) => (c as WindowClient).navigate(c.url)))
-    })()
+    caches.keys().then(keys =>
+      Promise.all(keys.map(key => caches.delete(key)))
+    ).then(() => self.clients.claim())
   )
 })
 
