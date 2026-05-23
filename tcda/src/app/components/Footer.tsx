@@ -132,6 +132,8 @@ export function Footer() {
               opacity: loading ? 0.6 : 1,
               textTransform: "uppercase",
               transition: "var(--transition-base)",
+              position: "relative",
+              zIndex: 10,
             }}
           >
             {loading ? "..." : t("footer.notifyMe")}
