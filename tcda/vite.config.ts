@@ -40,7 +40,7 @@ export default defineConfig({
       injectRegister: null,
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,ico,png,webp,woff2}'],
-        globIgnores: ['**/icons/*.svg', 'googlee*.html', '404.html', '500.html'],
+        globIgnores: ['**/icons/*.svg', '**/googlee*.html', '**/404.html', '**/500.html'],
       },
       manifest: {
         name: 'TCDA',
