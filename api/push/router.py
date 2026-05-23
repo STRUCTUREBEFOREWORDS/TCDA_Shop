@@ -17,6 +17,7 @@ from fastapi import APIRouter, HTTPException, Header
 from pydantic import BaseModel
 from pywebpush import webpush, WebPushException
 import psycopg2
+import anthropic
 
 router = APIRouter()
 
@@ -25,10 +26,28 @@ VAPID_CLAIMS = {
     "sub": os.environ.get("VAPID_MAILTO", "mailto:admin@tcdashop.com"),
 }
 INTERNAL_API_KEY = os.environ["INTERNAL_API_KEY"]
+_anthropic = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
 
 
 def get_db():
     return psycopg2.connect(os.environ["DATABASE_URL"])
+
+
+def _translate(title: str, body: str, lang: str) -> dict:
+    """Translate title/body from Japanese to target lang via Claude Haiku."""
+    prompt = (
+        f"以下の日本語テキストを{lang}に翻訳してください。"
+        f'JSON形式で{{"title": ..., "body": ...}}として返してください。\n\n'
+        f"title: {title}\nbody: {body}"
+    )
+    msg = _anthropic.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=256,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    text = msg.content[0].text.strip()
+    start, end = text.find("{"), text.rfind("}") + 1
+    return json.loads(text[start:end])
 
 
 # ── Schema ──────────────────────────────────────────────────────────────
@@ -78,15 +97,29 @@ def send_push(payload: SendBody, x_api_key: str = Header(default="")):
     conn = get_db()
     try:
         with conn.cursor() as cur:
-            cur.execute("SELECT endpoint, p256dh, auth FROM push_subscriptions")
+            cur.execute("SELECT DISTINCT lang FROM push_subscriptions")
+            langs = [r[0] for r in cur.fetchall()]
+            cur.execute("SELECT endpoint, p256dh, auth, lang FROM push_subscriptions")
             rows = cur.fetchall()
     finally:
         conn.close()
 
-    data = json.dumps({"title": payload.title, "body": payload.body, "url": payload.url})
-    success, failed = 0, 0
+    # Build per-lang translated payloads
+    translations: dict = {}
+    for lang in langs:
+        if lang == "ja":
+            translations[lang] = {"title": payload.title, "body": payload.body}
+        else:
+            try:
+                translations[lang] = _translate(payload.title, payload.body, lang)
+            except Exception:
+                translations[lang] = {"title": payload.title, "body": payload.body}
 
-    for endpoint, p256dh, auth in rows:
+    success, failed = 0, 0
+    for endpoint, p256dh, auth, lang in rows:
+        t = translations.get(lang) or {"title": payload.title, "body": payload.body}
+        lang_url = payload.url.replace("/ja/", f"/{lang}/")
+        data = json.dumps({"title": t["title"], "body": t["body"], "url": lang_url})
         try:
             webpush(
                 subscription_info={"endpoint": endpoint, "keys": {"p256dh": p256dh, "auth": auth}},
@@ -96,7 +129,14 @@ def send_push(payload: SendBody, x_api_key: str = Header(default="")):
             )
             success += 1
         except WebPushException as e:
-            # 410 Gone = subscription expired, could delete here
+            if hasattr(e, "response") and e.response and e.response.status_code == 410:
+                conn2 = get_db()
+                try:
+                    with conn2.cursor() as cur:
+                        cur.execute("DELETE FROM push_subscriptions WHERE endpoint = %s", (endpoint,))
+                        conn2.commit()
+                finally:
+                    conn2.close()
             failed += 1
 
     return {"success": success, "failed": failed, "total": len(rows)}
