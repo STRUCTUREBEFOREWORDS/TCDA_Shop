@@ -258,7 +258,9 @@
       "shoulder": "Spalla",
       "waist": "Vita",
       "inseam": "Cavallo interno",
-      "rise": "Cavallo"
+      "rise": "Cavallo",
+      "half_chest": "Metà petto",
+      "sleeve_length": "Lunghezza manica"
     },
     "measurementFlatNote": "Misure prese piatte",
     "measurementVariationNote": "Leggera variazione (±1–2 cm) possibile per tolleranze di produzione.",
@@ -269,7 +271,9 @@
       "shoulder": "sulla schiena, cucitura a cucitura",
       "waist": "piatto sulla vita",
       "inseam": "dalla cucitura dell'inguine all'orlo",
-      "rise": "dalla cintura alla cucitura dell'inguine"
+      "rise": "dalla cintura alla cucitura dell'inguine",
+      "half_chest": "Metà della larghezza del petto (piano)",
+      "sleeve_length": "Dalla cucitura della spalla al polso"
     },
     "figureAlt": "Illustrazione guida taglie {{product}}"
   },

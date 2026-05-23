@@ -258,7 +258,9 @@
       "shoulder": "Ombro",
       "waist": "Cintura",
       "inseam": "Costura interna",
-      "rise": "Gancho"
+      "rise": "Gancho",
+      "half_chest": "Meio peito",
+      "sleeve_length": "Comprimento da manga"
     },
     "measurementFlatNote": "Medidas tiradas planas",
     "measurementVariationNote": "Pequena variação (±1–2 cm) pode ocorrer devido a tolerâncias de produção.",
@@ -269,7 +271,9 @@
       "shoulder": "pelas costas, costura a costura",
       "waist": "plano pela cintura",
       "inseam": "da costura da virilha até a bainha",
-      "rise": "da cintura até a costura da virilha"
+      "rise": "da cintura até a costura da virilha",
+      "half_chest": "Metade da largura do peito (plano)",
+      "sleeve_length": "Da costura do ombro ao punho"
     },
     "figureAlt": "Ilustração do guia de tamanhos {{product}}"
   },
