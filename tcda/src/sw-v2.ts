@@ -1,6 +1,6 @@
 /// <reference lib="webworker" />
 import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
-import { clientsClaim } from 'workbox-core'
+// clientsClaim from workbox-core is replaced by manual activate handler below
 import { registerRoute, NavigationRoute } from 'workbox-routing'
 import { NetworkFirst } from 'workbox-strategies'
 
@@ -8,7 +8,17 @@ declare const self: ServiceWorkerGlobalScope
 
 // Take control immediately on install — evicts any stale/old SW
 self.addEventListener('install', () => self.skipWaiting())
-clientsClaim()
+
+// On activate: claim all clients, then navigate each window to force a fresh load
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    (async () => {
+      await self.clients.claim()
+      const clients = await self.clients.matchAll({ type: 'window' })
+      await Promise.all(clients.map((c) => (c as WindowClient).navigate(c.url)))
+    })()
+  )
+})
 
 // Also handle explicit SKIP_WAITING messages from vite-plugin-pwa
 self.addEventListener('message', (event) => {
