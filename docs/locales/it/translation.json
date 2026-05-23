@@ -301,7 +301,12 @@
     "shippingReturns": "Spedizioni e resi",
     "contact": "Contatti",
     "notifyMe": "Ricevi notifiche",
-    "notified": "Notifiche attive ✓"
+    "notified": "Notifiche attive ✓",
+    "newsletterPlaceholder": "Indirizzo email",
+    "newsletterSubscribe": "Iscriviti",
+    "newsletterSubscribed": "Iscritto ✓",
+    "newsletterDuplicate": "Questa email è già registrata",
+    "newsletterError": "Iscrizione non riuscita. Riprova"
   },
   "shippingReturns": {
     "title": "Spedizioni e resi",

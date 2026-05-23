@@ -301,7 +301,12 @@
     "shippingReturns": "Shipping & Returns",
     "contact": "Contact",
     "notifyMe": "Get Notifications",
-    "notified": "Notifications On ✓"
+    "notified": "Notifications On ✓",
+    "newsletterPlaceholder": "Email address",
+    "newsletterSubscribe": "Subscribe",
+    "newsletterSubscribed": "Subscribed ✓",
+    "newsletterDuplicate": "This email is already registered",
+    "newsletterError": "Subscription failed. Please try again"
   },
   "shippingReturns": {
     "title": "Shipping & Returns",

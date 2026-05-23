@@ -301,7 +301,12 @@
     "shippingReturns": "الشحن والإرجاع",
     "contact": "تواصل معنا",
     "notifyMe": "تلقي الإشعارات",
-    "notified": "الإشعارات مفعلة ✓"
+    "notified": "الإشعارات مفعلة ✓",
+    "newsletterPlaceholder": "عنوان البريد الإلكتروني",
+    "newsletterSubscribe": "اشتراك",
+    "newsletterSubscribed": "مشترك ✓",
+    "newsletterDuplicate": "هذا البريد الإلكتروني مسجل بالفعل",
+    "newsletterError": "فشل الاشتراك. يرجى المحاولة مرة أخرى"
   },
   "shippingReturns": {
     "title": "الشحن والإرجاع",

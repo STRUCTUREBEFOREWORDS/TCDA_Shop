@@ -303,7 +303,12 @@
     "shippingReturns": "Shipping और Returns",
     "contact": "Contact",
     "notifyMe": "सूचनाएं प्राप्त करें",
-    "notified": "सूचनाएं सक्रिय ✓"
+    "notified": "सूचनाएं सक्रिय ✓",
+    "newsletterPlaceholder": "ईमेल पता",
+    "newsletterSubscribe": "सदस्यता लें",
+    "newsletterSubscribed": "सदस्यता ली ✓",
+    "newsletterDuplicate": "यह ईमेल पहले से पंजीकृत है",
+    "newsletterError": "सदस्यता विफल रही। पुनः प्रयास करें"
   },
   "shippingReturns": {
     "title": "Shipping और Returns",

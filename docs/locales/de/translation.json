@@ -301,7 +301,12 @@
     "shippingReturns": "Versand & Rückgabe",
     "contact": "Kontakt",
     "notifyMe": "Benachrichtigungen erhalten",
-    "notified": "Benachrichtigungen aktiv ✓"
+    "notified": "Benachrichtigungen aktiv ✓",
+    "newsletterPlaceholder": "E-Mail-Adresse",
+    "newsletterSubscribe": "Abonnieren",
+    "newsletterSubscribed": "Abonniert ✓",
+    "newsletterDuplicate": "Diese E-Mail ist bereits registriert",
+    "newsletterError": "Anmeldung fehlgeschlagen. Bitte erneut versuchen"
   },
   "shippingReturns": {
     "title": "Versand & Rückgabe",

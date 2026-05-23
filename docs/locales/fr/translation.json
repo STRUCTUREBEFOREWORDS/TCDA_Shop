@@ -301,7 +301,12 @@
     "shippingReturns": "Livraison & retours",
     "contact": "Contact",
     "notifyMe": "Activer les notifications",
-    "notified": "Notifications activées ✓"
+    "notified": "Notifications activées ✓",
+    "newsletterPlaceholder": "Adresse e-mail",
+    "newsletterSubscribe": "S'abonner",
+    "newsletterSubscribed": "Abonné ✓",
+    "newsletterDuplicate": "Cet e-mail est déjà enregistré",
+    "newsletterError": "Échec de l'abonnement. Veuillez réessayer"
   },
   "shippingReturns": {
     "title": "Livraison & retours",

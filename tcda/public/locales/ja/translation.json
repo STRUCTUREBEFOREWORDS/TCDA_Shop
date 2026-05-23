@@ -301,7 +301,12 @@
     "shippingReturns": "配送・返品",
     "contact": "お問い合わせ",
     "notifyMe": "通知を受け取る",
-    "notified": "通知設定済み ✓"
+    "notified": "通知設定済み ✓",
+    "newsletterPlaceholder": "メールアドレス",
+    "newsletterSubscribe": "登録する",
+    "newsletterSubscribed": "登録済み ✓",
+    "newsletterDuplicate": "このメールアドレスは既に登録されています",
+    "newsletterError": "登録に失敗しました。もう一度お試しください"
   },
   "shippingReturns": {
     "title": "配送・返品",

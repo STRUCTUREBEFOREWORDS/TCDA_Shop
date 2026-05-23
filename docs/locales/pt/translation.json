@@ -301,7 +301,12 @@
     "shippingReturns": "Envio e Devoluções",
     "contact": "Contato",
     "notifyMe": "Receber notificações",
-    "notified": "Notificações ativas ✓"
+    "notified": "Notificações ativas ✓",
+    "newsletterPlaceholder": "Endereço de e-mail",
+    "newsletterSubscribe": "Inscrever-se",
+    "newsletterSubscribed": "Inscrito ✓",
+    "newsletterDuplicate": "Este e-mail já está cadastrado",
+    "newsletterError": "Falha na inscrição. Tente novamente"
   },
   "shippingReturns": {
     "title": "Envio e Devoluções",
