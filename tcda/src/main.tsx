@@ -7,7 +7,7 @@ import "./app/i18n";
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js', {
+    navigator.serviceWorker.register('/sw-v2.js', {
       scope: '/',
       updateViaCache: 'none',
     }).then(reg => {
