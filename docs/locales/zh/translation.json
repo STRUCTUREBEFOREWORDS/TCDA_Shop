@@ -299,7 +299,9 @@
     "faq": "常见问题",
     "sizeGuide": "尺码指南",
     "shippingReturns": "配送与退货",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "notifyMe": "接受通知",
+    "notified": "已开启通知 ✓"
   },
   "shippingReturns": {
     "title": "配送与退货",

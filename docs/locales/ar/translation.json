@@ -299,7 +299,9 @@
     "faq": "الأسئلة الشائعة",
     "sizeGuide": "جدول المقاسات",
     "shippingReturns": "الشحن والإرجاع",
-    "contact": "تواصل معنا"
+    "contact": "تواصل معنا",
+    "notifyMe": "تلقي الإشعارات",
+    "notified": "الإشعارات مفعلة ✓"
   },
   "shippingReturns": {
     "title": "الشحن والإرجاع",

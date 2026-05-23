@@ -299,7 +299,9 @@
     "faq": "FAQ",
     "sizeGuide": "Size Guide",
     "shippingReturns": "Shipping & Returns",
-    "contact": "Contact"
+    "contact": "Contact",
+    "notifyMe": "Get Notifications",
+    "notified": "Notifications On ✓"
   },
   "shippingReturns": {
     "title": "Shipping & Returns",

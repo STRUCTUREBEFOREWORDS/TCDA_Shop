@@ -301,7 +301,9 @@
     "faq": "FAQ",
     "sizeGuide": "Size Guide",
     "shippingReturns": "Shipping और Returns",
-    "contact": "Contact"
+    "contact": "Contact",
+    "notifyMe": "सूचनाएं प्राप्त करें",
+    "notified": "सूचनाएं सक्रिय ✓"
   },
   "shippingReturns": {
     "title": "Shipping और Returns",

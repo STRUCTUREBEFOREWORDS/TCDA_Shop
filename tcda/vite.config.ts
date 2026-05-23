@@ -33,6 +33,9 @@ export default defineConfig({
     tailwindcss(),
     spaPlugin,
     VitePWA({
+      strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'sw.ts',
       registerType: 'autoUpdate',
       manifest: {
         name: 'TCDA',

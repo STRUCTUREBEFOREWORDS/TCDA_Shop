@@ -299,7 +299,9 @@
     "faq": "よくある質問",
     "sizeGuide": "サイズガイド",
     "shippingReturns": "配送・返品",
-    "contact": "お問い合わせ"
+    "contact": "お問い合わせ",
+    "notifyMe": "通知を受け取る",
+    "notified": "通知設定済み ✓"
   },
   "shippingReturns": {
     "title": "配送・返品",
