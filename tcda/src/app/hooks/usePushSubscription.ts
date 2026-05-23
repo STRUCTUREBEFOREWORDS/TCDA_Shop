@@ -17,6 +17,10 @@ export function usePushSubscription() {
 
   const subscribe = async () => {
     if (!('serviceWorker' in navigator) || !('PushManager' in window)) return
+    if (!VAPID_PUBLIC_KEY) {
+      console.error('[push] VITE_VAPID_PUBLIC_KEY is not set')
+      return
+    }
     setLoading(true)
     try {
       const permission = await Notification.requestPermission()
