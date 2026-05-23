@@ -19,6 +19,9 @@ export function usePushSubscription() {
     if (!('serviceWorker' in navigator) || !('PushManager' in window)) return
     setLoading(true)
     try {
+      const permission = await Notification.requestPermission()
+      if (permission !== 'granted') return
+
       const reg = await navigator.serviceWorker.ready
       const sub = await reg.pushManager.subscribe({
         userVisibleOnly: true,
@@ -36,8 +39,8 @@ export function usePushSubscription() {
       })
       localStorage.setItem('push_subscribed', 'true')
       setSubscribed(true)
-    } catch {
-      // Permission denied or browser unsupported — fail silently
+    } catch (err) {
+      console.error('[push] subscribe failed:', err)
     } finally {
       setLoading(false)
     }

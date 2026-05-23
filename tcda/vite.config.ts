@@ -37,6 +37,10 @@ export default defineConfig({
       srcDir: 'src',
       filename: 'sw.ts',
       registerType: 'autoUpdate',
+      injectManifest: {
+        globPatterns: ['**/*.{js,css,html,ico,png,webp,woff2}'],
+        globIgnores: ['**/icons/*.svg'],
+      },
       manifest: {
         name: 'TCDA',
         short_name: 'TCDA',
@@ -58,7 +62,7 @@ export default defineConfig({
   },
   build: {
     outDir: '../docs',
-    emptyOutDir: false,
+    emptyOutDir: true,
   },
   resolve: {
     alias: {

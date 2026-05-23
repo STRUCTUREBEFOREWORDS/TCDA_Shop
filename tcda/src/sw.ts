@@ -1,8 +1,14 @@
 /// <reference lib="webworker" />
-import { precacheAndRoute } from 'workbox-precaching'
+import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
 
 declare const self: ServiceWorkerGlobalScope
 
+// Respond to skipWaiting message from vite-plugin-pwa autoUpdate
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') self.skipWaiting()
+})
+
+cleanupOutdatedCaches()
 precacheAndRoute(self.__WB_MANIFEST)
 
 self.addEventListener('push', (event) => {
