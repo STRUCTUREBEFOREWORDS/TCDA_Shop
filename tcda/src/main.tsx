@@ -5,29 +5,6 @@ import "./styles/index.css";
 import { AppProvider } from "./app/context/AppContext";
 import "./app/i18n";
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then(regs => {
-    regs.forEach(reg => {
-      if (reg.active?.scriptURL.includes('/sw.js') &&
-          !reg.active?.scriptURL.includes('/sw-v2.js')) {
-        reg.unregister()
-      }
-    })
-  })
-
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw-v2.js', {
-      scope: '/',
-      updateViaCache: 'none',
-    }).then(reg => {
-      reg.update()
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        window.location.reload()
-      })
-    })
-  })
-}
-
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>
     <AppProvider>

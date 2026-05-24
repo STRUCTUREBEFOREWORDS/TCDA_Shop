@@ -2,7 +2,6 @@ import { Link } from "react-router";
 import { useGlobalContext } from "../pages/Root";
 import { useTranslation } from "react-i18next";
 import { TCDA_LanguageCurrencySwitcher } from "./TCDA_LanguageCurrencySwitcher";
-import { usePushSubscription } from "../hooks/usePushSubscription";
 import pinterestIcon from "../../assets/sns/sns_icons/pinterest.webp";
 import xIcon from "../../assets/sns/sns_icons/x.webp";
 import instagramIcon from "../../assets/sns/sns_icons/instagram.webp";
@@ -27,7 +26,6 @@ const LINK_STYLE: React.CSSProperties = {
 export function Footer() {
   const { language, currency, setLanguage, setCurrency } = useGlobalContext();
   const { t } = useTranslation();
-  const { subscribed, loading, subscribe } = usePushSubscription();
 
   return (
     <footer
@@ -102,32 +100,6 @@ export function Footer() {
         ))}
       </div>
 
-      {/* Push Notification */}
-      <div className="max-w-7xl mx-auto mt-8 flex justify-center">
-        {!subscribed && (
-          <button
-            onClick={subscribe}
-            disabled={loading}
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "var(--text-caption)",
-              letterSpacing: "var(--ls-nav)",
-              color: "var(--color-bg)",
-              background: "#c8ff00",
-              border: "none",
-              padding: "8px 20px",
-              cursor: loading ? "wait" : "pointer",
-              opacity: loading ? 0.6 : 1,
-              textTransform: "uppercase",
-              transition: "var(--transition-base)",
-              position: "relative",
-              zIndex: 10,
-            }}
-          >
-            {loading ? "..." : t("footer.notifyMe")}
-          </button>
-        )}
-      </div>
     </footer>
   );
 }
