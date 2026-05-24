@@ -114,9 +114,7 @@ export function TCDA_GlobalNav() {
               </Link>
             ))}
             {/* Newsletter inline form (desktop) */}
-            {status === "done" ? (
-              <span style={{ ...NAV_LINK_STYLE, color: "#c8ff00", fontSize: "10px" }}>✓</span>
-            ) : (
+            {status !== "done" && (
               <form onSubmit={submit} className="flex items-center gap-1.5">
                 <input
                   type="email"
@@ -268,12 +266,8 @@ export function TCDA_GlobalNav() {
               </Link>
 
               {/* Newsletter inline form (mobile) */}
+              {status !== "done" && (
               <div style={{ borderTop: "1px solid var(--color-border)", paddingTop: "24px" }}>
-                {status === "done" ? (
-                  <span style={{ ...NAV_LINK_STYLE, color: "#c8ff00" }}>
-                    {t("footer.newsletterSubscribed")}
-                  </span>
-                ) : (
                   <form onSubmit={submit} style={{ display: "flex", gap: "8px" }}>
                     <input
                       type="email"
@@ -313,8 +307,8 @@ export function TCDA_GlobalNav() {
                       {status === "loading" ? "..." : t("footer.newsletterSubscribe")}
                     </button>
                   </form>
-                )}
               </div>
+              )}
             </nav>
           </motion.div>
         )}
