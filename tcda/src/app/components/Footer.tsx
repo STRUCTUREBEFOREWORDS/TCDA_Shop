@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router";
 import { useGlobalContext } from "../pages/Root";
 import { useTranslation } from "react-i18next";
@@ -25,43 +24,10 @@ const LINK_STYLE: React.CSSProperties = {
   textTransform: "uppercase",
 };
 
-const NEWSLETTER_KEY = "newsletter_subscribed";
-
-function useNewsletter(language: string) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "done" | "duplicate" | "error">(
-    () => (localStorage.getItem(NEWSLETTER_KEY) ? "done" : "idle")
-  );
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || status === "loading" || status === "done") return;
-    setStatus("loading");
-    try {
-      const res = await fetch("https://api.tcdashop.com/newsletter/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, lang: language }),
-      });
-      if (res.ok) {
-        localStorage.setItem(NEWSLETTER_KEY, "1");
-        setStatus("done");
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  };
-
-  return { email, setEmail, status, submit };
-}
-
 export function Footer() {
   const { language, currency, setLanguage, setCurrency } = useGlobalContext();
   const { t } = useTranslation();
   const { subscribed, loading, subscribe } = usePushSubscription();
-  const { email, setEmail, status, submit } = useNewsletter(language);
 
   return (
     <footer
@@ -136,79 +102,9 @@ export function Footer() {
         ))}
       </div>
 
-      {/* Newsletter */}
-      <div className="max-w-7xl mx-auto mt-8 flex flex-col items-center gap-2">
-        {status === "done" ? (
-          <span style={{ ...LINK_STYLE, color: "#c8ff00" }}>
-            {t("footer.newsletterSubscribed")}
-          </span>
-        ) : (
-          <form onSubmit={submit} className="flex gap-2">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder={t("footer.newsletterPlaceholder")}
-              required
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-caption)",
-                letterSpacing: "var(--ls-nav)",
-                color: "var(--color-text)",
-                background: "transparent",
-                border: "1px solid var(--color-border)",
-                padding: "8px 12px",
-                outline: "none",
-                width: "220px",
-              }}
-            />
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "var(--text-caption)",
-                letterSpacing: "var(--ls-nav)",
-                color: "var(--color-bg)",
-                background: "#c8ff00",
-                border: "none",
-                padding: "8px 20px",
-                cursor: status === "loading" ? "wait" : "pointer",
-                opacity: status === "loading" ? 0.6 : 1,
-                textTransform: "uppercase",
-                transition: "var(--transition-base)",
-                position: "relative",
-                zIndex: 10,
-              }}
-            >
-              {status === "loading" ? "..." : t("footer.newsletterSubscribe")}
-            </button>
-          </form>
-        )}
-        {(status === "duplicate" || status === "error") && (
-          <span style={{ ...LINK_STYLE, color: "var(--color-text-secondary)" }}>
-            {status === "duplicate"
-              ? t("footer.newsletterDuplicate")
-              : t("footer.newsletterError")}
-          </span>
-        )}
-      </div>
-
       {/* Push Notification */}
       <div className="max-w-7xl mx-auto mt-8 flex justify-center">
-        {subscribed ? (
-          <span
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "var(--text-caption)",
-              letterSpacing: "var(--ls-nav)",
-              color: "#c8ff00",
-              textTransform: "uppercase",
-            }}
-          >
-            {t("footer.notified")}
-          </span>
-        ) : (
+        {!subscribed && (
           <button
             onClick={subscribe}
             disabled={loading}

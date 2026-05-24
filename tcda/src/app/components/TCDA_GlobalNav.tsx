@@ -5,6 +5,36 @@ import { ShoppingBag, X, Menu } from "lucide-react";
 import { useGlobalContext } from "../pages/Root";
 import { useTranslation } from "react-i18next";
 
+const NEWSLETTER_KEY = "newsletter_subscribed";
+
+function useNewsletter(language: string) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">(
+    () => (localStorage.getItem(NEWSLETTER_KEY) ? "done" : "idle")
+  );
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || status === "loading" || status === "done") return;
+    setStatus("loading");
+    try {
+      const res = await fetch("https://api.tcdashop.com/newsletter/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, lang: language }),
+      });
+      if (res.ok) {
+        localStorage.setItem(NEWSLETTER_KEY, "1");
+        setStatus("done");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+  return { email, setEmail, status, submit };
+}
+
 const NAV_LINK_STYLE: React.CSSProperties = {
   fontFamily: "var(--font-body)",
   fontSize: "var(--text-caption)",
@@ -30,6 +60,7 @@ export function TCDA_GlobalNav() {
   const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { email, setEmail, status, submit } = useNewsletter(language);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -82,6 +113,50 @@ export function TCDA_GlobalNav() {
                 {label}
               </Link>
             ))}
+            {/* Newsletter inline form (desktop) */}
+            {status === "done" ? (
+              <span style={{ ...NAV_LINK_STYLE, color: "#c8ff00", fontSize: "10px" }}>✓</span>
+            ) : (
+              <form onSubmit={submit} className="flex items-center gap-1.5">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={t("footer.newsletterPlaceholder")}
+                  required
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "10px",
+                    letterSpacing: "var(--ls-nav)",
+                    color: "#f0f0f0",
+                    background: "transparent",
+                    border: "1px solid #333",
+                    padding: "5px 10px",
+                    outline: "none",
+                    width: "160px",
+                  }}
+                />
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "10px",
+                    letterSpacing: "var(--ls-nav)",
+                    color: "#080808",
+                    background: "#c8ff00",
+                    border: "none",
+                    padding: "5px 12px",
+                    cursor: status === "loading" ? "wait" : "pointer",
+                    opacity: status === "loading" ? 0.6 : 1,
+                    textTransform: "uppercase",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {status === "loading" ? "..." : t("footer.newsletterSubscribe")}
+                </button>
+              </form>
+            )}
           </nav>
 
           {/* Right — Controls */}
@@ -191,6 +266,55 @@ export function TCDA_GlobalNav() {
               >
                 {t("nav.about")}
               </Link>
+
+              {/* Newsletter inline form (mobile) */}
+              <div style={{ borderTop: "1px solid var(--color-border)", paddingTop: "24px" }}>
+                {status === "done" ? (
+                  <span style={{ ...NAV_LINK_STYLE, color: "#c8ff00" }}>
+                    {t("footer.newsletterSubscribed")}
+                  </span>
+                ) : (
+                  <form onSubmit={submit} style={{ display: "flex", gap: "8px" }}>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder={t("footer.newsletterPlaceholder")}
+                      required
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "var(--text-caption)",
+                        letterSpacing: "var(--ls-nav)",
+                        color: "#f0f0f0",
+                        background: "transparent",
+                        border: "1px solid #333",
+                        padding: "10px 12px",
+                        outline: "none",
+                        flex: 1,
+                      }}
+                    />
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "var(--text-caption)",
+                        letterSpacing: "var(--ls-nav)",
+                        color: "#080808",
+                        background: "#c8ff00",
+                        border: "none",
+                        padding: "10px 16px",
+                        cursor: status === "loading" ? "wait" : "pointer",
+                        opacity: status === "loading" ? 0.6 : 1,
+                        textTransform: "uppercase",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {status === "loading" ? "..." : t("footer.newsletterSubscribe")}
+                    </button>
+                  </form>
+                )}
+              </div>
             </nav>
           </motion.div>
         )}
