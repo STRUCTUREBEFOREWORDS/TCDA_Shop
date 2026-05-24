@@ -139,7 +139,8 @@
     "confirmedMessage": "Una conferma è stata inviata alla tua email. Questo pezzo fa ora parte dell'archivio.",
     "returnHome": "Torna alla home",
     "cancelled": "Ordine annullato",
-    "cancelledMessage": "Il tuo pagamento è stato annullato."
+    "cancelledMessage": "Il tuo pagamento è stato annullato.",
+    "newsletterHeading": "Ricevi le ultime novità e le collezioni esclusive"
   },
   "faq": {
     "q1": "Quanto tempo richiede la spedizione?",

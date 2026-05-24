@@ -139,7 +139,8 @@
     "confirmedMessage": "Uma confirmação foi enviada para seu email. Esta peça agora faz parte do arquivo.",
     "returnHome": "Voltar ao Início",
     "cancelled": "Pedido Cancelado",
-    "cancelledMessage": "Seu pagamento foi cancelado."
+    "cancelledMessage": "Seu pagamento foi cancelado.",
+    "newsletterHeading": "Receba as últimas novidades e coleções exclusivas"
   },
   "faq": {
     "q1": "Quanto tempo leva o frete?",

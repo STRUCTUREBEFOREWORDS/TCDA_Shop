@@ -139,7 +139,8 @@
     "confirmedMessage": "确认邮件即将发送至您的邮箱。此订单将成为您档案的一部分。",
     "returnHome": "返回首页",
     "cancelled": "订单已取消",
-    "cancelledMessage": "支付已取消。"
+    "cancelledMessage": "支付已取消。",
+    "newsletterHeading": "订阅获取新品和限定系列最新资讯"
   },
   "faq": {
     "q1": "配送需要多长时间？",

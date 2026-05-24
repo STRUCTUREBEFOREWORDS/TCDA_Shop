@@ -139,7 +139,8 @@
     "confirmedMessage": "確認メールをお送りします。これはアーカイブの一部となります。",
     "returnHome": "ホームへ",
     "cancelled": "注文キャンセル",
-    "cancelledMessage": "お支払いがキャンセルされました。"
+    "cancelledMessage": "お支払いがキャンセルされました。",
+    "newsletterHeading": "新作・限定コレクションの最新情報をメールで受け取る"
   },
   "faq": {
     "q1": "配送にどのくらいかかりますか？",

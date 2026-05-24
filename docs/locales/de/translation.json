@@ -139,7 +139,8 @@
     "confirmedMessage": "Eine Bestätigung wurde an deine E-Mail gesendet. Dieses Stück ist jetzt Teil des Archivs.",
     "returnHome": "Zur Startseite",
     "cancelled": "Bestellung storniert",
-    "cancelledMessage": "Deine Zahlung wurde storniert."
+    "cancelledMessage": "Deine Zahlung wurde storniert.",
+    "newsletterHeading": "Erhalten Sie die neuesten Infos zu neuen Kollektionen"
   },
   "faq": {
     "q1": "Wie lange dauert der Versand?",

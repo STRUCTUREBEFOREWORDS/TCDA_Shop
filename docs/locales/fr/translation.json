@@ -139,7 +139,8 @@
     "confirmedMessage": "Un e-mail de confirmation vous sera envoyé. Cette pièce rejoint vos archives.",
     "returnHome": "Retour à l'accueil",
     "cancelled": "Commande annulée",
-    "cancelledMessage": "Le paiement a été annulé."
+    "cancelledMessage": "Le paiement a été annulé.",
+    "newsletterHeading": "Recevez les dernières nouveautés et collections exclusives"
   },
   "faq": {
     "q1": "Quel est le délai de livraison ?",

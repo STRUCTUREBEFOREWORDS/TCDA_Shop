@@ -139,7 +139,8 @@
     "confirmedMessage": "확인 이메일을 보내드립니다. 이 주문은 아카이브의 일부가 됩니다.",
     "returnHome": "홈으로",
     "cancelled": "주문 취소",
-    "cancelledMessage": "결제가 취소되었습니다."
+    "cancelledMessage": "결제가 취소되었습니다.",
+    "newsletterHeading": "신작・한정 컬렉션 최신 정보를 이메일로 받아보세요"
   },
   "faq": {
     "q1": "배송은 얼마나 걸리나요?",

@@ -139,7 +139,8 @@
     "confirmedMessage": "A confirmation has been sent to your email. This piece is now part of the archive.",
     "returnHome": "Return Home",
     "cancelled": "Order Cancelled",
-    "cancelledMessage": "Your payment was cancelled."
+    "cancelledMessage": "Your payment was cancelled.",
+    "newsletterHeading": "Get the latest on new arrivals and exclusive collections"
   },
   "faq": {
     "q1": "How long does shipping take?",

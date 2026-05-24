@@ -139,7 +139,8 @@
     "confirmedMessage": "Recibirás un correo de confirmación. Este pedido forma parte de tu archivo.",
     "returnHome": "Volver al inicio",
     "cancelled": "Pedido cancelado",
-    "cancelledMessage": "El pago ha sido cancelado."
+    "cancelledMessage": "El pago ha sido cancelado.",
+    "newsletterHeading": "Recibe las últimas novedades y colecciones exclusivas"
   },
   "faq": {
     "q1": "¿Cuánto tarda el envío?",

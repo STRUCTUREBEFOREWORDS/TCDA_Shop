@@ -141,7 +141,8 @@
     "confirmedMessage": "आपके email पर confirmation भेज दिया गया है। यह piece अब archive का हिस्सा है।",
     "returnHome": "Home पर वापस जाएं",
     "cancelled": "Order रद्द हो गया",
-    "cancelledMessage": "आपका payment रद्द हो गया।"
+    "cancelledMessage": "आपका payment रद्द हो गया।",
+    "newsletterHeading": "नई आवक और एक्सक्लूसिव कलेक्शन की ताज़ा जानकारी पाएं"
   },
   "faq": {
     "q1": "Shipping में कितना समय लगता है?",
