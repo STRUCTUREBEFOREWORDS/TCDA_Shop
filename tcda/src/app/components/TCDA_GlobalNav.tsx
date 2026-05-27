@@ -5,7 +5,7 @@ import { ShoppingBag, X, Menu } from "lucide-react";
 import { useGlobalContext } from "../pages/Root";
 import { useTranslation } from "react-i18next";
 
-const NEWSLETTER_KEY = "newsletter_subscribed";
+const NEWSLETTER_KEY = "newsletter_nav_subscribed";
 
 function useNewsletter(language: string) {
   const [email, setEmail] = useState("");
