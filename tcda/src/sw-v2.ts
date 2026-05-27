@@ -1,4 +1,5 @@
 /// <reference lib="webworker" />
+// SW_VERSION: 3
 import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
 // clientsClaim from workbox-core is replaced by manual activate handler below
 import { registerRoute, NavigationRoute } from 'workbox-routing'
