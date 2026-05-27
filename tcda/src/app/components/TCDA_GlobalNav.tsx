@@ -45,6 +45,13 @@ const NAV_LINK_STYLE: React.CSSProperties = {
   textTransform: "uppercase",
 };
 
+const GENDER_FILTERS = [
+  { key: "", label: "ALL" },
+  { key: "male", label: "MEN'S" },
+  { key: "female", label: "WOMEN'S" },
+  { key: "unisex", label: "UNISEX" },
+];
+
 const CATEGORY_FILTERS = [
   { key: "new", label: "NEW" },
   { key: "tshirt", label: "TOPS" },
@@ -235,6 +242,20 @@ export function TCDA_GlobalNav() {
                 >
                   {t("nav.collection")}
                 </Link>
+                {/* Gender filters */}
+                <div style={{ display: "flex", gap: "20px", paddingLeft: "16px", marginBottom: "12px", flexWrap: "wrap" }}>
+                  {GENDER_FILTERS.map(({ key, label }) => (
+                    <Link
+                      key={key || "all"}
+                      to={key ? `/${language}/collection?gender=${key}` : `/${language}/collection`}
+                      onClick={() => setMobileOpen(false)}
+                      style={{ fontFamily: "var(--font-body)", fontSize: "12px", letterSpacing: "0.15em", color: "var(--color-text)", textTransform: "uppercase" }}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+                <div style={{ height: "1px", background: "var(--color-border)", marginLeft: "16px", marginBottom: "12px" }} />
                 <div style={{ display: "flex", flexDirection: "column", gap: "12px", paddingLeft: "16px" }}>
                   {CATEGORY_FILTERS.map(({ key, label }) => (
                     <Link
