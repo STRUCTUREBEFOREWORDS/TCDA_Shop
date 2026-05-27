@@ -68,7 +68,7 @@ function ProductCard({
       </div>
       <div style={{ marginTop: "12px", padding: "8px 4px", display: "flex", flexDirection: "column", gap: "4px" }}>
         <span style={{ fontSize: "11px", letterSpacing: "0.15em", color: "var(--color-text)", textTransform: "uppercase", fontFamily: "var(--font-body)", fontWeight: "var(--weight-regular)" }}>
-          {genderLabel}
+          {product.name}
         </span>
         <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "var(--color-accent)" }}>
           {convertAndFormat(product.price)}
