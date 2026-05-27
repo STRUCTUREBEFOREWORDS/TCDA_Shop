@@ -28,6 +28,8 @@ export const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, MeasurementMeta> = {
 export const CATEGORY_MEASUREMENT_MAP: Partial<Record<string, Record<string, MeasurementKey>>> = {
   track_jacket:        { A: "half_chest", B: "length", C: "sleeve_length" },
   recycled_sweatshirt: { A: "half_chest", B: "length", C: "sleeve_length" },
+  windbreaker_mens:    { A: "length", B: "half_chest", C: "sleeve_length" },
+  windbreaker_womens:  { A: "length", B: "half_chest", C: "sleeve_length" },
 };
 
 /** Canonical display order for the standalone size guide page */
