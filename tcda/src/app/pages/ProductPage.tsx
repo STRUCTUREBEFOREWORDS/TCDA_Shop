@@ -437,12 +437,9 @@ export function ProductPage() {
             className="flex flex-col md:sticky md:top-20"
             style={{ paddingLeft: "clamp(0px, 5vw, 60px)", paddingTop: "clamp(24px, 5vw, 80px)" }}
           >
-            {/* Gender + product type tag */}
+            {/* Product name */}
             <p style={{ fontSize: "15px", letterSpacing: "0.25em", color: "var(--color-text)", textTransform: "uppercase", marginBottom: "16px", fontFamily: "var(--font-body)", fontWeight: "var(--weight-light)" }}>
-              {product.gender_type === "male" ? "MEN'S"
-                : product.gender_type === "female" ? "WOMEN'S"
-                : "UNISEX"}
-              {product.product_type ? ` · ${product.product_type.replace(/_/g, " ").toUpperCase()}` : ""}
+              {product.name}
             </p>
 
             {/* Price */}
