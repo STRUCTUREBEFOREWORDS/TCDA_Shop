@@ -33,10 +33,6 @@ function ProductCard({
 }) {
   const image0 = product.images?.[0] || product.thumbnail_url || FALLBACK_IMAGE;
   const image1 = product.images?.[1];
-  const genderLabel =
-    product.gender_type === "male" ? "MEN'S"
-    : product.gender_type === "female" ? "WOMEN'S"
-    : "UNISEX";
 
   return (
     <Link
@@ -78,7 +74,14 @@ function ProductCard({
   );
 }
 
-const FILTERS = [
+const GENDER_FILTERS = [
+  { key: "", label: "ALL" },
+  { key: "male", label: "MEN'S" },
+  { key: "female", label: "WOMEN'S" },
+  { key: "unisex", label: "UNISEX" },
+];
+
+const CATEGORY_FILTERS = [
   { key: "new", label: "NEW" },
   { key: "tshirt", label: "TOPS" },
   { key: "jacket", label: "OUTERWEAR" },
@@ -86,6 +89,23 @@ const FILTERS = [
   { key: "bottoms", label: "BOTTOMS" },
   { key: "accessories", label: "ACCESSORIES" },
 ];
+
+const FILTER_BUTTON_STYLE = (active: boolean): React.CSSProperties => ({
+  fontFamily: "var(--font-body)",
+  fontSize: "11px",
+  letterSpacing: "0.2em",
+  textTransform: "uppercase",
+  background: "transparent",
+  border: "none",
+  cursor: "pointer",
+  padding: "0 0 2px",
+  whiteSpace: "nowrap",
+  color: active ? "var(--color-text)" : "var(--color-text-tertiary)",
+  textDecoration: active ? "underline" : "none",
+  textDecorationColor: "var(--color-accent)",
+  textUnderlineOffset: "5px",
+  transition: "color 0.3s ease",
+});
 
 export function CollectionPage() {
   const { language, currency, rates, countryCode } = useGlobalContext();
@@ -97,12 +117,16 @@ export function CollectionPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState<string>(searchParams.get("category") ?? "");
+  const [activeGender, setActiveGender] = useState<string>(searchParams.get("gender") ?? "");
   const [visibleCount, setVisibleCount] = useState(24);
   const PAGE_SIZE = 24;
   const sentinelRef = useRef<HTMLDivElement>(null);
 
-  const visibleProducts = products.slice(0, visibleCount);
-  const hasMore = visibleCount < products.length;
+  const filteredProducts = activeGender
+    ? products.filter((p) => p.gender_type === activeGender)
+    : products;
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredProducts.length;
 
   const loadMore = useCallback(() => {
     setVisibleCount((n) => n + PAGE_SIZE);
@@ -142,11 +166,19 @@ export function CollectionPage() {
   const handleFilterChange = (key: string) => {
     setActiveFilter(key);
     setVisibleCount(PAGE_SIZE);
-    if (key) {
-      setSearchParams({ category: key }, { replace: true });
-    } else {
-      setSearchParams({}, { replace: true });
-    }
+    const params: Record<string, string> = {};
+    if (key) params.category = key;
+    if (activeGender) params.gender = activeGender;
+    setSearchParams(params, { replace: true });
+  };
+
+  const handleGenderChange = (key: string) => {
+    setActiveGender(key);
+    setVisibleCount(PAGE_SIZE);
+    const params: Record<string, string> = {};
+    if (activeFilter) params.category = activeFilter;
+    if (key) params.gender = key;
+    setSearchParams(params, { replace: true });
   };
 
   const convertAndFormat = (jpy: number) => {
@@ -174,7 +206,7 @@ export function CollectionPage() {
         "@type": "ItemList",
         "name": "TCDA Collection",
         "url": "https://tcdashop.com/en/collection",
-        "itemListElement": products.map((p, i) => ({
+        "itemListElement": filteredProducts.map((p, i) => ({
           "@type": "ListItem",
           "position": i + 1,
           "url": `https://tcdashop.com/en/product/${p.id}`,
@@ -204,31 +236,26 @@ export function CollectionPage() {
         </motion.h1>
       </section>
 
-      {/* Filter */}
+      {/* Filters */}
       <div
         className="flex gap-6 px-4 md:px-16 overflow-x-auto"
         style={{ marginTop: "clamp(24px, 4vw, 48px)", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
       >
-        {FILTERS.map((f) => (
+        {GENDER_FILTERS.map((f) => (
           <button
             key={f.key || "all"}
+            onClick={() => handleGenderChange(f.key)}
+            style={FILTER_BUTTON_STYLE(activeGender === f.key)}
+          >
+            {f.label}
+          </button>
+        ))}
+        <span style={{ width: "1px", background: "var(--color-border)", margin: "0 2px", flexShrink: 0 }} />
+        {CATEGORY_FILTERS.map((f) => (
+          <button
+            key={f.key}
             onClick={() => handleFilterChange(f.key)}
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "11px",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-              padding: "0 0 2px",
-              whiteSpace: "nowrap",
-              color: activeFilter === f.key ? "var(--color-text)" : "var(--color-text-tertiary)",
-              textDecoration: activeFilter === f.key ? "underline" : "none",
-              textDecorationColor: "var(--color-accent)",
-              textUnderlineOffset: "5px",
-              transition: "color 0.3s ease",
-            } as React.CSSProperties}
+            style={FILTER_BUTTON_STYLE(activeFilter === f.key)}
           >
             {f.label}
           </button>
