@@ -225,7 +225,7 @@ export function ProductPage() {
 
   useEffect(() => {
     setDeliveryLoading(true);
-    fetch("https://api.tcdashop.com/shipping/estimate")
+    fetch(`https://api.tcdashop.com/shipping/estimate?product_id=${id}`)
       .then((r) => r.json())
       .then((d) => {
         if (d.min_date && d.max_date) {
