@@ -1,5 +1,14 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Language, Currency } from '../types';
+
+const SUPPORTED_LANGS: Language[] = ['en', 'ja', 'fr', 'es', 'ko', 'zh', 'ar', 'pt', 'de', 'it', 'hi'];
+const CURRENCY_MAP: Record<string, Currency> = {
+  JP: 'JPY', US: 'USD', GB: 'GBP',
+  KR: 'KRW', CN: 'CNY',
+  DE: 'EUR', FR: 'EUR', IT: 'EUR', ES: 'EUR',
+  NL: 'EUR', BE: 'EUR', AT: 'EUR', PT: 'EUR',
+};
+
 interface AppContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
@@ -27,29 +36,38 @@ const fallbackRates: Record<Currency, number> = {
   CNY: 0.048,
 };
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
-  const [currency, setCurrency] = useState<Currency>('USD');
-  const [rates, setRates] = useState<Record<Currency, number>>(fallbackRates);
-  const [countryCode, setCountryCode] = useState<string>('US');
+  const [language, setLanguage] = useState<Language>(() => {
+    const stored = localStorage.getItem('tcda_lang_selected') as Language;
+    if (stored && SUPPORTED_LANGS.includes(stored)) return stored;
+    const match = window.location.pathname.match(/^\/(ja|en|fr|es|ko|zh|ar|pt|de|it|hi)(\/|$)/);
+    return (match?.[1] as Language) ?? 'en';
+  });
 
+  const [currency, setCurrency] = useState<Currency>(() => {
+    const country = sessionStorage.getItem('tcda_country');
+    return (country && CURRENCY_MAP[country]) ? CURRENCY_MAP[country] : 'USD';
+  });
+
+  const [rates, setRates] = useState<Record<Currency, number>>(fallbackRates);
+  const [countryCode, setCountryCode] = useState<string>(() =>
+    sessionStorage.getItem('tcda_country') ?? 'US'
+  );
+
+  // Currency detection: use sessionStorage set by Root.tsx, else fetch /country once
   useEffect(() => {
-    fetch('https://ipapi.co/json/')
-      .then((res) => res.json())
+    const cached = sessionStorage.getItem('tcda_country');
+    if (cached) {
+      if (CURRENCY_MAP[cached]) setCurrency(CURRENCY_MAP[cached]);
+      setCountryCode(cached);
+      return;
+    }
+    fetch('https://api.tcdashop.com/country')
+      .then((r) => r.json())
       .then((data) => {
-        const country = data.country_code;
+        const country = data.country ?? 'US';
+        sessionStorage.setItem('tcda_country', country);
         setCountryCode(country);
-        const lang = data.languages?.split(',')[0]?.split('-')[0] || 'en';
-        const currencyMap: Record<string, Currency> = {
-          JP: 'JPY', US: 'USD', GB: 'GBP',
-          KR: 'KRW', CN: 'CNY',
-          DE: 'EUR', FR: 'EUR', IT: 'EUR', ES: 'EUR',
-          NL: 'EUR', BE: 'EUR', AT: 'EUR', PT: 'EUR',
-        };
-        const langMap: Record<string, Language> = {
-          ja: 'ja', en: 'en', ko: 'ko', zh: 'zh', fr: 'fr', es: 'es',
-        };
-        if (currencyMap[country]) setCurrency(currencyMap[country]);
-        if (langMap[lang]) setLanguage(langMap[lang]);
+        if (CURRENCY_MAP[country]) setCurrency(CURRENCY_MAP[country]);
       })
       .catch(() => {});
   }, []);
