@@ -269,7 +269,8 @@
       "center_back_sleeve": "Ärmel Rückenmitte",
       "top_width": "Breite oben",
       "bottom_width": "Breite unten",
-      "handle_length": "Henkel länge"
+      "handle_length": "Henkel länge",
+      "height": "Höhe"
     },
     "measurementFlatNote": "Maße flach genommen",
     "measurementVariationNote": "Geringe Abweichung (±1–2 cm) aufgrund von Produktionstoleranzen möglich.",
@@ -287,7 +288,8 @@
       "center_back_sleeve": "Von der Rückenmitte bis zum Ärmelende",
       "top_width": "Breite oben an der Tasche",
       "bottom_width": "Breite unten an der Tasche",
-      "handle_length": "Länge des Henkels"
+      "handle_length": "Länge des Henkels",
+      "height": "Höhe der Tasche von oben nach unten"
     },
     "figureAlt": "{{product}} Größentabellen-Illustration"
   },

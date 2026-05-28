@@ -269,7 +269,8 @@
       "center_back_sleeve": "طول الكم من مركز الظهر",
       "top_width": "العرض العلوي",
       "bottom_width": "العرض السفلي",
-      "handle_length": "طول المقبض"
+      "handle_length": "طول المقبض",
+      "height": "الارتفاع"
     },
     "measurementFlatNote": "القياسات مأخوذة بشكل مسطح",
     "measurementVariationNote": "قد يكون هناك اختلاف بسيط (±1–2 سم) بسبب تفاوتات الإنتاج.",
@@ -287,7 +288,8 @@
       "center_back_sleeve": "من مركز الظهر إلى فتحة الكم",
       "top_width": "عرض الحقيبة من الأعلى",
       "bottom_width": "عرض الحقيبة من الأسفل",
-      "handle_length": "طول المقبض"
+      "handle_length": "طول المقبض",
+      "height": "ارتفاع الحقيبة من الأعلى إلى الأسفل"
     },
     "figureAlt": "رسم توضيحي لجدول مقاسات {{product}}"
   },

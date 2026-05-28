@@ -269,7 +269,8 @@
       "center_back_sleeve": "등 중심 소매 길이",
       "top_width": "상단 폭",
       "bottom_width": "하단 폭",
-      "handle_length": "손잡이 길이"
+      "handle_length": "손잡이 길이",
+      "height": "높이"
     },
     "measurementFlatNote": "평치수 기준",
     "measurementVariationNote": "생산 공차로 ±1~2cm 오차가 발생할 수 있습니다.",
@@ -287,7 +288,8 @@
       "center_back_sleeve": "등 중심에서 소매 끝까지",
       "top_width": "가방 상단의 너비",
       "bottom_width": "가방 하단의 너비",
-      "handle_length": "손잡이의 길이"
+      "handle_length": "손잡이의 길이",
+      "height": "가방의 위에서 아래까지 높이"
     },
     "figureAlt": "{{product}} 사이즈 가이드 일러스트"
   },

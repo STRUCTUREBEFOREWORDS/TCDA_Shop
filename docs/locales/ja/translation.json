@@ -269,7 +269,8 @@
       "center_back_sleeve": "背中心袖丈",
       "top_width": "上部幅",
       "bottom_width": "下部幅",
-      "handle_length": "ハンドル長さ"
+      "handle_length": "ハンドル長さ",
+      "height": "高さ"
     },
     "measurementFlatNote": "平置き採寸",
     "measurementVariationNote": "生産誤差として±1〜2cmの範囲で誤差が生じる場合があります。",
@@ -287,7 +288,8 @@
       "center_back_sleeve": "背中中心から袖口まで",
       "top_width": "バッグ上部の横幅",
       "bottom_width": "バッグ底部の横幅",
-      "handle_length": "ハンドルの長さ"
+      "handle_length": "ハンドルの長さ",
+      "height": "バッグの高さ（上部から底部まで）"
     },
     "figureAlt": "{{product}}のサイズガイド図"
   },

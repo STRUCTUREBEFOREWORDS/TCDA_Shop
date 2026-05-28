@@ -3,7 +3,7 @@
  * Single source of truth for the A/B/C/D/E marker system.
  */
 
-export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist" | "inseam" | "rise" | "half_chest" | "sleeve_length" | "waist_half" | "center_back_sleeve" | "top_width" | "bottom_width" | "handle_length";
+export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist" | "inseam" | "rise" | "half_chest" | "sleeve_length" | "waist_half" | "center_back_sleeve" | "top_width" | "bottom_width" | "handle_length" | "height";
 
 export interface MeasurementMeta {
   marker: string;
@@ -26,6 +26,7 @@ export const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, MeasurementMeta> = {
   top_width:         { marker: "A", labelKey: "sizeGuide.measurements.top_width" },
   bottom_width:      { marker: "B", labelKey: "sizeGuide.measurements.bottom_width" },
   handle_length:     { marker: "D", labelKey: "sizeGuide.measurements.handle_length" },
+  height:            { marker: "B", labelKey: "sizeGuide.measurements.height" },
 };
 
 /** Per-category override: maps raw measurement markers → MeasurementKey.
@@ -41,6 +42,7 @@ export const CATEGORY_MEASUREMENT_MAP: Partial<Record<string, Record<string, Mea
   athletic_tshirt_womens:  { A: "half_chest", B: "length", C: "sleeve_length" },
   athletic_tshirt_mens:    { A: "half_chest", B: "length", C: "sleeve_length" },
   large_tote_bag:          { A: "top_width", B: "bottom_width", C: "length", D: "handle_length" },
+  tote_bag:                { A: "width", B: "height", C: "handle_length" },
 };
 
 /** Canonical display order for the standalone size guide page */

@@ -269,7 +269,8 @@
       "center_back_sleeve": "Center Back Sleeve",
       "top_width": "Top Width",
       "bottom_width": "Bottom Width",
-      "handle_length": "Handle Length"
+      "handle_length": "Handle Length",
+      "height": "Height"
     },
     "measurementFlatNote": "Measurements taken flat",
     "measurementVariationNote": "Slight variation (±1–2 cm) may occur due to production tolerances.",
@@ -287,7 +288,8 @@
       "center_back_sleeve": "From center back to sleeve opening",
       "top_width": "Width at the top of the bag",
       "bottom_width": "Width at the bottom of the bag",
-      "handle_length": "Length of the handle"
+      "handle_length": "Length of the handle",
+      "height": "Height of the bag from top to bottom"
     },
     "figureAlt": "{{product}} size guide illustration"
   },

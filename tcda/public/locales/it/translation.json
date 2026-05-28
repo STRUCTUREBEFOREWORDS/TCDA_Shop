@@ -269,7 +269,8 @@
       "center_back_sleeve": "Manica centro schiena",
       "top_width": "Larghezza superiore",
       "bottom_width": "Larghezza inferiore",
-      "handle_length": "Lunghezza manico"
+      "handle_length": "Lunghezza manico",
+      "height": "Altezza"
     },
     "measurementFlatNote": "Misure prese piatte",
     "measurementVariationNote": "Leggera variazione (±1–2 cm) possibile per tolleranze di produzione.",
@@ -287,7 +288,8 @@
       "center_back_sleeve": "Dal centro schiena al polso",
       "top_width": "Larghezza nella parte superiore della borsa",
       "bottom_width": "Larghezza nella parte inferiore della borsa",
-      "handle_length": "Lunghezza del manico"
+      "handle_length": "Lunghezza del manico",
+      "height": "Altezza della borsa dall'alto al basso"
     },
     "figureAlt": "Illustrazione guida taglie {{product}}"
   },

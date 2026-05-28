@@ -269,7 +269,8 @@
       "center_back_sleeve": "后中袖长",
       "top_width": "顶部宽度",
       "bottom_width": "底部宽度",
-      "handle_length": "提手长度"
+      "handle_length": "提手长度",
+      "height": "高度"
     },
     "measurementFlatNote": "平铺测量",
     "measurementVariationNote": "因生产公差，尺寸可能存在±1–2 cm的误差。",
@@ -287,7 +288,8 @@
       "center_back_sleeve": "从后中心到袖口",
       "top_width": "包袋顶部宽度",
       "bottom_width": "包袋底部宽度",
-      "handle_length": "提手长度"
+      "handle_length": "提手长度",
+      "height": "包袋从顶部到底部的高度"
     },
     "figureAlt": "{{product}}尺码指南插图"
   },
