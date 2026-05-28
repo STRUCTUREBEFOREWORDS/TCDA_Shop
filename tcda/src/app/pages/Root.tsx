@@ -218,7 +218,35 @@ export function Root() {
       .catch(() => { clearTimeout(timeout); });
   }, []);
 
+  // Auto-detect language on first visit via Accept-Language header (server-side read)
+  useEffect(() => {
+    const hasPreference = localStorage.getItem("tcda_lang_selected");
+    if (hasPreference) return;
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 3000);
+
+    fetch("https://api.tcdashop.com/detect-language", { signal: controller.signal })
+      .then((res) => res.json())
+      .then((data) => {
+        clearTimeout(timeout);
+        const detectedLang = data.lang as Language;
+        if (!SUPPORTED_LANGS.includes(detectedLang)) return;
+        localStorage.setItem("tcda_lang_selected", detectedLang);
+        const currentPath = window.location.pathname;
+        const newPath = currentPath.replace(
+          /^\/(ja|en|fr|es|ko|zh|ar|pt|de|it|hi)(\/|$)/,
+          `/${detectedLang}$2`
+        );
+        if (newPath !== currentPath) {
+          window.location.replace(newPath);
+        }
+      })
+      .catch(() => { clearTimeout(timeout); });
+  }, []);
+
   const setLanguage = (newLang: Language) => {
+    localStorage.setItem("tcda_lang_selected", newLang);
     const newPath = location.pathname.replace(`/${language}`, `/${newLang}`);
     i18n.changeLanguage(newLang);
     navigate(newPath);
