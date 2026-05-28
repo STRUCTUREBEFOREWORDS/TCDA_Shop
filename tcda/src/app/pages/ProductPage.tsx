@@ -313,9 +313,14 @@ export function ProductPage() {
       content: (
         <p className="leading-relaxed">
           {deliveryDate
-            ? (language === "ja"
-                ? `${formatDate(deliveryDate.min)}〜${formatDate(deliveryDate.max)}`
-                : `${formatDate(deliveryDate.min)} – ${formatDate(deliveryDate.max)}`)
+            ? (
+              <>
+                <span className="text-white/50">{t("product.deliveryLabel")}: </span>
+                {language === "ja"
+                  ? `${formatDate(deliveryDate.min)}〜${formatDate(deliveryDate.max)}`
+                  : `${formatDate(deliveryDate.min)} – ${formatDate(deliveryDate.max)}`}
+              </>
+            )
             : t("cart.shippingNote")}
         </p>
       ),
