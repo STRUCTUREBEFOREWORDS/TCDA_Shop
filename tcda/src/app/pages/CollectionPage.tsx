@@ -111,8 +111,7 @@ export function CollectionPage() {
   const { language, currency, rates, countryCode } = useGlobalContext();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar|hi)/, "");
-  const canonical = `https://tcdashop.com/en${canonicalPath}`;
+  const canonical = `https://tcdashop.com${pathname.endsWith("/") && pathname.length > 1 ? pathname.slice(0, -1) : pathname}`;
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);

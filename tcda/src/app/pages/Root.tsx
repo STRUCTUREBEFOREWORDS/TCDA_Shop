@@ -45,9 +45,13 @@ const HREFLANG_LANGS: { lang: string; hreflang: string }[] = [
 
 /** Injects hreflang <link> tags for every page automatically via Root. */
 function HreflangHelmet({ pathname }: { pathname: string }) {
-  // Strip the leading /:lang segment → keep the rest (e.g. /ja/products → /products)
+  // Strip the leading /:lang segment to get the path suffix (e.g. /ja/products → /products)
   const suffix = pathname.replace(/^\/[a-z]{2}(\/|$)/, "/") || "/";
-  const canonical = suffix === "/" ? suffix : suffix.replace(/\/$/, "");
+  const pathSuffix = suffix === "/" ? "/" : suffix.replace(/\/$/, "");
+  // Self-referencing canonical: current URL without trailing slash
+  const selfUrl = pathname.endsWith("/") && pathname.length > 1
+    ? pathname.slice(0, -1)
+    : pathname;
 
   return (
     <Helmet>
@@ -56,17 +60,17 @@ function HreflangHelmet({ pathname }: { pathname: string }) {
           key={hreflang}
           rel="alternate"
           hrefLang={hreflang}
-          href={`${BASE_URL}/${lang}${canonical === "/" ? "/" : canonical}`}
+          href={`${BASE_URL}/${lang}${pathSuffix === "/" ? "/" : pathSuffix}`}
         />
       ))}
       <link
         rel="alternate"
         hrefLang="x-default"
-        href={`${BASE_URL}/en${canonical === "/" ? "/" : canonical}`}
+        href={`${BASE_URL}/en${pathSuffix === "/" ? "/" : pathSuffix}`}
       />
       <link
         rel="canonical"
-        href={`${BASE_URL}/en${canonical === "/" ? "/" : canonical}`}
+        href={`${BASE_URL}${selfUrl}`}
       />
     </Helmet>
   );
