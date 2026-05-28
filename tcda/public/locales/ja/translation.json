@@ -32,7 +32,7 @@
     "stockLow": "残りわずか",
     "stockOut": "売り切れ",
     "materialLabel": "素材",
-    "deliveryLabel": "お届け",
+    "deliveryLabel": "お届け予定",
     "deliveryText": "通常5〜10営業日でお届け",
     "modelLabel": "モデル",
     "mensModel": "メンズモデル：175cm / M着用",
@@ -74,7 +74,8 @@
       "euLithuania": "EU製（リトアニア産）",
       "usUs": "アメリカ製",
       "chinaUsa": "中国・アメリカ産素材使用"
-    }
+    },
+    "around": "頃"
   },
   "cart": {
     "addToCart": "カートに追加",

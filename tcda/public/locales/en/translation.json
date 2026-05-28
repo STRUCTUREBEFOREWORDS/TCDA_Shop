@@ -32,7 +32,7 @@
     "stockLow": "Almost Gone",
     "stockOut": "Sold Out",
     "materialLabel": "Material",
-    "deliveryLabel": "Delivery",
+    "deliveryLabel": "Estimated Delivery",
     "modelLabel": "Model",
     "materialDetailsLabel": "Materials & Details",
     "relatedProducts": "You May Also Like",
@@ -74,7 +74,8 @@
       "euLithuania": "Made in EU (Lithuania)",
       "usUs": "Made in USA",
       "chinaUsa": "Materials from China & USA"
-    }
+    },
+    "around": "approx."
   },
   "cart": {
     "addToCart": "Add to Cart",

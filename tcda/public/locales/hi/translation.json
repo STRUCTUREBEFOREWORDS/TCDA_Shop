@@ -35,7 +35,7 @@
     "stockLow": "लगभग खत्म",
     "stockOut": "बिक गया",
     "materialLabel": "सामग्री",
-    "deliveryLabel": "डिलीवरी",
+    "deliveryLabel": "अनुमानित डिलीवरी",
     "modelLabel": "मॉडल",
     "materialDetailsLabel": "सामग्री और विवरण",
     "relatedProducts": "आपको यह भी पसंद आ सकता है",
@@ -77,7 +77,8 @@
       "euLithuania": "EU में निर्मित (लिथुआनिया)",
       "usUs": "USA में निर्मित",
       "chinaUsa": "चीन और USA की सामग्री"
-    }
+    },
+    "around": "लगभग"
   },
   "cart": {
     "addToCart": "Cart में जोड़ें",

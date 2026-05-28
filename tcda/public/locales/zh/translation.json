@@ -32,7 +32,7 @@
     "stockLow": "所剩无几",
     "stockOut": "已售罄",
     "materialLabel": "材质",
-    "deliveryLabel": "配送",
+    "deliveryLabel": "预计送达",
     "modelLabel": "模特",
     "materialDetailsLabel": "材质・详情",
     "relatedProducts": "同系列作品",
@@ -74,7 +74,8 @@
       "euLithuania": "欧盟制造（立陶宛产）",
       "usUs": "美国制造",
       "chinaUsa": "中国·美国原材料"
-    }
+    },
+    "around": "左右"
   },
   "cart": {
     "addToCart": "加入购物车",

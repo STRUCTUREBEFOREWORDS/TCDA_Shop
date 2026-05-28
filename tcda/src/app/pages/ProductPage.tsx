@@ -154,6 +154,26 @@ export function ProductPage() {
     }
   };
 
+  const formatDeliveryRange = (min: string, max: string) => {
+    if (min === max) {
+      try {
+        const d = new Date(min + "T12:00:00");
+        const simple = language === "ja"
+          ? new Intl.DateTimeFormat("ja", { month: "long", day: "numeric" }).format(d)
+          : new Intl.DateTimeFormat(language, { month: "short", day: "numeric" }).format(d);
+        const around = t("product.around");
+        return ["ja", "ko", "zh"].includes(language)
+          ? `${simple}${around}`
+          : `${around} ${simple}`;
+      } catch {
+        return min;
+      }
+    }
+    return language === "ja"
+      ? `${formatDate(min)}〜${formatDate(max)}`
+      : `${formatDate(min)} – ${formatDate(max)}`;
+  };
+
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string>("");
@@ -316,9 +336,7 @@ export function ProductPage() {
             ? (
               <>
                 <span className="text-white/50">{t("product.deliveryLabel")}: </span>
-                {language === "ja"
-                  ? `${formatDate(deliveryDate.min)}〜${formatDate(deliveryDate.max)}`
-                  : `${formatDate(deliveryDate.min)} – ${formatDate(deliveryDate.max)}`}
+                {formatDeliveryRange(deliveryDate.min, deliveryDate.max)}
               </>
             )
             : t("cart.shippingNote")}
@@ -897,9 +915,7 @@ export function ProductPage() {
               {t("product.deliveryLabel")}
             </h2>
             <p className="text-sm font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
-              {language === "ja"
-                ? `${formatDate(deliveryDate.min)}〜${formatDate(deliveryDate.max)}`
-                : `${formatDate(deliveryDate.min)} – ${formatDate(deliveryDate.max)}`}
+              {formatDeliveryRange(deliveryDate.min, deliveryDate.max)}
             </p>
           </motion.div>
         ) : null}

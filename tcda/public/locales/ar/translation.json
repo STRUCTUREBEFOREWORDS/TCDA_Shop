@@ -32,7 +32,7 @@
     "stockLow": "ينفد قريبًا",
     "stockOut": "نفد من المخزون",
     "materialLabel": "المادة",
-    "deliveryLabel": "التوصيل",
+    "deliveryLabel": "التسليم المتوقع",
     "modelLabel": "المودل",
     "materialDetailsLabel": "المواد والتفاصيل",
     "relatedProducts": "قد يعجبك أيضًا",
@@ -74,7 +74,8 @@
       "euLithuania": "صُنع في الاتحاد الأوروبي (ليتوانيا)",
       "usUs": "صُنع في الولايات المتحدة",
       "chinaUsa": "مواد من الصين والولايات المتحدة"
-    }
+    },
+    "around": "حوالي"
   },
   "cart": {
     "addToCart": "أضف إلى السلة",

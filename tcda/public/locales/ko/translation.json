@@ -32,7 +32,7 @@
     "stockLow": "품절 임박",
     "stockOut": "품절",
     "materialLabel": "소재",
-    "deliveryLabel": "배송",
+    "deliveryLabel": "예상 배송",
     "modelLabel": "모델",
     "materialDetailsLabel": "소재 · 상세",
     "relatedProducts": "함께 보기",
@@ -74,7 +74,8 @@
       "euLithuania": "EU 제조 (리투아니아산)",
       "usUs": "미국 제조",
       "chinaUsa": "중국·미국산 소재 사용"
-    }
+    },
+    "around": "경"
   },
   "cart": {
     "addToCart": "카트에 추가",
