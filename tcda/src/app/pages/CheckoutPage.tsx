@@ -100,6 +100,31 @@ const { t } = useTranslation();
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const grandTotal = shippingAmount !== null ? subtotal + shippingAmount : subtotal;
 
+  const addBusinessDays = (days: number): Date => {
+    const d = new Date();
+    let remaining = days;
+    while (remaining > 0) {
+      d.setDate(d.getDate() + 1);
+      if (d.getDay() !== 0 && d.getDay() !== 6) remaining--;
+    }
+    return d;
+  };
+
+  const formatDeliveryDate = (d: Date): string => {
+    if (language === "ja") {
+      const md = new Intl.DateTimeFormat("ja", { month: "long", day: "numeric" }).format(d);
+      return md;
+    }
+    return new Intl.DateTimeFormat(language, { month: "short", day: "numeric" }).format(d);
+  };
+
+  const deliveryDates = deliveryRange
+    ? {
+        min: formatDeliveryDate(addBusinessDays(deliveryRange.min)),
+        max: formatDeliveryDate(addBusinessDays(deliveryRange.max)),
+      }
+    : null;
+
   useEffect(() => {
     if (!shipping.country) return;
     const needsStateNow = NEEDS_STATE.includes(shipping.country);
@@ -179,7 +204,7 @@ const { t } = useTranslation();
               product_id: state?.artworkId ?? "",
             },
           ];
-      await redirectToCheckout(checkoutItems, currency, language);
+      await redirectToCheckout(checkoutItems, currency, language, shippingAmount ?? 0);
     } catch (e) {
       console.error(e);
       setIsLoading(false);
@@ -241,9 +266,12 @@ const { t } = useTranslation();
             {formatPrice(grandTotal, currency)}
           </span>
         </div>
-        {deliveryRange && (
+        {deliveryDates && (
           <p className="text-white/40 text-[9px] font-light tracking-wide text-right pt-1">
-            {t("product.deliveryLabel")}: {deliveryRange.min}–{deliveryRange.max} {t("checkout.businessDays") || "business days"}
+            {t("product.deliveryLabel")}:{" "}
+            {language === "ja"
+              ? `${deliveryDates.min}〜${deliveryDates.max}`
+              : `${deliveryDates.min} – ${deliveryDates.max}`}
           </p>
         )}
         <p className="text-white/30 text-[9px] font-light tracking-wide text-right">

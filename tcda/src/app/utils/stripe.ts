@@ -24,7 +24,8 @@ const STRIPE_LOCALE: Record<string, string> = {
 export async function redirectToCheckout(
   items: CheckoutItem[],
   currency = "jpy",
-  language = "ja"
+  language = "ja",
+  shippingAmount = 0
 ): Promise<void> {
   const locale = STRIPE_LOCALE[language] ?? "auto";
   const res = await fetch("https://api.tcdashop.com/create-checkout-session", {
@@ -35,6 +36,7 @@ export async function redirectToCheckout(
       currency: currency.toLowerCase(),
       locale,
       language,
+      shipping_amount: shippingAmount,
     }),
   });
   const data = await res.json();
