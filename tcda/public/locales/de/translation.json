@@ -93,7 +93,7 @@
     "quickView": "Schnellansicht",
     "added": "Hinzugefügt",
     "taxNote": "Steuern werden an der Kasse berechnet",
-    "shippingNote": "Versandkosten werden an der Kasse berechnet",
+    "shippingNote": "Kostenloser Versand",
     "checkoutError": "Bezahlung fehlgeschlagen. Bitte versuchen Sie es erneut."
   },
   "shop": {

@@ -93,7 +93,7 @@
     "quickView": "Aperçu rapide",
     "added": "Ajouté",
     "taxNote": "Taxes calculées lors du paiement",
-    "shippingNote": "Livraison calculée lors du paiement",
+    "shippingNote": "Livraison gratuite",
     "checkoutError": "Le paiement a échoué. Veuillez réessayer."
   },
   "shop": {

@@ -93,7 +93,7 @@
     "quickView": "Anteprima rapida",
     "added": "Aggiunto",
     "taxNote": "Tasse calcolate al momento del pagamento",
-    "shippingNote": "Spedizione calcolata al momento del pagamento",
+    "shippingNote": "Spedizione gratuita",
     "checkoutError": "Pagamento fallito. Si prega di riprovare."
   },
   "shop": {

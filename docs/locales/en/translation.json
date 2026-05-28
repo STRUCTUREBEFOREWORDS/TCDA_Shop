@@ -93,7 +93,7 @@
     "quickView": "Quick View",
     "added": "Added",
     "taxNote": "Taxes calculated at checkout",
-    "shippingNote": "Shipping calculated at checkout",
+    "shippingNote": "Free shipping",
     "checkoutError": "Checkout failed. Please try again."
   },
   "shop": {

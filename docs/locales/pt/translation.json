@@ -93,7 +93,7 @@
     "quickView": "Visualização Rápida",
     "added": "Adicionado",
     "taxNote": "Impostos calculados no checkout",
-    "shippingNote": "Frete calculado no checkout",
+    "shippingNote": "Frete grátis",
     "checkoutError": "Falha no pagamento. Por favor, tente novamente."
   },
   "shop": {

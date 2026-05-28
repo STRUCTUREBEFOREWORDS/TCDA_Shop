@@ -93,7 +93,7 @@
     "added": "追加済み",
     "quickView": "クイックビュー",
     "taxNote": "税はチェックアウト時に計算されます",
-    "shippingNote": "配送料はチェックアウト時に計算されます",
+    "shippingNote": "送料無料",
     "checkoutError": "決済に失敗しました。もう一度お試しください。"
   },
   "shop": {

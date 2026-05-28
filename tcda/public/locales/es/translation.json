@@ -93,7 +93,7 @@
     "quickView": "Vista rápida",
     "added": "Agregado",
     "taxNote": "Impuestos calculados al pagar",
-    "shippingNote": "Envío calculado al pagar",
+    "shippingNote": "Envío gratis",
     "checkoutError": "El pago falló. Por favor, inténtelo de nuevo."
   },
   "shop": {

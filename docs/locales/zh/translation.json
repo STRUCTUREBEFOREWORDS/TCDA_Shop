@@ -93,7 +93,7 @@
     "quickView": "快速预览",
     "added": "已加入",
     "taxNote": "税款将在结账时计算",
-    "shippingNote": "运费将在结账时计算",
+    "shippingNote": "免费配送",
     "checkoutError": "结账失败，请重试。"
   },
   "shop": {
