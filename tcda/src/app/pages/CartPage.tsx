@@ -1,8 +1,9 @@
 import { motion } from "motion/react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { Minus, Plus, X } from "lucide-react";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
+import { redirectToCheckout } from "../utils/stripe";
 
 import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -10,16 +11,23 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 export function CartPage() {
   const { language, currency, cartItems, removeFromCart, updateQuantity } =
     useGlobalContext();
-  const navigate = useNavigate();
-const { t } = useTranslation();
-  
+  const { t } = useTranslation();
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  const handleCheckout = () => {
-    navigate(`/${language}/checkout`, {
-      state: { fromCart: true, cartItems, currency },
-    });
+  const handleCheckout = async () => {
+    const items = cartItems.map((item) => ({
+      name: item.artworkName,
+      price_jpy: item.price_jpy,
+      quantity: item.quantity,
+      size: item.size,
+      product_id: item.artworkId,
+    }));
+    try {
+      await redirectToCheckout(items, currency, language);
+    } catch {
+      alert(t("cart.checkoutError"));
+    }
   };
 
   if (cartItems.length === 0) {

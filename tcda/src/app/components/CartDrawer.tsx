@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "motion/react";
 import { X, Minus, Plus } from "lucide-react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { useGlobalContext } from "../pages/Root";
+import { redirectToCheckout } from "../utils/stripe";
 import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -20,7 +21,6 @@ export function CartDrawer() {
   } = useGlobalContext();
 
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -186,11 +186,20 @@ export function CartDrawer() {
                   {t("cart.shippingNote")} · {t("cart.taxNote")}
                 </p>
                 <button
-                  onClick={() => {
+                  onClick={async () => {
                     setIsCartOpen(false);
-                    navigate(`/${language}/checkout`, {
-                      state: { fromCart: true, cartItems, currency },
-                    });
+                    const items = cartItems.map((item) => ({
+                      name: item.artworkName,
+                      price_jpy: item.price_jpy,
+                      quantity: item.quantity,
+                      size: item.size,
+                      product_id: item.artworkId,
+                    }));
+                    try {
+                      await redirectToCheckout(items, currency, language);
+                    } catch {
+                      alert(t("cart.checkoutError"));
+                    }
                   }}
                   className="block w-full py-4 bg-white text-black text-xs font-light tracking-[0.25em] uppercase text-center hover:bg-white/90 transition-colors duration-200"
                 >

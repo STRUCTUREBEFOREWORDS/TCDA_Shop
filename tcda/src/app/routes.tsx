@@ -14,7 +14,6 @@ const ProductPage         = lazy(() => import("./pages/ProductPage").then(m => (
 const AboutPage           = lazy(() => import("./pages/AboutPage").then(m => ({ default: m.AboutPage })));
 const ArchivePage         = lazy(() => import("./pages/ArchivePage").then(m => ({ default: m.ArchivePage })));
 const CartPage            = lazy(() => import("./pages/CartPage").then(m => ({ default: m.CartPage })));
-const CheckoutPage        = lazy(() => import("./pages/CheckoutPage").then(m => ({ default: m.CheckoutPage })));
 const PaymentSuccessPage  = lazy(() => import("./pages/PaymentSuccessPage").then(m => ({ default: m.PaymentSuccessPage })));
 const PaymentCancelledPage= lazy(() => import("./pages/PaymentCancelledPage").then(m => ({ default: m.PaymentCancelledPage })));
 const PaymentErrorPage    = lazy(() => import("./pages/PaymentErrorPage").then(m => ({ default: m.PaymentErrorPage })));
@@ -41,7 +40,6 @@ export const router = createBrowserRouter([
       { path: "collection", Component: CollectionPage },
       { path: "size-guide", Component: SizeGuidePage },
       { path: "cart", Component: CartPage },
-      { path: "checkout", Component: CheckoutPage },
       { path: "payment-success", Component: PaymentSuccessPage },
       { path: "payment-cancelled", Component: PaymentCancelledPage },
       { path: "payment-error", Component: PaymentErrorPage },
