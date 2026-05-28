@@ -142,7 +142,13 @@ export function ProductPage() {
 
   const formatDate = (dateStr: string) => {
     try {
-      return new Intl.DateTimeFormat(language, { month: "short", day: "numeric" }).format(new Date(dateStr));
+      const d = new Date(dateStr + "T12:00:00");
+      if (language === "ja") {
+        const md = new Intl.DateTimeFormat("ja", { month: "long", day: "numeric" }).format(d);
+        const wd = new Intl.DateTimeFormat("ja", { weekday: "short" }).format(d);
+        return `${md}（${wd}）`;
+      }
+      return new Intl.DateTimeFormat(language, { month: "short", day: "numeric" }).format(d);
     } catch {
       return dateStr;
     }
@@ -159,6 +165,7 @@ export function ProductPage() {
   const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [deliveryDate, setDeliveryDate] = useState<{ min: string; max: string } | null>(null);
+  const [deliveryLoading, setDeliveryLoading] = useState(true);
   const [notifyEmail, setNotifyEmail] = useState("");
   const [notifySubmitted, setNotifySubmitted] = useState(false);
   const [reviews, setReviews] = useState<{ rating: number; name?: string; body?: string; created_at: string }[]>([]);
@@ -204,16 +211,6 @@ export function ProductPage() {
           const chartData = await chartRes.json();
           setSizeChart(chartData);
         }
-        if (data.printful_variant_id) {
-          fetch(`https://api.tcdashop.com/shipping/rates?country_code=${countryCode}&variant_id=${data.printful_variant_id}`)
-            .then((r) => r.json())
-            .then((d) => {
-              if (d.min_delivery_date && d.max_delivery_date) {
-                setDeliveryDate({ min: d.min_delivery_date, max: d.max_delivery_date });
-              }
-            })
-            .catch(() => {});
-        }
       })
       .finally(() => setLoading(false));
   }, [id, countryCode, language]);
@@ -225,6 +222,19 @@ export function ProductPage() {
       .then((d) => setReviews(d.reviews ?? []))
       .catch(() => {});
   }, [id]);
+
+  useEffect(() => {
+    setDeliveryLoading(true);
+    fetch("https://api.tcdashop.com/shipping/estimate")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.min_date && d.max_date) {
+          setDeliveryDate({ min: d.min_date, max: d.max_date });
+        }
+      })
+      .catch(() => {})
+      .finally(() => setDeliveryLoading(false));
+  }, []);
 
   if (loading) {
     return (
@@ -303,7 +313,11 @@ export function ProductPage() {
         <div>
           <p className="leading-relaxed">{t("product.deliveryText")}</p>
           {deliveryDate && (
-            <p className="mt-2 opacity-70">{formatDate(deliveryDate.min)} 〜 {formatDate(deliveryDate.max)}</p>
+            <p className="mt-2 opacity-70">
+              {language === "ja"
+                ? `${formatDate(deliveryDate.min)}〜${formatDate(deliveryDate.max)}`
+                : `${formatDate(deliveryDate.min)} – ${formatDate(deliveryDate.max)}`}
+            </p>
           )}
         </div>
       ),
@@ -865,8 +879,13 @@ export function ProductPage() {
           measuringGuideImageUrl={product.measuring_guide_image_url}
         />
 
-        {/* Delivery date */}
-        {deliveryDate && (
+        {/* Delivery estimate */}
+        {deliveryLoading ? (
+          <div className="pt-8" style={{ borderTop: "1px solid var(--color-border)" }}>
+            <div className="h-2.5 w-20 rounded mb-4" style={{ background: "var(--color-border)" }} />
+            <div className="h-4 w-52 rounded" style={{ background: "var(--color-border)" }} />
+          </div>
+        ) : deliveryDate ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -879,10 +898,12 @@ export function ProductPage() {
               {t("product.deliveryLabel")}
             </h2>
             <p className="text-sm font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
-              {formatDate(deliveryDate.min)} 〜 {formatDate(deliveryDate.max)}
+              {language === "ja"
+                ? `${formatDate(deliveryDate.min)}〜${formatDate(deliveryDate.max)}`
+                : `${formatDate(deliveryDate.min)} – ${formatDate(deliveryDate.max)}`}
             </p>
           </motion.div>
-        )}
+        ) : null}
 
         {/* Shipping & Returns */}
         <motion.div
