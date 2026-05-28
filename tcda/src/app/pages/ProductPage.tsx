@@ -263,7 +263,7 @@ export function ProductPage() {
       })
       .catch(() => {})
       .finally(() => setDeliveryLoading(false));
-  }, []);
+  }, [id]);
 
   if (loading) {
     return (
