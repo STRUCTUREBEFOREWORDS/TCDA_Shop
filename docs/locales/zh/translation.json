@@ -264,7 +264,9 @@
       "inseam": "内缝长",
       "rise": "裆高",
       "half_chest": "半胸围",
-      "sleeve_length": "袖长"
+      "sleeve_length": "袖长",
+      "waist_half": "腰围半幅",
+      "center_back_sleeve": "后中袖长"
     },
     "measurementFlatNote": "平铺测量",
     "measurementVariationNote": "因生产公差，尺寸可能存在±1–2 cm的误差。",
@@ -277,7 +279,9 @@
       "inseam": "从裆缝量至裤脚",
       "rise": "从腰带量至裆缝",
       "half_chest": "平铺胸宽的一半",
-      "sleeve_length": "从肩缝到袖口"
+      "sleeve_length": "从肩缝到袖口",
+      "waist_half": "腰部平铺宽度（单侧）",
+      "center_back_sleeve": "从后中心到袖口"
     },
     "figureAlt": "{{product}}尺码指南插图"
   },

@@ -264,7 +264,9 @@
       "inseam": "Entrepierna",
       "rise": "Tiro",
       "half_chest": "Mitad del pecho",
-      "sleeve_length": "Largo de manga"
+      "sleeve_length": "Largo de manga",
+      "waist_half": "Media cintura",
+      "center_back_sleeve": "Manga espalda centro"
     },
     "measurementFlatNote": "Medidas tomadas en plano",
     "measurementVariationNote": "Puede haber una ligera variación (±1–2 cm) por tolerancias de producción.",
@@ -277,7 +279,9 @@
       "inseam": "desde la costura de la entrepierna hasta el bajo",
       "rise": "desde la cintura hasta la costura de la entrepierna",
       "half_chest": "Mitad del ancho del pecho (plano)",
-      "sleeve_length": "Desde la costura del hombro hasta el puño"
+      "sleeve_length": "Desde la costura del hombro hasta el puño",
+      "waist_half": "Ancho de cintura plano (un lado)",
+      "center_back_sleeve": "Desde el centro de la espalda hasta el puño"
     },
     "figureAlt": "Ilustración de la guía de tallas {{product}}"
   },

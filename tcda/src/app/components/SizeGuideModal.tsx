@@ -81,8 +81,10 @@ const SIZE_GUIDE_IMAGE_MAP: Record<string, string> = {
   crop_top_ls:          "/size-guide/crop_top_ls.png",
   recycled_sweatshirt:  "/size-guide/recycled_sweatshirt.png",
   track_jacket:         "/size-guide/track_jacket.png",
-  windbreaker_mens:     "/size-guide/windbreaker_mens.png",
-  windbreaker_womens:   "/size-guide/windbreaker_womens.png",
+  windbreaker_mens:       "/size-guide/windbreaker_mens.png",
+  windbreaker_womens:     "/size-guide/windbreaker_womens.png",
+  athletic_tshirt_womens: "/size-guide/womens_athletic.png",
+  athletic_tshirt_mens:   "/size-guide/mens_athletic.png",
 };
 
 /**
@@ -99,6 +101,7 @@ function normalizeSizeCategory(value?: string | null): string | null {
   const passthrough = [
     "shorts", "athletic_long_shorts", "windbreaker_mens", "windbreaker_womens",
     "track_jacket", "recycled_sweatshirt", "crop_top_ls", "crop_tee",
+    "athletic_tshirt_womens", "athletic_tshirt_mens",
   ];
   if (passthrough.includes(v)) return v;
   return v;

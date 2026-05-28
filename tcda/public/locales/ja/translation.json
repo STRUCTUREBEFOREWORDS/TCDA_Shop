@@ -264,7 +264,9 @@
       "inseam": "股下丈",
       "rise": "前胴上",
       "half_chest": "身幅",
-      "sleeve_length": "袖丈"
+      "sleeve_length": "袖丈",
+      "waist_half": "平置き胴幅",
+      "center_back_sleeve": "背中心袖丈"
     },
     "measurementFlatNote": "平置き採寸",
     "measurementVariationNote": "生産誤差として±1〜2cmの範囲で誤差が生じる場合があります。",
@@ -277,7 +279,9 @@
       "inseam": "股の付け根から裾まで",
       "rise": "ウエストから股の付け根まで",
       "half_chest": "胸部の横幅（平置き・半計）",
-      "sleeve_length": "肩先から袖口まで"
+      "sleeve_length": "肩先から袖口まで",
+      "waist_half": "ウエスト位置の横幅（平置き・片側）",
+      "center_back_sleeve": "背中中心から袖口まで"
     },
     "figureAlt": "{{product}}のサイズガイド図"
   },

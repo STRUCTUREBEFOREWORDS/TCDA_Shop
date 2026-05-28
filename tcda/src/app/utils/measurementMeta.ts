@@ -3,12 +3,12 @@
  * Single source of truth for the A/B/C/D/E marker system.
  */
 
-export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist" | "inseam" | "rise" | "half_chest" | "sleeve_length";
+export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist" | "inseam" | "rise" | "half_chest" | "sleeve_length" | "waist_half" | "center_back_sleeve";
 
 export interface MeasurementMeta {
   marker: string;
   labelKey: string;
-  helpKey: string;
+  helpKey?: string;
 }
 
 export const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, MeasurementMeta> = {
@@ -19,8 +19,10 @@ export const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, MeasurementMeta> = {
   waist:    { marker: "E", labelKey: "sizeGuide.measurements.waist",    helpKey: "sizeGuide.measurementHelp.waist" },
   inseam:       { marker: "B", labelKey: "sizeGuide.measurements.inseam",       helpKey: "sizeGuide.measurementHelp.inseam" },
   rise:         { marker: "C", labelKey: "sizeGuide.measurements.rise",         helpKey: "sizeGuide.measurementHelp.rise" },
-  half_chest:   { marker: "A", labelKey: "sizeGuide.measurements.half_chest",   helpKey: "sizeGuide.measurementHelp.half_chest" },
-  sleeve_length:{ marker: "C", labelKey: "sizeGuide.measurements.sleeve_length",helpKey: "sizeGuide.measurementHelp.sleeve_length" },
+  half_chest:        { marker: "A", labelKey: "sizeGuide.measurements.half_chest",        helpKey: "sizeGuide.measurementHelp.half_chest" },
+  sleeve_length:     { marker: "C", labelKey: "sizeGuide.measurements.sleeve_length",     helpKey: "sizeGuide.measurementHelp.sleeve_length" },
+  waist_half:        { marker: "A", labelKey: "sizeGuide.measurements.waist_half" },
+  center_back_sleeve:{ marker: "D", labelKey: "sizeGuide.measurements.center_back_sleeve" },
 };
 
 /** Per-category override: maps raw measurement markers → MeasurementKey.
@@ -30,6 +32,11 @@ export const CATEGORY_MEASUREMENT_MAP: Partial<Record<string, Record<string, Mea
   recycled_sweatshirt: { A: "half_chest", B: "length", C: "sleeve_length" },
   windbreaker_mens:    { A: "length", B: "half_chest", C: "sleeve_length" },
   windbreaker_womens:  { A: "length", B: "half_chest", C: "sleeve_length" },
+  crop_tee:                { A: "half_chest", B: "length", C: "sleeve_length" },
+  shorts:                  { A: "waist_half", B: "inseam", C: "rise" },
+  crop_top_ls:             { A: "half_chest", B: "length", C: "sleeve_length", D: "center_back_sleeve" },
+  athletic_tshirt_womens:  { A: "half_chest", B: "length", C: "sleeve_length" },
+  athletic_tshirt_mens:    { A: "half_chest", B: "length", C: "sleeve_length" },
 };
 
 /** Canonical display order for the standalone size guide page */

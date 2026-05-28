@@ -264,7 +264,9 @@
       "inseam": "Entrejambe",
       "rise": "Fourche",
       "half_chest": "Demi-poitrine",
-      "sleeve_length": "Longueur de manche"
+      "sleeve_length": "Longueur de manche",
+      "waist_half": "Demi-taille",
+      "center_back_sleeve": "Manche dos centre"
     },
     "measurementFlatNote": "Mesures prises à plat",
     "measurementVariationNote": "Une légère variation (±1–2 cm) est possible selon les tolérances de fabrication.",
@@ -277,7 +279,9 @@
       "inseam": "de la couture de l'entrejambe jusqu'à l'ourlet",
       "rise": "de la ceinture jusqu'à la couture de l'entrejambe",
       "half_chest": "Moitié de la largeur de poitrine à plat",
-      "sleeve_length": "De la couture d'épaule au poignet"
+      "sleeve_length": "De la couture d'épaule au poignet",
+      "waist_half": "Largeur de taille à plat (un côté)",
+      "center_back_sleeve": "Du centre dos jusqu'au poignet"
     },
     "figureAlt": "Illustration du guide des tailles {{product}}"
   },

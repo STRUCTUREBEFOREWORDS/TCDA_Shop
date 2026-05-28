@@ -264,7 +264,9 @@
       "inseam": "안솔기",
       "rise": "밑위",
       "half_chest": "가슴 너비",
-      "sleeve_length": "소매 길이"
+      "sleeve_length": "소매 길이",
+      "waist_half": "허리 반폭",
+      "center_back_sleeve": "등 중심 소매 길이"
     },
     "measurementFlatNote": "평치수 기준",
     "measurementVariationNote": "생산 공차로 ±1~2cm 오차가 발생할 수 있습니다.",
@@ -277,7 +279,9 @@
       "inseam": "가랑이 솔기에서 밑단까지",
       "rise": "허리밴드에서 가랑이 솔기까지",
       "half_chest": "가슴 너비의 절반 (평평하게 측정)",
-      "sleeve_length": "어깨 솔기에서 소매 끝까지"
+      "sleeve_length": "어깨 솔기에서 소매 끝까지",
+      "waist_half": "허리 부분 가로 너비 (한쪽, 평평하게 놓았을 때)",
+      "center_back_sleeve": "등 중심에서 소매 끝까지"
     },
     "figureAlt": "{{product}} 사이즈 가이드 일러스트"
   },

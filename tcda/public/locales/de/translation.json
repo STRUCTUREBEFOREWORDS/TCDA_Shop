@@ -264,7 +264,9 @@
       "inseam": "Innennähte",
       "rise": "Schrittlänge",
       "half_chest": "Halbe Brustbreite",
-      "sleeve_length": "Ärmellänge"
+      "sleeve_length": "Ärmellänge",
+      "waist_half": "Halbe Taille",
+      "center_back_sleeve": "Ärmel Rückenmitte"
     },
     "measurementFlatNote": "Maße flach genommen",
     "measurementVariationNote": "Geringe Abweichung (±1–2 cm) aufgrund von Produktionstoleranzen möglich.",
@@ -277,7 +279,9 @@
       "inseam": "von der Schritt naht bis zum Saum",
       "rise": "vom Bund bis zur Schrittnaht",
       "half_chest": "Halbe Brustbreite flach gemessen",
-      "sleeve_length": "Von der Schulternaht bis zur Manschette"
+      "sleeve_length": "Von der Schulternaht bis zur Manschette",
+      "waist_half": "Taillenbreite flach liegend (eine Seite)",
+      "center_back_sleeve": "Von der Rückenmitte bis zum Ärmelende"
     },
     "figureAlt": "{{product}} Größentabellen-Illustration"
   },

@@ -266,7 +266,9 @@
       "inseam": "इनसीम",
       "rise": "राइज़",
       "half_chest": "आधी छाती",
-      "sleeve_length": "आस्तीन की लंबाई"
+      "sleeve_length": "आस्तीन की लंबाई",
+      "waist_half": "आधी कमर",
+      "center_back_sleeve": "पीठ केंद्र से आस्तीन"
     },
     "measurementFlatNote": "Measurements flat लिए गए हैं",
     "measurementVariationNote": "Production tolerances के कारण थोड़ा variation (±1–2 cm) हो सकता है।",
@@ -279,7 +281,9 @@
       "inseam": "क्रॉच सीम से हेम तक",
       "rise": "कमरबंद से क्रॉच सीम तक",
       "half_chest": "सपाट मापी गई छाती की आधी चौड़ाई",
-      "sleeve_length": "कंधे की सीम से कफ तक"
+      "sleeve_length": "कंधे की सीम से कफ तक",
+      "waist_half": "कमर की चौड़ाई सपाट रखने पर (एक तरफ)",
+      "center_back_sleeve": "पीठ के केंद्र से आस्तीन के सिरे तक"
     },
     "figureAlt": "{{product}} size guide illustration"
   },
