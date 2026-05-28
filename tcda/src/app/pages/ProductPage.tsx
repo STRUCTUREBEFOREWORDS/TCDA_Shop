@@ -184,7 +184,12 @@ export function ProductPage() {
   const [sizeChart, setSizeChart] = useState<SizeChart | null>(null);
   const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [deliveryDate, setDeliveryDate] = useState<{ min: string; max: string } | null>(null);
+  const [deliveryDate, setDeliveryDate] = useState<
+    | { status: "available"; min: string; max: string }
+    | { status: "estimate" }
+    | { status: "unavailable" }
+    | null
+  >(null);
   const [deliveryLoading, setDeliveryLoading] = useState(true);
   const [notifyEmail, setNotifyEmail] = useState("");
   const [notifySubmitted, setNotifySubmitted] = useState(false);
@@ -248,8 +253,12 @@ export function ProductPage() {
     fetch(`https://api.tcdashop.com/shipping/estimate?product_id=${id}`)
       .then((r) => r.json())
       .then((d) => {
-        if (d.min_date && d.max_date) {
-          setDeliveryDate({ min: d.min_date, max: d.max_date });
+        if (d.status === "available" && d.min_date && d.max_date) {
+          setDeliveryDate({ status: "available", min: d.min_date, max: d.max_date });
+        } else if (d.status === "estimate") {
+          setDeliveryDate({ status: "estimate" });
+        } else if (d.status === "unavailable") {
+          setDeliveryDate({ status: "unavailable" });
         }
       })
       .catch(() => {})
@@ -332,13 +341,12 @@ export function ProductPage() {
       title: t("checkout.shippingInfo"),
       content: (
         <p className="leading-relaxed">
-          {deliveryDate
-            ? (
-              <>
-                <span className="text-white/50">{t("product.deliveryLabel")}: </span>
-                {formatDeliveryRange(deliveryDate.min, deliveryDate.max)}
-              </>
-            )
+          {deliveryDate?.status === "available"
+            ? (<><span className="text-white/50">{t("product.deliveryLabel")}: </span>{formatDeliveryRange(deliveryDate.min, deliveryDate.max)}</>)
+            : deliveryDate?.status === "estimate"
+            ? t("product.deliveryEstimate")
+            : deliveryDate?.status === "unavailable"
+            ? t("product.deliveryUnavailable")
             : t("cart.shippingNote")}
         </p>
       ),
@@ -912,10 +920,14 @@ export function ProductPage() {
             style={{ borderTop: "1px solid var(--color-border)" }}
           >
             <h2 className="text-xs font-light tracking-normal uppercase mb-4" style={{ color: "var(--color-text)" }}>
-              {t("product.deliveryLabel")}
+              {deliveryDate.status === "unavailable" ? t("product.deliveryLabel") : t("product.deliveryLabel")}
             </h2>
             <p className="text-sm font-light leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
-              {formatDeliveryRange(deliveryDate.min, deliveryDate.max)}
+              {deliveryDate.status === "available"
+                ? formatDeliveryRange(deliveryDate.min, deliveryDate.max)
+                : deliveryDate.status === "estimate"
+                ? t("product.deliveryEstimate")
+                : t("product.deliveryUnavailable")}
             </p>
           </motion.div>
         ) : null}

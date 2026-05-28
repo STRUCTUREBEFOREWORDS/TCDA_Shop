@@ -75,7 +75,9 @@
       "usUs": "Made in USA",
       "chinaUsa": "Materials from China & USA"
     },
-    "around": "approx."
+    "around": "approx.",
+    "deliveryEstimate": "Estimated: 2–4 weeks",
+    "deliveryUnavailable": "Shipping not available in your region"
   },
   "cart": {
     "addToCart": "Add to Cart",

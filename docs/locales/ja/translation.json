@@ -75,7 +75,9 @@
       "usUs": "アメリカ製",
       "chinaUsa": "中国・アメリカ産素材使用"
     },
-    "around": "頃"
+    "around": "頃",
+    "deliveryEstimate": "お届け目安：2〜4週間",
+    "deliveryUnavailable": "この国への配送はお受けできません"
   },
   "cart": {
     "addToCart": "カートに追加",

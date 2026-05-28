@@ -75,7 +75,9 @@
       "usUs": "美国制造",
       "chinaUsa": "中国·美国原材料"
     },
-    "around": "左右"
+    "around": "左右",
+    "deliveryEstimate": "预计：2–4周",
+    "deliveryUnavailable": "该地区暂不支持配送"
   },
   "cart": {
     "addToCart": "加入购物车",

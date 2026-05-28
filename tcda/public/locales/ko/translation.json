@@ -75,7 +75,9 @@
       "usUs": "미국 제조",
       "chinaUsa": "중국·미국산 소재 사용"
     },
-    "around": "경"
+    "around": "경",
+    "deliveryEstimate": "예상 배송: 2~4주",
+    "deliveryUnavailable": "해당 지역으로는 배송이 불가합니다"
   },
   "cart": {
     "addToCart": "카트에 추가",

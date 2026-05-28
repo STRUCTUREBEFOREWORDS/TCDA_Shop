@@ -78,7 +78,9 @@
       "usUs": "USA में निर्मित",
       "chinaUsa": "चीन और USA की सामग्री"
     },
-    "around": "लगभग"
+    "around": "लगभग",
+    "deliveryEstimate": "अनुमानित: 2–4 सप्ताह",
+    "deliveryUnavailable": "आपके क्षेत्र में शिपिंग उपलब्ध नहीं है"
   },
   "cart": {
     "addToCart": "Cart में जोड़ें",
