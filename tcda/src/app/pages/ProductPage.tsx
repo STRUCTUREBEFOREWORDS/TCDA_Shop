@@ -311,21 +311,14 @@ export function ProductPage() {
     {
       title: t("checkout.shippingInfo"),
       content: (
-        <div>
-          <p className="leading-relaxed">{t("product.deliveryText")}</p>
-          {deliveryDate && (
-            <p className="mt-2 opacity-70">
-              {language === "ja"
+        <p className="leading-relaxed">
+          {deliveryDate
+            ? (language === "ja"
                 ? `${formatDate(deliveryDate.min)}〜${formatDate(deliveryDate.max)}`
-                : `${formatDate(deliveryDate.min)} – ${formatDate(deliveryDate.max)}`}
-            </p>
-          )}
-        </div>
+                : `${formatDate(deliveryDate.min)} – ${formatDate(deliveryDate.max)}`)
+            : t("cart.shippingNote")}
+        </p>
       ),
-    },
-    {
-      title: t("trust.shippingReturnsLink"),
-      content: <p className="leading-relaxed">{t("checkout.shippingReturnsText")}</p>,
     },
   ];
 
@@ -906,22 +899,6 @@ export function ProductPage() {
           </motion.div>
         ) : null}
 
-        {/* Shipping & Returns */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="pt-8"
-          style={{ borderTop: "1px solid var(--color-border)" }}
-        >
-          <h2 className="text-xs font-light tracking-normal uppercase mb-4" style={{ color: "var(--color-text)" }}>
-            {t("checkout.shippingInfo")}
-          </h2>
-          <p className="text-sm font-light leading-relaxed break-words" style={{ color: "var(--color-text-secondary)", overflowWrap: "break-word" }}>
-            {t("checkout.shippingReturnsText")}
-          </p>
-        </motion.div>
       </section>
     </div>
   );
