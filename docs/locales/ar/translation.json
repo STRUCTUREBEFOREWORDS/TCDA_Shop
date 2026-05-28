@@ -266,7 +266,10 @@
       "half_chest": "نصف عرض الصدر",
       "sleeve_length": "طول الكم",
       "waist_half": "نصف الخصر",
-      "center_back_sleeve": "طول الكم من مركز الظهر"
+      "center_back_sleeve": "طول الكم من مركز الظهر",
+      "top_width": "العرض العلوي",
+      "bottom_width": "العرض السفلي",
+      "handle_length": "طول المقبض"
     },
     "measurementFlatNote": "القياسات مأخوذة بشكل مسطح",
     "measurementVariationNote": "قد يكون هناك اختلاف بسيط (±1–2 سم) بسبب تفاوتات الإنتاج.",
@@ -281,7 +284,10 @@
       "half_chest": "نصف عرض الصدر قياساً مسطحاً",
       "sleeve_length": "من درزة الكتف إلى الكفة",
       "waist_half": "عرض الخصر مسطحاً (جانب واحد)",
-      "center_back_sleeve": "من مركز الظهر إلى فتحة الكم"
+      "center_back_sleeve": "من مركز الظهر إلى فتحة الكم",
+      "top_width": "عرض الحقيبة من الأعلى",
+      "bottom_width": "عرض الحقيبة من الأسفل",
+      "handle_length": "طول المقبض"
     },
     "figureAlt": "رسم توضيحي لجدول مقاسات {{product}}"
   },

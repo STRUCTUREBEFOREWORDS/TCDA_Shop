@@ -266,7 +266,10 @@
       "half_chest": "Halbe Brustbreite",
       "sleeve_length": "Ärmellänge",
       "waist_half": "Halbe Taille",
-      "center_back_sleeve": "Ärmel Rückenmitte"
+      "center_back_sleeve": "Ärmel Rückenmitte",
+      "top_width": "Breite oben",
+      "bottom_width": "Breite unten",
+      "handle_length": "Henkel länge"
     },
     "measurementFlatNote": "Maße flach genommen",
     "measurementVariationNote": "Geringe Abweichung (±1–2 cm) aufgrund von Produktionstoleranzen möglich.",
@@ -281,7 +284,10 @@
       "half_chest": "Halbe Brustbreite flach gemessen",
       "sleeve_length": "Von der Schulternaht bis zur Manschette",
       "waist_half": "Taillenbreite flach liegend (eine Seite)",
-      "center_back_sleeve": "Von der Rückenmitte bis zum Ärmelende"
+      "center_back_sleeve": "Von der Rückenmitte bis zum Ärmelende",
+      "top_width": "Breite oben an der Tasche",
+      "bottom_width": "Breite unten an der Tasche",
+      "handle_length": "Länge des Henkels"
     },
     "figureAlt": "{{product}} Größentabellen-Illustration"
   },

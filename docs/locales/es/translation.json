@@ -266,7 +266,10 @@
       "half_chest": "Mitad del pecho",
       "sleeve_length": "Largo de manga",
       "waist_half": "Media cintura",
-      "center_back_sleeve": "Manga espalda centro"
+      "center_back_sleeve": "Manga espalda centro",
+      "top_width": "Ancho superior",
+      "bottom_width": "Ancho inferior",
+      "handle_length": "Longitud del asa"
     },
     "measurementFlatNote": "Medidas tomadas en plano",
     "measurementVariationNote": "Puede haber una ligera variación (±1–2 cm) por tolerancias de producción.",
@@ -281,7 +284,10 @@
       "half_chest": "Mitad del ancho del pecho (plano)",
       "sleeve_length": "Desde la costura del hombro hasta el puño",
       "waist_half": "Ancho de cintura plano (un lado)",
-      "center_back_sleeve": "Desde el centro de la espalda hasta el puño"
+      "center_back_sleeve": "Desde el centro de la espalda hasta el puño",
+      "top_width": "Ancho en la parte superior del bolso",
+      "bottom_width": "Ancho en la parte inferior del bolso",
+      "handle_length": "Longitud del asa"
     },
     "figureAlt": "Ilustración de la guía de tallas {{product}}"
   },

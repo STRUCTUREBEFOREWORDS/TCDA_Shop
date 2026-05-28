@@ -266,7 +266,10 @@
       "half_chest": "Demi-poitrine",
       "sleeve_length": "Longueur de manche",
       "waist_half": "Demi-taille",
-      "center_back_sleeve": "Manche dos centre"
+      "center_back_sleeve": "Manche dos centre",
+      "top_width": "Largeur haut",
+      "bottom_width": "Largeur bas",
+      "handle_length": "Longueur poignée"
     },
     "measurementFlatNote": "Mesures prises à plat",
     "measurementVariationNote": "Une légère variation (±1–2 cm) est possible selon les tolérances de fabrication.",
@@ -281,7 +284,10 @@
       "half_chest": "Moitié de la largeur de poitrine à plat",
       "sleeve_length": "De la couture d'épaule au poignet",
       "waist_half": "Largeur de taille à plat (un côté)",
-      "center_back_sleeve": "Du centre dos jusqu'au poignet"
+      "center_back_sleeve": "Du centre dos jusqu'au poignet",
+      "top_width": "Largeur en haut du sac",
+      "bottom_width": "Largeur en bas du sac",
+      "handle_length": "Longueur de la poignée"
     },
     "figureAlt": "Illustration du guide des tailles {{product}}"
   },

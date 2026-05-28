@@ -266,7 +266,10 @@
       "half_chest": "身幅",
       "sleeve_length": "袖丈",
       "waist_half": "平置き胴幅",
-      "center_back_sleeve": "背中心袖丈"
+      "center_back_sleeve": "背中心袖丈",
+      "top_width": "上部幅",
+      "bottom_width": "下部幅",
+      "handle_length": "ハンドル長さ"
     },
     "measurementFlatNote": "平置き採寸",
     "measurementVariationNote": "生産誤差として±1〜2cmの範囲で誤差が生じる場合があります。",
@@ -281,7 +284,10 @@
       "half_chest": "胸部の横幅（平置き・半計）",
       "sleeve_length": "肩先から袖口まで",
       "waist_half": "ウエスト位置の横幅（平置き・片側）",
-      "center_back_sleeve": "背中中心から袖口まで"
+      "center_back_sleeve": "背中中心から袖口まで",
+      "top_width": "バッグ上部の横幅",
+      "bottom_width": "バッグ底部の横幅",
+      "handle_length": "ハンドルの長さ"
     },
     "figureAlt": "{{product}}のサイズガイド図"
   },

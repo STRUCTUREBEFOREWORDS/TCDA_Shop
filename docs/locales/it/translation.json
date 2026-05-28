@@ -266,7 +266,10 @@
       "half_chest": "Metà petto",
       "sleeve_length": "Lunghezza manica",
       "waist_half": "Mezza vita",
-      "center_back_sleeve": "Manica centro schiena"
+      "center_back_sleeve": "Manica centro schiena",
+      "top_width": "Larghezza superiore",
+      "bottom_width": "Larghezza inferiore",
+      "handle_length": "Lunghezza manico"
     },
     "measurementFlatNote": "Misure prese piatte",
     "measurementVariationNote": "Leggera variazione (±1–2 cm) possibile per tolleranze di produzione.",
@@ -281,7 +284,10 @@
       "half_chest": "Metà della larghezza del petto (piano)",
       "sleeve_length": "Dalla cucitura della spalla al polso",
       "waist_half": "Larghezza vita piatta (un lato)",
-      "center_back_sleeve": "Dal centro schiena al polso"
+      "center_back_sleeve": "Dal centro schiena al polso",
+      "top_width": "Larghezza nella parte superiore della borsa",
+      "bottom_width": "Larghezza nella parte inferiore della borsa",
+      "handle_length": "Lunghezza del manico"
     },
     "figureAlt": "Illustrazione guida taglie {{product}}"
   },
