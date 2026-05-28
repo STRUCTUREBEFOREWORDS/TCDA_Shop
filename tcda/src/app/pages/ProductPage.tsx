@@ -265,6 +265,7 @@ export function ProductPage() {
       currency,
       size: selectedSize,
       imageUrl: product.images?.[0] || product.thumbnail_url,
+      variantId: product.printful_variant_id ?? undefined,
     });
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({

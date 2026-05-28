@@ -28,4 +28,5 @@ export interface CartItem {
   size: string;
   imageUrl: string;
   quantity: number;
+  variantId?: number;
 }
