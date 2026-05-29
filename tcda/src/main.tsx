@@ -5,6 +5,16 @@ import "./styles/index.css";
 import { AppProvider } from "./app/context/AppContext";
 import "./app/i18n";
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw-v2.js').catch(() => {})
+  let refreshing = false
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (refreshing) return
+    refreshing = true
+    window.location.reload()
+  })
+}
+
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>
     <AppProvider>

@@ -10,13 +10,10 @@ declare const self: ServiceWorkerGlobalScope
 // Take control immediately on install — evicts any stale/old SW
 self.addEventListener('install', () => self.skipWaiting())
 
-// On activate: claim all clients, then navigate each window to force a fresh load
+// On activate: claim all clients immediately.
+// cleanupOutdatedCaches() handles stale cache removal — no manual delete needed.
 self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.map(key => caches.delete(key)))
-    ).then(() => self.clients.claim())
-  )
+  event.waitUntil(self.clients.claim())
 })
 
 // Also handle explicit SKIP_WAITING messages from vite-plugin-pwa
