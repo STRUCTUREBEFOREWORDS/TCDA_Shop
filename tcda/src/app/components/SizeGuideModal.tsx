@@ -87,6 +87,11 @@ const SIZE_GUIDE_IMAGE_MAP: Record<string, string> = {
   athletic_tshirt_mens:   "/size-guide/mens_athletic.png",
   large_tote_bag:         "/size-guide/large_tote_bag.png",
   tote_bag:               "/size-guide/tote_bag.png",
+  beanie:                 "/size-guide/beanie.png",
+  bucket_hat:             "/size-guide/bucket_hat.jpg",
+  track_pants:            "/size-guide/track_pants.jpg",
+  wide_leg_joggers:       "/size-guide/wide_leg_joggers.jpg",
+  utility_crossbody:      "/size-guide/utility_crossbody.jpg",
 };
 
 /**
@@ -105,6 +110,7 @@ function normalizeSizeCategory(value?: string | null): string | null {
     "track_jacket", "recycled_sweatshirt", "crop_top_ls", "crop_tee",
     "athletic_tshirt_womens", "athletic_tshirt_mens",
     "large_tote_bag", "tote_bag",
+    "beanie", "bucket_hat", "track_pants", "wide_leg_joggers", "utility_crossbody",
   ];
   if (passthrough.includes(v)) return v;
   return v;
