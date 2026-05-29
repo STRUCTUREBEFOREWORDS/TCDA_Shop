@@ -270,7 +270,12 @@
       "top_width": "Largeur haut",
       "bottom_width": "Largeur bas",
       "handle_length": "Longueur poignée",
-      "height": "Hauteur"
+      "height": "Hauteur",
+      "top_circumference": "Tour de tête",
+      "crown_height": "Hauteur de la calotte",
+      "brim_height": "Largeur du bord",
+      "hem_width": "Largeur de l'ourlet",
+      "depth": "Profondeur"
     },
     "measurementFlatNote": "Mesures prises à plat",
     "measurementVariationNote": "Une légère variation (±1–2 cm) est possible selon les tolérances de fabrication.",
@@ -289,7 +294,12 @@
       "top_width": "Largeur en haut du sac",
       "bottom_width": "Largeur en bas du sac",
       "handle_length": "Longueur de la poignée",
-      "height": "Hauteur du sac de haut en bas"
+      "height": "Hauteur du sac de haut en bas",
+      "top_circumference": "Circonférence de l'ouverture",
+      "crown_height": "Hauteur du sommet jusqu'au bord",
+      "brim_height": "Largeur du bord du chapeau",
+      "hem_width": "Largeur de l'ourlet à plat (un côté)",
+      "depth": "Profondeur du sac"
     },
     "figureAlt": "Illustration du guide des tailles {{product}}"
   },

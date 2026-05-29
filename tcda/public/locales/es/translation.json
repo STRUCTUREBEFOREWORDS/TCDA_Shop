@@ -270,7 +270,12 @@
       "top_width": "Ancho superior",
       "bottom_width": "Ancho inferior",
       "handle_length": "Longitud del asa",
-      "height": "Altura"
+      "height": "Altura",
+      "top_circumference": "Circunferencia superior",
+      "crown_height": "Altura de la copa",
+      "brim_height": "Altura del ala",
+      "hem_width": "Ancho del dobladillo",
+      "depth": "Profundidad"
     },
     "measurementFlatNote": "Medidas tomadas en plano",
     "measurementVariationNote": "Puede haber una ligera variación (±1–2 cm) por tolerancias de producción.",
@@ -289,7 +294,12 @@
       "top_width": "Ancho en la parte superior del bolso",
       "bottom_width": "Ancho en la parte inferior del bolso",
       "handle_length": "Longitud del asa",
-      "height": "Altura del bolso de arriba a abajo"
+      "height": "Altura del bolso de arriba a abajo",
+      "top_circumference": "Circunferencia de la apertura",
+      "crown_height": "Altura desde la copa hasta el ala",
+      "brim_height": "Ancho del ala del sombrero",
+      "hem_width": "Ancho del dobladillo plano (un lado)",
+      "depth": "Profundidad de la bolsa"
     },
     "figureAlt": "Ilustración de la guía de tallas {{product}}"
   },

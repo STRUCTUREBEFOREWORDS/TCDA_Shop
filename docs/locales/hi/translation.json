@@ -272,7 +272,12 @@
       "top_width": "ऊपरी चौड़ाई",
       "bottom_width": "निचली चौड़ाई",
       "handle_length": "हैंडल की लंबाई",
-      "height": "ऊंचाई"
+      "height": "ऊंचाई",
+      "top_circumference": "ऊपरी परिधि",
+      "crown_height": "क्राउन ऊंचाई",
+      "brim_height": "ब्रिम चौड़ाई",
+      "hem_width": "हेम चौड़ाई",
+      "depth": "गहराई"
     },
     "measurementFlatNote": "Measurements flat लिए गए हैं",
     "measurementVariationNote": "Production tolerances के कारण थोड़ा variation (±1–2 cm) हो सकता है।",
@@ -291,7 +296,12 @@
       "top_width": "बैग के शीर्ष पर चौड़ाई",
       "bottom_width": "बैग के नीचे चौड़ाई",
       "handle_length": "हैंडल की लंबाई",
-      "height": "बैग की ऊपर से नीचे तक ऊंचाई"
+      "height": "बैग की ऊपर से नीचे तक ऊंचाई",
+      "top_circumference": "टोपी के खुलने की परिधि",
+      "crown_height": "क्राउन से किनारे तक की ऊंचाई",
+      "brim_height": "टोपी के किनारे की चौड़ाई",
+      "hem_width": "हेम की चौड़ाई सपाट रखने पर (एक तरफ)",
+      "depth": "बैग की गहराई"
     },
     "figureAlt": "{{product}} size guide illustration"
   },

@@ -270,7 +270,12 @@
       "top_width": "顶部宽度",
       "bottom_width": "底部宽度",
       "handle_length": "提手长度",
-      "height": "高度"
+      "height": "高度",
+      "top_circumference": "顶部周长",
+      "crown_height": "帽顶高度",
+      "brim_height": "帽檐宽度",
+      "hem_width": "下摆宽度",
+      "depth": "深度"
     },
     "measurementFlatNote": "平铺测量",
     "measurementVariationNote": "因生产公差，尺寸可能存在±1–2 cm的误差。",
@@ -289,7 +294,12 @@
       "top_width": "包袋顶部宽度",
       "bottom_width": "包袋底部宽度",
       "handle_length": "提手长度",
-      "height": "包袋从顶部到底部的高度"
+      "height": "包袋从顶部到底部的高度",
+      "top_circumference": "帽子开口周长",
+      "crown_height": "从帽顶到帽檐的高度",
+      "brim_height": "帽檐的宽度",
+      "hem_width": "下摆平铺宽度（单侧）",
+      "depth": "包的深度"
     },
     "figureAlt": "{{product}}尺码指南插图"
   },

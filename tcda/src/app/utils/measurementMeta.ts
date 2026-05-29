@@ -3,7 +3,8 @@
  * Single source of truth for the A/B/C/D/E marker system.
  */
 
-export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist" | "inseam" | "rise" | "half_chest" | "sleeve_length" | "waist_half" | "center_back_sleeve" | "top_width" | "bottom_width" | "handle_length" | "height";
+export type MeasurementKey = "width" | "length" | "sleeve" | "shoulder" | "waist" | "inseam" | "rise" | "half_chest" | "sleeve_length" | "waist_half" | "center_back_sleeve" | "top_width" | "bottom_width" | "handle_length" | "height"
+| "top_circumference" | "crown_height" | "brim_height" | "hem_width" | "depth";
 
 export interface MeasurementMeta {
   marker: string;
@@ -27,6 +28,11 @@ export const MEASUREMENT_LABEL_MAP: Record<MeasurementKey, MeasurementMeta> = {
   bottom_width:      { marker: "B", labelKey: "sizeGuide.measurements.bottom_width" },
   handle_length:     { marker: "D", labelKey: "sizeGuide.measurements.handle_length" },
   height:            { marker: "B", labelKey: "sizeGuide.measurements.height" },
+  top_circumference: { marker: "A", labelKey: "sizeGuide.measurements.top_circumference" },
+  crown_height:      { marker: "B", labelKey: "sizeGuide.measurements.crown_height" },
+  brim_height:       { marker: "C", labelKey: "sizeGuide.measurements.brim_height" },
+  hem_width:         { marker: "D", labelKey: "sizeGuide.measurements.hem_width" },
+  depth:             { marker: "C", labelKey: "sizeGuide.measurements.depth" },
 };
 
 /** Per-category override: maps raw measurement markers → MeasurementKey.
@@ -42,7 +48,12 @@ export const CATEGORY_MEASUREMENT_MAP: Partial<Record<string, Record<string, Mea
   athletic_tshirt_womens:  { A: "half_chest", B: "length", C: "sleeve_length" },
   athletic_tshirt_mens:    { A: "half_chest", B: "length", C: "sleeve_length" },
   large_tote_bag:          { A: "top_width", B: "bottom_width", C: "length", D: "handle_length" },
-  tote_bag:                { A: "width", B: "height", C: "handle_length" },
+  tote_bag:           { A: "width", B: "height", C: "handle_length" },
+  track_pants:        { A: "waist", B: "inseam" },
+  beanie:             { A: "height", B: "width" },
+  bucket_hat:         { A: "top_circumference", B: "crown_height", C: "brim_height" },
+  wide_leg_joggers:   { A: "waist_half", B: "inseam", C: "rise", D: "hem_width", E: "length" },
+  utility_crossbody:  { A: "width", B: "height", C: "depth" },
 };
 
 /** Canonical display order for the standalone size guide page */
@@ -76,4 +87,10 @@ export const MEASUREMENT_TO_KEY: Record<string, MeasurementKey> = {
   "inseam length": "inseam",
   "rise": "rise",
   "front rise": "rise",
+  "waistband": "waist",
+  "top circumference": "top_circumference",
+  "crown height": "crown_height",
+  "brim height": "brim_height",
+  "hem width": "hem_width",
+  "depth": "depth",
 };

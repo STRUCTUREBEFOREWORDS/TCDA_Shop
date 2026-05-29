@@ -270,7 +270,12 @@
       "top_width": "Largura superior",
       "bottom_width": "Largura inferior",
       "handle_length": "Comprimento da alça",
-      "height": "Altura"
+      "height": "Altura",
+      "top_circumference": "Circunferência superior",
+      "crown_height": "Altura da copa",
+      "brim_height": "Largura da aba",
+      "hem_width": "Largura da bainha",
+      "depth": "Profundidade"
     },
     "measurementFlatNote": "Medidas tiradas planas",
     "measurementVariationNote": "Pequena variação (±1–2 cm) pode ocorrer devido a tolerâncias de produção.",
@@ -289,7 +294,12 @@
       "top_width": "Largura na parte superior da bolsa",
       "bottom_width": "Largura na parte inferior da bolsa",
       "handle_length": "Comprimento da alça",
-      "height": "Altura da bolsa de cima a baixo"
+      "height": "Altura da bolsa de cima a baixo",
+      "top_circumference": "Circunferência da abertura",
+      "crown_height": "Altura da copa até a aba",
+      "brim_height": "Largura da aba do chapéu",
+      "hem_width": "Largura da bainha plana (um lado)",
+      "depth": "Profundidade da bolsa"
     },
     "figureAlt": "Ilustração do guia de tamanhos {{product}}"
   },

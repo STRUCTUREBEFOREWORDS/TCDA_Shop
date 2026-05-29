@@ -270,7 +270,12 @@
       "top_width": "Larghezza superiore",
       "bottom_width": "Larghezza inferiore",
       "handle_length": "Lunghezza manico",
-      "height": "Altezza"
+      "height": "Altezza",
+      "top_circumference": "Circonferenza superiore",
+      "crown_height": "Altezza della calotta",
+      "brim_height": "Larghezza della tesa",
+      "hem_width": "Larghezza dell'orlo",
+      "depth": "Profondità"
     },
     "measurementFlatNote": "Misure prese piatte",
     "measurementVariationNote": "Leggera variazione (±1–2 cm) possibile per tolleranze di produzione.",
@@ -289,7 +294,12 @@
       "top_width": "Larghezza nella parte superiore della borsa",
       "bottom_width": "Larghezza nella parte inferiore della borsa",
       "handle_length": "Lunghezza del manico",
-      "height": "Altezza della borsa dall'alto al basso"
+      "height": "Altezza della borsa dall'alto al basso",
+      "top_circumference": "Circonferenza dell'apertura",
+      "crown_height": "Altezza dalla calotta alla tesa",
+      "brim_height": "Larghezza della tesa del cappello",
+      "hem_width": "Larghezza dell'orlo piatto (un lato)",
+      "depth": "Profondità della borsa"
     },
     "figureAlt": "Illustrazione guida taglie {{product}}"
   },

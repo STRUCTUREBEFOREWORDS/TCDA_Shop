@@ -270,7 +270,12 @@
       "top_width": "Breite oben",
       "bottom_width": "Breite unten",
       "handle_length": "Henkel länge",
-      "height": "Höhe"
+      "height": "Höhe",
+      "top_circumference": "Oberer Umfang",
+      "crown_height": "Kronenhöhe",
+      "brim_height": "Krempenbreite",
+      "hem_width": "Saumbreite",
+      "depth": "Tiefe"
     },
     "measurementFlatNote": "Maße flach genommen",
     "measurementVariationNote": "Geringe Abweichung (±1–2 cm) aufgrund von Produktionstoleranzen möglich.",
@@ -289,7 +294,12 @@
       "top_width": "Breite oben an der Tasche",
       "bottom_width": "Breite unten an der Tasche",
       "handle_length": "Länge des Henkels",
-      "height": "Höhe der Tasche von oben nach unten"
+      "height": "Höhe der Tasche von oben nach unten",
+      "top_circumference": "Umfang der Hutöffnung",
+      "crown_height": "Höhe von der Krone bis zur Krempe",
+      "brim_height": "Breite der Hutkrempe",
+      "hem_width": "Breite des Saums flach liegend (eine Seite)",
+      "depth": "Tiefe der Tasche"
     },
     "figureAlt": "{{product}} Größentabellen-Illustration"
   },

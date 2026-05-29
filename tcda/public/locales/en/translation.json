@@ -270,7 +270,12 @@
       "top_width": "Top Width",
       "bottom_width": "Bottom Width",
       "handle_length": "Handle Length",
-      "height": "Height"
+      "height": "Height",
+      "top_circumference": "Top Circumference",
+      "crown_height": "Crown Height",
+      "brim_height": "Brim Height",
+      "hem_width": "Hem Width",
+      "depth": "Depth"
     },
     "measurementFlatNote": "Measurements taken flat",
     "measurementVariationNote": "Slight variation (±1–2 cm) may occur due to production tolerances.",
@@ -289,7 +294,12 @@
       "top_width": "Width at the top of the bag",
       "bottom_width": "Width at the bottom of the bag",
       "handle_length": "Length of the handle",
-      "height": "Height of the bag from top to bottom"
+      "height": "Height of the bag from top to bottom",
+      "top_circumference": "Top opening circumference",
+      "crown_height": "Height from crown to brim",
+      "brim_height": "Width of the hat brim",
+      "hem_width": "Width of hem laid flat (one side)",
+      "depth": "Depth of the bag"
     },
     "figureAlt": "{{product}} size guide illustration"
   },
