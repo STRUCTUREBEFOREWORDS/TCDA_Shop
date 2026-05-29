@@ -87,11 +87,11 @@ const SIZE_GUIDE_IMAGE_MAP: Record<string, string> = {
   athletic_tshirt_mens:   "/size-guide/mens_athletic.png",
   large_tote_bag:         "/size-guide/large_tote_bag.png",
   tote_bag:               "/size-guide/tote_bag.png",
-  beanie:                 "/size-guide/beanie.png",
-  bucket_hat:             "/size-guide/bucket_hat.jpg",
-  track_pants:            "/size-guide/track_pants.jpg",
-  wide_leg_joggers:       "/size-guide/wide_leg_joggers.jpg",
-  utility_crossbody:      "/size-guide/utility_crossbody.jpg",
+  beanie:                 "/size-guide/beanie.webp",
+  bucket_hat:             "/size-guide/bucket_hat.webp",
+  track_pants:            "/size-guide/track_pants.webp",
+  wide_leg_joggers:       "/size-guide/wide_leg_joggers.webp",
+  utility_crossbody:      "/size-guide/utility_crossbody.webp",
 };
 
 /**
