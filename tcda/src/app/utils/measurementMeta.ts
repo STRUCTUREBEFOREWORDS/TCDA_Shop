@@ -53,6 +53,7 @@ export const CATEGORY_MEASUREMENT_MAP: Partial<Record<string, Record<string, Mea
   beanie:             { A: "height", B: "width" },
   bucket_hat:         { A: "top_circumference", B: "crown_height", C: "brim_height" },
   wide_leg_joggers:   { A: "waist_half", B: "inseam", C: "rise", D: "hem_width", E: "length" },
+  wide_leg_pants:     { A: "waist_half", B: "inseam", C: "rise", D: "hem_width", E: "length" },
   utility_crossbody:  { A: "width", B: "height", C: "depth" },
 };
 
