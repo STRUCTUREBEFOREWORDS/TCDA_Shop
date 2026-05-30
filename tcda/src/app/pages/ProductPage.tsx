@@ -514,24 +514,6 @@ export function ProductPage() {
               {formatPrice(convertedPrice, currency)}
             </p>
 
-            {/* Description */}
-            {product.description && (
-              <p
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "13px",
-                  lineHeight: 1.9,
-                  letterSpacing: "0.04em",
-                  color: "var(--color-text-secondary)",
-                  marginBottom: "40px",
-                  borderLeft: "1px solid var(--color-border)",
-                  paddingLeft: "16px",
-                }}
-              >
-                {product.description}
-              </p>
-            )}
-
             {/* Stock */}
             {product.stock === 0 && (
               <p className="text-xs font-light tracking-widest mb-4" style={{ color: "var(--color-danger)" }}>
