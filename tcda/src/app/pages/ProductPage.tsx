@@ -441,12 +441,44 @@ export function ProductPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col"
+            className="flex flex-col lg:flex-row"
             style={{ gap: "4px" }}
           >
-            {/* Main image — full width */}
+            {/* Thumbnails — SP:非表示 / PC:左縦列 */}
+            {images.length > 1 && (
+              <div
+                className="hidden lg:flex lg:flex-col"
+                style={{ gap: "2px", width: "72px", flexShrink: 0 }}
+              >
+                {images.map((src, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentImageIndex(i)}
+                    style={{
+                      width: "72px",
+                      aspectRatio: "2/3",
+                      flexShrink: 0,
+                      background: "var(--color-bg)",
+                      border: i === currentImageIndex ? "1px solid rgba(255,255,255,0.6)" : "1px solid transparent",
+                      opacity: i === currentImageIndex ? 1 : 0.5,
+                      overflow: "hidden",
+                      transition: "opacity 0.2s ease",
+                    }}
+                  >
+                    <ImageWithFallback
+                      src={src}
+                      alt={`${product.name} ${i + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Main image */}
             <div
-              style={{ width: "100%", background: "var(--color-bg)", aspectRatio: "2/3", overflow: "hidden", position: "relative" }}
+              style={{ flex: 1, aspectRatio: "2/3", overflow: "hidden", position: "relative" }}
               onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
               onTouchEnd={(e) => {
                 const dx = e.changedTouches[0].clientX - touchStartX.current;
@@ -464,10 +496,10 @@ export function ProductPage() {
               />
             </div>
 
-            {/* Thumbnails — horizontal scroll below main image */}
+            {/* Thumbnails — SP:横スクロール / PC:非表示 */}
             {images.length > 1 && (
               <div
-                className="flex flex-row overflow-x-auto"
+                className="flex lg:hidden flex-row overflow-x-auto"
                 style={{ gap: "2px", scrollbarWidth: "none" } as React.CSSProperties}
               >
                 {images.map((src, i) => (
