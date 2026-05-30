@@ -37,3 +37,8 @@ logo/
 アパレルモップアップ/
 トップページ画像/
 トップセッション/
+
+# Local working directories
+look book/
+api/
+workers/convert_webp.sh
