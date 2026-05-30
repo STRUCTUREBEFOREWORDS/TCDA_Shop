@@ -230,39 +230,37 @@ export function TCDA_GlobalNav() {
               </button>
             </div>
 
-            {/* Nav items */}
-            <nav style={{ padding: "0 24px 40px", display: "flex", flexDirection: "column" }}>
+            {/* Nav items — 画面全体を使った3分割レイアウト */}
+            <nav style={{ padding: "0 32px", display: "flex", flexDirection: "column", flex: 1, justifyContent: "space-between", paddingBottom: "48px" }}>
 
-              {/* COLLECTION + sub-categories */}
-              <div style={{ borderTop: "1px solid var(--color-border)", paddingTop: "20px", paddingBottom: "16px" }}>
+              {/* COLLECTION */}
+              <div style={{ borderTop: "1px solid var(--color-border)", paddingTop: "clamp(24px, 6vw, 40px)" }}>
                 <Link
                   to={`/${language}/collection`}
                   onClick={() => setMobileOpen(false)}
-                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px, 7vw, 36px)", fontWeight: 400, letterSpacing: "0.04em", color: "var(--color-text)", display: "block", marginBottom: "14px" }}
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(44px, 11vw, 64px)", fontWeight: 300, letterSpacing: "0.02em", color: "var(--color-text)", display: "block", marginBottom: "20px", lineHeight: 1 }}
                 >
                   {t("nav.collection")}
                 </Link>
-                {/* Gender filters */}
-                <div style={{ display: "flex", gap: "20px", paddingLeft: "16px", marginBottom: "12px", flexWrap: "wrap" }}>
-                  {GENDER_FILTERS.map(({ key, label }) => (
+                {/* Gender + Category サブリンク — 横並び */}
+                <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", paddingLeft: "4px", alignItems: "center" }}>
+                  {GENDER_FILTERS.filter(f => f.key).map(({ key, label }) => (
                     <Link
-                      key={key || "all"}
-                      to={key ? `/${language}/collection?gender=${key}` : `/${language}/collection`}
+                      key={key}
+                      to={`/${language}/collection?gender=${key}`}
                       onClick={() => setMobileOpen(false)}
-                      style={{ fontFamily: "var(--font-body)", fontSize: "12px", letterSpacing: "0.15em", color: "var(--color-text)", textTransform: "uppercase" }}
+                      style={{ fontFamily: "var(--font-body)", fontSize: "11px", letterSpacing: "0.2em", color: "var(--color-text-tertiary)", textTransform: "uppercase" }}
                     >
                       {label}
                     </Link>
                   ))}
-                </div>
-                <div style={{ height: "1px", background: "var(--color-border)", marginLeft: "16px", marginBottom: "12px" }} />
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px", paddingLeft: "16px" }}>
+                  <span style={{ color: "var(--color-border)" }}>|</span>
                   {CATEGORY_FILTERS.map(({ key, label }) => (
                     <Link
                       key={key}
                       to={`/${language}/collection?category=${key}`}
                       onClick={() => setMobileOpen(false)}
-                      style={{ fontFamily: "var(--font-body)", fontSize: "14px", letterSpacing: "0.1em", color: "var(--color-text-secondary)", textTransform: "uppercase" }}
+                      style={{ fontFamily: "var(--font-body)", fontSize: "11px", letterSpacing: "0.2em", color: "var(--color-text-tertiary)", textTransform: "uppercase" }}
                     >
                       {label}
                     </Link>
@@ -270,25 +268,31 @@ export function TCDA_GlobalNav() {
                 </div>
               </div>
 
-              <Link
-                to={`/${language}/lookbook`}
-                onClick={() => setMobileOpen(false)}
-                style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px, 7vw, 36px)", fontWeight: 400, letterSpacing: "0.04em", color: "var(--color-text)", borderTop: "1px solid var(--color-border)", padding: "20px 0" }}
-              >
-                LOOKBOOK
-              </Link>
+              {/* LOOKBOOK */}
+              <div style={{ borderTop: "1px solid var(--color-border)", paddingTop: "clamp(20px, 5vw, 32px)" }}>
+                <Link
+                  to={`/${language}/lookbook`}
+                  onClick={() => setMobileOpen(false)}
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(44px, 11vw, 64px)", fontWeight: 300, letterSpacing: "0.02em", color: "var(--color-text)", lineHeight: 1 }}
+                >
+                  LOOKBOOK
+                </Link>
+              </div>
 
-              <Link
-                to={`/${language}/about`}
-                onClick={() => setMobileOpen(false)}
-                style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px, 7vw, 36px)", fontWeight: 400, letterSpacing: "0.04em", color: "var(--color-text)", borderTop: "1px solid var(--color-border)", padding: "20px 0" }}
-              >
-                {t("nav.about")}
-              </Link>
+              {/* ABOUT */}
+              <div style={{ borderTop: "1px solid var(--color-border)", paddingTop: "clamp(20px, 5vw, 32px)" }}>
+                <Link
+                  to={`/${language}/about`}
+                  onClick={() => setMobileOpen(false)}
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(44px, 11vw, 64px)", fontWeight: 300, letterSpacing: "0.02em", color: "var(--color-text)", lineHeight: 1 }}
+                >
+                  {t("nav.about")}
+                </Link>
+              </div>
 
-              {/* Newsletter inline form (mobile) */}
+              {/* Newsletter */}
               {status !== "done" && (
-              <div style={{ borderTop: "1px solid var(--color-border)", paddingTop: "24px" }}>
+                <div style={{ paddingTop: "clamp(20px, 5vw, 32px)" }}>
                   <form onSubmit={submit} style={{ display: "flex", gap: "8px" }}>
                     <input
                       type="email"
@@ -328,7 +332,7 @@ export function TCDA_GlobalNav() {
                       {status === "loading" ? "..." : t("footer.newsletterSubscribe")}
                     </button>
                   </form>
-              </div>
+                </div>
               )}
             </nav>
           </motion.div>
