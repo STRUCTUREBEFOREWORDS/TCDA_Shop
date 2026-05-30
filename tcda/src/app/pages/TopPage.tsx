@@ -176,30 +176,6 @@ export function TopPage() {
         </div>
       </section>
 
-      {/* Artist statement */}
-      <motion.div
-        {...fadeUp}
-        style={{ padding: "clamp(64px, 10vw, 120px) clamp(24px, 6vw, 80px)", borderTop: "1px solid var(--color-border)" }}
-      >
-        <Link
-          to={`/${language}/about`}
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "11px",
-            letterSpacing: "0.3em",
-            color: "var(--color-text-secondary)",
-            textTransform: "uppercase",
-            borderBottom: "1px solid var(--color-border)",
-            paddingBottom: "2px",
-            transition: "var(--transition-base)",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
-        >
-          About TCDA →
-        </Link>
-      </motion.div>
-
       {/* Brand message */}
       <div style={{
         padding: "80px 32px",
