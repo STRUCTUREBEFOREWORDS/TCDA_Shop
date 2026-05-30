@@ -281,21 +281,43 @@ export function CollectionPage() {
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
-          {visibleProducts.map((product) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          {filteredProducts.length === 0 ? (
+            <div
+              style={{
+                gridColumn: "1 / -1",
+                padding: "clamp(48px, 10vw, 120px) 0",
+                textAlign: "center",
+              }}
             >
-              <ProductCard
-                product={product}
-                language={language}
-                convertAndFormat={convertAndFormat}
-              />
-            </motion.div>
-          ))}
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "11px",
+                  letterSpacing: "0.3em",
+                  textTransform: "uppercase",
+                  color: "var(--color-text-tertiary)",
+                }}
+              >
+                No items found
+              </p>
+            </div>
+          ) : (
+            visibleProducts.map((product) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <ProductCard
+                  product={product}
+                  language={language}
+                  convertAndFormat={convertAndFormat}
+                />
+              </motion.div>
+            ))
+          )}
         </div>
       )}
 
