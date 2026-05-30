@@ -29,29 +29,9 @@ export function Footer() {
 
   return (
     <footer
-      className="px-8 md:px-12 py-16"
+      className="px-8 md:px-12 py-12"
       style={{ background: "var(--color-bg)", borderTop: "1px solid var(--color-border)" }}
     >
-      {/* Brand statement */}
-      <div
-        className="max-w-7xl mx-auto mb-16"
-        style={{ borderBottom: "1px solid var(--color-border)", paddingBottom: "48px" }}
-      >
-        <p
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(18px, 3vw, 32px)",
-            fontWeight: 200,
-            letterSpacing: "0.08em",
-            color: "var(--color-text-tertiary)",
-            lineHeight: 1.6,
-            maxWidth: "640px",
-          }}
-        >
-          Abstract art,<br />worn.
-        </p>
-      </div>
-
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row gap-10 sm:gap-0 sm:justify-between">
 
         {/* Brand */}
