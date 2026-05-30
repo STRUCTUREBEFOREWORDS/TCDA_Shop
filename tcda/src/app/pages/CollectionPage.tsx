@@ -18,6 +18,7 @@ interface Product {
   images?: string[];
   gender_type?: string;
   product_type?: string;
+  category?: string;
 }
 
 const FALLBACK_IMAGE = "https://cdn.tcdashop.com/logo/1.png";
@@ -75,7 +76,6 @@ function ProductCard({
 }
 
 const GENDER_FILTERS = [
-  { key: "", label: "ALL" },
   { key: "male", label: "MEN'S" },
   { key: "female", label: "WOMEN'S" },
   { key: "unisex", label: "UNISEX" },
@@ -115,8 +115,8 @@ export function CollectionPage() {
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeFilter, setActiveFilter] = useState<string>(searchParams.get("category") ?? "");
-  const [activeGender, setActiveGender] = useState<string>(searchParams.get("gender") ?? "");
+  const [activeFilter, setActiveFilter] = useState<string>(searchParams.get("category") ?? "new");
+  const [activeGender, setActiveGender] = useState<string>(searchParams.get("gender") ?? "unisex");
   const [visibleCount, setVisibleCount] = useState(24);
   const PAGE_SIZE = 24;
   const sentinelRef = useRef<HTMLDivElement>(null);
@@ -161,6 +161,19 @@ export function CollectionPage() {
       .catch(() => {})
       .finally(() => setLoading(false));
   }, [activeFilter]);
+
+  useEffect(() => {
+    if (products.length === 0 || activeFilter !== "new") return;
+    if (products.some((p) => p.gender_type === activeGender)) return;
+
+    // NEW × activeGender が 0件 → NEW全体で最多カテゴリーにフォールバック
+    const counts: Record<string, number> = {};
+    products.forEach((p) => {
+      if (p.category) counts[p.category] = (counts[p.category] ?? 0) + 1;
+    });
+    const top = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0];
+    if (top) setActiveFilter(top);
+  }, [products]);
 
   const handleFilterChange = (key: string) => {
     setActiveFilter(key);
@@ -262,7 +275,7 @@ export function CollectionPage() {
         >
           {GENDER_FILTERS.map((f) => (
             <button
-              key={f.key || "all"}
+              key={f.key}
               onClick={() => handleGenderChange(f.key)}
               style={FILTER_BUTTON_STYLE(activeGender === f.key)}
             >
