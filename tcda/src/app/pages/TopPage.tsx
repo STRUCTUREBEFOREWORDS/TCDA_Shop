@@ -176,6 +176,64 @@ export function TopPage() {
         </div>
       </section>
 
+      {/* Artist statement */}
+      <motion.div
+        {...fadeUp}
+        style={{
+          padding: "clamp(64px, 10vw, 120px) clamp(24px, 6vw, 80px)",
+          borderTop: "1px solid var(--color-border)",
+          display: "flex",
+          flexDirection: "column",
+          gap: "32px",
+          maxWidth: "800px",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(22px, 4vw, 42px)",
+            fontWeight: 200,
+            letterSpacing: "0.04em",
+            lineHeight: 1.5,
+            color: "var(--color-text)",
+          }}
+        >
+          Geometry. Color. Repetition.<br />
+          Each piece begins as a painting.
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "13px",
+            letterSpacing: "0.08em",
+            lineHeight: 1.9,
+            color: "var(--color-text-tertiary)",
+            maxWidth: "480px",
+          }}
+        >
+          TCDA translates original abstract works into wearable form —
+          printed with precision, limited in quantity, made to be lived in.
+        </p>
+        <Link
+          to={`/${language}/about`}
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "11px",
+            letterSpacing: "0.3em",
+            color: "var(--color-text-secondary)",
+            textTransform: "uppercase",
+            borderBottom: "1px solid var(--color-border)",
+            paddingBottom: "2px",
+            alignSelf: "flex-start",
+            transition: "var(--transition-base)",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+        >
+          About TCDA →
+        </Link>
+      </motion.div>
+
       {/* Brand message */}
       <div style={{
         padding: "80px 32px",

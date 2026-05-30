@@ -1,6 +1,6 @@
 import { useParams, Link, useLocation } from "react-router";
 import { Helmet } from "react-helmet-async";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { useGlobalContext } from "./Root";
@@ -87,6 +87,23 @@ const FIT_LABEL_MAP: Record<FitLabelNormalized, string> = {
 interface AccordionItem {
   title: string;
   content: React.ReactNode;
+}
+
+function StarRating({ rating, max = 5 }: { rating: number; max?: number }) {
+  return (
+    <span style={{ display: "inline-flex", gap: "2px" }}>
+      {Array.from({ length: max }).map((_, i) => (
+        <svg key={i} width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M5 1l1.12 2.27 2.51.36-1.82 1.77.43 2.5L5 6.77 2.76 7.9l.43-2.5L1.37 3.63l2.51-.36z"
+            fill={i < Math.round(rating) ? "var(--color-text)" : "none"}
+            stroke="var(--color-text-tertiary)"
+            strokeWidth="0.6"
+          />
+        </svg>
+      ))}
+    </span>
+  );
 }
 
 function InfoAccordion({ items }: { items: AccordionItem[] }) {
@@ -194,6 +211,7 @@ export function ProductPage() {
   const [notifyEmail, setNotifyEmail] = useState("");
   const [notifySubmitted, setNotifySubmitted] = useState(false);
   const [reviews, setReviews] = useState<{ rating: number; name?: string; body?: string; created_at: string }[]>([]);
+  const touchStartX = useRef<number>(0);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -354,7 +372,7 @@ export function ProductPage() {
   ];
 
   return (
-    <div className="pt-4 md:pt-20 pb-24 md:pb-0" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
+    <div className="pt-4 lg:pt-20 pb-24 lg:pb-0" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
       <Helmet>
         <title>{`${product.name} — TCDA`}</title>
         <meta name="description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Worldwide shipping from Japan.`} />
@@ -403,19 +421,20 @@ export function ProductPage() {
       {/* BACK */}
       <div className="px-4 sm:px-6 md:px-10 lg:px-20 py-6 max-w-7xl mx-auto">
         <Link
-          to={`/${language}/products`}
-          className="text-xs font-light tracking-[0.3em] uppercase transition-all duration-300"
+          to={`/${language}/collection`}
+          className="inline-flex items-center gap-2 text-xs font-light tracking-[0.3em] uppercase transition-all duration-300"
           style={{ color: "var(--color-text-tertiary)" }}
           onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
           onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-tertiary)")}
         >
-          ←
+          <span style={{ fontSize: "10px" }}>←</span>
+          <span>Collection</span>
         </Link>
       </div>
 
       {/* MAIN: image + info */}
       <section className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-[65%_35%] items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[65%_35%] items-start">
 
           {/* Left: Main image + thumbnails */}
           <motion.div
@@ -426,7 +445,16 @@ export function ProductPage() {
             style={{ gap: "4px" }}
           >
             {/* Main image — full width */}
-            <div style={{ width: "100%", background: "var(--color-bg)", aspectRatio: "2/3", overflow: "hidden", position: "relative" }}>
+            <div
+              style={{ width: "100%", background: "var(--color-bg)", aspectRatio: "2/3", overflow: "hidden", position: "relative" }}
+              onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+              onTouchEnd={(e) => {
+                const dx = e.changedTouches[0].clientX - touchStartX.current;
+                if (Math.abs(dx) < 50) return;
+                if (dx < 0) setCurrentImageIndex((i) => Math.min(i + 1, images.length - 1));
+                else setCurrentImageIndex((i) => Math.max(i - 1, 0));
+              }}
+            >
               <ImageWithFallback
                 src={images[currentImageIndex] || product.thumbnail_url}
                 alt={product.name}
@@ -473,7 +501,7 @@ export function ProductPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col md:sticky md:top-20"
+            className="flex flex-col lg:sticky lg:top-20"
             style={{ paddingLeft: "clamp(0px, 5vw, 60px)", paddingTop: "clamp(24px, 5vw, 80px)" }}
           >
             {/* Product name */}
@@ -485,6 +513,24 @@ export function ProductPage() {
             <p style={{ fontFamily: "var(--font-body)", fontSize: "20px", color: "var(--color-accent)", marginBottom: "40px" }}>
               {formatPrice(convertedPrice, currency)}
             </p>
+
+            {/* Description */}
+            {product.description && (
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "13px",
+                  lineHeight: 1.9,
+                  letterSpacing: "0.04em",
+                  color: "var(--color-text-secondary)",
+                  marginBottom: "40px",
+                  borderLeft: "1px solid var(--color-border)",
+                  paddingLeft: "16px",
+                }}
+              >
+                {product.description}
+              </p>
+            )}
 
             {/* Stock */}
             {product.stock === 0 && (
@@ -577,7 +623,7 @@ export function ProductPage() {
                 )}
               </div>
             ) : (
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
                 <button
                   onClick={handleAddToCart}
                   disabled={!selectedSize}
@@ -664,9 +710,7 @@ export function ProductPage() {
               return (
                 <div className="mt-6 pt-4 pb-2">
                   <div className="flex items-baseline gap-3 mb-3">
-                    <span className="text-[11px] tracking-wider" style={{ color: "var(--color-text-secondary)" }}>
-                      {"★".repeat(Math.round(avg))}{"☆".repeat(5 - Math.round(avg))}
-                    </span>
+                    <StarRating rating={avg} />
                     <span className="text-[10px] font-light tracking-wider" style={{ color: "var(--color-text-tertiary)" }}>
                       {avg.toFixed(1)} ({reviews.length})
                     </span>
@@ -676,9 +720,7 @@ export function ProductPage() {
                       <div key={i} className="pb-4 last:border-0" style={{ borderBottom: "1px solid var(--color-border)" }}>
                         <div className="flex items-center justify-between mb-1">
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px]" style={{ color: "var(--color-text-secondary)" }}>
-                              {"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}
-                            </span>
+                            <StarRating rating={r.rating} />
                             <span className="text-[10px] font-light" style={{ color: "var(--color-text-tertiary)" }}>
                               {r.name || t("reviews.anonymous")}
                             </span>
@@ -710,7 +752,7 @@ export function ProductPage() {
       {/* Mobile: fixed bottom CTA — portal to body to escape motion.div transform */}
       {product.stock > 0 && createPortal(
         <div
-          className="fixed bottom-0 left-0 right-0 md:hidden z-50"
+          className="fixed bottom-0 left-0 right-0 lg:hidden z-50"
           style={{ background: "var(--color-bg)", padding: "16px", borderTop: "1px solid var(--color-border)" }}
         >
           <button

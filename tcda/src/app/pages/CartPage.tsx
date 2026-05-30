@@ -62,7 +62,7 @@ export function CartPage() {
 
         <div className="lg:grid lg:grid-cols-[1fr_280px] lg:gap-16">
           {/* Item list */}
-          <div className="space-y-0 divide-y divide-black/5">
+          <div className="space-y-0 divide-y divide-white/8">
             {cartItems.map((item) => (
               <div
                 key={`${item.artworkId}-${item.size}`}

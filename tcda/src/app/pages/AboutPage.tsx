@@ -267,7 +267,7 @@ export function AboutPage() {
           {/* Product Philosophy */}
           <motion.p
             {...fadeUp}
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(16px, 2vw, 24px)", fontStyle: "italic", fontWeight: 300, letterSpacing: "0.05em", color: "var(--color-text-secondary)", borderLeft: "2px solid rgba(255,255,255,0.3)", paddingLeft: "24px", marginTop: "40px" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(16px, 2vw, 24px)", fontWeight: 300, letterSpacing: "0.05em", color: "var(--color-text-secondary)", borderLeft: "2px solid rgba(255,255,255,0.3)", paddingLeft: "24px", marginTop: "40px" }}
           >
             {t("about.brandFoundation.quote")}
           </motion.p>
@@ -305,11 +305,11 @@ export function AboutPage() {
               transition: "var(--transition-base)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-text)";
-              e.currentTarget.style.color = "var(--color-text)";
+              e.currentTarget.style.background = "#ffffff";
+              e.currentTarget.style.color = "#000000";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-text)";
+              e.currentTarget.style.background = "transparent";
               e.currentTarget.style.color = "var(--color-text)";
             }}
           >

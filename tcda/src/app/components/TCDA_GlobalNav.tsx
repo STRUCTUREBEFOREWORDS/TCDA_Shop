@@ -104,7 +104,7 @@ export function TCDA_GlobalNav() {
           </Link>
 
           {/* Center — Nav links (desktop) */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             {[
               { to: `/${language}/collection`, label: t("nav.collection") },
               { to: `/${language}/lookbook`, label: "LOOKBOOK" },
@@ -123,6 +123,16 @@ export function TCDA_GlobalNav() {
             {/* Newsletter inline form (desktop) */}
             {status !== "done" && (
               <form onSubmit={submit} className="flex items-center gap-1.5">
+                <span style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "10px",
+                  letterSpacing: "var(--ls-nav)",
+                  color: "var(--color-text-tertiary)",
+                  textTransform: "uppercase",
+                  whiteSpace: "nowrap",
+                }}>
+                  Newsletter
+                </span>
                 <input
                   type="email"
                   value={email}
@@ -189,7 +199,7 @@ export function TCDA_GlobalNav() {
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="md:hidden transition-opacity duration-300"
+              className="lg:hidden transition-opacity duration-300"
               style={{ color: "var(--color-text)", opacity: 0.7 }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
@@ -210,7 +220,7 @@ export function TCDA_GlobalNav() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden fixed inset-0 z-[60] flex flex-col overflow-y-auto"
+            className="lg:hidden fixed inset-0 z-[60] flex flex-col overflow-y-auto"
             style={{ background: "var(--color-bg)" }}
           >
             {/* Header row */}
@@ -238,7 +248,7 @@ export function TCDA_GlobalNav() {
                 <Link
                   to={`/${language}/collection`}
                   onClick={() => setMobileOpen(false)}
-                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(44px, 11vw, 64px)", fontWeight: 300, letterSpacing: "0.02em", color: "var(--color-text)", display: "block", marginBottom: "20px", lineHeight: 1 }}
+                  style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 9vw, 56px)", fontWeight: 200, letterSpacing: "0.02em", color: "var(--color-text)", display: "block", marginBottom: "20px", lineHeight: 1 }}
                 >
                   {t("nav.collection")}
                 </Link>
@@ -273,7 +283,7 @@ export function TCDA_GlobalNav() {
                 <Link
                   to={`/${language}/lookbook`}
                   onClick={() => setMobileOpen(false)}
-                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(44px, 11vw, 64px)", fontWeight: 300, letterSpacing: "0.02em", color: "var(--color-text)", lineHeight: 1 }}
+                  style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 9vw, 56px)", fontWeight: 200, letterSpacing: "0.02em", color: "var(--color-text)", lineHeight: 1 }}
                 >
                   LOOKBOOK
                 </Link>
@@ -284,7 +294,7 @@ export function TCDA_GlobalNav() {
                 <Link
                   to={`/${language}/about`}
                   onClick={() => setMobileOpen(false)}
-                  style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(44px, 11vw, 64px)", fontWeight: 300, letterSpacing: "0.02em", color: "var(--color-text)", lineHeight: 1 }}
+                  style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 9vw, 56px)", fontWeight: 200, letterSpacing: "0.02em", color: "var(--color-text)", lineHeight: 1 }}
                 >
                   {t("nav.about")}
                 </Link>
@@ -293,6 +303,16 @@ export function TCDA_GlobalNav() {
               {/* Newsletter */}
               {status !== "done" && (
                 <div style={{ paddingTop: "clamp(20px, 5vw, 32px)" }}>
+                  <p style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "11px",
+                    letterSpacing: "0.2em",
+                    color: "var(--color-text-tertiary)",
+                    textTransform: "uppercase",
+                    marginBottom: "12px",
+                  }}>
+                    Newsletter
+                  </p>
                   <form onSubmit={submit} style={{ display: "flex", gap: "8px" }}>
                     <input
                       type="email"

@@ -237,28 +237,39 @@ export function CollectionPage() {
 
       {/* Filters */}
       <div
-        className="flex gap-6 px-4 md:px-16 overflow-x-auto"
-        style={{ marginTop: "clamp(24px, 4vw, 48px)", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
+        className="px-4 md:px-16"
+        style={{ marginTop: "clamp(24px, 4vw, 48px)" }}
       >
-        {GENDER_FILTERS.map((f) => (
-          <button
-            key={f.key || "all"}
-            onClick={() => handleGenderChange(f.key)}
-            style={FILTER_BUTTON_STYLE(activeGender === f.key)}
-          >
-            {f.label}
-          </button>
-        ))}
-        <span style={{ width: "1px", background: "var(--color-border)", margin: "0 2px", flexShrink: 0 }} />
-        {CATEGORY_FILTERS.map((f) => (
-          <button
-            key={f.key}
-            onClick={() => handleFilterChange(f.key)}
-            style={FILTER_BUTTON_STYLE(activeFilter === f.key)}
-          >
-            {f.label}
-          </button>
-        ))}
+        {/* 上段: カテゴリー */}
+        <div
+          className="flex gap-6 overflow-x-auto"
+          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch", paddingBottom: "12px" } as React.CSSProperties}
+        >
+          {CATEGORY_FILTERS.map((f) => (
+            <button
+              key={f.key}
+              onClick={() => handleFilterChange(f.key)}
+              style={FILTER_BUTTON_STYLE(activeFilter === f.key)}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+        {/* 下段: ジェンダー */}
+        <div
+          className="flex gap-6 overflow-x-auto"
+          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
+        >
+          {GENDER_FILTERS.map((f) => (
+            <button
+              key={f.key || "all"}
+              onClick={() => handleGenderChange(f.key)}
+              style={FILTER_BUTTON_STYLE(activeGender === f.key)}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Grid */}
@@ -269,7 +280,7 @@ export function CollectionPage() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
+        <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: "2px", marginTop: "clamp(24px, 4vw, 48px)" }}>
           {visibleProducts.map((product) => (
             <motion.div
               key={product.id}
