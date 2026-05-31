@@ -82,6 +82,18 @@ const EU_COUNTRY_CODES = new Set([
   "RO","SE","SI","SK",
 ]);
 
+function initClarity() {
+  if ((window as any).clarity) return;
+  (function(c: any, l: any, a: string, r: string, i: string) {
+    c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments); };
+    const t = l.createElement(r) as HTMLScriptElement;
+    t.async = true;
+    t.src = "https://www.clarity.ms/tag/" + i;
+    const y = l.getElementsByTagName(r)[0];
+    y.parentNode!.insertBefore(t, y);
+  })(window, document, "clarity", "script", "wbxtdqbpsz");
+}
+
 interface GlobalContextType {
   language: Language;
   currency: Currency;
@@ -153,6 +165,11 @@ export function Root() {
     }
   }, []);
 
+  // EU圏ユーザーがconsentを付与した時（新規 or localStorage復元）にClarity起動
+  useEffect(() => {
+    if (consent === "granted") initClarity();
+  }, [consent]);
+
   // Fetch live exchange rates from backend (updated daily via frankfurter.app)
   useEffect(() => {
     fetch("https://api.tcdashop.com/exchange-rates")
@@ -201,6 +218,7 @@ export function Root() {
       };
       setCountryCode(cached);
       if (currencyMap[cached]) setCurrency(currencyMap[cached]);
+      if (!EU_COUNTRY_CODES.has(cached)) initClarity();
       return;
     }
     const controller = new AbortController();
@@ -218,6 +236,7 @@ export function Root() {
         setCountryCode(code);
         if (currencyMap[code]) setCurrency(currencyMap[code]);
         sessionStorage.setItem("tcda_country", code);
+        if (!EU_COUNTRY_CODES.has(code)) initClarity();
       })
       .catch(() => { clearTimeout(timeout); });
   }, []);
