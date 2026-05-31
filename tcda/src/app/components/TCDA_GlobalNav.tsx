@@ -46,7 +46,6 @@ const NAV_LINK_STYLE: React.CSSProperties = {
 };
 
 const GENDER_FILTERS = [
-  { key: "", label: "ALL" },
   { key: "male", label: "MEN'S" },
   { key: "female", label: "WOMEN'S" },
   { key: "unisex", label: "UNISEX" },
@@ -67,6 +66,8 @@ export function TCDA_GlobalNav() {
   const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [collectionOpen, setCollectionOpen] = useState(false);
+  const [mobileCollectionOpen, setMobileCollectionOpen] = useState(false);
   const { email, setEmail, status, submit } = useNewsletter(language);
 
   useEffect(() => {
@@ -105,8 +106,22 @@ export function TCDA_GlobalNav() {
 
           {/* Center — Nav links (desktop) */}
           <nav className="hidden lg:flex items-center gap-8">
+            {/* COLLECTION: button → panel */}
+            <button
+              onClick={() => setCollectionOpen((v) => !v)}
+              style={{
+                ...NAV_LINK_STYLE,
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+            >
+              {t("nav.collection")}
+            </button>
             {[
-              { to: `/${language}/collection`, label: t("nav.collection") },
               { to: `/${language}/lookbook`, label: "LOOKBOOK" },
               { to: `/${language}/about`, label: t("nav.about") },
             ].map(({ to, label }) => (
@@ -173,6 +188,101 @@ export function TCDA_GlobalNav() {
               </form>
             )}
           </nav>
+
+          {/* PC Collection Panel */}
+          {collectionOpen && (
+            <>
+              {/* オーバーレイ：パネル外クリックで閉じる */}
+              <div
+                style={{ position: "fixed", inset: 0, zIndex: 40 }}
+                onClick={() => setCollectionOpen(false)}
+              />
+              {/* パネル本体 */}
+              <div
+                style={{
+                  position: "fixed",
+                  top: "56px",
+                  left: 0,
+                  right: 0,
+                  zIndex: 50,
+                  background: "var(--color-bg)",
+                  borderBottom: "1px solid var(--color-border)",
+                  padding: "48px clamp(24px, 6vw, 80px)",
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "48px",
+                  maxWidth: "480px",
+                  marginLeft: "clamp(24px, 6vw, 80px)",
+                }}
+              >
+                {/* カテゴリー列 */}
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                  <span style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "9px",
+                    letterSpacing: "0.2em",
+                    color: "var(--color-text-tertiary)",
+                    textTransform: "uppercase",
+                    marginBottom: "4px",
+                  }}>
+                    Category
+                  </span>
+                  {CATEGORY_FILTERS.map((f) => (
+                    <Link
+                      key={f.key}
+                      to={`/${language}/collection?category=${f.key}`}
+                      onClick={() => setCollectionOpen(false)}
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "12px",
+                        letterSpacing: "0.15em",
+                        textTransform: "uppercase",
+                        color: "var(--color-text-secondary)",
+                        transition: "var(--transition-base)",
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+                    >
+                      {f.label}
+                    </Link>
+                  ))}
+                </div>
+
+                {/* ジェンダー列 */}
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                  <span style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "9px",
+                    letterSpacing: "0.2em",
+                    color: "var(--color-text-tertiary)",
+                    textTransform: "uppercase",
+                    marginBottom: "4px",
+                  }}>
+                    Gender
+                  </span>
+                  {GENDER_FILTERS.map((f) => (
+                    <Link
+                      key={f.key}
+                      to={`/${language}/collection?gender=${f.key}`}
+                      onClick={() => setCollectionOpen(false)}
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "12px",
+                        letterSpacing: "0.15em",
+                        textTransform: "uppercase",
+                        color: "var(--color-text-secondary)",
+                        transition: "var(--transition-base)",
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+                    >
+                      {f.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
 
           {/* Right — Controls */}
           <div className="flex items-center gap-5">
@@ -243,39 +353,105 @@ export function TCDA_GlobalNav() {
             {/* Nav items — 画面全体を使った3分割レイアウト */}
             <nav style={{ padding: "0 32px", display: "flex", flexDirection: "column", flex: 1, justifyContent: "space-between", paddingBottom: "48px" }}>
 
-              {/* COLLECTION */}
+              {/* SP Collection Accordion */}
               <div style={{ borderTop: "1px solid var(--color-border)", paddingTop: "clamp(24px, 6vw, 40px)" }}>
-                <Link
-                  to={`/${language}/collection`}
-                  onClick={() => setMobileOpen(false)}
-                  style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 9vw, 56px)", fontWeight: 200, letterSpacing: "0.02em", color: "var(--color-text)", display: "block", marginBottom: "20px", lineHeight: 1 }}
+                <button
+                  onClick={() => setMobileCollectionOpen((v) => !v)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    padding: 0,
+                    fontFamily: "var(--font-display)",
+                    fontSize: "clamp(36px, 9vw, 56px)",
+                    fontWeight: 200,
+                    letterSpacing: "0.04em",
+                    color: "var(--color-text)",
+                  }}
                 >
-                  {t("nav.collection")}
-                </Link>
-                {/* Gender + Category サブリンク — 横並び */}
-                <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", paddingLeft: "4px", alignItems: "center" }}>
-                  {GENDER_FILTERS.filter(f => f.key).map(({ key, label }) => (
-                    <Link
-                      key={key}
-                      to={`/${language}/collection?gender=${key}`}
-                      onClick={() => setMobileOpen(false)}
-                      style={{ fontFamily: "var(--font-body)", fontSize: "11px", letterSpacing: "0.2em", color: "var(--color-text-tertiary)", textTransform: "uppercase" }}
-                    >
-                      {label}
-                    </Link>
-                  ))}
-                  <span style={{ color: "var(--color-border)" }}>|</span>
-                  {CATEGORY_FILTERS.map(({ key, label }) => (
-                    <Link
-                      key={key}
-                      to={`/${language}/collection?category=${key}`}
-                      onClick={() => setMobileOpen(false)}
-                      style={{ fontFamily: "var(--font-body)", fontSize: "11px", letterSpacing: "0.2em", color: "var(--color-text-tertiary)", textTransform: "uppercase" }}
-                    >
-                      {label}
-                    </Link>
-                  ))}
-                </div>
+                  <span>{t("nav.collection")}</span>
+                  <span style={{
+                    fontSize: "16px",
+                    letterSpacing: "0.1em",
+                    color: "var(--color-text-tertiary)",
+                    transition: "transform 0.3s ease",
+                    transform: mobileCollectionOpen ? "rotate(45deg)" : "rotate(0deg)",
+                  }}>
+                    +
+                  </span>
+                </button>
+
+                {/* アコーディオン展開部分 */}
+                {mobileCollectionOpen && (
+                  <div style={{
+                    display: "flex",
+                    gap: "40px",
+                    paddingTop: "24px",
+                    paddingLeft: "4px",
+                  }}>
+                    {/* カテゴリー */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                      <span style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "9px",
+                        letterSpacing: "0.2em",
+                        color: "var(--color-text-tertiary)",
+                        textTransform: "uppercase",
+                      }}>
+                        Category
+                      </span>
+                      {CATEGORY_FILTERS.map((f) => (
+                        <Link
+                          key={f.key}
+                          to={`/${language}/collection?category=${f.key}`}
+                          onClick={() => setMobileOpen(false)}
+                          style={{
+                            fontFamily: "var(--font-body)",
+                            fontSize: "13px",
+                            letterSpacing: "0.15em",
+                            textTransform: "uppercase",
+                            color: "var(--color-text-secondary)",
+                          }}
+                        >
+                          {f.label}
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* ジェンダー */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                      <span style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "9px",
+                        letterSpacing: "0.2em",
+                        color: "var(--color-text-tertiary)",
+                        textTransform: "uppercase",
+                      }}>
+                        Gender
+                      </span>
+                      {GENDER_FILTERS.map((f) => (
+                        <Link
+                          key={f.key}
+                          to={`/${language}/collection?gender=${f.key}`}
+                          onClick={() => setMobileOpen(false)}
+                          style={{
+                            fontFamily: "var(--font-body)",
+                            fontSize: "13px",
+                            letterSpacing: "0.15em",
+                            textTransform: "uppercase",
+                            color: "var(--color-text-secondary)",
+                          }}
+                        >
+                          {f.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* LOOKBOOK */}
