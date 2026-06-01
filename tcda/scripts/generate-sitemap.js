@@ -95,6 +95,21 @@ async function main() {
     }
   }
 
+  // カテゴリー × 言語 URL
+  const CATEGORIES = ["tshirt", "jacket", "sweatshirt", "bottoms", "accessories"];
+  const GENDERS = ["male", "female", "unisex"];
+
+  for (const category of CATEGORIES) {
+    for (const lang of LANGS) {
+      urlBlocks.push(urlBlock(lang, `collection?category=${category}`, "0.6", "weekly"));
+    }
+  }
+  for (const gender of GENDERS) {
+    for (const lang of LANGS) {
+      urlBlocks.push(urlBlock(lang, `collection?gender=${gender}`, "0.5", "weekly"));
+    }
+  }
+
   // Product pages
   for (const id of productIds) {
     for (const lang of LANGS) {
