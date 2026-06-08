@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { motion } from "motion/react";
 import { Link, useLocation, useSearchParams } from "react-router";
 import { Helmet } from "react-helmet-async";
@@ -114,12 +114,30 @@ export function CollectionPage() {
   const canonical = `https://tcdashop.com${pathname.endsWith("/") && pathname.length > 1 ? pathname.slice(0, -1) : pathname}`;
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState<string>(searchParams.get("category") ?? "new");
   const [activeGender, setActiveGender] = useState<string>(searchParams.get("gender") ?? "unisex");
   const [visibleCount, setVisibleCount] = useState(24);
   const PAGE_SIZE = 24;
   const sentinelRef = useRef<HTMLDivElement>(null);
+
+  const availableCategories = useMemo(
+    () => new Set(allProducts.map((p) => p.category).filter(Boolean) as string[]),
+    [allProducts]
+  );
+  const visibleCategoryFilters = useMemo(
+    () => CATEGORY_FILTERS.filter((f) => f.key === "new" || availableCategories.has(f.key)),
+    [availableCategories]
+  );
+  const availableGenders = useMemo(
+    () => new Set(products.map((p) => p.gender_type).filter(Boolean) as string[]),
+    [products]
+  );
+  const visibleGenderFilters = useMemo(
+    () => GENDER_FILTERS.filter((f) => availableGenders.has(f.key)),
+    [availableGenders]
+  );
 
   const filteredProducts = activeGender
     ? products.filter((p) => p.gender_type === activeGender)
@@ -139,6 +157,21 @@ export function CollectionPage() {
     if (sentinelRef.current) observer.observe(sentinelRef.current);
     return () => observer.disconnect();
   }, [hasMore, loadMore]);
+
+  useEffect(() => {
+    fetch("https://api.tcdashop.com/products")
+      .then((res) => res.json())
+      .then((data) => setAllProducts(data.products ?? []))
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (availableGenders.size === 0) return;
+    if (!availableGenders.has(activeGender)) {
+      const first = GENDER_FILTERS.find((f) => availableGenders.has(f.key));
+      if (first) setActiveGender(first.key);
+    }
+  }, [availableGenders]);
 
   useEffect(() => {
     pushDataLayer('page_view', {
@@ -258,7 +291,7 @@ export function CollectionPage() {
           className="flex gap-6 overflow-x-auto"
           style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch", paddingBottom: "12px" } as React.CSSProperties}
         >
-          {CATEGORY_FILTERS.map((f) => (
+          {visibleCategoryFilters.map((f) => (
             <button
               key={f.key}
               onClick={() => handleFilterChange(f.key)}
@@ -268,12 +301,12 @@ export function CollectionPage() {
             </button>
           ))}
         </div>
-        {/* 下段: ジェンダー */}
+        {/* 下段: ジェンダー（存在するgender_typeのみ表示） */}
         <div
           className="flex gap-6 overflow-x-auto"
           style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}
         >
-          {GENDER_FILTERS.map((f) => (
+          {visibleGenderFilters.map((f) => (
             <button
               key={f.key}
               onClick={() => handleGenderChange(f.key)}
