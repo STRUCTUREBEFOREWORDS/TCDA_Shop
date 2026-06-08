@@ -19,6 +19,7 @@ interface Product {
   gender_type?: string;
   product_type?: string;
   category?: string;
+  shipping_available?: boolean;
 }
 
 const FALLBACK_IMAGE = "https://cdn.tcdashop.com/logo/1.png";
@@ -139,9 +140,9 @@ export function CollectionPage() {
     [availableGenders]
   );
 
-  const filteredProducts = activeGender
-    ? products.filter((p) => p.gender_type === activeGender)
-    : products;
+  const filteredProducts = products
+    .filter((p) => p.shipping_available !== false)
+    .filter((p) => !activeGender || p.gender_type === activeGender);
   const visibleProducts = filteredProducts.slice(0, visibleCount);
   const hasMore = visibleCount < filteredProducts.length;
 
@@ -159,11 +160,12 @@ export function CollectionPage() {
   }, [hasMore, loadMore]);
 
   useEffect(() => {
-    fetch("https://api.tcdashop.com/products")
+    if (!countryCode) return;
+    fetch(`https://api.tcdashop.com/products?country_code=${countryCode}`)
       .then((res) => res.json())
       .then((data) => setAllProducts(data.products ?? []))
       .catch(() => {});
-  }, []);
+  }, [countryCode]);
 
   useEffect(() => {
     if (availableGenders.size === 0) return;
@@ -185,15 +187,16 @@ export function CollectionPage() {
 
   useEffect(() => {
     setLoading(true);
+    const cc = countryCode ? `&country_code=${countryCode}` : "";
     const url = activeFilter
-      ? `https://api.tcdashop.com/products?category=${encodeURIComponent(activeFilter)}`
-      : "https://api.tcdashop.com/products";
+      ? `https://api.tcdashop.com/products?category=${encodeURIComponent(activeFilter)}${cc}`
+      : `https://api.tcdashop.com/products${cc ? `?${cc.slice(1)}` : ""}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data.products ?? []))
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [activeFilter]);
+  }, [activeFilter, countryCode]);
 
   useEffect(() => {
     if (products.length === 0 || activeFilter !== "new") return;
