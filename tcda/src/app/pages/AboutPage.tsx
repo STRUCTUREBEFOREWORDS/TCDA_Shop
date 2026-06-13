@@ -87,7 +87,7 @@ export function AboutPage() {
 
         <motion.div
           {...fadeUp}
-          className="grid grid-cols-1 md:grid-cols-[40%_1fr] items-start"
+          className="grid grid-cols-1 lg:grid-cols-[40%_1fr] items-start"
           style={{ gap: "clamp(24px, 6vw, 80px)" }}
         >
           {/* Left: image */}
@@ -144,7 +144,7 @@ export function AboutPage() {
       >
 
         <motion.div {...fadeUp}>
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "2px" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-3" style={{ gap: "2px" }}>
             {VALUES.map(({ key }, i) => (
               <motion.div
                 key={key}
@@ -219,7 +219,7 @@ export function AboutPage() {
           </motion.p>
 
           {/* Who It Is For */}
-          <div className="grid grid-cols-1 md:grid-cols-3 mb-16" style={{ gap: "2px" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-3 mb-16" style={{ gap: "2px" }}>
             {WHO_KEYS.map((key, i) => (
               <motion.div
                 key={key}
