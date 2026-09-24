@@ -21,7 +21,7 @@ git add docs/ && git push origin main   # GitHub Pages auto-deploy
 
 VPS API restart:
 ```bash
-ssh vps-sairen
+ssh tcda
 pkill -f 'uvicorn main:app'
 cd ~/app && source venv/bin/activate
 nohup uvicorn main:app --host 0.0.0.0 --port 8000 >> uvicorn.log 2>&1 &
@@ -100,3 +100,15 @@ font-body  : var(--font-body)
 text-cap   : var(--text-caption)
 tracking   : var(--ls-nav)
 ```
+
+## インフラ運用ルール（2026-09-24 更新）
+- 開発端末は Mac Studio（~/dev/TCDA_Shop, ~/dev/TCDA_Admin）。VPS 接続は `ssh tcda` のみ（IP 直書き・旧鍵は廃止）
+- uvicorn は `127.0.0.1:8000` でのみ待ち受ける。`--host 0.0.0.0` に戻さない
+- nginx の proxy_pass は `http://127.0.0.1:8000`（`localhost` 表記にしない）
+- nginx は Cloudflare 以外からの接続を deny している（IP 一覧は毎月自動更新）。VPS の IP に直接アクセスして動作確認しない（403 になる）。確認は https://api.tcdashop.com 経由、または VPS 内で `curl http://127.0.0.1:8000`
+- API の再起動は `ssh -t tcda "sudo systemctl restart uvicorn"`。SSH 経由で `pkill -f 'uvicorn main:app'` を使わない（自分のシェルも止まる）
+- 内部認証の判定は必ず `if not x_internal_key or x_internal_key != INTERNAL_API_KEY`
+- VPS の `.env` は chmod 600。`.env.save` などのバックアップを残さない
+- VPS のメモリは 2GB。VS Code Remote-SSH で VPS に接続しない（VS Code Server が約 1.2GB 消費した実績あり）
+- このリポジトリは公開。IP アドレス・鍵・トークンをコミットしない。`.claude/settings*.json`、`.env`、`.dev.vars`、サービスアカウントの JSON は Git 管理外
+- フロントエンド（tcda/src）は環境変数（import.meta.env）を使っていない
