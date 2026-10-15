@@ -143,3 +143,6 @@ tracking   : var(--ls-nav)
 - pip install は --break-system-packages 必須（VPS）
 - wrangler の R2 アップロードは --remote 必須
 - 商品詳細ページのURLは /{lang}/product/{uuid}（単数形）。/{lang}/products は一覧ページで正しい
+- VPS の ~/app は git 管理（ローカルのみ・リモートなし）。main.py を編集したら再起動前に git commit する
+- 誤編集は git checkout -- main.py で戻す。.env・認証情報 JSON・venv/・logs/ は .gitignore 済みで、追加しない
+- ~/app に push 用リモートを追加する場合は private 限定。追加前に git log -p の秘密情報検査をする
