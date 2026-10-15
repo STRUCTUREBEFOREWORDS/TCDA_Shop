@@ -41,7 +41,7 @@ const CURRENCY_SYMBOLS: Record<Currency, string> = {
   EUR: "€",
   GBP: "£",
   KRW: "₩",
-  CNY: "¥",
+  CNY: "CN¥",
   AUD: "A$",
   AED: "AED",
   SGD: "S$",

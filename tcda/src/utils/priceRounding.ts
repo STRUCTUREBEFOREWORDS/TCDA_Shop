@@ -7,7 +7,7 @@ export function applyPsychologicalPrice(amount: number, currency: string): numbe
     case "INR":
       return Math.floor(amount / 100) * 100 + 99;
     case "CNY":
-      return Math.floor(amount) + 0.9;
+      return Math.floor(amount);
     case "AED":
       return Math.round(amount);
     case "USD":
