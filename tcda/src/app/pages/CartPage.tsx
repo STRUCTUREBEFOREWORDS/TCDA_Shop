@@ -6,14 +6,20 @@ import { useTranslation } from "react-i18next";
 import { redirectToCheckout } from "../utils/stripe";
 
 import { formatPrice } from "../utils/formatPrice";
+import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 export function CartPage() {
-  const { language, currency, cartItems, removeFromCart, updateQuantity } =
+  const { language, currency, rates, cartItems, removeFromCart, updateQuantity } =
     useGlobalContext();
   const { t } = useTranslation();
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  // Recomputed from the JPY base price with the current currency/rates (same formula as ProductPage.tsx),
+  // so switching currency after adding to the cart keeps the displayed amounts correct.
+  const unitPrice = (item: (typeof cartItems)[number]) =>
+    applyPsychologicalPrice(item.price_jpy * (currency === "JPY" ? 1 : (rates[currency] ?? 1)), currency);
+
+  const subtotal = cartItems.reduce((sum, item) => sum + unitPrice(item) * item.quantity, 0);
 
   const handleCheckout = async () => {
     const items = cartItems.map((item) => ({
@@ -87,7 +93,7 @@ export function CartPage() {
                     {t("size")}: {item.size}
                   </p>
                   <p className="text-white text-sm font-extralight tracking-wider">
-                    {formatPrice(item.price * item.quantity, currency)}
+                    {formatPrice(unitPrice(item) * item.quantity, currency)}
                   </p>
 
                   {/* Quantity */}

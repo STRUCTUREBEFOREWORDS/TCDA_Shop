@@ -5,12 +5,14 @@ import { useGlobalContext } from "../pages/Root";
 import { redirectToCheckout } from "../utils/stripe";
 import { useTranslation } from "react-i18next";
 import { formatPrice } from "../utils/formatPrice";
+import { applyPsychologicalPrice } from "../../utils/priceRounding";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function CartDrawer() {
   const {
     language,
     currency,
+    rates,
     cartItems,
     cartCount,
     removeFromCart,
@@ -22,7 +24,12 @@ export function CartDrawer() {
 
   const { t } = useTranslation();
 
-  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  // Recomputed from the JPY base price with the current currency/rates (same formula as ProductPage.tsx),
+  // so switching currency after adding to the cart keeps the displayed amounts correct.
+  const unitPrice = (item: (typeof cartItems)[number]) =>
+    applyPsychologicalPrice(item.price_jpy * (currency === "JPY" ? 1 : (rates[currency] ?? 1)), currency);
+
+  const total = cartItems.reduce((sum, item) => sum + unitPrice(item) * item.quantity, 0);
 
   return (
     <AnimatePresence>
@@ -101,7 +108,7 @@ export function CartDrawer() {
                           {t("size.label")}: {item.size}
                         </p>
                         <p className="text-white text-sm font-extralight">
-                          {formatPrice(item.price, currency)}
+                          {formatPrice(unitPrice(item), currency)}
                         </p>
 
                         {/* Quantity */}
