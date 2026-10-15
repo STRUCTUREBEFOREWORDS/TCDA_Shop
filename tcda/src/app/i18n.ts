@@ -23,7 +23,7 @@ i18n
   .use(initReactI18next)
   .init({
     lng: detectLngFromURL(),
-    fallbackLng: "ja",
+    fallbackLng: ["en", "ja"],
     ns: ["translation"],
     defaultNS: "translation",
     backend: {
