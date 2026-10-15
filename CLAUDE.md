@@ -50,7 +50,7 @@ npx wrangler pages deploy dist --project-name tcda-admin
 - Theme: `#080808`
 
 **Note:** vite-plugin-pwa と esbuild は `tcda/node_modules` にのみインストールすること。
-ルート `node_modules` に入れると vite 8 のビルドエラーが発生する。
+ルート `node_modules` に入れるとビルドエラーが発生した実績がある（当時は vite 8 で確認。現在の vite は 6.4.4 に固定、`tcda/package.json`）。
 
 ## Push通知
 
