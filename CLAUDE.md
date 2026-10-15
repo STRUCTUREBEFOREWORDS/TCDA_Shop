@@ -112,7 +112,7 @@ Admin `TCDA_Admin/.env` の `VITE_INTERNAL_KEY` は同一値でなければな�
 ## Other components in this repo
 
 - `workers/ogp-worker/` — Cloudflare Worker（`tcdashop.com/*` にルート）。クローラ UA の場合のみ `api.tcdashop.com/products/{id}` から OGP メタを生成して返す。デプロイは `wrangler deploy`
-- API 本体は VPS の `~/app/main.py`（git 非管理。push・newsletter のルートも main.py 内に直接定義）。このリポジトリに API コードはない
+- API 本体は VPS の `~/app/main.py`。VPS 上でローカル git 管理（リモートなし）。push・newsletter のルートも main.py 内に直接定義。このリポジトリに API コードはない
 - `scrape_size_chart.py` / `size_charts.json` — サイズ表のスクレイピング用ワンオフスクリプトとその出力
 - `tcda/STRIPE_INTEGRATION.md` — 古い Stripe 導入ガイド（現行実装とは異なる可能性あり）
 
