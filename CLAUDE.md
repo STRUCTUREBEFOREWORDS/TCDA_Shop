@@ -98,6 +98,7 @@ Admin `TCDA_Admin/.env` の `VITE_INTERNAL_KEY` は同一値でなければな�
 
 - ja が原文。`npx ts-node scripts/translate.ts [lang...]`（リポジトリルート、`ANTHROPIC_API_KEY` 必要）が ja から en/fr/es/ko/zh のみを再生成する。de/it/pt/ar/hi は対象外
 - `app/data/translations.ts` と `app/utils/translations.ts` は旧来のインライン翻訳（後者は en/es/fr/ja のみ）。新規文言は locales JSON に追加する
+- 保守対象は ja/en/fr/es/ko/zh。de/it/pt/ar/hi は新規文言を追加せず、未翻訳は en にフォールバック（fallbackLng: ["en","ja"]）。hi は4キー不足。<html lang> は Root.tsx の useEffect で URL の言語に同期（ar の dir="rtl" は未対応）
 
 ## Frontend structure
 
