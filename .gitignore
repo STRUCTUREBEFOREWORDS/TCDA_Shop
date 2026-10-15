@@ -45,3 +45,5 @@ workers/convert_webp.sh
 
 # Claude Code local settings
 .claude/settings*.json
+.wrangler/
+output.json
