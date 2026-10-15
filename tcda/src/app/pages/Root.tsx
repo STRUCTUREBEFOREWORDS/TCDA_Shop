@@ -1,5 +1,5 @@
 import { Outlet, useParams, useNavigate, useLocation } from "react-router";
-import { useState, useEffect, createContext, useContext, Suspense } from "react";
+import { useState, useEffect, useCallback, createContext, useContext, Suspense } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Helmet } from "react-helmet-async";
 import i18n from "../i18n";
@@ -9,6 +9,7 @@ import { CartDrawer } from "../components/CartDrawer";
 import { Footer } from "../components/Footer";
 import { CookieBanner, STORAGE_KEY, ConsentValue } from "../components/CookieBanner";
 import { trackPageView } from "../utils/analytics";
+import { currencyToApplyOnDetection, isCurrency } from "../../utils/currencyResolver";
 
 /** Fallback rates used before live rates arrive from the backend */
 export const RATES: Record<Currency, number> = {
@@ -76,6 +77,18 @@ function HreflangHelmet({ pathname }: { pathname: string }) {
   );
 }
 
+const CURRENCY_STORAGE_KEY = "tcda_currency_selected";
+
+/** A currency the visitor chose explicitly (Footer switcher). Invalid or unreadable values are ignored. */
+function readStoredCurrency(): Currency | null {
+  try {
+    const v = localStorage.getItem(CURRENCY_STORAGE_KEY);
+    return isCurrency(v) ? v : null;
+  } catch {
+    return null;
+  }
+}
+
 const EU_COUNTRY_CODES = new Set([
   "AT","BE","BG","CY","CZ","DE","DK","EE","ES","FI","FR","GB",
   "GR","HR","HU","IE","IT","LT","LU","LV","MT","NL","PL","PT",
@@ -129,7 +142,17 @@ export function Root() {
     ? (lang as Language)
     : "en";
 
-  const [currency, setCurrency] = useState<Currency>("JPY");
+  const [currency, setCurrencyState] = useState<Currency>(() => readStoredCurrency() ?? "JPY");
+  // Explicit choice (Footer switcher): update state and remember it. Auto-detection uses setCurrencyState
+  // directly so that it is never saved as if the visitor had chosen it.
+  const setCurrency = useCallback((curr: Currency) => {
+    setCurrencyState(curr);
+    try {
+      localStorage.setItem(CURRENCY_STORAGE_KEY, curr);
+    } catch {
+      /* storage unavailable: ignore */
+    }
+  }, []);
   const [rates, setRates] = useState<Record<Currency, number>>(RATES);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -210,15 +233,16 @@ export function Root() {
   }, [location.pathname]);
 
   useEffect(() => {
+    // A currency the visitor chose always wins: the stored choice is re-read each time a detection result
+    // is applied (the visitor may click the switcher while /country is still pending).
+    const applyDetected = (country: string | null) => {
+      const next = currencyToApplyOnDetection({ stored: readStoredCurrency(), country, language });
+      if (next) setCurrencyState(next);
+    };
     const cached = sessionStorage.getItem("tcda_country");
     if (cached) {
-      const currencyMap: Record<string, Currency> = {
-        JP: "JPY", US: "USD", GB: "GBP",
-        KR: "KRW", CN: "CNY",
-        DE: "EUR", FR: "EUR", IT: "EUR", ES: "EUR",
-      };
       setCountryCode(cached);
-      if (currencyMap[cached]) setCurrency(currencyMap[cached]);
+      applyDetected(cached);
       if (!EU_COUNTRY_CODES.has(cached)) initClarity();
       return;
     }
@@ -229,17 +253,16 @@ export function Root() {
       .then((data) => {
         clearTimeout(timeout);
         const code = data.country ?? "JP";
-        const currencyMap: Record<string, Currency> = {
-          JP: "JPY", US: "USD", GB: "GBP",
-          KR: "KRW", CN: "CNY",
-          DE: "EUR", FR: "EUR", IT: "EUR", ES: "EUR",
-        };
         setCountryCode(code);
-        if (currencyMap[code]) setCurrency(currencyMap[code]);
+        applyDetected(code);
         sessionStorage.setItem("tcda_country", code);
         if (!EU_COUNTRY_CODES.has(code)) initClarity();
       })
-      .catch(() => { clearTimeout(timeout); });
+      .catch(() => {
+        clearTimeout(timeout);
+        // Country detection failed: fall back to the site language (then JPY).
+        applyDetected(null);
+      });
   }, []);
 
   // Auto-detect language on first visit via Accept-Language header (server-side read)
