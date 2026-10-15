@@ -97,7 +97,6 @@ Admin `TCDA_Admin/.env` の `VITE_INTERNAL_KEY` は同一値でなければな�
 （`docs/locales/` はビルド出力のコピー、直接編集しない）
 
 - ja が原文。`npx ts-node scripts/translate.ts [lang...]`（リポジトリルート、`ANTHROPIC_API_KEY` 必要）が ja から en/fr/es/ko/zh のみを再生成する。de/it/pt/ar/hi は対象外
-- `app/data/translations.ts` と `app/utils/translations.ts` は旧来のインライン翻訳（後者は en/es/fr/ja のみ）。新規文言は locales JSON に追加する
 - 保守対象は ja/en/fr/es/ko/zh。de/it/pt/ar/hi は新規文言を追加せず、未翻訳は en にフォールバック（fallbackLng: ["en","ja"]）。hi は4キー不足。<html lang> は Root.tsx の useEffect で URL の言語に同期（ar の dir="rtl" は未対応）
 
 ## Frontend structure
@@ -106,8 +105,8 @@ Admin `TCDA_Admin/.env` の `VITE_INTERNAL_KEY` は同一値でなければな�
 - ルーティングは `app/routes.tsx`（react-router 7 `createBrowserRouter`）。全ページは `/:lang/...` 配下で `Root.tsx` が言語を設定。`/product/:id` など言語なしパスは `/en/...` へリダイレクト
 - GitHub Pages は SPA fallback 非対応のため、`vite.config.ts` の `spaPlugin` が `docs/404.html`（→ `/?redirect=` で復帰）と `index.html` の復元スクリプトを生成する。ルーティングを変えるときはこの仕組みを壊さない
 - i18n は `app/i18n.ts`（i18next + HTTP backend、`/locales/{lng}/translation.json?v=BUILD_VERSION`）。初期言語は URL の先頭セグメントから決定
-- グローバル状態は `context/AppContext.tsx`（言語・通貨・価格換算）。通貨は `api.tcdashop.com/country` で判定し、`/exchange-rates` のレートで換算（失敗時は固定レートにフォールバック）。価格は JPY 基準
-- データは API 経由: `/products`（`hooks/useProducts.ts`, `ArchivePage`）、`/size-charts/by-product/{printfulProductId}`、`/create-checkout-session`（Stripe、`utils/stripe.ts`）、`/events`（`utils/analytics.ts`）、`/newsletter/subscribe`。`app/data/products.ts` はデモ用の静的データ
+- グローバル状態は `pages/Root.tsx` の `useGlobalContext`（言語・通貨・価格換算）。通貨は `api.tcdashop.com/country` で判定し、`/exchange-rates` のレートで換算（失敗時は固定レートにフォールバック）。価格は JPY 基準
+- データは API 経由: `/products`（`ArchivePage` 内で fetch）、`/size-charts/by-product/{printfulProductId}`、`/create-checkout-session`（Stripe、`utils/stripe.ts`）、`/events`（`utils/analytics.ts`）、`/newsletter/subscribe`
 - 画像は `utils/imageUtils.ts` で `cdn.tcdashop.com` の `.webp` 派生版を参照する
 
 ## Other components in this repo
