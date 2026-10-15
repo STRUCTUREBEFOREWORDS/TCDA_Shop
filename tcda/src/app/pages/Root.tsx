@@ -201,6 +201,7 @@ export function Root() {
       navigate("/en/", { replace: true });
     } else {
       i18n.changeLanguage(lang);
+      document.documentElement.lang = lang;
     }
   }, [lang]);
 
