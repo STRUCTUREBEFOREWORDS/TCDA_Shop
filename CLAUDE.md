@@ -91,7 +91,7 @@ Admin `TCDA_Admin/.env` の `VITE_INTERNAL_KEY` は同一値でなければな�
 
 ## i18n
 
-11言語対応: ja / en / zh / ko / fr / de / es / it / pt / ar / hi（`Language` 型は `tcda/src/app/types.ts`。言語リストは `app/i18n.ts`・`context/AppContext.tsx`・`workers/ogp-worker/src/index.js` にも重複して書かれているので、言語を追加するときは全て更新）
+11言語対応: ja / en / zh / ko / fr / de / es / it / pt / ar / hi（`Language` 型は `tcda/src/app/types.ts`。言語リストは `app/i18n.ts`・`workers/ogp-worker/src/index.js` にも重複して書かれているので、言語を追加するときは全て更新）
 
 翻訳ファイル: `tcda/public/locales/{lang}/translation.json`
 （`docs/locales/` はビルド出力のコピー、直接編集しない）
