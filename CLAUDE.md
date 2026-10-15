@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # TCDA Shop — Development Guide
 
 ## Architecture
@@ -15,16 +19,18 @@
 ```bash
 # Frontend
 cd tcda
-npm run build       # output → ../docs/
+npm run dev         # vite dev server
+npm run build       # generate-sitemap.js + vite build → ../docs/ (committed)
 git add docs/ && git push origin main   # GitHub Pages auto-deploy
 ```
 
-VPS API restart:
+There is no test runner or linter configured.
+
+`docs/` is the committed build output that GitHub Pages serves (`.github/workflows/deploy.yml` just uploads it — CI does not build). Always rebuild and commit `docs/` after changing `tcda/src` or `tcda/public`.
+
+VPS API restart (see infra rules below — never `pkill` over SSH, never bind 0.0.0.0):
 ```bash
-ssh tcda
-pkill -f 'uvicorn main:app'
-cd ~/app && source venv/bin/activate
-nohup uvicorn main:app --host 0.0.0.0 --port 8000 >> uvicorn.log 2>&1 &
+ssh -t tcda "sudo systemctl restart uvicorn"
 ```
 
 Admin panel deploy:
@@ -37,7 +43,7 @@ npx wrangler pages deploy dist --project-name tcda-admin
 ## PWA
 
 - Mode: `injectManifest` (vite-plugin-pwa 1.3.0)
-- Source SW: `tcda/src/sw.ts` — Workbox precache + push handler + notificationclick
+- Source SW: `tcda/src/sw-v2.ts` (the one `vite.config.ts` builds; `sw.ts` is a stale older copy) — Workbox precache + push handler + notificationclick
 - Output: `docs/sw.js`, `docs/manifest.webmanifest`
 - Icons: `public/icon192.png` (192×192), `public/icon512.png` (512×512)
 - Start URL: `/ja/collection`
@@ -85,10 +91,30 @@ Admin `TCDA_Admin/.env` の `VITE_INTERNAL_KEY` は同一値でなければな�
 
 ## i18n
 
-12言語対応: ja / en / zh / ko / fr / de / es / it / pt / ar / hi
+11言語対応: ja / en / zh / ko / fr / de / es / it / pt / ar / hi（`Language` 型は `tcda/src/app/types.ts`。言語リストは `app/i18n.ts`・`context/AppContext.tsx`・`workers/ogp-worker/src/index.js` にも重複して書かれているので、言語を追加するときは全て更新）
 
 翻訳ファイル: `tcda/public/locales/{lang}/translation.json`
 （`docs/locales/` はビルド出力のコピー、直接編集しない）
+
+- ja が原文。`npx ts-node scripts/translate.ts [lang...]`（リポジトリルート、`ANTHROPIC_API_KEY` 必要）が ja から en/fr/es/ko/zh のみを再生成する。de/it/pt/ar/hi は対象外
+- `app/data/translations.ts` と `app/utils/translations.ts` は旧来のインライン翻訳（後者は en/es/fr/ja のみ）。新規文言は locales JSON に追加する
+
+## Frontend structure
+
+- `tcda/` は Vite + React 18 + Tailwind 4 の SPA。エイリアス `@` → `tcda/src`。`tcda/src_backup/` は旧コードで未使用（編集しない）
+- ルーティングは `app/routes.tsx`（react-router 7 `createBrowserRouter`）。全ページは `/:lang/...` 配下で `Root.tsx` が言語を設定。`/product/:id` など言語なしパスは `/en/...` へリダイレクト
+- GitHub Pages は SPA fallback 非対応のため、`vite.config.ts` の `spaPlugin` が `docs/404.html`（→ `/?redirect=` で復帰）と `index.html` の復元スクリプトを生成する。ルーティングを変えるときはこの仕組みを壊さない
+- i18n は `app/i18n.ts`（i18next + HTTP backend、`/locales/{lng}/translation.json?v=BUILD_VERSION`）。初期言語は URL の先頭セグメントから決定
+- グローバル状態は `context/AppContext.tsx`（言語・通貨・価格換算）。通貨は `api.tcdashop.com/country` で判定し、`/exchange-rates` のレートで換算（失敗時は固定レートにフォールバック）。価格は JPY 基準
+- データは API 経由: `/products`（`hooks/useProducts.ts`, `ArchivePage`）、`/size-charts/by-product/{printfulProductId}`、`/create-checkout-session`（Stripe、`utils/stripe.ts`）、`/events`（`utils/analytics.ts`）、`/newsletter/subscribe`。`app/data/products.ts` はデモ用の静的データ
+- 画像は `utils/imageUtils.ts` で `cdn.tcdashop.com` の `.webp` 派生版を参照する
+
+## Other components in this repo
+
+- `workers/ogp-worker/` — Cloudflare Worker（`tcdashop.com/*` にルート）。クローラ UA の場合のみ `api.tcdashop.com/products/{id}` から OGP メタを生成して返す。デプロイは `wrangler deploy`
+- `api/` — VPS の FastAPI のうち push 通知部分（`push/router.py`, `migration.sql`）のみのコピー。`.gitignore` に `api/` があるが一部は追跡済み。API 本体（`main.py`）はこのリポジトリになく VPS の `~/app` にある
+- `scrape_size_chart.py` / `size_charts.json` — サイズ表のスクレイピング用ワンオフスクリプトとその出力
+- `tcda/STRIPE_INTEGRATION.md` — 古い Stripe 導入ガイド（現行実装とは異なる可能性あり）
 
 ## Design tokens
 
@@ -112,3 +138,8 @@ tracking   : var(--ls-nav)
 - VPS のメモリは 2GB。VS Code Remote-SSH で VPS に接続しない（VS Code Server が約 1.2GB 消費した実績あり）
 - このリポジトリは公開。IP アドレス・鍵・トークンをコミットしない。`.claude/settings*.json`、`.env`、`.dev.vars`、サービスアカウントの JSON は Git 管理外
 - フロントエンド（tcda/src）は環境変数（import.meta.env）を使っていない
+
+## Rules
+- pip install は --break-system-packages 必須（VPS）
+- wrangler の R2 アップロードは --remote 必須
+- 商品詳細ページのURLは /{lang}/product/{uuid}（単数形）。/{lang}/products は一覧ページで正しい
