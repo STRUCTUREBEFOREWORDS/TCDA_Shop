@@ -43,7 +43,7 @@ npx wrangler pages deploy dist --project-name tcda-admin
 ## PWA
 
 - Mode: `injectManifest` (vite-plugin-pwa 1.3.0)
-- Source SW: `tcda/src/sw-v2.ts` (the one `vite.config.ts` builds; `sw.ts` is a stale older copy) — Workbox precache + push handler + notificationclick
+- Source SW: `tcda/src/sw-v2.ts` — Workbox precache + push handler + notificationclick
 - Output: `docs/sw.js`, `docs/manifest.webmanifest`
 - Icons: `public/icon192.png` (192×192), `public/icon512.png` (512×512)
 - Start URL: `/ja/collection`
