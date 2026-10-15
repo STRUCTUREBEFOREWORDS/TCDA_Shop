@@ -101,7 +101,7 @@ Admin `TCDA_Admin/.env` の `VITE_INTERNAL_KEY` は同一値でなければな�
 
 ## Frontend structure
 
-- `tcda/` は Vite + React 18 + Tailwind 4 の SPA。エイリアス `@` → `tcda/src`。`tcda/src_backup/` は旧コードで未使用（編集しない）
+- `tcda/` は Vite + React 18 + Tailwind 4 の SPA。エイリアス `@` → `tcda/src`。
 - ルーティングは `app/routes.tsx`（react-router 7 `createBrowserRouter`）。全ページは `/:lang/...` 配下で `Root.tsx` が言語を設定。`/product/:id` など言語なしパスは `/en/...` へリダイレクト
 - GitHub Pages は SPA fallback 非対応のため、`vite.config.ts` の `spaPlugin` が `docs/404.html`（→ `/?redirect=` で復帰）と `index.html` の復元スクリプトを生成する。ルーティングを変えるときはこの仕組みを壊さない
 - i18n は `app/i18n.ts`（i18next + HTTP backend、`/locales/{lng}/translation.json?v=BUILD_VERSION`）。初期言語は URL の先頭セグメントから決定
