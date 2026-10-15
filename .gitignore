@@ -40,7 +40,6 @@ logo/
 
 # Local working directories
 look book/
-api/
 workers/convert_webp.sh
 
 # Claude Code local settings
