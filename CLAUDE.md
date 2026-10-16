@@ -154,3 +154,6 @@ tracking   : var(--ls-nav)
 - 商品ページの翻訳は fabric_composition を対象外にしている（素材の翻訳は sync-catalog 側の fabric_compositions）
 - payment_intent.succeeded は Webhook で無視する（checkout.session.completed を飛ばさないため）
 - Webhook 修正後の本番決済は未検証。最初の注文後に `[WEBHOOK]`、`[ORDER_ITEMS]`、`[PRINTFUL] order response`、`orders.printful_order_id` を確認する
+- Printful の Webhook はクエリの token が必須（`.env` の `PRINTFUL_WEBHOOK_TOKEN`）。登録済みの URL にも token を付けてある。トークンを更新するときは、`.env` を変えて再起動し、Printful の登録（`POST /webhooks`）も同じ値で更新する
+- Printful の登録種別は product_synced、product_deleted、package_shipped、package_returned、order_failed、order_canceled の6種。order_updated は頻度が高いため登録しない
+- Stripe の購読は checkout.session.completed、charge.refunded、charge.dispute.closed の3種。payment_intent.succeeded はコードで無視する
