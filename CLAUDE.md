@@ -146,3 +146,11 @@ tracking   : var(--ls-nav)
 - VPS の ~/app は git 管理（ローカルのみ・リモートなし）。main.py を編集したら再起動前に git commit する
 - 誤編集は git checkout -- main.py で戻す。.env・認証情報 JSON・venv/・logs/ は .gitignore 済みで、追加しない
 - ~/app に push 用リモートを追加する場合は private 限定。追加前に git log -p の秘密情報検査をする
+
+## VPS operations
+- sudo を要する再起動は Claude Code から実行できない。ユーザーが Terminal.app で `ssh -t tcda "sudo systemctl restart uvicorn"` を実行する
+- cron の patterns/pricing/insights は 2026-10-16 に crontab でコメントアウト（ルートが 5/15 に消えたため）。復旧は `crontab ~/crontab.bak-20261016`
+- sync-catalog の Claude 呼び出しは `SYNC_TRANSLATE_MAX`（既定 60）/実行が上限。400 invalid_request_error で停止
+- 商品ページの翻訳は fabric_composition を対象外にしている（素材の翻訳は sync-catalog 側の fabric_compositions）
+- payment_intent.succeeded は Webhook で無視する（checkout.session.completed を飛ばさないため）
+- Webhook 修正後の本番決済は未検証。最初の注文後に `[WEBHOOK]`、`[ORDER_ITEMS]`、`[PRINTFUL] order response`、`orders.printful_order_id` を確認する
