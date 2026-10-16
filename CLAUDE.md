@@ -157,3 +157,6 @@ tracking   : var(--ls-nav)
 - Printful の Webhook はクエリの token が必須（`.env` の `PRINTFUL_WEBHOOK_TOKEN`）。登録済みの URL にも token を付けてある。トークンを更新するときは、`.env` を変えて再起動し、Printful の登録（`POST /webhooks`）も同じ値で更新する
 - Printful の登録種別は product_synced、product_deleted、package_shipped、package_returned、order_failed、order_canceled の6種。order_updated は頻度が高いため登録しない
 - Stripe の購読は checkout.session.completed、charge.refunded、charge.dispute.closed の3種。payment_intent.succeeded はコードで無視する
+- 2026-10-17: DB バックアップが公開バケット tcda-images の backups/ に置かれていた問題を解消。専用の非公開バケット tcda-backups(R2_BACKUP_* の認証)へ移行済み
+- 公開されていた期間は、確実なのは 2026-10-10〜10-17(それ以前は不明)。当時の DB の個人情報はすべてテストデータで、パスワードやトークンは含まれていない
+- WAF のカスタムルール block-public-backups(cdn.tcdashop.com の /backups/ を遮断)は、保険として残す。バックアップ用 R2 トークンは 2027 年 10 月に失効するので、2027 年 9 月に更新する
