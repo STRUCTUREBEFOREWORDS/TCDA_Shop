@@ -160,3 +160,7 @@ tracking   : var(--ls-nav)
 - 2026-10-17: DB バックアップが公開バケット tcda-images の backups/ に置かれていた問題を解消。専用の非公開バケット tcda-backups(R2_BACKUP_* の認証)へ移行済み
 - 公開されていた期間は、確実なのは 2026-10-10〜10-17(それ以前は不明)。当時の DB の個人情報はすべてテストデータで、パスワードやトークンは含まれていない
 - WAF のカスタムルール block-public-backups(cdn.tcdashop.com の /backups/ を遮断)は、保険として残す。バックアップ用 R2 トークンは 2027 年 10 月に失効するので、2027 年 9 月に更新する
+- DB バックアップは毎日 02:30(cron)に pg_dump → gzip → age(公開鍵 BACKUP_AGE_RECIPIENT)で暗号化し、専用の非公開バケット tcda-backups に .sql.gz.age で保存(7 世代)
+- 復号用の秘密鍵は VPS に置かない。保管場所は、作業者の Mac のキーチェーン(項目 tcda-backup-age-secret-key)と、USB メモリの 2 か所
+- 復元の手順: 最新の .sql.gz.age を取得 → age -d -i <鍵を一時ファイルに取り出したもの> <ファイル> | gunzip > dump.sql → 使い捨ての DB に psql -f で流し込み、products=69・orders=14 を確認(2026-10-17 に実施済み)。一時ファイルと dump.sql は使用後に必ず削除する
+- バックアップ用 R2 トークンは 2027 年 10 月に失効する。2027 年 9 月に更新する
