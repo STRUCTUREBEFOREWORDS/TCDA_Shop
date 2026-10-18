@@ -5,12 +5,15 @@ import { useGlobalContext } from "../pages/Root";
 
 type ConsentValue = "granted" | "denied";
 
-const STORAGE_KEY = "consent_analytics";
+const STORAGE_KEY = "consent_v2";
 
 function updateGtag(value: ConsentValue) {
   if (typeof window !== "undefined" && typeof (window as Window & { gtag?: Function }).gtag === "function") {
     (window as Window & { gtag: Function }).gtag("consent", "update", {
       analytics_storage: value,
+      ad_storage: value,
+      ad_user_data: value,
+      ad_personalization: value,
     });
   }
 }

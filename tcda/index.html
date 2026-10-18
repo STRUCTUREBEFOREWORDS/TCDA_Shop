@@ -69,10 +69,13 @@
       // Default consent: denied in EU/UK until user accepts (GDPR); same country list as EU_COUNTRY_CODES in Root.tsx
       gtag('consent', 'default', {
         analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
         region: [
           'AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GB',
           'GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT',
-          'RO','SE','SI','SK',
+          'RO','SE','SI','SK','NO','IS','LI','CH',
         ],
         wait_for_update: 500,
       });

@@ -458,7 +458,7 @@
     }
   },
   "cookie": {
-    "message": "当サイトはGoogle Analytics（GA4）によるアクセス解析にCookieを使用しています。同意いただける場合は「同意する」を選択してください。",
+    "message": "当サイトはGoogle Analytics（GA4）によるアクセス解析、および広告・マーケティング用のCookie（Meta等）を使用しています。同意いただける場合は「同意する」を選択してください。",
     "accept": "同意する",
     "decline": "拒否する",
     "learnMore": "プライバシーポリシー"

@@ -458,7 +458,7 @@
     }
   },
   "cookie": {
-    "message": "Utilizamos cookies a través de Google Analytics (GA4) para analizar el uso de nuestro sitio. Por favor, indica tu preferencia.",
+    "message": "Utilizamos cookies a través de Google Analytics (GA4) para analizar el uso de nuestro sitio, así como cookies publicitarias y de marketing (Meta, etc.). Por favor, indica tu preferencia.",
     "accept": "Aceptar",
     "decline": "Rechazar",
     "learnMore": "Política de privacidad"

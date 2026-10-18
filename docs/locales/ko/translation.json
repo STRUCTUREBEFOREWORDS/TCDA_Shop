@@ -458,7 +458,7 @@
     }
   },
   "cookie": {
-    "message": "본 사이트는 Google Analytics(GA4)를 통해 방문 통계를 수집합니다. 쿠키 사용에 동의하시겠습니까?",
+    "message": "본 사이트는 Google Analytics(GA4)를 통한 방문 통계 수집과 광고·마케팅용 쿠키(Meta 등)를 사용합니다. 쿠키 사용에 동의하시겠습니까?",
     "accept": "동의",
     "decline": "거부",
     "learnMore": "개인정보 처리방침"

@@ -458,7 +458,7 @@
     }
   },
   "cookie": {
-    "message": "本网站通过 Google Analytics（GA4）使用 Cookie 分析访问情况。请选择您的偏好设置。",
+    "message": "本网站通过 Google Analytics（GA4）使用 Cookie 分析访问情况，并使用广告和营销 Cookie（Meta 等）。请选择您的偏好设置。",
     "accept": "同意",
     "decline": "拒绝",
     "learnMore": "隐私政策"

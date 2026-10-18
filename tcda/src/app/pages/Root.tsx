@@ -92,7 +92,7 @@ function readStoredCurrency(): Currency | null {
 const EU_COUNTRY_CODES = new Set([
   "AT","BE","BG","CY","CZ","DE","DK","EE","ES","FI","FR","GB",
   "GR","HR","HU","IE","IT","LT","LU","LV","MT","NL","PL","PT",
-  "RO","SE","SI","SK",
+  "RO","SE","SI","SK","NO","IS","LI","CH",
 ]);
 
 function initClarity() {
@@ -184,6 +184,9 @@ export function Root() {
     if (stored && typeof (window as Window & { gtag?: Function }).gtag === "function") {
       (window as unknown as { gtag: Function }).gtag("consent", "update", {
         analytics_storage: stored,
+        ad_storage: stored,
+        ad_user_data: stored,
+        ad_personalization: stored,
       });
     }
   }, []);

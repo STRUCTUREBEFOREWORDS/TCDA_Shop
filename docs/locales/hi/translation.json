@@ -460,7 +460,7 @@
     }
   },
   "cookie": {
-    "message": "हम यह समझने के लिए Google Analytics (GA4) के माध्यम से cookies का उपयोग करते हैं कि visitors हमारी site का उपयोग कैसे करते हैं। कृपया नीचे अपनी preference चुनें।",
+    "message": "हम यह समझने के लिए Google Analytics (GA4) के माध्यम से cookies का उपयोग करते हैं कि visitors हमारी site का उपयोग कैसे करते हैं, साथ ही विज्ञापन और मार्केटिंग cookies (Meta आदि) का भी उपयोग करते हैं। कृपया नीचे अपनी preference चुनें।",
     "accept": "स्वीकार करें",
     "decline": "अस्वीकार करें",
     "learnMore": "गोपनीयता नीति"
