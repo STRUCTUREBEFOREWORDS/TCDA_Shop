@@ -46,7 +46,8 @@ export function PaymentSuccessPage() {
     if (sessionId) {
       fetch(`https://api.tcdashop.com/checkout/session-summary?session_id=${encodeURIComponent(sessionId)}`)
         .then((res) => { if (!res.ok) throw new Error(`API ${res.status}`); return res.json(); })
-        .then((summary: { transaction_id: string; value: number; currency: string; items: { item_name: string; price: number; quantity: number }[] }) => {
+        .then((summary: { transaction_id: string; value: number; currency: string; payment_status: string; items: { item_name: string; price: number; quantity: number }[] }) => {
+          if (summary.payment_status !== "paid") return;
           const sentKey = `purchase_sent_${summary.transaction_id}`;
           try {
             if (sessionStorage.getItem(sentKey)) return;
