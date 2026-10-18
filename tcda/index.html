@@ -66,10 +66,19 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      // Default consent: denied until user accepts (GDPR)
+      // Default consent: denied in EU/UK until user accepts (GDPR); same country list as EU_COUNTRY_CODES in Root.tsx
       gtag('consent', 'default', {
         analytics_storage: 'denied',
+        region: [
+          'AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GB',
+          'GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT',
+          'RO','SE','SI','SK',
+        ],
         wait_for_update: 500,
+      });
+      // Default consent everywhere else
+      gtag('consent', 'default', {
+        analytics_storage: 'granted',
       });
       gtag('js', new Date());
       gtag('config', 'G-1VW5BN3XE0');
