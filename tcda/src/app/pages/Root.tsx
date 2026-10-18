@@ -193,7 +193,10 @@ export function Root() {
 
   // EU圏ユーザーがconsentを付与した時（新規 or localStorage復元）にClarity起動
   useEffect(() => {
-    if (consent === "granted") initClarity();
+    if (consent === "granted") {
+      initClarity();
+      (window as any).clarity("consentv2", { ad_Storage: "denied", analytics_Storage: "granted" });
+    }
   }, [consent]);
 
   // Fetch live exchange rates from backend (updated daily via frankfurter.app)
