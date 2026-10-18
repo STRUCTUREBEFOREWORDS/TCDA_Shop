@@ -230,6 +230,21 @@ export function ProductPage() {
           value: data.price,
           currency: 'JPY'
         });
+        window.dataLayer.push({ ecommerce: null });
+        window.dataLayer.push({
+          event: 'view_item',
+          ecommerce: {
+            currency: 'JPY',
+            value: data.price,
+            items: [{
+              item_id: data.id,
+              item_name: data.name,
+              price: data.price,
+              quantity: 1,
+              item_category: (data as unknown as Record<string, unknown>).category,
+            }],
+          },
+        });
         pushDataLayer('page_view', {
           page_type: 'product',
           product_name: data.name,
@@ -322,6 +337,22 @@ export function ProductPage() {
       content_type: 'product',
       value: product.price,
       currency: 'JPY'
+    });
+    window.dataLayer.push({ ecommerce: null });
+    window.dataLayer.push({
+      event: 'add_to_cart',
+      ecommerce: {
+        currency: 'JPY',
+        value: product.price,
+        items: [{
+          item_id: product.id,
+          item_name: product.name,
+          price: product.price,
+          quantity: 1,
+          item_variant: selectedSize,
+          item_category: (product as unknown as Record<string, unknown>).category,
+        }],
+      },
     });
     trackAddToCart(product.id, currency, product.price);
     setAdded(true);
