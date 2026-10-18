@@ -11,7 +11,7 @@ const spaPlugin = {
     const indexPath = path.resolve(__dirname, '../docs/index.html')
     const notFoundPath = path.resolve(__dirname, '../docs/404.html')
     const redirectScript = `<script>const r=new URLSearchParams(window.location.search).get('redirect');if(r)window.history.replaceState(null,'',r);</script>`
-    const notFoundContent = `<!DOCTYPE html><html><head><script>window.location.replace('/?redirect='+encodeURIComponent(window.location.pathname));</script></head></html>`
+    const notFoundContent = `<!DOCTYPE html><html><head><script>window.location.replace('/?redirect='+encodeURIComponent(window.location.pathname+window.location.search+window.location.hash));</script></head></html>`
 
     if (fs.existsSync(indexPath)) {
       let html = fs.readFileSync(indexPath, 'utf-8')
