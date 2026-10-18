@@ -42,12 +42,37 @@ export function PaymentSuccessPage() {
   };
 
   useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'Purchase',
-      value: 0,
-      currency: 'JPY'
-    });
+    const sessionId = searchParams.get("session_id");
+    if (sessionId) {
+      fetch(`https://api.tcdashop.com/checkout/session-summary?session_id=${encodeURIComponent(sessionId)}`)
+        .then((res) => { if (!res.ok) throw new Error(`API ${res.status}`); return res.json(); })
+        .then((summary: { transaction_id: string; value: number; currency: string; items: { item_name: string; price: number; quantity: number }[] }) => {
+          const sentKey = `purchase_sent_${summary.transaction_id}`;
+          try {
+            if (sessionStorage.getItem(sentKey)) return;
+            sessionStorage.setItem(sentKey, "1");
+          } catch {
+            /* storage unavailable: send anyway */
+          }
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ ecommerce: null });
+          window.dataLayer.push({
+            event: 'purchase',
+            ecommerce: {
+              transaction_id: summary.transaction_id,
+              value: summary.value,
+              currency: summary.currency,
+              items: summary.items,
+            },
+          });
+          window.dataLayer.push({
+            event: 'Purchase',
+            value: summary.value,
+            currency: summary.currency
+          });
+        })
+        .catch(() => {});
+    }
     const orderId = searchParams.get("session_id") ?? "unknown";
     trackPurchase(orderId, 0, "JPY");
   }, []);
