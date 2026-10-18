@@ -73,7 +73,7 @@ async function fetchProductIds() {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    return (data.products ?? []).map((p) => p.id).filter(Boolean);
+    return (data.products ?? []).filter((p) => p.category).map((p) => p.id).filter(Boolean);
   } catch (err) {
     console.warn(`[sitemap] Could not fetch products: ${err.message} — skipping product URLs`);
     return [];
