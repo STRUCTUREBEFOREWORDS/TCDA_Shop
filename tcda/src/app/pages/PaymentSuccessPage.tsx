@@ -70,11 +70,10 @@ export function PaymentSuccessPage() {
             value: summary.value,
             currency: summary.currency
           });
+          trackPurchase(summary.transaction_id, summary.value, summary.currency);
         })
         .catch(() => {});
     }
-    const orderId = searchParams.get("session_id") ?? "unknown";
-    trackPurchase(orderId, 0, "JPY");
   }, []);
 
   return (
