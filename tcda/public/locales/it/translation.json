@@ -41,7 +41,7 @@
     "notesTitle": "Si prega di notare",
     "notesItem1": "I colori possono variare leggermente dall'originale a seconda delle impostazioni del monitor e delle condizioni di illuminazione.",
     "notesItem2": "Poiché questo articolo è prodotto all'estero, sulla confezione possono occasionalmente comparire piccoli graffi o ammaccature.",
-    "deliveryText": "Consegnato entro 5–10 giorni lavorativi",
+    "deliveryText": "Consegnato entro 5–15 giorni lavorativi",
     "notFound": "Questo pezzo non è disponibile",
     "stockRemaining": "Solo {{count}} rimasti",
     "outOfStock": "Esaurito",
@@ -96,6 +96,7 @@
     "quickView": "Anteprima rapida",
     "added": "Aggiunto",
     "taxNote": "Tasse calcolate al momento del pagamento",
+    "customsNote": "Dazi doganali e tasse all'importazione non inclusi.",
     "shippingNote": "Spedizione gratuita",
     "checkoutError": "Pagamento fallito. Si prega di riprovare."
   },
@@ -135,7 +136,7 @@
     "shippingInfo": "Spedizione",
     "paymentInfo": "Pagamento",
     "confirmOrder": "Conferma",
-    "shippingReturnsText": "Gli ordini vengono evasi entro 2–5 giorni lavorativi tramite Printful. La consegna richiede tipicamente 5–10 giorni lavorativi. Per articoli danneggiati, stampati male o spediti erroneamente, contattaci entro 7 giorni dal ricevimento all'indirizzo info@tcdashop.com."
+    "shippingReturnsText": "Gli ordini vengono evasi entro 2–7 giorni lavorativi tramite Printful. La consegna richiede tipicamente 5–15 giorni lavorativi. Per articoli danneggiati, stampati male o spediti erroneamente, contattaci entro 14 giorni dal ricevimento all'indirizzo info@tcdashop.com."
   },
   "order": {
     "confirmed": "Ordine confermato",
@@ -147,9 +148,9 @@
   },
   "faq": {
     "q1": "Quanto tempo richiede la spedizione?",
-    "a1": "Gli ordini vengono spediti entro 2–5 giorni lavorativi e di solito arrivano entro 5–10 giorni lavorativi.",
+    "a1": "Gli ordini vengono spediti entro 2–7 giorni lavorativi e di solito arrivano entro 5–15 giorni lavorativi.",
     "q2": "Accettate resi o cambi?",
-    "a2": "I resi sono accettati entro 14 giorni per articoli difettosi. È disponibile un cambio taglia per ordine.",
+    "a2": "I resi sono accettati entro 14 giorni per articoli difettosi.",
     "q3": "Cosa succede se sono tra due taglie?",
     "a3": "Per una vestibilità ampia, consigliamo la taglia superiore. Il nostro modello è alto 180 cm e indossa la taglia M.",
     "purchaseTitle": "FAQ",
@@ -168,7 +169,7 @@
     },
     "deliveryTime": {
       "q": "Quanto tempo richiede la consegna?",
-      "a": "Gli ordini vengono evasi entro 2–5 giorni lavorativi, poi la consegna avviene tipicamente entro 5–10 giorni."
+      "a": "Gli ordini vengono evasi entro 2–7 giorni lavorativi, poi la consegna avviene tipicamente entro 5–15 giorni."
     },
     "internationalShipping": {
       "q": "Spedite internazionalmente?",
@@ -200,7 +201,7 @@
     },
     "defect": {
       "q": "Cosa succede se il mio articolo ha un difetto?",
-      "a": "Contattaci entro 7 giorni dal ricevimento all'indirizzo info@tcdashop.com."
+      "a": "Contattaci all'indirizzo info@tcdashop.com entro 14 giorni dal ricevimento dell'ordine. Dopo la verifica organizzeremo una sostituzione o un rimborso. I consumatori UE/Regno Unito hanno tuttavia un diritto legale di recesso di 14 giorni dalla consegna; le spese di spedizione del reso sono a carico del cliente."
     },
     "pageTitle": "FAQ",
     "categoryAbout": "Su TCDA",
@@ -240,7 +241,7 @@
     "faq4q": "Le taglie sono grandi o piccole?",
     "faq4a": "Le taglie variano per tipo di prodotto. Controlla l'etichetta di vestibilità su ogni pagina prodotto.",
     "faq5q": "Posso cambiare la taglia?",
-    "faq5a": "È disponibile un cambio taglia per ordine. Contattaci entro 14 giorni dal ricevimento.",
+    "faq5a": "I cambi taglia e i resi dovuti a un aspetto diverso da quello atteso non sono accettati. I consumatori UE/Regno Unito hanno tuttavia un diritto legale di recesso di 14 giorni dalla consegna; le spese di spedizione del reso sono a carico del cliente. Consulta la guida alle taglie prima dell'acquisto.",
     "faq6q": "Quanto sono accurate le misure?",
     "faq6a": "Le misure vengono prese piatte e possono variare di ±1–2 cm per tolleranze di produzione.",
     "faq7q": "Cosa significa 'slim fit'?",
@@ -315,9 +316,9 @@
     "oversizedNote": "Intenzionalmente oversized. Progettato per drappeggiare. Scegli una taglia in meno per una silhouette normale."
   },
   "trust": {
-    "processed": "Elaborato in 2–5 giorni lavorativi",
-    "delivered": "Consegnato in 5–10 giorni lavorativi",
-    "supported": "Difetto o errore di spedizione? Contattaci entro 7 giorni dal ricevimento",
+    "processed": "Elaborato in 2–7 giorni lavorativi",
+    "delivered": "Consegnato in 5–15 giorni lavorativi",
+    "supported": "Difetto o errore di spedizione? Contattaci entro 14 giorni dal ricevimento",
     "shippingReturnsLink": "Spedizioni e resi"
   },
   "footer": {
@@ -338,19 +339,19 @@
     "title": "Spedizioni e resi",
     "pageIntro": "Tutto quello che devi sapere sulla spedizione e la nostra politica di reso. Domande? Email info@tcdashop.com.",
     "shippingTitle": "Spedizione",
-    "shippingBody": "Gli ordini vengono evasi entro 2–5 giorni lavorativi tramite Printful. Un numero di tracking verrà inviato dopo la spedizione.",
+    "shippingBody": "Gli ordini vengono evasi entro 2–7 giorni lavorativi tramite Printful. Un numero di tracking verrà inviato dopo la spedizione.",
     "shippingAddressNote": "※ Per le consegne in Giappone, l'indirizzo di spedizione verrà automaticamente convertito in inglese sull'etichetta. La destinazione rimane invariata.",
     "deliveryTitle": "Consegna",
-    "deliveryBody": "Dopo la spedizione, la consegna richiede tipicamente 5–10 giorni lavorativi. I tempi possono variare per regione.",
+    "deliveryBody": "Dopo la spedizione, la consegna richiede tipicamente 5–15 giorni lavorativi. I tempi possono variare per regione.",
     "returnsTitle": "Resi e supporto",
     "returnsCondition": "Casi ammissibili: solo articoli danneggiati, stampati male o spediti erroneamente",
-    "returnsPeriod": "Periodo: contattaci entro 7 giorni dal ricevimento",
+    "returnsPeriod": "Periodo: contattaci entro 14 giorni dal ricevimento",
     "returnsMethod": "Soluzione: sostituzione o rimborso dopo verifica",
-    "returnsNote": "I resi per preferenze di taglia o ripensamento non sono accettati.",
+    "returnsNote": "Fatta eccezione per il diritto legale di recesso indicato di seguito, i resi per preferenze di taglia o ripensamento non sono accettati. Consumatori UE/Regno Unito: hai un diritto legale di recesso di 14 giorni dalla consegna. Contattaci entro 14 giorni; le spese di spedizione del reso sono a carico del cliente.",
     "contactTitle": "Contattaci",
     "contactBody": "Per qualsiasi altra domanda, contattaci all'indirizzo sottostante.",
     "customsTitle": "Dogana e Dazi di Importazione",
-    "customsBody": "I prodotti vengono spediti dagli Stati Uniti o dall'Europa. A seconda del tuo paese, potrebbero essere applicati dazi doganali, tasse all'importazione o spese di gestione. Questi costi sono a carico del cliente. Si prega di consultare le normative doganali locali per i dettagli."
+    "customsBody": "I prodotti vengono spediti dai nostri partner logistici negli Stati Uniti, in Europa e in altre regioni. I prezzi non includono dazi doganali, tasse all'importazione o IVA. A seconda del tuo paese, questi possono essere addebitati dalla dogana alla consegna e sono a carico del cliente. Per maggiori dettagli, consulta le normative doganali del tuo paese."
   },
   "contact": {
     "title": "Contatti",
@@ -441,11 +442,11 @@
       },
       "delivery": {
         "label": "Consegna",
-        "value": "Di solito spedito entro 5–10 giorni lavorativi dalla conferma dell'ordine"
+        "value": "Gli ordini vengono spediti entro 2–7 giorni lavorativi dalla conferma e consegnati 5–15 giorni lavorativi dopo la spedizione (varia in base alla regione)."
       },
       "returns": {
         "label": "Resi e cambi",
-        "value": "Cancellazioni, resi e cambi non sono generalmente accettati dopo la conferma dell'ordine. Eccezioni per articoli danneggiati — contatta info@tcdashop.com entro 7 giorni."
+        "value": "Data la natura dei nostri prodotti, cancellazioni, resi e cambi non sono generalmente accettati dopo la conferma dell'ordine. I consumatori UE/Regno Unito hanno tuttavia un diritto legale di recesso di 14 giorni dalla consegna; le spese di spedizione del reso sono a carico del cliente. Sono previste eccezioni per articoli danneggiati, difetti di stampa o consegne errate — contatta info@tcdashop.com entro 14 giorni dal ricevimento. Verrà organizzata una sostituzione o un rimborso."
       },
       "quantity": {
         "label": "Quantità disponibile",

@@ -41,7 +41,7 @@
     "notesTitle": "Bitte beachten",
     "notesItem1": "Farben können je nach Monitoreinstellungen und Lichtverhältnissen leicht vom Original abweichen.",
     "notesItem2": "Da dieses Produkt im Ausland hergestellt wird, kann die Verpackung gelegentlich leichte Kratzer oder Dellen aufweisen.",
-    "deliveryText": "Lieferung innerhalb von 5–10 Werktagen",
+    "deliveryText": "Lieferung innerhalb von 5–15 Werktagen",
     "notFound": "Dieses Stück ist nicht verfügbar",
     "stockRemaining": "Nur noch {{count}} verfügbar",
     "outOfStock": "Ausverkauft",
@@ -96,6 +96,7 @@
     "quickView": "Schnellansicht",
     "added": "Hinzugefügt",
     "taxNote": "Steuern werden an der Kasse berechnet",
+    "customsNote": "Zölle und Einfuhrsteuern sind nicht enthalten.",
     "shippingNote": "Kostenloser Versand",
     "checkoutError": "Bezahlung fehlgeschlagen. Bitte versuchen Sie es erneut."
   },
@@ -135,7 +136,7 @@
     "shippingInfo": "Versand",
     "paymentInfo": "Zahlung",
     "confirmOrder": "Bestätigen",
-    "shippingReturnsText": "Bestellungen werden innerhalb von 2–5 Werktagen über Printful bearbeitet. Die Lieferung dauert in der Regel 5–10 Werktage je nach Region. Bei beschädigten, falsch bedruckten oder falsch gelieferten Artikeln kontaktiere uns bitte innerhalb von 7 Tagen nach Erhalt unter info@tcdashop.com."
+    "shippingReturnsText": "Bestellungen werden innerhalb von 2–7 Werktagen über Printful bearbeitet. Die Lieferung dauert in der Regel 5–15 Werktage je nach Region. Bei beschädigten, falsch bedruckten oder falsch gelieferten Artikeln kontaktiere uns bitte innerhalb von 14 Tagen nach Erhalt unter info@tcdashop.com."
   },
   "order": {
     "confirmed": "Bestellung bestätigt",
@@ -147,9 +148,9 @@
   },
   "faq": {
     "q1": "Wie lange dauert der Versand?",
-    "a1": "Bestellungen werden innerhalb von 2–5 Werktagen versandt und kommen in der Regel innerhalb von 5–10 Werktagen an.",
+    "a1": "Bestellungen werden innerhalb von 2–7 Werktagen versandt und kommen in der Regel innerhalb von 5–15 Werktagen an.",
     "q2": "Akzeptiert ihr Rücksendungen oder Umtausch?",
-    "a2": "Rücksendungen werden innerhalb von 14 Tagen für defekte Artikel akzeptiert. Ein Größenumtausch pro Bestellung ist möglich.",
+    "a2": "Rücksendungen werden innerhalb von 14 Tagen für defekte Artikel akzeptiert.",
     "q3": "Was wenn ich zwischen zwei Größen liege?",
     "a3": "Für eine lockere Passform empfehlen wir die nächste Größe. Unser Modell ist 180 cm groß und trägt Größe M.",
     "purchaseTitle": "FAQ",
@@ -168,7 +169,7 @@
     },
     "deliveryTime": {
       "q": "Wie lange dauert die Lieferung?",
-      "a": "Bestellungen werden innerhalb von 2–5 Werktagen bearbeitet, dann folgt die Lieferung in der Regel innerhalb von 5–10 Werktagen."
+      "a": "Bestellungen werden innerhalb von 2–7 Werktagen bearbeitet, dann folgt die Lieferung in der Regel innerhalb von 5–15 Werktagen."
     },
     "internationalShipping": {
       "q": "Wird international versendet?",
@@ -200,7 +201,7 @@
     },
     "defect": {
       "q": "Was wenn mein Artikel einen Defekt hat?",
-      "a": "Bitte kontaktiere uns innerhalb von 7 Tagen nach Erhalt unter info@tcdashop.com."
+      "a": "Bitte kontaktiere uns innerhalb von 14 Tagen nach Erhalt unter info@tcdashop.com. Nach Prüfung veranlassen wir einen Ersatz oder eine Rückerstattung. Verbraucher in der EU/im Vereinigten Königreich haben jedoch ein gesetzliches Widerrufsrecht von 14 Tagen ab Lieferung; die Rücksendekosten trägt der Kunde."
     },
     "pageTitle": "FAQ",
     "categoryAbout": "Über TCDA",
@@ -240,7 +241,7 @@
     "faq4q": "Fallen die Größen groß oder klein aus?",
     "faq4a": "Die Größen variieren je nach Produkttyp. Prüfe das Passformetikett auf jeder Produktseite.",
     "faq5q": "Kann ich meine Größe umtauschen?",
-    "faq5a": "Ein Größenumtausch pro Bestellung ist möglich. Kontaktiere uns innerhalb von 14 Tagen nach Erhalt.",
+    "faq5a": "Größenumtausch und Rückgaben aufgrund eines anderen Eindrucks als erwartet werden nicht akzeptiert. Verbraucher in der EU/im Vereinigten Königreich haben jedoch ein gesetzliches Widerrufsrecht von 14 Tagen ab Lieferung; die Rücksendekosten trägt der Kunde. Bitte prüfe vor dem Kauf die Größentabelle.",
     "faq6q": "Wie genau sind die Maße?",
     "faq6a": "Maße werden flach genommen und können aufgrund von Produktionstoleranzen um ±1–2 cm abweichen.",
     "faq7q": "Was bedeutet 'Slim Fit'?",
@@ -315,9 +316,9 @@
     "oversizedNote": "Absichtlich oversized. Zum Drapieren entworfen. Wähle eine Größe kleiner für normale Silhouette."
   },
   "trust": {
-    "processed": "Bearbeitung in 2–5 Werktagen",
-    "delivered": "Lieferung in 5–10 Werktagen",
-    "supported": "Defekt oder Versandfehler? Kontaktiere uns innerhalb von 7 Tagen nach Erhalt",
+    "processed": "Bearbeitung in 2–7 Werktagen",
+    "delivered": "Lieferung in 5–15 Werktagen",
+    "supported": "Defekt oder Versandfehler? Kontaktiere uns innerhalb von 14 Tagen nach Erhalt",
     "shippingReturnsLink": "Versand & Rückgabe"
   },
   "footer": {
@@ -338,19 +339,19 @@
     "title": "Versand & Rückgabe",
     "pageIntro": "Alles über Versand und Rückgabe. Fragen? E-Mail: info@tcdashop.com.",
     "shippingTitle": "Versand",
-    "shippingBody": "Bestellungen werden innerhalb von 2–5 Werktagen über Printful bearbeitet. Nach dem Versand wird eine Sendungsnummer zugesendet.",
+    "shippingBody": "Bestellungen werden innerhalb von 2–7 Werktagen über Printful bearbeitet. Nach dem Versand wird eine Sendungsnummer zugesendet.",
     "shippingAddressNote": "※ Bei Lieferungen innerhalb Japans wird die Lieferadresse auf dem Versandetikett automatisch ins Englische umgewandelt. Das Lieferziel bleibt unverändert.",
     "deliveryTitle": "Lieferung",
-    "deliveryBody": "Nach dem Versand dauert die Lieferung in der Regel 5–10 Werktage. Zeiten können je nach Region variieren.",
+    "deliveryBody": "Nach dem Versand dauert die Lieferung in der Regel 5–15 Werktage. Zeiten können je nach Region variieren.",
     "returnsTitle": "Rückgabe & Support",
     "returnsCondition": "Förderfähige Fälle: nur beschädigte, falsch bedruckte oder falsch gelieferte Artikel",
-    "returnsPeriod": "Zeitrahmen: Kontaktiere uns innerhalb von 7 Tagen nach Erhalt",
+    "returnsPeriod": "Zeitrahmen: Kontaktiere uns innerhalb von 14 Tagen nach Erhalt",
     "returnsMethod": "Lösung: Ersatz oder Rückerstattung nach Überprüfung",
-    "returnsNote": "Rückgaben aufgrund von Größenpräferenz oder Sinneswandel werden nicht akzeptiert.",
+    "returnsNote": "Mit Ausnahme des unten genannten gesetzlichen Widerrufsrechts werden Rückgaben aufgrund von Größenpräferenz oder Sinneswandel nicht akzeptiert. Verbraucher in der EU/im Vereinigten Königreich: Du hast ein gesetzliches Widerrufsrecht von 14 Tagen ab Lieferung. Kontaktiere uns innerhalb von 14 Tagen; die Rücksendekosten trägt der Kunde.",
     "contactTitle": "Kontakt",
     "contactBody": "Für andere Fragen erreichst du uns unter der folgenden Adresse.",
     "customsTitle": "Zoll und Einfuhrgebühren",
-    "customsBody": "Produkte werden aus den USA oder Europa versandt. Abhängig von Ihrem Land können Zölle, Einfuhrsteuern oder Bearbeitungsgebühren anfallen. Diese Kosten liegen in der Verantwortung des Kunden. Bitte informieren Sie sich bei Ihren lokalen Zollbehörden für weitere Details."
+    "customsBody": "Produkte werden von unseren Fulfillment-Partnern in den USA, Europa und anderen Regionen versandt. Die Preise enthalten keine Zölle, Einfuhrsteuern oder Mehrwertsteuer. Je nach Land können diese bei der Lieferung vom Zoll erhoben werden und gehen zulasten des Kunden. Einzelheiten entnehmen Sie bitte den örtlichen Zollbestimmungen."
   },
   "contact": {
     "title": "Kontakt",
@@ -441,11 +442,11 @@
       },
       "delivery": {
         "label": "Lieferung",
-        "value": "Lieferung in der Regel innerhalb von 5–10 Werktagen nach Bestellbestätigung"
+        "value": "Bestellungen werden innerhalb von 2–7 Werktagen nach Bestätigung versandt und 5–15 Werktage nach dem Versand zugestellt (je nach Region unterschiedlich)."
       },
       "returns": {
         "label": "Rückgabe & Umtausch",
-        "value": "Stornierungen, Rückgaben und Umtausch werden nach Bestellbestätigung grundsätzlich nicht akzeptiert. Ausnahmen gelten für beschädigte Artikel — kontaktiere info@tcdashop.com innerhalb von 7 Tagen."
+        "value": "Aufgrund der Art unserer Produkte werden Stornierungen, Rückgaben und Umtausch nach Bestellbestätigung grundsätzlich nicht akzeptiert. Verbraucher in der EU/im Vereinigten Königreich haben jedoch ein gesetzliches Widerrufsrecht von 14 Tagen ab Lieferung; die Rücksendekosten trägt der Kunde. Ausnahmen gelten für beschädigte Artikel, Druckfehler oder Fehllieferungen — kontaktiere info@tcdashop.com innerhalb von 14 Tagen nach Erhalt. Ein Ersatz oder eine Rückerstattung wird veranlasst."
       },
       "quantity": {
         "label": "Verfügbare Menge",

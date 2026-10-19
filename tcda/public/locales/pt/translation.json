@@ -41,7 +41,7 @@
     "notesTitle": "Por Favor Note",
     "notesItem1": "As cores podem variar ligeiramente do original dependendo das configurações do seu monitor e das condições de iluminação.",
     "notesItem2": "Como este item é produzido no exterior, podem ocorrer ocasionalmente pequenos arranhões ou amassados na embalagem.",
-    "deliveryText": "Entregue em 5–10 dias úteis",
+    "deliveryText": "Entregue em 5–15 dias úteis",
     "notFound": "Esta peça está indisponível",
     "stockRemaining": "Apenas {{count}} restantes",
     "outOfStock": "Esgotado",
@@ -96,6 +96,7 @@
     "quickView": "Visualização Rápida",
     "added": "Adicionado",
     "taxNote": "Impostos calculados no checkout",
+    "customsNote": "Direitos alfandegários e impostos de importação não incluídos.",
     "shippingNote": "Frete grátis",
     "checkoutError": "Falha no pagamento. Por favor, tente novamente."
   },
@@ -135,7 +136,7 @@
     "shippingInfo": "Entrega",
     "paymentInfo": "Pagamento",
     "confirmOrder": "Confirmar",
-    "shippingReturnsText": "Os pedidos são processados em 2–5 dias úteis via Printful. A entrega geralmente leva 5–10 dias úteis. Para itens danificados, com impressão errada ou entregues incorretamente, entre em contato conosco em info@tcdashop.com dentro de 7 dias do recebimento."
+    "shippingReturnsText": "Os pedidos são processados em 2–7 dias úteis via Printful. A entrega geralmente leva 5–15 dias úteis. Para itens danificados, com impressão errada ou entregues incorretamente, entre em contato conosco em info@tcdashop.com dentro de 14 dias do recebimento."
   },
   "order": {
     "confirmed": "Pedido Confirmado",
@@ -147,9 +148,9 @@
   },
   "faq": {
     "q1": "Quanto tempo leva o frete?",
-    "a1": "Os pedidos são despachados em 2–5 dias úteis e geralmente chegam em 5–10 dias úteis.",
+    "a1": "Os pedidos são despachados em 2–7 dias úteis e geralmente chegam em 5–15 dias úteis.",
     "q2": "Vocês aceitam devoluções ou trocas?",
-    "a2": "Devoluções são aceitas em 14 dias para itens com defeito. Uma troca de tamanho por pedido está disponível.",
+    "a2": "Devoluções são aceitas em 14 dias para itens com defeito.",
     "q3": "E se eu estiver entre dois tamanhos?",
     "a3": "Para um fit mais folgado, recomendamos o tamanho maior. Nosso modelo tem 180 cm e usa tamanho M.",
     "purchaseTitle": "FAQ",
@@ -168,7 +169,7 @@
     },
     "deliveryTime": {
       "q": "Quanto tempo leva a entrega?",
-      "a": "Os pedidos são processados em 2–5 dias úteis, depois a entrega geralmente leva 5–10 dias após o despacho."
+      "a": "Os pedidos são processados em 2–7 dias úteis, depois a entrega geralmente leva 5–15 dias após o despacho."
     },
     "internationalShipping": {
       "q": "Enviam internacionalmente?",
@@ -200,7 +201,7 @@
     },
     "defect": {
       "q": "E se meu item tiver um defeito?",
-      "a": "Entre em contato conosco em info@tcdashop.com dentro de 7 dias do recebimento."
+      "a": "Entre em contato conosco em info@tcdashop.com em até 14 dias após o recebimento do pedido. Providenciaremos uma substituição ou um reembolso após a verificação. No entanto, consumidores da UE/Reino Unido têm um direito legal de arrependimento de 14 dias a partir da entrega; o frete de devolução fica por conta do cliente."
     },
     "pageTitle": "FAQ",
     "categoryAbout": "Sobre a TCDA",
@@ -240,7 +241,7 @@
     "faq4q": "Os tamanhos são grandes ou pequenos?",
     "faq4a": "Os tamanhos variam por tipo de produto. Verifique a etiqueta de fit em cada página de produto.",
     "faq5q": "Posso trocar meu tamanho?",
-    "faq5a": "Uma troca de tamanho por pedido está disponível. Entre em contato conosco em 14 dias do recebimento.",
+    "faq5a": "Trocas de tamanho e devoluções por aparência diferente da esperada não são aceitas. No entanto, consumidores da UE/Reino Unido têm um direito legal de arrependimento de 14 dias a partir da entrega; o frete de devolução fica por conta do cliente. Consulte o guia de tamanhos antes de comprar.",
     "faq6q": "Quão precisas são as medidas?",
     "faq6a": "As medidas são tiradas planas e podem variar ±1–2 cm devido a tolerâncias de produção.",
     "faq7q": "O que significa 'slim fit'?",
@@ -315,9 +316,9 @@
     "oversizedNote": "Intencionalmente oversized. Projetado para drapejar. Escolha um tamanho menor para silhueta normal."
   },
   "trust": {
-    "processed": "Processado em 2–5 dias úteis",
-    "delivered": "Entregue em 5–10 dias úteis",
-    "supported": "Defeito ou erro de envio? Entre em contato conosco em 7 dias do recebimento",
+    "processed": "Processado em 2–7 dias úteis",
+    "delivered": "Entregue em 5–15 dias úteis",
+    "supported": "Defeito ou erro de envio? Entre em contato conosco em 14 dias do recebimento",
     "shippingReturnsLink": "Envio e Devoluções"
   },
   "footer": {
@@ -338,19 +339,19 @@
     "title": "Envio e Devoluções",
     "pageIntro": "Tudo o que você precisa saber sobre envio e nossa política de devolução. Dúvidas? Email info@tcdashop.com.",
     "shippingTitle": "Envio",
-    "shippingBody": "Os pedidos são processados em 2–5 dias úteis via Printful. Um número de rastreamento será enviado após o despacho.",
+    "shippingBody": "Os pedidos são processados em 2–7 dias úteis via Printful. Um número de rastreamento será enviado após o despacho.",
     "shippingAddressNote": "※ Para entregas no Japão, o endereço de entrega será automaticamente convertido para inglês na etiqueta. O destino permanece inalterado.",
     "deliveryTitle": "Entrega",
-    "deliveryBody": "Após o despacho, a entrega geralmente leva 5–10 dias úteis. Os prazos podem variar por região.",
+    "deliveryBody": "Após o despacho, a entrega geralmente leva 5–15 dias úteis. Os prazos podem variar por região.",
     "returnsTitle": "Devoluções e Suporte",
     "returnsCondition": "Casos elegíveis: apenas itens danificados, com impressão errada ou entregues incorretamente",
-    "returnsPeriod": "Prazo: entre em contato conosco dentro de 7 dias do recebimento",
+    "returnsPeriod": "Prazo: entre em contato conosco dentro de 14 dias do recebimento",
     "returnsMethod": "Resolução: substituição ou reembolso após verificação",
-    "returnsNote": "Devoluções por preferência de tamanho ou mudança de ideia não são aceitas.",
+    "returnsNote": "Com exceção do direito legal de arrependimento descrito abaixo, devoluções por preferência de tamanho ou mudança de ideia não são aceitas. Consumidores da UE/Reino Unido: você tem um direito legal de arrependimento de 14 dias a partir da entrega. Entre em contato conosco em até 14 dias; o frete de devolução fica por conta do cliente.",
     "contactTitle": "Entre em Contato",
     "contactBody": "Para outras dúvidas, entre em contato pelo endereço abaixo.",
     "customsTitle": "Alfândega e Impostos de Importação",
-    "customsBody": "Os produtos são enviados dos EUA ou da Europa. Dependendo do seu país, podem ser aplicados direitos alfandegários, impostos de importação ou taxas de manuseio. Esses encargos são de responsabilidade do cliente. Por favor, consulte os regulamentos alfandegários locais para obter detalhes."
+    "customsBody": "Os produtos são enviados por nossos parceiros de fulfillment nos EUA, na Europa e em outras regiões. Os preços não incluem direitos alfandegários, impostos de importação nem IVA. Dependendo do seu país, esses valores podem ser cobrados pela alfândega na entrega e são de responsabilidade do cliente. Consulte a regulamentação aduaneira local para mais detalhes."
   },
   "contact": {
     "title": "Contato",
@@ -441,11 +442,11 @@
       },
       "delivery": {
         "label": "Entrega",
-        "value": "Geralmente enviado em 5–10 dias úteis após a confirmação do pedido"
+        "value": "Os pedidos são enviados em até 2–7 dias úteis após a confirmação e entregues 5–15 dias úteis após o despacho (varia conforme a região)."
       },
       "returns": {
         "label": "Devoluções e Trocas",
-        "value": "Cancelamentos, devoluções e trocas geralmente não são aceitos após a confirmação do pedido. Exceções para itens danificados — contate info@tcdashop.com em 7 dias."
+        "value": "Devido à natureza dos nossos produtos, cancelamentos, devoluções e trocas geralmente não são aceitos após a confirmação do pedido. No entanto, consumidores da UE/Reino Unido têm um direito legal de arrependimento de 14 dias a partir da entrega; o frete de devolução fica por conta do cliente. Há exceções para itens danificados, defeitos de impressão ou entrega incorreta — entre em contato com info@tcdashop.com em até 14 dias após o recebimento. Será providenciada uma substituição ou um reembolso."
       },
       "quantity": {
         "label": "Quantidade Disponível",

@@ -44,7 +44,7 @@
     "notesTitle": "कृपया ध्यान दें",
     "notesItem1": "रंग आपके monitor settings और lighting conditions के आधार पर original से थोड़ा भिन्न हो सकते हैं।",
     "notesItem2": "यह item विदेश में निर्मित होने के कारण, packaging पर कभी-कभी मामूली खरोंच या दंत आ सकती है।",
-    "deliveryText": "5–10 business days के भीतर deliver होगा",
+    "deliveryText": "5–15 business days के भीतर deliver होगा",
     "notFound": "यह piece उपलब्ध नहीं है",
     "stockRemaining": "केवल {{count}} बचा है",
     "outOfStock": "स्टॉक में नहीं है",
@@ -99,6 +99,7 @@
     "quickView": "Quick View",
     "added": "जोड़ा गया",
     "taxNote": "Checkout पर tax की गणना होगी",
+    "customsNote": "Customs duties और import taxes शामिल नहीं हैं।",
     "shippingNote": "मुफ़्त शिपिंग"
   },
   "shop": {
@@ -137,7 +138,7 @@
     "shippingInfo": "Shipping",
     "paymentInfo": "भुगतान",
     "confirmOrder": "पुष्टि करें",
-    "shippingReturnsText": "Orders Printful के माध्यम से 2–5 business days में fulfill किए जाते हैं। आपके क्षेत्र के आधार पर delivery में सामान्यतः 5–10 business days लगते हैं। क्षतिग्रस्त, गलत print, या गलत shipping के मामले में, receipt के 7 दिनों के भीतर info@tcdashop.com पर संपर्क करें। सत्यापन के बाद replacement या refund की व्यवस्था की जाएगी।"
+    "shippingReturnsText": "Orders Printful के माध्यम से 2–7 business days में fulfill किए जाते हैं। आपके क्षेत्र के आधार पर delivery में सामान्यतः 5–15 business days लगते हैं। क्षतिग्रस्त, गलत print, या गलत shipping के मामले में, receipt के 14 दिनों के भीतर info@tcdashop.com पर संपर्क करें। सत्यापन के बाद replacement या refund की व्यवस्था की जाएगी।"
   },
   "order": {
     "confirmed": "Order की पुष्टि हो गई",
@@ -149,9 +150,9 @@
   },
   "faq": {
     "q1": "Shipping में कितना समय लगता है?",
-    "a1": "Orders 2–5 business days में dispatch होते हैं और सामान्यतः 5–10 business days में पहुंचते हैं।",
+    "a1": "Orders 2–7 business days में dispatch होते हैं और सामान्यतः 5–15 business days में पहुंचते हैं।",
     "q2": "क्या आप returns या exchanges स्वीकार करते हैं?",
-    "a2": "Defective items के लिए 14 दिनों के भीतर returns स्वीकार किए जाते हैं। प्रति order एक size exchange उपलब्ध है।",
+    "a2": "Defective items के लिए 14 दिनों के भीतर returns स्वीकार किए जाते हैं।",
     "q3": "यदि मैं sizes के बीच हूं तो क्या करूं?",
     "a3": "Relaxed fit के लिए, बड़ा size लेने की सिफारिश है। हमारा model 180 cm लंबा है और size M पहनता है।",
     "purchaseTitle": "FAQ",
@@ -170,7 +171,7 @@
     },
     "deliveryTime": {
       "q": "Delivery में कितना समय लगता है?",
-      "a": "Orders 2–5 business days में fulfill होते हैं, फिर dispatch के बाद सामान्यतः 5–10 business days में पहुंचते हैं। Shipment के बाद tracking number भेजा जाता है।"
+      "a": "Orders 2–7 business days में fulfill होते हैं, फिर dispatch के बाद सामान्यतः 5–15 business days में पहुंचते हैं। Shipment के बाद tracking number भेजा जाता है।"
     },
     "internationalShipping": {
       "q": "क्या यह internationally ship होता है?",
@@ -202,7 +203,7 @@
     },
     "defect": {
       "q": "यदि मेरे item में कोई defect हो तो?",
-      "a": "Order receive करने के 7 दिनों के भीतर info@tcdashop.com पर संपर्क करें। सत्यापन के बाद replacement या refund की व्यवस्था की जाएगी।"
+      "a": "Order receive करने के 14 दिनों के भीतर info@tcdashop.com पर संपर्क करें। सत्यापन के बाद replacement या refund की व्यवस्था की जाएगी। हालांकि, EU/UK के consumers के पास delivery से 14 दिनों का statutory right of withdrawal है; return shipping का खर्च ग्राहक वहन करेगा।"
     },
     "pageTitle": "FAQ",
     "categoryAbout": "TCDA के बारे में",
@@ -242,7 +243,7 @@
     "faq4q": "क्या sizes बड़े या छोटे चलते हैं?",
     "faq4a": "Sizing product type के अनुसार भिन्न होती है। मार्गदर्शन के लिए प्रत्येक product page पर fit label देखें।",
     "faq5q": "क्या मैं अपना size exchange कर सकता हूं?",
-    "faq5a": "प्रति order एक size exchange उपलब्ध है। Receipt के 14 दिनों के भीतर हमसे संपर्क करें।",
+    "faq5a": "Size exchange और अपेक्षा से अलग image के कारण returns स्वीकार नहीं किए जाते। हालांकि, EU/UK के consumers के पास delivery से 14 दिनों का statutory right of withdrawal है; return shipping का खर्च ग्राहक वहन करेगा। खरीदने से पहले कृपया size guide देखें।",
     "faq6q": "Measurements कितनी accurate हैं?",
     "faq6a": "Measurements flat लिए जाते हैं और production tolerances के कारण ±1–2 cm भिन्न हो सकते हैं।",
     "faq7q": "'Slim fit' का क्या मतलब है?",
@@ -317,9 +318,9 @@
     "oversizedNote": "जानबूझकर oversized। Drape करने के लिए designed। Regular silhouette के लिए size down करें।"
   },
   "trust": {
-    "processed": "2–5 business days में process होगा",
-    "delivered": "5–10 business days में deliver होगा",
-    "supported": "Defect या shipping error? Receipt के 7 दिनों के भीतर हमसे संपर्क करें",
+    "processed": "2–7 business days में process होगा",
+    "delivered": "5–15 business days में deliver होगा",
+    "supported": "Defect या shipping error? Receipt के 14 दिनों के भीतर हमसे संपर्क करें",
     "shippingReturnsLink": "Shipping और Returns"
   },
   "footer": {
@@ -343,16 +344,16 @@
     "shippingBody": "Orders Printful के माध्यम से 2–7 business days में dispatch होते हैं। Shipment के बाद tracking number प्रदान किया जाएगा।",
     "shippingAddressNote": "※ Japan के भीतर deliveries के लिए, shipping address shipping label पर automatically English में convert हो जाएगा। यह international shipping system requirements के कारण है। आपका delivery destination अपरिवर्तित रहता है।",
     "deliveryTitle": "Delivery",
-    "deliveryBody": "Dispatch के बाद, delivery में सामान्यतः 5–10 business days लगते हैं। समय क्षेत्र के अनुसार भिन्न हो सकता है।",
+    "deliveryBody": "Dispatch के बाद, delivery में सामान्यतः 5–15 business days लगते हैं। समय क्षेत्र के अनुसार भिन्न हो सकता है।",
     "returnsTitle": "Returns और Support",
     "returnsCondition": "Eligible cases: केवल क्षतिग्रस्त, गलत print, या गलत shipped items",
-    "returnsPeriod": "Timeframe: order receive करने के 7 दिनों के भीतर संपर्क करें",
+    "returnsPeriod": "Timeframe: order receive करने के 14 दिनों के भीतर संपर्क करें",
     "returnsMethod": "Resolution: सत्यापन के बाद replacement या refund",
-    "returnsNote": "Size preference या मन बदलने के कारण returns स्वीकार नहीं किए जाते।",
+    "returnsNote": "नीचे दिए गए statutory right of withdrawal को छोड़कर, size preference या मन बदलने के कारण returns स्वीकार नहीं किए जाते। EU/UK के consumers: delivery से 14 दिनों का statutory right of withdrawal आपके पास है। 14 दिनों के भीतर हमसे संपर्क करें; return shipping का खर्च ग्राहक वहन करेगा।",
     "contactTitle": "हमसे संपर्क करें",
     "contactBody": "किसी भी अन्य प्रश्न के लिए, नीचे दिए पते पर संपर्क करें।",
     "customsTitle": "Customs और Import Duties",
-    "customsBody": "Products US या Europe से ship होते हैं। आपके देश के आधार पर, customs duties, import taxes, या handling fees लागू हो सकते हैं। ये charges ग्राहक की जिम्मेदारी हैं। कृपया विवरण के लिए अपने स्थानीय customs regulations देखें।"
+    "customsBody": "Products US, Europe और अन्य regions में स्थित हमारे fulfillment partners से ship होते हैं। कीमतों में customs duties, import taxes या VAT शामिल नहीं हैं। आपके देश के आधार पर, ये डिलीवरी पर customs द्वारा वसूले जा सकते हैं और ग्राहक की जिम्मेदारी हैं। विवरण के लिए कृपया अपने स्थानीय customs नियम देखें।"
   },
   "contact": {
     "title": "Contact",
@@ -443,11 +444,11 @@
       },
       "delivery": {
         "label": "Delivery",
-        "value": "Order confirmation के बाद सामान्यतः 5–10 business days के भीतर ship होता है"
+        "value": "Orders confirmation के 2–7 business days के भीतर ship किए जाते हैं, और dispatch के 5–15 business days बाद deliver होते हैं (region के अनुसार भिन्न हो सकता है)।"
       },
       "returns": {
         "label": "Returns और Exchanges",
-        "value": "हमारे products की प्रकृति के कारण, order confirmation के बाद cancellations, returns, और exchanges सामान्यतः स्वीकार नहीं किए जाते। Exceptions क्षतिग्रस्त items, printing defects, या misdelivery के लिए लागू होते हैं — receipt के 7 दिनों के भीतर info@tcdashop.com पर संपर्क करें। Replacement या refund की व्यवस्था की जाएगी।"
+        "value": "हमारे products की प्रकृति के कारण, order confirmation के बाद cancellations, returns, और exchanges सामान्यतः स्वीकार नहीं किए जाते। हालांकि, EU/UK के consumers के पास delivery से 14 दिनों का statutory right of withdrawal है; return shipping का खर्च ग्राहक वहन करेगा। Exceptions क्षतिग्रस्त items, printing defects, या misdelivery के लिए लागू होते हैं — receipt के 14 दिनों के भीतर info@tcdashop.com पर संपर्क करें। Replacement या refund की व्यवस्था की जाएगी।"
       },
       "quantity": {
         "label": "उपलब्ध मात्रा",
