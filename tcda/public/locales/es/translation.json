@@ -201,7 +201,7 @@
     },
     "defect": {
       "q": "¿Qué hago si mi artículo tiene un defecto?",
-      "a": "Contáctanos en info@tcdashop.com en un plazo de 14 días desde la recepción. Gestionaremos un reenvío o reembolso tras la verificación."
+      "a": "Contáctanos en info@tcdashop.com en un plazo de 14 días desde la recepción. Gestionaremos un reenvío o reembolso tras la verificación. No obstante, los consumidores de la UE/Reino Unido disponen de un derecho legal de desistimiento de 14 días desde la entrega; los gastos de devolución corren a cargo del cliente."
     },
     "pageTitle": "FAQ",
     "categoryAbout": "Acerca de TCDA",
@@ -241,7 +241,7 @@
     "faq4q": "¿Las tallas son grandes o pequeñas?",
     "faq4a": "El tallaje varía según el tipo de producto. Consulta la etiqueta de corte en cada página de producto.",
     "faq5q": "¿Puedo cambiar mi talla?",
-    "faq5a": "No se aceptan cambios de talla ni devoluciones por diferencias con la imagen esperada. Consulta la guía de tallas antes de comprar.",
+    "faq5a": "No se aceptan cambios de talla ni devoluciones por diferencias con la imagen esperada. No obstante, los consumidores de la UE/Reino Unido disponen de un derecho legal de desistimiento de 14 días desde la entrega; los gastos de devolución corren a cargo del cliente. Consulta la guía de tallas antes de comprar.",
     "faq6q": "¿Qué precisión tienen las medidas?",
     "faq6a": "Las medidas se toman en plano y pueden variar ±1–2 cm por tolerancias de producción.",
     "faq7q": "¿Qué significa 'corte slim'?",
@@ -347,7 +347,7 @@
     "returnsCondition": "Casos elegibles: artículos dañados, con defectos de impresión o envíos incorrectos únicamente",
     "returnsPeriod": "Plazo: contáctanos en los 14 días siguientes a la recepción",
     "returnsMethod": "Resolución: reenvío o reembolso tras verificación",
-    "returnsNote": "No se aceptan devoluciones por talla o cambio de opinión.",
+    "returnsNote": "Salvo el derecho legal de desistimiento que se indica a continuación, no se aceptan devoluciones por talla o cambio de opinión. Consumidores de la UE/Reino Unido: dispones de un derecho legal de desistimiento de 14 días desde la entrega. Contáctanos en un plazo de 14 días; los gastos de devolución corren a cargo del cliente.",
     "contactTitle": "Contacto",
     "contactBody": "Para cualquier otra consulta, escríbenos a la dirección indicada a continuación.",
     "customsTitle": "Aduanas e Impuestos de Importación",
@@ -446,7 +446,7 @@
       },
       "returns": {
         "label": "Devoluciones y cambios",
-        "value": "Debido a la naturaleza de nuestros productos, no aceptamos cancelaciones, devoluciones ni cambios una vez confirmado el pedido. Se hacen excepciones por daños, defectos de impresión o envío incorrecto — contáctanos en info@tcdashop.com en los 14 días siguientes a la recepción. Se gestionará un reenvío o reembolso."
+        "value": "Debido a la naturaleza de nuestros productos, no aceptamos cancelaciones, devoluciones ni cambios una vez confirmado el pedido. No obstante, los consumidores de la UE/Reino Unido disponen de un derecho legal de desistimiento de 14 días desde la entrega; los gastos de devolución corren a cargo del cliente. Se hacen excepciones por daños, defectos de impresión o envío incorrecto — contáctanos en info@tcdashop.com en los 14 días siguientes a la recepción. Se gestionará un reenvío o reembolso."
       },
       "quantity": {
         "label": "Cantidad disponible",

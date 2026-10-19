@@ -201,7 +201,7 @@
     },
     "defect": {
       "q": "What if my item has a defect?",
-      "a": "Please contact us at info@tcdashop.com within 14 days of receiving your order. We will arrange a replacement or refund after verification."
+      "a": "Please contact us at info@tcdashop.com within 14 days of receiving your order. We will arrange a replacement or refund after verification. However, EU/UK consumers have a statutory 14-day right of withdrawal from delivery; return shipping is at the customer's cost."
     },
     "pageTitle": "FAQ",
     "categoryAbout": "About TCDA",
@@ -241,7 +241,7 @@
     "faq4q": "Do the sizes run large or small?",
     "faq4a": "Sizing varies by product type. Check the fit label on each product page for guidance.",
     "faq5q": "Can I exchange my size?",
-    "faq5a": "Size exchanges and returns due to a different image than expected are not accepted. Please check the size guide before purchasing.",
+    "faq5a": "Size exchanges and returns due to a different image than expected are not accepted. However, EU/UK consumers have a statutory 14-day right of withdrawal from delivery; return shipping is at the customer's cost. Please check the size guide before purchasing.",
     "faq6q": "How accurate are the measurements?",
     "faq6a": "Measurements are taken flat and may vary ±1–2 cm due to production tolerances.",
     "faq7q": "What does 'slim fit' mean?",
@@ -347,7 +347,7 @@
     "returnsCondition": "Eligible cases: damaged, misprinted, or incorrectly shipped items only",
     "returnsPeriod": "Timeframe: contact us within 14 days of receiving your order",
     "returnsMethod": "Resolution: replacement or refund after verification",
-    "returnsNote": "Returns due to size preference or change of mind are not accepted.",
+    "returnsNote": "Except for the statutory right of withdrawal below, returns due to size preference or change of mind are not accepted. EU/UK consumers: you have a statutory 14-day right of withdrawal from delivery. Contact us within 14 days; return shipping is at the customer's cost.",
     "contactTitle": "Contact Us",
     "contactBody": "For any other questions, please reach out at the address below.",
     "customsTitle": "Customs and Import Duties",
@@ -446,7 +446,7 @@
       },
       "returns": {
         "label": "Returns & Exchanges",
-        "value": "Due to the nature of our products, cancellations, returns, and exchanges are generally not accepted after order confirmation. Exceptions apply for damaged items, printing defects, or misdelivery — contact info@tcdashop.com within 14 days of receipt. A replacement or refund will be arranged."
+        "value": "Due to the nature of our products, cancellations, returns, and exchanges are generally not accepted after order confirmation. However, EU/UK consumers have a statutory 14-day right of withdrawal from delivery; return shipping is at the customer's cost. Exceptions apply for damaged items, printing defects, or misdelivery — contact info@tcdashop.com within 14 days of receipt. A replacement or refund will be arranged."
       },
       "quantity": {
         "label": "Available Quantity",

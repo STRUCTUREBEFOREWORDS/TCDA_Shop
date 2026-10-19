@@ -201,7 +201,7 @@
     },
     "defect": {
       "q": "Que faire si mon article est défectueux ?",
-      "a": "Contactez-nous à info@tcdashop.com dans les 14 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification."
+      "a": "Contactez-nous à info@tcdashop.com dans les 14 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification. Toutefois, les consommateurs de l'UE/du Royaume-Uni disposent d'un droit légal de rétractation de 14 jours à compter de la livraison ; les frais de retour sont à la charge du client."
     },
     "pageTitle": "FAQ",
     "categoryAbout": "À propos de TCDA",
@@ -241,7 +241,7 @@
     "faq4q": "Les tailles sont-elles grandes ou petites ?",
     "faq4a": "Le rendu varie selon le type de produit. Consultez l'étiquette de coupe sur chaque page produit.",
     "faq5q": "Puis-je échanger ma taille ?",
-    "faq5a": "Les échanges de taille et les retours pour cause de différence avec l'image attendue ne sont pas acceptés. Veuillez consulter le guide des tailles avant l'achat.",
+    "faq5a": "Les échanges de taille et les retours pour cause de différence avec l'image attendue ne sont pas acceptés. Toutefois, les consommateurs de l'UE/du Royaume-Uni disposent d'un droit légal de rétractation de 14 jours à compter de la livraison ; les frais de retour sont à la charge du client. Veuillez consulter le guide des tailles avant l'achat.",
     "faq6q": "Quelle est la précision des mesures ?",
     "faq6a": "Les mesures sont prises à plat et peuvent varier de ±1 à 2 cm en raison des tolérances de fabrication.",
     "faq7q": "Que signifie « coupe slim » ?",
@@ -347,7 +347,7 @@
     "returnsCondition": "Cas éligibles : produit endommagé, impression défectueuse ou envoi incorrect uniquement",
     "returnsPeriod": "Délai : contactez-nous dans les 14 jours suivant la réception",
     "returnsMethod": "Résolution : renvoi ou remboursement après vérification",
-    "returnsNote": "Les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés.",
+    "returnsNote": "À l'exception du droit légal de rétractation décrit ci-dessous, les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés. Consommateurs de l'UE/du Royaume-Uni : vous disposez d'un droit légal de rétractation de 14 jours à compter de la livraison. Contactez-nous dans les 14 jours ; les frais de retour sont à la charge du client.",
     "contactTitle": "Nous contacter",
     "contactBody": "Pour toute autre question, contactez-nous à l'adresse ci-dessous.",
     "customsTitle": "Droits de Douane et d'Importation",
@@ -446,7 +446,7 @@
       },
       "returns": {
         "label": "Retours & échanges",
-        "value": "En raison de la nature de nos produits, les annulations, retours et échanges ne sont pas acceptés après confirmation. Des exceptions s'appliquent en cas de dommage, défaut d'impression ou mauvaise livraison — signalez-le à info@tcdashop.com dans les 14 jours suivant la réception. Un remplacement ou un remboursement sera effectué."
+        "value": "En raison de la nature de nos produits, les annulations, retours et échanges ne sont pas acceptés après confirmation. Toutefois, les consommateurs de l'UE/du Royaume-Uni disposent d'un droit légal de rétractation de 14 jours à compter de la livraison ; les frais de retour sont à la charge du client. Des exceptions s'appliquent en cas de dommage, défaut d'impression ou mauvaise livraison — signalez-le à info@tcdashop.com dans les 14 jours suivant la réception. Un remplacement ou un remboursement sera effectué."
       },
       "quantity": {
         "label": "Quantité disponible",
