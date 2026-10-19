@@ -17,8 +17,8 @@ export const SHIPPING = {
 } as const;
 
 export const RETURNS = {
-  basic:     "Returns accepted within 30 days",
-  condition: "Unworn, unwashed, original packaging",
+  basic:     "Damaged or misdelivered items only, handled within 14 days of arrival",
+  condition: "Size or image-based returns and exchanges are not accepted",
 } as const;
 
 export const CUSTOMS = {

@@ -41,7 +41,7 @@
     "notesTitle": "Notas",
     "notesItem1": "El color real puede variar según la configuración del monitor y las condiciones de iluminación.",
     "notesItem2": "Al ser un producto de fabricación internacional, el embalaje puede presentar pequeñas marcas o abolladuras.",
-    "deliveryText": "Entrega en 5 a 10 días hábiles",
+    "deliveryText": "Entrega en 5 a 15 días hábiles",
     "notFound": "Producto no encontrado",
     "stockRemaining": "{{count}} unidades restantes",
     "outOfStock": "Agotado",
@@ -136,7 +136,7 @@
     "shippingInfo": "Envío",
     "paymentInfo": "Pago",
     "confirmOrder": "Confirmar",
-    "shippingReturnsText": "Los pedidos se procesan a través de Printful en un plazo de 2 a 5 días hábiles. El tiempo de entrega es habitualmente de 5 a 10 días hábiles según la región. En caso de producto dañado, defecto de impresión o envío incorrecto, contáctanos en info@tcdashop.com dentro de los 7 días siguientes a la recepción. Gestionaremos un reenvío o reembolso tras la verificación."
+    "shippingReturnsText": "Los pedidos se procesan a través de Printful en un plazo de 2 a 7 días hábiles. El tiempo de entrega es habitualmente de 5 a 15 días hábiles según la región. En caso de producto dañado, defecto de impresión o envío incorrecto, contáctanos en info@tcdashop.com dentro de los 14 días siguientes a la recepción. Gestionaremos un reenvío o reembolso tras la verificación."
   },
   "order": {
     "confirmed": "Pedido completado",
@@ -148,9 +148,9 @@
   },
   "faq": {
     "q1": "¿Cuánto tarda el envío?",
-    "a1": "Los pedidos se envían en un plazo de 2 a 5 días hábiles tras la compra, con entrega habitual en 5 a 10 días hábiles.",
+    "a1": "Los pedidos se envían en un plazo de 2 a 7 días hábiles tras la compra, con entrega habitual en 5 a 15 días hábiles.",
     "q2": "¿Se aceptan devoluciones o cambios?",
-    "a2": "Aceptamos devoluciones de productos defectuosos dentro de los 14 días. Los cambios de talla se gestionan una vez por pedido.",
+    "a2": "Aceptamos devoluciones de productos defectuosos dentro de los 14 días.",
     "q3": "¿Qué hago si estoy entre dos tallas?",
     "a3": "Para un ajuste más holgado, recomendamos la talla superior. El modelo mide 180 cm y viste talla M.",
     "purchaseTitle": "FAQ",
@@ -169,7 +169,7 @@
     },
     "deliveryTime": {
       "q": "¿Cuánto tarda el envío?",
-      "a": "Los pedidos se procesan en 2–5 días hábiles y suelen llegar en 5–10 días hábiles adicionales tras el envío. Se envía un número de seguimiento tras el despacho."
+      "a": "Los pedidos se procesan en 2–7 días hábiles y suelen llegar en 5–15 días hábiles adicionales tras el envío. Se envía un número de seguimiento tras el despacho."
     },
     "internationalShipping": {
       "q": "¿Se realiza envío internacional?",
@@ -201,7 +201,7 @@
     },
     "defect": {
       "q": "¿Qué hago si mi artículo tiene un defecto?",
-      "a": "Contáctanos en info@tcdashop.com en un plazo de 7 días desde la recepción. Gestionaremos un reenvío o reembolso tras la verificación."
+      "a": "Contáctanos en info@tcdashop.com en un plazo de 14 días desde la recepción. Gestionaremos un reenvío o reembolso tras la verificación."
     },
     "pageTitle": "FAQ",
     "categoryAbout": "Acerca de TCDA",
@@ -241,7 +241,7 @@
     "faq4q": "¿Las tallas son grandes o pequeñas?",
     "faq4a": "El tallaje varía según el tipo de producto. Consulta la etiqueta de corte en cada página de producto.",
     "faq5q": "¿Puedo cambiar mi talla?",
-    "faq5a": "Se permite un cambio de talla por pedido. Contáctanos dentro de los 14 días siguientes a la recepción.",
+    "faq5a": "No se aceptan cambios de talla ni devoluciones por diferencias con la imagen esperada. Consulta la guía de tallas antes de comprar.",
     "faq6q": "¿Qué precisión tienen las medidas?",
     "faq6a": "Las medidas se toman en plano y pueden variar ±1–2 cm por tolerancias de producción.",
     "faq7q": "¿Qué significa 'corte slim'?",
@@ -316,9 +316,9 @@
     "oversizedNote": "Intencionalmente oversized. Diseñado para caer. Baja una talla para una silueta más estándar."
   },
   "trust": {
-    "processed": "Procesado en 2–5 días hábiles",
-    "delivered": "Entregado en 5–10 días hábiles",
-    "supported": "¿Defecto o envío incorrecto? Contáctanos en los 7 días siguientes",
+    "processed": "Procesado en 2–7 días hábiles",
+    "delivered": "Entregado en 5–15 días hábiles",
+    "supported": "¿Defecto o envío incorrecto? Contáctanos en los 14 días siguientes",
     "shippingReturnsLink": "Envíos y devoluciones"
   },
   "footer": {
@@ -339,19 +339,19 @@
     "title": "Envíos y devoluciones",
     "pageIntro": "Todo sobre el envío y nuestra política de devoluciones. ¿Preguntas? Escríbenos a info@tcdashop.com.",
     "shippingTitle": "Envío",
-    "shippingBody": "Los pedidos se procesan en 2–5 días hábiles a través de Printful. Recibirás un número de seguimiento una vez enviado.",
+    "shippingBody": "Los pedidos se procesan en 2–7 días hábiles a través de Printful. Recibirás un número de seguimiento una vez enviado.",
     "shippingAddressNote": "※ Para entregas en Japón, la dirección de envío se convertirá automáticamente al inglés en la etiqueta. Esto se debe a los requisitos del sistema de envío internacional. Su destino de entrega no cambia.",
     "deliveryTitle": "Entrega",
-    "deliveryBody": "Tras el envío, la entrega suele tardar 5–10 días hábiles. Los plazos pueden variar según la región.",
+    "deliveryBody": "Tras el envío, la entrega suele tardar 5–15 días hábiles. Los plazos pueden variar según la región.",
     "returnsTitle": "Devoluciones y asistencia",
     "returnsCondition": "Casos elegibles: artículos dañados, con defectos de impresión o envíos incorrectos únicamente",
-    "returnsPeriod": "Plazo: contáctanos en los 7 días siguientes a la recepción",
+    "returnsPeriod": "Plazo: contáctanos en los 14 días siguientes a la recepción",
     "returnsMethod": "Resolución: reenvío o reembolso tras verificación",
     "returnsNote": "No se aceptan devoluciones por talla o cambio de opinión.",
     "contactTitle": "Contacto",
     "contactBody": "Para cualquier otra consulta, escríbenos a la dirección indicada a continuación.",
     "customsTitle": "Aduanas e Impuestos de Importación",
-    "customsBody": "Los productos se envían desde EE.UU. o Europa. Los precios no incluyen los derechos de aduana, los impuestos de importación ni el IVA. Según tu país, la aduana puede cobrarlos en el momento de la entrega y corren a cargo del cliente. Consulta la normativa aduanera de tu país para más detalles."
+    "customsBody": "Los productos se envían desde nuestros socios logísticos en EE.UU., Europa y otras regiones. Los precios no incluyen los derechos de aduana, los impuestos de importación ni el IVA. Según tu país, la aduana puede cobrarlos en el momento de la entrega y corren a cargo del cliente. Consulta la normativa aduanera de tu país para más detalles."
   },
   "contact": {
     "title": "Contacto",
@@ -442,11 +442,11 @@
       },
       "delivery": {
         "label": "Entrega",
-        "value": "Envío en un plazo de 5 a 10 días hábiles tras la confirmación del pedido"
+        "value": "Los pedidos se envían en un plazo de 2 a 7 días hábiles tras la confirmación y se entregan 5 a 15 días hábiles después del envío (varía según la región)."
       },
       "returns": {
         "label": "Devoluciones y cambios",
-        "value": "Debido a la naturaleza de nuestros productos, no aceptamos cancelaciones, devoluciones ni cambios una vez confirmado el pedido. Se hacen excepciones por daños, defectos de impresión o envío incorrecto — contáctanos en info@tcdashop.com en los 7 días siguientes a la recepción. Se gestionará un reenvío o reembolso."
+        "value": "Debido a la naturaleza de nuestros productos, no aceptamos cancelaciones, devoluciones ni cambios una vez confirmado el pedido. Se hacen excepciones por daños, defectos de impresión o envío incorrecto — contáctanos en info@tcdashop.com en los 14 días siguientes a la recepción. Se gestionará un reenvío o reembolso."
       },
       "quantity": {
         "label": "Cantidad disponible",
@@ -550,7 +550,7 @@
   "geo": {
     "jp": {
       "shipping": "Entrega en 7–14 días hábiles",
-      "returns": "Devoluciones en 30 días",
+      "returns": "Solo productos dañados o erróneos, atendidos en 14 días",
       "faqLink": "FAQ",
       "topBanner": "Envío mundial disponible"
     },

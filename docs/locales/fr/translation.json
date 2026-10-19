@@ -41,7 +41,7 @@
     "notesTitle": "Notes",
     "notesItem1": "Selon votre écran et les conditions d'éclairage, les couleurs peuvent légèrement différer du produit réel.",
     "notesItem2": "En raison de la fabrication à l'étranger, l'emballage peut présenter de légères marques ou déformations mineures.",
-    "deliveryText": "Livraison estimée sous 5 à 10 jours ouvrés",
+    "deliveryText": "Livraison estimée sous 5 à 15 jours ouvrés",
     "notFound": "Article introuvable",
     "stockRemaining": "Plus que {{count}} en stock",
     "outOfStock": "Rupture de stock",
@@ -136,7 +136,7 @@
     "shippingInfo": "Livraison",
     "paymentInfo": "Paiement",
     "confirmOrder": "Confirmer",
-    "shippingReturnsText": "Votre commande est traitée via Printful sous 2 à 5 jours ouvrés. La livraison prend généralement 5 à 10 jours ouvrés selon votre région. En cas de produit endommagé, d'impression défectueuse ou d'envoi incorrect, contactez-nous à info@tcdashop.com dans les 7 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification."
+    "shippingReturnsText": "Votre commande est traitée via Printful sous 2 à 7 jours ouvrés. La livraison prend généralement 5 à 15 jours ouvrés selon votre région. En cas de produit endommagé, d'impression défectueuse ou d'envoi incorrect, contactez-nous à info@tcdashop.com dans les 14 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification."
   },
   "order": {
     "confirmed": "Commande confirmée",
@@ -148,9 +148,9 @@
   },
   "faq": {
     "q1": "Quel est le délai de livraison ?",
-    "a1": "Vos commandes sont expédiées sous 2 à 5 jours ouvrés, puis livrées sous 5 à 10 jours ouvrés en règle générale.",
+    "a1": "Vos commandes sont expédiées sous 2 à 7 jours ouvrés, puis livrées sous 5 à 15 jours ouvrés en règle générale.",
     "q2": "Les retours et échanges sont-ils possibles ?",
-    "a2": "Les articles défectueux peuvent être retournés dans les 14 jours suivant la réception. Un échange de taille est possible une fois par commande.",
+    "a2": "Les articles défectueux peuvent être retournés dans les 14 jours suivant la réception.",
     "q3": "Que faire si je me situe entre deux tailles ?",
     "a3": "Pour un port décontracté, nous recommandons la taille supérieure. Le modèle mesure 180 cm et porte une taille M.",
     "purchaseTitle": "FAQ",
@@ -169,7 +169,7 @@
     },
     "deliveryTime": {
       "q": "Quel est le délai de livraison ?",
-      "a": "Les commandes sont traitées sous 2 à 5 jours ouvrés, puis livrées sous 5 à 10 jours ouvrés après expédition. Un numéro de suivi est envoyé après l'expédition."
+      "a": "Les commandes sont traitées sous 2 à 7 jours ouvrés, puis livrées sous 5 à 15 jours ouvrés après expédition. Un numéro de suivi est envoyé après l'expédition."
     },
     "internationalShipping": {
       "q": "La livraison est-elle internationale ?",
@@ -201,7 +201,7 @@
     },
     "defect": {
       "q": "Que faire si mon article est défectueux ?",
-      "a": "Contactez-nous à info@tcdashop.com dans les 7 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification."
+      "a": "Contactez-nous à info@tcdashop.com dans les 14 jours suivant la réception. Nous procéderons à un renvoi ou un remboursement après vérification."
     },
     "pageTitle": "FAQ",
     "categoryAbout": "À propos de TCDA",
@@ -241,7 +241,7 @@
     "faq4q": "Les tailles sont-elles grandes ou petites ?",
     "faq4a": "Le rendu varie selon le type de produit. Consultez l'étiquette de coupe sur chaque page produit.",
     "faq5q": "Puis-je échanger ma taille ?",
-    "faq5a": "Un échange de taille par commande est possible. Contactez-nous dans les 14 jours suivant la réception.",
+    "faq5a": "Les échanges de taille et les retours pour cause de différence avec l'image attendue ne sont pas acceptés. Veuillez consulter le guide des tailles avant l'achat.",
     "faq6q": "Quelle est la précision des mesures ?",
     "faq6a": "Les mesures sont prises à plat et peuvent varier de ±1 à 2 cm en raison des tolérances de fabrication.",
     "faq7q": "Que signifie « coupe slim » ?",
@@ -316,9 +316,9 @@
     "oversizedNote": "Intentionnellement oversize. Conçu pour flotter. Prenez une taille en dessous pour une silhouette standard."
   },
   "trust": {
-    "processed": "Traitement sous 2 à 5 jours ouvrés",
-    "delivered": "Livraison sous 5 à 10 jours ouvrés",
-    "supported": "Produit défectueux ou envoi incorrect ? Contactez-nous dans les 7 jours",
+    "processed": "Traitement sous 2 à 7 jours ouvrés",
+    "delivered": "Livraison sous 5 à 15 jours ouvrés",
+    "supported": "Produit défectueux ou envoi incorrect ? Contactez-nous dans les 14 jours",
     "shippingReturnsLink": "Livraison & retours"
   },
   "footer": {
@@ -339,19 +339,19 @@
     "title": "Livraison & retours",
     "pageIntro": "Toutes les informations sur la livraison et notre politique de retour. Questions ? Écrivez-nous à info@tcdashop.com.",
     "shippingTitle": "Expédition",
-    "shippingBody": "Les commandes sont traitées sous 2 à 5 jours ouvrés via Printful. Un numéro de suivi vous sera envoyé après expédition.",
+    "shippingBody": "Les commandes sont traitées sous 2 à 7 jours ouvrés via Printful. Un numéro de suivi vous sera envoyé après expédition.",
     "shippingAddressNote": "※ Pour les livraisons au Japon, l'adresse de livraison sera automatiquement convertie en anglais sur l'étiquette. Cela est dû aux exigences du système d'expédition international. Votre destination de livraison reste inchangée.",
     "deliveryTitle": "Livraison",
-    "deliveryBody": "Après expédition, la livraison prend généralement 5 à 10 jours ouvrés. Les délais peuvent varier selon la région.",
+    "deliveryBody": "Après expédition, la livraison prend généralement 5 à 15 jours ouvrés. Les délais peuvent varier selon la région.",
     "returnsTitle": "Retours & assistance",
     "returnsCondition": "Cas éligibles : produit endommagé, impression défectueuse ou envoi incorrect uniquement",
-    "returnsPeriod": "Délai : contactez-nous dans les 7 jours suivant la réception",
+    "returnsPeriod": "Délai : contactez-nous dans les 14 jours suivant la réception",
     "returnsMethod": "Résolution : renvoi ou remboursement après vérification",
     "returnsNote": "Les retours pour raison de taille ou de préférence personnelle ne sont pas acceptés.",
     "contactTitle": "Nous contacter",
     "contactBody": "Pour toute autre question, contactez-nous à l'adresse ci-dessous.",
     "customsTitle": "Droits de Douane et d'Importation",
-    "customsBody": "Les produits sont expédiés depuis les États-Unis ou l'Europe. Les prix n'incluent pas les droits de douane, les taxes à l'importation ni la TVA. Selon votre pays, ces frais peuvent être facturés par les douanes à la livraison et sont à la charge du client. Veuillez consulter la réglementation douanière locale pour plus de détails."
+    "customsBody": "Les produits sont expédiés par nos partenaires logistiques aux États-Unis, en Europe et dans d'autres régions. Les prix n'incluent pas les droits de douane, les taxes à l'importation ni la TVA. Selon votre pays, ces frais peuvent être facturés par les douanes à la livraison et sont à la charge du client. Veuillez consulter la réglementation douanière locale pour plus de détails."
   },
   "contact": {
     "title": "Contact",
@@ -442,11 +442,11 @@
       },
       "delivery": {
         "label": "Délai de livraison",
-        "value": "Expédition généralement sous 5 à 10 jours ouvrables après confirmation"
+        "value": "Les commandes sont expédiées sous 2 à 7 jours ouvrés après confirmation, puis livrées 5 à 15 jours ouvrés après l'expédition (variable selon la région)."
       },
       "returns": {
         "label": "Retours & échanges",
-        "value": "En raison de la nature de nos produits, les annulations, retours et échanges ne sont pas acceptés après confirmation. Des exceptions s'appliquent en cas de dommage, défaut d'impression ou mauvaise livraison — signalez-le à info@tcdashop.com dans les 7 jours suivant la réception. Un remplacement ou un remboursement sera effectué."
+        "value": "En raison de la nature de nos produits, les annulations, retours et échanges ne sont pas acceptés après confirmation. Des exceptions s'appliquent en cas de dommage, défaut d'impression ou mauvaise livraison — signalez-le à info@tcdashop.com dans les 14 jours suivant la réception. Un remplacement ou un remboursement sera effectué."
       },
       "quantity": {
         "label": "Quantité disponible",
@@ -550,7 +550,7 @@
   "geo": {
     "jp": {
       "shipping": "Livraison en 7 à 14 jours ouvrés",
-      "returns": "Retours sous 30 jours",
+      "returns": "Articles endommagés ou erronés uniquement, pris en charge sous 14 jours",
       "faqLink": "FAQ",
       "topBanner": "Livraison mondiale disponible"
     },
