@@ -26,6 +26,7 @@ const ContactPage         = lazy(() => import("./pages/ContactPage").then(m => (
 const ReviewPage          = lazy(() => import("./pages/ReviewPage").then(m => ({ default: m.ReviewPage })));
 const FaqPage             = lazy(() => import("./pages/FaqPage").then(m => ({ default: m.FaqPage })));
 const NotFound            = lazy(() => import("./pages/NotFound").then(m => ({ default: m.NotFound })));
+const WithdrawalPage      = lazy(() => import("./pages/WithdrawalPage").then(m => ({ default: m.WithdrawalPage })));
 const LookbookPage        = lazy(() => import("./pages/LookbookPage").then(m => ({ default: m.LookbookPage })));
 
 export const router = createBrowserRouter([
@@ -48,6 +49,7 @@ export const router = createBrowserRouter([
       { path: "privacy", Component: PrivacyPage },
       { path: "shipping-returns", Component: ShippingReturnsPage },
       { path: "contact", Component: ContactPage },
+      { path: "withdrawal", Component: WithdrawalPage },
       { path: "review/:token", Component: ReviewPage },
       { path: "faq", Component: FaqPage },
       { path: "lookbook", Component: LookbookPage },

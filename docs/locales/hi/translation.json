@@ -562,6 +562,26 @@
       "topBanner": "€100 से ऊपर के orders पर free shipping"
     }
   },
+  "withdrawal": {
+    "title": "Withdrawal का अधिकार",
+    "intro": "EU और UK के consumers के लिए withdrawal form। Order confirmation email में दिया गया 8 अक्षरों का order number और खरीदारी के समय इस्तेमाल किया गया email address दर्ज करें।",
+    "orderRef": "Order number (8 अक्षर)",
+    "orderRefPlaceholder": "e.g. 1A2B3C4D",
+    "email": "खरीदारी के समय इस्तेमाल किया गया email",
+    "emailPlaceholder": "you@example.com",
+    "message": "Message (वैकल्पिक)",
+    "messagePlaceholder": "जो बात आप हमें बताना चाहें",
+    "submit": "Withdrawal submit करें",
+    "submitting": "भेजा जा रहा है...",
+    "successTitle": "प्राप्त हुआ",
+    "successBody": "हमें आपकी request मिल गई है और confirmation email भेज दिया गया है।",
+    "linkLabel": "Withdrawal form (EU/UK consumers के लिए)",
+    "error": {
+      "invalid": "कृपया order number और email address जांचकर फिर से कोशिश करें।",
+      "rate": "बहुत ज़्यादा प्रयास हो चुके हैं। कृपया थोड़ी देर रुककर फिर कोशिश करें।",
+      "server": "कुछ गड़बड़ हो गई। कृपया बाद में फिर कोशिश करें या हमें email करें।"
+    }
+  },
   "size_guide": {
     "japan_note": "जापानी साइज़ आमतौर पर 1-2 साइज़ छोटे होते हैं। संदेह होने पर बड़ा साइज़ चुनें।"
   }

@@ -568,6 +568,26 @@
   "home": {
     "transcend": "TRANSCEND"
   },
+  "withdrawal": {
+    "title": "撤回のお申し込み",
+    "intro": "EU・英国の消費者向けの撤回フォームです。注文確認メールに記載の注文番号(8文字)と、購入時のメールアドレスを入力してください。",
+    "orderRef": "注文番号(8文字)",
+    "orderRefPlaceholder": "例: 1A2B3C4D",
+    "email": "購入時のメールアドレス",
+    "emailPlaceholder": "you@example.com",
+    "message": "メッセージ(任意)",
+    "messagePlaceholder": "お伝えしたいことがあればご記入ください",
+    "submit": "撤回を申し込む",
+    "submitting": "送信中...",
+    "successTitle": "受け付けました",
+    "successBody": "受け付けました。確認メールを送りました。",
+    "linkLabel": "撤回フォーム(EU・英国の消費者向け)",
+    "error": {
+      "invalid": "注文番号とメールアドレスをご確認のうえ、もう一度お試しください。",
+      "rate": "送信回数が多すぎます。しばらくしてからお試しください。",
+      "server": "エラーが発生しました。時間をおいて再度お試しいただくか、メールでご連絡ください。"
+    }
+  },
   "size_guide": {
     "japan_note": "日本サイズは通常1〜2サイズ小さめです。迷った場合は大きいサイズをお選びください。"
   }

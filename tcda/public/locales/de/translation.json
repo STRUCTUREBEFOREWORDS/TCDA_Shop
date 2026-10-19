@@ -568,6 +568,26 @@
   "home": {
     "transcend": "TRANSCEND"
   },
+  "withdrawal": {
+    "title": "Widerrufsrecht",
+    "intro": "Widerrufsformular für Verbraucher in der EU und im Vereinigten Königreich. Gib die 8-stellige Bestellnummer aus deiner Bestellbestätigung und die beim Kauf verwendete E-Mail-Adresse ein.",
+    "orderRef": "Bestellnummer (8 Zeichen)",
+    "orderRefPlaceholder": "e.g. 1A2B3C4D",
+    "email": "Beim Kauf verwendete E-Mail",
+    "emailPlaceholder": "you@example.com",
+    "message": "Nachricht (optional)",
+    "messagePlaceholder": "Was du uns mitteilen möchtest",
+    "submit": "Widerruf absenden",
+    "submitting": "Wird gesendet...",
+    "successTitle": "Eingegangen",
+    "successBody": "Wir haben deine Anfrage erhalten und eine Bestätigungs-E-Mail gesendet.",
+    "linkLabel": "Widerrufsformular (Verbraucher in der EU/im Vereinigten Königreich)",
+    "error": {
+      "invalid": "Bitte prüfe Bestellnummer und E-Mail-Adresse und versuche es erneut.",
+      "rate": "Zu viele Versuche. Bitte warte einen Moment und versuche es erneut.",
+      "server": "Etwas ist schiefgelaufen. Bitte versuche es später erneut oder schreibe uns eine E-Mail."
+    }
+  },
   "size_guide": {
     "japan_note": "Japanische Größen sind in der Regel 1-2 Größen kleiner. Im Zweifel größer wählen."
   }

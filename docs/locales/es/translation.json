@@ -568,6 +568,26 @@
   "home": {
     "transcend": "TRANSCEND"
   },
+  "withdrawal": {
+    "title": "Derecho de desistimiento",
+    "intro": "Formulario de desistimiento para consumidores de la UE y del Reino Unido. Introduce el número de pedido de 8 caracteres de tu correo de confirmación y el correo electrónico que usaste en la compra.",
+    "orderRef": "Número de pedido (8 caracteres)",
+    "orderRefPlaceholder": "e.g. 1A2B3C4D",
+    "email": "Correo electrónico usado en la compra",
+    "emailPlaceholder": "you@example.com",
+    "message": "Mensaje (opcional)",
+    "messagePlaceholder": "Cualquier cosa que quieras comunicarnos",
+    "submit": "Enviar desistimiento",
+    "submitting": "Enviando...",
+    "successTitle": "Recibido",
+    "successBody": "Hemos recibido tu solicitud y te hemos enviado un correo de confirmación.",
+    "linkLabel": "Formulario de desistimiento (consumidores de la UE/Reino Unido)",
+    "error": {
+      "invalid": "Comprueba el número de pedido y el correo electrónico e inténtalo de nuevo.",
+      "rate": "Demasiados intentos. Espera un momento e inténtalo de nuevo.",
+      "server": "Algo salió mal. Inténtalo de nuevo más tarde o escríbenos por correo."
+    }
+  },
   "size_guide": {
     "japan_note": "Las tallas japonesas suelen ser 1-2 tallas más pequeñas. En caso de duda, elige una talla mayor."
   }

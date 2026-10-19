@@ -568,6 +568,26 @@
   "home": {
     "transcend": "TRANSCEND"
   },
+  "withdrawal": {
+    "title": "청약철회권",
+    "intro": "EU·영국 소비자를 위한 청약철회 양식입니다. 주문 확인 이메일에 기재된 8자리 주문번호와 구매 시 사용한 이메일 주소를 입력해 주세요.",
+    "orderRef": "주문번호 (8자리)",
+    "orderRefPlaceholder": "e.g. 1A2B3C4D",
+    "email": "구매 시 사용한 이메일",
+    "emailPlaceholder": "you@example.com",
+    "message": "메시지 (선택)",
+    "messagePlaceholder": "전하실 내용이 있으면 적어 주세요",
+    "submit": "청약철회 신청",
+    "submitting": "전송 중...",
+    "successTitle": "접수되었습니다",
+    "successBody": "요청을 접수했으며 확인 이메일을 보냈습니다.",
+    "linkLabel": "청약철회 양식 (EU·영국 소비자)",
+    "error": {
+      "invalid": "주문번호와 이메일 주소를 확인하신 후 다시 시도해 주세요.",
+      "rate": "시도 횟수가 너무 많습니다. 잠시 후 다시 시도해 주세요.",
+      "server": "문제가 발생했습니다. 잠시 후 다시 시도하시거나 이메일로 연락해 주세요."
+    }
+  },
   "size_guide": {
     "japan_note": "일본 사이즈는 보통 1-2 사이즈 작습니다. 확신이 없을 때는 큰 사이즈를 선택하세요."
   }

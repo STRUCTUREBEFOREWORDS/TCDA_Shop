@@ -568,6 +568,26 @@
   "home": {
     "transcend": "TRANSCEND"
   },
+  "withdrawal": {
+    "title": "Droit de rétractation",
+    "intro": "Formulaire de rétractation pour les consommateurs de l'UE et du Royaume-Uni. Indiquez le numéro de commande à 8 caractères figurant dans votre e-mail de confirmation et l'adresse e-mail utilisée lors de l'achat.",
+    "orderRef": "Numéro de commande (8 caractères)",
+    "orderRefPlaceholder": "e.g. 1A2B3C4D",
+    "email": "E-mail utilisé lors de l'achat",
+    "emailPlaceholder": "you@example.com",
+    "message": "Message (facultatif)",
+    "messagePlaceholder": "Précisez ce que vous souhaitez nous communiquer",
+    "submit": "Envoyer la rétractation",
+    "submitting": "Envoi en cours...",
+    "successTitle": "Bien reçu",
+    "successBody": "Nous avons bien reçu votre demande et envoyé un e-mail de confirmation.",
+    "linkLabel": "Formulaire de rétractation (consommateurs UE/Royaume-Uni)",
+    "error": {
+      "invalid": "Veuillez vérifier le numéro de commande et l'adresse e-mail, puis réessayer.",
+      "rate": "Trop de tentatives. Veuillez patienter un instant avant de réessayer.",
+      "server": "Une erreur est survenue. Veuillez réessayer plus tard ou nous écrire par e-mail."
+    }
+  },
   "size_guide": {
     "japan_note": "Les tailles japonaises sont généralement 1 à 2 tailles plus petites. En cas de doute, prenez une taille au-dessus."
   }

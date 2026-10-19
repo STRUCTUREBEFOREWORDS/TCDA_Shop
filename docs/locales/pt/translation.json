@@ -568,6 +568,26 @@
   "home": {
     "transcend": "TRANSCEND"
   },
+  "withdrawal": {
+    "title": "Direito de arrependimento",
+    "intro": "Formulário de arrependimento para consumidores da UE e do Reino Unido. Informe o número do pedido de 8 caracteres do e-mail de confirmação e o e-mail usado na compra.",
+    "orderRef": "Número do pedido (8 caracteres)",
+    "orderRefPlaceholder": "e.g. 1A2B3C4D",
+    "email": "E-mail usado na compra",
+    "emailPlaceholder": "you@example.com",
+    "message": "Mensagem (opcional)",
+    "messagePlaceholder": "Algo que você queira nos informar",
+    "submit": "Enviar arrependimento",
+    "submitting": "Enviando...",
+    "successTitle": "Recebido",
+    "successBody": "Recebemos sua solicitação e enviamos um e-mail de confirmação.",
+    "linkLabel": "Formulário de arrependimento (consumidores da UE/Reino Unido)",
+    "error": {
+      "invalid": "Verifique o número do pedido e o e-mail e tente novamente.",
+      "rate": "Muitas tentativas. Aguarde um momento e tente novamente.",
+      "server": "Algo deu errado. Tente novamente mais tarde ou envie-nos um e-mail."
+    }
+  },
   "size_guide": {
     "japan_note": "Os tamanhos japoneses geralmente são 1-2 tamanhos menores. Em caso de dúvida, escolha um tamanho maior."
   }

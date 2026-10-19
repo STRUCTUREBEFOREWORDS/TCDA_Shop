@@ -568,6 +568,26 @@
   "home": {
     "transcend": "TRANSCEND"
   },
+  "withdrawal": {
+    "title": "Diritto di recesso",
+    "intro": "Modulo di recesso per i consumatori dell'UE e del Regno Unito. Inserisci il numero d'ordine di 8 caratteri indicato nell'email di conferma e l'indirizzo email usato per l'acquisto.",
+    "orderRef": "Numero d'ordine (8 caratteri)",
+    "orderRefPlaceholder": "e.g. 1A2B3C4D",
+    "email": "Email usata per l'acquisto",
+    "emailPlaceholder": "you@example.com",
+    "message": "Messaggio (facoltativo)",
+    "messagePlaceholder": "Qualsiasi cosa tu voglia farci sapere",
+    "submit": "Invia il recesso",
+    "submitting": "Invio in corso...",
+    "successTitle": "Ricevuto",
+    "successBody": "Abbiamo ricevuto la tua richiesta e inviato un'email di conferma.",
+    "linkLabel": "Modulo di recesso (consumatori UE/Regno Unito)",
+    "error": {
+      "invalid": "Controlla il numero d'ordine e l'indirizzo email e riprova.",
+      "rate": "Troppi tentativi. Attendi un momento e riprova.",
+      "server": "Qualcosa è andato storto. Riprova più tardi o scrivici via email."
+    }
+  },
   "size_guide": {
     "japan_note": "Le taglie giapponesi sono generalmente 1-2 taglie più piccole. In caso di dubbio, scegli la taglia superiore."
   }

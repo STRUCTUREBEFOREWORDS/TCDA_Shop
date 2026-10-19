@@ -568,6 +568,26 @@
   "home": {
     "transcend": "TRANSCEND"
   },
+  "withdrawal": {
+    "title": "Right of Withdrawal",
+    "intro": "Withdrawal form for consumers in the EU and UK. Enter the 8-character order number from your order confirmation email and the email address you used at purchase.",
+    "orderRef": "Order number (8 characters)",
+    "orderRefPlaceholder": "e.g. 1A2B3C4D",
+    "email": "Email used at purchase",
+    "emailPlaceholder": "you@example.com",
+    "message": "Message (optional)",
+    "messagePlaceholder": "Anything you would like us to know",
+    "submit": "Submit withdrawal",
+    "submitting": "Sending...",
+    "successTitle": "Received",
+    "successBody": "We have received your request and sent a confirmation email.",
+    "linkLabel": "Withdrawal form (EU/UK consumers)",
+    "error": {
+      "invalid": "Please check the order number and email address and try again.",
+      "rate": "Too many attempts. Please wait a moment and try again.",
+      "server": "Something went wrong. Please try again later or email us."
+    }
+  },
   "size_guide": {
     "japan_note": "Japanese sizes typically run 1–2 sizes smaller. When in doubt, size up."
   }

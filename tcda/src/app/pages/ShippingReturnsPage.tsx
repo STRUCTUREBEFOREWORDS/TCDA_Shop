@@ -99,6 +99,12 @@ export function ShippingReturnsPage() {
           <p className="text-white/35 text-xs font-light leading-relaxed">
             {t("shippingReturns.returnsNote")}
           </p>
+          <Link
+            to={`/${language}/withdrawal`}
+            className="inline-block mt-4 text-white/60 text-xs font-light tracking-widest hover:text-white transition-colors duration-200"
+          >
+            {t("withdrawal.linkLabel")} →
+          </Link>
         </motion.div>
 
         {/* Contact */}
