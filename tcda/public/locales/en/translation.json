@@ -96,6 +96,7 @@
     "quickView": "Quick View",
     "added": "Added",
     "taxNote": "Taxes calculated at checkout",
+    "customsNote": "Customs duties and import taxes are not included.",
     "shippingNote": "Free shipping",
     "checkoutError": "Checkout failed. Please try again."
   },
@@ -350,7 +351,7 @@
     "contactTitle": "Contact Us",
     "contactBody": "For any other questions, please reach out at the address below.",
     "customsTitle": "Customs and Import Duties",
-    "customsBody": "Products ship from the US or Europe. Depending on your country, customs duties, import taxes, or handling fees may apply. These charges are the customer's responsibility. Please consult your local customs regulations for details."
+    "customsBody": "Products ship from the US or Europe. Prices do not include customs duties, import taxes or VAT. Depending on your country, these may be charged by customs on delivery and are the customer's responsibility. Please check your local customs regulations for details."
   },
   "contact": {
     "title": "Contact",

@@ -96,6 +96,7 @@
     "quickView": "Aperçu rapide",
     "added": "Ajouté",
     "taxNote": "Taxes calculées lors du paiement",
+    "customsNote": "Les droits de douane et taxes à l'importation ne sont pas inclus.",
     "shippingNote": "Livraison gratuite",
     "checkoutError": "Le paiement a échoué. Veuillez réessayer."
   },
@@ -350,7 +351,7 @@
     "contactTitle": "Nous contacter",
     "contactBody": "Pour toute autre question, contactez-nous à l'adresse ci-dessous.",
     "customsTitle": "Droits de Douane et d'Importation",
-    "customsBody": "Les produits sont expédiés depuis les États-Unis ou l'Europe. Selon votre pays, des droits de douane, taxes à l'importation ou frais de traitement peuvent s'appliquer. Ces frais sont à la charge du client. Veuillez consulter votre réglementation douanière locale pour plus de détails."
+    "customsBody": "Les produits sont expédiés depuis les États-Unis ou l'Europe. Les prix n'incluent pas les droits de douane, les taxes à l'importation ni la TVA. Selon votre pays, ces frais peuvent être facturés par les douanes à la livraison et sont à la charge du client. Veuillez consulter la réglementation douanière locale pour plus de détails."
   },
   "contact": {
     "title": "Contact",

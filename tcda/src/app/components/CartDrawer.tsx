@@ -190,7 +190,14 @@ export function CartDrawer() {
                   </span>
                 </div>
                 <p className="text-white/30 text-[10px] font-light tracking-wide text-right -mt-2">
-                  {t("cart.shippingNote")} · {t("cart.taxNote")}
+                  {t("cart.shippingNote")} · {t("cart.taxNote")} ·{" "}
+                  <Link
+                    to={`/${language}/shipping-returns`}
+                    onClick={() => setIsCartOpen(false)}
+                    className="underline hover:text-white/60 transition-colors duration-300"
+                  >
+                    {t("cart.customsNote")}
+                  </Link>
                 </p>
                 <button
                   onClick={async () => {

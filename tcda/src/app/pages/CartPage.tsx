@@ -158,6 +158,15 @@ export function CartPage() {
                 </span>
               </div>
 
+              <p className="text-white/30 text-[10px] font-light tracking-wide text-right -mt-2">
+                <Link
+                  to={`/${language}/shipping-returns`}
+                  className="underline hover:text-white/60 transition-colors duration-300"
+                >
+                  {t("cart.customsNote")}
+                </Link>
+              </p>
+
               <button
                 onClick={handleCheckout}
                 className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.25em] uppercase hover:bg-white transition-colors duration-300"

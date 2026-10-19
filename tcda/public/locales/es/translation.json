@@ -96,6 +96,7 @@
     "quickView": "Vista rápida",
     "added": "Agregado",
     "taxNote": "Impuestos calculados al pagar",
+    "customsNote": "Los derechos de aduana y los impuestos de importación no están incluidos.",
     "shippingNote": "Envío gratis",
     "checkoutError": "El pago falló. Por favor, inténtelo de nuevo."
   },
@@ -350,7 +351,7 @@
     "contactTitle": "Contacto",
     "contactBody": "Para cualquier otra consulta, escríbenos a la dirección indicada a continuación.",
     "customsTitle": "Aduanas e Impuestos de Importación",
-    "customsBody": "Los productos se envían desde EE.UU. o Europa. Según tu país, pueden aplicarse derechos de aduana, impuestos de importación o gastos de gestión. Estos cargos son responsabilidad del cliente. Por favor, consulta las regulaciones aduaneras locales para más detalles."
+    "customsBody": "Los productos se envían desde EE.UU. o Europa. Los precios no incluyen los derechos de aduana, los impuestos de importación ni el IVA. Según tu país, la aduana puede cobrarlos en el momento de la entrega y corren a cargo del cliente. Consulta la normativa aduanera de tu país para más detalles."
   },
   "contact": {
     "title": "Contacto",
