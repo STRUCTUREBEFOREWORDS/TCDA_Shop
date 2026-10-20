@@ -347,7 +347,7 @@
     "returnsCondition": "Eligible cases: damaged, misprinted, or incorrectly shipped items only",
     "returnsPeriod": "Timeframe: contact us within 14 days of receiving your order",
     "returnsMethod": "Resolution: replacement or refund after verification",
-    "returnsNote": "Except for the statutory rights described below, returns due to size preference or change of mind are not accepted. EU/UK consumers: you have a statutory 14-day right of withdrawal from delivery. Contact us within 14 days; return shipping is at the customer's cost. Australian consumers: our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and compensation for any other reasonably foreseeable loss or damage. You are also entitled to have the goods repaired or replaced if the goods fail to be of acceptable quality and the failure does not amount to a major failure.",
+    "returnsNote": "Except for the statutory rights described below, returns due to size preference or change of mind are not accepted. EU/UK consumers: you have a statutory 14-day right of withdrawal from delivery. Contact us within 14 days; return shipping is at the customer's cost. We will reimburse all payments, including standard delivery costs, without undue delay and no later than 14 days after we are informed of your decision to withdraw. We may withhold reimbursement until we have received the goods back or you have supplied evidence of having sent them back, whichever is earlier. Australian consumers: our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and compensation for any other reasonably foreseeable loss or damage. You are also entitled to have the goods repaired or replaced if the goods fail to be of acceptable quality and the failure does not amount to a major failure.",
     "contactTitle": "Contact Us",
     "contactBody": "For any other questions, please reach out at the address below.",
     "customsTitle": "Customs and Import Duties",
@@ -446,7 +446,7 @@
       },
       "returns": {
         "label": "Returns & Exchanges",
-        "value": "Due to the nature of our products, cancellations, returns, and exchanges are generally not accepted after order confirmation. However, EU/UK consumers have a statutory 14-day right of withdrawal from delivery; return shipping is at the customer's cost. Exceptions apply for damaged items, printing defects, or misdelivery — contact info@tcdashop.com within 14 days of receipt. A replacement or refund will be arranged."
+        "value": "Due to the nature of our products, cancellations, returns, and exchanges are generally not accepted after order confirmation. However, EU/UK consumers have a statutory 14-day right of withdrawal from delivery; return shipping is at the customer's cost. We will reimburse all payments, including standard delivery costs, without undue delay and no later than 14 days after we are informed of your decision to withdraw. We may withhold reimbursement until we have received the goods back or you have supplied evidence of having sent them back, whichever is earlier. Exceptions apply for damaged items, printing defects, or misdelivery — contact info@tcdashop.com within 14 days of receipt. A replacement or refund will be arranged."
       },
       "quantity": {
         "label": "Available Quantity",
