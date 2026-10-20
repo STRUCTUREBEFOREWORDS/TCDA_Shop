@@ -69,11 +69,11 @@
     "fabricOrigin": "原産地",
     "fabricComposition": "100%ポリエステル、昇華プリント。冷水で洗濯機可。乾燥機不可。",
     "origin": {
-      "mexicoPolandMexico": "メキシコ製（ポーランド・メキシコ産素材）",
-      "euChinaPoland": "EU製（中国・ポーランド産素材）",
-      "euLithuania": "EU製（リトアニア産）",
-      "usUs": "アメリカ製",
-      "chinaUsa": "中国・アメリカ産素材使用",
+      "mexicoPolandMexico": "メキシコのブランク商品の素材はポーランド・メキシコから調達",
+      "euChinaPoland": "EUのブランク商品の素材は中国・ポーランドから調達",
+      "euLithuania": "EUのブランク商品の素材はリトアニアから調達",
+      "usUs": "米国のブランク商品の素材は米国から調達",
+      "chinaUsa": "ブランク商品の素材は中国・米国から調達",
       "chinaProduct": "中国から調達したブランク商品",
       "chinaComponents": "ブランク商品の素材は中国から調達"
     },

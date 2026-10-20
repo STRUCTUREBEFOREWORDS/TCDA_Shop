@@ -69,11 +69,11 @@
     "fabricOrigin": "Origine",
     "fabricComposition": "100% polyester, impression par sublimation. Lavage machine à froid. Ne pas sécher en machine.",
     "origin": {
-      "mexicoPolandMexico": "Fabriqué au Mexique (matériaux de Pologne et Mexique)",
-      "euChinaPoland": "Fabriqué dans l'UE (matériaux de Chine et Pologne)",
-      "euLithuania": "Fabriqué dans l'UE (Lituanie)",
-      "usUs": "Fabriqué aux États-Unis",
-      "chinaUsa": "Matériaux de Chine et États-Unis",
+      "mexicoPolandMexico": "Matériaux du produit vierge au Mexique provenant de Pologne et du Mexique",
+      "euChinaPoland": "Matériaux du produit vierge dans l'UE provenant de Chine et de Pologne",
+      "euLithuania": "Matériaux du produit vierge dans l'UE provenant de Lituanie",
+      "usUs": "Matériaux du produit vierge aux États-Unis provenant des États-Unis",
+      "chinaUsa": "Matériaux du produit vierge provenant de Chine et des États-Unis",
       "chinaProduct": "Produit vierge provenant de Chine",
       "chinaComponents": "Matériaux du produit vierge provenant de Chine"
     },
