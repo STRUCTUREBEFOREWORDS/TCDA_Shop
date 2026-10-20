@@ -856,7 +856,13 @@ export function ProductPage() {
               "Blank product components in the EU sourced from Lithuania": "product.origin.euLithuania",
               "Blank product components in the US sourced from the US": "product.origin.usUs",
               "Blank product components sourced from China and the USA": "product.origin.chinaUsa",
+              "Blank product components sourced from China and the US": "product.origin.chinaUsa",
+              "Blank product sourced from China": "product.origin.chinaProduct",
+              "Blank product components sourced from China": "product.origin.chinaComponents",
+              "Blank components sourced from China": "product.origin.chinaComponents",
             };
+            const normOrigin = (s: string) => s.trim().toLowerCase().replace(/\.+$/, "");
+            const ORIGIN_MAP_N = Object.fromEntries(Object.entries(ORIGIN_MAP).map(([k, v]) => [normOrigin(k), v]));
             const getLocalizedList = (field: string[] | Record<string, string[]> | undefined): string[] => {
               if (!field) return [];
               if (Array.isArray(field)) return field;
@@ -919,7 +925,7 @@ export function ProductPage() {
                   <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricOrigin")}</span>
                   <ul className="space-y-1">
                     {origin.map((o, i) => {
-                      const key = ORIGIN_MAP[o];
+                      const key = ORIGIN_MAP_N[normOrigin(o)];
                       return <li key={i}>{key ? t(key) : o}</li>;
                     })}
                   </ul>

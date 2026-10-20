@@ -73,7 +73,9 @@
       "euChinaPoland": "EU 제조 (중국·폴란드 소재)",
       "euLithuania": "EU 제조 (리투아니아산)",
       "usUs": "미국 제조",
-      "chinaUsa": "중국·미국산 소재 사용"
+      "chinaUsa": "중국·미국산 소재 사용",
+      "chinaProduct": "중국에서 조달한 블랭크 제품",
+      "chinaComponents": "블랭크 제품 소재는 중국에서 조달"
     },
     "around": "경",
     "deliveryEstimate": "예상 배송: 2~4주",

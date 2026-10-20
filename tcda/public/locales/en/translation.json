@@ -73,7 +73,9 @@
       "euChinaPoland": "Made in EU (materials from China & Poland)",
       "euLithuania": "Made in EU (Lithuania)",
       "usUs": "Made in USA",
-      "chinaUsa": "Materials from China & USA"
+      "chinaUsa": "Materials from China & USA",
+      "chinaProduct": "Blank product sourced from China",
+      "chinaComponents": "Blank product materials sourced from China"
     },
     "around": "approx.",
     "deliveryEstimate": "Estimated: 2–4 weeks",

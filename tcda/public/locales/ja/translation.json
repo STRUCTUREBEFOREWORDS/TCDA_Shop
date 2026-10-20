@@ -73,7 +73,9 @@
       "euChinaPoland": "EU製（中国・ポーランド産素材）",
       "euLithuania": "EU製（リトアニア産）",
       "usUs": "アメリカ製",
-      "chinaUsa": "中国・アメリカ産素材使用"
+      "chinaUsa": "中国・アメリカ産素材使用",
+      "chinaProduct": "中国から調達したブランク商品",
+      "chinaComponents": "ブランク商品の素材は中国から調達"
     },
     "around": "頃",
     "deliveryEstimate": "お届け目安：2〜4週間",

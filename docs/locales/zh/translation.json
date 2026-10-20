@@ -73,7 +73,9 @@
       "euChinaPoland": "欧盟制造（中国·波兰原材料）",
       "euLithuania": "欧盟制造（立陶宛产）",
       "usUs": "美国制造",
-      "chinaUsa": "中国·美国原材料"
+      "chinaUsa": "中国·美国原材料",
+      "chinaProduct": "空白产品采购自中国",
+      "chinaComponents": "空白产品原材料采购自中国"
     },
     "around": "左右",
     "deliveryEstimate": "预计：2–4周",

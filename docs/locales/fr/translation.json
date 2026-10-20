@@ -73,7 +73,9 @@
       "euChinaPoland": "Fabriqué dans l'UE (matériaux de Chine et Pologne)",
       "euLithuania": "Fabriqué dans l'UE (Lituanie)",
       "usUs": "Fabriqué aux États-Unis",
-      "chinaUsa": "Matériaux de Chine et États-Unis"
+      "chinaUsa": "Matériaux de Chine et États-Unis",
+      "chinaProduct": "Produit vierge provenant de Chine",
+      "chinaComponents": "Matériaux du produit vierge provenant de Chine"
     },
     "around": "approx.",
     "deliveryEstimate": "Délai estimé : 2–4 semaines",
