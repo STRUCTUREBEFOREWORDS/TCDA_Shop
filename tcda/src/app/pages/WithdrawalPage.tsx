@@ -6,6 +6,7 @@ import { useGlobalContext } from "./Root";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 type ErrorKind = "invalid" | "rate" | "server";
+type Step = "edit" | "confirm";
 
 export function WithdrawalPage() {
   const { t } = useTranslation();
@@ -13,10 +14,19 @@ export function WithdrawalPage() {
 
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorKind, setErrorKind] = useState<ErrorKind>("server");
+  const [step, setStep] = useState<Step>("edit");
+  const [name, setName] = useState("");
   const [orderRef, setOrderRef] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [hp, setHp] = useState(""); // honeypot
+
+  function handleReview(e: React.FormEvent) {
+    e.preventDefault();
+    if (formState === "submitting") return;
+    setFormState("idle");
+    setStep("confirm");
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -28,6 +38,7 @@ export function WithdrawalPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name: name.trim(),
           order_ref: orderRef.trim(),
           email: email.trim(),
           message,
@@ -106,7 +117,7 @@ export function WithdrawalPage() {
           {formState !== "success" && (
             <motion.form
               key="form"
-              onSubmit={handleSubmit}
+              onSubmit={step === "edit" ? handleReview : handleSubmit}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
@@ -125,47 +136,90 @@ export function WithdrawalPage() {
                 />
               </div>
 
-              {/* Order reference */}
-              <div>
-                <label className={labelClass}>{t("withdrawal.orderRef")}</label>
-                <input
-                  type="text"
-                  required
-                  maxLength={8}
-                  pattern="[0-9A-Fa-f]{8}"
-                  autoComplete="off"
-                  value={orderRef}
-                  onChange={(e) => setOrderRef(e.target.value.replace(/[^0-9A-Fa-f]/g, "").slice(0, 8))}
-                  placeholder={t("withdrawal.orderRefPlaceholder")}
-                  className={`${inputClass} uppercase`}
-                />
-              </div>
+              {step === "edit" ? (
+                <>
+                  {/* Name */}
+                  <div>
+                    <label className={labelClass}>{t("withdrawal.name")}</label>
+                    <input
+                      type="text"
+                      required
+                      maxLength={200}
+                      pattern=".*\S.*"
+                      autoComplete="name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder={t("withdrawal.namePlaceholder")}
+                      className={inputClass}
+                    />
+                  </div>
 
-              {/* Email */}
-              <div>
-                <label className={labelClass}>{t("withdrawal.email")}</label>
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t("withdrawal.emailPlaceholder")}
-                  className={inputClass}
-                />
-              </div>
+                  {/* Order reference */}
+                  <div>
+                    <label className={labelClass}>{t("withdrawal.orderRef")}</label>
+                    <input
+                      type="text"
+                      required
+                      maxLength={8}
+                      pattern="[0-9A-Fa-f]{8}"
+                      autoComplete="off"
+                      value={orderRef}
+                      onChange={(e) => setOrderRef(e.target.value.replace(/[^0-9A-Fa-f]/g, "").slice(0, 8))}
+                      placeholder={t("withdrawal.orderRefPlaceholder")}
+                      className={`${inputClass} uppercase`}
+                    />
+                  </div>
 
-              {/* Message */}
-              <div>
-                <label className={labelClass}>{t("withdrawal.message")}</label>
-                <textarea
-                  rows={5}
-                  maxLength={2000}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder={t("withdrawal.messagePlaceholder")}
-                  className={`${inputClass} resize-none`}
-                />
-              </div>
+                  {/* Email */}
+                  <div>
+                    <label className={labelClass}>{t("withdrawal.email")}</label>
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder={t("withdrawal.emailPlaceholder")}
+                      className={inputClass}
+                    />
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className={labelClass}>{t("withdrawal.message")}</label>
+                    <textarea
+                      rows={5}
+                      maxLength={2000}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder={t("withdrawal.messagePlaceholder")}
+                      className={`${inputClass} resize-none`}
+                    />
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Confirmation (read-only) */}
+                  <div className="space-y-2">
+                    <p className="text-white text-sm font-light tracking-widest uppercase">
+                      {t("withdrawal.confirmTitle")}
+                    </p>
+                    <p className="text-white/50 text-sm font-light leading-relaxed">
+                      {t("withdrawal.confirmIntro")}
+                    </p>
+                  </div>
+                  {([
+                    ["withdrawal.name", name.trim()],
+                    ["withdrawal.orderRef", orderRef.toUpperCase()],
+                    ["withdrawal.email", email.trim()],
+                    ["withdrawal.message", message.trim() || "—"],
+                  ] as const).map(([labelKey, value]) => (
+                    <div key={labelKey}>
+                      <p className={labelClass}>{t(labelKey)}</p>
+                      <p className="text-white text-sm font-light break-words whitespace-pre-wrap">{value}</p>
+                    </div>
+                  ))}
+                </>
+              )}
 
               {/* Error state */}
               {formState === "error" && (
@@ -183,13 +237,33 @@ export function WithdrawalPage() {
               )}
 
               {/* Submit */}
-              <button
-                type="submit"
-                disabled={formState === "submitting"}
-                className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-40"
-              >
-                {formState === "submitting" ? t("withdrawal.submitting") : t("withdrawal.submit")}
-              </button>
+              {step === "edit" ? (
+                <button
+                  key="review"
+                  type="submit"
+                  className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300"
+                >
+                  {t("withdrawal.review")}
+                </button>
+              ) : (
+                <div key="actions" className="space-y-3">
+                  <button
+                    type="submit"
+                    disabled={formState === "submitting"}
+                    className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-40"
+                  >
+                    {formState === "submitting" ? t("withdrawal.submitting") : t("withdrawal.confirm")}
+                  </button>
+                  <button
+                    type="button"
+                    disabled={formState === "submitting"}
+                    onClick={() => { setFormState("idle"); setStep("edit"); }}
+                    className="w-full py-4 border border-white/15 text-white/60 text-xs font-light tracking-[0.3em] uppercase hover:border-white/40 hover:text-white transition-colors duration-200 disabled:opacity-40"
+                  >
+                    {t("withdrawal.edit")}
+                  </button>
+                </div>
+              )}
             </motion.form>
           )}
         </AnimatePresence>
