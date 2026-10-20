@@ -689,9 +689,9 @@ export function ProductPage() {
                   aria-disabled={!selectedSize}
                   className="w-full text-xs uppercase"
                   style={{
-                    background: "transparent",
-                    color: "var(--color-text)",
-                    border: "1px solid rgba(255,255,255,0.5)",
+                    background: "var(--accent-electric)",
+                    color: "#080808",
+                    border: "1px solid var(--accent-electric)",
                     fontFamily: "var(--font-body)",
                     letterSpacing: "var(--ls-nav)",
                     transition: "var(--transition-base)",
@@ -700,14 +700,12 @@ export function ProductPage() {
                     opacity: selectedSize ? 1 : 0.6,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#ffffff";
-                    e.currentTarget.style.color = "#000000";
-                    e.currentTarget.style.borderColor = "#ffffff";
+                    e.currentTarget.style.background = "var(--color-accent-hover)";
+                    e.currentTarget.style.borderColor = "var(--color-accent-hover)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.color = "var(--color-text)";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)";
+                    e.currentTarget.style.background = "var(--accent-electric)";
+                    e.currentTarget.style.borderColor = "var(--accent-electric)";
                   }}
                 >
                   {added ? t("cart.added") : t("cart.addToCart")}
@@ -821,9 +819,9 @@ export function ProductPage() {
             aria-disabled={!selectedSize}
             className="w-full text-xs uppercase"
             style={{
-              background: "transparent",
-              color: "var(--color-text)",
-              border: "1px solid rgba(255,255,255,0.5)",
+              background: "var(--accent-electric)",
+              color: "#080808",
+              border: "1px solid var(--accent-electric)",
               fontFamily: "var(--font-body)",
               letterSpacing: "var(--ls-nav)",
               transition: "var(--transition-base)",
