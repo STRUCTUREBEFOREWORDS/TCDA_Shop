@@ -416,11 +416,11 @@ export function ProductPage() {
     <div className="pt-4 lg:pt-20 pb-24 lg:pb-0" style={{ background: "var(--color-bg)", color: "var(--color-text)" }}>
       <Helmet>
         <title>{`${product.name} — TCDA`}</title>
-        <meta name="description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Worldwide shipping from Japan.`} />
+        <meta name="description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Ships to Japan, the US, Canada, Australia, France and Germany.`} />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="product" />
         <meta property="og:title" content={`${product.name} — TCDA`} />
-        <meta property="og:description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Worldwide shipping from Japan.`} />
+        <meta property="og:description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Ships to Japan, the US, Canada, Australia, France and Germany.`} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={product.images?.[0] || product.thumbnail_url} />
         <meta property="og:site_name" content="TCDA" />
@@ -428,7 +428,7 @@ export function ProductPage() {
         <meta property="product:price:currency" content="JPY" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${product.name} — TCDA`} />
-        <meta name="twitter:description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Worldwide shipping from Japan.`} />
+        <meta name="twitter:description" content={product.meta_description || `${product.name} — ${product.category ? product.category.toUpperCase() : 'APPAREL'} by TCDA. Ships to Japan, the US, Canada, Australia, France and Germany.`} />
         <meta name="twitter:image" content={product.images?.[0] || product.thumbnail_url} />
       </Helmet>
       <JsonLd type="Product" data={{
