@@ -219,8 +219,6 @@ export function ProductPage() {
     window.scrollTo({ top: 0, behavior: "instant" });
     setLoading(true);
     setSizeChart(null);
-    setSelectedSize(null);
-    setSizeError(false);
     fetch(`https://api.tcdashop.com/products/${id}?lang=${language}`)
       .then((res) => { if (!res.ok) throw new Error(`API ${res.status}`); return res.json(); })
       .then(async (data: Product) => {
@@ -275,6 +273,11 @@ export function ProductPage() {
       })
       .finally(() => setLoading(false));
   }, [id, countryCode, language]);
+
+  useEffect(() => {
+    setSelectedSize(null);
+    setSizeError(false);
+  }, [id]);
 
   useEffect(() => {
     if (!id) return;
