@@ -79,7 +79,11 @@
     },
     "around": "approx.",
     "deliveryEstimate": "Estimated: 2–4 weeks",
-    "deliveryUnavailable": "Shipping not available in your region"
+    "deliveryUnavailable": "Shipping not available in your region",
+    "cert": {
+      "grs": "The recycled content of this product is certified under GRS (Global Recycled Standard)",
+      "oekoTex": "The fabric is OEKO-TEX 100 standard certified"
+    }
   },
   "cart": {
     "addToCart": "Add to Cart",

@@ -79,7 +79,11 @@
     },
     "around": "頃",
     "deliveryEstimate": "お届け目安：2〜4週間",
-    "deliveryUnavailable": "この国への配送はお受けできません"
+    "deliveryUnavailable": "この国への配送はお受けできません",
+    "cert": {
+      "grs": "この製品の再生素材は GRS（グローバル・リサイクル・スタンダード）の認証を受けています",
+      "oekoTex": "この生地は OEKO-TEX 100 規格の認証を受けています"
+    }
   },
   "cart": {
     "addToCart": "カートに追加",

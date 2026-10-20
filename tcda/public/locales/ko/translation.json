@@ -79,7 +79,11 @@
     },
     "around": "경",
     "deliveryEstimate": "예상 배송: 2~4주",
-    "deliveryUnavailable": "해당 지역으로는 배송이 불가합니다"
+    "deliveryUnavailable": "해당 지역으로는 배송이 불가합니다",
+    "cert": {
+      "grs": "이 제품의 재활용 소재는 GRS(글로벌 리사이클 스탠더드) 인증을 받았습니다",
+      "oekoTex": "이 원단은 OEKO-TEX 100 표준 인증을 받았습니다"
+    }
   },
   "cart": {
     "addToCart": "카트에 추가",

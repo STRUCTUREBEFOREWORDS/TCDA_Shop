@@ -79,7 +79,11 @@
     },
     "around": "左右",
     "deliveryEstimate": "预计：2–4周",
-    "deliveryUnavailable": "该地区暂不支持配送"
+    "deliveryUnavailable": "该地区暂不支持配送",
+    "cert": {
+      "grs": "本产品的再生成分已通过 GRS（全球回收标准）认证",
+      "oekoTex": "该面料已通过 OEKO-TEX 100 标准认证"
+    }
   },
   "cart": {
     "addToCart": "加入购物车",

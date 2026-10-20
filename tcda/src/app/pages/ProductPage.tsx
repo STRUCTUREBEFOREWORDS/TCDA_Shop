@@ -863,6 +863,11 @@ export function ProductPage() {
             };
             const normOrigin = (s: string) => s.trim().toLowerCase().replace(/\.+$/, "");
             const ORIGIN_MAP_N = Object.fromEntries(Object.entries(ORIGIN_MAP).map(([k, v]) => [normOrigin(k), v]));
+            const CERT_MAP: Record<string, string> = {
+              "The recycled content of this product is certified under GRS (Global Recycled Standard)": "product.cert.grs",
+              "The fabric is OEKO-TEX 100 standard certified": "product.cert.oekoTex",
+            };
+            const CERT_MAP_N = Object.fromEntries(Object.entries(CERT_MAP).map(([k, v]) => [normOrigin(k), v]));
             const getLocalizedList = (field: string[] | Record<string, string[]> | undefined): string[] => {
               if (!field) return [];
               if (Array.isArray(field)) return field;
@@ -917,7 +922,7 @@ export function ProductPage() {
               {(product.fabric_detail.certifications?.length ?? 0) > 0 && (
                 <div className="flex gap-4">
                   <span className="shrink-0 uppercase tracking-[0.15em]" style={{ color: "var(--color-text-tertiary)", minWidth: "90px" }}>{t("product.fabricCertifications")}</span>
-                  <span>{product.fabric_detail.certifications!.join(", ")}</span>
+                  <span>{product.fabric_detail.certifications!.map((c) => { const k = CERT_MAP_N[normOrigin(c)]; return k ? t(k) : c; }).join(", ")}</span>
                 </div>
               )}
               {origin.length > 0 && (
