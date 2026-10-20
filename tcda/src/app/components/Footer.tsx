@@ -94,7 +94,7 @@ export function Footer() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="opacity-50 hover:opacity-70 transition-opacity"
+            className="opacity-70 hover:opacity-100 transition-opacity"
           >
             <img src={icon} alt={label} width={24} height={24} />
           </a>

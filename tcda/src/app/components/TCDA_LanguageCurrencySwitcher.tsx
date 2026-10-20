@@ -103,7 +103,7 @@ export function TCDA_LanguageCurrencySwitcher({
             onClick={() => onLanguageChange(code)}
             title={code.toUpperCase()}
             className={`transition-opacity duration-300 ${
-              language === code ? "opacity-100" : "opacity-30 hover:opacity-60"
+              language === code ? "opacity-100" : "opacity-60 hover:opacity-100"
             }`}
           >
             <img src={flag} alt={code} className="w-5 h-auto" />
@@ -116,9 +116,13 @@ export function TCDA_LanguageCurrencySwitcher({
             key={curr}
             onClick={() => onCurrencyChange(curr)}
             title={curr}
-            className={`text-[13px] font-light transition-opacity duration-300 ${
-              currency === curr ? "opacity-100" : "opacity-30 hover:opacity-60"
-            }`}
+            className="text-[13px] font-light transition-colors duration-300"
+            style={{
+              color: currency === curr ? "var(--color-text)" : "var(--color-text-secondary)",
+              ...(currency === curr ? { textDecoration: "underline", textUnderlineOffset: "4px" } : {}),
+            }}
+            onMouseEnter={(e) => { if (currency !== curr) e.currentTarget.style.color = "var(--color-text)"; }}
+            onMouseLeave={(e) => { if (currency !== curr) e.currentTarget.style.color = "var(--color-text-secondary)"; }}
           >
             {CURRENCY_SYMBOLS[curr]}
           </button>
