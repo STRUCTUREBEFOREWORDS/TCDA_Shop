@@ -1,6 +1,6 @@
 import { Language, Currency } from "../types";
 import { CURRENCIES } from "../../utils/currencyResolver";
-import gbFlag from "../../assets/flags/gb.svg";
+import usFlag from "../../assets/flags/us.svg";
 import jpFlag from "../../assets/flags/jp.svg";
 import frFlag from "../../assets/flags/fr.svg";
 import esFlag from "../../assets/flags/es.svg";
@@ -23,7 +23,7 @@ interface Props {
 }
 
 const LANGUAGES: { code: Language; flag: string }[] = [
-  { code: "en", flag: gbFlag },
+  { code: "en", flag: usFlag },
   { code: "ja", flag: jpFlag },
   { code: "fr", flag: frFlag },
   { code: "es", flag: esFlag },
