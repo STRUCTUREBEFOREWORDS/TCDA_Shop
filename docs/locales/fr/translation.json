@@ -388,7 +388,7 @@
       },
       "legalBasis": {
         "title": "2. Base juridique du traitement",
-        "body": "Nous traitons vos données pour exécuter notre contrat avec vous (commandes, livraison, rétractations et remboursements) et pour respecter nos obligations légales, comme la tenue des registres comptables et fiscaux. Nous nous appuyons aussi sur nos intérêts légitimes en matière de sécurité, de prévention de la fraude et de limitation du débit des requêtes. Pour les cookies d'analyse et la newsletter, nous nous fondons sur votre consentement."
+        "body": "Nous traitons vos données pour exécuter notre contrat avec vous (commandes, livraison, rétractations et remboursements) et pour respecter nos obligations légales, comme la tenue des registres comptables et fiscaux. Nous nous appuyons aussi sur nos intérêts légitimes en matière de sécurité, de prévention de la fraude et de limitation du débit des requêtes. Pour les cookies d'analyse et de publicité, ainsi que pour la newsletter, nous nous fondons sur votre consentement."
       },
       "dataUsage": {
         "title": "3. Utilisation des données",
@@ -396,7 +396,7 @@
       },
       "thirdParty": {
         "title": "4. Partage avec des tiers",
-        "body": "Pour fournir notre service, nous communiquons les données nécessaires à Printful (fabrication et expédition), Stripe (paiements), Resend (e-mails transactionnels), Cloudflare (réseau et sécurité), notre hébergeur de serveurs au Japon, Anthropic (traduction des adresses de livraison japonaises, y compris le nom du destinataire, pour les commandes expédiées au Japon) et Sentry (surveillance des erreurs, avec masquage des données personnelles). Pour l'analyse d'audience, nous utilisons Google Analytics et Microsoft Clarity (voir Cookies). Nous ne partageons de données avec personne d'autre, sauf obligation légale."
+        "body": "Pour fournir notre service, nous communiquons les données nécessaires à Printful (fabrication et expédition), Stripe (paiements), Resend (e-mails transactionnels), Cloudflare (réseau et sécurité), notre hébergeur de serveurs au Japon, Anthropic (traduction des adresses de livraison japonaises, y compris le nom du destinataire, pour les commandes expédiées au Japon) et Sentry (surveillance des erreurs, avec masquage des données personnelles). Pour l'analyse d'audience et la mesure publicitaire, nous utilisons Google Analytics, le Pixel Meta (Meta Platforms) et Microsoft Clarity (voir Cookies). Nous ne partageons de données avec personne d'autre, sauf obligation légale."
       },
       "transfers": {
         "title": "5. Transferts internationaux",
@@ -408,7 +408,7 @@
       },
       "cookies": {
         "title": "7. Cookies",
-        "body": "Ce site utilise Google Analytics (GA4, via Google Tag Manager) et Microsoft Clarity (analyse d'usage, y compris des enregistrements de l'utilisation des pages). Si vous vous trouvez dans l'UE, l'EEE, au Royaume-Uni ou en Suisse, un bandeau demande votre consentement et les cookies d'analyse ne sont pas déposés avant votre acceptation. Ailleurs, l'analyse est active par défaut. Vous pouvez bloquer les cookies dans votre navigateur sans que cela affecte votre navigation."
+        "body": "Ce site utilise Google Analytics (GA4, via Google Tag Manager), le Pixel Meta (mesure de la publicité et des conversions) et Microsoft Clarity (analyse d'usage, y compris des enregistrements de l'utilisation des pages). Si vous vous trouvez dans l'UE, l'EEE, au Royaume-Uni ou en Suisse, un bandeau demande votre consentement et les cookies d'analyse et de publicité ne sont pas déposés avant votre acceptation. Ailleurs, ils sont actifs par défaut. Vous pouvez bloquer les cookies dans votre navigateur sans que cela affecte votre navigation."
       },
       "security": {
         "title": "8. Sécurité des données",

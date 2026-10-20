@@ -388,7 +388,7 @@
       },
       "legalBasis": {
         "title": "2. Rechtsgrundlagen der Verarbeitung",
-        "body": "Wir verarbeiten deine Daten zur Erfüllung unseres Vertrags mit dir (Bestellung, Versand, Widerruf und Erstattung) und zur Erfüllung rechtlicher Pflichten wie Buchführungs- und Steueraufzeichnungen. Außerdem stützen wir uns auf unsere berechtigten Interessen an Sicherheit, Betrugsprävention und Ratenbegrenzung. Für Analyse-Cookies und den Newsletter stützen wir uns auf deine Einwilligung."
+        "body": "Wir verarbeiten deine Daten zur Erfüllung unseres Vertrags mit dir (Bestellung, Versand, Widerruf und Erstattung) und zur Erfüllung rechtlicher Pflichten wie Buchführungs- und Steueraufzeichnungen. Außerdem stützen wir uns auf unsere berechtigten Interessen an Sicherheit, Betrugsprävention und Ratenbegrenzung. Für Analyse- und Werbe-Cookies sowie den Newsletter stützen wir uns auf deine Einwilligung."
       },
       "dataUsage": {
         "title": "3. Verwendung deiner Daten",
@@ -396,7 +396,7 @@
       },
       "thirdParty": {
         "title": "4. Weitergabe an Dritte",
-        "body": "Zur Bereitstellung unseres Dienstes geben wir die notwendigen Daten an Printful (Herstellung und Versand), Stripe (Zahlungen), Resend (Transaktions-E-Mails), Cloudflare (Netzwerk und Sicherheit), unseren Server-Hosting-Anbieter in Japan, Anthropic (Übersetzung japanischer Lieferadressen einschließlich des Empfängernamens bei Bestellungen nach Japan) und Sentry (Fehlerüberwachung, personenbezogene Daten werden maskiert) weiter. Für die Analyse nutzen wir Google Analytics und Microsoft Clarity (siehe Cookies). Darüber hinaus geben wir keine Daten weiter, außer bei gesetzlicher Verpflichtung."
+        "body": "Zur Bereitstellung unseres Dienstes geben wir die notwendigen Daten an Printful (Herstellung und Versand), Stripe (Zahlungen), Resend (Transaktions-E-Mails), Cloudflare (Netzwerk und Sicherheit), unseren Server-Hosting-Anbieter in Japan, Anthropic (Übersetzung japanischer Lieferadressen einschließlich des Empfängernamens bei Bestellungen nach Japan) und Sentry (Fehlerüberwachung, personenbezogene Daten werden maskiert) weiter. Für Analyse und Werbemessung nutzen wir Google Analytics, das Meta-Pixel (Meta Platforms) und Microsoft Clarity (siehe Cookies). Darüber hinaus geben wir keine Daten weiter, außer bei gesetzlicher Verpflichtung."
       },
       "transfers": {
         "title": "5. Internationale Übermittlung",
@@ -408,7 +408,7 @@
       },
       "cookies": {
         "title": "7. Cookies",
-        "body": "Diese Seite verwendet Google Analytics (GA4, über den Google Tag Manager) und Microsoft Clarity (Nutzungsanalyse, einschließlich Aufzeichnungen der Seitennutzung). Wenn du dich in der EU, im EWR, im Vereinigten Königreich oder in der Schweiz befindest, fragt ein Banner nach deiner Einwilligung, und Analyse-Cookies werden erst nach deiner Zustimmung gesetzt. In anderen Regionen ist die Analyse standardmäßig aktiv. Du kannst Cookies in deinem Browser blockieren, ohne die Nutzung der Seite einzuschränken."
+        "body": "Diese Seite verwendet Google Analytics (GA4, über den Google Tag Manager), das Meta-Pixel (Messung von Werbung und Conversions) und Microsoft Clarity (Nutzungsanalyse, einschließlich Aufzeichnungen der Seitennutzung). Wenn du dich in der EU, im EWR, im Vereinigten Königreich oder in der Schweiz befindest, fragt ein Banner nach deiner Einwilligung, und Analyse- und Werbe-Cookies werden erst nach deiner Zustimmung gesetzt. In anderen Regionen sind sie standardmäßig aktiv. Du kannst Cookies in deinem Browser blockieren, ohne die Nutzung der Seite einzuschränken."
       },
       "security": {
         "title": "8. Datensicherheit",

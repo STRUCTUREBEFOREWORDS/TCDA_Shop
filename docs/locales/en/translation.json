@@ -388,7 +388,7 @@
       },
       "legalBasis": {
         "title": "2. Legal Basis for Processing",
-        "body": "We process your data to perform our contract with you (orders, shipping, withdrawals, and refunds) and to meet legal obligations such as accounting and tax records. We also rely on our legitimate interests in security, fraud prevention, and rate limiting. Where we use analytics cookies or send newsletters, we rely on your consent."
+        "body": "We process your data to perform our contract with you (orders, shipping, withdrawals, and refunds) and to meet legal obligations such as accounting and tax records. We also rely on our legitimate interests in security, fraud prevention, and rate limiting. Where we use analytics and advertising cookies or send newsletters, we rely on your consent."
       },
       "dataUsage": {
         "title": "3. How We Use Your Information",
@@ -396,7 +396,7 @@
       },
       "thirdParty": {
         "title": "4. Third-Party Sharing",
-        "body": "To provide our service, we share necessary data with Printful (manufacturing and shipping), Stripe (payments), Resend (transactional email), Cloudflare (network and security), our server hosting provider in Japan, Anthropic (translation of Japanese shipping addresses, including the recipient's name, for orders shipped to Japan), and Sentry (error monitoring, with personal data masked). For analytics we use Google Analytics and Microsoft Clarity (see Cookies). We share data with no one else except as required by law."
+        "body": "To provide our service, we share necessary data with Printful (manufacturing and shipping), Stripe (payments), Resend (transactional email), Cloudflare (network and security), our server hosting provider in Japan, Anthropic (translation of Japanese shipping addresses, including the recipient's name, for orders shipped to Japan), and Sentry (error monitoring, with personal data masked). For analytics and advertising measurement we use Google Analytics, the Meta Pixel (Meta Platforms) and Microsoft Clarity (see Cookies). We share data with no one else except as required by law."
       },
       "transfers": {
         "title": "5. International Transfers",
@@ -408,7 +408,7 @@
       },
       "cookies": {
         "title": "7. Cookies",
-        "body": "This site uses Google Analytics (GA4, via Google Tag Manager) and Microsoft Clarity (usage analytics, including recordings of how pages are used). If you are in the EU, EEA, UK or Switzerland, a banner asks for your consent, and analytics cookies are not set until you accept. Elsewhere, analytics are active by default. You can block cookies in your browser without affecting your ability to use the site."
+        "body": "This site uses Google Analytics (GA4, via Google Tag Manager), the Meta Pixel (measurement of advertising and conversions) and Microsoft Clarity (usage analytics, including recordings of how pages are used). If you are in the EU, EEA, UK or Switzerland, a banner asks for your consent, and analytics and advertising cookies are not set until you accept. Elsewhere, they are active by default. You can block cookies in your browser without affecting your ability to use the site."
       },
       "security": {
         "title": "8. Data Security",
