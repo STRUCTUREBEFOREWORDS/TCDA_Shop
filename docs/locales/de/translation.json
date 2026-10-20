@@ -384,30 +384,46 @@
     "sections": {
       "dataCollection": {
         "title": "1. Erfasste Informationen",
-        "body": "Wir erheben Name, Adresse, E-Mail, Telefonnummer und Zahlungsinformationen für die Auftragsabwicklung. Zahlungsinformationen werden sicher von Stripe, Inc. verarbeitet."
+        "body": "Wir erheben deinen Namen, deine Lieferadresse, E-Mail-Adresse, Telefonnummer (falls angegeben) und die Bestelldetails. Zahlungsinformationen werden von Stripe, Inc. verarbeitet und von uns nicht gespeichert. Wenn du das Widerrufsformular nutzt, erheben wir zusätzlich deine Bestellnummer, E-Mail-Adresse, deinen Namen, deine Nachricht, die Sprache und den Zeitpunkt des Eingangs. Außerdem erhalten wir technische Informationen über Cloudflare, etwa Zugriffsprotokolle und Cookies."
+      },
+      "legalBasis": {
+        "title": "2. Rechtsgrundlagen der Verarbeitung",
+        "body": "Wir verarbeiten deine Daten zur Erfüllung unseres Vertrags mit dir (Bestellung, Versand, Widerruf und Erstattung) und zur Erfüllung rechtlicher Pflichten wie Buchführungs- und Steueraufzeichnungen. Außerdem stützen wir uns auf unsere berechtigten Interessen an Sicherheit, Betrugsprävention und Ratenbegrenzung. Für Analyse-Cookies und den Newsletter stützen wir uns auf deine Einwilligung."
       },
       "dataUsage": {
-        "title": "2. Verwendung deiner Daten",
-        "body": "Erhobene Informationen werden für Auftragsabwicklung, Versand, Kundensupport und Serviceverbesserung verwendet."
+        "title": "3. Verwendung deiner Daten",
+        "body": "Erhobene Informationen werden für Auftragsabwicklung, Versand, Kundensupport und Serviceverbesserung verwendet. Wir verkaufen deine personenbezogenen Daten nicht. Wir geben sie nur an die unten genannten Dienstleister, im Rahmen der hier beschriebenen Zwecke oder bei gesetzlicher Verpflichtung weiter."
       },
       "thirdParty": {
-        "title": "3. Weitergabe an Dritte",
-        "body": "Für die Auftragserfüllung teilen wir notwendige Versanddaten mit Printful. Keine andere Weitergabe an Dritte."
+        "title": "4. Weitergabe an Dritte",
+        "body": "Zur Bereitstellung unseres Dienstes geben wir die notwendigen Daten an Printful (Herstellung und Versand), Stripe (Zahlungen), Resend (Transaktions-E-Mails), Cloudflare (Netzwerk und Sicherheit), unseren Server-Hosting-Anbieter in Japan, Anthropic (Übersetzung japanischer Lieferadressen einschließlich des Empfängernamens bei Bestellungen nach Japan) und Sentry (Fehlerüberwachung, personenbezogene Daten werden maskiert) weiter. Für die Analyse nutzen wir Google Analytics und Microsoft Clarity (siehe Cookies). Darüber hinaus geben wir keine Daten weiter, außer bei gesetzlicher Verpflichtung."
+      },
+      "transfers": {
+        "title": "5. Internationale Übermittlung",
+        "body": "Deine Daten werden auf unseren Servern in Japan und von den oben genannten Dienstleistern verarbeitet, die sich in den USA und anderen Ländern befinden können. Für Nutzer in der EU und im Vereinigten Königreich beruhen Übermittlungen, soweit erforderlich, auf Garantien wie Standardvertragsklauseln oder Angemessenheitsbeschlüssen."
+      },
+      "retention": {
+        "title": "6. Speicherdauer",
+        "body": "Bestell- und Zahlungsdaten werden 7 Jahre aufbewahrt. Widerrufsanträge werden 3 Jahre aufbewahrt. Newsletter-Daten werden bis zur Abmeldung gespeichert."
       },
       "cookies": {
-        "title": "4. Cookies",
-        "body": "Diese Seite verwendet Cookies für Analysen über Google Analytics (GA4). Du kannst Cookies deaktivieren."
+        "title": "7. Cookies",
+        "body": "Diese Seite verwendet Google Analytics (GA4, über den Google Tag Manager) und Microsoft Clarity (Nutzungsanalyse, einschließlich Aufzeichnungen der Seitennutzung). Wenn du dich in der EU, im EWR, im Vereinigten Königreich oder in der Schweiz befindest, fragt ein Banner nach deiner Einwilligung, und Analyse-Cookies werden erst nach deiner Zustimmung gesetzt. In anderen Regionen ist die Analyse standardmäßig aktiv. Du kannst Cookies in deinem Browser blockieren, ohne die Nutzung der Seite einzuschränken."
       },
       "security": {
-        "title": "5. Datensicherheit",
+        "title": "8. Datensicherheit",
         "body": "Persönliche Daten werden mit angemessenen Sicherheitsmaßnahmen verwaltet."
       },
+      "rights": {
+        "title": "9. Deine Rechte",
+        "body": "Du kannst Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung oder Übertragbarkeit deiner Daten verlangen, der Verarbeitung widersprechen und deine Einwilligung jederzeit widerrufen. Du kannst dich außerdem bei deiner zuständigen Aufsichtsbehörde beschweren. Zur Ausübung deiner Rechte kontaktiere uns unter info@tcdashop.com."
+      },
       "contact": {
-        "title": "6. Kontakt",
-        "body": "Für Anfragen zu deinen persönlichen Daten kontaktiere uns unter info@tcdashop.com."
+        "title": "10. Kontakt",
+        "body": "Für Anfragen zu deinen persönlichen Daten kontaktiere uns unter info@tcdashop.com. Verantwortlich für die Datenverarbeitung ist der auf unserer Seite „Impressum“ genannte Betreiber."
       }
     },
-    "effectiveDate": "Gültig ab: 10. April 2026"
+    "effectiveDate": "Gültig ab: 20. Oktober 2026"
   },
   "legal": {
     "title": "Impressum",

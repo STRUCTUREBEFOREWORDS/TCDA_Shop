@@ -380,34 +380,7 @@
     "directEmail": "info@tcdashop.com"
   },
   "privacy": {
-    "title": "Informativa sulla privacy",
-    "sections": {
-      "dataCollection": {
-        "title": "1. Informazioni raccolte",
-        "body": "Raccogliamo nome, indirizzo, email, numero di telefono e informazioni di pagamento per l'elaborazione degli ordini. Le informazioni di pagamento sono gestite in modo sicuro da Stripe, Inc."
-      },
-      "dataUsage": {
-        "title": "2. Utilizzo delle informazioni",
-        "body": "Le informazioni raccolte vengono utilizzate per l'elaborazione degli ordini, la spedizione, il supporto clienti e il miglioramento del servizio."
-      },
-      "thirdParty": {
-        "title": "3. Condivisione con terzi",
-        "body": "Per evadere il tuo ordine, condividiamo le informazioni di spedizione necessarie con Printful. Nessuna altra condivisione con terzi."
-      },
-      "cookies": {
-        "title": "4. Cookie",
-        "body": "Questo sito utilizza cookie per l'analisi tramite Google Analytics (GA4). Puoi disabilitare i cookie."
-      },
-      "security": {
-        "title": "5. Sicurezza dei dati",
-        "body": "Le informazioni personali sono gestite con adeguate misure di sicurezza."
-      },
-      "contact": {
-        "title": "6. Contatto",
-        "body": "Per richieste relative ai tuoi dati personali, contattaci a info@tcdashop.com."
-      }
-    },
-    "effectiveDate": "Efficace dal: 10 aprile 2026"
+    "title": "Informativa sulla privacy"
   },
   "legal": {
     "title": "Note legali",

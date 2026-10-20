@@ -384,30 +384,46 @@
     "sections": {
       "dataCollection": {
         "title": "1. Informations collectées",
-        "body": "Nous collectons votre nom, adresse, e-mail, numéro de téléphone et informations de paiement pour traiter vos commandes. Les informations de paiement sont traitées de manière sécurisée par Stripe, Inc. et ne sont pas conservées par nos soins."
+        "body": "Nous collectons votre nom, adresse de livraison, e-mail, numéro de téléphone (si renseigné) et le détail de votre commande. Les informations de paiement sont traitées par Stripe, Inc. et ne sont pas conservées par nos soins. Si vous utilisez le formulaire de rétractation, nous collectons également votre numéro de commande, e-mail, nom, message, langue et la date de réception. Nous recevons aussi des informations techniques via Cloudflare, telles que les journaux d'accès et les cookies."
+      },
+      "legalBasis": {
+        "title": "2. Base juridique du traitement",
+        "body": "Nous traitons vos données pour exécuter notre contrat avec vous (commandes, livraison, rétractations et remboursements) et pour respecter nos obligations légales, comme la tenue des registres comptables et fiscaux. Nous nous appuyons aussi sur nos intérêts légitimes en matière de sécurité, de prévention de la fraude et de limitation du débit des requêtes. Pour les cookies d'analyse et la newsletter, nous nous fondons sur votre consentement."
       },
       "dataUsage": {
-        "title": "2. Utilisation des données",
-        "body": "Les informations collectées sont utilisées pour traiter les commandes, assurer la livraison, le support client et améliorer nos services. Nous ne vendons ni ne partageons vos données avec des tiers."
+        "title": "3. Utilisation des données",
+        "body": "Les informations collectées sont utilisées pour traiter les commandes, assurer la livraison, le support client et améliorer nos services. Nous ne vendons pas vos données personnelles. Nous ne les partageons qu'avec les prestataires listés ci-dessous, dans le cadre des finalités décrites ici, ou lorsque la loi l'exige."
       },
       "thirdParty": {
-        "title": "3. Partage avec des tiers",
-        "body": "Pour traiter votre commande, nous communiquons les informations d'expédition nécessaires à Printful (notre partenaire de fabrication et de livraison). Aucun autre partage n'est effectué, sauf obligation légale."
+        "title": "4. Partage avec des tiers",
+        "body": "Pour fournir notre service, nous communiquons les données nécessaires à Printful (fabrication et expédition), Stripe (paiements), Resend (e-mails transactionnels), Cloudflare (réseau et sécurité), notre hébergeur de serveurs au Japon, Anthropic (traduction des adresses de livraison japonaises, y compris le nom du destinataire, pour les commandes expédiées au Japon) et Sentry (surveillance des erreurs, avec masquage des données personnelles). Pour l'analyse d'audience, nous utilisons Google Analytics et Microsoft Clarity (voir Cookies). Nous ne partageons de données avec personne d'autre, sauf obligation légale."
+      },
+      "transfers": {
+        "title": "5. Transferts internationaux",
+        "body": "Vos données sont traitées sur nos serveurs au Japon et par les prestataires ci-dessus, qui peuvent être situés aux États-Unis et dans d'autres pays. Pour les utilisateurs de l'UE et du Royaume-Uni, si nécessaire, les transferts reposent sur des garanties telles que les clauses contractuelles types ou les décisions d'adéquation."
+      },
+      "retention": {
+        "title": "6. Durée de conservation",
+        "body": "Les enregistrements de commandes et de paiements sont conservés 7 ans. Les demandes de rétractation sont conservées 3 ans. Les données de la newsletter sont conservées jusqu'à votre désinscription."
       },
       "cookies": {
-        "title": "4. Cookies",
-        "body": "Ce site utilise des cookies à des fins d'analyse via Google Analytics (GA4). Vous pouvez désactiver les cookies sans que cela affecte votre navigation."
+        "title": "7. Cookies",
+        "body": "Ce site utilise Google Analytics (GA4, via Google Tag Manager) et Microsoft Clarity (analyse d'usage, y compris des enregistrements de l'utilisation des pages). Si vous vous trouvez dans l'UE, l'EEE, au Royaume-Uni ou en Suisse, un bandeau demande votre consentement et les cookies d'analyse ne sont pas déposés avant votre acceptation. Ailleurs, l'analyse est active par défaut. Vous pouvez bloquer les cookies dans votre navigateur sans que cela affecte votre navigation."
       },
       "security": {
-        "title": "5. Sécurité des données",
+        "title": "8. Sécurité des données",
         "body": "Les informations personnelles sont gérées avec des mesures de sécurité appropriées afin de prévenir tout accès non autorisé, fuite ou falsification."
       },
+      "rights": {
+        "title": "9. Vos droits",
+        "body": "Vous pouvez demander l'accès, la rectification, l'effacement, la limitation ou la portabilité de vos données, vous opposer à leur traitement et retirer votre consentement à tout moment. Vous pouvez aussi introduire une réclamation auprès de l'autorité de contrôle de votre pays. Pour exercer ces droits, contactez info@tcdashop.com."
+      },
       "contact": {
-        "title": "6. Contact",
-        "body": "Pour toute question concernant vos données personnelles, contactez-nous à info@tcdashop.com."
+        "title": "10. Contact",
+        "body": "Pour toute question concernant vos données personnelles, contactez-nous à info@tcdashop.com. Le responsable du traitement est l'exploitant indiqué sur notre page « Mentions légales »."
       }
     },
-    "effectiveDate": "En vigueur depuis : 10 avril 2026"
+    "effectiveDate": "En vigueur depuis : 20 octobre 2026"
   },
   "legal": {
     "title": "Mentions légales",

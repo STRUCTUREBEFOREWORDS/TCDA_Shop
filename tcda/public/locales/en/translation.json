@@ -384,30 +384,46 @@
     "sections": {
       "dataCollection": {
         "title": "1. Information We Collect",
-        "body": "We collect your name, address, email address, phone number, and payment information for order processing. Payment information is securely handled by Stripe, Inc. and is not retained by us."
+        "body": "We collect your name, shipping address, email address, phone number (if provided), and order details. Payment information is processed by Stripe, Inc. and is not retained by us. If you submit the withdrawal form, we also collect your order number, email address, name, message, language, and the time of receipt. We also receive technical information through Cloudflare, such as access logs and cookies."
+      },
+      "legalBasis": {
+        "title": "2. Legal Basis for Processing",
+        "body": "We process your data to perform our contract with you (orders, shipping, withdrawals, and refunds) and to meet legal obligations such as accounting and tax records. We also rely on our legitimate interests in security, fraud prevention, and rate limiting. Where we use analytics cookies or send newsletters, we rely on your consent."
       },
       "dataUsage": {
-        "title": "2. How We Use Your Information",
-        "body": "Collected information is used for order processing, shipping, customer support, and service improvement. We do not sell or share your data with third parties."
+        "title": "3. How We Use Your Information",
+        "body": "Collected information is used for order processing, shipping, customer support, and service improvement. We do not sell your personal data. We share it only with the service providers listed below, within the purposes described here, or where required by law."
       },
       "thirdParty": {
-        "title": "3. Third-Party Sharing",
-        "body": "To fulfill your order, we share necessary shipping information with Printful (our manufacturing and fulfillment partner). No other third-party sharing occurs except as required by law."
+        "title": "4. Third-Party Sharing",
+        "body": "To provide our service, we share necessary data with Printful (manufacturing and shipping), Stripe (payments), Resend (transactional email), Cloudflare (network and security), our server hosting provider in Japan, Anthropic (translation of Japanese shipping addresses, including the recipient's name, for orders shipped to Japan), and Sentry (error monitoring, with personal data masked). For analytics we use Google Analytics and Microsoft Clarity (see Cookies). We share data with no one else except as required by law."
+      },
+      "transfers": {
+        "title": "5. International Transfers",
+        "body": "Your data is processed on our servers in Japan and by the service providers above, which may be located in the United States and other countries. For users in the EU and the UK, where required, transfers rely on safeguards such as standard contractual clauses or adequacy decisions."
+      },
+      "retention": {
+        "title": "6. Retention",
+        "body": "Order and payment records are kept for 7 years. Withdrawal requests are kept for 3 years. Newsletter data is kept until you unsubscribe."
       },
       "cookies": {
-        "title": "4. Cookies",
-        "body": "This site uses cookies for analytics via Google Analytics (GA4). You may disable cookies without affecting your ability to use the site."
+        "title": "7. Cookies",
+        "body": "This site uses Google Analytics (GA4, via Google Tag Manager) and Microsoft Clarity (usage analytics, including recordings of how pages are used). If you are in the EU, EEA, UK or Switzerland, a banner asks for your consent, and analytics cookies are not set until you accept. Elsewhere, analytics are active by default. You can block cookies in your browser without affecting your ability to use the site."
       },
       "security": {
-        "title": "5. Data Security",
+        "title": "8. Data Security",
         "body": "Personal information is managed with appropriate security measures to prevent unauthorized access, leaks, or tampering."
       },
+      "rights": {
+        "title": "9. Your Rights",
+        "body": "You may request access, correction, deletion, restriction, or portability of your data, object to its processing, and withdraw your consent at any time. You may also lodge a complaint with your local supervisory authority. To exercise these rights, contact info@tcdashop.com."
+      },
       "contact": {
-        "title": "6. Contact",
-        "body": "For inquiries regarding your personal information, please contact us at info@tcdashop.com."
+        "title": "10. Contact",
+        "body": "For inquiries regarding your personal information, please contact us at info@tcdashop.com. The data controller is the operator named on our Legal page."
       }
     },
-    "effectiveDate": "Effective: April 10, 2026"
+    "effectiveDate": "Effective: October 20, 2026"
   },
   "legal": {
     "title": "Legal Notice",

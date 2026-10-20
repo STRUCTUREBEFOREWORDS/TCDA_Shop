@@ -382,34 +382,7 @@
     "directEmail": "info@tcdashop.com"
   },
   "privacy": {
-    "title": "गोपनीयता नीति",
-    "sections": {
-      "dataCollection": {
-        "title": "1. हम कौन सी जानकारी एकत्र करते हैं",
-        "body": "Order processing के लिए हम आपका नाम, पता, email address, phone number, और payment information एकत्र करते हैं। Payment information Stripe, Inc. द्वारा सुरक्षित रूप से handle की जाती है और हमारे पास retain नहीं होती।"
-      },
-      "dataUsage": {
-        "title": "2. हम आपकी जानकारी का उपयोग कैसे करते हैं",
-        "body": "एकत्र की गई जानकारी का उपयोग order processing, shipping, customer support, और service improvement के लिए किया जाता है। हम आपका data third parties को नहीं बेचते या share नहीं करते।"
-      },
-      "thirdParty": {
-        "title": "3. Third-Party Sharing",
-        "body": "आपका order fulfill करने के लिए, हम Printful (हमारे manufacturing और fulfillment partner) के साथ आवश्यक shipping information share करते हैं। कानून द्वारा required के अलावा कोई अन्य third-party sharing नहीं होती।"
-      },
-      "cookies": {
-        "title": "4. Cookies",
-        "body": "यह site Google Analytics (GA4) के माध्यम से analytics के लिए cookies का उपयोग करती है। आप site का उपयोग करने की क्षमता को प्रभावित किए बिना cookies को disable कर सकते हैं।"
-      },
-      "security": {
-        "title": "5. Data Security",
-        "body": "Personal information को unauthorized access, leaks, या tampering से बचाने के लिए उचित security measures के साथ manage किया जाता है।"
-      },
-      "contact": {
-        "title": "6. Contact",
-        "body": "आपकी personal information के बारे में inquiries के लिए, कृपया info@tcdashop.com पर संपर्क करें।"
-      }
-    },
-    "effectiveDate": "प्रभावी: 10 अप्रैल, 2026"
+    "title": "गोपनीयता नीति"
   },
   "legal": {
     "title": "Legal Notice",

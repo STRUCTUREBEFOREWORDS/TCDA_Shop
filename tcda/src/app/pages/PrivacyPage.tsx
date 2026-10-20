@@ -3,10 +3,14 @@ import { Helmet } from "react-helmet-async";
 
 const SECTION_KEYS = [
   "dataCollection",
+  "legalBasis",
   "dataUsage",
   "thirdParty",
+  "transfers",
+  "retention",
   "cookies",
   "security",
+  "rights",
   "contact",
 ] as const;
 
