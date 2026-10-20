@@ -574,7 +574,7 @@ export function ProductPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col lg:sticky lg:top-20"
+            className="flex flex-col lg:sticky lg:top-20 pr-[clamp(0px,5vw,60px)] lg:pr-0"
             style={{ paddingLeft: "clamp(0px, 5vw, 60px)", paddingTop: "clamp(24px, 5vw, 80px)" }}
           >
             {/* Product name */}
