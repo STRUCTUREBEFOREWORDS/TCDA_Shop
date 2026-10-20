@@ -1,8 +1,6 @@
 import type { Currency } from "../app/types";
 
-export const CURRENCIES: readonly Currency[] = [
-  "JPY", "USD", "EUR", "GBP", "KRW", "CNY", "AUD", "AED", "SGD", "BRL", "CAD", "INR",
-];
+export const CURRENCIES: readonly Currency[] = ["JPY", "USD", "EUR", "CAD", "AUD"];
 
 /** True if `value` is one of the supported currency codes (use it to validate stored values). */
 export function isCurrency(value: unknown): value is Currency {
@@ -34,8 +32,8 @@ export function resolveCurrency({
   language?: string | null;
 }): Currency {
   if (isCurrency(stored)) return stored;
-  if (country && has(COUNTRY_TO_CURRENCY, country)) return COUNTRY_TO_CURRENCY[country];
-  if (language && has(LANGUAGE_TO_CURRENCY, language)) return LANGUAGE_TO_CURRENCY[language];
+  if (country && has(COUNTRY_TO_CURRENCY, country) && isCurrency(COUNTRY_TO_CURRENCY[country])) return COUNTRY_TO_CURRENCY[country];
+  if (language && has(LANGUAGE_TO_CURRENCY, language) && isCurrency(LANGUAGE_TO_CURRENCY[language])) return LANGUAGE_TO_CURRENCY[language];
   return "JPY";
 }
 

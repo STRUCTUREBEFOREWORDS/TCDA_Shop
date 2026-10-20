@@ -1,4 +1,5 @@
 import { Language, Currency } from "../types";
+import { CURRENCIES } from "../../utils/currencyResolver";
 import gbFlag from "../../assets/flags/gb.svg";
 import jpFlag from "../../assets/flags/jp.svg";
 import frFlag from "../../assets/flags/fr.svg";
@@ -50,7 +51,6 @@ const CURRENCY_SYMBOLS: Record<Currency, string> = {
   INR: "₹",
 };
 
-const CURRENCIES: Currency[] = ["JPY", "USD", "EUR", "GBP", "KRW", "CNY", "AUD", "AED", "SGD", "BRL", "CAD", "INR"];
 
 export function TCDA_LanguageCurrencySwitcher({
   language,
