@@ -120,7 +120,8 @@
     "chest": "Contorno de pecho",
     "length": "Largo",
     "shoulder": "Ancho de hombros",
-    "noChartAvailable": "Guía de tallas en preparación"
+    "noChartAvailable": "Guía de tallas en preparación",
+    "selectRequired": "Por favor, selecciona una talla"
   },
   "checkout": {
     "fieldName": "Nombre",

@@ -120,7 +120,8 @@
     "chest": "Tour de poitrine",
     "length": "Longueur",
     "shoulder": "Largeur d'épaules",
-    "noChartAvailable": "Guide des tailles bientôt disponible"
+    "noChartAvailable": "Guide des tailles bientôt disponible",
+    "selectRequired": "Veuillez sélectionner une taille"
   },
   "checkout": {
     "fieldName": "Nom",

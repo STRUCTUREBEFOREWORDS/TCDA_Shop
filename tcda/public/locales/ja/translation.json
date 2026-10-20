@@ -120,7 +120,8 @@
     "noChartAvailable": "サイズ情報を準備中です",
     "chest": "胸囲",
     "length": "着丈",
-    "shoulder": "肩幅"
+    "shoulder": "肩幅",
+    "selectRequired": "サイズを選択してください"
   },
   "checkout": {
     "fieldName": "お名前",

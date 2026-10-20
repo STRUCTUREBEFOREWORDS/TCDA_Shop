@@ -193,7 +193,9 @@ export function ProductPage() {
 
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
-  const [selectedSize, setSelectedSize] = useState<string>("");
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [sizeError, setSizeError] = useState(false);
+  const sizeGridRef = useRef<HTMLDivElement>(null);
   const [added, setAdded] = useState(false);
   const [copied, setCopied] = useState(false);
   const [sizeUnit, setSizeUnit] = useState<"cm" | "inch">("cm");
@@ -217,6 +219,8 @@ export function ProductPage() {
     window.scrollTo({ top: 0, behavior: "instant" });
     setLoading(true);
     setSizeChart(null);
+    setSelectedSize(null);
+    setSizeError(false);
     fetch(`https://api.tcdashop.com/products/${id}?lang=${language}`)
       .then((res) => { if (!res.ok) throw new Error(`API ${res.status}`); return res.json(); })
       .then(async (data: Product) => {
@@ -263,7 +267,6 @@ export function ProductPage() {
         const imageList = data.images?.length ? data.images : [data.thumbnail_url];
         setImages(imageList);
         setCurrentImageIndex(0);
-        if (data.sizes?.length) setSelectedSize(data.sizes[0]);
         if (data.size_category) {
           const chartRes = await fetch(`https://api.tcdashop.com/size-charts/${data.size_category}`);
           const chartData = await chartRes.json();
@@ -318,7 +321,11 @@ export function ProductPage() {
   const convertedPrice = applyPsychologicalPrice(rawPrice, currency);
 
   const handleAddToCart = () => {
-    if (!selectedSize) return;
+    if (!selectedSize) {
+      setSizeError(true);
+      sizeGridRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+      return;
+    }
     addToCart({
       artworkId: product.id,
       artworkName: product.name,
@@ -585,7 +592,7 @@ export function ProductPage() {
             )}
 
             {/* Size selection */}
-            <div>
+            <div ref={sizeGridRef} style={{ scrollMarginBottom: "96px" }}>
               <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-caption)", letterSpacing: "var(--ls-nav)", color: "var(--color-text-secondary)", marginBottom: "12px", textTransform: "uppercase" }}>
                 {t("size.label")}
               </p>
@@ -597,7 +604,7 @@ export function ProductPage() {
                 }).map((size) => (
                   <button
                     key={size}
-                    onClick={() => setSelectedSize(size)}
+                    onClick={() => { setSelectedSize(size); setSizeError(false); }}
                     className="flex items-center justify-center text-[11px] font-light tracking-widest uppercase transition-all duration-300"
                     style={selectedSize === size ? {
                       border: "1px solid var(--color-accent)",
@@ -625,6 +632,11 @@ export function ProductPage() {
                   </button>
                 ))}
               </div>
+              {sizeError && (
+                <p role="alert" style={{ marginTop: "8px", fontSize: "var(--text-caption)", color: "var(--color-danger)" }}>
+                  {t("size.selectRequired")}
+                </p>
+              )}
             </div>
 
             {/* Add to Cart */}
@@ -671,8 +683,8 @@ export function ProductPage() {
               <div className="hidden lg:block">
                 <button
                   onClick={handleAddToCart}
-                  disabled={!selectedSize}
-                  className="w-full text-xs uppercase disabled:opacity-30"
+                  aria-disabled={!selectedSize}
+                  className="w-full text-xs uppercase"
                   style={{
                     background: "transparent",
                     color: "var(--color-text)",
@@ -682,6 +694,7 @@ export function ProductPage() {
                     transition: "var(--transition-base)",
                     marginTop: "32px",
                     padding: "18px",
+                    opacity: selectedSize ? 1 : 0.6,
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = "#ffffff";
@@ -802,8 +815,8 @@ export function ProductPage() {
         >
           <button
             onClick={handleAddToCart}
-            disabled={!selectedSize}
-            className="w-full text-xs uppercase disabled:opacity-30"
+            aria-disabled={!selectedSize}
+            className="w-full text-xs uppercase"
             style={{
               background: "transparent",
               color: "var(--color-text)",
@@ -812,6 +825,7 @@ export function ProductPage() {
               letterSpacing: "var(--ls-nav)",
               transition: "var(--transition-base)",
               padding: "18px",
+              opacity: selectedSize ? 1 : 0.6,
             }}
           >
             {added ? t("cart.added") : t("cart.addToCart")}
