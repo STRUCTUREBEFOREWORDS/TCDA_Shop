@@ -201,7 +201,7 @@
     },
     "defect": {
       "q": "What if my item has a defect?",
-      "a": "Please contact us at info@tcdashop.com within 14 days of receiving your order. We will arrange a replacement or refund after verification. However, EU/UK consumers have a statutory 14-day right of withdrawal from delivery; return shipping is at the customer's cost."
+      "a": "Please contact us at info@tcdashop.com within 14 days of receiving your order. We will arrange a replacement or refund after verification. However, EU/UK consumers have a statutory 14-day right of withdrawal from delivery; return shipping is at the customer's cost. Australian consumers: our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and compensation for any other reasonably foreseeable loss or damage. You are also entitled to have the goods repaired or replaced if the goods fail to be of acceptable quality and the failure does not amount to a major failure."
     },
     "pageTitle": "FAQ",
     "categoryAbout": "About TCDA",
@@ -347,7 +347,7 @@
     "returnsCondition": "Eligible cases: damaged, misprinted, or incorrectly shipped items only",
     "returnsPeriod": "Timeframe: contact us within 14 days of receiving your order",
     "returnsMethod": "Resolution: replacement or refund after verification",
-    "returnsNote": "Except for the statutory right of withdrawal below, returns due to size preference or change of mind are not accepted. EU/UK consumers: you have a statutory 14-day right of withdrawal from delivery. Contact us within 14 days; return shipping is at the customer's cost.",
+    "returnsNote": "Except for the statutory rights described below, returns due to size preference or change of mind are not accepted. EU/UK consumers: you have a statutory 14-day right of withdrawal from delivery. Contact us within 14 days; return shipping is at the customer's cost. Australian consumers: our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and compensation for any other reasonably foreseeable loss or damage. You are also entitled to have the goods repaired or replaced if the goods fail to be of acceptable quality and the failure does not amount to a major failure.",
     "contactTitle": "Contact Us",
     "contactBody": "For any other questions, please reach out at the address below.",
     "customsTitle": "Customs and Import Duties",
