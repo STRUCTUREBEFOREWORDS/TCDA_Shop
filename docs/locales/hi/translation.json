@@ -583,6 +583,7 @@
     "successTitle": "प्राप्त हुआ",
     "successBody": "हमें आपकी request मिल गई है और confirmation email भेज दिया गया है।",
     "linkLabel": "Withdrawal form (EU/UK consumers के लिए)",
+    "entryLabel": "यहाँ contract से withdraw करें",
     "error": {
       "invalid": "कृपया order number और email address जांचकर फिर से कोशिश करें।",
       "rate": "बहुत ज़्यादा प्रयास हो चुके हैं। कृपया थोड़ी देर रुककर फिर कोशिश करें।",

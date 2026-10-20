@@ -589,6 +589,7 @@
     "successTitle": "Received",
     "successBody": "We have received your request and sent a confirmation email.",
     "linkLabel": "Withdrawal form (EU/UK consumers)",
+    "entryLabel": "Withdraw from contract here",
     "error": {
       "invalid": "Please check the order number and email address and try again.",
       "rate": "Too many attempts. Please wait a moment and try again.",

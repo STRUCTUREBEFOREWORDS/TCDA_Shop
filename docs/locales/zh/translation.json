@@ -589,6 +589,7 @@
     "successTitle": "已受理",
     "successBody": "我们已收到您的申请，并已发送确认邮件。",
     "linkLabel": "撤回表单（欧盟/英国消费者）",
+    "entryLabel": "在此撤回合同",
     "error": {
       "invalid": "请核对订单号和邮箱后重试。",
       "rate": "尝试次数过多，请稍后再试。",

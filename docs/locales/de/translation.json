@@ -589,6 +589,7 @@
     "successTitle": "Eingegangen",
     "successBody": "Wir haben deine Anfrage erhalten und eine Bestätigungs-E-Mail gesendet.",
     "linkLabel": "Widerrufsformular (Verbraucher in der EU/im Vereinigten Königreich)",
+    "entryLabel": "Vertrag widerrufen",
     "error": {
       "invalid": "Bitte prüfe Bestellnummer und E-Mail-Adresse und versuche es erneut.",
       "rate": "Zu viele Versuche. Bitte warte einen Moment und versuche es erneut.",
