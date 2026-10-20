@@ -1,7 +1,9 @@
+import { Link } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { motion } from "motion/react";
 import { JsonLd } from "../components/JsonLd";
+import { useTranslation } from "react-i18next";
 
 const IMAGES = [
   "001", "004", "005", "006", "007", "008", "009", "010", "011"
@@ -9,6 +11,7 @@ const IMAGES = [
 
 export function LookbookPage() {
   const { language } = useGlobalContext();
+  const { t } = useTranslation();
   const canonical = `https://tcdashop.com/en/lookbook`;
 
   return (
@@ -67,6 +70,26 @@ export function LookbookPage() {
             />
           </motion.div>
         ))}
+      </div>
+      {/* CTA */}
+      <div style={{ textAlign: "center", paddingTop: "96px", paddingBottom: "96px" }}>
+        <Link
+          to={`/${language}/collection`}
+          className="inline-block text-xs uppercase"
+          style={{
+            background: "var(--accent-electric)",
+            color: "#080808",
+            border: "1px solid var(--accent-electric)",
+            padding: "18px 48px",
+            fontFamily: "var(--font-body)",
+            letterSpacing: "var(--ls-nav)",
+            transition: "var(--transition-base)",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "var(--color-accent-hover)"; e.currentTarget.style.borderColor = "var(--color-accent-hover)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "var(--accent-electric)"; e.currentTarget.style.borderColor = "var(--accent-electric)"; }}
+        >
+          {t("about.ctaLabel")}
+        </Link>
       </div>
     </div>
   );
