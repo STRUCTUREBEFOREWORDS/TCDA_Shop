@@ -77,7 +77,7 @@ export function WithdrawalPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-white/20 text-[10px] font-light tracking-[0.5em] uppercase mb-4"
+          className="text-white/60 text-[10px] font-light tracking-[0.5em] uppercase mb-4"
         >
           {t("withdrawal.title")}
         </motion.p>

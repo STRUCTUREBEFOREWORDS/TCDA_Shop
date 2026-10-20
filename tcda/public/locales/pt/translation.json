@@ -589,6 +589,7 @@
     "successTitle": "Recebido",
     "successBody": "Recebemos sua solicitação e enviamos um e-mail de confirmação.",
     "linkLabel": "Formulário de arrependimento (consumidores da UE/Reino Unido)",
+    "entryLabel": "Exercer o direito de arrependimento aqui",
     "error": {
       "invalid": "Verifique o número do pedido e o e-mail e tente novamente.",
       "rate": "Muitas tentativas. Aguarde um momento e tente novamente.",

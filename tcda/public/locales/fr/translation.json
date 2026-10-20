@@ -589,6 +589,7 @@
     "successTitle": "Bien reçu",
     "successBody": "Nous avons bien reçu votre demande et envoyé un e-mail de confirmation.",
     "linkLabel": "Formulaire de rétractation (consommateurs UE/Royaume-Uni)",
+    "entryLabel": "Se rétracter du contrat ici",
     "error": {
       "invalid": "Veuillez vérifier le numéro de commande et l'adresse e-mail, puis réessayer.",
       "rate": "Trop de tentatives. Veuillez patienter un instant avant de réessayer.",

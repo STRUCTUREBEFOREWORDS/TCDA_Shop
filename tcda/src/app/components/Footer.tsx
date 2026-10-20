@@ -66,6 +66,7 @@ export function Footer() {
               { to: `/${language}/faq`, label: t("footer.faq") },
               { to: `/${language}/contact`, label: t("footer.contact") },
               { to: `/${language}/shipping-returns`, label: t("footer.shippingReturns") },
+              { to: `/${language}/withdrawal`, label: t("withdrawal.entryLabel") },
               { to: `/${language}/privacy`, label: t("nav.privacy") },
               { to: `/${language}/legal`, label: t("nav.legal") },
             ].map(({ to, label }) => (

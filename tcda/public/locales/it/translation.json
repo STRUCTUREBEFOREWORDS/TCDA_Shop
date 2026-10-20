@@ -589,6 +589,7 @@
     "successTitle": "Ricevuto",
     "successBody": "Abbiamo ricevuto la tua richiesta e inviato un'email di conferma.",
     "linkLabel": "Modulo di recesso (consumatori UE/Regno Unito)",
+    "entryLabel": "Recedi dal contratto qui",
     "error": {
       "invalid": "Controlla il numero d'ordine e l'indirizzo email e riprova.",
       "rate": "Troppi tentativi. Attendi un momento e riprova.",

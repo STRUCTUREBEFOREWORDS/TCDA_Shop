@@ -103,7 +103,7 @@ export function ShippingReturnsPage() {
             to={`/${language}/withdrawal`}
             className="inline-block mt-4 text-white/60 text-xs font-light tracking-widest hover:text-white transition-colors duration-200"
           >
-            {t("withdrawal.linkLabel")} →
+            {t("withdrawal.entryLabel")} →
           </Link>
         </motion.div>
 
