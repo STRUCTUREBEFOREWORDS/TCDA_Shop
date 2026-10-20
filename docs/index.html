@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head><script>const r=new URLSearchParams(window.location.search).get('redirect');if(r)window.history.replaceState(null,'',r);</script>
+    <!-- Consent Mode defaults: must run before GTM and gtag/js -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Default consent: denied in EU/UK until user accepts (GDPR); same country list as EU_COUNTRY_CODES in Root.tsx
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        region: [
+          'AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GB',
+          'GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT',
+          'RO','SE','SI','SK','NO','IS','LI','CH',
+        ],
+        wait_for_update: 500,
+      });
+      // Default consent everywhere else
+      gtag('consent', 'default', {
+        analytics_storage: 'granted',
+      });
+    </script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -64,29 +86,10 @@
     <!-- Google Analytics GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VW5BN3XE0"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      // Default consent: denied in EU/UK until user accepts (GDPR); same country list as EU_COUNTRY_CODES in Root.tsx
-      gtag('consent', 'default', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        region: [
-          'AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GB',
-          'GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT',
-          'RO','SE','SI','SK','NO','IS','LI','CH',
-        ],
-        wait_for_update: 500,
-      });
-      // Default consent everywhere else
-      gtag('consent', 'default', {
-        analytics_storage: 'granted',
-      });
       gtag('js', new Date());
       gtag('config', 'G-1VW5BN3XE0');
     </script>
-    <script type="module" crossorigin src="/assets/index-BTGtsqt7.js"></script>
+    <script type="module" crossorigin src="/assets/index-DV3Hsxe4.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D-Ryq6yd.css">
   <link rel="manifest" href="/manifest.webmanifest"></head>
   <body>
