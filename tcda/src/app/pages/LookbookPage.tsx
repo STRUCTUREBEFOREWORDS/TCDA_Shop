@@ -3,15 +3,49 @@ import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { motion } from "motion/react";
 import { JsonLd } from "../components/JsonLd";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import lookbookImages from "../data/lookbookImages.json";
 
-const IMAGES = [
-  "001", "004", "005", "006", "007", "008", "009", "010", "011"
-].map(n => `https://cdn.tcdashop.com/look/${n}.webp`);
+const CDN = "https://cdn.tcdashop.com/";
+const OG_IMAGE = `${CDN}look/001.webp`;
+const FIRST_KEY = "tcda_lookbook_first";
+const COUNT = 9;
+
+type LookItem = { img: string; pid: string };
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function pickLooks(): LookItem[] {
+  const groups = new Map<string, LookItem[]>();
+  for (const it of lookbookImages as LookItem[]) {
+    const g = groups.get(it.pid);
+    if (g) g.push(it); else groups.set(it.pid, [it]);
+  }
+  const pick = () => shuffle([...groups.keys()]).slice(0, COUNT).map(pid => {
+    const g = groups.get(pid)!;
+    return g[Math.floor(Math.random() * g.length)];
+  });
+  let prev: string | null = null;
+  try { prev = localStorage.getItem(FIRST_KEY); } catch { /* ignore */ }
+  let items = pick();
+  for (let n = 0; n < 5 && items.length > 1 && items[0].img === prev; n++) items = pick();
+  if (items.length > 1 && items[0].img === prev) items = [...items.slice(1), items[0]];
+  try { if (items[0]) localStorage.setItem(FIRST_KEY, items[0].img); } catch { /* ignore */ }
+  return items;
+}
 
 export function LookbookPage() {
   const { language } = useGlobalContext();
   const { t } = useTranslation();
+  const [looks] = useState<LookItem[]>(pickLooks);
   const canonical = `https://tcdashop.com/en/lookbook`;
 
   return (
@@ -22,7 +56,7 @@ export function LookbookPage() {
         <link rel="canonical" href={canonical} />
         <meta property="og:title" content="Lookbook — TCDA" />
         <meta property="og:description" content="Abstract art transformed into wearable culture." />
-        <meta property="og:image" content={IMAGES[0]} />
+        <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:url" content={canonical} />
       </Helmet>
       <JsonLd type="ImageGallery" data={{
@@ -30,7 +64,7 @@ export function LookbookPage() {
         "@type": "ImageGallery",
         "name": "TCDA Lookbook",
         "url": canonical,
-        "image": IMAGES,
+        "image": OG_IMAGE,
       }} />
 
       {/* Hero title */}
@@ -54,20 +88,39 @@ export function LookbookPage() {
 
       {/* Images */}
       <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-        {IMAGES.map((src, i) => (
+        {looks.map(({ img, pid }, i) => (
           <motion.div
-            key={i}
+            key={img}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            style={{ position: "relative" }}
           >
-            <img
-              src={src}
-              alt={`TCDA Lookbook ${i + 1}`}
-              style={{ width: "100%", display: "block" }}
-              loading={i < 2 ? "eager" : "lazy"}
-            />
+            <Link to={`/${language}/product/${pid}`} style={{ display: "block" }}>
+              <img
+                src={`${CDN}${img}`}
+                alt={`TCDA Lookbook ${i + 1}`}
+                style={{ width: "100%", display: "block" }}
+                loading={i < 2 ? "eager" : "lazy"}
+              />
+              <span
+                className="text-xs uppercase"
+                style={{
+                  position: "absolute",
+                  left: "16px",
+                  bottom: "16px",
+                  background: "rgba(8,8,8,0.8)",
+                  color: "var(--accent-electric)",
+                  border: "1px solid var(--accent-electric)",
+                  padding: "8px 16px",
+                  fontFamily: "var(--font-body)",
+                  letterSpacing: "var(--ls-nav)",
+                }}
+              >
+                {t("lookbook.viewProduct")}
+              </span>
+            </Link>
           </motion.div>
         ))}
       </div>
