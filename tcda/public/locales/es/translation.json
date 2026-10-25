@@ -447,7 +447,8 @@
   "lookbook": {
     "viewProduct": "VER PRODUCTO",
     "count": "{{count}} LOOKS",
-    "loadMore": "VER MÁS"
+    "loadMore": "VER MÁS",
+    "viewAll": "VER TODO"
   },
   "about": {
     "viewCollection": "VER COLECCIÓN",

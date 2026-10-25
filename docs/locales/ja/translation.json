@@ -490,7 +490,8 @@
   "lookbook": {
     "viewProduct": "この商品を見る",
     "count": "{{count}} ルック",
-    "loadMore": "もっと見る"
+    "loadMore": "もっと見る",
+    "viewAll": "すべて見る"
   },
   "about": {
     "viewCollection": "コレクションを見る",

@@ -447,7 +447,8 @@
   "lookbook": {
     "viewProduct": "查看商品",
     "count": "{{count}} 款搭配",
-    "loadMore": "查看更多"
+    "loadMore": "查看更多",
+    "viewAll": "查看全部"
   },
   "about": {
     "viewCollection": "查看系列",

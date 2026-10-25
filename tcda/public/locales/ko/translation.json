@@ -447,7 +447,8 @@
   "lookbook": {
     "viewProduct": "상품 보기",
     "count": "{{count}} LOOKS",
-    "loadMore": "더 보기"
+    "loadMore": "더 보기",
+    "viewAll": "모두 보기"
   },
   "about": {
     "viewCollection": "컬렉션 보기",

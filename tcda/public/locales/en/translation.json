@@ -490,7 +490,8 @@
   "lookbook": {
     "viewProduct": "VIEW PRODUCT",
     "count": "{{count}} LOOKS",
-    "loadMore": "LOAD MORE"
+    "loadMore": "LOAD MORE",
+    "viewAll": "VIEW ALL"
   },
   "about": {
     "viewCollection": "VIEW COLLECTION",

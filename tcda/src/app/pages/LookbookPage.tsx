@@ -6,24 +6,11 @@ import { JsonLd } from "../components/JsonLd";
 import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import lookbookLooks from "../data/lookbookLooks.json";
-import { useConvertAndFormat } from "../hooks/useConvertAndFormat";
+import { LookCard, shuffle, type Look, type ProductInfo } from "../components/LookCard";
 
-const CDN = "https://cdn.tcdashop.com/";
-const OG_IMAGE = `${CDN}look/001.webp`;
+const OG_IMAGE = "https://cdn.tcdashop.com/look/001.webp";
 const FIRST_KEY = "tcda_lookbook_first";
 const PAGE_SIZE = 6;
-
-type Look = { pid: string; imgs: string[] };
-type ProductInfo = { id: string; name: string; price: number; shipping_available?: boolean };
-
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
 
 function pickLooks(): Look[] {
   return shuffle(lookbookLooks as Look[]);
@@ -32,7 +19,6 @@ function pickLooks(): Look[] {
 export function LookbookPage() {
   const { language, countryCode } = useGlobalContext();
   const { t } = useTranslation();
-  const convertAndFormat = useConvertAndFormat();
   const [looks] = useState<Look[]>(pickLooks);
   const [products, setProducts] = useState<Record<string, ProductInfo>>({});
   const [loaded, setLoaded] = useState(false);
@@ -136,61 +122,9 @@ export function LookbookPage() {
       {/* Looks */}
       <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 clamp(16px, 4vw, 48px)" }}>
         <div className="grid grid-cols-1 md:grid-cols-2" style={{ rowGap: "64px", columnGap: "32px" }}>
-          {visibleCards.map(({ pid, imgs }, ci) => {
-            const product = products[pid];
-            const name = product?.name ?? "";
-            const to = `/${language}/product/${pid}`;
-            return (
-              <motion.div
-                key={pid}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <Link
-                  to={to}
-                  style={{ display: "grid", gridTemplateColumns: `repeat(${imgs.length}, 1fr)`, gap: "2px" }}
-                >
-                  {imgs.map((img, i) => (
-                    <img
-                      key={img}
-                      src={`${CDN}${img}`}
-                      alt={`${name || "TCDA Lookbook"} ${i + 1}`}
-                      style={{ width: "100%", aspectRatio: "3/4", objectFit: "cover", display: "block" }}
-                      loading={ci === 0 ? "eager" : "lazy"}
-                    />
-                  ))}
-                </Link>
-                <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "8px", alignItems: "flex-start" }}>
-                  {name && (
-                    <span className="text-sm uppercase" style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}>
-                      {name}
-                    </span>
-                  )}
-                  {product && (
-                    <span style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)" }}>
-                      {convertAndFormat(product.price)}
-                    </span>
-                  )}
-                  <Link
-                    to={to}
-                    className="inline-block text-xs uppercase"
-                    style={{
-                      background: "transparent",
-                      color: "var(--accent-electric)",
-                      border: "1px solid var(--accent-electric)",
-                      padding: "12px 24px",
-                      fontFamily: "var(--font-body)",
-                      letterSpacing: "var(--ls-nav)",
-                    }}
-                  >
-                    {t("lookbook.viewProduct")} →
-                  </Link>
-                </div>
-              </motion.div>
-            );
-          })}
+          {visibleCards.map((look, ci) => (
+            <LookCard key={look.pid} look={look} product={products[look.pid]} eager={ci === 0} />
+          ))}
         </div>
         {visibleCount < cards.length && (
           <div style={{ textAlign: "center", marginTop: "64px" }}>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Helmet } from "react-helmet-async";
@@ -6,6 +6,8 @@ import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { JsonLd } from "../components/JsonLd";
 import { pushDataLayer } from "../hooks/useDataLayer";
+import { LookCard, shuffle, type Look, type ProductInfo } from "../components/LookCard";
+import lookbookLooks from "../data/lookbookLooks.json";
 
 const DISPLAY_STYLE: React.CSSProperties = {
   fontFamily: "var(--font-display)",
@@ -23,11 +25,15 @@ const fadeUp = {
   transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
 };
 
+const LOOKBOOK_COUNT = 4;
+
 export function TopPage() {
   const { language, currency, countryCode } = useGlobalContext();
   const { t } = useTranslation();
 
   const [scrollY, setScrollY] = useState(0);
+  const [looks] = useState<Look[]>(() => shuffle(lookbookLooks as Look[]));
+  const [products, setProducts] = useState<Record<string, ProductInfo> | null>(null);
 
   useEffect(() => {
     let rafId: number;
@@ -49,6 +55,26 @@ export function TopPage() {
       country: countryCode,
     });
   }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const qs = countryCode ? `?country_code=${countryCode}` : "";
+    fetch(`https://api.tcdashop.com/products${qs}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (cancelled) return;
+        const map: Record<string, ProductInfo> = {};
+        for (const p of (data.products ?? []) as ProductInfo[]) map[p.id] = p;
+        setProducts(map);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [countryCode]);
+
+  const lookCards = useMemo(() => {
+    if (!products) return [];
+    return looks.filter((l) => products[l.pid]?.shipping_available !== false).slice(0, LOOKBOOK_COUNT);
+  }, [looks, products]);
 
   return (
     <div className="min-h-screen bg-black">
@@ -175,6 +201,41 @@ export function TopPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* LOOKBOOK */}
+      {products && lookCards.length > 0 && (
+        <section style={{ padding: "clamp(64px, 10vw, 120px) clamp(16px, 4vw, 48px)", maxWidth: "1400px", margin: "0 auto" }}>
+          <motion.h2
+            {...fadeUp}
+            className="leading-none select-none"
+            style={{ ...DISPLAY_STYLE, color: "var(--color-text)", marginBottom: "clamp(32px, 6vw, 64px)" }}
+          >
+            LOOKBOOK
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ rowGap: "64px", columnGap: "32px" }}>
+            {lookCards.map((look, i) => (
+              <div key={look.pid} className={i >= 2 ? "hidden md:block" : undefined}>
+                <LookCard look={look} product={products[look.pid]} />
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: "48px", textAlign: "center" }}>
+            <Link
+              to={`/${language}/lookbook`}
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.3em",
+                color: "#ffffff",
+                borderBottom: "1px solid rgba(255,255,255,0.4)",
+                paddingBottom: "2px",
+                textTransform: "uppercase",
+              }}
+            >
+              {t("lookbook.viewAll")} →
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* Brand message */}
       <div style={{
