@@ -33,7 +33,7 @@ const FIT_COLOR: Record<FitLabelNormalized, string> = {
   regular:  "text-green-400",
   relaxed:  "text-amber-400",
   oversized:"text-purple-400",
-  unknown:  "text-white/30",
+  unknown:  "text-[color:var(--color-text-tertiary)]",
 };
 
 // ─── Types ──────────────────────────────────────────────────────────────────
@@ -207,21 +207,21 @@ export function SizeGuideModal({
             {/* ── Fixed header ───────────────────────────────────────────── */}
             <div className="flex items-start justify-between px-8 py-6 border-b border-white/10 flex-shrink-0">
               <div>
-                <p className="text-white/30 text-[9px] font-light tracking-[0.4em] uppercase mb-1">
+                <p className="text-[color:var(--color-text-tertiary)] text-[9px] font-light tracking-[0.4em] uppercase mb-1">
                   {t("sizeGuide.title")}
                 </p>
                 <h2 className="text-white text-sm font-light tracking-widest uppercase">
                   {productName}
                 </h2>
                 {productType && (
-                  <p className="text-white/40 text-[10px] font-light tracking-widest mt-0.5">
+                  <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-widest mt-0.5">
                     {productType}
                   </p>
                 )}
               </div>
               <button
                 onClick={onClose}
-                className="text-white/30 hover:text-white transition-colors duration-200 mt-0.5"
+                className="text-[color:var(--color-text-tertiary)] hover:text-white transition-colors duration-200 mt-0.5"
                 aria-label={t("sizeGuide.close")}
               >
                 <X size={16} strokeWidth={1.5} />
@@ -233,7 +233,7 @@ export function SizeGuideModal({
 
               {/* ① cm / inch toggle + section label */}
               <div className="flex items-center justify-between">
-                <p className="text-white/30 text-[9px] font-light tracking-[0.4em] uppercase">
+                <p className="text-[color:var(--color-text-tertiary)] text-[9px] font-light tracking-[0.4em] uppercase">
                   {t("size.guide")}
                 </p>
                 {sizeChart && (
@@ -245,7 +245,7 @@ export function SizeGuideModal({
                         className={`px-3 py-1 text-[10px] font-light tracking-widest uppercase transition-all duration-200 ${
                           sizeUnit === unit
                             ? "bg-white/20 text-white"
-                            : "text-white/40 hover:text-white/70"
+                            : "text-[color:var(--color-text-tertiary)] hover:text-white"
                         }`}
                       >
                         {unit}
@@ -257,7 +257,7 @@ export function SizeGuideModal({
 
               {/* ② Measuring guide: image + legend + flat note */}
               <div className="border-b border-white/5 pb-8">
-                <p className="text-white/30 text-[9px] font-light tracking-[0.4em] uppercase mb-4">
+                <p className="text-[color:var(--color-text-tertiary)] text-[9px] font-light tracking-[0.4em] uppercase mb-4">
                   {t("sizeGuide.howToMeasure")}
                 </p>
 
@@ -283,7 +283,7 @@ export function SizeGuideModal({
                           <p className="text-white/70 text-[11px] font-light tracking-widest uppercase leading-none mb-1">
                             {t(labelKey)}
                           </p>
-                          <p className="text-white/40 text-[10px] font-light leading-snug">
+                          <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light leading-snug">
                             {t(helpKey)}
                           </p>
                         </div>
@@ -293,7 +293,7 @@ export function SizeGuideModal({
                 )}
 
                 {/* Flat measurement note */}
-                <p className="text-white/30 text-[10px] font-light">
+                <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light">
                   {t("sizeGuide.measurementFlatNote")}
                 </p>
               </div>
@@ -305,21 +305,21 @@ export function SizeGuideModal({
                     <table className="w-full text-xs font-light">
                       <thead>
                         <tr className="border-b border-white/10">
-                          <th className="text-left py-2 pr-6 text-white/40 font-light tracking-widest uppercase whitespace-nowrap">
+                          <th className="text-left py-2 pr-6 text-[color:var(--color-text-tertiary)] font-light tracking-widest uppercase whitespace-nowrap">
                             {t("sizeTable.size")}
                           </th>
                           {activeMeasurements.length > 0
                             ? activeMeasurements.map(({ marker, labelKey }) => (
                                 <th
                                   key={marker}
-                                  className="text-left py-2 pr-6 text-white/40 font-light tracking-widest uppercase whitespace-nowrap"
+                                  className="text-left py-2 pr-6 text-[color:var(--color-text-tertiary)] font-light tracking-widest uppercase whitespace-nowrap"
                                 >
                                   <span className="inline-flex items-center gap-1.5">
                                     <span className="w-4 h-4 flex items-center justify-center bg-black/10 text-white/60 text-[8px] rounded-full">
                                       {marker}
                                     </span>
                                     {t(labelKey)}
-                                    <span className="text-white/25 normal-case tracking-normal">
+                                    <span className="text-[color:var(--color-text-tertiary)] normal-case tracking-normal">
                                       ({sizeUnit})
                                     </span>
                                   </span>
@@ -328,7 +328,7 @@ export function SizeGuideModal({
                             : chartUnit.measurements.map((m) => (
                                 <th
                                   key={m}
-                                  className="text-left py-2 pr-6 text-white/40 font-light tracking-widest uppercase whitespace-nowrap"
+                                  className="text-left py-2 pr-6 text-[color:var(--color-text-tertiary)] font-light tracking-widest uppercase whitespace-nowrap"
                                 >
                                   {m} ({sizeUnit})
                                 </th>
@@ -351,10 +351,10 @@ export function SizeGuideModal({
                     </table>
                   </div>
                 ) : (
-                  <p className="text-white/30 text-xs font-light">{t("size.noChartAvailable")}</p>
+                  <p className="text-[color:var(--color-text-tertiary)] text-xs font-light">{t("size.noChartAvailable")}</p>
                 )}
 
-                <p className="text-white/25 text-[10px] font-light mt-3">
+                <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light mt-3">
                   {t("sizeGuide.measurementVariationNote")}
                 </p>
                 <p style={{ fontSize: "0.75rem", color: "#888", marginTop: "8px" }}>
@@ -365,7 +365,7 @@ export function SizeGuideModal({
               {/* ④ Fit section (moved below table) */}
               {fitMetadata && fitKey !== "unknown" && (
                 <div className="border-t border-white/5 pt-8">
-                  <p className="text-white/30 text-[9px] font-light tracking-[0.4em] uppercase mb-3">
+                  <p className="text-[color:var(--color-text-tertiary)] text-[9px] font-light tracking-[0.4em] uppercase mb-3">
                     {t("sizeGuide.fit")}
                   </p>
                   <div className="flex items-center gap-3 mb-3">
@@ -373,10 +373,10 @@ export function SizeGuideModal({
                       {t(`fit.${fitKey}`)}
                     </span>
                     {fitMetadata.model_height_cm && fitMetadata.model_wear_size && (
-                      <span className="text-white/30 text-[10px] font-light">
+                      <span className="text-[color:var(--color-text-tertiary)] text-[10px] font-light">
                         — {fitMetadata.model_height_cm}cm / {fitMetadata.model_wear_size}
                         {fitMetadata.is_ai_model && (
-                          <span className="ml-2 opacity-50">{t("product.aiModelNote")}</span>
+                          <span className="ml-2">{t("product.aiModelNote")}</span>
                         )}
                       </span>
                     )}
@@ -385,13 +385,13 @@ export function SizeGuideModal({
                     {t(`fit.${fitKey}Note`)}
                   </p>
                   {fitMetadata.silhouette_note && (
-                    <p className="text-white/40 text-xs font-light leading-relaxed mt-2 italic">
+                    <p className="text-[color:var(--color-text-tertiary)] text-xs font-light leading-relaxed mt-2 italic">
                       {fitMetadata.silhouette_note}
                     </p>
                   )}
                   {fitMetadata.recommendation_note && (
                     <>
-                      <p className="text-white/30 text-[9px] font-light tracking-[0.4em] uppercase mt-5 mb-1">
+                      <p className="text-[color:var(--color-text-tertiary)] text-[9px] font-light tracking-[0.4em] uppercase mt-5 mb-1">
                         {t("sizeGuide.recommendation")}
                       </p>
                       <p className="text-white/60 text-xs font-light leading-relaxed">
