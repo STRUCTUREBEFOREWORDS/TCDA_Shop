@@ -665,6 +665,9 @@ export function ProductPage() {
                   {t("size.selectRequired")}
                 </p>
               )}
+              <p className="text-xs font-light leading-relaxed" style={{ marginTop: "12px", color: "var(--color-text-tertiary)" }}>
+                {t("product.sizeReturnNote")}
+              </p>
             </div>
 
             {/* Add to Cart */}
