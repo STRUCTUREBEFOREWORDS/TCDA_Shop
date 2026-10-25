@@ -58,12 +58,12 @@ export function CartDrawer() {
               <h2 className="text-white text-xs font-light tracking-[0.3em] uppercase">
                 {t("cart.viewCart")}
                 {cartCount > 0 && (
-                  <span className="ml-2 text-white/40">({cartCount})</span>
+                  <span className="ml-2 text-[color:var(--color-text-tertiary)]">({cartCount})</span>
                 )}
               </h2>
               <button
                 onClick={() => setIsCartOpen(false)}
-                className="text-white/40 hover:text-white transition-colors duration-200"
+                className="text-[color:var(--color-text-tertiary)] hover:text-white transition-colors duration-200"
               >
                 <X size={14} strokeWidth={1.5} />
               </button>
@@ -73,7 +73,7 @@ export function CartDrawer() {
             <div className="flex-1 overflow-y-auto">
               {cartItems.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full space-y-6 px-5 sm:px-8">
-                  <p className="text-white/30 text-xs font-light tracking-widest uppercase">
+                  <p className="text-[color:var(--color-text-tertiary)] text-xs font-light tracking-widest uppercase">
                     {t("cart.cartEmpty")}
                   </p>
                   <button
@@ -104,7 +104,7 @@ export function CartDrawer() {
                         <p className="text-white text-xs font-light tracking-wide leading-snug">
                           {item.artworkName}
                         </p>
-                        <p className="text-white/40 text-[10px] font-light tracking-widest uppercase">
+                        <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-widest uppercase">
                           {t("size.label")}: {item.size}
                         </p>
                         <p className="text-white text-sm font-extralight">
@@ -117,7 +117,7 @@ export function CartDrawer() {
                             onClick={() =>
                               updateQuantity(item.artworkId, item.size, item.quantity - 1)
                             }
-                            className="text-white/40 hover:text-white transition-colors"
+                            className="text-[color:var(--color-text-tertiary)] hover:text-white transition-colors"
                           >
                             <Minus size={12} strokeWidth={1.5} />
                           </button>
@@ -128,7 +128,7 @@ export function CartDrawer() {
                             onClick={() =>
                               updateQuantity(item.artworkId, item.size, item.quantity + 1)
                             }
-                            className="text-white/40 hover:text-white transition-colors"
+                            className="text-[color:var(--color-text-tertiary)] hover:text-white transition-colors"
                           >
                             <Plus size={12} strokeWidth={1.5} />
                           </button>
@@ -138,7 +138,7 @@ export function CartDrawer() {
                       {/* Remove */}
                       <button
                         onClick={() => removeFromCart(item.artworkId, item.size)}
-                        className="text-white/20 hover:text-white/60 transition-colors self-start mt-0.5"
+                        className="text-[color:var(--color-text-tertiary)] hover:text-white transition-colors self-start mt-0.5"
                       >
                         <X size={12} strokeWidth={1.5} />
                       </button>
@@ -151,7 +151,7 @@ export function CartDrawer() {
             {/* Recently Viewed */}
             {recentProducts.length > 0 && (
               <div className="border-t border-white/5 px-5 sm:px-8 py-6">
-                <p className="text-white/20 text-[10px] font-light tracking-[0.4em] uppercase mb-4">
+                <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-[0.4em] uppercase mb-4">
                   {t("shop.recentlyViewed")}
                 </p>
                 <div className="flex gap-3 overflow-x-auto pb-1">
@@ -169,7 +169,7 @@ export function CartDrawer() {
                           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                         />
                       </div>
-                      <p className="text-white/40 text-[9px] font-light tracking-wide truncate group-hover:text-white/70 transition-colors duration-200">
+                      <p className="text-[color:var(--color-text-tertiary)] text-[9px] font-light tracking-wide truncate group-hover:text-white/70 transition-colors duration-200">
                         {product.name}
                       </p>
                     </Link>
@@ -182,14 +182,14 @@ export function CartDrawer() {
             {cartItems.length > 0 && (
               <div className="border-t border-white/10 px-5 py-5 sm:px-8 sm:py-6 space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-white/40 text-[10px] font-light tracking-[0.25em] uppercase">
+                  <span className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-[0.25em] uppercase">
                     {t("cart.total")}
                   </span>
                   <span className="text-white text-lg font-extralight tracking-wider">
                     {formatPrice(total, currency)}
                   </span>
                 </div>
-                <p className="text-white/30 text-[10px] font-light tracking-wide text-right -mt-2">
+                <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-wide text-right -mt-2">
                   {t("cart.shippingNote")} · {t("cart.taxNote")} ·{" "}
                   <Link
                     to={`/${language}/shipping-returns`}
