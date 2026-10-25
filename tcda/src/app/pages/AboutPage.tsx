@@ -41,11 +41,11 @@ export function AboutPage() {
   return (
     <div style={{ background: "var(--color-bg)", overflowX: "hidden" }}>
       <Helmet>
-        <title>About — TCDA</title>
-        <meta name="description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
+        <title>{t("meta.about.title")}</title>
+        <meta name="description" content={t("meta.brand.description")} />
         <link rel="canonical" href={canonical} />
-        <meta property="og:title" content="About — TCDA" />
-        <meta property="og:description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
+        <meta property="og:title" content={t("meta.about.title")} />
+        <meta property="og:description" content={t("meta.brand.description")} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content="https://cdn.tcdashop.com/top/about-hero-desktop.webp" />
       </Helmet>

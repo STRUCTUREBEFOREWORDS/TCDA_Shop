@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
+import { useLocation } from "react-router";
+import { OG_DEFAULT_IMAGE } from "../lib/seo";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -10,6 +12,7 @@ const SUBMIT_COOLDOWN_MS = 30_000; // 30 s between submissions
 
 export function ContactPage() {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
   const { language } = useGlobalContext();
 
   const [formState, setFormState] = useState<FormState>("idle");
@@ -61,6 +64,12 @@ export function ContactPage() {
     <div className="min-h-screen bg-black pt-20">
       <Helmet>
         <title>{t("contact.title")} | TCDA</title>
+        <meta name="description" content={t("meta.contact.description")} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${t("contact.title")} | TCDA`} />
+        <meta property="og:description" content={t("meta.contact.description")} />
+        <meta property="og:url" content={`https://tcdashop.com${pathname.replace(/\/?$/, "/")}`} />
+        <meta property="og:image" content={OG_DEFAULT_IMAGE} />
       </Helmet>
 
       {/* Page header */}

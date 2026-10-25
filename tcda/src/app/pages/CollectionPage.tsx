@@ -240,10 +240,10 @@ export function CollectionPage() {
     <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--color-bg)" }}>
       <Helmet>
         <title>{t("collection.heroTitle")} — TCDA</title>
-        <meta name="description" content="TCDA Collection — Abstract art apparel. TOPS / OUTERWEAR / SWEATSHIRTS. Ships to Japan, the US, Canada, Australia, France and Germany." />
+        <meta name="description" content={t("meta.collection.description")} />
         <link rel="canonical" href={canonical} />
         <meta property="og:title" content={`${t("collection.heroTitle")} — TCDA`} />
-        <meta property="og:description" content="TCDA Collection — Abstract art apparel. TOPS / OUTERWEAR / SWEATSHIRTS. Ships to Japan, the US, Canada, Australia, France and Germany." />
+        <meta property="og:description" content={t("meta.collection.description")} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content="https://cdn.tcdashop.com/top/006-desktop.webp" />
         <meta name="twitter:card" content="summary_large_image" />

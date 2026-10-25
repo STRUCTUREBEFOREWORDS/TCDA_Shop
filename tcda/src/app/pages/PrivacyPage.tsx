@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router";
+import { OG_DEFAULT_IMAGE } from "../lib/seo";
 
 const SECTION_KEYS = [
   "dataCollection",
@@ -16,12 +18,19 @@ const SECTION_KEYS = [
 
 export function PrivacyPage() {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
 
   return (
     <div className="min-h-screen bg-black">
       <div className="text-white px-6 py-20 max-w-2xl mx-auto">
       <Helmet>
         <title>{t("privacy.title")} | TCDA</title>
+        <meta name="description" content={t("meta.privacy.description")} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${t("privacy.title")} | TCDA`} />
+        <meta property="og:description" content={t("meta.privacy.description")} />
+        <meta property="og:url" content={`https://tcdashop.com${pathname.replace(/\/?$/, "/")}`} />
+        <meta property="og:image" content={OG_DEFAULT_IMAGE} />
       </Helmet>
       <h1 className="text-sm font-light tracking-normal uppercase mb-12">
         {t("privacy.title")}

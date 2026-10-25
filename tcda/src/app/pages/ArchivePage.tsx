@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
+import { Helmet } from "react-helmet-async";
 import { motion } from "motion/react";
 import { useGlobalContext } from "./Root";
 import { useTranslation } from "react-i18next";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { formatPrice } from "../utils/formatPrice";
 import { applyPsychologicalPrice } from "../../utils/priceRounding";
+import { OG_DEFAULT_IMAGE } from "../lib/seo";
 interface Product {
   id: string;
   name: string;
@@ -32,6 +34,7 @@ function getCategory(name: string): Category {
 export function ArchivePage() {
   const { language, currency, rates, recentProducts } = useGlobalContext();
 const { t } = useTranslation();
+  const { pathname } = useLocation();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState<Category>('ALL');
@@ -52,6 +55,15 @@ const { t } = useTranslation();
   const filtered = active === 'ALL' ? products : products.filter((p) => getCategory(p.name) === active);
   return (
     <div className="min-h-screen bg-black">
+      <Helmet>
+        <title>{`${t("nav.shop")} | TCDA`}</title>
+        <meta name="description" content={t("meta.products.description")} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${t("nav.shop")} | TCDA`} />
+        <meta property="og:description" content={t("meta.products.description")} />
+        <meta property="og:url" content={`https://tcdashop.com${pathname.replace(/\/?$/, "/")}`} />
+        <meta property="og:image" content={OG_DEFAULT_IMAGE} />
+      </Helmet>
       <div className="sticky top-14 z-30 bg-black/95 backdrop-blur-sm border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-4">
           <div className="flex items-center gap-4 mb-3">

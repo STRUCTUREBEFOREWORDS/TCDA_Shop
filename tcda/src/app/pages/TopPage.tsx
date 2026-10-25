@@ -80,9 +80,9 @@ export function TopPage() {
     <div className="min-h-screen bg-black">
       <Helmet>
         <title>{t("home.metaTitle")}</title>
-        <meta name="description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
+        <meta name="description" content={t("meta.brand.description")} />
         <meta property="og:title" content={t("home.metaTitle")} />
-        <meta property="og:description" content="TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." />
+        <meta property="og:description" content={t("meta.brand.description")} />
         <meta property="og:url" content={`https://tcdashop.com/${language}/`} />
         <meta property="og:image" content="https://cdn.tcdashop.com/top/hero-transcend-desktop.webp" />
       </Helmet>

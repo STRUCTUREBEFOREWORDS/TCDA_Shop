@@ -78,11 +78,11 @@ export function FaqPage() {
   return (
     <div className="min-h-screen" style={{ background: "var(--color-bg)" }}>
       <Helmet>
-        <title>FAQ — TCDA</title>
-        <meta name="description" content="Answers about TCDA products, sizing, shipping, and returns." />
+        <title>{t("meta.faq.title")}</title>
+        <meta name="description" content={t("meta.faq.description")} />
         <link rel="canonical" href={canonical} />
-        <meta property="og:title" content="FAQ — TCDA" />
-        <meta property="og:description" content="Answers about TCDA products, sizing, shipping, and returns." />
+        <meta property="og:title" content={t("meta.faq.title")} />
+        <meta property="og:description" content={t("meta.faq.description")} />
         <meta property="og:url" content={canonical} />
       </Helmet>
       <JsonLd type="FAQPage" data={{

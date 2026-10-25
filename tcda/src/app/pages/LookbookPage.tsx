@@ -76,11 +76,11 @@ export function LookbookPage() {
   return (
     <div style={{ background: "var(--color-bg)" }}>
       <Helmet>
-        <title>Lookbook — TCDA</title>
-        <meta name="description" content="TCDA Lookbook — Color immersion as fashion. Explore the visual world of TCDA." />
+        <title>{t("meta.lookbook.title")}</title>
+        <meta name="description" content={t("meta.lookbook.description")} />
         <link rel="canonical" href={canonical} />
-        <meta property="og:title" content="Lookbook — TCDA" />
-        <meta property="og:description" content="Abstract art transformed into wearable culture." />
+        <meta property="og:title" content={t("meta.lookbook.title")} />
+        <meta property="og:description" content={t("meta.lookbook.ogDescription")} />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:url" content={canonical} />
       </Helmet>

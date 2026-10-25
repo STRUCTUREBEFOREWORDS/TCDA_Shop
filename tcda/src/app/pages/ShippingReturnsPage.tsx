@@ -1,12 +1,14 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { useGlobalContext } from "./Root";
+import { OG_DEFAULT_IMAGE } from "../lib/seo";
 
 export function ShippingReturnsPage() {
   const { t } = useTranslation();
   const { language } = useGlobalContext();
+  const { pathname } = useLocation();
 
   const sections = [
     {
@@ -27,6 +29,12 @@ export function ShippingReturnsPage() {
     <div className="min-h-screen bg-black pt-20">
       <Helmet>
         <title>{t("shippingReturns.title")} | TCDA</title>
+        <meta name="description" content={t("meta.shippingReturns.description")} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${t("shippingReturns.title")} | TCDA`} />
+        <meta property="og:description" content={t("meta.shippingReturns.description")} />
+        <meta property="og:url" content={`https://tcdashop.com${pathname.replace(/\/?$/, "/")}`} />
+        <meta property="og:image" content={OG_DEFAULT_IMAGE} />
       </Helmet>
 
       {/* Hero */}
