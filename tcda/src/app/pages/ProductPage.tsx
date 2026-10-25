@@ -464,7 +464,7 @@ export function ProductPage() {
         "brand": { "@type": "Brand", "name": "TCDA" },
         "offers": {
           "@type": "Offer",
-          "url": `https://tcdashop.com/${language}/product/${product.id}`,
+          "url": canonical,
           "priceCurrency": "JPY",
           "price": product.price,
           "availability": product.stock > 0
