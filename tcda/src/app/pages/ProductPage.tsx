@@ -270,10 +270,18 @@ export function ProductPage() {
         setImages(imageList);
         setCurrentImageIndex(0);
         if (data.size_category) {
-          const chartRes = await fetch(`https://api.tcdashop.com/size-charts/${data.size_category}`);
-          const chartData = await chartRes.json();
-          setSizeChart(chartData);
+          try {
+            const chartRes = await fetch(`https://api.tcdashop.com/size-charts/${data.size_category}`);
+            const chartData = await chartRes.json();
+            setSizeChart(chartData);
+          } catch {
+            setSizeChart(null);
+          }
         }
+      })
+      .catch((err) => {
+        setProduct(null);
+        console.warn("[ProductPage] failed to load product", err);
       })
       .finally(() => setLoading(false));
   }, [id, countryCode, language]);
@@ -318,8 +326,21 @@ export function ProductPage() {
 
   if (!product) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex flex-col items-center justify-center" style={{ gap: "32px" }}>
         <p className="text-sm font-light tracking-widest" style={{ color: "var(--color-text-tertiary)" }}>{t("product.notFound")}</p>
+        <Link
+          to={`/${language}/collection`}
+          className="inline-block text-xs uppercase"
+          style={{
+            color: "var(--accent-electric)",
+            border: "1px solid var(--accent-electric)",
+            padding: "12px 24px",
+            fontFamily: "var(--font-body)",
+            letterSpacing: "var(--ls-nav)",
+          }}
+        >
+          {t("about.ctaLabel")}
+        </Link>
       </div>
     );
   }
