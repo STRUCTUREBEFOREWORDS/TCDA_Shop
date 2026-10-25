@@ -28,6 +28,29 @@ const { langs: LANGS } = JSON.parse(readFileSync(join(__dirname, "..", "shared",
 // Same fixed pages as generate-sitemap.js ("" = top page)
 const STATIC_PATHS = ["", "products", "collection", "about", "faq", "lookbook", "contact", "legal", "privacy", "shipping-returns"];
 
+const LOCALES_DIR = join(__dirname, "..", "public", "locales");
+const metaCache = {};
+const metaOf = (lang) => (metaCache[lang] ??= JSON.parse(readFileSync(join(LOCALES_DIR, lang, "translation.json"), "utf-8")).meta);
+
+/** Expected title / description / og:description for a fixed page, from meta.* in the locale file */
+function expectedFor(lang, path) {
+  const m = metaOf(lang);
+  const byPath = {
+    "": { description: m.brand.description },
+    about: { title: m.about.title, description: m.brand.description },
+    collection: { description: m.collection.description },
+    faq: { title: m.faq.title, description: m.faq.description },
+    lookbook: { title: m.lookbook.title, description: m.lookbook.description, ogDescription: m.lookbook.ogDescription },
+    contact: { description: m.contact.description },
+    legal: { description: m.legal.description },
+    privacy: { description: m.privacy.description },
+    "shipping-returns": { description: m.shippingReturns.description },
+    products: { description: m.products.description },
+  };
+  const e = byPath[path];
+  return { ...e, ogDescription: e.ogDescription ?? e.description };
+}
+
 const MIME = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
   ".webmanifest": "application/manifest+json", ".svg": "image/svg+xml", ".png": "image/png", ".webp": "image/webp",
@@ -105,6 +128,17 @@ async function renderOne(context, origin, job) {
         { timeout: TIMEOUT_MS }
       );
     }
+    if (job.expected) {
+      try {
+        await page.waitForFunction(
+          (desc) => document.querySelector('meta[name="description"][data-rh="true"]')?.getAttribute("content") === desc,
+          job.expected.description,
+          { timeout: TIMEOUT_MS }
+        );
+      } catch {
+        throw new Error("description never matched the translated meta text");
+      }
+    }
     // Root's canonical lands before the lazy-loaded page chunk adds its own tags: wait until the head stops changing
     let last = "";
     for (let stable = 0, waited = 0; stable < STABLE_SAMPLES; waited += 300) {
@@ -131,6 +165,41 @@ function buildHtml(shell, { title, elements }) {
   return stripped.replace("</head>", `${injected}\n  </head>`);
 }
 
+const decode = (v) => v.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+
+/** Check every generated file; returns [{ path, check, expected, actual }] for each mismatch */
+function verify(tmpRoot, jobs) {
+  const bad = [];
+  for (const job of jobs) {
+    const html = readFileSync(join(tmpRoot, job.lang, job.rest, "index.html"), "utf-8");
+    const head = html.slice(0, html.indexOf("</head>"));
+    const titles = [...head.matchAll(/<title>([\s\S]*?)<\/title>/g)].map((m) => decode(m[1]));
+    const descriptions = [...head.matchAll(/<meta name="description" content="([^"]*)"/g)].map((m) => decode(m[1]));
+    const ogDescriptions = [...head.matchAll(/<meta property="og:description" content="([^"]*)"/g)].map((m) => decode(m[1]));
+    const canonicals = [...head.matchAll(/<link rel="canonical" href="([^"]*)"/g)].map((m) => m[1]);
+    const hreflangs = [...head.matchAll(/<link rel="alternate" hreflang="/g)].length;
+    const ldProducts = [...head.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].filter((m) => /"@type":"Product"/.test(m[1])).length;
+    const check = (name, expected, actual) => {
+      if (String(expected) !== String(actual)) bad.push({ path: job.path, check: name, expected, actual });
+    };
+    check("title count", 1, titles.length);
+    check("description count", 1, descriptions.length);
+    check("canonical count", 1, canonicals.length);
+    check("canonical", job.canonical, canonicals[0] ?? "(none)");
+    check("hreflang count", 7, hreflangs);
+    if (job.expected) {
+      check("description", job.expected.description, descriptions[0] ?? "(none)");
+      check("og:description", job.expected.ogDescription, ogDescriptions[0] ?? "(none)");
+      if (job.expected.title) check("title", job.expected.title, titles[0] ?? "(none)");
+    }
+    if (job.isProduct) {
+      check("JSON-LD Product count", 1, ldProducts);
+      if (!descriptions[0]) bad.push({ path: job.path, check: "description non-empty", expected: "non-empty", actual: "(empty)" });
+    }
+  }
+  return bad;
+}
+
 async function main() {
   const started = Date.now();
   const shell = readFileSync(join(DOCS, "index.html"), "utf-8");
@@ -140,7 +209,7 @@ async function main() {
   for (const lang of LANGS) {
     for (const p of STATIC_PATHS) {
       const rest = p ? `${p}/` : "";
-      jobs.push({ lang, path: `/${lang}/${rest}`, rest, canonical: `${BASE_URL}/${lang}/${rest}`, isProduct: false });
+      jobs.push({ lang, path: `/${lang}/${rest}`, rest, canonical: `${BASE_URL}/${lang}/${rest}`, isProduct: false, expected: expectedFor(lang, p) });
     }
     for (const id of productIds) {
       const rest = `product/${id}/`;
@@ -155,51 +224,62 @@ async function main() {
   const context = await browser.newContext({ serviceWorkers: "block" });
 
   const tmpRoot = mkdtempSync(join(dirname(DOCS), ".prerender-"));
-  const failures = [];
-  let next = 0;
+  try {
+    const failures = [];
+    let next = 0;
 
-  async function worker() {
-    while (next < jobs.length) {
-      const job = jobs[next++];
-      try {
-        let head;
-        for (let attempt = 1; ; attempt++) {
-          try {
-            head = await renderOne(context, origin, job);
-            break;
-          } catch (err) {
-            if (attempt >= JOB_ATTEMPTS) throw err;
-            await new Promise((r) => setTimeout(r, 10_000 * attempt));
+    async function worker() {
+      while (next < jobs.length) {
+        const job = jobs[next++];
+        try {
+          let head;
+          for (let attempt = 1; ; attempt++) {
+            try {
+              head = await renderOne(context, origin, job);
+              break;
+            } catch (err) {
+              if (attempt >= JOB_ATTEMPTS) throw err;
+              await new Promise((r) => setTimeout(r, 10_000 * attempt));
+            }
           }
+          const out = join(tmpRoot, job.lang, job.rest, "index.html");
+          mkdirSync(dirname(out), { recursive: true });
+          writeFileSync(out, buildHtml(shell, head), "utf-8");
+        } catch (err) {
+          failures.push(`${job.path}: ${err.message.split("\n")[0]}`);
         }
-        const out = join(tmpRoot, job.lang, job.rest, "index.html");
-        mkdirSync(dirname(out), { recursive: true });
-        writeFileSync(out, buildHtml(shell, head), "utf-8");
-      } catch (err) {
-        failures.push(`${job.path}: ${err.message.split("\n")[0]}`);
       }
     }
-  }
-  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 
-  await browser.close();
-  server.close();
+    if (failures.length > 0) {
+      console.error(`[prerender] ${failures.length} failure(s); docs/ left untouched:\n${failures.join("\n")}`);
+      return 1;
+    }
 
-  if (failures.length > 0) {
+    const mismatches = verify(tmpRoot, jobs);
+    if (mismatches.length > 0) {
+      const rows = mismatches.map((m) => `| ${m.path} | ${m.check} | ${m.expected} | ${m.actual} |`);
+      console.error(`[prerender] ${mismatches.length} mismatch(es); docs/ left untouched:\n| URL | check | expected | actual |\n|---|---|---|---|\n${rows.join("\n")}`);
+      return 1;
+    }
+
+    for (const lang of LANGS) {
+      rmSync(join(DOCS, lang), { recursive: true, force: true });
+      renameSync(join(tmpRoot, lang), join(DOCS, lang));
+    }
+    console.log(`[prerender] Done — ${jobs.length} page(s) verified in ${((Date.now() - started) / 1000).toFixed(1)}s`);
+    return 0;
+  } finally {
     rmSync(tmpRoot, { recursive: true, force: true });
-    console.error(`[prerender] ${failures.length} failure(s); docs/ left untouched:\n${failures.join("\n")}`);
-    process.exit(1);
+    await browser.close();
+    server.close();
   }
-
-  for (const lang of LANGS) {
-    rmSync(join(DOCS, lang), { recursive: true, force: true });
-    renameSync(join(tmpRoot, lang), join(DOCS, lang));
-  }
-  rmSync(tmpRoot, { recursive: true, force: true });
-  console.log(`[prerender] Done — ${jobs.length} page(s) in ${((Date.now() - started) / 1000).toFixed(1)}s`);
 }
 
-main().catch((err) => {
-  console.error("[prerender] Fatal error:", err);
-  process.exit(1);
-});
+main()
+  .then((code) => process.exit(code))
+  .catch((err) => {
+    console.error("[prerender] Fatal error:", err);
+    process.exit(1);
+  });
