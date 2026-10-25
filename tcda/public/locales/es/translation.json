@@ -586,5 +586,17 @@
   },
   "size_guide": {
     "japan_note": "Las tallas japonesas suelen ser 1-2 tallas más pequeñas. En caso de duda, elige una talla mayor."
+  },
+  "meta": {
+    "brand": { "description": "TCDA es una marca de moda impulsada por el arte, en la intersección entre el arte abstracto, la silueta moderna y la transformación personal." },
+    "collection": { "description": "Colección TCDA — ropa de arte abstracto. TOPS / PRENDAS DE ABRIGO / SUDADERAS. Envíos a Japón, Estados Unidos, Canadá, Australia, Francia y Alemania." },
+    "faq": { "title": "Preguntas frecuentes — TCDA", "description": "Respuestas sobre los productos de TCDA, las tallas, los envíos y las devoluciones." },
+    "about": { "title": "Acerca de — TCDA" },
+    "lookbook": { "title": "Lookbook — TCDA", "description": "Lookbook de TCDA — la inmersión en el color como moda. Explora el universo visual de TCDA.", "ogDescription": "El arte abstracto convertido en cultura para vestir." },
+    "contact": { "description": "Contacta con TCDA para consultas sobre pedidos, envíos o problemas con un producto. Normalmente respondemos en 2–3 días hábiles." },
+    "shippingReturns": { "description": "Información de envíos y devoluciones de los pedidos de TCDA: destinos de entrega, plazos y cómo solicitar una devolución." },
+    "legal": { "description": "Información del vendedor y condiciones de venta de TCDA, publicadas conforme a la Ley japonesa de Transacciones Comerciales Específicas." },
+    "privacy": { "description": "Cómo recopila, utiliza y protege TCDA tu información personal cuando compras con nosotros." },
+    "products": { "description": "Descubre toda la gama de ropa de arte abstracto de TCDA." }
   }
 }
