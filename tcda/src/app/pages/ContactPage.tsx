@@ -52,10 +52,10 @@ export function ContactPage() {
   }
 
   const inputClass =
-    "w-full bg-black border border-white/15 px-4 py-3 text-sm font-light text-white placeholder:text-white/25 focus:outline-none focus:border-white/40 transition-colors duration-200";
+    "w-full bg-black border border-white/15 px-4 py-3 text-sm font-light text-white placeholder:text-[color:var(--color-text-tertiary)] focus:outline-none focus:border-white/40 transition-colors duration-200";
 
   const labelClass =
-    "block text-white/40 text-[10px] font-light tracking-widest uppercase mb-1.5";
+    "block text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-widest uppercase mb-1.5";
 
   return (
     <div className="min-h-screen bg-black pt-20">
@@ -69,7 +69,7 @@ export function ContactPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-white/20 text-[10px] font-light tracking-[0.5em] uppercase mb-4"
+          className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-[0.5em] uppercase mb-4"
         >
           {t("contact.title")}
         </motion.p>
@@ -102,12 +102,12 @@ export function ContactPage() {
               <p className="text-white/50 text-sm font-light leading-relaxed">
                 {t("contact.successBody")}
               </p>
-              <p className="text-white/30 text-[10px] font-light tracking-widest uppercase mt-4">
+              <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-widest uppercase mt-4">
                 {t("contact.replyNote")}
               </p>
               <a
                 href={`mailto:${t("contact.directEmail")}`}
-                className="text-white/40 text-xs font-light hover:text-white transition-colors duration-200"
+                className="text-[color:var(--color-text-tertiary)] text-xs font-light hover:text-white transition-colors duration-200"
               >
                 {t("contact.directEmail")}
               </a>
@@ -217,7 +217,7 @@ export function ContactPage() {
               )}
 
               {/* Reply note */}
-              <p className="text-white/25 text-[10px] font-light tracking-wide">
+              <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-wide">
                 {t("contact.replyNote")}
               </p>
 
