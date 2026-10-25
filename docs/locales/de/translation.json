@@ -25,6 +25,7 @@
   "product": {
     "material": "100% Bio-Baumwolle, Digitaldruck",
     "sizeInfo": "XS / S / M / L / XL",
+    "sizeReturnNote": "Auf Bestellung gefertigt. Rückgabe und Umtausch wegen Größe oder Optik sind ausgeschlossen, außer im Rahmen des gesetzlichen Widerrufsrechts in der EU und im Vereinigten Königreich. Bitte die Größentabelle beachten.",
     "details": "Jedem Stück wird eine individuelle Seriennummer zugewiesen. Dieses Kunstwerk wird nicht aufgefüllt. Was du trägst, wird Teil des Archivs.",
     "limited": "Nur 50 Stück weltweit",
     "ctaText": "Jetzt erwerben",
@@ -73,11 +74,17 @@
       "euChinaPoland": "Hergestellt in der EU (Materialien aus China und Polen)",
       "euLithuania": "Hergestellt in der EU (Litauen)",
       "usUs": "Hergestellt in den USA",
-      "chinaUsa": "Materialien aus China und den USA"
+      "chinaUsa": "Materialien aus China und den USA",
+      "chinaProduct": "Rohling aus China bezogen",
+      "chinaComponents": "Materialien des Rohlings aus China bezogen"
     },
     "around": "ca.",
     "deliveryEstimate": "Geschätzt: 2–4 Wochen",
-    "deliveryUnavailable": "Versand in Ihre Region nicht verfügbar"
+    "deliveryUnavailable": "Versand in Ihre Region nicht verfügbar",
+    "cert": {
+      "grs": "Der Recyclinganteil dieses Produkts ist nach GRS (Global Recycled Standard) zertifiziert",
+      "oekoTex": "Der Stoff ist nach dem OEKO-TEX-Standard 100 zertifiziert"
+    }
   },
   "cart": {
     "addToCart": "In den Warenkorb",
@@ -120,7 +127,8 @@
     "chest": "Brust",
     "length": "Länge",
     "shoulder": "Schulter",
-    "noChartAvailable": "Größentabelle folgt in Kürze"
+    "noChartAvailable": "Größentabelle folgt in Kürze",
+    "selectRequired": "Bitte eine Größe wählen"
   },
   "checkout": {
     "fieldName": "Name",
@@ -480,6 +488,12 @@
     "decline": "Ablehnen",
     "learnMore": "Datenschutz"
   },
+  "lookbook": {
+    "viewProduct": "PRODUKT ANSEHEN",
+    "count": "{{count}} LOOKS",
+    "loadMore": "MEHR LADEN",
+    "viewAll": "ALLE ANSEHEN"
+  },
   "about": {
     "viewCollection": "KOLLEKTION ANSEHEN",
     "storyLabel": "STORY",
@@ -551,7 +565,7 @@
     "thanks": "Danke für deine Bewertung"
   },
   "collection": {
-    "heroTitle": "THE COLLECTION",
+    "heroTitle": "DIE KOLLEKTION",
     "heroSub": "Kunstgetriebene Mode. Jedes Stück ist ein Statement.",
     "conceptTitle": "TRAGE DIE KUNST",
     "conceptBody": "Jedes TCDA-Stück beginnt als digitales Kunstwerk — abstrakt, ausdrucksstark und bewusst. Wir verwandeln visuelle Energie in Kleidungsstücke, die eine Bedeutung jenseits der Mode tragen. Das ist keine Kleidung. Das ist eine Haltung.",
@@ -582,7 +596,8 @@
     "contactSupport": "Support kontaktieren"
   },
   "home": {
-    "transcend": "TRANSCEND"
+    "transcend": "TRANSCEND",
+    "metaTitle": "TCDA — Kunstgetriebene Streetwear"
   },
   "withdrawal": {
     "title": "Widerrufsrecht",
@@ -590,7 +605,7 @@
     "name": "Vollständiger Name",
     "namePlaceholder": "Dein vollständiger Name",
     "orderRef": "Bestellnummer (8 Zeichen)",
-    "orderRefPlaceholder": "e.g. 1A2B3C4D",
+    "orderRefPlaceholder": "z. B. 1A2B3C4D",
     "email": "Beim Kauf verwendete E-Mail",
     "emailPlaceholder": "you@example.com",
     "message": "Nachricht (optional)",
