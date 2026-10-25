@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { motion } from "motion/react";
 import { JsonLd } from "../components/JsonLd";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import lookbookLooks from "../data/lookbookLooks.json";
 import { useConvertAndFormat } from "../hooks/useConvertAndFormat";
@@ -26,13 +26,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 function pickLooks(): Look[] {
-  let prev: string | null = null;
-  try { prev = localStorage.getItem(FIRST_KEY); } catch { /* ignore */ }
-  let items = shuffle(lookbookLooks as Look[]);
-  for (let n = 0; n < 5 && items.length > 1 && items[0].pid === prev; n++) items = shuffle(lookbookLooks as Look[]);
-  if (items.length > 1 && items[0].pid === prev) items = [...items.slice(1), items[0]];
-  try { if (items[0]) localStorage.setItem(FIRST_KEY, items[0].pid); } catch { /* ignore */ }
-  return items;
+  return shuffle(lookbookLooks as Look[]);
 }
 
 export function LookbookPage() {
@@ -63,7 +57,34 @@ export function LookbookPage() {
     return () => { cancelled = true; };
   }, [countryCode]);
 
-  const cards = looks.filter((l) => products[l.pid]?.shipping_available !== false);
+  const cards = useMemo(() => {
+    if (!loaded) return [];
+    const nameOf = (pid: string) => products[pid]?.name ?? "";
+    const rest = looks.filter((l) => products[l.pid]?.shipping_available !== false);
+    const result: Look[] = [];
+    while (rest.length > 0) {
+      const n1 = result.length > 0 ? nameOf(result[result.length - 1].pid) : null;
+      const n2 = result.length > 1 ? nameOf(result[result.length - 2].pid) : null;
+      let idx = rest.findIndex((l) => nameOf(l.pid) !== n1 && nameOf(l.pid) !== n2);
+      if (idx < 0) idx = rest.findIndex((l) => nameOf(l.pid) !== n1);
+      if (idx < 0) idx = 0;
+      result.push(rest.splice(idx, 1)[0]);
+    }
+    let prev: string | null = null;
+    try { prev = localStorage.getItem(FIRST_KEY); } catch { /* ignore */ }
+    if (result.length > 2 && result[0].pid === prev) {
+      const second = nameOf(result[1].pid);
+      const j = result.findIndex((l, i) => i > 1 && nameOf(l.pid) !== second);
+      if (j > 0) [result[0], result[j]] = [result[j], result[0]];
+    }
+    return result;
+  }, [loaded, looks, products]);
+
+  useEffect(() => {
+    if (cards.length === 0) return;
+    try { localStorage.setItem(FIRST_KEY, cards[0].pid); } catch { /* ignore */ }
+  }, [cards]);
+
   const visibleCards = cards.slice(0, visibleCount);
 
   return (
@@ -105,7 +126,7 @@ export function LookbookPage() {
         {loaded && (
           <p
             className="text-xs"
-            style={{ marginTop: "16px", fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", letterSpacing: "var(--ls-nav)" }}
+            style={{ marginTop: "28px", fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", letterSpacing: "var(--ls-nav)" }}
           >
             {t("lookbook.count", { count: cards.length })}
           </p>
