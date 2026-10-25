@@ -253,11 +253,11 @@ export function CollectionPage() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "TCDA Collection",
-        "url": "https://tcdashop.com/en/collection",
+        "url": canonical,
         "itemListElement": filteredProducts.map((p, i) => ({
           "@type": "ListItem",
           "position": i + 1,
-          "url": `https://tcdashop.com/en/product/${p.id}`,
+          "url": `https://tcdashop.com/${language}/product/${p.id}/`,
           "name": p.name,
         }))
       }} />
