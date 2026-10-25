@@ -35,7 +35,7 @@ export function ShippingReturnsPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-white/20 text-[10px] font-light tracking-normal uppercase mb-4"
+          className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-normal uppercase mb-4"
         >
           {t("shippingReturns.title")}
         </motion.p>
@@ -61,14 +61,14 @@ export function ShippingReturnsPage() {
             transition={{ duration: 0.6, delay: i * 0.05 }}
             className="border-t border-white/8 py-8"
           >
-            <p className="text-white/30 text-[10px] font-light tracking-normal uppercase mb-3">
+            <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-normal uppercase mb-3">
               {s.title}
             </p>
             <p className="text-white/60 text-sm font-light leading-relaxed break-words">
               {s.body}
             </p>
             {i === 0 && (
-              <p className="text-white/35 text-xs font-light leading-relaxed mt-3">
+              <p className="text-[color:var(--color-text-tertiary)] text-xs font-light leading-relaxed mt-3">
                 {t("shippingReturns.shippingAddressNote")}
               </p>
             )}
@@ -83,7 +83,7 @@ export function ShippingReturnsPage() {
           transition={{ duration: 0.6 }}
           className="border-t border-white/8 py-8"
         >
-          <p className="text-white/30 text-[10px] font-light tracking-normal uppercase mb-5">
+          <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-normal uppercase mb-5">
             {t("shippingReturns.returnsTitle")}
           </p>
           <div className="space-y-3 mb-5">
@@ -96,7 +96,7 @@ export function ShippingReturnsPage() {
               </div>
             ))}
           </div>
-          <p className="text-white/35 text-xs font-light leading-relaxed">
+          <p className="text-[color:var(--color-text-tertiary)] text-xs font-light leading-relaxed">
             {t("shippingReturns.returnsNote")}
           </p>
           <Link
@@ -115,7 +115,7 @@ export function ShippingReturnsPage() {
           transition={{ duration: 0.6 }}
           className="border-t border-b border-white/8 py-8"
         >
-          <p className="text-white/30 text-[10px] font-light tracking-normal uppercase mb-3">
+          <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-normal uppercase mb-3">
             {t("shippingReturns.contactTitle")}
           </p>
           <p className="text-white/50 text-sm font-light leading-relaxed mb-4">
@@ -133,13 +133,13 @@ export function ShippingReturnsPage() {
         <div className="pt-10 flex gap-6 flex-wrap">
           <Link
             to={`/${language}/size-guide`}
-            className="text-white/30 text-[10px] font-light tracking-widest uppercase hover:text-white/60 transition-colors"
+            className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-widest uppercase hover:text-white transition-colors"
           >
             {t("footer.sizeGuide")} →
           </Link>
           <Link
             to={`/${language}/contact`}
-            className="text-white/30 text-[10px] font-light tracking-widest uppercase hover:text-white/60 transition-colors"
+            className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-widest uppercase hover:text-white transition-colors"
           >
             {t("footer.contact")} →
           </Link>
