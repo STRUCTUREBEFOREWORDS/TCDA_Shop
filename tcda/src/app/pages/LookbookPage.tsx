@@ -3,16 +3,18 @@ import { Helmet } from "react-helmet-async";
 import { useGlobalContext } from "./Root";
 import { motion } from "motion/react";
 import { JsonLd } from "../components/JsonLd";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import lookbookImages from "../data/lookbookImages.json";
+import lookbookLooks from "../data/lookbookLooks.json";
+import { useConvertAndFormat } from "../hooks/useConvertAndFormat";
 
 const CDN = "https://cdn.tcdashop.com/";
 const OG_IMAGE = `${CDN}look/001.webp`;
 const FIRST_KEY = "tcda_lookbook_first";
-const COUNT = 9;
+const PAGE_SIZE = 6;
 
-type LookItem = { img: string; pid: string };
+type Look = { pid: string; imgs: string[] };
+type ProductInfo = { id: string; name: string; price: number; shipping_available?: boolean };
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -23,30 +25,46 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-function pickLooks(): LookItem[] {
-  const groups = new Map<string, LookItem[]>();
-  for (const it of lookbookImages as LookItem[]) {
-    const g = groups.get(it.pid);
-    if (g) g.push(it); else groups.set(it.pid, [it]);
-  }
-  const pick = () => shuffle([...groups.keys()]).slice(0, COUNT).map(pid => {
-    const g = groups.get(pid)!;
-    return g[Math.floor(Math.random() * g.length)];
-  });
+function pickLooks(): Look[] {
   let prev: string | null = null;
   try { prev = localStorage.getItem(FIRST_KEY); } catch { /* ignore */ }
-  let items = pick();
-  for (let n = 0; n < 5 && items.length > 1 && items[0].img === prev; n++) items = pick();
-  if (items.length > 1 && items[0].img === prev) items = [...items.slice(1), items[0]];
-  try { if (items[0]) localStorage.setItem(FIRST_KEY, items[0].img); } catch { /* ignore */ }
+  let items = shuffle(lookbookLooks as Look[]);
+  for (let n = 0; n < 5 && items.length > 1 && items[0].pid === prev; n++) items = shuffle(lookbookLooks as Look[]);
+  if (items.length > 1 && items[0].pid === prev) items = [...items.slice(1), items[0]];
+  try { if (items[0]) localStorage.setItem(FIRST_KEY, items[0].pid); } catch { /* ignore */ }
   return items;
 }
 
 export function LookbookPage() {
-  const { language } = useGlobalContext();
+  const { language, countryCode } = useGlobalContext();
   const { t } = useTranslation();
-  const [looks] = useState<LookItem[]>(pickLooks);
+  const convertAndFormat = useConvertAndFormat();
+  const [looks] = useState<Look[]>(pickLooks);
+  const [products, setProducts] = useState<Record<string, ProductInfo>>({});
+  const [loaded, setLoaded] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const canonical = `https://tcdashop.com/en/lookbook`;
+
+  useEffect(() => {
+    let cancelled = false;
+    const qs = countryCode ? `?country_code=${countryCode}` : "";
+    fetch(`https://api.tcdashop.com/products${qs}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (cancelled) return;
+        const map: Record<string, ProductInfo> = {};
+        for (const p of (data.products ?? []) as ProductInfo[]) map[p.id] = p;
+        setProducts(map);
+        setLoaded(true);
+      })
+      .catch(() => {
+        if (!cancelled) setLoaded(true);
+      });
+    return () => { cancelled = true; };
+  }, [countryCode]);
+
+  const cards = looks.filter((l) => products[l.pid]?.shipping_available !== false);
+  const visibleCards = cards.slice(0, visibleCount);
 
   return (
     <div style={{ background: "var(--color-bg)" }}>
@@ -84,45 +102,95 @@ export function LookbookPage() {
         >
           LOOKBOOK
         </motion.h1>
+        {loaded && (
+          <p
+            className="text-xs"
+            style={{ marginTop: "16px", fontFamily: "var(--font-body)", color: "var(--color-text-secondary)", letterSpacing: "var(--ls-nav)" }}
+          >
+            {t("lookbook.count", { count: cards.length })}
+          </p>
+        )}
       </div>
 
-      {/* Images */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-        {looks.map(({ img, pid }, i) => (
-          <motion.div
-            key={img}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            style={{ position: "relative" }}
-          >
-            <Link to={`/${language}/product/${pid}`} style={{ display: "block" }}>
-              <img
-                src={`${CDN}${img}`}
-                alt={`TCDA Lookbook ${i + 1}`}
-                style={{ width: "100%", display: "block" }}
-                loading={i < 2 ? "eager" : "lazy"}
-              />
-              <span
-                className="text-xs uppercase"
-                style={{
-                  position: "absolute",
-                  left: "16px",
-                  bottom: "16px",
-                  background: "rgba(8,8,8,0.8)",
-                  color: "var(--accent-electric)",
-                  border: "1px solid var(--accent-electric)",
-                  padding: "8px 16px",
-                  fontFamily: "var(--font-body)",
-                  letterSpacing: "var(--ls-nav)",
-                }}
+      {/* Looks */}
+      <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 clamp(16px, 4vw, 48px)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ rowGap: "64px", columnGap: "32px" }}>
+          {visibleCards.map(({ pid, imgs }, ci) => {
+            const product = products[pid];
+            const name = product?.name ?? "";
+            const to = `/${language}/product/${pid}`;
+            return (
+              <motion.div
+                key={pid}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
-                {t("lookbook.viewProduct")}
-              </span>
-            </Link>
-          </motion.div>
-        ))}
+                <Link
+                  to={to}
+                  style={{ display: "grid", gridTemplateColumns: `repeat(${imgs.length}, 1fr)`, gap: "2px" }}
+                >
+                  {imgs.map((img, i) => (
+                    <img
+                      key={img}
+                      src={`${CDN}${img}`}
+                      alt={`${name || "TCDA Lookbook"} ${i + 1}`}
+                      style={{ width: "100%", aspectRatio: "3/4", objectFit: "cover", display: "block" }}
+                      loading={ci === 0 ? "eager" : "lazy"}
+                    />
+                  ))}
+                </Link>
+                <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "8px", alignItems: "flex-start" }}>
+                  {name && (
+                    <span className="text-sm uppercase" style={{ fontFamily: "var(--font-body)", color: "var(--color-text)" }}>
+                      {name}
+                    </span>
+                  )}
+                  {product && (
+                    <span style={{ fontFamily: "var(--font-body)", color: "var(--color-text-secondary)" }}>
+                      {convertAndFormat(product.price)}
+                    </span>
+                  )}
+                  <Link
+                    to={to}
+                    className="inline-block text-xs uppercase"
+                    style={{
+                      background: "transparent",
+                      color: "var(--accent-electric)",
+                      border: "1px solid var(--accent-electric)",
+                      padding: "12px 24px",
+                      fontFamily: "var(--font-body)",
+                      letterSpacing: "var(--ls-nav)",
+                    }}
+                  >
+                    {t("lookbook.viewProduct")} →
+                  </Link>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+        {visibleCount < cards.length && (
+          <div style={{ textAlign: "center", marginTop: "64px" }}>
+            <button
+              type="button"
+              className="text-xs uppercase"
+              onClick={() => setVisibleCount((n) => n + PAGE_SIZE)}
+              style={{
+                background: "transparent",
+                color: "var(--color-text)",
+                border: "1px solid var(--color-text)",
+                padding: "12px 24px",
+                cursor: "pointer",
+                fontFamily: "var(--font-body)",
+                letterSpacing: "var(--ls-nav)",
+              }}
+            >
+              {t("lookbook.loadMore")}
+            </button>
+          </div>
+        )}
       </div>
       {/* CTA */}
       <div style={{ textAlign: "center", paddingTop: "96px", paddingBottom: "96px" }}>

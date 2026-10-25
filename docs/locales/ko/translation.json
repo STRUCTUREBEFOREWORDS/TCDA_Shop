@@ -445,7 +445,9 @@
     "learnMore": "개인정보 처리방침"
   },
   "lookbook": {
-    "viewProduct": "상품 보기"
+    "viewProduct": "상품 보기",
+    "count": "{{count}} LOOKS",
+    "loadMore": "더 보기"
   },
   "about": {
     "viewCollection": "컬렉션 보기",

@@ -445,7 +445,9 @@
     "learnMore": "Política de privacidad"
   },
   "lookbook": {
-    "viewProduct": "VER PRODUCTO"
+    "viewProduct": "VER PRODUCTO",
+    "count": "{{count}} LOOKS",
+    "loadMore": "VER MÁS"
   },
   "about": {
     "viewCollection": "VER COLECCIÓN",

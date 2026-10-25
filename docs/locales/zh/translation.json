@@ -445,7 +445,9 @@
     "learnMore": "隐私政策"
   },
   "lookbook": {
-    "viewProduct": "查看商品"
+    "viewProduct": "查看商品",
+    "count": "{{count}} 款搭配",
+    "loadMore": "查看更多"
   },
   "about": {
     "viewCollection": "查看系列",

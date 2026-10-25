@@ -488,7 +488,9 @@
     "learnMore": "プライバシーポリシー"
   },
   "lookbook": {
-    "viewProduct": "この商品を見る"
+    "viewProduct": "この商品を見る",
+    "count": "{{count}} ルック",
+    "loadMore": "もっと見る"
   },
   "about": {
     "viewCollection": "コレクションを見る",
