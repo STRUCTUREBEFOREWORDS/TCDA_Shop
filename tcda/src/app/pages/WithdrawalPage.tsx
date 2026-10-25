@@ -59,10 +59,10 @@ export function WithdrawalPage() {
   }
 
   const inputClass =
-    "w-full bg-black border border-white/15 px-4 py-3 text-sm font-light text-white placeholder:text-white/25 focus:outline-none focus:border-white/40 transition-colors duration-200";
+    "w-full bg-black border border-white/15 px-4 py-3 text-sm font-light text-white placeholder:text-[color:var(--color-text-tertiary)] focus:outline-none focus:border-white/40 transition-colors duration-200";
 
   const labelClass =
-    "block text-white/40 text-[10px] font-light tracking-widest uppercase mb-1.5";
+    "block text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-widest uppercase mb-1.5";
 
   return (
     <div className="min-h-screen bg-black pt-20">
