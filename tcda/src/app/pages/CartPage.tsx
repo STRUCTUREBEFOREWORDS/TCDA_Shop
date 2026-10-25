@@ -169,7 +169,7 @@ export function CartPage() {
 
               <button
                 onClick={handleCheckout}
-                className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.25em] uppercase hover:bg-white transition-colors duration-300"
+                className="w-full py-4 bg-[var(--accent-electric)] text-black text-xs font-light tracking-[0.25em] uppercase hover:bg-white transition-colors duration-300"
               >
                 {t("cart.checkout")}
               </button>

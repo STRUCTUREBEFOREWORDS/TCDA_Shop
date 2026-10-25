@@ -241,7 +241,7 @@ export function WithdrawalPage() {
                 <button
                   key="review"
                   type="submit"
-                  className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300"
+                  className="w-full py-4 bg-[var(--accent-electric)] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300"
                 >
                   {t("withdrawal.review")}
                 </button>
@@ -250,7 +250,7 @@ export function WithdrawalPage() {
                   <button
                     type="submit"
                     disabled={formState === "submitting"}
-                    className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-40"
+                    className="w-full py-4 bg-[var(--accent-electric)] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-40"
                   >
                     {formState === "submitting" ? t("withdrawal.submitting") : t("withdrawal.confirm")}
                   </button>

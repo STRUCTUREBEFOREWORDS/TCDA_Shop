@@ -225,7 +225,7 @@ export function ContactPage() {
               <button
                 type="submit"
                 disabled={formState === "submitting"}
-                className="w-full py-4 bg-[#E8FF00] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-40"
+                className="w-full py-4 bg-[var(--accent-electric)] text-black text-xs font-light tracking-[0.3em] uppercase hover:bg-white transition-colors duration-300 disabled:opacity-40"
               >
                 {formState === "submitting" ? t("contact.submitting") : t("contact.submit")}
               </button>
