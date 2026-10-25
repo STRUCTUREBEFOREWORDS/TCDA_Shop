@@ -122,8 +122,40 @@ interface GlobalContextType {
   setIsCartOpen: (open: boolean) => void;
   countryCode: string;
   recentProducts: RecentProduct[];
+  clearCart: () => void;
   addRecentProduct: (product: RecentProduct) => void;
   removeRecentProduct: (id: string) => void;
+}
+
+const CART_KEY = "tcda_cart";
+const CART_TTL_MS = 14 * 24 * 60 * 60 * 1000;
+
+function isValidCartItem(i: unknown): i is CartItem {
+  if (!i || typeof i !== "object") return false;
+  const c = i as Record<string, unknown>;
+  return (
+    typeof c.artworkId === "string" && c.artworkId !== "" &&
+    typeof c.artworkName === "string" &&
+    typeof c.price === "number" && Number.isFinite(c.price) &&
+    typeof c.price_jpy === "number" && Number.isFinite(c.price_jpy) && c.price_jpy >= 0 &&
+    typeof c.currency === "string" &&
+    typeof c.size === "string" && c.size !== "" &&
+    typeof c.imageUrl === "string" &&
+    typeof c.quantity === "number" && Number.isInteger(c.quantity) && c.quantity > 0
+  );
+}
+
+function loadCart(): CartItem[] {
+  try {
+    const raw = localStorage.getItem(CART_KEY);
+    if (!raw) return [];
+    const data = JSON.parse(raw);
+    if (!data || typeof data.savedAt !== "number" || !Array.isArray(data.items)) return [];
+    if (Date.now() - data.savedAt > CART_TTL_MS) return [];
+    return data.items.filter(isValidCartItem);
+  } catch {
+    return [];
+  }
 }
 
 const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -155,7 +187,7 @@ export function Root() {
     }
   }, []);
   const [rates, setRates] = useState<Record<Currency, number>>(RATES);
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(loadCart);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [countryCode, setCountryCode] = useState<string>("JP");
   const [consent, setConsent] = useState<ConsentValue | null>(
@@ -314,6 +346,21 @@ export function Root() {
     navigate(newPath);
   };
 
+  useEffect(() => {
+    try {
+      if (cartItems.length === 0) {
+        localStorage.removeItem(CART_KEY);
+      } else {
+        localStorage.setItem(CART_KEY, JSON.stringify({ savedAt: Date.now(), items: cartItems }));
+      }
+    } catch { /* ignore */ }
+  }, [cartItems]);
+
+  const clearCart = () => {
+    setCartItems([]);
+    try { localStorage.removeItem(CART_KEY); } catch { /* ignore */ }
+  };
+
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const addToCart = (item: Omit<CartItem, "quantity">) => {
@@ -367,6 +414,7 @@ export function Root() {
         isCartOpen,
         setIsCartOpen,
         countryCode,
+        clearCart,
         recentProducts,
         addRecentProduct,
         removeRecentProduct,

@@ -10,7 +10,7 @@ const NEWSLETTER_KEY = "newsletter_subscribed";
 export function PaymentSuccessPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { language } = useGlobalContext();
+  const { language, clearCart } = useGlobalContext();
   const { t } = useTranslation();
 
   const alreadySubscribed = !!localStorage.getItem(NEWSLETTER_KEY);
@@ -43,6 +43,7 @@ export function PaymentSuccessPage() {
 
   useEffect(() => {
     const sessionId = searchParams.get("session_id");
+    if (sessionId) clearCart();
     if (sessionId) {
       fetch(`https://api.tcdashop.com/checkout/session-summary?session_id=${encodeURIComponent(sessionId)}`)
         .then((res) => { if (!res.ok) throw new Error(`API ${res.status}`); return res.json(); })
