@@ -314,6 +314,9 @@ export function Root() {
   useEffect(() => {
     const hasPreference = localStorage.getItem("tcda_lang_selected");
     if (hasPreference) return;
+    // URL already carries a supported language prefix: respect it, no detection or redirect
+    const firstSegment = window.location.pathname.split("/")[1];
+    if (SUPPORTED_LANGS.includes(firstSegment as Language)) return;
 
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 3000);
