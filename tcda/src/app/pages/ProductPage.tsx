@@ -153,8 +153,7 @@ export function ProductPage() {
   const id = rawId?.replace(/_[^_]+$/, "");
   const { language, currency, rates, addToCart, countryCode, addRecentProduct, removeRecentProduct } = useGlobalContext();
   const { pathname } = useLocation();
-  const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
-  const canonical = `https://tcdashop.com/en${canonicalPath}`;
+  const canonical = `https://tcdashop.com${pathname.replace(/\/?$/, "/")}`;
   const { t } = useTranslation();
 
   const formatDate = (dateStr: string) => {

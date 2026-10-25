@@ -112,7 +112,7 @@ export function CollectionPage() {
   const { language, currency, rates, countryCode } = useGlobalContext();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const canonical = `https://tcdashop.com${pathname.endsWith("/") && pathname.length > 1 ? pathname.slice(0, -1) : pathname}`;
+  const canonical = `https://tcdashop.com${pathname.replace(/\/?$/, "/")}`;
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);

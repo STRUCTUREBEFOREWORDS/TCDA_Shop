@@ -49,10 +49,8 @@ function HreflangHelmet({ pathname }: { pathname: string }) {
   // Strip the leading /:lang segment to get the path suffix (e.g. /ja/products → /products)
   const suffix = pathname.replace(/^\/[a-z]{2}(\/|$)/, "/") || "/";
   const pathSuffix = suffix === "/" ? "/" : suffix.replace(/\/$/, "");
-  // Self-referencing canonical: current URL without trailing slash
-  const selfUrl = pathname.endsWith("/") && pathname.length > 1
-    ? pathname.slice(0, -1)
-    : pathname;
+  // Self-referencing canonical: current language + path, with trailing slash
+  const selfUrl = pathname.replace(/\/?$/, "/");
 
   return (
     <Helmet>

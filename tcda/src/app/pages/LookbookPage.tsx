@@ -23,7 +23,7 @@ export function LookbookPage() {
   const [products, setProducts] = useState<Record<string, ProductInfo>>({});
   const [loaded, setLoaded] = useState(false);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  const canonical = `https://tcdashop.com/en/lookbook`;
+  const canonical = `https://tcdashop.com/${language}/lookbook/`;
 
   useEffect(() => {
     let cancelled = false;

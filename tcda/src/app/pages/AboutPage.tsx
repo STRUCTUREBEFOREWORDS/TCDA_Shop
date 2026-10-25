@@ -27,8 +27,7 @@ export function AboutPage() {
   const { language, currency, countryCode } = useGlobalContext();
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
-  const canonical = `https://tcdashop.com/en${canonicalPath}`;
+  const canonical = `https://tcdashop.com${pathname.replace(/\/?$/, "/")}`;
 
   useEffect(() => {
     pushDataLayer('page_view', {
