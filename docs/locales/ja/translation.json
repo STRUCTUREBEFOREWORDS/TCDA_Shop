@@ -629,5 +629,17 @@
   },
   "size_guide": {
     "japan_note": "日本サイズは通常1〜2サイズ小さめです。迷った場合は大きいサイズをお選びください。"
+  },
+  "meta": {
+    "brand": { "description": "TCDAは、抽象アート、モダンなシルエット、そして自己変容の交差点に立つ、アート主導のファッションブランドです。" },
+    "collection": { "description": "TCDAコレクション — 抽象アートのアパレル。トップス / アウター / スウェット。日本、米国、カナダ、オーストラリア、フランス、ドイツへお届けします。" },
+    "faq": { "title": "よくある質問 — TCDA", "description": "TCDAの商品、サイズ、配送、返品に関するご質問への回答です。" },
+    "about": { "title": "ブランドについて — TCDA" },
+    "lookbook": { "title": "ルックブック — TCDA", "description": "TCDAルックブック — 色に没入するファッション。TCDAのビジュアルの世界をご覧ください。", "ogDescription": "抽象アートを、身にまとえるカルチャーへ。" },
+    "contact": { "description": "ご注文、配送、商品に関するお問い合わせはTCDAまで。通常2〜3営業日以内にご返信します。" },
+    "shippingReturns": { "description": "TCDAのご注文に関する配送・返品のご案内です。配送先、お届け期間、返品のお申し込み方法をご確認いただけます。" },
+    "legal": { "description": "特定商取引法に基づく、TCDAの販売事業者情報および販売条件の表示です。" },
+    "privacy": { "description": "TCDAでお買い物をされる際の、個人情報の取得、利用、保護についてご説明します。" },
+    "products": { "description": "抽象アートのアパレル、TCDAの全ラインナップをご覧いただけます。" }
   }
 }

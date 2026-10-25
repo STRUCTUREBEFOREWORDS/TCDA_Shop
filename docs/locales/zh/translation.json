@@ -586,5 +586,17 @@
   },
   "size_guide": {
     "japan_note": "日本尺码通常偏小1-2个码。如有疑问，请选择较大的尺码。"
+  },
+  "meta": {
+    "brand": { "description": "TCDA 是一个以艺术为驱动的时尚品牌，立足于抽象艺术、现代轮廓与个人蜕变的交汇处。" },
+    "collection": { "description": "TCDA 系列 — 抽象艺术服饰。上衣 / 外套 / 卫衣。可配送至日本、美国、加拿大、澳大利亚、法国和德国。" },
+    "faq": { "title": "常见问题 — TCDA", "description": "关于 TCDA 商品、尺码、配送与退货的常见解答。" },
+    "about": { "title": "关于我们 — TCDA" },
+    "lookbook": { "title": "Lookbook — TCDA", "description": "TCDA Lookbook — 以色彩沉浸为时尚。探索 TCDA 的视觉世界。", "ogDescription": "将抽象艺术化为可穿着的文化。" },
+    "contact": { "description": "订单、配送或商品问题，欢迎联系 TCDA。我们通常会在 2–3 个工作日内回复。" },
+    "shippingReturns": { "description": "TCDA 订单的配送与退货说明，包括配送地区、送达时间及退货申请方式。" },
+    "legal": { "description": "依据日本《特定商业交易法》公示的 TCDA 销售方信息与销售条件。" },
+    "privacy": { "description": "说明您在 TCDA 购物时，我们如何收集、使用并保护您的个人信息。" },
+    "products": { "description": "浏览 TCDA 抽象艺术服饰的全部系列。" }
   }
 }

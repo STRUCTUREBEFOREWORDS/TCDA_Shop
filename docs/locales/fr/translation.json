@@ -629,5 +629,17 @@
   },
   "size_guide": {
     "japan_note": "Les tailles japonaises sont généralement 1 à 2 tailles plus petites. En cas de doute, prenez une taille au-dessus."
+  },
+  "meta": {
+    "brand": { "description": "TCDA est une marque de mode portée par l'art, à l'intersection de l'art abstrait, de la silhouette moderne et de la transformation personnelle." },
+    "collection": { "description": "Collection TCDA — vêtements d'art abstrait. HAUTS / VESTES / SWEATSHIRTS. Livraison au Japon, aux États-Unis, au Canada, en Australie, en France et en Allemagne." },
+    "faq": { "title": "FAQ — TCDA", "description": "Réponses sur les produits TCDA, les tailles, la livraison et les retours." },
+    "about": { "title": "À propos — TCDA" },
+    "lookbook": { "title": "Lookbook — TCDA", "description": "Lookbook TCDA — l'immersion dans la couleur comme mode. Explorez l'univers visuel de TCDA.", "ogDescription": "L'art abstrait transformé en culture à porter." },
+    "contact": { "description": "Contactez TCDA pour toute question sur une commande, la livraison ou un problème de produit. Nous répondons généralement sous 2 à 3 jours ouvrables." },
+    "shippingReturns": { "description": "Informations de livraison et de retour pour les commandes TCDA : pays de livraison, délais et démarche pour demander un retour." },
+    "legal": { "description": "Informations sur le vendeur et conditions de vente de TCDA, publiées conformément à la loi japonaise sur les transactions commerciales spécifiées." },
+    "privacy": { "description": "Comment TCDA collecte, utilise et protège vos données personnelles lorsque vous achetez chez nous." },
+    "products": { "description": "Découvrez toute la gamme TCDA de vêtements d'art abstrait." }
   }
 }

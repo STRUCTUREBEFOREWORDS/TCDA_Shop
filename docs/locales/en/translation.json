@@ -629,5 +629,17 @@
   },
   "size_guide": {
     "japan_note": "Japanese sizes typically run 1–2 sizes smaller. When in doubt, size up."
+  },
+  "meta": {
+    "brand": { "description": "TCDA is an art-driven fashion brand at the intersection of abstract art, modern silhouette, and personal transformation." },
+    "collection": { "description": "TCDA Collection — Abstract art apparel. TOPS / OUTERWEAR / SWEATSHIRTS. Ships to Japan, the US, Canada, Australia, France and Germany." },
+    "faq": { "title": "FAQ — TCDA", "description": "Answers about TCDA products, sizing, shipping, and returns." },
+    "about": { "title": "About — TCDA" },
+    "lookbook": { "title": "Lookbook — TCDA", "description": "TCDA Lookbook — Color immersion as fashion. Explore the visual world of TCDA.", "ogDescription": "Abstract art transformed into wearable culture." },
+    "contact": { "description": "Contact TCDA for order inquiries, shipping questions or product issues. We typically reply within 2–3 business days." },
+    "shippingReturns": { "description": "Shipping and returns information for TCDA orders, including delivery destinations, delivery times and how to request a return." },
+    "legal": { "description": "Seller information and terms of sale for TCDA, provided under Japan's Specified Commercial Transactions Act." },
+    "privacy": { "description": "How TCDA collects, uses and protects your personal information when you shop with us." },
+    "products": { "description": "Browse the full TCDA lineup of abstract art apparel." }
   }
 }
