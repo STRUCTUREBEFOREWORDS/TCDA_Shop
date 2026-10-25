@@ -1,19 +1,20 @@
 /**
  * generate-sitemap.js
- * Generates public/sitemap.xml with full hreflang support for all 6 languages.
+ * Generates public/sitemap.xml with full hreflang support for the indexable languages (shared/indexable-langs.json).
  * Run via: node scripts/generate-sitemap.js
  * Automatically called before `vite build` via package.json build script.
  */
 
-import { writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { join, dirname } from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const BASE_URL = "https://tcdashop.com";
-const LANGS = ["ja", "en", "fr", "es", "ko", "zh", "de", "it", "pt", "ar"];
-const X_DEFAULT_LANG = "en";
+const { langs: LANGS, default: X_DEFAULT_LANG } = JSON.parse(
+  readFileSync(join(__dirname, "..", "shared", "indexable-langs.json"), "utf-8")
+);
 const TODAY = new Date().toISOString().split("T")[0];
 
 // Static pages: [path, priority, changefreq]
@@ -23,28 +24,29 @@ const STATIC_PAGES = [
   ["collection",        "0.8", "monthly"],
   ["about",             "0.7", "monthly"],
   ["faq",               "0.7", "monthly"],
-  ["brand-foundation",  "0.6", "monthly"],
+  ["lookbook",          "0.6", "monthly"],
   ["contact",           "0.6", "monthly"],
   ["legal",             "0.5", "yearly"],
   ["privacy",           "0.5", "yearly"],
   ["shipping-returns",  "0.5", "yearly"],
 ];
 
+/** Absolute URL with trailing slash, matching the canonical emitted by the pages */
+function pageUrl(lang, pathSuffix) {
+  return pathSuffix ? `${BASE_URL}/${lang}/${pathSuffix}/` : `${BASE_URL}/${lang}/`;
+}
+
 /**
  * Build all hreflang alternate links for a given path suffix.
  * e.g. suffix="" → /ja/, /en/, ...
- *      suffix="products" → /ja/products, /en/products, ...
+ *      suffix="products" → /ja/products/, /en/products/, ...
  */
 function hreflangLinks(pathSuffix) {
   const lines = LANGS.map((lang) => {
-    const href = pathSuffix
-      ? `${BASE_URL}/${lang}/${pathSuffix}`
-      : `${BASE_URL}/${lang}/`;
+    const href = pageUrl(lang, pathSuffix);
     return `    <xhtml:link rel="alternate" hreflang="${lang}" href="${href}"/>`;
   });
-  const defaultHref = pathSuffix
-    ? `${BASE_URL}/${X_DEFAULT_LANG}/${pathSuffix}`
-    : `${BASE_URL}/${X_DEFAULT_LANG}/`;
+  const defaultHref = pageUrl(X_DEFAULT_LANG, pathSuffix);
   lines.push(
     `    <xhtml:link rel="alternate" hreflang="x-default" href="${defaultHref}"/>`
   );
@@ -53,9 +55,7 @@ function hreflangLinks(pathSuffix) {
 
 /** Build one <url> block for a given lang + path suffix */
 function urlBlock(lang, pathSuffix, priority, changefreq) {
-  const loc = pathSuffix
-    ? `${BASE_URL}/${lang}/${pathSuffix}`
-    : `${BASE_URL}/${lang}/`;
+  const loc = pageUrl(lang, pathSuffix);
   return `  <url>
     <loc>${loc}</loc>
 ${hreflangLinks(pathSuffix)}
@@ -73,7 +73,7 @@ async function fetchProductIds() {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    return (data.products ?? []).filter((p) => p.category).map((p) => p.id).filter(Boolean);
+    return (data.products ?? []).filter((p) => p.category).map((p) => p.id).filter(Boolean).sort();
   } catch (err) {
     console.warn(`[sitemap] Could not fetch products: ${err.message} — skipping product URLs`);
     return [];
@@ -92,21 +92,6 @@ async function main() {
   for (const [path, priority, changefreq] of STATIC_PAGES) {
     for (const lang of LANGS) {
       urlBlocks.push(urlBlock(lang, path, priority, changefreq));
-    }
-  }
-
-  // カテゴリー × 言語 URL
-  const CATEGORIES = ["tshirt", "jacket", "sweatshirt", "bottoms", "accessories"];
-  const GENDERS = ["male", "female", "unisex"];
-
-  for (const category of CATEGORIES) {
-    for (const lang of LANGS) {
-      urlBlocks.push(urlBlock(lang, `collection?category=${category}`, "0.6", "weekly"));
-    }
-  }
-  for (const gender of GENDERS) {
-    for (const lang of LANGS) {
-      urlBlocks.push(urlBlock(lang, `collection?gender=${gender}`, "0.5", "weekly"));
     }
   }
 
