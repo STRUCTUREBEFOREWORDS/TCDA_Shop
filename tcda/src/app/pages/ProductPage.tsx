@@ -151,7 +151,7 @@ function InfoAccordion({ items }: { items: AccordionItem[] }) {
 export function ProductPage() {
   const { id: rawId } = useParams();
   const id = rawId?.replace(/_[^_]+$/, "");
-  const { language, currency, rates, addToCart, countryCode, addRecentProduct } = useGlobalContext();
+  const { language, currency, rates, addToCart, countryCode, addRecentProduct, removeRecentProduct } = useGlobalContext();
   const { pathname } = useLocation();
   const canonicalPath = pathname.replace(/^\/(en|ja|fr|es|ko|zh|de|it|pt|ar)/, "");
   const canonical = `https://tcdashop.com/en${canonicalPath}`;
@@ -220,7 +220,11 @@ export function ProductPage() {
     setLoading(true);
     setSizeChart(null);
     fetch(`https://api.tcdashop.com/products/${id}?lang=${language}`)
-      .then((res) => { if (!res.ok) throw new Error(`API ${res.status}`); return res.json(); })
+      .then((res) => {
+        if (res.status === 404 && id) removeRecentProduct(id);
+        if (!res.ok) throw new Error(`API ${res.status}`);
+        return res.json();
+      })
       .then(async (data: Product) => {
         setProduct(data);
         window.dataLayer = window.dataLayer || [];

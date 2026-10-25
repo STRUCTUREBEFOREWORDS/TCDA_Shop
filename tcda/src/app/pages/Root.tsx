@@ -123,6 +123,7 @@ interface GlobalContextType {
   countryCode: string;
   recentProducts: RecentProduct[];
   addRecentProduct: (product: RecentProduct) => void;
+  removeRecentProduct: (id: string) => void;
 }
 
 const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -174,6 +175,14 @@ export function Root() {
       const filtered = prev.filter((p) => p.id !== product.id);
       const next = [product, ...filtered].slice(0, 5);
       localStorage.setItem("tcda_recent_products", JSON.stringify(next));
+      return next;
+    });
+  };
+
+  const removeRecentProduct = (id: string) => {
+    setRecentProducts((prev) => {
+      const next = prev.filter((p) => p.id !== id);
+      try { localStorage.setItem("tcda_recent_products", JSON.stringify(next)); } catch { /* ignore */ }
       return next;
     });
   };
@@ -360,6 +369,7 @@ export function Root() {
         countryCode,
         recentProducts,
         addRecentProduct,
+        removeRecentProduct,
       }}
     >
       <HreflangHelmet pathname={location.pathname} />
