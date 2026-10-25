@@ -39,7 +39,7 @@ export function CartPage() {
   if (cartItems.length === 0) {
     return (
       <div className="min-h-screen bg-black flex flex-col items-center justify-center gap-8 pt-14">
-        <p className="text-white/30 text-xs font-light tracking-[0.3em] uppercase">
+        <p className="text-[color:var(--color-text-tertiary)] text-xs font-light tracking-[0.3em] uppercase">
           {t("cart.cartEmpty")}
         </p>
         <Link
@@ -63,7 +63,7 @@ export function CartPage() {
         {/* Header */}
         <h1 className="text-white text-xs font-light tracking-[0.4em] uppercase mb-16">
           {t("viewCart")}
-          <span className="ml-2 text-white/30">({cartItems.length})</span>
+          <span className="ml-2 text-[color:var(--color-text-tertiary)]">({cartItems.length})</span>
         </h1>
 
         <div className="lg:grid lg:grid-cols-[1fr_280px] lg:gap-16">
@@ -89,7 +89,7 @@ export function CartPage() {
                 {/* Info */}
                 <div className="flex-1 min-w-0 space-y-2">
                   <p className="text-white text-sm font-light">{item.artworkName}</p>
-                  <p className="text-white/40 text-[10px] font-light tracking-widest uppercase">
+                  <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-widest uppercase">
                     {t("size")}: {item.size}
                   </p>
                   <p className="text-white text-sm font-extralight tracking-wider">
@@ -102,7 +102,7 @@ export function CartPage() {
                       onClick={() =>
                         updateQuantity(item.artworkId, item.size, item.quantity - 1)
                       }
-                      className="text-white/30 hover:text-white transition-colors"
+                      className="text-[color:var(--color-text-tertiary)] hover:text-white transition-colors"
                     >
                       <Minus size={12} strokeWidth={1.5} />
                     </button>
@@ -113,7 +113,7 @@ export function CartPage() {
                       onClick={() =>
                         updateQuantity(item.artworkId, item.size, item.quantity + 1)
                       }
-                      className="text-white/30 hover:text-white transition-colors"
+                      className="text-[color:var(--color-text-tertiary)] hover:text-white transition-colors"
                     >
                       <Plus size={12} strokeWidth={1.5} />
                     </button>
@@ -123,7 +123,7 @@ export function CartPage() {
                 {/* Remove */}
                 <button
                   onClick={() => removeFromCart(item.artworkId, item.size)}
-                  className="text-white/20 hover:text-white/50 transition-colors self-start mt-1"
+                  className="text-[color:var(--color-text-tertiary)] hover:text-white transition-colors self-start mt-1"
                 >
                   <X size={12} strokeWidth={1.5} />
                 </button>
@@ -158,10 +158,10 @@ export function CartPage() {
                 </span>
               </div>
 
-              <p className="text-white/30 text-[10px] font-light tracking-wide text-right -mt-2">
+              <p className="text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-wide text-right -mt-2">
                 <Link
                   to={`/${language}/shipping-returns`}
-                  className="underline hover:text-white/60 transition-colors duration-300"
+                  className="underline hover:text-white transition-colors duration-300"
                 >
                   {t("cart.customsNote")}
                 </Link>
@@ -176,7 +176,7 @@ export function CartPage() {
 
               <Link
                 to={`/${language}/products`}
-                className="block text-center text-white/30 text-[10px] font-light tracking-widest uppercase hover:text-white/60 transition-colors duration-300"
+                className="block text-center text-[color:var(--color-text-tertiary)] text-[10px] font-light tracking-widest uppercase hover:text-white transition-colors duration-300"
               >
                 {t("cart.continueShopping")}
               </Link>
