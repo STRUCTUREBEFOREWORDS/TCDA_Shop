@@ -10,6 +10,7 @@ import { Footer } from "../components/Footer";
 import { CookieBanner, STORAGE_KEY, ConsentValue } from "../components/CookieBanner";
 import { trackPageView } from "../utils/analytics";
 import { currencyToApplyOnDetection, isCurrency } from "../../utils/currencyResolver";
+import indexableLangs from "../../../shared/indexable-langs.json";
 
 /** Fallback rates used before live rates arrive from the backend */
 export const RATES: Record<Currency, number> = {
@@ -30,47 +31,32 @@ export const RATES: Record<Currency, number> = {
 export const SUPPORTED_LANGS: Language[] = ["en", "ja", "fr", "es", "ko", "zh", "ar", "pt", "de", "it", "hi"];
 
 const BASE_URL = "https://tcdashop.com";
-const HREFLANG_LANGS: { lang: string; hreflang: string }[] = [
-  { lang: "ja", hreflang: "ja" },
-  { lang: "en", hreflang: "en" },
-  { lang: "fr", hreflang: "fr" },
-  { lang: "es", hreflang: "es" },
-  { lang: "ko", hreflang: "ko" },
-  { lang: "zh", hreflang: "zh" },
-  { lang: "ar", hreflang: "ar" },
-  { lang: "pt", hreflang: "pt" },
-  { lang: "de", hreflang: "de" },
-  { lang: "it", hreflang: "it" },
-  { lang: "hi", hreflang: "hi" },
-];
+const { langs: HREFLANG_LANGS, default: X_DEFAULT_LANG } = indexableLangs;
 
-/** Injects hreflang <link> tags for every page automatically via Root. */
+/** Injects hreflang <link> tags for every page automatically via Root. Non-indexable languages get noindex instead. */
 function HreflangHelmet({ pathname }: { pathname: string }) {
-  // Strip the leading /:lang segment to get the path suffix (e.g. /ja/products → /products)
-  const suffix = pathname.replace(/^\/[a-z]{2}(\/|$)/, "/") || "/";
-  const pathSuffix = suffix === "/" ? "/" : suffix.replace(/\/$/, "");
+  const currentLang = pathname.split("/")[1];
+  // Path after the leading /:lang segment, always with a trailing slash (e.g. /ja/products → /products/)
+  const rest = (pathname.replace(/^\/[a-z]{2}(\/|$)/, "/") || "/").replace(/\/?$/, "/");
   // Self-referencing canonical: current language + path, with trailing slash
   const selfUrl = pathname.replace(/\/?$/, "/");
 
+  if (!HREFLANG_LANGS.includes(currentLang)) {
+    return (
+      <Helmet>
+        <meta name="robots" content="noindex,follow" />
+        <link rel="canonical" href={`${BASE_URL}${selfUrl}`} />
+      </Helmet>
+    );
+  }
+
   return (
     <Helmet>
-      {HREFLANG_LANGS.map(({ lang, hreflang }) => (
-        <link
-          key={hreflang}
-          rel="alternate"
-          hrefLang={hreflang}
-          href={`${BASE_URL}/${lang}${pathSuffix === "/" ? "/" : pathSuffix}`}
-        />
+      {HREFLANG_LANGS.map((lang) => (
+        <link key={lang} rel="alternate" hrefLang={lang} href={`${BASE_URL}/${lang}${rest}`} />
       ))}
-      <link
-        rel="alternate"
-        hrefLang="x-default"
-        href={`${BASE_URL}/en${pathSuffix === "/" ? "/" : pathSuffix}`}
-      />
-      <link
-        rel="canonical"
-        href={`${BASE_URL}${selfUrl}`}
-      />
+      <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}/${X_DEFAULT_LANG}${rest}`} />
+      <link rel="canonical" href={`${BASE_URL}${selfUrl}`} />
     </Helmet>
   );
 }
