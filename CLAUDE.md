@@ -86,8 +86,11 @@ tcda-admin.pages.dev → サイドバー「Push通知 → 通知送信」
 
 ### INTERNAL_API_KEY
 
-VPS `~/app/.env` の `INTERNAL_API_KEY` と
-Admin `TCDA_Admin/.env` の `VITE_INTERNAL_KEY` は同一値でなければならない。
+ブラウザ（管理画面のJS）にキーを持たせない。管理画面は `/api/*`（Cloudflare Access 認証つきの
+Pages Functions プロキシ）経由で VPS を呼び、プロキシが Pages のシークレット `INTERNAL_API_KEY` を
+`X-Internal-Key` として付与する。`VITE_INTERNAL_KEY` は廃止（ビルド環境変数にも置かない）。
+VPS `~/app/.env` の `INTERNAL_API_KEY` と Pages のシークレット `INTERNAL_API_KEY` は同一値。
+キー交換は二重受理（`INTERNAL_API_KEY` + `INTERNAL_API_KEY_NEXT`）で行う。
 
 ## i18n
 
@@ -133,7 +136,7 @@ tracking   : var(--ls-nav)
 - nginx の proxy_pass は `http://127.0.0.1:8000`（`localhost` 表記にしない）
 - nginx は Cloudflare 以外からの接続を deny している（IP 一覧は毎月自動更新）。VPS の IP に直接アクセスして動作確認しない（403 になる）。確認は https://api.tcdashop.com 経由、または VPS 内で `curl http://127.0.0.1:8000`
 - API の再起動は `ssh -t tcda "sudo systemctl restart uvicorn"`。SSH 経由で `pkill -f 'uvicorn main:app'` を使わない（自分のシェルも止まる）
-- 内部認証の判定は必ず `if not x_internal_key or x_internal_key != INTERNAL_API_KEY`
+- 内部認証の判定は `main.py` の `key_ok(x_internal_key)`（定数時間比較・二重受理）を使う。`!=` で直接比較しない
 - VPS の `.env` は chmod 600。`.env.save` などのバックアップを残さない
 - VPS のメモリは 2GB。VS Code Remote-SSH で VPS に接続しない（VS Code Server が約 1.2GB 消費した実績あり）
 - このリポジトリは公開。IP アドレス・鍵・トークンをコミットしない。`.claude/settings*.json`、`.env`、`.dev.vars`、サービスアカウントの JSON は Git 管理外
